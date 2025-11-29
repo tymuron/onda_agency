@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onda | Automatización Inteligente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #818cf8, #c084fc, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-200 antialiased selection:bg-indigo-500/30">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-bold tracking-tighter text-white flex items-center gap-3">
+                <img src="logo.png" alt="Onda Logo"
+                    class="h-8 w-8 rounded-full object-cover shadow-[0_0_15px_rgba(99,102,241,0.5)]">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">ONDA</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400 items-center">
+                <a href="#services" class="hover:text-white transition-colors">Servicios</a>
+                <a href="#featured-work" class="hover:text-white transition-colors">Proyectos</a>
+                <a href="demos_es.html" class="text-indigo-400 hover:text-indigo-300 transition-colors font-bold">Demos
+                    en Vivo</a>
+                <a href="process_es.html" class="hover:text-white transition-colors">Proceso</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contacto</a>
+                <div class="border-l border-white/10 h-4 mx-2"></div>
+                <a href="index.html" class="text-slate-500 hover:text-white transition-colors text-xs">EN</a>
+                <span class="text-white text-xs font-bold">ES</span>
+            </div>
+            <button
+                class="hidden md:block bg-white text-slate-950 px-5 py-2 rounded-full font-semibold text-sm hover:bg-indigo-50 transition-colors">
+                Empezar
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-slate-950 border-t border-white/5 absolute w-full left-0 top-20 p-6 flex-col space-y-4 shadow-2xl">
+            <a href="#services" class="block text-slate-400 hover:text-white transition-colors">Servicios</a>
+            <a href="#featured-work" class="block text-slate-400 hover:text-white transition-colors">Proyectos</a>
+            <a href="demos_es.html" class="block text-indigo-400 font-bold">Demos en Vivo</a>
+            <a href="process_es.html" class="block text-slate-400 hover:text-white transition-colors">Proceso</a>
+            <a href="#contact" class="block text-slate-400 hover:text-white transition-colors">Contacto</a>
+            <div class="flex items-center gap-4 pt-4 border-t border-white/5">
+                <a href="index.html" class="text-slate-500 hover:text-white transition-colors text-xs">EN</a>
+                <span class="text-white text-xs font-bold">ES</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Glow -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] -z-10">
+        </div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-medium text-indigo-300 mb-8 border border-indigo-500/20">
+                <span class="relative flex h-2 w-2">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
+                Aceptando Nuevos Clientes Q4
+            </div>
+
+            <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                Automatiza tu Negocio con <br>
+                <span class="gradient-text">Agentes Inteligentes</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Creamos soluciones de IA personalizadas y sitios web con "vibe coding" que automatizan tus flujos de
+                trabajo y elevan tu marca. Deja de hacer trabajo repetitivo. Empieza a escalar.
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <a href="#contact"
+                    class="w-full md:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-semibold transition-all shadow-lg shadow-indigo-500/25">
+                    Agenda una Llamada
+                </a>
+                <a href="#services"
+                    class="w-full md:w-auto px-8 py-4 glass hover:bg-white/5 text-white rounded-xl font-semibold transition-all">
+                    Ver Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Featured Work Section -->
+    <section id="featured-work" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Proyectos Destacados</h2>
+                <p class="text-slate-400 max-w-xl">Descubre cómo transformamos industrias con diseño premium y
+                    automatización inteligente.</p>
+            </div>
+            <a href="portfolio_es.html"
+                class="hidden md:flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors mt-4 md:mt-0">
+                Ver Portafolio Completo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Card 1: Real Estate -->
+            <a href="portfolio/real-estate.html"
+                class="group relative block overflow-hidden rounded-2xl aspect-video border border-white/10">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10"></div>
+                <!-- We will use the generated hero image here once ready -->
+                <img src="assets/images/skyline_hero.png" alt="Skyline Luxury Estates"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+
+                <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div class="text-xs font-bold text-[#b38728] uppercase tracking-wider mb-2">Inmobiliaria
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Skyline</h3>
+                            <p class="text-slate-300 text-sm line-clamp-1">Escaparate de lujo.</p>
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center group-hover:bg-[#b38728] group-hover:text-black transition-colors">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project Card 2: Jewelry -->
+            <a href="portfolio/jewelry.html"
+                class="group relative block overflow-hidden rounded-2xl aspect-video border border-white/10">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10"></div>
+                <img src="assets/images/jewelry_hero.png" alt="Lumière Joaillerie"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+
+                <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div class="text-xs font-bold text-[#C5A059] uppercase tracking-wider mb-2">Joyería de Lujo
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Lumière</h3>
+                            <p class="text-slate-300 text-sm line-clamp-1">Elegancia atemporal.</p>
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project Card 3: Superyachts -->
+            <a href="portfolio/yachts.html"
+                class="group relative block overflow-hidden rounded-2xl aspect-video border border-white/10">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10"></div>
+                <img src="assets/images/yacht_hero.png" alt="Vanguard Yachts"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+
+                <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="text-xs font-bold text-[#0A192F] bg-[#F5F5DC] px-2 py-1 rounded inline-block uppercase tracking-wider mb-2">
+                                Superyates</div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Vanguard</h3>
+                            <p class="text-slate-300 text-sm line-clamp-1">Riqueza generacional.</p>
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center group-hover:bg-[#F5F5DC] group-hover:text-[#0A192F] transition-colors">
+                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestra Experiencia</h2>
+                <p class="text-slate-400 max-w-xl">Combinamos IA de vanguardia con diseño premium para entregar software
+                    que se siente como magia.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
+                    <div
+                        class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 transition-colors">
+                        <i data-lucide="bot" class="text-indigo-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Agentes de IA</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Agentes autónomos personalizados que manejan soporte al cliente, calificación de leads y entrada
+                        de datos 24/7 sin intervención humana.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
+                    <div
+                        class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
+                        <i data-lucide="code-2" class="text-purple-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Vibe Coding</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Desarrollo web de alta velocidad y estética usando las últimas herramientas de IA. Construimos
+                        sitios hermosos y responsivos en días, no meses.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
+                        <i data-lucide="workflow" class="text-cyan-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Automatización de Flujos</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Conecta tus aplicaciones (Slack, Gmail, CRM) con n8n y Make. Elimina el copiar y pegar manual y
+                        optimiza tus operaciones.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section Removed -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[100px] -z-10">
+        </div>
+
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">¿Listo para escalar?</h2>
+            <p class="text-slate-400 mb-12 text-lg">
+                Cuéntanos sobre tu proyecto. Crearemos un plan personalizado para automatizar tu negocio.
+            </p>
+
+            <form id="contactForm" class="glass p-6 md:p-12 rounded-3xl text-left space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-400 mb-2">Nombre</label>
+                        <input type="text" required
+                            class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                            placeholder="Juan Pérez">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-400 mb-2">Email</label>
+                        <input type="email" required
+                            class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                            placeholder="juan@empresa.com">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-400 mb-2">¿Qué necesitas construir?</label>
+                    <select
+                        class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors">
+                        <option>Agente de Automatización IA</option>
+                        <option>Nueva Web (Vibe Coding)</option>
+                        <option>Optimización de Flujos</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-400 mb-2">Mensaje</label>
+                    <textarea rows="4" required
+                        class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                        placeholder="Cuéntanos sobre tus objetivos..."></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2">
+                    <span>Enviar Mensaje</span>
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="successModal"
+        class="fixed inset-0 z-[60] hidden items-center justify-center px-4 bg-black/80 backdrop-blur-sm">
+        <div class="glass p-8 rounded-2xl max-w-md w-full text-center border border-green-500/30">
+            <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="check" class="w-8 h-8 text-green-400"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">¡Mensaje Enviado!</h3>
+            <p class="text-slate-400 mb-8">Gracias por contactarnos. Te responderemos en menos de 24 horas.</p>
+            <button
+                onclick="document.getElementById('successModal').classList.add('hidden'); document.getElementById('successModal').classList.remove('flex')"
+                class="w-full bg-white text-slate-950 font-bold py-3 rounded-lg hover:bg-slate-200 transition-colors">
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-sm">
+        <p>&copy; 2025 Onda. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        // Contact Form Logic
+        const contactForm = document.getElementById('contactForm');
+        const successModal = document.getElementById('successModal');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = contactForm.querySelector('button');
+                const originalText = btn.innerHTML;
+
+                // Loading State
+                btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Enviando...';
+                lucide.createIcons();
+
+                try {
+                    // Gather data
+                    const formData = {
+                        name: contactForm.querySelector('input[type="text"]').value,
+                        email: contactForm.querySelector('input[type="email"]').value,
+                        type: contactForm.querySelector('select').value,
+                        message: contactForm.querySelector('textarea').value
+                    };
+
+                    // API Call
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (!response.ok) throw new Error('Network response was not ok');
+
+                    // Success
+                    btn.innerHTML = originalText;
+                    contactForm.reset();
+                    successModal.classList.remove('hidden');
+                    successModal.classList.add('flex');
+                } catch (error) {
+                    console.error('Error:', error);
+                    btn.innerHTML = '<i data-lucide="alert-circle" class="w-5 h-5"></i> Error';
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                    }, 3000);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
