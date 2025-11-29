@@ -99,6 +99,15 @@ async def contact(request: ContactRequest):
     
     return {"status": "success", "message": "Message received"}
 
+# Mount frontend files
+# We mount this LAST so it doesn't override the API routes
+# Use absolute path to ensure it works regardless of where the script is run from
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+frontend_dir = os.path.join(BASE_DIR, "frontend")
+
+app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
+
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", 8000))
