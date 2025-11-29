@@ -14,11 +14,11 @@ class CopywriterAgent:
             self.client = None
             logger.warning("CopywriterAgent initialized without API key. Using mock mode.")
 
-    def generate_copy(self, business_name: str, description: str):
+    def generate_copy(self, business_name: str, description: str, language: str = "en"):
         """
         Generates marketing copy for a business based on its name and description.
         """
-        logger.info(f"Generating copy for: {business_name}")
+        logger.info(f"Generating copy for: {business_name} in {language}")
 
         if self.client:
             try:
@@ -27,12 +27,15 @@ class CopywriterAgent:
                 
                 Business Name: {business_name}
                 Description: {description}
+                Target Language: {language}
 
                 Return a JSON object with:
                 1. "headline": A punchy, benefit-driven H1 headline (max 8 words).
                 2. "subheadline": A persuasive H2 subheadline (max 15 words).
                 3. "benefits": A list of 3 short, punchy key benefits (max 6 words each).
                 4. "cta": A strong Call to Action button text.
+
+                Ensure the response is in {language}.
                 """
                 
                 completion = self.client.chat.completions.create(
@@ -46,19 +49,42 @@ class CopywriterAgent:
                 return json.loads(completion.choices[0].message.content)
             except Exception as e:
                 logger.error(f"LLM generation failed: {e}")
-                return self._get_mock_response(business_name)
+                return self._get_mock_response(business_name, language)
         else:
-            return self._get_mock_response(business_name)
+            return self._get_mock_response(business_name, language)
 
-    def _get_mock_response(self, business_name):
+    def _get_mock_response(self, business_name, language="en"):
         """Fallback mock response"""
-        return {
-            "headline": f"Experience the Best of {business_name}",
-            "subheadline": "Premium quality services delivered with excellence and care.",
-            "benefits": [
-                "Unmatched Quality",
-                "24/7 Customer Support",
-                "Satisfaction Guaranteed"
-            ],
-            "cta": "Get Started Today"
-        }
+        if language == "ru":
+            return {
+                "headline": f"Лучшее от {business_name}",
+                "subheadline": "Премиальное качество и отличный сервис.",
+                "benefits": [
+                    "Высокое качество",
+                    "Поддержка 24/7",
+                    "Гарантия результата"
+                ],
+                "cta": "Начать сейчас"
+            }
+        elif language == "es":
+             return {
+                "headline": f"Lo Mejor de {business_name}",
+                "subheadline": "Servicios de calidad premium entregados con excelencia.",
+                "benefits": [
+                    "Calidad Inigualable",
+                    "Soporte 24/7",
+                    "Satisfacción Garantizada"
+                ],
+                "cta": "Empezar Hoy"
+            }
+        else:
+            return {
+                "headline": f"Experience the Best of {business_name}",
+                "subheadline": "Premium quality services delivered with excellence and care.",
+                "benefits": [
+                    "Unmatched Quality",
+                    "24/7 Customer Support",
+                    "Satisfaction Guaranteed"
+                ],
+                "cta": "Get Started Today"
+            }

@@ -51,78 +51,15 @@ class VisionRequest(BaseModel):
 class CopywriterRequest(BaseModel):
     business_name: str
     description: str
+    language: str = "en"
 
-# Serve Static Files
-# Mount the 'frontend' directory to serve static assets (css, js, images)
-frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
-app.mount("/static", StaticFiles(directory=frontend_path), name="static")
-app.mount("/assets", StaticFiles(directory=os.path.join(frontend_path, "assets")), name="assets")
-
-# Serve HTML files directly from root
-@app.get("/")
-async def read_root():
-    return FileResponse(os.path.join(frontend_path, "index.html"))
-
-@app.get("/{filename}.html")
-async def read_html(filename: str):
-    file_path = os.path.join(frontend_path, f"{filename}.html")
-    if os.path.exists(file_path):
-        return FileResponse(file_path)
-    raise HTTPException(status_code=404, detail="File not found")
-
-@app.get("/portfolio/{filename}.html")
-async def read_portfolio_html(filename: str):
-    file_path = os.path.join(frontend_path, "portfolio", f"{filename}.html")
-    if os.path.exists(file_path):
-        return FileResponse(file_path)
-    raise HTTPException(status_code=404, detail="File not found")
-
-# Serve other static files at root level if needed (like logo.png)
-@app.get("/{filename}.png")
-async def read_image(filename: str):
-    file_path = os.path.join(frontend_path, f"{filename}.png")
-    if os.path.exists(file_path):
-        return FileResponse(file_path)
-    raise HTTPException(status_code=404, detail="File not found")
-
-@app.post("/api/research")
-async def research_site(request: ResearchRequest):
-    logger.info(f"Research request for: {request.url}")
-    try:
-        result = research_agent.analyze_url(request.url)
-        # If result is a string (JSON string from mock or LLM), parse it to ensure valid JSON response
-        import json
-        if isinstance(result, str):
-            try:
-                return json.loads(result)
-            except:
-                return {"raw_result": result}
-        return result
-    except Exception as e:
-        logger.error(f"Error in research: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-@app.post("/api/vision")
-async def analyze_vision(request: VisionRequest):
-    logger.info(f"Vision request received")
-    try:
-        result = vision_agent.analyze_image(request.image)
-        import json
-        if isinstance(result, str):
-            try:
-                return json.loads(result)
-            except:
-                return {"raw_result": result}
-        return result
-    except Exception as e:
-        logger.error(f"Error in vision: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+# ... (rest of file)
 
 @app.post("/api/copywriter")
 async def run_copywriter(request: CopywriterRequest):
-    logger.info(f"Copywriter request: {request.business_name}")
+    logger.info(f"Copywriter request: {request.business_name} ({request.language})")
     try:
-        result = copywriter_agent.generate_copy(request.business_name, request.description)
+        result = copywriter_agent.generate_copy(request.business_name, request.description, request.language)
         return result
     except Exception as e:
         logger.error(f"Error in copywriter: {e}")

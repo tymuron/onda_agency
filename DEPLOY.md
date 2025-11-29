@@ -23,6 +23,30 @@ git commit -m "Update portfolio, branding, and add AI Copywriter demo"
 git push -u origin main
 ```
 
+> [!IMPORTANT]
+> **If you see `remote: Repository not found`:**
+> This means you haven't created the empty repository on GitHub.com yet.
+> 1. Go to [github.com/new](https://github.com/new).
+> 2. Name it `onda-agency`.
+> 3. Click **Create repository**.
+> 4. **Do not** initialize with README, .gitignore, or License (keep it empty).
+> 5. Run `git push -u origin main` again.
+
+> [!TIP]
+> **Made a mistake with the name?**
+> If you created the repo with a different name (e.g., `my-agency`), just update your local link:
+> 1. Remove the old link: `git remote remove origin`
+> 2. Add the new one: `git remote add origin https://github.com/YOUR_USERNAME/ACTUAL_NAME.git`
+> 3. Push again: `git push -u origin main`
+
+> [!WARNING]
+> **Error: `! [rejected] ... (fetch first)`?**
+> This happens if the GitHub repository already has files (like an old version of the site, or a README).
+> Since you want to **replace** the old version with this new one, force the upload:
+> ```bash
+> git push -f origin main
+> ```
+
 ## 2. Deploy on Render
 *   **If you already have Render connected:** It will automatically detect the push and start redeploying.
 *   **If not:** Go to [dashboard.render.com](https://dashboard.render.com), create a new **Web Service**, and connect your existing repository.
