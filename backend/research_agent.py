@@ -86,11 +86,11 @@ class ResearchAgent:
                 return completion.choices[0].message.content
             except Exception as e:
                 logger.error(f"LLM analysis failed: {e}")
-                return self._get_mock_response(url)
+                return self.mock_response(url)
         else:
-            return self._get_mock_response(url)
+            return self.mock_response(url)
 
-    def _get_mock_response(self, url):
+    def mock_response(self, url="example.com"):
         """Fallback mock response for demos without API keys"""
         import json
         return json.dumps({

@@ -4,17 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skyline Luxury Estates | Премиальная Недвижимость</title>
+    <title>Onda | Кейс Skyline</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
         rel="stylesheet">
     <style>
         body {
             font-family: 'Lato', sans-serif;
-            background-color: #0a0a0a;
-            color: #f5f5f5;
+            background: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #050505 100%);
+            background-attachment: fixed;
+            color: #F5F5DC;
+        }
+
+        a:hover {
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
         }
 
         h1,
@@ -25,256 +32,83 @@
         h6 {
             font-family: 'Playfair Display', serif;
         }
-
-        .gold-text {
-            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .gold-border {
-            border-color: #b38728;
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
 </head>
 
 <body class="antialiased overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 transition-all duration-300"
-        id="navbar">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-bold tracking-widest uppercase">Skyline</a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8 text-sm tracking-widest uppercase text-gray-400">
-                <a href="#properties" class="hover:text-white transition-colors">Объекты</a>
-                <a href="#services" class="hover:text-white transition-colors">Услуги</a>
-                <a href="#contact" class="hover:text-white transition-colors">Контакты</a>
-                <a href="../index_ru.html"
-                    class="px-4 py-2 border border-white/20 hover:bg-white hover:text-black transition-all">Назад в
-                    Onda</a>
-                <div class="border-l border-white/10 h-4 mx-2"></div>
-                <a href="real-estate.html" class="text-slate-500 hover:text-white transition-colors text-xs">EN</a>
-                <span class="text-white text-xs font-bold">RU</span>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                <i data-lucide="menu" class="w-8 h-8"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu"
-            class="hidden md:hidden absolute top-20 left-0 w-full bg-black/95 border-b border-white/10 p-6 flex-col gap-6 text-center text-sm tracking-widest uppercase text-gray-400">
-            <a href="#properties" class="hover:text-white transition-colors py-2">Объекты</a>
-            <a href="#services" class="hover:text-white transition-colors py-2">Услуги</a>
-            <a href="#contact" class="hover:text-white transition-colors py-2">Контакты</a>
-            <a href="../index_ru.html"
-                class="px-4 py-2 border border-white/20 hover:bg-white hover:text-black transition-all inline-block mx-auto">Назад
-                в Onda</a>
-            <div class="flex items-center justify-center gap-4 pt-4 border-t border-white/5">
-                <a href="real-estate.html" class="text-slate-500 hover:text-white transition-colors text-xs">EN</a>
-                <span class="text-white text-xs font-bold">RU</span>
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="../index_ru.html" class="text-2xl font-serif italic font-bold tracking-widest text-white">ONDA</a>
+            <a href="../portfolio_ru.html"
+                class="text-xs tracking-[0.2em] uppercase text-gray-400 hover:text-[#D4AF37] transition-colors">Вернуться
+                к Коллекции</a>
+            <div class="hidden md:flex gap-4 border-l border-white/10 pl-6 text-xs uppercase tracking-widest">
+                <a href="real-estate.html" class="text-gray-400 hover:text-white transition-colors">EN</a>
+                <a href="real-estate_es.html" class="text-gray-400 hover:text-white transition-colors">ES</a>
+                <span class="text-[#D4AF37] font-bold">RU</span>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="../assets/images/skyline_hero.png" alt="Luxury Penthouse"
-                class="w-full h-full object-cover opacity-60">
-            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
+    <!-- Hero Image -->
+    <div class="h-screen relative">
+        <img src="../assets/images/skyline_hero.png" alt="Skyline"
+            class="w-full h-full object-cover grayscale opacity-60">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
+                <p class="text-[#D4AF37] text-xs tracking-[0.4em] uppercase mb-4">Недвижимость</p>
+                <h1 class="text-6xl md:text-9xl text-white mb-4">Skyline</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <section class="max-w-4xl mx-auto py-32 px-6">
+        <div class="grid md:grid-cols-2 gap-16 mb-24">
+            <div>
+                <h3 class="text-2xl mb-6 text-white">Задача</h3>
+                <p class="text-gray-500 font-light leading-relaxed">Skyline требовалось цифровое присутствие,
+                    соответствующее их объектам ультра-люкс класса. Стандартных изображений было недостаточно; им нужен
+                    был эффект погружения.</p>
+            </div>
+            <div>
+                <h3 class="text-2xl mb-6 text-white">Решение</h3>
+                <p class="text-gray-500 font-light leading-relaxed">Мы внедрили 3D-туры на базе WebGL и ИИ-консьержа,
+                    обученного на деталях объектов, для ответов на вопросы покупателей в реальном времени.</p>
+            </div>
         </div>
 
-        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-            <p class="text-sm md:text-base tracking-[0.3em] uppercase text-gray-400 mb-6 fade-in">Эксклюзивная Жизнь</p>
-            <h1 class="text-5xl md:text-8xl font-bold mb-8 leading-tight fade-in delay-100">
-                Поднимите Свою <br> <span class="gold-text">Перспективу</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-300 font-light mb-10 max-w-2xl mx-auto fade-in delay-200">
-                Курируем самые исключительные объекты недвижимости в мире для избранных.
-            </p>
-            <a href="#properties"
-                class="inline-block px-8 py-4 border border-[#b38728] text-[#b38728] hover:bg-[#b38728] hover:text-black transition-all duration-300 uppercase tracking-widest text-sm fade-in delay-300">
-                Смотреть Коллекцию
+        <div class="mb-24 text-center">
+            <a href="#"
+                class="inline-block px-12 py-4 border border-[#D4AF37] text-[#D4AF37] uppercase text-xs tracking-[0.2em] hover:bg-[#D4AF37] hover:text-black transition-all duration-500">
+                Открыть Сайт
             </a>
         </div>
-    </section>
 
-    <!-- Featured Properties -->
-    <section id="properties" class="py-32 px-6 bg-[#0a0a0a]">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in">
-                <div>
-                    <h2 class="text-4xl md:text-5xl mb-4">Избранные Объекты</h2>
-                    <div class="h-1 w-24 bg-[#b38728]"></div>
-                </div>
-                <a href="#"
-                    class="hidden md:flex items-center gap-2 text-[#b38728] hover:text-white transition-colors mt-6 md:mt-0">
-                    Смотреть Все <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
+        <div class="space-y-4 border-t border-white/10 pt-12">
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 uppercase tracking-widest">Клиент</span>
+                <span class="text-white">Skyline Developers</span>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Property 1 -->
-                <div class="group cursor-pointer">
-                    <div class="relative overflow-hidden aspect-[4/5] mb-4 border border-white/10">
-                        <img src="../assets/images/skyline_penthouse.png" alt="The Penthouse"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1">Пентхаус</h3>
-                    <p class="text-gray-400 text-sm mb-2">Центр • 4 Спальни, 5 Ванных</p>
-                    <p class="text-[#b38728] font-bold">$12,500,000</p>
-                </div>
-
-                <!-- Property 2 -->
-                <div class="group cursor-pointer md:-mt-16">
-                    <div class="relative overflow-hidden aspect-[4/5] mb-4 border border-white/10">
-                        <img src="../assets/images/skyline_villa.png" alt="Modern Villa"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1">Современная Вилла</h3>
-                    <p class="text-gray-400 text-sm mb-2">Беверли Хиллз • 6 Спален, 7 Ванных</p>
-                    <p class="text-[#b38728] font-bold">$18,900,000</p>
-                </div>
-
-                <!-- Property 3 -->
-                <div class="group cursor-pointer">
-                    <div class="relative overflow-hidden aspect-[4/5] mb-4 border border-white/10">
-                        <img src="../assets/images/skyline_loft.png" alt="Industrial Loft"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1">Индустриальный Лофт</h3>
-                    <p class="text-gray-400 text-sm mb-2">Сохо • 2 Спальни, 2 Ванных</p>
-                    <p class="text-[#b38728] font-bold">$4,200,000</p>
-                </div>
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 uppercase tracking-widest">Услуги</span>
+                <span class="text-white">3D Моделирование, ИИ Чат-бот, Веб-дизайн</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="py-20 bg-white text-black">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <img src="../assets/images/skyline_concierge.png" alt="Concierge" class="w-full shadow-2xl">
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 uppercase tracking-widest">Год</span>
+                <span class="text-white">2024</span>
             </div>
-            <div class="fade-in">
-                <p class="text-[#b38728] uppercase tracking-widest text-sm mb-4">Наши Услуги</p>
-                <h2 class="text-4xl md:text-6xl mb-8 leading-tight">Больше Чем <br> Недвижимость</h2>
-                <p class="text-gray-400 text-lg font-light mb-8 leading-relaxed">
-                    Мы предоставляем полный спектр консьерж-услуг для наших клиентов. От аренды частных самолетов до
-                    консультаций по дизайну интерьера — наша команда позаботится о каждой детали вашего переезда.
-                </p>
-                <ul class="space-y-4">
-                    <li class="flex items-center gap-4 text-gray-300">
-                        <div class="w-2 h-2 bg-[#b38728] rounded-full"></div>
-                        Закрытые Продажи и Эксклюзивные Предложения
-                    </li>
-                    <li class="flex items-center gap-4 text-gray-300">
-                        <div class="w-2 h-2 bg-[#b38728] rounded-full"></div>
-                        Управление Инвестиционным Портфелем
-                    </li>
-                    <li class="flex items-center gap-4 text-gray-300">
-                        <div class="w-2 h-2 bg-[#b38728] rounded-full"></div>
-                        Глобальный Консьерж по Релокации
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-32 px-6 relative overflow-hidden">
-        <div
-            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10">
-        </div>
-        <div class="max-w-3xl mx-auto text-center relative z-10 fade-in">
-            <h2 class="text-4xl md:text-5xl mb-6">Начните Свое Путешествие</h2>
-            <p class="text-gray-400 mb-12">Свяжитесь с нашим частным офисом для консультации.</p>
-
-            <form class="space-y-6 text-left">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Имя</label>
-                        <input type="text"
-                            class="w-full bg-transparent border-b border-gray-700 py-3 text-white focus:border-[#b38728] outline-none transition-colors">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email</label>
-                        <input type="email"
-                            class="w-full bg-transparent border-b border-gray-700 py-3 text-white focus:border-[#b38728] outline-none transition-colors">
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Сообщение</label>
-                    <textarea rows="4"
-                        class="w-full bg-transparent border-b border-gray-700 py-3 text-white focus:border-[#b38728] outline-none transition-colors"></textarea>
-                </div>
-                <div class="text-center mt-12">
-                    <button
-                        class="px-12 py-4 bg-[#b38728] text-black font-bold uppercase tracking-widest hover:bg-white transition-colors duration-300">
-                        Отправить Запрос
-                    </button>
-                </div>
-            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-white/10 text-center text-gray-600 text-sm uppercase tracking-widest">
-        <p>&copy; 2024 Skyline Luxury Estates. Разработано Onda.</p>
+    <footer class="py-12 border-t border-white/5 text-center px-6">
+        <p class="text-gray-600 text-xs uppercase tracking-widest">&copy; 2024 Onda.</p>
     </footer>
 
-    <script>
-        lucide.createIcons();
-
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
-            });
-        }
-
-        // Intersection Observer for Fade-in animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
+    <script>lucide.createIcons();</script>
 </body>
 
 </html>

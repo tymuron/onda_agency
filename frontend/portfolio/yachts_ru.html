@@ -4,19 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanguard Yachts | За Горизонтом</title>
+    <title>Onda | Кейс Novamare</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
         rel="stylesheet">
     <style>
         body {
             font-family: 'Lato', sans-serif;
-            background-color: #F5F5DC;
-            /* Cream */
-            color: #0A192F;
-            /* Navy */
+            background: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #050505 100%);
+            background-attachment: fixed;
+            color: #F5F5DC;
+        }
+
+        a:hover {
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
         }
 
         h1,
@@ -24,57 +29,8 @@
         h3,
         h4,
         h5,
-        h6,
-        .font-heading {
+        h6 {
             font-family: 'Playfair Display', serif;
-        }
-
-        .bg-navy {
-            background-color: #0A192F;
-        }
-
-        .text-navy {
-            color: #0A192F;
-        }
-
-        .bg-cream {
-            background-color: #F5F5DC;
-        }
-
-        .text-cream {
-            color: #F5F5DC;
-        }
-
-        .text-gold {
-            color: #D4AF37;
-        }
-
-        .border-gold {
-            border-color: #D4AF37;
-        }
-
-        .bg-gold {
-            background-color: #D4AF37;
-        }
-
-        .hover-gold:hover {
-            color: #D4AF37;
-        }
-
-        .tracking-widest-xl {
-            letter-spacing: 0.25em;
-        }
-
-        /* Smooth reveal animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
@@ -82,279 +38,78 @@
 <body class="antialiased overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav
-        class="fixed w-full z-50 bg-[#0A192F]/95 backdrop-blur-md border-b border-[#D4AF37]/20 transition-all duration-300">
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#"
-                class="text-2xl md:text-3xl font-heading font-bold tracking-wider text-[#F5F5DC] flex items-center gap-3">
-                <img src="https://cdn-icons-png.flaticon.com/512/1995/1995966.png" class="w-8 h-8 invert opacity-80"
-                    alt="Anchor">
-                VANGUARD
-            </a>
-
-            <!-- Desktop Menu -->
-            <div
-                class="hidden md:flex items-center gap-10 text-xs tracking-widest-xl uppercase text-[#F5F5DC]/80 font-medium">
-                <a href="#fleet" class="hover:text-[#D4AF37] transition-colors">Флот</a>
-                <a href="#bespoke" class="hover:text-[#D4AF37] transition-colors">Индивидуальный Заказ</a>
-                <a href="#legacy" class="hover:text-[#D4AF37] transition-colors">Наследие</a>
-                <a href="#contact"
-                    class="px-6 py-3 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0A192F] transition-all">Заказать</a>
-                <a href="../index_ru.html"
-                    class="hover:text-white transition-colors border-l border-white/10 pl-6">Назад в
-                    Onda</a>
-                <a href="yachts.html" class="text-slate-500 hover:text-white transition-colors text-xs">EN</a>
-                <span class="text-white text-xs font-bold">RU</span>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn"
-                class="md:hidden text-[#F5F5DC] focus:outline-none hover:text-[#D4AF37] transition-colors">
-                <i data-lucide="menu" class="w-8 h-8"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu"
-            class="hidden md:hidden absolute top-24 left-0 w-full bg-[#0A192F] border-b border-[#D4AF37]/20 p-8 flex-col gap-8 text-center text-sm tracking-widest uppercase text-[#F5F5DC]">
-            <a href="#fleet" class="hover:text-[#D4AF37] transition-colors py-2">Флот</a>
-            <a href="#bespoke" class="hover:text-[#D4AF37] transition-colors py-2">Индивидуальный Заказ</a>
-            <a href="#legacy" class="hover:text-[#D4AF37] transition-colors py-2">Наследие</a>
-            <a href="#contact" class="hover:text-[#D4AF37] transition-colors py-2">Заказать</a>
-            <a href="../index_ru.html"
-                class="text-xs border-t border-white/10 pt-4 inline-block mx-auto mt-2 text-white/50">Назад в Onda</a>
-            <div class="flex items-center justify-center gap-4 pt-4 border-t border-white/10">
-                <a href="yachts.html" class="text-slate-500 hover:text-white transition-colors text-xs">EN</a>
-                <span class="text-white text-xs font-bold">RU</span>
+            <a href="../index_ru.html" class="text-2xl font-serif italic font-bold tracking-widest text-white">ONDA</a>
+            <a href="../portfolio_ru.html"
+                class="text-xs tracking-[0.2em] uppercase text-gray-400 hover:text-[#D4AF37] transition-colors">Вернуться
+                к Коллекции</a>
+            <div class="hidden md:flex gap-4 border-l border-white/10 pl-6 text-xs uppercase tracking-widest">
+                <a href="yachts.html" class="text-gray-400 hover:text-white transition-colors">EN</a>
+                <a href="yachts_es.html" class="text-gray-400 hover:text-white transition-colors">ES</a>
+                <span class="text-[#D4AF37] font-bold">RU</span>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-[#0A192F]">
-        <div class="absolute inset-0 z-0">
-            <!-- Placeholder for a superyacht video/image -->
-            <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?q=80&w=2574&auto=format&fit=crop"
-                alt="Superyacht at sea" class="w-full h-full object-cover opacity-60">
-            <div class="absolute inset-0 bg-gradient-to-b from-[#0A192F]/60 via-transparent to-[#0A192F]"></div>
+    <!-- Hero Image -->
+    <div class="h-screen relative">
+        <img src="../assets/images/yacht_hero.png" alt="Novamare"
+            class="w-full h-full object-cover grayscale opacity-60">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
+                <p class="text-[#D4AF37] text-xs tracking-[0.4em] uppercase mb-4">Яхтинг</p>
+                <h1 class="text-6xl md:text-9xl text-white mb-4">Novamare</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <section class="max-w-4xl mx-auto py-32 px-6">
+        <div class="grid md:grid-cols-2 gap-16 mb-24">
+            <div>
+                <h3 class="text-2xl mb-6 text-white">Задача</h3>
+                <p class="text-gray-500 font-light leading-relaxed">Novamare строит суперъяхты на заказ. Им нужен был
+                    конфигуратор, который ощущался бы так же премиально, как и сами суда, без тяжеловесности
+                    традиционных CAD-инструментов.</p>
+            </div>
+            <div>
+                <h3 class="text-2xl mb-6 text-white">Решение</h3>
+                <p class="text-gray-500 font-light leading-relaxed">Мы разработали кинематографичный конфигуратор яхт с
+                    использованием Unreal Engine, транслируемого в браузер. Владельцы могут настраивать каждую текстуру
+                    и отделку в фотореалистичном 4K.</p>
+            </div>
         </div>
 
-        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto mt-20">
-            <div class="w-[1px] h-24 bg-[#D4AF37] mx-auto mb-8 reveal"></div>
-            <p class="text-[#D4AF37] text-sm md:text-base tracking-[0.4em] uppercase mb-6 font-bold reveal">Поколения
-                Совершенства</p>
-            <h1 class="text-5xl md:text-8xl font-heading font-medium mb-8 leading-tight text-[#F5F5DC] reveal">
-                За <br> <span class="italic font-light">Горизонтом</span>
-            </h1>
-            <p class="text-[#F5F5DC]/80 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 reveal">
-                Создание самых необычных судов в мире для тех, кто ищет абсолютную свободу.
-            </p>
-            <a href="#fleet"
-                class="inline-block px-10 py-4 border border-[#F5F5DC]/30 text-[#F5F5DC] text-xs uppercase tracking-widest hover:bg-[#F5F5DC] hover:text-[#0A192F] transition-all duration-500 reveal">
-                Исследовать Флот
+        <div class="mb-24 text-center">
+            <a href="#"
+                class="inline-block px-12 py-4 border border-[#D4AF37] text-[#D4AF37] uppercase text-xs tracking-[0.2em] hover:bg-[#D4AF37] hover:text-black transition-all duration-500">
+                Открыть Сайт
             </a>
         </div>
-    </section>
 
-    <!-- The Fleet (Horizontal Scroll) -->
-    <section id="fleet" class="py-32 bg-[#0A192F] text-[#F5F5DC] overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 mb-16 flex justify-between items-end">
-            <div>
-                <h2 class="text-4xl md:text-5xl font-heading mb-4">Коллекция</h2>
-                <div class="w-16 h-[2px] bg-[#D4AF37]"></div>
+        <div class="space-y-4 border-t border-white/10 pt-12">
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 uppercase tracking-widest">Клиент</span>
+                <span class="text-white">Novamare Shipyards</span>
             </div>
-            <div class="hidden md:flex gap-4">
-                <button
-                    class="w-12 h-12 rounded-full border border-[#F5F5DC]/20 flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-[#0A192F] transition-all">
-                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                </button>
-                <button
-                    class="w-12 h-12 rounded-full border border-[#F5F5DC]/20 flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-[#0A192F] transition-all">
-                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                </button>
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 uppercase tracking-widest">Услуги</span>
+                <span class="text-white">Pixel Streaming, Unreal Engine, UX Дизайн</span>
             </div>
-        </div>
-
-        <div class="flex overflow-x-auto gap-8 px-6 pb-12 snap-x scrollbar-hide">
-            <!-- Yacht 1 -->
-            <div class="min-w-[85vw] md:min-w-[800px] snap-center group cursor-pointer relative">
-                <div class="aspect-[16/9] overflow-hidden mb-6">
-                    <img src="../assets/images/yacht_1.png" alt="Project Sovereign"
-                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100">
-                </div>
-                <div class="flex justify-between items-start">
-                    <div>
-                        <p class="text-[#D4AF37] text-xs uppercase tracking-widest mb-2">Экспедиционный Класс</p>
-                        <h3 class="text-3xl font-heading mb-2">Project Sovereign</h3>
-                        <p class="text-white/60 text-sm">110м • Гибридная Тяга • Ледовый Класс</p>
-                    </div>
-                    <span
-                        class="text-4xl font-heading text-[#F5F5DC]/10 group-hover:text-[#D4AF37] transition-colors">01</span>
-                </div>
-            </div>
-
-            <!-- Yacht 2 -->
-            <div class="min-w-[85vw] md:min-w-[800px] snap-center group cursor-pointer relative">
-                <div class="aspect-[16/9] overflow-hidden mb-6">
-                    <img src="../assets/images/yacht_2.png" alt="The Aeon"
-                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100">
-                </div>
-                <div class="flex justify-between items-start">
-                    <div>
-                        <p class="text-[#D4AF37] text-xs uppercase tracking-widest mb-2">Спортивная Яхта</p>
-                        <h3 class="text-3xl font-heading mb-2">The Aeon</h3>
-                        <p class="text-white/60 text-sm">85м • 35 Узлов • Вертолетная Площадка</p>
-                    </div>
-                    <span
-                        class="text-4xl font-heading text-[#F5F5DC]/10 group-hover:text-[#D4AF37] transition-colors">02</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bespoke Process -->
-    <section id="bespoke" class="py-32 px-6 bg-[#F5F5DC] text-[#0A192F]">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-            <div class="reveal">
-                <p class="text-[#D4AF37] uppercase tracking-widest text-sm mb-6 font-bold">Морская Архитектура</p>
-                <h2 class="text-4xl md:text-6xl font-heading mb-8 leading-tight">Инженерное <br> <span
-                        class="italic text-[#0A192F]/70">Мастерство</span></h2>
-                <p class="text-[#0A192F]/70 text-lg leading-relaxed mb-10 font-light">
-                    Каждая яхта Vanguard начинается с разговора. От первоначального эскиза до спуска на воду, наша
-                    команда всемирно известных морских архитекторов и дизайнеров интерьеров работает сообща, чтобы
-                    реализовать ваше конкретное видение. Мы не просто строим яхты; мы проектируем плавучие святилища.
-                </p>
-
-                <div class="grid grid-cols-2 gap-8 border-t border-[#0A192F]/10 pt-8">
-                    <div>
-                        <h4 class="text-3xl font-heading mb-2">100%</h4>
-                        <p class="text-xs uppercase tracking-widest text-[#0A192F]/60">Индивидуальный Дизайн</p>
-                    </div>
-                    <div>
-                        <h4 class="text-3xl font-heading mb-2">48</h4>
-                        <p class="text-xs uppercase tracking-widest text-[#0A192F]/60">Месяцев Строительства</p>
-                    </div>
-                </div>
-            </div>
-            <div class="relative reveal">
-                <div class="absolute -top-10 -right-10 w-full h-full border border-[#D4AF37] z-0"></div>
-                <img src="../assets/images/yacht_interior.png" alt="Interior Design"
-                    class="relative z-10 w-full shadow-2xl transition-all duration-700">
-            </div>
-        </div>
-    </section>
-
-    <!-- Legacy / Quote -->
-    <section id="legacy" class="py-40 px-6 bg-[#0A192F] text-center relative">
-        <div
-            class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]">
-        </div>
-        <div class="max-w-4xl mx-auto relative z-10">
-            <i data-lucide="quote" class="w-12 h-12 text-[#D4AF37] mx-auto mb-8 opacity-50"></i>
-            <h2 class="text-3xl md:text-5xl font-heading leading-relaxed text-[#F5F5DC] mb-12">
-                "Яхта Vanguard — это не просто владение. Это суверенная территория, частный мир, созданный полностью
-                вокруг ваших желаний."
-            </h2>
-            <div class="flex items-center justify-center gap-4">
-                <div class="w-12 h-[1px] bg-[#D4AF37]"></div>
-                <span class="text-[#D4AF37] uppercase tracking-widest text-xs">Обещание Vanguard</span>
-                <div class="w-12 h-[1px] bg-[#D4AF37]"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-32 px-6 bg-[#F5F5DC]">
-        <div class="max-w-7xl mx-auto bg-white shadow-2xl p-8 md:p-20 relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-2 bg-[#0A192F]"></div>
-
-            <div class="grid md:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-heading text-[#0A192F] mb-6">Закажите Свое Видение</h2>
-                    <p class="text-[#0A192F]/60 mb-12 text-lg">
-                        Начните путешествие по созданию своего наследия. Свяжитесь с нашим офисом для частных клиентов в
-                        Монако.
-                    </p>
-
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4 text-[#0A192F]">
-                            <i data-lucide="map-pin" class="text-[#D4AF37]"></i>
-                            <span>Quai des États-Unis, 98000 Монако</span>
-                        </div>
-                        <div class="flex items-center gap-4 text-[#0A192F]">
-                            <i data-lucide="phone" class="text-[#D4AF37]"></i>
-                            <span>+377 98 98 98 98</span>
-                        </div>
-                        <div class="flex items-center gap-4 text-[#0A192F]">
-                            <i data-lucide="mail" class="text-[#D4AF37]"></i>
-                            <span>private@vanguardyachts.com</span>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="space-y-6">
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-[#0A192F]/50 mb-2">Имя</label>
-                        <input type="text"
-                            class="w-full bg-[#F5F5DC]/30 border-b border-[#0A192F]/20 py-3 focus:border-[#D4AF37] outline-none transition-colors text-[#0A192F]">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-[#0A192F]/50 mb-2">Email</label>
-                        <input type="email"
-                            class="w-full bg-[#F5F5DC]/30 border-b border-[#0A192F]/20 py-3 focus:border-[#D4AF37] outline-none transition-colors text-[#0A192F]">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-[#0A192F]/50 mb-2">Запрос</label>
-                        <textarea rows="3"
-                            class="w-full bg-[#F5F5DC]/30 border-b border-[#0A192F]/20 py-3 focus:border-[#D4AF37] outline-none transition-colors text-[#0A192F]"></textarea>
-                    </div>
-                    <button
-                        class="px-10 py-4 bg-[#0A192F] text-[#F5F5DC] font-bold uppercase tracking-widest hover:bg-[#D4AF37] hover:text-[#0A192F] transition-colors duration-300 w-full mt-4">
-                        Запросить Консультацию
-                    </button>
-                </form>
+            <div class="flex justify-between text-sm">
+                <span class="text-gray-600 uppercase tracking-widest">Год</span>
+                <span class="text-white">2023</span>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer
-        class="py-12 bg-[#0A192F] text-[#F5F5DC]/40 text-center text-xs uppercase tracking-widest border-t border-white/5">
-        <div class="flex justify-center gap-8 mb-8">
-            <a href="#" class="hover:text-[#D4AF37] transition-colors">Флот</a>
-            <a href="#" class="hover:text-[#D4AF37] transition-colors">Чартер</a>
-            <a href="#" class="hover:text-[#D4AF37] transition-colors">Брокераж</a>
-            <a href="#" class="hover:text-[#D4AF37] transition-colors">Пресса</a>
-        </div>
-        <p>&copy; 2024 Vanguard Yachts. Разработано Onda.</p>
+    <footer class="py-12 border-t border-white/5 text-center px-6">
+        <p class="text-gray-600 text-xs uppercase tracking-widest">&copy; 2024 Onda.</p>
     </footer>
 
-    <script>
-        lucide.createIcons();
-
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
-            });
-        }
-
-        // Reveal Animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
+    <script>lucide.createIcons();</script>
 </body>
 
 </html>

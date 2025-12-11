@@ -4,409 +4,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onda | Demos en Vivo</title>
+    <title>Onda | Suite de Inteligencia</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Lato', sans-serif;
+            background: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #050505 100%);
+            background-attachment: fixed;
+            color: #F5F5DC;
         }
 
-        .font-mono {
-            font-family: 'JetBrains Mono', monospace;
+        a:hover {
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
         }
 
-        .glass {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .luxury-gold {
+            color: #D4AF37;
+        }
+
+        .border-gold {
+            border-color: #D4AF37;
+        }
+
+        .bg-gold {
+            background-color: #D4AF37;
+        }
+
+        .text-cream {
+            color: #F5F5DC;
+        }
+
+        /* High-End Input Styles */
+        .luxury-input {
+            background: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: #F5F5DC;
+            transition: all 0.3s ease;
+        }
+
+        .luxury-input:focus {
+            border-color: #D4AF37;
+            outline: none;
+        }
+
+        /* Agent Card */
+        .agent-card {
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s ease;
         }
 
-        .terminal-text {
-            overflow: hidden;
-            white-space: nowrap;
-            animation: typing 3.5s steps(40, end);
-        }
-
-        @keyframes typing {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 100%
-            }
+        .agent-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
         }
     </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        slate: { 950: '#020617' }
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 
-<body class="bg-slate-950 text-slate-200 antialiased selection:bg-indigo-500/30">
+<body class="antialiased overflow-x-hidden bg-[#050505]">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index_es.html" class="text-2xl font-bold tracking-tighter text-white flex items-center gap-3">
-                <img src="logo.png" alt="Logo de Onda"
-                    class="h-8 w-8 rounded-full object-cover shadow-[0_0_15px_rgba(99,102,241,0.5)]">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">ONDA</span>
-            </a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400 items-center">
-                <a href="index_es.html" class="hover:text-white transition-colors">Inicio</a>
-                <span class="text-white">Demos en Vivo</span>
-                <div class="border-l border-white/10 h-4 mx-2"></div>
-                <a href="demos.html" class="text-slate-500 hover:text-white transition-colors text-xs">EN</a>
-                <span class="text-white text-xs font-bold">ES</span>
-                <a href="demos_ru.html" class="text-slate-500 hover:text-white transition-colors text-xs">RU</a>
-            </div>
-            <a href="index_es.html#contact"
-                class="hidden md:block bg-white text-slate-950 px-5 py-2 rounded-full font-semibold text-sm hover:bg-indigo-50 transition-colors">
-                Contrátanos
-            </a>
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="index_es.html" class="text-2xl font-serif italic font-bold tracking-widest text-white">ONDA</a>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden md:hidden bg-slate-950 border-t border-white/5 absolute w-full left-0 top-20 p-6 flex-col space-y-4 shadow-2xl">
-            <a href="index_es.html" class="block text-slate-400 hover:text-white transition-colors">Inicio</a>
-            <span class="block text-indigo-400 font-bold">Demos en Vivo</span>
-            <a href="process_es.html" class="block text-slate-400 hover:text-white transition-colors">Proceso</a>
-            <a href="index_es.html#contact"
-                class="block text-slate-400 hover:text-white transition-colors">Contrátanos</a>
-            <div class="flex items-center gap-4 pt-4 border-t border-white/5">
-                <a href="demos.html" class="text-slate-500 hover:text-white transition-colors text-xs">EN</a>
-                <span class="text-white text-xs font-bold">ES</span>
-                <a href="demos_ru.html" class="text-slate-500 hover:text-white transition-colors text-xs">RU</a>
+            <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-400">
+                <a href="process_es.html" class="hover:text-[#D4AF37] transition-colors duration-300">Proceso</a>
+                <a href="index_es.html#agents" class="hover:text-[#D4AF37] transition-colors duration-300">Demos IA</a>
+                <a href="index_es.html#contact" class="hover:text-[#D4AF37] transition-colors duration-300">Contacto</a>
+                <div class="flex gap-4 border-l border-white/10 pl-6">
+                    <a href="demos.html" class="hover:text-white transition-colors">EN</a>
+                    <span class="text-[#D4AF37] font-bold">ES</span>
+                    <a href="demos_ru.html" class="hover:text-white transition-colors">RU</a>
+                </div>
             </div>
+
+            <button class="md:hidden text-white"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
-    <div class="pt-32 pb-12 px-6 max-w-7xl mx-auto text-center">
-        <h1 class="text-3xl md:text-6xl font-bold mb-6">IA en Acción</h1>
-        <p class="text-slate-400 text-lg max-w-2xl mx-auto">
-            Experimenta nuestros agentes inteligentes de primera mano. Prueba las demos interactivas a continuación.
+    <!-- Header -->
+    <header class="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto">
+        <p class="text-[#D4AF37] text-xs tracking-[0.4em] uppercase mb-6">Demostración Interactiva</p>
+        <h1 class="text-4xl md:text-6xl mb-8 leading-tight font-medium">
+            Suite de <br> <span class="italic text-gray-500">Inteligencia</span>
+        </h1>
+        <p class="text-gray-400 text-lg font-light leading-relaxed">
+            Experimenta los modelos de IA propietarios que impulsan nuestra agencia. <br>
+            Diseñados para precisión, creatividad y perspicacia.
         </p>
-    </div>
+    </header>
 
-    <!-- Featured Project Removed -->
-
-    <!-- Demo 1: Lead Qualifier REMOVED -->
-
-    <!-- Demo 2: Knowledge Base REMOVED -->
-
-    <!-- Demo 3: The Researcher (Site Audit) -->
-    <section class="py-12 md:py-24 px-4 md:px-6 max-w-7xl mx-auto border-t border-white/5">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-            <!-- Input Side -->
+    <!-- Agent: Researcher -->
+    <section id="researcher" class="py-20 px-6 border-t border-white/5">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
             <div>
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
-                        <i data-lucide="globe" class="text-purple-400"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold">Agente A: El Investigador</h2>
-                </div>
-                <p class="text-slate-400 mb-8">
-                    Introduce una URL. Este agente la visitará en vivo, analizará el contenido y te dará una auditoría
-                    de marketing instantánea.
+                <span class="text-6xl text-white/5 font-serif absolute -mt-10 -ml-10 select-none">01</span>
+                <h2 class="text-3xl mb-4 relative z-10">El Investigador</h2>
+                <p class="text-gray-500 mb-8 font-light leading-relaxed">
+                    Nuestro sistema de auditoría autónomo visita tu propiedad digital, analiza la estructura y el flujo
+                    de conversión, y genera un dossier de mejoras estratégicas.
                 </p>
-                <form id="researchForm" class="glass p-8 rounded-2xl space-y-4">
+
+                <form id="researchForm" class="space-y-8 mt-12">
                     <div>
-                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">URL del Sitio
-                            Web</label>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">URL Objetivo</label>
                         <input type="text" id="researchUrl" value="example.com"
-                            class="w-full bg-slate-900/50 border border-slate-700 rounded px-3 py-2 mt-1 text-white focus:border-purple-500 outline-none">
+                            class="luxury-input w-full py-4 text-xl">
                     </div>
+
                     <button type="button" onclick="runResearchDemo()"
-                        class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-3 rounded-lg mt-2 transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="search" class="w-4 h-4"></i> Auditar Sitio
+                        class="w-full py-4 border border-[#D4AF37] text-[#D4AF37] text-xs uppercase tracking-widest hover:bg-[#D4AF37] hover:text-black transition-all">
+                        Iniciar Auditoría
                     </button>
                 </form>
             </div>
 
-            <!-- Output Side -->
             <div id="researchOutput"
-                class="glass rounded-2xl p-6 min-h-[300px] flex flex-col justify-center items-center text-center">
-                <div class="text-slate-500">
-                    <i data-lucide="bar-chart-2" class="w-12 h-12 mx-auto mb-4 opacity-50"></i>
-                    <p>Los resultados aparecerán aquí...</p>
+                class="agent-card p-12 min-h-[400px] flex flex-col justify-center items-center text-center">
+                <div class="text-gray-600">
+                    <i data-lucide="globe" class="w-8 h-8 mx-auto mb-4 opacity-50"></i>
+                    <p class="text-sm tracking-widest uppercase">Esperando Coordenadas</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Demo 4: The Visionary (Image Analysis) -->
-    <section class="py-12 md:py-24 px-4 md:px-6 max-w-7xl mx-auto border-t border-white/5">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <!-- Output Side (Visual) -->
-            <div class="order-2 md:order-1 glass rounded-2xl p-6 min-h-[400px] flex flex-col">
+    <!-- Agent: Visionary -->
+    <section id="visionary" class="py-20 px-6 border-t border-white/5 bg-[#080808]">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="order-2 md:order-1 agent-card p-8 min-h-[400px] flex flex-col relative">
                 <div id="visionPreview"
-                    class="flex-1 bg-slate-900/50 rounded-lg flex items-center justify-center mb-4 border border-slate-800 border-dashed relative overflow-hidden">
-                    <p class="text-slate-500 text-sm">Ninguna imagen seleccionada</p>
+                    class="flex-1 border border-dashed border-white/10 rounded-sm flex items-center justify-center relative overflow-hidden bg-black/50 hover:bg-black/80 transition-colors cursor-pointer"
+                    onclick="document.getElementById('visionInput').click()">
+                    <p class="text-gray-600 text-xs tracking-widest uppercase">Seleccionar Activo Visual</p>
                 </div>
-                <div id="visionResult" class="hidden space-y-4">
-                    <!-- Results injected here -->
-                </div>
+                <div id="visionResult" class="hidden mt-6 space-y-4"></div>
             </div>
 
-            <!-- Input Side -->
             <div class="order-1 md:order-2">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center">
-                        <i data-lucide="eye" class="text-pink-400"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold">Agente B: El Visionario</h2>
-                </div>
-                <p class="text-slate-400 mb-8">
-                    Sube una captura de pantalla de un recibo, hoja de cálculo o interfaz. El agente lo "verá" y
-                    extraerá datos estructurados.
+                <span class="text-6xl text-white/5 font-serif absolute -mt-10 -ml-10 select-none">02</span>
+                <h2 class="text-3xl mb-4 relative z-10">El Visionario</h2>
+                <p class="text-gray-500 mb-8 font-light leading-relaxed">
+                    Inteligencia visual que trasciende los datos de píxeles. Sube documentos financieros, facturas o
+                    maquetas de diseño para extracciones estructuradas y análisis estético.
                 </p>
-                <div class="glass p-8 rounded-2xl space-y-4">
-                    <label class="block w-full cursor-pointer group">
-                        <input type="file" id="visionInput" accept="image/*" class="hidden"
-                            onchange="handleImageUpload(event)">
-                        <div
-                            class="border-2 border-dashed border-slate-700 rounded-xl p-8 text-center group-hover:border-pink-500 transition-colors">
-                            <i data-lucide="upload-cloud"
-                                class="w-8 h-8 text-slate-400 mx-auto mb-3 group-hover:text-pink-400 transition-colors"></i>
-                            <p class="text-sm text-slate-300 font-medium">Clic para subir imagen</p>
-                            <p class="text-xs text-slate-500 mt-1">JPG, PNG (Max 2MB)</p>
-                        </div>
-                    </label>
-                </div>
+
+                <input type="file" id="visionInput" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+
+                <button onclick="document.getElementById('visionInput').click()"
+                    class="mt-8 px-8 py-3 bg-[#111] text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
+                    Subir Archivo
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Demo 5: El Redactor (AI Marketing Copy) -->
-    <section class="py-12 md:py-24 px-4 md:px-6 max-w-7xl mx-auto border-t border-white/5">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-            <!-- Input Side -->
+    <!-- Agent: Copywriter -->
+    <section id="copywriter" class="py-20 px-6 border-t border-white/5">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
             <div>
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center">
-                        <i data-lucide="pen-tool" class="text-orange-400"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold">Agente C: El Redactor</h2>
-                </div>
-                <p class="text-slate-400 mb-8">
-                    ¿No sabes qué decir? Introduce el nombre de tu negocio y una breve descripción. El agente escribirá
-                    titulares y beneficios de alta conversión para ti al instante.
+                <span class="text-6xl text-white/5 font-serif absolute -mt-10 -ml-10 select-none">03</span>
+                <h2 class="text-3xl mb-4 relative z-10">El Redactor</h2>
+                <p class="text-gray-500 mb-8 font-light leading-relaxed">
+                    Creando narrativas persuasivas. Proporciona la esencia de tu negocio y deja que nuestro modelo
+                    genere encabezados, beneficios y llamadas a la acción de alta conversión.
                 </p>
-                <form id="copywriterForm" class="glass p-8 rounded-2xl space-y-4">
+
+                <form id="copywriterForm" class="space-y-8 mt-12">
                     <div>
-                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Nombre del
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Nombre del
                             Negocio</label>
-                        <input type="text" id="businessName" placeholder="ej. Café Acogedor"
-                            class="w-full bg-slate-900/50 border border-slate-700 rounded px-3 py-2 mt-1 text-white focus:border-orange-500 outline-none">
+                        <input type="text" id="businessName" placeholder="ej. Spa Aurelia"
+                            class="luxury-input w-full py-3">
                     </div>
                     <div>
-                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Descripción</label>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Descripción del
+                            Concepto</label>
                         <textarea id="businessDescription" rows="3"
-                            placeholder="ej. Una pequeña cafetería que sirve café orgánico de comercio justo y pasteles caseros."
-                            class="w-full bg-slate-900/50 border border-slate-700 rounded px-3 py-2 mt-1 text-white focus:border-orange-500 outline-none resize-none"></textarea>
+                            placeholder="Un santuario para el bienestar holístico..."
+                            class="luxury-input w-full py-3 bg-transparent resize-none"></textarea>
                     </div>
+
                     <button type="button" onclick="runCopywriterDemo()"
-                        class="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 rounded-lg mt-2 transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="sparkles" class="w-4 h-4"></i> Generar Textos
+                        class="w-full py-4 border border-[#D4AF37] text-[#D4AF37] text-xs uppercase tracking-widest hover:bg-[#D4AF37] hover:text-black transition-all">
+                        Generar Narrativa
                     </button>
                 </form>
             </div>
 
-            <!-- Output Side (Preview) -->
-            <div class="glass rounded-2xl p-1 min-h-[400px] flex flex-col relative">
-                <div class="absolute top-4 right-4 z-10">
-                    <span
-                        class="text-[10px] font-mono text-slate-500 bg-slate-900/80 px-2 py-1 rounded border border-slate-800">Vista
-                        Previa</span>
+            <div class="agent-card p-12 min-h-[400px] flex flex-col relative text-left">
+                <div class="absolute top-0 left-0 p-4">
+                    <span class="text-[10px] uppercase tracking-widest text-gray-600">Flujo de Salida</span>
                 </div>
-                <div id="copywriterPreview"
-                    class="flex-1 bg-slate-950/50 rounded-xl flex items-center justify-center overflow-hidden p-4">
-                    <div class="text-slate-500 text-center">
-                        <i data-lucide="file-text" class="w-12 h-12 mx-auto mb-4 opacity-50"></i>
-                        <p>El texto generado aparecerá aquí...</p>
-                    </div>
+                <div id="copywriterPreview" class="flex-1 flex items-center justify-center">
+                    <p class="text-gray-600 text-xs tracking-widest uppercase">Esperando entradas...</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 text-center px-6">
+        <p class="text-gray-600 text-xs uppercase tracking-widest">&copy; 2024 Onda. Diseño Inteligente.</p>
+    </footer>
 
     <script>
         lucide.createIcons();
 
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
-            });
-        }
-
-        // Lead Demo Logic
-        async function runLeadDemo() {
-            const website = document.getElementById('websiteInput').value;
-            const goal = document.getElementById('goalInput').value;
-            const terminal = document.getElementById('terminalOutput');
-            terminal.innerHTML = ''; // Clear
-
-            const log = (text, color = 'text-green-400') => {
-                const div = document.createElement('div');
-                div.className = color;
-                div.innerHTML = `> ${text}`;
-                terminal.appendChild(div);
-                terminal.scrollTop = terminal.scrollHeight;
-            };
-
-            log('Iniciando Agente A...', 'text-blue-400');
-
-            try {
-                log(`Conectando al servidor...`, 'text-slate-500');
-
-                const response = await fetch('/api/lead-qualifier', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        name: "Visitante",
-                        email: "visitante@ejemplo.com",
-                        website: website,
-                        goal: goal,
-                        language: "es"
-                    })
-                });
-
-                if (!response.ok) throw new Error('Error del servidor');
-                const data = await response.json();
-
-                log(`Visitando ${website}...`);
-                await new Promise(r => setTimeout(r, 1000));
-                log('Extrayendo contenido...', 'text-slate-500');
-
-                log('Analizando modelo de negocio...');
-                await new Promise(r => setTimeout(r, 800));
-
-                log(`Puntuación: ${data.score}/100`, 'text-yellow-400 font-bold');
-                log(`Razonamiento: ${data.reasoning}`, 'text-slate-300');
-
-                log('Redactando email...', 'text-blue-400');
-                await new Promise(r => setTimeout(r, 500));
-
-                const emailDiv = document.createElement('div');
-                emailDiv.className = 'bg-slate-800 p-3 rounded mt-2 text-slate-300 whitespace-pre-wrap font-sans text-xs border border-slate-700';
-                emailDiv.innerText = data.email_draft;
-                terminal.appendChild(emailDiv);
-                terminal.scrollTop = terminal.scrollHeight;
-
-            } catch (error) {
-                log('Error conectando al servidor. ¿Está corriendo el backend?', 'text-red-500');
-                console.error(error);
-            }
-        }
-
-        // Chat Demo Logic
-        const chatHistory = document.getElementById('chatHistory');
-        const chatInput = document.getElementById('chatInput');
-
-        function fillChat(text) {
-            chatInput.value = text;
-        }
-
-        async function handleChat(e) {
-            e.preventDefault();
-            const text = chatInput.value;
-            if (!text) return;
-
-            // Add User Message
-            chatHistory.innerHTML += `
-                <div class="flex items-start gap-3 justify-end">
-                    <div class="bg-indigo-600 p-3 rounded-lg rounded-tr-none text-sm text-white">
-                        ${text}
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex-shrink-0 flex items-center justify-center">
-                        <i data-lucide="user" class="text-indigo-400 w-4 h-4"></i>
-                    </div>
-                </div>
-            `;
-            chatInput.value = '';
-            chatHistory.scrollTop = chatHistory.scrollHeight;
-            lucide.createIcons();
-
-            // Call Backend
-            try {
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text, language: "es" })
-                });
-
-                const data = await response.json();
-                const botResponse = data.response;
-
-                // Add Bot Message
-                chatHistory.innerHTML += `
-                    <div class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-full bg-cyan-500/20 flex-shrink-0 flex items-center justify-center">
-                            <i data-lucide="bot" class="text-cyan-400 w-4 h-4"></i>
-                        </div>
-                        <div class="bg-slate-800/50 p-3 rounded-lg rounded-tl-none text-sm text-slate-300">
-                            ${botResponse}
-                        </div>
-                    </div>
-                `;
-            } catch (error) {
-                console.error(error);
-                chatHistory.innerHTML += `
-                    <div class="flex items-start gap-3">
-                        <div class="w-8 h-8 rounded-full bg-red-500/20 flex-shrink-0 flex items-center justify-center">
-                            <i data-lucide="alert-circle" class="text-red-400 w-4 h-4"></i>
-                        </div>
-                        <div class="bg-slate-800/50 p-3 rounded-lg rounded-tl-none text-sm text-red-400">
-                            Error conectando con el agente.
-                        </div>
-                    </div>
-                `;
-            }
-
-            chatHistory.scrollTop = chatHistory.scrollHeight;
-            lucide.createIcons();
-        }
-
-        // Research Demo Logic
+        // --- Research Logic ---
         async function runResearchDemo() {
             const url = document.getElementById('researchUrl').value;
             const output = document.getElementById('researchOutput');
 
-            // Loading State
             output.innerHTML = `
                 <div class="text-center">
-                    <i data-lucide="loader-2" class="w-10 h-10 text-purple-500 animate-spin mx-auto mb-4"></i>
-                    <p class="text-slate-300">Visitando ${url}...</p>
-                    <p class="text-xs text-slate-500 mt-2">Analizando contenido y estructura...</p>
+                    <div class="w-12 h-12 border border-[#D4AF37] border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+                    <p class="text-xs uppercase tracking-widest text-[#D4AF37]">Analizando Infraestructura</p>
                 </div>
             `;
-            lucide.createIcons();
 
             try {
                 const response = await fetch('/api/research', {
@@ -414,64 +244,46 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ url: url })
                 });
-
                 const data = await response.json();
 
-                // Render Result
                 output.innerHTML = `
-                    <div class="w-full text-left space-y-6 animate-[fadeIn_0.5s_ease-out]">
-                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                    <div class="w-full text-left animate-fade-in">
+                        <div class="flex justify-between items-end border-b border-white/10 pb-6 mb-6">
                             <div>
-                                <div class="text-xs text-slate-500 uppercase tracking-wider">Puntuación CRO</div>
-                                <div class="text-4xl font-bold ${data.score > 70 ? 'text-green-400' : 'text-yellow-400'}">${data.score}/100</div>
+                                <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">Puntuación CRO</p>
+                                <p class="text-4xl font-serif text-[#D4AF37]">${data.score}<span class="text-lg text-gray-600">/100</span></p>
                             </div>
                             <div class="text-right">
-                                <div class="text-xs text-slate-500 uppercase tracking-wider">Estado</div>
-                                <div class="text-sm font-medium text-white">Análisis Completo</div>
+                                <p class="text-xs uppercase tracking-widest text-gray-500">Análisis Completo</p>
                             </div>
                         </div>
                         
-                        <div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Resumen</div>
-                            <p class="text-slate-300 text-sm">${data.summary}</p>
-                        </div>
-
-                        <div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-2">Mejoras Clave</div>
-                            <ul class="space-y-2">
-                                ${data.improvements.map(item => `
-                                    <li class="flex items-start gap-2 text-sm text-slate-300">
-                                        <i data-lucide="arrow-right" class="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0"></i>
-                                        <span>${item}</span>
-                                    </li>
-                                `).join('')}
-                            </ul>
-                        </div>
-
-                        <div class="bg-purple-500/10 border border-purple-500/20 p-4 rounded-lg">
-                            <div class="flex items-center gap-2 mb-1">
-                                <i data-lucide="zap" class="w-4 h-4 text-purple-400"></i>
-                                <span class="text-xs font-bold text-purple-400 uppercase">Victoria Rápida</span>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Resumen Ejecutivo</p>
+                                <p class="text-sm font-light leading-relaxed text-gray-300 italic">"${data.summary}"</p>
                             </div>
-                            <p class="text-sm text-white">${data.quick_win}</p>
+                            
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-gray-500 mb-3">Mejoras Estratégicas</p>
+                                <ul class="space-y-3">
+                                    ${data.improvements.map(item => `
+                                        <li class="flex items-start gap-3 text-sm font-light text-gray-400">
+                                            <span class="text-[#D4AF37] mt-1">✦</span> ${item}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 `;
-                lucide.createIcons();
-
             } catch (error) {
                 console.error(error);
-                output.innerHTML = `
-                    <div class="text-center text-red-400">
-                        <i data-lucide="alert-triangle" class="w-10 h-10 mx-auto mb-4"></i>
-                        <p>Análisis fallido. Por favor revisa la URL.</p>
-                    </div>
-                `;
-                lucide.createIcons();
+                output.innerHTML = `<p class="text-red-500 text-xs text-center uppercase tracking-widest">Error de Conexión</p>`;
             }
         }
 
-        // Vision Demo Logic
+        // --- Vision Logic ---
         async function handleImageUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -479,70 +291,44 @@
             const preview = document.getElementById('visionPreview');
             const resultDiv = document.getElementById('visionResult');
 
-            // Show Preview
             const reader = new FileReader();
             reader.onload = async function (e) {
                 const base64Image = e.target.result;
-                preview.innerHTML = `<img src="${base64Image}" class="max-h-full max-w-full object-contain rounded">`;
-                preview.classList.remove('border-dashed');
+                preview.innerHTML = `<img src="${base64Image}" class="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-500">`;
 
-                // Show Loading
                 resultDiv.classList.remove('hidden');
-                resultDiv.innerHTML = `
-                    <div class="flex items-center gap-3 text-pink-400">
-                        <i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>
-                        <span class="text-sm font-medium">Analizando datos visuales...</span>
-                    </div>
-                `;
-                lucide.createIcons();
+                resultDiv.innerHTML = `<p class="text-xs uppercase tracking-widest text-[#D4AF37] text-center mt-4">Procesando Datos Visuales...</p>`;
 
-                // Send to Backend
                 try {
                     const response = await fetch('/api/vision', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ image: base64Image })
                     });
-
                     const data = await response.json();
 
-                    // Render Result
                     resultDiv.innerHTML = `
-                        <div class="space-y-4 animate-[fadeIn_0.5s_ease-out]">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-bold text-slate-500 uppercase">Tipo de Documento</span>
-                                <span class="text-sm font-bold text-white bg-slate-800 px-2 py-1 rounded">${data.type}</span>
+                        <div class="bg-white/5 p-6 border-l-2 border-[#D4AF37] animate-fade-in">
+                            <div class="flex justify-between mb-4">
+                                <span class="text-xs uppercase tracking-widest text-gray-500">Tipo de Documento</span>
+                                <span class="text-xs font-bold text-white">${data.type}</span>
                             </div>
-                            
-                            <div class="bg-slate-900 rounded-lg p-4 font-mono text-xs text-green-400 overflow-x-auto">
-                                <pre>${JSON.stringify(data.data, null, 2)}</pre>
+                            <div class="text-xs font-mono text-gray-400 mb-4 bg-black/50 p-4">
+                                ${JSON.stringify(data.data, null, 2)}
                             </div>
-
-                            <div class="flex items-start gap-3 bg-pink-500/10 border border-pink-500/20 p-4 rounded-lg">
-                                <i data-lucide="lightbulb" class="w-5 h-5 text-pink-400 flex-shrink-0"></i>
-                                <div>
-                                    <div class="text-xs font-bold text-pink-400 uppercase mb-1">Insight de IA</div>
-                                    <p class="text-sm text-slate-300">${data.insight}</p>
-                                </div>
-                            </div>
+                            <p class="text-sm font-light text-[#D4AF37] italic">
+                                "Insight: ${data.insight}"
+                            </p>
                         </div>
                     `;
-                    lucide.createIcons();
-
                 } catch (error) {
-                    console.error(error);
-                    resultDiv.innerHTML = `
-                        <div class="text-red-400 text-sm flex items-center gap-2">
-                            <i data-lucide="alert-circle" class="w-4 h-4"></i>
-                            <span>Análisis fallido. Intenta con otra imagen.</span>
-                        </div>
-                    `;
-                    lucide.createIcons();
+                    resultDiv.innerHTML = `<p class="text-red-500 text-xs text-center">Software Error</p>`;
                 }
             };
             reader.readAsDataURL(file);
         }
-        // Copywriter Demo Logic
+
+        // --- Copywriter Logic ---
         async function runCopywriterDemo() {
             const businessName = document.getElementById('businessName').value;
             const description = document.getElementById('businessDescription').value;
@@ -550,59 +336,46 @@
 
             if (!businessName || !description) return;
 
-            // Loading State
             preview.innerHTML = `
                 <div class="text-center">
-                    <i data-lucide="loader-2" class="w-10 h-10 text-orange-500 animate-spin mx-auto mb-4"></i>
-                    <p class="text-slate-300">Generando ideas...</p>
-                    <p class="text-xs text-slate-500 mt-2">Escribiendo titulares y beneficios...</p>
+                    <div class="w-8 h-8 border border-[#D4AF37] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p class="text-xs uppercase tracking-widest text-gray-500">Creando Narrativa...</p>
                 </div>
-            `;
-            lucide.createIcons();
+             `;
 
             try {
                 const response = await fetch('/api/copywriter', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ business_name: businessName, description: description })
+                    body: JSON.stringify({ business_name: businessName, description: description, language: "es" })
                 });
-
                 const data = await response.json();
 
-                // Render Result
                 preview.innerHTML = `
-                    <div class="w-full max-w-md mx-auto animate-[fadeIn_0.5s_ease-out] bg-slate-900 p-6 rounded-xl border border-white/10">
-                        <div class="text-center mb-6">
-                            <h3 class="text-2xl font-bold text-white mb-2">${data.headline}</h3>
-                            <p class="text-slate-400 text-sm">${data.subheadline}</p>
+                    <div class="w-full text-center space-y-8 animate-fade-in">
+                        <div>
+                            <h3 class="text-3xl font-serif text-white mb-2">${data.headline}</h3>
+                            <p class="text-gray-400 font-light italic text-lg border-b border-white/10 pb-6 inline-block">${data.subheadline}</p>
                         </div>
                         
-                        <div class="space-y-3 mb-6">
+                        <div class="grid gap-4 text-left max-w-sm mx-auto">
                             ${data.benefits.map(benefit => `
-                                <div class="flex items-center gap-2 text-sm text-slate-300">
-                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-green-400 flex-shrink-0"></i>
+                                <div class="flex items-center gap-3 text-sm text-gray-300">
+                                    <div class="w-1 h-1 bg-[#D4AF37] rounded-full"></div>
                                     <span>${benefit}</span>
                                 </div>
                             `).join('')}
                         </div>
 
-                        <button class="w-full bg-white text-slate-950 font-bold py-3 rounded-lg hover:bg-slate-200 transition-colors">
+                        <button class="bg-[#D4AF37] text-black px-8 py-3 text-xs uppercase tracking-widest font-bold hover:bg-white transition-colors">
                             ${data.cta}
                         </button>
                     </div>
-                `;
-                lucide.createIcons();
+                 `;
 
             } catch (error) {
                 console.error(error);
-                preview.innerHTML = `
-                    <div class="text-center text-red-400">
-                        <i data-lucide="alert-triangle" class="w-10 h-10 mx-auto mb-4"></i>
-                        <p>Generación fallida.</p>
-                        <p class="text-xs mt-2 opacity-70">${error.message}</p>
-                    </div>
-                `;
-                lucide.createIcons();
+                preview.innerHTML = `<p class="text-red-500 text-xs uppercase tracking-widest">Generación Fallida</p>`;
             }
         }
     </script>

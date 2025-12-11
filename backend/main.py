@@ -55,6 +55,28 @@ class CopywriterRequest(BaseModel):
 
 # ... (rest of file)
 
+@app.post("/api/research")
+async def run_research(request: ResearchRequest):
+    logger.info(f"Research request for: {request.url}")
+    try:
+        # Run the agent
+        result = research_agent.audit_site(request.url)
+        return result
+    except Exception as e:
+        logger.error(f"Error in research agent: {e}")
+        # Return a mock response if it fails so the demo doesn't crash
+        return research_agent.mock_response()
+
+@app.post("/api/vision")
+async def run_vision(request: VisionRequest):
+    logger.info("Vision request received")
+    try:
+        result = vision_agent.analyze_image(request.image)
+        return result
+    except Exception as e:
+        logger.error(f"Error in vision agent: {e}")
+        return vision_agent.mock_response()
+
 @app.post("/api/copywriter")
 async def run_copywriter(request: CopywriterRequest):
     logger.info(f"Copywriter request: {request.business_name} ({request.language})")

@@ -4,437 +4,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onda | Интеллектуальная Автоматизация</title>
+    <title>Onda | Цифровая Алхимия</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Lato', sans-serif;
+            background: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #050505 100%);
+            background-attachment: fixed;
+            color: #F5F5DC;
         }
 
-        .glass {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        a:hover {
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
         }
 
-        .gradient-text {
-            background: linear-gradient(to right, #818cf8, #c084fc, #22d3ee);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
         }
 
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
+        .luxury-gold {
+            color: #D4AF37;
         }
 
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
+        .border-gold {
+            border-color: #D4AF37;
+        }
+
+        .bg-gold {
+            background-color: #D4AF37;
+        }
+
+        .text-cream {
+            color: #F5F5DC;
+        }
+
+        /* Elegant Fade In */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
 
-            50% {
-                transform: translateY(-20px);
-            }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
 
-            100% {
-                transform: translateY(0px);
-            }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
         }
     </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        slate: {
-                            950: '#020617',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 
-<body class="bg-slate-950 text-slate-200 antialiased selection:bg-indigo-500/30">
+<body class="antialiased overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-2xl font-bold tracking-tighter text-white flex items-center gap-3">
-                <img src="logo.png" alt="Onda Logo"
-                    class="h-8 w-8 rounded-full object-cover shadow-[0_0_15px_rgba(99,102,241,0.5)]">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">ONDA</span>
+    <nav class="fixed w-full z-50 transition-all duration-500 bg-black/80 backdrop-blur-sm border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="#" class="text-3xl font-serif italic font-bold tracking-widest text-white">ONDA</a>
+
+            <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-400">
+                <a href="#work" class="hover:text-[#D4AF37] transition-colors duration-300">Работы</a>
+                <a href="#agents" class="hover:text-[#D4AF37] transition-colors duration-300">AI Демо</a>
+                <a href="process_ru.html" class="hover:text-[#D4AF37] transition-colors duration-300">Процесс</a>
+                <a href="#contact" class="hover:text-[#D4AF37] transition-colors duration-300">Контакты</a>
+                <div class="flex gap-4 border-l border-white/10 pl-6">
+                    <a href="index.html" class="hover:text-white transition-colors">EN</a>
+                    <a href="index_es.html" class="hover:text-white transition-colors">ES</a>
+                    <span class="text-[#D4AF37] font-bold">RU</span>
+                </div>
             </div>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400 items-center">
-                <a href="#services" class="hover:text-white transition-colors">Услуги</a>
-                <a href="#featured-work" class="hover:text-white transition-colors">Портфолио</a>
-                <a href="demos_ru.html"
-                    class="text-indigo-400 hover:text-indigo-300 transition-colors font-bold">Демо</a>
-                <a href="process_ru.html" class="hover:text-white transition-colors">Процесс</a>
-                <a href="#contact" class="hover:text-white transition-colors">Контакты</a>
-                <div class="border-l border-white/10 h-4 mx-2"></div>
-                <a href="index.html" class="text-slate-500 hover:text-white transition-colors text-xs">EN</a>
-                <a href="index_es.html" class="text-slate-500 hover:text-white transition-colors text-xs">ES</a>
-                <span class="text-white text-xs font-bold">RU</span>
-            </div>
-            <button
-                class="hidden md:block bg-white text-slate-950 px-5 py-2 rounded-full font-semibold text-sm hover:bg-indigo-50 transition-colors">
-                Начать
-            </button>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden md:hidden bg-slate-950 border-t border-white/5 absolute w-full left-0 top-20 p-6 flex-col space-y-4 shadow-2xl">
-            <a href="#services" class="block text-slate-400 hover:text-white transition-colors">Услуги</a>
-            <a href="#featured-work" class="block text-slate-400 hover:text-white transition-colors">Портфолио</a>
-            <a href="demos_ru.html" class="block text-indigo-400 font-bold">Демо</a>
-            <a href="process_ru.html" class="block text-slate-400 hover:text-white transition-colors">Процесс</a>
-            <a href="#contact" class="block text-slate-400 hover:text-white transition-colors">Контакты</a>
-            <div class="flex items-center gap-4 pt-4 border-t border-white/5">
-                <a href="index.html" class="text-slate-500 hover:text-white transition-colors text-xs">EN</a>
-                <a href="index_es.html" class="text-slate-500 hover:text-white transition-colors text-xs">ES</a>
-                <span class="text-white text-xs font-bold">RU</span>
-            </div>
+            <button class="md:hidden text-white"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <!-- Background Glow -->
-        <div
-            class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] -z-10">
+    <section class="h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Dramatic Abstract Background -->
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
+                class="w-full h-full object-cover opacity-30 grayscale hover:grayscale-0 transition-all duration-[2s] ease-in-out"
+                alt="Abstract Luxury">
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
         </div>
 
-        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-            <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs font-medium text-indigo-300 mb-8 border border-indigo-500/20">
-                <span class="relative flex h-2 w-2">
-                    <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-                </span>
-                Принимаем новых клиентов на Q4
-            </div>
-
-            <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-                Автоматизируйте бизнес с <br>
-                <span class="gradient-text">Интеллектуальными Агентами</span>
+        <div class="relative z-10 text-center px-6 max-w-5xl">
+            <p class="text-[#D4AF37] text-sm tracking-[0.4em] uppercase mb-8 fade-in">Новый Стандарт</p>
+            <h1 class="text-6xl md:text-9xl mb-8 leading-tight font-medium fade-in delay-100">
+                Цифровая <br> <span class="italic text-gray-500">Алхимия</span>
             </h1>
-
-            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Мы создаем кастомные ИИ-решения и веб-сайты, которые автоматизируют ваши рабочие процессы и повышают
-                уровень бренда. Перестаньте делать рутинную работу. Начните масштабироваться.
+            <p
+                class="text-gray-400 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 fade-in delay-200 leading-relaxed">
+                Мы объединяем человеческую креативность с искусственным интеллектом для создания уникальных цифровых
+                решений для самых эксклюзивных брендов мира.
             </p>
-
-            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-                <a href="#contact"
-                    class="w-full md:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-semibold transition-all shadow-lg shadow-indigo-500/25">
-                    Заказать Стратегию
-                </a>
-                <a href="#services"
-                    class="w-full md:w-auto px-8 py-4 glass hover:bg-white/5 text-white rounded-xl font-semibold transition-all">
-                    Смотреть Услуги
+            <div class="fade-in delay-300">
+                <a href="portfolio_ru.html"
+                    class="inline-block border border-[#D4AF37] px-12 py-4 text-[#D4AF37] text-xs uppercase tracking-[0.2em] hover:bg-[#D4AF37] hover:text-black transition-all duration-500">
+                    Смотреть Коллекцию
                 </a>
             </div>
         </div>
     </section>
 
-
-
-    <!-- Featured Work Section -->
-    <section id="featured-work" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-            <div>
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Избранные Проекты</h2>
-                <p class="text-slate-400 max-w-xl">Посмотрите, как мы трансформируем индустрии с помощью премиального
-                    дизайна и интеллектуальной
-                    автоматизации.</p>
-            </div>
-            <a href="portfolio_ru.html"
-                class="hidden md:flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors mt-4 md:mt-0">
-                Смотреть Все Портфолио <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Project Card 1: Real Estate -->
-            <a href="portfolio/real-estate_ru.html"
-                class="group relative block overflow-hidden rounded-2xl aspect-video border border-white/10">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10"></div>
-                <!-- We will use the generated hero image here once ready -->
-                <img src="assets/images/skyline_hero.png" alt="Skyline Luxury Estates"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-
-                <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
-                    <div class="flex justify-between items-end">
-                        <div>
-                            <div class="text-xs font-bold text-[#b38728] uppercase tracking-wider mb-2">Недвижимость
-                            </div>
-                            <h3 class="text-2xl font-bold text-white mb-1">Skyline</h3>
-                            <p class="text-slate-300 text-sm line-clamp-1">Витрина элитной недвижимости.</p>
-                        </div>
-                        <div
-                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center group-hover:bg-[#b38728] group-hover:text-black transition-colors">
-                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-                        </div>
-                    </div>
+    <!-- Services / Agents Preview -->
+    <section id="agents" class="py-32 px-6 bg-[#080808]">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-24 border-b border-white/10 pb-8">
+                <div>
+                    <h2 class="text-4xl md:text-5xl mb-4">Наш Интеллект</h2>
+                    <p class="text-gray-500 font-light">ИИ агенты, созданные для совершенства.</p>
                 </div>
-            </a>
-
-            <!-- Project Card 2: Jewelry -->
-            <a href="portfolio/jewelry_ru.html"
-                class="group relative block overflow-hidden rounded-2xl aspect-video border border-white/10">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10"></div>
-                <img src="assets/images/jewelry_hero.png" alt="Lumière Joaillerie"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-
-                <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
-                    <div class="flex justify-between items-end">
-                        <div>
-                            <div class="text-xs font-bold text-[#C5A059] uppercase tracking-wider mb-2">Люкс Ритейл
-                            </div>
-                            <h3 class="text-2xl font-bold text-white mb-1">Lumière</h3>
-                            <p class="text-slate-300 text-sm line-clamp-1">Элегантный e-commerce.</p>
-                        </div>
-                        <div
-                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
-                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Project Card 3: Superyachts -->
-            <a href="portfolio/yachts_ru.html"
-                class="group relative block overflow-hidden rounded-2xl aspect-video border border-white/10">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10"></div>
-                <img src="assets/images/yacht_hero.png" alt="Vanguard Yachts"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-
-                <div class="absolute bottom-0 left-0 p-8 z-20 w-full">
-                    <div class="flex justify-between items-end">
-                        <div>
-                            <div
-                                class="text-xs font-bold text-[#0A192F] bg-[#F5F5DC] px-2 py-1 rounded inline-block uppercase tracking-wider mb-2">
-                                Суперъяхты</div>
-                            <h3 class="text-2xl font-bold text-white mb-1">Vanguard</h3>
-                            <p class="text-slate-300 text-sm line-clamp-1">Богатство поколений.</p>
-                        </div>
-                        <div
-                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center group-hover:bg-[#F5F5DC] group-hover:text-[#0A192F] transition-colors">
-                            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Наша Экспертиза</h2>
-                <p class="text-slate-400 max-w-xl">Мы объединяем передовой ИИ с премиальным дизайном, чтобы создавать
-                    программное обеспечение,
-                    которое ощущается как магия.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
-                    <div
-                        class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-indigo-500/20 transition-colors">
-                        <i data-lucide="bot" class="text-indigo-400 w-6 h-6"></i>
+                <!-- Agent 1 -->
+                <a href="demos_ru.html#researcher"
+                    class="block group relative p-10 border border-white/5 hover:border-[#D4AF37]/30 transition-all duration-500 hover:bg-white/[0.02]">
+                    <div class="absolute top-0 right-0 p-6 text-[#D4AF37] opacity-20 text-6xl font-serif italic">01
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">ИИ Агенты</h3>
-                    <p class="text-slate-400 leading-relaxed">
-                        Кастомные автономные агенты, которые обрабатывают поддержку клиентов, квалификацию лидов и ввод
-                        данных 24/7
-                        без участия человека.
-                    </p>
-                </div>
+                    <h3 class="text-2xl mb-4 text-white">Исследователь</h3>
+                    <p class="text-gray-500 mb-8 leading-relaxed text-sm">Автономный анализ рынка и аудит конкурентов.
+                        Предоставление инсайтов, определяющих стратегию.</p>
+                    <div
+                        class="h-[1px] w-12 bg-gray-800 group-hover:w-full group-hover:bg-[#D4AF37] transition-all duration-500">
+                    </div>
+                </a>
 
-                <!-- Card 2 -->
-                <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
-                    <div
-                        class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
-                        <i data-lucide="code-2" class="text-purple-400 w-6 h-6"></i>
+                <!-- Agent 2 -->
+                <a href="demos_ru.html#visionary"
+                    class="block group relative p-10 border border-white/5 hover:border-[#D4AF37]/30 transition-all duration-500 hover:bg-white/[0.02]">
+                    <div class="absolute top-0 right-0 p-6 text-[#D4AF37] opacity-20 text-6xl font-serif italic">02
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Vibe Coding</h3>
-                    <p class="text-slate-400 leading-relaxed">
-                        Высокоскоростная веб-разработка с акцентом на эстетику с использованием новейших
-                        ИИ-инструментов. Мы создаем красивые,
-                        адаптивные сайты за дни, а не месяцы.
-                    </p>
-                </div>
+                    <h3 class="text-2xl mb-4 text-white">Визионер</h3>
+                    <p class="text-gray-500 mb-8 leading-relaxed text-sm">Извлечение визуальных данных и эстетический
+                        анализ. Преобразование изображений в структурированные знания.</p>
+                    <div
+                        class="h-[1px] w-12 bg-gray-800 group-hover:w-full group-hover:bg-[#D4AF37] transition-all duration-500">
+                    </div>
+                </a>
 
-                <!-- Card 3 -->
-                <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
-                    <div
-                        class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
-                        <i data-lucide="workflow" class="text-cyan-400 w-6 h-6"></i>
+                <!-- Agent 3 -->
+                <a href="demos_ru.html#copywriter"
+                    class="block group relative p-10 border border-white/5 hover:border-[#D4AF37]/30 transition-all duration-500 hover:bg-white/[0.02]">
+                    <div class="absolute top-0 right-0 p-6 text-[#D4AF37] opacity-20 text-6xl font-serif italic">03
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Автоматизация</h3>
-                    <p class="text-slate-400 leading-relaxed">
-                        Подключите ваши приложения (Slack, Gmail, CRM) с помощью n8n и Make. Устраните ручное
-                        копирование и
-                        оптимизируйте ваши операции.
-                    </p>
-                </div>
+                    <h3 class="text-2xl mb-4 text-white">Копирайтер</h3>
+                    <p class="text-gray-500 mb-8 leading-relaxed text-sm">Генерация контента на основе нейромаркетинга.
+                        Создание повествований, которые резонируют и конвертируют.</p>
+                    <div
+                        class="h-[1px] w-12 bg-gray-800 group-hover:w-full group-hover:bg-[#D4AF37] transition-all duration-500">
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section Removed -->
+    <!-- Selected Works (Minimal) -->
+    <section id="work" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl text-center mb-24">Избранные Проекты</h2>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 relative overflow-hidden">
-        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[100px] -z-10">
-        </div>
-
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Готовы масштабироваться?</h2>
-            <p class="text-slate-400 mb-12 text-lg">
-                Расскажите нам о вашем проекте. Мы создадим индивидуальный план для автоматизации вашего бизнеса.
-            </p>
-
-            <form id="contactForm" class="glass p-6 md:p-12 rounded-3xl text-left space-y-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-2">Имя</label>
-                        <input type="text" required
-                            class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                            placeholder="Иван Иванов">
+            <div class="space-y-32">
+                <!-- Item 1 -->
+                <div class="grid md:grid-cols-2 gap-16 items-center group">
+                    <div class="overflow-hidden">
+                        <img src="assets/images/skyline_hero.png" alt="Real Estate"
+                            class="w-full grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-2">Email</label>
-                        <input type="email" required
-                            class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                            placeholder="ivan@company.com">
+                        <span class="text-[#D4AF37] text-xs tracking-widest uppercase">Недвижимость</span>
+                        <h3 class="text-5xl mb-6 mt-2">Skyline</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed text-lg font-light">Переосмысление показа элитной
+                            недвижимости с помощью иммерсивных 3D-туров и консьерж-сервиса на базе ИИ.</p>
+                        <a href="portfolio/real-estate_ru.html"
+                            class="text-white border-b border-white/20 pb-1 hover:text-[#D4AF37] hover:border-[#D4AF37] transition-colors uppercase text-xs tracking-widest">Смотреть
+                            Кейс</a>
                     </div>
                 </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-400 mb-2">Что вы хотите создать?</label>
-                    <select
-                        class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors">
-                        <option>Агент ИИ-автоматизации</option>
-                        <option>Новый сайт (Vibe Coding)</option>
-                        <option>Оптимизация процессов</option>
-                        <option>Другое</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-400 mb-2">Сообщение</label>
-                    <textarea rows="4" required
-                        class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors"
-                        placeholder="Расскажите нам о ваших целях..."></textarea>
-                </div>
-                <button type="submit"
-                    class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2">
-                    <span>Отправить Сообщение</span>
-                    <i data-lucide="send" class="w-4 h-4"></i>
-                </button>
-            </form>
-        </div>
-    </section>
 
-    <!-- Success Modal -->
-    <div id="successModal"
-        class="fixed inset-0 z-[60] hidden items-center justify-center px-4 bg-black/80 backdrop-blur-sm">
-        <div class="glass p-8 rounded-2xl max-w-md w-full text-center border border-green-500/30">
-            <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i data-lucide="check" class="w-8 h-8 text-green-400"></i>
+                <!-- Item 2 -->
+                <div class="grid md:grid-cols-2 gap-16 items-center group">
+                    <div class="ordered-1 md:order-2 overflow-hidden">
+                        <img src="assets/images/jewelry_hero.png" alt="Jewelry"
+                            class="w-full grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105">
+                    </div>
+                    <div class="order-2 md:order-1 text-right">
+                        <span class="text-[#D4AF37] text-xs tracking-widest uppercase">Ювелирное Искусство</span>
+                        <h3 class="text-5xl mb-6 mt-2">Lumière</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed text-lg font-light">Цифровой флагман для ювелирного
+                            дома с возможностью AR-примерки и записи на индивидуальные консультации.</p>
+                        <a href="portfolio/jewelry_ru.html"
+                            class="text-white border-b border-white/20 pb-1 hover:text-[#D4AF37] hover:border-[#D4AF37] transition-colors uppercase text-xs tracking-widest">Смотреть
+                            Кейс</a>
+                    </div>
+                </div>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-2">Сообщение Отправлено!</h3>
-            <p class="text-slate-400 mb-8">Спасибо за обращение. Мы свяжемся с вами в течение 24 часов.</p>
-            <button
-                onclick="document.getElementById('successModal').classList.add('hidden'); document.getElementById('successModal').classList.remove('flex')"
-                class="w-full bg-white text-slate-950 font-bold py-3 rounded-lg hover:bg-slate-200 transition-colors">
-                Закрыть
-            </button>
+
+            <div class="text-center mt-32">
+                <a href="portfolio_ru.html"
+                    class="inline-block px-12 py-4 bg-[#111] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 uppercase text-xs tracking-[0.2em] text-white">Все
+                    Проекты</a>
+            </div>
         </div>
-    </div>
-    </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-sm">
-        <p>&copy; 2025 Onda. Все права защищены.</p>
+    <footer class="py-20 px-6 border-t border-white/5 bg-black">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-center md:text-left">
+                <h4 class="text-2xl font-serif italic mb-4">ONDA</h4>
+                <p class="text-gray-600 text-xs uppercase tracking-widest">Est. 2024</p>
+            </div>
+
+            <div class="flex gap-8 text-xs uppercase tracking-widest text-gray-500">
+                <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-white transition-colors">Twitter</a>
+            </div>
+
+            <div class="text-right">
+                <p class="text-gray-600 text-xs">Разработано в Испании.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
         lucide.createIcons();
-
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-        });
-
-        // Contact Form Logic
-        const contactForm = document.getElementById('contactForm');
-        const successModal = document.getElementById('successModal');
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const btn = contactForm.querySelector('button');
-                const originalText = btn.innerHTML;
-
-                // Loading State
-                btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Отправка...';
-                lucide.createIcons();
-
-                try {
-                    // Gather data
-                    const formData = {
-                        name: contactForm.querySelector('input[type="text"]').value,
-                        email: contactForm.querySelector('input[type="email"]').value,
-                        type: contactForm.querySelector('select').value,
-                        message: contactForm.querySelector('textarea').value
-                    };
-
-                    // API Call
-                    const response = await fetch('/api/contact', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(formData)
-                    });
-
-                    if (!response.ok) throw new Error('Network response was not ok');
-
-                    // Success
-                    btn.innerHTML = originalText;
-                    contactForm.reset();
-                    successModal.classList.remove('hidden');
-                    successModal.classList.add('flex');
-                } catch (error) {
-                    console.error('Error:', error);
-                    btn.innerHTML = '<i data-lucide="alert-circle" class="w-5 h-5"></i> Ошибка';
-                    setTimeout(() => {
-                        btn.innerHTML = originalText;
-                    }, 3000);
-                }
-            });
-        }
     </script>
 </body>
 
