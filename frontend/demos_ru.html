@@ -15,13 +15,13 @@
     <style>
         body {
             font-family: 'Lato', sans-serif;
-            background: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #050505 100%);
+            background: linear-gradient(to bottom, #0B1C1C 0%, #020808 100%);
             background-attachment: fixed;
-            color: #F5F5DC;
+            color: #E5E7EB;
         }
 
         a:hover {
-            text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+            text-shadow: 0 0 12px rgba(215, 247, 91, 0.6);
         }
 
         h1,
@@ -34,31 +34,31 @@
         }
 
         .luxury-gold {
-            color: #D4AF37;
+            color: #D7F75B;
         }
 
         .border-gold {
-            border-color: #D4AF37;
+            border-color: #D7F75B;
         }
 
         .bg-gold {
-            background-color: #D4AF37;
+            background-color: #D7F75B;
         }
 
         .text-cream {
-            color: #F5F5DC;
+            color: #E5E7EB;
         }
 
         /* High-End Input Styles */
         .luxury-input {
             background: transparent;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            color: #F5F5DC;
+            color: #E5E7EB;
             transition: all 0.3s ease;
         }
 
         .luxury-input:focus {
-            border-color: #D4AF37;
+            border-color: #D7F75B;
             outline: none;
         }
 
@@ -81,7 +81,7 @@
     <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <div class="flex items-center gap-6">
-                <a href="index_ru.html" class="text-white hover:text-[#D4AF37] transition-colors"><i
+                <a href="index_ru.html" class="text-white hover:text-[#D7F75B] transition-colors"><i
                         data-lucide="arrow-left" class="w-5 h-5"></i></a>
                 <a href="index_ru.html" class="text-2xl font-serif italic font-bold tracking-widest text-white">ONDA</a>
             </div>
@@ -92,7 +92,7 @@
 
     <!-- Header -->
     <header class="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto">
-        <p class="text-[#D4AF37] text-xs tracking-[0.4em] uppercase mb-6">Интерактивная Демонстрация</p>
+        <p class="text-[#D7F75B] text-xs tracking-[0.4em] uppercase mb-6">Интерактивная Демонстрация</p>
         <h1 class="text-4xl md:text-6xl mb-8 leading-tight font-medium">
             Пакет <br> <span class="italic text-gray-500">Интеллекта</span>
         </h1>
@@ -121,7 +121,7 @@
                     </div>
 
                     <button type="button" onclick="runResearchDemo()"
-                        class="w-full py-4 border border-[#D4AF37] text-[#D4AF37] text-xs uppercase tracking-widest hover:bg-[#D4AF37] hover:text-black transition-all">
+                        class="w-full py-4 border border-[#D7F75B] text-[#D7F75B] text-xs uppercase tracking-widest hover:bg-[#D7F75B] hover:text-black transition-all">
                         Начать Аудит
                     </button>
                 </form>
@@ -194,7 +194,7 @@
                     </div>
 
                     <button type="button" onclick="runCopywriterDemo()"
-                        class="w-full py-4 border border-[#D4AF37] text-[#D4AF37] text-xs uppercase tracking-widest hover:bg-[#D4AF37] hover:text-black transition-all">
+                        class="w-full py-4 border border-[#D7F75B] text-[#D7F75B] text-xs uppercase tracking-widest hover:bg-[#D7F75B] hover:text-black transition-all">
                         Сгенерировать Нарратив
                     </button>
                 </form>
@@ -229,8 +229,8 @@
 
             output.innerHTML = `
                 <div class="text-center">
-                    <div class="w-12 h-12 border border-[#D4AF37] border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-                    <p class="text-xs uppercase tracking-widest text-[#D4AF37]">Анализ Инфраструктуры</p>
+                    <div class="w-12 h-12 border border-[#D7F75B] border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+                    <p class="text-xs uppercase tracking-widest text-[#D7F75B]">Анализ Инфраструктуры</p>
                 </div>
             `;
 
@@ -247,7 +247,7 @@
                         <div class="flex justify-between items-end border-b border-white/10 pb-6 mb-6">
                             <div>
                                 <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">Оценка CRO</p>
-                                <p class="text-4xl font-serif text-[#D4AF37]">${data.score}<span class="text-lg text-gray-600">/100</span></p>
+                                <p class="text-4xl font-serif text-[#D7F75B]">${data.score}<span class="text-lg text-gray-600">/100</span></p>
                             </div>
                             <div class="text-right">
                                 <p class="text-xs uppercase tracking-widest text-gray-500">Анализ Завершен</p>
@@ -265,7 +265,7 @@
                                 <ul class="space-y-3">
                                     ${data.improvements.map(item => `
                                         <li class="flex items-start gap-3 text-sm font-light text-gray-400">
-                                            <span class="text-[#D4AF37] mt-1">✦</span> ${item}
+                                            <span class="text-[#D7F75B] mt-1">✦</span> ${item}
                                         </li>
                                     `).join('')}
                                 </ul>
@@ -293,7 +293,7 @@
                 preview.innerHTML = `<img src="${base64Image}" class="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-500">`;
 
                 resultDiv.classList.remove('hidden');
-                resultDiv.innerHTML = `<p class="text-xs uppercase tracking-widest text-[#D4AF37] text-center mt-4">Обработка Визуальных Данных...</p>`;
+                resultDiv.innerHTML = `<p class="text-xs uppercase tracking-widest text-[#D7F75B] text-center mt-4">Обработка Визуальных Данных...</p>`;
 
                 try {
                     const response = await fetch(`${API_BASE}/api/vision`, {
@@ -304,7 +304,7 @@
                     const data = await response.json();
 
                     resultDiv.innerHTML = `
-                        <div class="bg-white/5 p-6 border-l-2 border-[#D4AF37] animate-fade-in">
+                        <div class="bg-white/5 p-6 border-l-2 border-[#D7F75B] animate-fade-in">
                             <div class="flex justify-between mb-4">
                                 <span class="text-xs uppercase tracking-widest text-gray-500">Тип Документа</span>
                                 <span class="text-xs font-bold text-white">${data.type}</span>
@@ -312,7 +312,7 @@
                             <div class="text-xs font-mono text-gray-400 mb-4 bg-black/50 p-4">
                                 ${JSON.stringify(data.data, null, 2)}
                             </div>
-                            <p class="text-sm font-light text-[#D4AF37] italic">
+                            <p class="text-sm font-light text-[#D7F75B] italic">
                                 "Инсайт: ${data.insight}"
                             </p>
                         </div>
@@ -334,7 +334,7 @@
 
             preview.innerHTML = `
                 <div class="text-center">
-                    <div class="w-8 h-8 border border-[#D4AF37] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <div class="w-8 h-8 border border-[#D7F75B] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
                     <p class="text-xs uppercase tracking-widest text-gray-500">Создание Нарратива...</p>
                 </div>
              `;
@@ -357,13 +357,13 @@
                         <div class="grid gap-4 text-left max-w-sm mx-auto">
                             ${data.benefits.map(benefit => `
                                 <div class="flex items-center gap-3 text-sm text-gray-300">
-                                    <div class="w-1 h-1 bg-[#D4AF37] rounded-full"></div>
+                                    <div class="w-1 h-1 bg-[#D7F75B] rounded-full"></div>
                                     <span>${benefit}</span>
                                 </div>
                             `).join('')}
                         </div>
 
-                        <button class="bg-[#D4AF37] text-black px-8 py-3 text-xs uppercase tracking-widest font-bold hover:bg-white transition-colors">
+                        <button class="bg-[#D7F75B] text-black px-8 py-3 text-xs uppercase tracking-widest font-bold hover:bg-white transition-colors">
                             ${data.cta}
                         </button>
                     </div>
