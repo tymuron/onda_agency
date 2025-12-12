@@ -15,24 +15,16 @@ class VisionAgent:
             self.client = None
             logger.warning("VisionAgent initialized without API key. Using mock mode.")
 
-    def analyze_image(self, image_data: str):
+    def analyze_image(self, base64_image: str, language: str = "en"):
         """
         Analyzes a base64 encoded image using GPT-4o Vision.
         """
-        logger.info("Analyzing uploaded image...")
+        logger.info(f"Analyzing uploaded image... (Lang: {language})")
         
         # Ensure image_data has the correct prefix if missing (though frontend usually sends it)
-        if "," in image_data:
-            header, encoded = image_data.split(",", 1)
-        else:
-            encoded = image_data
-            header = "data:image/jpeg;base64"
+        # Note: This logic was in the previous version but base64_image passed here is usually the full data URL
+        # We will pass it directly to OpenAI which handles data:image/jpeg;base64,... correctly if formatted.
 
-        if self.client:
-    def analyze_image(self, base64_image: str, language: str = "en"):
-        """
-        Analyzes an image using GPT-4 Vision.
-        """
         if not self.client:
             return self.mock_response(language)
 
