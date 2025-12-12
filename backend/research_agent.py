@@ -16,11 +16,11 @@ class ResearchAgent:
             self.client = None
             logger.warning("ResearchAgent initialized without API key. Using mock mode.")
 
-    def analyze_url(self, url: str):
+    def analyze_url(self, url: str, language: str = "en"):
         """
         Scrapes the given URL and uses LLM to provide marketing improvements.
         """
-        logger.info(f"Researching URL: {url}")
+        logger.info(f"Researching URL: {url} (Lang: {language})")
         
         # 1. Scrape Content
         try:
@@ -62,6 +62,12 @@ class ResearchAgent:
         # 2. Analyze with LLM (or Mock)
         if self.client:
             try:
+                lang_instruction = "Respond in English."
+                if language == 'ru':
+                    lang_instruction = "Respond in Russian (Русский). Use professional marketing terminology."
+                elif language == 'es':
+                    lang_instruction = "Respond in Spanish (Español)."
+
                 prompt = f"""
                 Analyze this website content for a business owner.
                 URL: {url}
@@ -69,10 +75,12 @@ class ResearchAgent:
                 Description: {scraped_data['description']}
                 Content Snippet: {scraped_data['content_snippet']}
 
+                {lang_instruction}
+
                 Provide a structured critique in JSON format with:
                 1. "score": A score from 0-100 based on CRO (Conversion Rate Optimization).
                 2. "summary": A 1-sentence summary of what the site does.
-                3. "improvements": A list of 3 specific, actionable marketing improvements.
+                3. "improvements": A list of 3 specific, actionable marketing improvements. EACH ITEM MUST BE A STRING. Do NOT use objects. Example: ["Change headline", "Add CTA"].
                 4. "quick_win": One specific automation idea for this business.
                 """
                 
@@ -87,19 +95,42 @@ class ResearchAgent:
                 return json.loads(completion.choices[0].message.content)
             except Exception as e:
                 logger.error(f"LLM analysis failed: {e}")
-                return self.mock_response(url)
+                return self.mock_response(url, language)
         else:
-            return self.mock_response(url)
+            return self.mock_response(url, language)
 
-    def mock_response(self, url="example.com"):
+    def mock_response(self, url="example.com", language="en"):
         """Fallback mock response for demos without API keys"""
+        if language == 'ru':
+             return {
+                "score": 72,
+                "summary": f"Бизнес-сайт {url}, которому не хватает уникального торгового предложения.",
+                "improvements": [
+                    "Добавьте четкий призыв к действию (CTA) на первом экране.",
+                    "Используйте социальные доказательства (отзывы).",
+                    "Оптимизируйте скорость загрузки изображений."
+                ],
+                "quick_win": "Настройте автоответчик для контактной формы."
+            }
+        elif language == 'es':
+             return {
+                "score": 72,
+                "summary": f"Un sitio web comercial en {url} que podría usar mejores propuestas de valor.",
+                "improvements": [
+                    "Agregue una llamada a la acción (CTA) clara.",
+                    "Use pruebas sociales (testimonios).",
+                    "Optimice la velocidad de carga de las imágenes."
+                ],
+                "quick_win": "Configure una respuesta automática para el formulario de contacto."
+            }
+        
         return {
             "score": 72,
             "summary": f"A business website at {url} that could use better value propositions.",
             "improvements": [
                 "Add a clear Call-to-Action (CTA) above the fold.",
-                "Improve page load speed (images seem large).",
-                "Add social proof or testimonials to build trust."
+                "Use social proof (testimonials) to build trust.",
+                "Optimize image loading speed for mobile users."
             ],
-            "quick_win": "Implement an automated chatbot to capture leads 24/7."
+            "quick_win": "Set up an auto-responder for the contact form."
         }

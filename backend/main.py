@@ -44,9 +44,11 @@ class ContactRequest(BaseModel):
 
 class ResearchRequest(BaseModel):
     url: str
+    language: str = "en"
 
 class VisionRequest(BaseModel):
     image: str # Base64 string
+    language: str = "en"
 
 class CopywriterRequest(BaseModel):
     business_name: str
@@ -57,25 +59,25 @@ class CopywriterRequest(BaseModel):
 
 @app.post("/api/research")
 async def run_research(request: ResearchRequest):
-    logger.info(f"Research request for: {request.url}")
+    logger.info(f"Research request for: {request.url} in {request.language}")
     try:
         # Run the agent
-        result = research_agent.analyze_url(request.url)
+        result = research_agent.analyze_url(request.url, request.language)
         return result
     except Exception as e:
         logger.error(f"Error in research agent: {e}")
         # Return a mock response if it fails so the demo doesn't crash
-        return research_agent.mock_response()
+        return research_agent.mock_response(url=request.url, language=request.language)
 
 @app.post("/api/vision")
 async def run_vision(request: VisionRequest):
-    logger.info("Vision request received")
+    logger.info(f"Vision request received in {request.language}")
     try:
-        result = vision_agent.analyze_image(request.image)
+        result = vision_agent.analyze_image(request.image, request.language)
         return result
     except Exception as e:
         logger.error(f"Error in vision agent: {e}")
-        return vision_agent.mock_response()
+        return vision_agent.mock_response(language=request.language)
 
 @app.post("/api/copywriter")
 async def run_copywriter(request: CopywriterRequest):

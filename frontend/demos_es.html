@@ -83,7 +83,8 @@
             <div class="flex items-center gap-6">
                 <a href="index_es.html" class="text-[#0B1C1C] hover:text-[#004225] transition-colors"><i
                         data-lucide="arrow-left" class="w-5 h-5"></i></a>
-                <a href="index_es.html" class="text-2xl font-serif italic font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
+                <a href="index_es.html"
+                    class="text-2xl font-serif italic font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
             </div>
 
             <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-600">
@@ -102,14 +103,24 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
-        <a href="index_es.html#work" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Proyectos</a>
-        <a href="index_es.html#agents" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Demos IA</a>
-        <a href="process_es.html" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Proceso</a>
-        <a href="index_es.html#contact" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Contacto</a>
-        <button onclick="toggleMenu()" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x" class="w-8 h-8"></i></button>
+    <div id="mobileMenu"
+        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
+        <a href="index_es.html#work"
+            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
+            onclick="toggleMenu()">Proyectos</a>
+        <a href="index_es.html#agents"
+            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
+            onclick="toggleMenu()">Demos IA</a>
+        <a href="process_es.html"
+            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
+            onclick="toggleMenu()">Proceso</a>
+        <a href="index_es.html#contact"
+            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
+            onclick="toggleMenu()">Contacto</a>
+        <button onclick="toggleMenu()" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x"
+                class="w-8 h-8"></i></button>
     </div>
-    
+
 
     <!-- Header -->
     <header class="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto">
@@ -259,9 +270,19 @@
                 const response = await fetch(`${API_BASE}/api/research`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ url: url })
+                    body: JSON.stringify({ url: url, language: 'es' })
                 });
                 const data = await response.json();
+
+                // Safe render for improvements list to avoid [object Object]
+                const improvementsHtml = data.improvements.map(item => {
+                    const text = typeof item === 'object' ? (item.description || item.text || JSON.stringify(item)) : item;
+                    return `
+                        <li class="flex items-start gap-3 text-sm font-light text-gray-600">
+                            <span class="text-[#004225] mt-1">✦</span> ${text}
+                        </li>
+                    `;
+                }).join('');
 
                 output.innerHTML = `
                     <div class="w-full text-left animate-fade-in">
@@ -284,11 +305,7 @@
                             <div>
                                 <p class="text-xs uppercase tracking-widest text-gray-500 mb-3">Mejoras Estratégicas</p>
                                 <ul class="space-y-3">
-                                    ${data.improvements.map(item => `
-                                        <li class="flex items-start gap-3 text-sm font-light text-gray-600">
-                                            <span class="text-[#004225] mt-1">✦</span> ${item}
-                                        </li>
-                                    `).join('')}
+                                    ${improvementsHtml}
                                 </ul>
                             </div>
                         </div>
@@ -320,7 +337,7 @@
                     const response = await fetch(`${API_BASE}/api/vision`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ image: base64Image })
+                        body: JSON.stringify({ image: base64Image, language: 'es' })
                     });
                     const data = await response.json();
 

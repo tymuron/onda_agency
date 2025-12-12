@@ -29,51 +29,72 @@ class VisionAgent:
             header = "data:image/jpeg;base64"
 
         if self.client:
-            try:
-                prompt = """
-                Look at this image. It is likely a business document (receipt, invoice, spreadsheet) or a UI screenshot.
-                
-                Extract the key data into a structured JSON format.
-                1. "type": Identify the document type (e.g., "Receipt", "Spreadsheet", "Website UI").
-                2. "data": Key values extracted (e.g., total amount, date, key metrics).
-                3. "insight": One business insight or anomaly detected.
-                """
-                
-                response = self.client.chat.completions.create(
-                    model="gpt-4o",
-                    messages=[
-                        {
-                            "role": "user",
-                            "content": [
-                                {"type": "text", "text": prompt},
-                                {
-                                    "type": "image_url",
-                                    "image_url": {
-                                        "url": f"{header},{encoded}"
-                                    },
-                                },
-                            ],
-                        }
-                    ],
-                    response_format={ "type": "json_object" },
-                    max_tokens=500,
-                )
-                return json.loads(response.choices[0].message.content)
-            except Exception as e:
-                logger.error(f"Vision analysis failed: {e}")
-                return self._get_mock_response()
-        else:
-            return self._get_mock_response()
+    def analyze_image(self, base64_image: str, language: str = "en"):
+        """
+        Analyzes an image using GPT-4 Vision.
+        """
+        if not self.client:
+            return self.mock_response(language)
 
-    def _get_mock_response(self):
-        """Fallback mock response"""
+        try:
+            lang_instruction = "Respond in English."
+            if language == 'ru':
+                lang_instruction = "Respond in Russian (Русский)."
+            elif language == 'es':
+                lang_instruction = "Respond in Spanish (Español)."
+
+            response = self.client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {
+                        "role": "user",
+                        "content": [
+                            {"type": "text", "text": f"Analyze this image as a business document or design asset. {lang_instruction} Return JSON with: 'type' (document type), 'data' (extracted key-value pairs), and 'insight' (one strategic business insight)."},
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"{base64_image}"
+                                }
+                            }
+                        ],
+                    }
+                ],
+                max_tokens=500,
+                response_format={ "type": "json_object" }
+            )
+            return json.loads(response.choices[0].message.content)
+        except Exception as e:
+            logger.error(f"Vision analysis failed: {e}")
+            return self.mock_response(language)
+
+    def mock_response(self, language="en"):
+        if language == 'ru':
+            return {
+                "type": "Счет-фактура (Демо)",
+                "data": {
+                    "Итого": "$4,500.00",
+                    "Дата": "2024-03-15",
+                    "Поставщик": "Acme Corp"
+                },
+                "insight": "Обнаружены повторяющиеся расходы. Рекомендуется консолидация поставщиков."
+            }
+        elif language == 'es':
+            return {
+                "type": "Factura (Demo)",
+                "data": {
+                    "Total": "$4,500.00",
+                    "Fecha": "2024-03-15",
+                    "Proveedor": "Acme Corp"
+                },
+                "insight": "Gastos recurrentes detectados. Se recomienda la consolidación de proveedores."
+            }
+
         return {
-            "type": "Receipt (Mock Analysis)",
+            "type": "Invoice (Demo)",
             "data": {
-                "Merchant": "Office Supplies Co.",
-                "Date": "2023-11-24",
-                "Total": "$145.20",
-                "Items": ["Printer Paper", "Ink Cartridges"]
+                "Total": "$4,500.00",
+                "Date": "2024-03-15",
+                "Vendor": "Acme Corp"
             },
-            "insight": "This expense category is 15% higher than last month's average."
+            "insight": "Recurring expense detected. Vendor consolidation recommended."
         }
