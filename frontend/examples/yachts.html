@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanguard Yachts | Beyond the Horizon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #F5F5DC;
+            /* Cream */
+            color: #0A192F;
+            /* Navy */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .font-heading {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-navy {
+            background-color: #0A192F;
+        }
+
+        .text-navy {
+            color: #0A192F;
+        }
+
+        .bg-cream {
+            background-color: #F5F5DC;
+        }
+
+        .text-cream {
+            color: #F5F5DC;
+        }
+
+        .text-gold {
+            color: #D4AF37;
+        }
+
+        .border-gold {
+            border-color: #D4AF37;
+        }
+
+        .bg-gold {
+            background-color: #D4AF37;
+        }
+
+        .hover-gold:hover {
+            color: #D4AF37;
+        }
+
+        .tracking-widest-xl {
+            letter-spacing: 0.25em;
+        }
+
+        /* Smooth reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav
+        class="fixed w-full z-50 bg-[#0A192F]/95 backdrop-blur-md border-b border-[#D4AF37]/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#"
+                class="text-2xl md:text-3xl font-heading font-bold tracking-wider text-[#F5F5DC] flex items-center gap-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/1995/1995966.png" class="w-8 h-8 invert opacity-80"
+                    alt="Anchor">
+                VANGUARD
+            </a>
+
+            <!-- Desktop Menu -->
+            <div
+                class="hidden md:flex items-center gap-10 text-xs tracking-widest-xl uppercase text-[#F5F5DC]/80 font-medium">
+                <a href="#fleet" class="hover:text-[#D4AF37] transition-colors">The Fleet</a>
+                <a href="#bespoke" class="hover:text-[#D4AF37] transition-colors">Bespoke</a>
+                <a href="#legacy" class="hover:text-[#D4AF37] transition-colors">Legacy</a>
+                <a href="#contact"
+                    class="px-6 py-3 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0A192F] transition-all">Commission</a>
+                <a href="../index.html" class="hover:text-white transition-colors border-l border-white/10 pl-6">Back to
+                    Onda</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn"
+                class="md:hidden text-[#F5F5DC] focus:outline-none hover:text-[#D4AF37] transition-colors">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-24 left-0 w-full bg-[#0A192F] border-b border-[#D4AF37]/20 p-8 flex-col gap-8 text-center text-sm tracking-widest uppercase text-[#F5F5DC]">
+            <a href="#fleet" class="hover:text-[#D4AF37] transition-colors py-2">The Fleet</a>
+            <a href="#bespoke" class="hover:text-[#D4AF37] transition-colors py-2">Bespoke</a>
+            <a href="#legacy" class="hover:text-[#D4AF37] transition-colors py-2">Legacy</a>
+            <a href="#contact" class="hover:text-[#D4AF37] transition-colors py-2">Commission</a>
+            <a href="../index.html"
+                class="text-xs border-t border-white/10 pt-4 inline-block mx-auto mt-2 text-white/50">Back to Onda</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-[#0A192F]">
+        <div class="absolute inset-0 z-0">
+            <!-- Placeholder for a superyacht video/image -->
+            <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?q=80&w=2070&auto=format&fit=crop"
+                alt="Superyacht at sea" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0A192F]/60 via-transparent to-[#0A192F]"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto mt-20">
+            <div class="w-[1px] h-24 bg-[#D4AF37] mx-auto mb-8 reveal"></div>
+            <p class="text-[#D4AF37] text-sm md:text-base tracking-[0.4em] uppercase mb-6 font-bold reveal">Generations
+                of Excellence</p>
+            <h1 class="text-5xl md:text-8xl font-heading font-medium mb-8 leading-tight text-[#F5F5DC] reveal">
+                Beyond the <br> <span class="italic font-light">Horizon</span>
+            </h1>
+            <p class="text-[#F5F5DC]/80 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 reveal">
+                Crafting the world's most extraordinary vessels for those who seek the ultimate freedom.
+            </p>
+            <a href="#fleet"
+                class="inline-block px-10 py-4 border border-[#F5F5DC]/30 text-[#F5F5DC] text-xs uppercase tracking-widest hover:bg-[#F5F5DC] hover:text-[#0A192F] transition-all duration-500 reveal">
+                Explore the Fleet
+            </a>
+        </div>
+    </section>
+
+    <!-- The Fleet (Horizontal Scroll) -->
+    <section id="fleet" class="py-32 bg-[#0A192F] text-[#F5F5DC] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-16 flex justify-between items-end">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-heading mb-4">The Collection</h2>
+                <div class="w-16 h-[2px] bg-[#D4AF37]"></div>
+            </div>
+            <div class="hidden md:flex gap-4">
+                <button
+                    class="w-12 h-12 rounded-full border border-[#F5F5DC]/20 flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-[#0A192F] transition-all">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </button>
+                <button
+                    class="w-12 h-12 rounded-full border border-[#F5F5DC]/20 flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-[#0A192F] transition-all">
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="flex overflow-x-auto gap-8 px-6 pb-12 snap-x scrollbar-hide">
+            <!-- Yacht 1 -->
+            <div class="min-w-[85vw] md:min-w-[800px] snap-center group cursor-pointer relative">
+                <div class="aspect-[16/9] overflow-hidden mb-6">
+                    <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe79ba02?q=80&w=2070&auto=format&fit=crop"
+                        alt="Project Sovereign"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-[#D4AF37] text-xs uppercase tracking-widest mb-2">Expedition Class</p>
+                        <h3 class="text-3xl font-heading mb-2">Project Sovereign</h3>
+                        <p class="text-white/60 text-sm">110m • Hybrid Propulsion • Ice Class</p>
+                    </div>
+                    <span
+                        class="text-4xl font-heading text-[#F5F5DC]/10 group-hover:text-[#D4AF37] transition-colors">01</span>
+                </div>
+            </div>
+
+            <!-- Yacht 2 -->
+            <div class="min-w-[85vw] md:min-w-[800px] snap-center group cursor-pointer relative">
+                <div class="aspect-[16/9] overflow-hidden mb-6">
+                    <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=2070&auto=format&fit=crop"
+                        alt="The Aeon"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-[#D4AF37] text-xs uppercase tracking-widest mb-2">Sport Yacht</p>
+                        <h3 class="text-3xl font-heading mb-2">The Aeon</h3>
+                        <p class="text-white/60 text-sm">85m • 35 Knots • Helipad</p>
+                    </div>
+                    <span
+                        class="text-4xl font-heading text-[#F5F5DC]/10 group-hover:text-[#D4AF37] transition-colors">02</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bespoke Process -->
+    <section id="bespoke" class="py-32 px-6 bg-[#F5F5DC] text-[#0A192F]">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div class="reveal">
+                <p class="text-[#D4AF37] uppercase tracking-widest text-sm mb-6 font-bold">Naval Architecture</p>
+                <h2 class="text-4xl md:text-6xl font-heading mb-8 leading-tight">Engineering <br> <span
+                        class="italic text-[#0A192F]/70">Mastery</span></h2>
+                <p class="text-[#0A192F]/70 text-lg leading-relaxed mb-10 font-light">
+                    Every Vanguard yacht begins as a conversation. From the initial sketch to the christening, our team
+                    of world-renowned naval architects and interior designers work in concert to realize your specific
+                    vision. We don't just build yachts; we engineer floating sanctuaries.
+                </p>
+
+                <div class="grid grid-cols-2 gap-8 border-t border-[#0A192F]/10 pt-8">
+                    <div>
+                        <h4 class="text-3xl font-heading mb-2">100%</h4>
+                        <p class="text-xs uppercase tracking-widest text-[#0A192F]/60">Custom Design</p>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-heading mb-2">48</h4>
+                        <p class="text-xs uppercase tracking-widest text-[#0A192F]/60">Months Build Time</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative reveal">
+                <div class="absolute -top-10 -right-10 w-full h-full border border-[#D4AF37] z-0"></div>
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop"
+                    alt="Interior Design"
+                    class="relative z-10 w-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy / Quote -->
+    <section id="legacy" class="py-40 px-6 bg-[#0A192F] text-center relative">
+        <div
+            class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]">
+        </div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <i data-lucide="quote" class="w-12 h-12 text-[#D4AF37] mx-auto mb-8 opacity-50"></i>
+            <h2 class="text-3xl md:text-5xl font-heading leading-relaxed text-[#F5F5DC] mb-12">
+                "A Vanguard yacht is not merely a possession. It is a sovereign territory, a private world designed
+                entirely around your desires."
+            </h2>
+            <div class="flex items-center justify-center gap-4">
+                <div class="w-12 h-[1px] bg-[#D4AF37]"></div>
+                <span class="text-[#D4AF37] uppercase tracking-widest text-xs">The Vanguard Promise</span>
+                <div class="w-12 h-[1px] bg-[#D4AF37]"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-32 px-6 bg-[#F5F5DC]">
+        <div class="max-w-7xl mx-auto bg-white shadow-2xl p-8 md:p-20 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-[#0A192F]"></div>
+
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-heading text-[#0A192F] mb-6">Commission Your Vision</h2>
+                    <p class="text-[#0A192F]/60 mb-12 text-lg">
+                        Begin the journey of creating your legacy. Contact our private client office in Monaco.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 text-[#0A192F]">
+                            <i data-lucide="map-pin" class="text-[#D4AF37]"></i>
+                            <span>Quai des États-Unis, 98000 Monaco</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-[#0A192F]">
+                            <i data-lucide="phone" class="text-[#D4AF37]"></i>
+                            <span>+377 98 98 98 98</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-[#0A192F]">
+                            <i data-lucide="mail" class="text-[#D4AF37]"></i>
+                            <span>private@vanguardyachts.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#0A192F]/50 mb-2">Name</label>
+                        <input type="text"
+                            class="w-full bg-[#F5F5DC]/30 border-b border-[#0A192F]/20 py-3 focus:border-[#D4AF37] outline-none transition-colors text-[#0A192F]">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#0A192F]/50 mb-2">Email</label>
+                        <input type="email"
+                            class="w-full bg-[#F5F5DC]/30 border-b border-[#0A192F]/20 py-3 focus:border-[#D4AF37] outline-none transition-colors text-[#0A192F]">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#0A192F]/50 mb-2">Inquiry</label>
+                        <textarea rows="3"
+                            class="w-full bg-[#F5F5DC]/30 border-b border-[#0A192F]/20 py-3 focus:border-[#D4AF37] outline-none transition-colors text-[#0A192F]"></textarea>
+                    </div>
+                    <button
+                        class="px-10 py-4 bg-[#0A192F] text-[#F5F5DC] font-bold uppercase tracking-widest hover:bg-[#D4AF37] hover:text-[#0A192F] transition-colors duration-300 w-full mt-4">
+                        Request Consultation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        class="py-12 bg-[#0A192F] text-[#F5F5DC]/40 text-center text-xs uppercase tracking-widest border-t border-white/5">
+        <div class="flex justify-center gap-8 mb-8">
+            <a href="#" class="hover:text-[#D4AF37] transition-colors">Fleet</a>
+            <a href="#" class="hover:text-[#D4AF37] transition-colors">Charter</a>
+            <a href="#" class="hover:text-[#D4AF37] transition-colors">Brokerage</a>
+            <a href="#" class="hover:text-[#D4AF37] transition-colors">Press</a>
+        </div>
+        <p>&copy; 2024 Vanguard Yachts. Designed by Onda.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+            });
+        }
+
+        // Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
