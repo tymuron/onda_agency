@@ -60,7 +60,7 @@ async def run_research(request: ResearchRequest):
     logger.info(f"Research request for: {request.url}")
     try:
         # Run the agent
-        result = research_agent.audit_site(request.url)
+        result = research_agent.analyze_url(request.url)
         return result
     except Exception as e:
         logger.error(f"Error in research agent: {e}")
