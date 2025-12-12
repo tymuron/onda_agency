@@ -119,6 +119,16 @@
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
+        <a href="index_ru.html#work" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Работы</a>
+        <a href="index_ru.html#agents" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">AI Демо</a>
+        <a href="process_ru.html" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Процесс</a>
+        <a href="index_ru.html#contact" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Контакты</a>
+        <button onclick="toggleMenu()" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x" class="w-8 h-8"></i></button>
+    </div>
+    
+
     <!-- Hero Section -->
     <section class="h-screen flex items-center justify-center relative overflow-hidden">
         <div class="absolute inset-0 z-0">

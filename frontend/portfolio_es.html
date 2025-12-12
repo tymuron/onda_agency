@@ -61,6 +61,16 @@
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
+        <a href="index_es.html#work" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Proyectos</a>
+        <a href="index_es.html#agents" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Demos IA</a>
+        <a href="process_es.html" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Proceso</a>
+        <a href="index_es.html#contact" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Contacto</a>
+        <button onclick="toggleMenu()" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x" class="w-8 h-8"></i></button>
+    </div>
+    
+
     <!-- Header -->
     <header class="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto">
         <p class="text-[#004225] text-xs tracking-[0.4em] uppercase mb-6">Trabajos Seleccionados</p>
