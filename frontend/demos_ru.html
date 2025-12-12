@@ -330,7 +330,7 @@
             const reader = new FileReader();
             reader.onload = async function (e) {
                 const base64Image = e.target.result;
-                preview.innerHTML = `<img src="${base64Image}" class="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-500">`;
+                preview.innerHTML = `<img src="${base64Image}" class="h-full w-full object-cover transition-all duration-500">`;
 
                 resultDiv.classList.remove('hidden');
                 resultDiv.innerHTML = `<p class="text-xs uppercase tracking-widest text-[#004225] text-center mt-4">Обработка Визуальных Данных...</p>`;
