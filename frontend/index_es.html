@@ -314,6 +314,9 @@
             btn.innerText = 'Enviando...';
             btn.disabled = true;
 
+            // Detect environment
+            const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';
+
             const data = {
                 name: document.getElementById('contactName').value,
                 email: document.getElementById('contactEmail').value,
@@ -322,12 +325,12 @@
             };
 
             try {
-                const response = await fetch('http://localhost:8000/api/contact', {
+                const response = await fetch(`${API_BASE}/api/contact`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
-                
+
                 if (response.ok) {
                     status.innerText = 'Mensaje Enviado con Éxito';
                     status.className = 'text-center text-xs uppercase tracking-widest mt-6 text-[#D4AF37]';

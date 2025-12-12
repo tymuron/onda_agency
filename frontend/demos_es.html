@@ -230,6 +230,9 @@
     <script>
         lucide.createIcons();
 
+        // Detect environment: Use localhost if opening file directly, otherwise use relative path (cloud/server)
+        const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';
+
         // --- Research Logic ---
         async function runResearchDemo() {
             const url = document.getElementById('researchUrl').value;
@@ -238,12 +241,12 @@
             output.innerHTML = `
                 <div class="text-center">
                     <div class="w-12 h-12 border border-[#D4AF37] border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-                    <p class="text-xs uppercase tracking-widest text-[#D4AF37]">Analizando Infraestructura</p>
+                    <p class="text-xs uppercase tracking-widest text-[#D4AF37]">Escaneo de Infraestructura Iniciado...</p>
                 </div>
             `;
 
             try {
-                const response = await fetch('http://localhost:8000/api/research', {
+                const response = await fetch(`${API_BASE}/api/research`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ url: url })
@@ -304,7 +307,7 @@
                 resultDiv.innerHTML = `<p class="text-xs uppercase tracking-widest text-[#D4AF37] text-center mt-4">Procesando Datos Visuales...</p>`;
 
                 try {
-                    const response = await fetch('http://localhost:8000/api/vision', {
+                    const response = await fetch(`${API_BASE}/api/vision`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ image: base64Image })
@@ -348,7 +351,7 @@
              `;
 
             try {
-                const response = await fetch('http://localhost:8000/api/copywriter', {
+                const response = await fetch(`${API_BASE}/api/copywriter`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ business_name: businessName, description: description, language: "es" })
