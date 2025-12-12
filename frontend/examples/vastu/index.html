@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vastu Platform - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Icons from Phosphor Icons (lightweight, clean) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>МАСШТАБ</h2>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item active">
+                    <i class="ph ph-squares-four nav-icon"></i>
+                    <span>Дашборд</span>
+                </a>
+                <a href="education.html" class="nav-item">
+                    <i class="ph ph-book-open nav-icon"></i>
+                    <span>Обучение</span>
+                </a>
+                <a href="services.html" class="nav-item">
+                    <i class="ph ph-puzzle-piece nav-icon"></i>
+                    <span>Сервисы</span>
+                </a>
+                <a href="chat.html" class="nav-item">
+                    <i class="ph ph-chat-circle-dots nav-icon"></i>
+                    <span>Умный чат</span>
+                </a>
+            </nav>
+
+            <div class="user-profile">
+                <span>Анна</span>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1 class="page-title">
+                    Анна, добро пожаловать домой ❤️🐺
+                </h1>
+                <p class="page-subtitle">Готовы масштабировать ваш проект?</p>
+            </header>
+
+            <div class="dashboard-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Earnings Card -->
+                    <div class="card earnings-card">
+                        <div>
+                            <div class="page-subtitle" style="font-size: 0.9rem;">Заработано</div>
+                            <div class="earnings-amount">0 ₽</div>
+                        </div>
+                        <button class="btn-add">+ Добавить доход</button>
+                    </div>
+
+                    <!-- Education Progress -->
+                    <div class="education-section">
+                        <div class="section-header">
+                            <h2 style="font-size: 1.25rem; font-weight: 700;">Обучение</h2>
+                            <span class="progress-pill">0 / 36</span>
+                        </div>
+
+                        <div class="card" style="padding: var(--spacing-lg);">
+                            <h3 style="margin-bottom: var(--spacing-lg); font-size: 1rem;">1 этап. Где моя суперсила
+                                <span class="progress-pill" style="margin-left: 8px;">0 / 7</span></h3>
+
+                            <div class="lesson-list">
+                                <div class="lesson-item">
+                                    <div class="checkbox"></div>
+                                    <span class="lesson-title">Добро пожаловать. Все, что вам нужно знать</span>
+                                    <a href="#" class="lesson-link">К уроку <i class="ph ph-arrow-right"></i></a>
+                                </div>
+                                <div class="lesson-item">
+                                    <div class="checkbox"></div>
+                                    <span class="lesson-title">Система продаж в онлайне: как это устроено</span>
+                                    <a href="#" class="lesson-link">К уроку <i class="ph ph-arrow-right"></i></a>
+                                </div>
+                                <div class="lesson-item">
+                                    <div class="checkbox"></div>
+                                    <span class="lesson-title">Важный урок для экспертов</span>
+                                    <a href="#" class="lesson-link">К уроку <i class="ph ph-arrow-right"></i></a>
+                                </div>
+                                <div class="lesson-item">
+                                    <div class="checkbox"></div>
+                                    <span class="lesson-title">Важный урок для продюсеров</span>
+                                    <a href="#" class="lesson-link">К уроку <i class="ph ph-arrow-right"></i></a>
+                                </div>
+                                <div class="lesson-item">
+                                    <div class="checkbox"></div>
+                                    <span class="lesson-title">Распаковка суперсилы</span>
+                                    <a href="#" class="lesson-link">К уроку <i class="ph ph-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Welcome / CTA -->
+                    <div class="welcome-card">
+                        <div style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: var(--spacing-sm);">
+                            Обучение</div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: var(--spacing-md);">Добро пожаловать. Все, что вам
+                            нужно знать</h3>
+                        <button class="btn-primary">Перейти к уроку</button>
+                    </div>
+
+                    <!-- Awards -->
+                    <div class="card">
+                        <h3 style="font-size: 1.1rem;">Награды</h3>
+                        <div class="awards-grid">
+                            <div class="award-item">
+                                <div class="award-icon">💸</div>
+                                <span class="award-title">Первая 1000₽</span>
+                            </div>
+                            <div class="award-item">
+                                <div class="award-icon">💰</div>
+                                <span class="award-title">100 000₽</span>
+                            </div>
+                            <div class="award-item">
+                                <div class="award-icon">💎</div>
+                                <span class="award-title">Миллионер</span>
+                            </div>
+                            <div class="award-item">
+                                <div class="award-icon">🎓</div>
+                                <span class="award-title">Окупил обучение</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

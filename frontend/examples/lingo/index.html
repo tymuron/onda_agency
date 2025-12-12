@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lingo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <img src="logo.svg" alt="Lingo Logo" width="32" height="32">
+                    <h1>Lingo</h1>
+                </div>
+                <button id="history-btn" class="icon-btn" aria-label="History">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main View: Listening -->
+        <main id="view-home" class="view active">
+            <div class="listening-container">
+                <div class="status-text">Tap to Listen</div>
+                <div class="ripple-container">
+                    <button id="listen-btn" class="listen-btn">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                            <line x1="12" y1="19" x2="12" y2="23"></line>
+                            <line x1="8" y1="23" x2="16" y2="23"></line>
+                        </svg>
+                    </button>
+                    <div class="ripple r1"></div>
+                    <div class="ripple r2"></div>
+                    <div class="ripple r3"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Result View -->
+        <main id="view-result" class="view">
+            <div class="result-card">
+                <div class="confidence-badge">98% Confidence</div>
+                <h2 id="language-name" class="language-title">French</h2>
+                <p id="language-native" class="language-native">Français</p>
+
+                <div class="sample-section">
+                    <h3>Detected Phrase</h3>
+                    <p id="sample-text" class="sample-text">"Excusez-moi, où est la bibliothèque?"</p>
+                </div>
+
+                <div class="sample-section">
+                    <h3>English Translation</h3>
+                    <p id="translation-text" class="sample-text">"Excuse me, where is the library?"</p>
+                </div>
+
+                <div class="actions">
+                    <button id="reset-btn" class="primary-btn">Identify Another</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- History View (Overlay) -->
+        <div id="view-history" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>History</h2>
+                    <button id="close-history" class="close-btn">Done</button>
+                </div>
+                <ul id="history-list" class="history-list">
+                    <!-- History items will be injected here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
