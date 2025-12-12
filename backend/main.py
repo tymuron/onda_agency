@@ -121,6 +121,11 @@ async def contact(request: ContactRequest):
     
     return {"status": "success", "message": "Message received"}
 
+@app.get("/api/health")
+async def health_check():
+    """Simple health check to verify backend is running"""
+    return {"status": "ok", "service": "onda-backend", "version": "1.0.0"}
+
 # Mount frontend files
 # We mount this LAST so it doesn't override the API routes
 # Use absolute path to ensure it works regardless of where the script is run from
