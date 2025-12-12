@@ -15,13 +15,13 @@
     <style>
         body {
             font-family: 'Lato', sans-serif;
-            background: linear-gradient(to bottom, #0B1C1C 0%, #020808 100%);
+            background: #FFFFFF;
             background-attachment: fixed;
-            color: #E5E7EB;
+            color: #0B1C1C;
         }
 
         a:hover {
-            text-shadow: 0 0 12px rgba(215, 247, 91, 0.6);
+            text-shadow: none;
         }
 
         h1,
@@ -34,20 +34,20 @@
         }
 
         .luxury-accent {
-            color: #D7F75B;
+            color: #004225;
             /* Lime Essence */
         }
 
         .border-accent {
-            border-color: #D7F75B;
+            border-color: #004225;
         }
 
         .bg-accent {
-            background-color: #D7F75B;
+            background-color: #004225;
         }
 
         .text-silver {
-            color: #E5E7EB;
+            color: #0B1C1C;
         }
 
         /* Elegant Fade In */
@@ -91,7 +91,7 @@
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #D7F75B;
+            background: #004225;
         }
     </style>
 </head>
@@ -99,23 +99,23 @@
 <body class="antialiased overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-500 bg-black/80 backdrop-blur-sm border-b border-white/5">
+    <nav class="fixed w-full z-50 transition-all duration-500 bg-white/80 backdrop-blur-sm border-b border-black/5">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <a href="#" class="text-3xl font-serif italic font-bold tracking-widest text-white">ONDA</a>
+            <a href="#" class="text-3xl font-serif italic font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
 
-            <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-300">
-                <a href="#work" class="hover:text-[#D7F75B] transition-colors duration-300">Work</a>
-                <a href="#agents" class="hover:text-[#D7F75B] transition-colors duration-300">AI Demos</a>
-                <a href="process.html" class="hover:text-[#D7F75B] transition-colors duration-300">Process</a>
-                <a href="#contact" class="hover:text-[#D7F75B] transition-colors duration-300">Contact</a>
-                <div class="flex gap-4 border-l border-white/10 pl-6">
-                    <span class="text-[#D7F75B] font-bold">EN</span>
-                    <a href="index_es.html" class="hover:text-white transition-colors">ES</a>
-                    <a href="index_ru.html" class="hover:text-white transition-colors">RU</a>
+            <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-600">
+                <a href="#work" class="hover:text-[#004225] transition-colors duration-300">Work</a>
+                <a href="#agents" class="hover:text-[#004225] transition-colors duration-300">AI Demos</a>
+                <a href="process.html" class="hover:text-[#004225] transition-colors duration-300">Process</a>
+                <a href="#contact" class="hover:text-[#004225] transition-colors duration-300">Contact</a>
+                <div class="flex gap-4 border-l border-black/10 pl-6">
+                    <span class="text-[#004225] font-bold">EN</span>
+                    <a href="index_es.html" class="hover:text-[#0B1C1C] transition-colors">ES</a>
+                    <a href="index_ru.html" class="hover:text-[#0B1C1C] transition-colors">RU</a>
                 </div>
             </div>
 
-            <button class="md:hidden text-white"><i data-lucide="menu"></i></button>
+            <button class="md:hidden text-[#0B1C1C]"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
@@ -130,17 +130,17 @@
         </div>
 
         <div class="relative z-10 text-center px-6 max-w-5xl">
-            <p class="text-[#D7F75B] text-sm tracking-[0.4em] uppercase mb-8 fade-in">Precision Performance</p>
-            <h1 class="text-6xl md:text-9xl mb-8 leading-tight font-medium fade-in delay-100 text-white">
-                Digital <br> <span class="italic text-[#D7F75B]">Velocity</span>
+            <p class="text-[#004225] text-sm tracking-[0.4em] uppercase mb-8 fade-in">Precision Performance</p>
+            <h1 class="text-6xl md:text-9xl mb-8 leading-tight font-medium fade-in delay-100 text-[#0B1C1C]">
+                Digital <br> <span class="italic text-[#004225]">Velocity</span>
             </h1>
             <p
-                class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 fade-in delay-200 leading-relaxed">
+                class="text-gray-600 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 fade-in delay-200 leading-relaxed">
                 Engineered for speed, designed for impact. We fuse aerodynamic aesthetics with high-performance AI.
             </p>
             <div class="fade-in delay-300">
                 <a href="portfolio.html"
-                    class="inline-block border border-[#D7F75B] px-12 py-4 text-[#D7F75B] text-xs uppercase tracking-[0.2em] hover:bg-[#D7F75B] hover:text-black transition-all duration-500 rounded-sm">
+                    class="inline-block border border-[#004225] px-12 py-4 text-[#004225] text-xs uppercase tracking-[0.2em] hover:bg-[#004225] hover:text-white transition-all duration-500 rounded-sm">
                     View Configurator
                 </a>
             </div>
@@ -148,9 +148,9 @@
     </section>
 
     <!-- Services / Agents Preview -->
-    <section id="agents" class="py-32 px-6 bg-[#080808]">
+    <section id="agents" class="py-32 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-24 border-b border-white/10 pb-8">
+            <div class="mb-24 border-b border-black/10 pb-8">
                 <h2 class="text-4xl md:text-5xl mb-4">Our Intelligence</h2>
                 <p class="text-gray-500 font-light">Bespoke AI Agents tailored for excellence.</p>
             </div>
@@ -158,40 +158,40 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Agent 1 -->
                 <a href="demos.html#researcher"
-                    class="block group relative p-10 border border-white/5 hover:border-[#D7F75B] transition-all duration-300 hover:bg-[#D7F75B]/5">
-                    <div class="absolute top-0 right-0 p-6 text-[#D7F75B] opacity-50 text-6xl font-serif italic">01
+                    class="block group relative p-10 border border-black/5 hover:border-[#004225] transition-all duration-300 hover:bg-[#004225]/5">
+                    <div class="absolute top-0 right-0 p-6 text-[#004225] opacity-50 text-6xl font-serif italic">01
                     </div>
-                    <h3 class="text-2xl mb-4 text-white">The Researcher</h3>
+                    <h3 class="text-2xl mb-4 text-[#0B1C1C]">The Researcher</h3>
                     <p class="text-gray-500 mb-8 leading-relaxed text-sm">Autonomous market analysis and competitor
                         auditing. Delivering insights that define strategy.</p>
                     <div
-                        class="h-[1px] w-12 bg-gray-700 group-hover:w-full group-hover:bg-[#D7F75B] transition-all duration-500">
+                        class="h-[1px] w-12 bg-gray-700 group-hover:w-full group-hover:bg-[#004225] transition-all duration-500">
                     </div>
                 </a>
 
                 <!-- Agent 2 -->
                 <a href="demos.html#visionary"
-                    class="block group relative p-10 border border-white/5 hover:border-[#D7F75B] transition-all duration-300 hover:bg-[#D7F75B]/5">
-                    <div class="absolute top-0 right-0 p-6 text-[#D7F75B] opacity-50 text-6xl font-serif italic">02
+                    class="block group relative p-10 border border-black/5 hover:border-[#004225] transition-all duration-300 hover:bg-[#004225]/5">
+                    <div class="absolute top-0 right-0 p-6 text-[#004225] opacity-50 text-6xl font-serif italic">02
                     </div>
-                    <h3 class="text-2xl mb-4 text-white">The Visionary</h3>
+                    <h3 class="text-2xl mb-4 text-[#0B1C1C]">The Visionary</h3>
                     <p class="text-gray-500 mb-8 leading-relaxed text-sm">Visual data extraction and aesthetic analysis.
                         Transforming imagery into structured knowledge.</p>
                     <div
-                        class="h-[1px] w-12 bg-gray-700 group-hover:w-full group-hover:bg-[#D7F75B] transition-all duration-500">
+                        class="h-[1px] w-12 bg-gray-700 group-hover:w-full group-hover:bg-[#004225] transition-all duration-500">
                     </div>
                 </a>
 
                 <!-- Agent 3 -->
                 <a href="demos.html#copywriter"
-                    class="block group relative p-10 border border-white/5 hover:border-[#D7F75B] transition-all duration-300 hover:bg-[#D7F75B]/5">
-                    <div class="absolute top-0 right-0 p-6 text-[#D7F75B] opacity-50 text-6xl font-serif italic">03
+                    class="block group relative p-10 border border-black/5 hover:border-[#004225] transition-all duration-300 hover:bg-[#004225]/5">
+                    <div class="absolute top-0 right-0 p-6 text-[#004225] opacity-50 text-6xl font-serif italic">03
                     </div>
-                    <h3 class="text-2xl mb-4 text-white">The Copywriter</h3>
+                    <h3 class="text-2xl mb-4 text-[#0B1C1C]">The Copywriter</h3>
                     <p class="text-gray-500 mb-8 leading-relaxed text-sm">Neuromarketing-driven content generation.
                         Crafting narratives that resonate and convert.</p>
                     <div
-                        class="h-[1px] w-12 bg-gray-700 group-hover:w-full group-hover:bg-[#D7F75B] transition-all duration-500">
+                        class="h-[1px] w-12 bg-gray-700 group-hover:w-full group-hover:bg-[#004225] transition-all duration-500">
                     </div>
                 </a>
             </div>
@@ -211,12 +211,12 @@
                             class="w-full grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105">
                     </div>
                     <div>
-                        <span class="text-[#D7F75B] text-xs tracking-widest uppercase">Real Estate</span>
-                        <h3 class="text-5xl mb-6 mt-2 text-white">Skyline</h3>
-                        <p class="text-gray-400 mb-8 leading-relaxed text-lg font-light">Redefining luxury property
+                        <span class="text-[#004225] text-xs tracking-widest uppercase">Real Estate</span>
+                        <h3 class="text-5xl mb-6 mt-2 text-[#0B1C1C]">Skyline</h3>
+                        <p class="text-gray-600 mb-8 leading-relaxed text-lg font-light">Redefining luxury property
                             viewing with immersive 3D tours and AI-driven concierge services.</p>
                         <a href="portfolio/real-estate.html"
-                            class="text-white border-b border-white/20 pb-1 hover:text-[#D7F75B] hover:border-[#D7F75B] transition-colors uppercase text-xs tracking-widest">View
+                            class="text-[#0B1C1C] border-b border-black/20 pb-1 hover:text-[#004225] hover:border-[#004225] transition-colors uppercase text-xs tracking-widest">View
                             Casestudy</a>
                     </div>
                 </div>
@@ -228,12 +228,12 @@
                             class="w-full grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105">
                     </div>
                     <div class="order-2 md:order-1 text-right">
-                        <span class="text-[#D7F75B] text-xs tracking-widest uppercase">High Jewelry</span>
-                        <h3 class="text-5xl mb-6 mt-2 text-white">Lumière</h3>
-                        <p class="text-gray-400 mb-8 leading-relaxed text-lg font-light">Digital flagship for a heritage
+                        <span class="text-[#004225] text-xs tracking-widest uppercase">High Jewelry</span>
+                        <h3 class="text-5xl mb-6 mt-2 text-[#0B1C1C]">Lumière</h3>
+                        <p class="text-gray-600 mb-8 leading-relaxed text-lg font-light">Digital flagship for a heritage
                             jewelry maison, featuring AR try-on and bespoke appointment scheduling.</p>
                         <a href="portfolio/jewelry.html"
-                            class="text-white border-b border-white/20 pb-1 hover:text-[#D7F75B] hover:border-[#D7F75B] transition-colors uppercase text-xs tracking-widest">View
+                            class="text-[#0B1C1C] border-b border-black/20 pb-1 hover:text-[#004225] hover:border-[#004225] transition-colors uppercase text-xs tracking-widest">View
                             Casestudy</a>
                     </div>
                 </div>
@@ -241,14 +241,14 @@
 
             <div class="text-center mt-32">
                 <a href="portfolio.html"
-                    class="inline-block px-12 py-4 bg-[#111] hover:bg-[#D7F75B] hover:text-black transition-all duration-500 uppercase text-xs tracking-[0.2em] text-white">View
+                    class="inline-block px-12 py-4 bg-[#F3F4F6] hover:bg-[#004225] hover:text-white transition-all duration-500 uppercase text-xs tracking-[0.2em] text-[#0B1C1C]">View
                     All Projects</a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-32 px-6 border-t border-white/5 bg-[#080808]">
+    <section id="contact" class="py-32 px-6 border-t border-black/5 bg-white">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl mb-8">Initiate Collaboration</h2>
             <p class="text-gray-500 font-light mb-16">Ready to elevate your digital presence? Reach out to our team.</p>
@@ -256,37 +256,37 @@
             <form id="contactForm" class="text-left space-y-8 max-w-2xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-[#D7F75B] mb-2">Name</label>
+                        <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Name</label>
                         <input type="text" id="contactName" required
-                            class="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-[#D7F75B] outline-none transition-colors">
+                            class="w-full bg-transparent border-b border-black/10 py-4 text-[#0B1C1C] focus:border-[#004225] outline-none transition-colors">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-[#D7F75B] mb-2">Email</label>
+                        <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Email</label>
                         <input type="email" id="contactEmail" required
-                            class="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-[#D7F75B] outline-none transition-colors">
+                            class="w-full bg-transparent border-b border-black/10 py-4 text-[#0B1C1C] focus:border-[#004225] outline-none transition-colors">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-widest text-[#D7F75B] mb-2">Interest</label>
+                    <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Interest</label>
                     <select id="contactType"
-                        class="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-[#D7F75B] outline-none transition-colors appearance-none">
-                        <option value="Website Design" class="bg-black">Website Design</option>
-                        <option value="AI Integration" class="bg-black">AI Integration</option>
-                        <option value="Brand Identity" class="bg-black">Brand Identity</option>
-                        <option value="Other" class="bg-black">Other</option>
+                        class="w-full bg-transparent border-b border-black/10 py-4 text-[#0B1C1C] focus:border-[#004225] outline-none transition-colors appearance-none">
+                        <option value="Website Design" class="bg-white">Website Design</option>
+                        <option value="AI Integration" class="bg-white">AI Integration</option>
+                        <option value="Brand Identity" class="bg-white">Brand Identity</option>
+                        <option value="Other" class="bg-white">Other</option>
                     </select>
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-widest text-[#D7F75B] mb-2">Message</label>
+                    <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Message</label>
                     <textarea id="contactMessage" rows="4" required
-                        class="w-full bg-transparent border-b border-white/10 py-4 text-white focus:border-[#D7F75B] outline-none transition-colors resize-none"></textarea>
+                        class="w-full bg-transparent border-b border-black/10 py-4 text-[#0B1C1C] focus:border-[#004225] outline-none transition-colors resize-none"></textarea>
                 </div>
 
                 <div class="text-center mt-12">
                     <button type="submit"
-                        class="border border-[#D7F75B] text-[#D7F75B] px-12 py-4 text-xs uppercase tracking-[0.2em] hover:bg-[#D7F75B] hover:text-black transition-all duration-500">
+                        class="border border-[#004225] text-[#004225] px-12 py-4 text-xs uppercase tracking-[0.2em] hover:bg-[#004225] hover:text-white transition-all duration-500">
                         Send Inquiry
                     </button>
                 </div>
@@ -324,7 +324,7 @@
 
                 if (response.ok) {
                     status.innerText = 'Message Sent Successfully';
-                    status.className = 'text-center text-xs uppercase tracking-widest mt-6 text-[#D7F75B]';
+                    status.className = 'text-center text-xs uppercase tracking-widest mt-6 text-[#004225]';
                     e.target.reset();
                 } else {
                     throw new Error('Failed');
@@ -343,7 +343,7 @@
     </script>
 
     <!-- Footer -->
-    <footer class="py-20 px-6 border-t border-white/5 bg-black">
+    <footer class="py-20 px-6 border-t border-black/5 bg-white">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
             <div class="text-center md:text-left">
                 <h4 class="text-2xl font-serif italic mb-4">ONDA</h4>
@@ -351,9 +351,9 @@
             </div>
 
             <div class="flex gap-8 text-xs uppercase tracking-widest text-gray-500">
-                <a href="#" class="hover:text-white transition-colors">Instagram</a>
-                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-white transition-colors">Twitter</a>
+                <a href="#" class="hover:text-[#0B1C1C] transition-colors">Instagram</a>
+                <a href="#" class="hover:text-[#0B1C1C] transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-[#0B1C1C] transition-colors">Twitter</a>
             </div>
 
             <div class="text-right">

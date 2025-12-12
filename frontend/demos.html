@@ -15,13 +15,13 @@
     <style>
         body {
             font-family: 'Lato', sans-serif;
-            background: linear-gradient(to bottom, #0B1C1C 0%, #020808 100%);
+            background: #FFFFFF;
             background-attachment: fixed;
-            color: #E5E7EB;
+            color: #0B1C1C;
         }
 
         a:hover {
-            text-shadow: 0 0 12px rgba(215, 247, 91, 0.6);
+            text-shadow: none;
         }
 
         h1,
@@ -34,43 +34,43 @@
         }
 
         .luxury-gold {
-            color: #D7F75B;
+            color: #004225;
         }
 
         .border-gold {
-            border-color: #D7F75B;
+            border-color: #004225;
         }
 
         .bg-gold {
-            background-color: #D7F75B;
+            background-color: #004225;
         }
 
         .text-cream {
-            color: #E5E7EB;
+            color: #0B1C1C;
         }
 
         /* High-End Input Styles */
         .luxury-input {
             background: transparent;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            color: #E5E7EB;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            color: #0B1C1C;
             transition: all 0.3s ease;
         }
 
         .luxury-input:focus {
-            border-color: #D7F75B;
+            border-color: #004225;
             outline: none;
         }
 
         /* Agent Card */
         .agent-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             transition: all 0.5s ease;
         }
 
         .agent-card:hover {
-            border-color: rgba(212, 175, 55, 0.3);
+            border-color: rgba(0, 66, 37, 0.3);
         }
     </style>
 </head>
@@ -78,46 +78,46 @@
 <body class="antialiased overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <div class="flex items-center gap-6">
-                <a href="index.html" class="text-white hover:text-[#D7F75B] transition-colors"><i
+                <a href="index.html" class="text-[#0B1C1C] hover:text-[#004225] transition-colors"><i
                         data-lucide="arrow-left" class="w-5 h-5"></i></a>
-                <a href="index.html" class="text-2xl font-serif italic font-bold tracking-widest text-white">ONDA</a>
+                <a href="index.html" class="text-2xl font-serif italic font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
             </div>
 
-            <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-400">
-                <a href="process.html" class="hover:text-[#D7F75B] transition-colors duration-300">Process</a>
-                <a href="index.html#agents" class="hover:text-[#D7F75B] transition-colors duration-300">AI Demos</a>
-                <a href="index.html#contact" class="hover:text-[#D7F75B] transition-colors duration-300">Contact</a>
-                <div class="flex gap-4 border-l border-white/10 pl-6">
-                    <span class="text-[#D7F75B] font-bold">EN</span>
-                    <a href="demos_es.html" class="hover:text-white transition-colors">ES</a>
-                    <a href="demos_ru.html" class="hover:text-white transition-colors">RU</a>
+            <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-600">
+                <a href="process.html" class="hover:text-[#004225] transition-colors duration-300">Process</a>
+                <a href="index.html#agents" class="hover:text-[#004225] transition-colors duration-300">AI Demos</a>
+                <a href="index.html#contact" class="hover:text-[#004225] transition-colors duration-300">Contact</a>
+                <div class="flex gap-4 border-l border-black/10 pl-6">
+                    <span class="text-[#004225] font-bold">EN</span>
+                    <a href="demos_es.html" class="hover:text-[#0B1C1C] transition-colors">ES</a>
+                    <a href="demos_ru.html" class="hover:text-[#0B1C1C] transition-colors">RU</a>
                 </div>
             </div>
 
-            <button class="md:hidden text-white"><i data-lucide="menu"></i></button>
+            <button class="md:hidden text-[#0B1C1C]"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
     <!-- Header -->
     <header class="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto">
-        <p class="text-[#D7F75B] text-xs tracking-[0.4em] uppercase mb-6">Interactive Demonstration</p>
+        <p class="text-[#004225] text-xs tracking-[0.4em] uppercase mb-6">Interactive Demonstration</p>
         <h1 class="text-4xl md:text-6xl mb-8 leading-tight font-medium">
             The Intelligence <br> <span class="italic text-gray-500">Suite</span>
         </h1>
-        <p class="text-gray-400 text-lg font-light leading-relaxed">
+        <p class="text-gray-600 text-lg font-light leading-relaxed">
             Experience the proprietary AI models that power our agency's backend. <br>
             Designed for precision, creativity, and insight.
         </p>
     </header>
 
     <!-- Agent: Researcher -->
-    <section id="researcher" class="py-20 px-6 border-t border-white/5">
+    <section id="researcher" class="py-20 px-6 border-t border-black/5">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
             <div>
-                <span class="text-6xl text-white/5 font-serif absolute -mt-10 -ml-10 select-none">01</span>
+                <span class="text-6xl text-[#0B1C1C]/5 font-serif absolute -mt-10 -ml-10 select-none">01</span>
                 <h2 class="text-3xl mb-4 relative z-10">The Researcher</h2>
                 <p class="text-gray-500 mb-8 font-light leading-relaxed">
                     Our autonomous auditing system visits your digital property, analyzes structure and conversion flow,
@@ -132,7 +132,7 @@
                     </div>
 
                     <button type="button" onclick="runResearchDemo()"
-                        class="w-full py-4 border border-[#D7F75B] text-[#D7F75B] text-xs uppercase tracking-widest hover:bg-[#D7F75B] hover:text-black transition-all">
+                        class="w-full py-4 border border-[#004225] text-[#004225] text-xs uppercase tracking-widest hover:bg-[#004225] hover:text-white transition-all">
                         Initiate Audit
                     </button>
                 </form>
@@ -149,11 +149,11 @@
     </section>
 
     <!-- Agent: Visionary -->
-    <section id="visionary" class="py-20 px-6 border-t border-white/5 bg-[#080808]">
+    <section id="visionary" class="py-20 px-6 border-t border-black/5 bg-white">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div class="order-2 md:order-1 agent-card p-8 min-h-[400px] flex flex-col relative">
                 <div id="visionPreview"
-                    class="flex-1 border border-dashed border-white/10 rounded-sm flex items-center justify-center relative overflow-hidden bg-black/50 hover:bg-black/80 transition-colors cursor-pointer"
+                    class="flex-1 border border-dashed border-black/10 rounded-sm flex items-center justify-center relative overflow-hidden bg-white/50 hover:bg-white/80 transition-colors cursor-pointer"
                     onclick="document.getElementById('visionInput').click()">
                     <p class="text-gray-600 text-xs tracking-widest uppercase">Select Visual Asset</p>
                 </div>
@@ -161,7 +161,7 @@
             </div>
 
             <div class="order-1 md:order-2">
-                <span class="text-6xl text-white/5 font-serif absolute -mt-10 -ml-10 select-none">02</span>
+                <span class="text-6xl text-[#0B1C1C]/5 font-serif absolute -mt-10 -ml-10 select-none">02</span>
                 <h2 class="text-3xl mb-4 relative z-10">The Visionary</h2>
                 <p class="text-gray-500 mb-8 font-light leading-relaxed">
                     Visual intelligence that transcends pixel data. Upload financial documents, invoices, or design
@@ -171,7 +171,7 @@
                 <input type="file" id="visionInput" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
 
                 <button onclick="document.getElementById('visionInput').click()"
-                    class="mt-8 px-8 py-3 bg-[#111] text-xs uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
+                    class="mt-8 px-8 py-3 bg-[#F3F4F6] text-xs uppercase tracking-widest text-gray-600 hover:text-[#0B1C1C] transition-colors">
                     Upload File
                 </button>
             </div>
@@ -179,10 +179,10 @@
     </section>
 
     <!-- Agent: Copywriter -->
-    <section id="copywriter" class="py-20 px-6 border-t border-white/5">
+    <section id="copywriter" class="py-20 px-6 border-t border-black/5">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
             <div>
-                <span class="text-6xl text-white/5 font-serif absolute -mt-10 -ml-10 select-none">03</span>
+                <span class="text-6xl text-[#0B1C1C]/5 font-serif absolute -mt-10 -ml-10 select-none">03</span>
                 <h2 class="text-3xl mb-4 relative z-10">The Copywriter</h2>
                 <p class="text-gray-500 mb-8 font-light leading-relaxed">
                     Crafting persuasive narratives. Provide your business essence, and let our model generate
@@ -204,7 +204,7 @@
                     </div>
 
                     <button type="button" onclick="runCopywriterDemo()"
-                        class="w-full py-4 border border-[#D7F75B] text-[#D7F75B] text-xs uppercase tracking-widest hover:bg-[#D7F75B] hover:text-black transition-all">
+                        class="w-full py-4 border border-[#004225] text-[#004225] text-xs uppercase tracking-widest hover:bg-[#004225] hover:text-white transition-all">
                         Generate Narrative
                     </button>
                 </form>
@@ -222,7 +222,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-white/5 text-center px-6">
+    <footer class="py-12 border-t border-black/5 text-center px-6">
         <p class="text-gray-600 text-xs uppercase tracking-widest">&copy; 2024 Onda. Intelligent Design.</p>
     </footer>
 
@@ -239,8 +239,8 @@
 
             output.innerHTML = `
                 <div class="text-center">
-                    <div class="w-12 h-12 border border-[#D7F75B] border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-                    <p class="text-xs uppercase tracking-widest text-[#D7F75B]">Infrastructure Scan Initiated...</p>
+                    <div class="w-12 h-12 border border-[#004225] border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+                    <p class="text-xs uppercase tracking-widest text-[#004225]">Infrastructure Scan Initiated...</p>
                 </div>
             `;
 
@@ -254,10 +254,10 @@
 
                 output.innerHTML = `
                     <div class="w-full text-left animate-fade-in">
-                        <div class="flex justify-between items-end border-b border-white/10 pb-6 mb-6">
+                        <div class="flex justify-between items-end border-b border-black/10 pb-6 mb-6">
                             <div>
                                 <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">CRO Score</p>
-                                <p class="text-4xl font-serif text-[#D7F75B]">${data.score}<span class="text-lg text-gray-600">/100</span></p>
+                                <p class="text-4xl font-serif text-[#004225]">${data.score}<span class="text-lg text-gray-600">/100</span></p>
                             </div>
                             <div class="text-right">
                                 <p class="text-xs uppercase tracking-widest text-gray-500">Analysis Complete</p>
@@ -267,15 +267,15 @@
                         <div class="space-y-6">
                             <div>
                                 <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Executive Summary</p>
-                                <p class="text-sm font-light leading-relaxed text-gray-300 italic">"${data.summary}"</p>
+                                <p class="text-sm font-light leading-relaxed text-gray-600 italic">"${data.summary}"</p>
                             </div>
                             
                             <div>
                                 <p class="text-xs uppercase tracking-widest text-gray-500 mb-3">Strategic Improvements</p>
                                 <ul class="space-y-3">
                                     ${data.improvements.map(item => `
-                                        <li class="flex items-start gap-3 text-sm font-light text-gray-400">
-                                            <span class="text-[#D7F75B] mt-1">✦</span> ${item}
+                                        <li class="flex items-start gap-3 text-sm font-light text-gray-600">
+                                            <span class="text-[#004225] mt-1">✦</span> ${item}
                                         </li>
                                     `).join('')}
                                 </ul>
@@ -303,7 +303,7 @@
                 preview.innerHTML = `<img src="${base64Image}" class="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-500">`;
 
                 resultDiv.classList.remove('hidden');
-                resultDiv.innerHTML = `<p class="text-xs uppercase tracking-widest text-[#D7F75B] text-center mt-4">Processing Visual Data...</p>`;
+                resultDiv.innerHTML = `<p class="text-xs uppercase tracking-widest text-[#004225] text-center mt-4">Processing Visual Data...</p>`;
 
                 try {
                     const response = await fetch(`${API_BASE}/api/vision`, {
@@ -314,15 +314,15 @@
                     const data = await response.json();
 
                     resultDiv.innerHTML = `
-                        <div class="bg-white/5 p-6 border-l-2 border-[#D7F75B] animate-fade-in">
+                        <div class="bg-white/5 p-6 border-l-2 border-[#004225] animate-fade-in">
                             <div class="flex justify-between mb-4">
                                 <span class="text-xs uppercase tracking-widest text-gray-500">Document Type</span>
-                                <span class="text-xs font-bold text-white">${data.type}</span>
+                                <span class="text-xs font-bold text-[#0B1C1C]">${data.type}</span>
                             </div>
-                            <div class="text-xs font-mono text-gray-400 mb-4 bg-black/50 p-4">
+                            <div class="text-xs font-mono text-gray-600 mb-4 bg-white/50 p-4">
                                 ${JSON.stringify(data.data, null, 2)}
                             </div>
-                            <p class="text-sm font-light text-[#D7F75B] italic">
+                            <p class="text-sm font-light text-[#004225] italic">
                                 "Insight: ${data.insight}"
                             </p>
                         </div>
@@ -344,7 +344,7 @@
 
             preview.innerHTML = `
                 <div class="text-center">
-                    <div class="w-8 h-8 border border-[#D7F75B] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <div class="w-8 h-8 border border-[#004225] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
                     <p class="text-xs uppercase tracking-widest text-gray-500">Crafting Narrative...</p>
                 </div>
              `;
@@ -360,20 +360,20 @@
                 preview.innerHTML = `
                     <div class="w-full text-center space-y-8 animate-fade-in">
                         <div>
-                            <h3 class="text-3xl font-serif text-white mb-2">${data.headline}</h3>
-                            <p class="text-gray-400 font-light italic text-lg border-b border-white/10 pb-6 inline-block">${data.subheadline}</p>
+                            <h3 class="text-3xl font-serif text-[#0B1C1C] mb-2">${data.headline}</h3>
+                            <p class="text-gray-600 font-light italic text-lg border-b border-black/10 pb-6 inline-block">${data.subheadline}</p>
                         </div>
                         
                         <div class="grid gap-4 text-left max-w-sm mx-auto">
                             ${data.benefits.map(benefit => `
-                                <div class="flex items-center gap-3 text-sm text-gray-300">
-                                    <div class="w-1 h-1 bg-[#D7F75B] rounded-full"></div>
+                                <div class="flex items-center gap-3 text-sm text-gray-600">
+                                    <div class="w-1 h-1 bg-[#004225] rounded-full"></div>
                                     <span>${benefit}</span>
                                 </div>
                             `).join('')}
                         </div>
 
-                        <button class="bg-[#D7F75B] text-black px-8 py-3 text-xs uppercase tracking-widest font-bold hover:bg-white transition-colors">
+                        <button class="bg-[#004225] text-black px-8 py-3 text-xs uppercase tracking-widest font-bold hover:bg-white transition-colors">
                             ${data.cta}
                         </button>
                     </div>
