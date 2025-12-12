@@ -185,7 +185,36 @@
         <p class="text-gray-600 text-xs uppercase tracking-widest">&copy; 2024 Onda.</p>
     </footer>
 
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobileMenu'); // Corrected ID to match HTML
+
+        if (menuBtn && mobileMenu) {
+            // Function to toggle the menu visibility and transform
+            function toggleMenu() {
+                mobileMenu.classList.toggle('translate-x-full'); // Hides/shows the menu
+                mobileMenu.classList.toggle('translate-x-0'); // Moves it into view
+            }
+
+            // Event listener for the menu button
+            menuBtn.addEventListener('click', toggleMenu);
+
+            // Event listener for the close button inside the mobile menu
+            const closeMenuBtn = mobileMenu.querySelector('button[onclick="toggleMenu()"]');
+            if (closeMenuBtn) {
+                closeMenuBtn.addEventListener('click', toggleMenu);
+            }
+
+            // Event listeners for menu links to close menu on click
+            const menuLinks = mobileMenu.querySelectorAll('a[onclick="toggleMenu()"]');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        }
+    </script>
 </body>
 
 </html>

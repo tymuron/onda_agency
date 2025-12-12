@@ -83,7 +83,8 @@
             <div class="flex items-center gap-6">
                 <a href="index.html" class="text-[#0B1C1C] hover:text-[#004225] transition-colors"><i
                         data-lucide="arrow-left" class="w-5 h-5"></i></a>
-                <a href="index.html" class="text-2xl font-serif italic font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
+                <a href="index.html"
+                    class="text-2xl font-serif italic font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
             </div>
 
             <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-600">
@@ -102,14 +103,23 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
-        <a href="index.html#work" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Work</a>
-        <a href="index.html#agents" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">AI Demos</a>
-        <a href="process.html" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Process</a>
-        <a href="index.html#contact" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors" onclick="toggleMenu()">Contact</a>
-        <button onclick="toggleMenu()" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x" class="w-8 h-8"></i></button>
+    <div id="mobileMenu"
+        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
+        <a href="index.html#work"
+            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
+            onclick="toggleMenu()">Work</a>
+        <a href="index.html#agents"
+            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
+            onclick="toggleMenu()">AI Demos</a>
+        <a href="process.html" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
+            onclick="toggleMenu()">Process</a>
+        <a href="index.html#contact"
+            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
+            onclick="toggleMenu()">Contact</a>
+        <button onclick="toggleMenu()" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x"
+                class="w-8 h-8"></i></button>
     </div>
-    
+
 
     <!-- Header -->
     <header class="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto">
@@ -238,6 +248,12 @@
 
     <script>
         lucide.createIcons();
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('translate-x-full');
+        }
 
         // Detect environment: Use localhost if opening file directly, otherwise use relative path (cloud/server)
         const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';

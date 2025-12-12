@@ -251,6 +251,33 @@
     <script>
         lucide.createIcons();
 
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobileMenu'); // Corrected ID to match HTML
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('translate-x-full'); // Toggle for closing
+                mobileMenu.classList.toggle('translate-x-0'); // Toggle for opening
+            });
+
+            // Add event listener for the close button inside the mobile menu
+            const closeBtn = mobileMenu.querySelector('button[onclick="toggleMenu()"]');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default if it's a form button or similar
+                    mobileMenu.classList.remove('translate-x-0');
+                    mobileMenu.classList.add('translate-x-full');
+                });
+            }
+
+            // Override existing toggleMenu function to use the new class toggling
+            window.toggleMenu = function () {
+                mobileMenu.classList.toggle('translate-x-full');
+                mobileMenu.classList.toggle('translate-x-0');
+            };
+        }
+
         // Detect environment: Use localhost if opening file directly, otherwise use relative path (cloud/server)
         const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';
 

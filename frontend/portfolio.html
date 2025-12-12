@@ -183,7 +183,38 @@
         <p class="text-gray-600 text-xs uppercase tracking-widest">&copy; 2024 Onda.</p>
     </footer>
 
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn'); // Added for closing
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('translate-x-full'); // Hide
+                mobileMenu.classList.toggle('translate-x-0'); // Show
+            });
+        }
+
+        // Close menu when close button is clicked
+        if (mobileMenuCloseBtn && mobileMenu) {
+            mobileMenuCloseBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+            });
+        }
+
+        // Close menu when a link inside is clicked
+        const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+    </script>
 </body>
 
 </html>
