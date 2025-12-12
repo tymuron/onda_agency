@@ -2,6 +2,7 @@ import base64
 import os
 from openai import OpenAI
 import logging
+import json
 
 logger = logging.getLogger(__name__)
 
@@ -57,7 +58,7 @@ class VisionAgent:
                     response_format={ "type": "json_object" },
                     max_tokens=500,
                 )
-                return response.choices[0].message.content
+                return json.loads(response.choices[0].message.content)
             except Exception as e:
                 logger.error(f"Vision analysis failed: {e}")
                 return self._get_mock_response()
@@ -66,8 +67,7 @@ class VisionAgent:
 
     def _get_mock_response(self):
         """Fallback mock response"""
-        import json
-        return json.dumps({
+        return {
             "type": "Receipt (Mock Analysis)",
             "data": {
                 "Merchant": "Office Supplies Co.",
@@ -76,4 +76,4 @@ class VisionAgent:
                 "Items": ["Printer Paper", "Ink Cartridges"]
             },
             "insight": "This expense category is 15% higher than last month's average."
-        })
+        }

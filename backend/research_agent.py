@@ -1,3 +1,4 @@
+import json
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -83,7 +84,7 @@ class ResearchAgent:
                     ],
                     response_format={ "type": "json_object" }
                 )
-                return completion.choices[0].message.content
+                return json.loads(completion.choices[0].message.content)
             except Exception as e:
                 logger.error(f"LLM analysis failed: {e}")
                 return self.mock_response(url)
@@ -92,8 +93,7 @@ class ResearchAgent:
 
     def mock_response(self, url="example.com"):
         """Fallback mock response for demos without API keys"""
-        import json
-        return json.dumps({
+        return {
             "score": 72,
             "summary": f"A business website at {url} that could use better value propositions.",
             "improvements": [
@@ -102,4 +102,4 @@ class ResearchAgent:
                 "Add social proof or testimonials to build trust."
             ],
             "quick_win": "Implement an automated chatbot to capture leads 24/7."
-        })
+        }
