@@ -78,11 +78,16 @@
 <body class="antialiased overflow-x-hidden">
 
     <!-- Navigation -->
-    </div>
-    </div>
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <div class="flex items-center gap-6">
+                <a href="index_ru.html" class="text-white hover:text-[#D4AF37] transition-colors"><i
+                        data-lucide="arrow-left" class="w-5 h-5"></i></a>
+                <a href="index_ru.html" class="text-2xl font-serif italic font-bold tracking-widest text-white">ONDA</a>
+            </div>
 
-    <button class="md:hidden text-white"><i data-lucide="menu"></i></button>
-    </div>
+            <button class="md:hidden text-white"><i data-lucide="menu"></i></button>
+        </div>
     </nav>
 
     <!-- Header -->
@@ -227,7 +232,7 @@
             `;
 
             try {
-                const response = await fetch('/api/research', {
+                const response = await fetch('http://localhost:8000/api/research', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ url: url })
@@ -288,7 +293,7 @@
                 resultDiv.innerHTML = `<p class="text-xs uppercase tracking-widest text-[#D4AF37] text-center mt-4">Обработка Визуальных Данных...</p>`;
 
                 try {
-                    const response = await fetch('/api/vision', {
+                    const response = await fetch('http://localhost:8000/api/vision', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ image: base64Image })
@@ -332,7 +337,7 @@
              `;
 
             try {
-                const response = await fetch('/api/copywriter', {
+                const response = await fetch('http://localhost:8000/api/copywriter', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ business_name: businessName, description: description, language: "ru" })
