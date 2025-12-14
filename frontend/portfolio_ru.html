@@ -7,30 +7,35 @@
     <title>Onda | Коллекция</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
-        rel="stylesheet">
     <style>
-        body {
-            font-family: 'Lato', sans-serif;
-            background: #FFFFFF;
-            background-attachment: fixed;
-            color: #0B1C1C;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap');
 
-        a:hover {
-            text-shadow: none;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #FFFFFF;
+            color: #0B1C1C;
         }
 
         h1,
         h2,
         h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Playfair Display', serif;
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Animation Classes */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, visibility;
+            visibility: hidden;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
         }
     </style>
 </head>
@@ -41,17 +46,15 @@
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
         <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <div class="flex items-center gap-6">
-                <a href="index_ru.html?v=new" class="text-[#0B1C1C] hover:text-[#004225] transition-colors"><i
+                <a href="index_ru.html" class="text-[#0B1C1C] hover:text-[#004225] transition-colors"><i
                         data-lucide="arrow-left" class="w-5 h-5"></i></a>
-                <a href="index_ru.html?v=new"
-                    class="text-2xl font-serif italic font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
+                <a href="index_ru.html" class="text-2xl font-serif font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
             </div>
 
             <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-600">
-                <span class="text-[#004225]">Работы</span>
-                <a href="process_ru.html?v=new" class="hover:text-[#004225] transition-colors duration-300">Процесс</a>
-                <a href="index_ru.html?v=new#contact"
-                    class="hover:text-[#004225] transition-colors duration-300">Контакты</a>
+                <span class="text-[#004225]">Проекты</span>
+                <a href="process_ru.html" class="hover:text-[#004225] transition-colors duration-300">Процесс</a>
+                <a href="index_ru.html#contact" class="hover:text-[#004225] transition-colors duration-300">Контакты</a>
                 <div class="flex gap-4 border-l border-black/10 pl-6">
                     <a href="portfolio.html" class="hover:text-[#0B1C1C] transition-colors">EN</a>
                     <a href="portfolio_es.html" class="hover:text-[#0B1C1C] transition-colors">ES</a>
@@ -59,120 +62,134 @@
                 </div>
             </div>
 
-            <button class="md:hidden text-[#0B1C1C]"><i data-lucide="menu"></i></button>
+            <button id="mobile-menu-btn" class="md:hidden text-[#0B1C1C]"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu"
+    <div id="mobile-menu"
         class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
-        <a href="index_ru.html?v=new#work"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Работы</a>
-        <a href="index_ru.html?v=new#agents"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">AI Демо</a>
-        <a href="process_ru.html?v=new"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Процесс</a>
-        <a href="index_ru.html?v=new#contact"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Контакты</a>
-        <button onclick="toggleMenu()" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x"
+        <a href="index_ru.html#work"
+            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors">Проекты</a>
+        <a href="index_ru.html#agents"
+            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors">AI Демо</a>
+        <a href="process_ru.html"
+            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors">Процесс</a>
+        <a href="index_ru.html#contact"
+            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors">Контакты</a>
+        <button id="mobile-menu-close-btn" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x"
                 class="w-8 h-8"></i></button>
     </div>
 
 
     <!-- Header -->
-    <header class="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto">
+    <header class="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto fade-in-section">
         <p class="text-[#004225] text-xs tracking-[0.4em] uppercase mb-6">Избранные Работы</p>
-        <h1 class="text-4xl md:text-6xl mb-8 leading-tight font-medium">
-            Наша <br> <span class="italic text-gray-500">Коллекция</span>
+        <h1 class="text-5xl md:text-7xl mb-8 leading-tight font-serif">
+            Наша <span class="italic text-gray-400">Коллекция</span>
         </h1>
     </header>
 
     <!-- Portfolio Grid -->
-    <section class="pb-32 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-x-12 gap-y-24">
+    <section class="py-32 px-6 bg-[#004225] text-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-x-12 gap-y-32">
 
             <!-- Item 1 -->
-            <a href="portfolio/real-estate_ru.html" class="group block">
-                <div class="overflow-hidden mb-6 aspect-[4/3]">
+            <a href="portfolio/real-estate_ru.html" class="group block fade-in-section">
+                <div class="overflow-hidden mb-6 aspect-[4/3] rounded-sm relative">
+                    <div
+                        class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
+                    </div>
                     <img src="assets/images/skyline_hero.png" alt="Real Estate"
-                        class="w-full h-full object-cover transition-all duration-700 transform group-hover:scale-105">
+                        class="w-full h-full object-cover transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
                 </div>
                 <div
-                    class="flex justify-between items-end border-b border-black/10 pb-4 group-hover:border-[#004225] transition-colors">
+                    class="flex justify-between items-end border-b border-white/20 pb-4 group-hover:border-white transition-colors">
                     <div>
-                        <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Недвижимость</p>
-                        <h2 class="text-3xl font-serif text-[#0B1C1C] group-hover:text-[#004225] transition-colors">
+                        <p class="text-xs uppercase tracking-widest text-white/60 mb-2">Недвижимость</p>
+                        <h2
+                            class="text-4xl font-serif text-white group-hover:translate-x-2 transition-transform duration-500">
                             Skyline
                         </h2>
                     </div>
                     <span
-                        class="text-xs uppercase tracking-widest text-[#0B1C1C] opacity-0 group-hover:opacity-100 transition-opacity">Смотреть
+                        class="text-xs uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-opacity">Смотреть
                         Кейс</span>
                 </div>
             </a>
 
             <!-- Item 2 -->
-            <a href="portfolio/jewelry_ru.html" class="group block md:mt-24">
-                <div class="overflow-hidden mb-6 aspect-[4/3]">
+            <a href="portfolio/jewelry_ru.html" class="group block md:mt-24 fade-in-section"
+                style="transition-delay: 100ms;">
+                <div class="overflow-hidden mb-6 aspect-[4/3] rounded-sm relative">
+                    <div
+                        class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
+                    </div>
                     <img src="assets/images/jewelry_hero.png" alt="Jewelry"
-                        class="w-full h-full object-cover transition-all duration-700 transform group-hover:scale-105">
+                        class="w-full h-full object-cover transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
                 </div>
                 <div
-                    class="flex justify-between items-end border-b border-black/10 pb-4 group-hover:border-[#004225] transition-colors">
+                    class="flex justify-between items-end border-b border-white/20 pb-4 group-hover:border-white transition-colors">
                     <div>
-                        <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Ювелирное Искусство</p>
-                        <h2 class="text-3xl font-serif text-[#0B1C1C] group-hover:text-[#004225] transition-colors">
+                        <p class="text-xs uppercase tracking-widest text-white/60 mb-2">Ювелирное Искусство</p>
+                        <h2
+                            class="text-4xl font-serif text-white group-hover:translate-x-2 transition-transform duration-500">
                             Lumière
                         </h2>
                     </div>
                     <span
-                        class="text-xs uppercase tracking-widest text-[#0B1C1C] opacity-0 group-hover:opacity-100 transition-opacity">Смотреть
+                        class="text-xs uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-opacity">Смотреть
                         Кейс</span>
                 </div>
             </a>
 
             <!-- Item 3 -->
-            <a href="portfolio/yachts_ru.html" class="group block">
-                <div class="overflow-hidden mb-6 aspect-[4/3]">
+            <a href="portfolio/yachts_ru.html" class="group block fade-in-section">
+                <div class="overflow-hidden mb-6 aspect-[4/3] rounded-sm relative">
+                    <div
+                        class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
+                    </div>
                     <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=2560&auto=format&fit=crop"
                         alt="Yachts"
-                        class="w-full h-full object-cover transition-all duration-700 transform group-hover:scale-105">
+                        class="w-full h-full object-cover transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
                 </div>
                 <div
-                    class="flex justify-between items-end border-b border-black/10 pb-4 group-hover:border-[#004225] transition-colors">
+                    class="flex justify-between items-end border-b border-white/20 pb-4 group-hover:border-white transition-colors">
                     <div>
-                        <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Яхтинг</p>
-                        <h2 class="text-3xl font-serif text-[#0B1C1C] group-hover:text-[#004225] transition-colors">
+                        <p class="text-xs uppercase tracking-widest text-white/60 mb-2">Яхтинг</p>
+                        <h2
+                            class="text-4xl font-serif text-white group-hover:translate-x-2 transition-transform duration-500">
                             Novamare
                         </h2>
                     </div>
                     <span
-                        class="text-xs uppercase tracking-widest text-[#0B1C1C] opacity-0 group-hover:opacity-100 transition-opacity">Смотреть
+                        class="text-xs uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-opacity">Смотреть
                         Кейс</span>
                 </div>
             </a>
 
             <!-- Item 4 -->
-            <a href="portfolio/automotive_ru.html" class="group block md:mt-24">
-                <div class="overflow-hidden mb-6 aspect-[4/3]">
+            <a href="portfolio/automotive_ru.html" class="group block md:mt-24 fade-in-section"
+                style="transition-delay: 100ms;">
+                <div class="overflow-hidden mb-6 aspect-[4/3] rounded-sm relative">
+                    <div
+                        class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
+                    </div>
                     <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2670&auto=format&fit=crop"
                         alt="Automotive"
-                        class="w-full h-full object-cover transition-all duration-700 transform group-hover:scale-105">
+                        class="w-full h-full object-cover transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
                 </div>
                 <div
-                    class="flex justify-between items-end border-b border-black/10 pb-4 group-hover:border-[#004225] transition-colors">
+                    class="flex justify-between items-end border-b border-white/20 pb-4 group-hover:border-white transition-colors">
                     <div>
-                        <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Автомобили</p>
-                        <h2 class="text-3xl font-serif text-[#0B1C1C] group-hover:text-[#004225] transition-colors">
+                        <p class="text-xs uppercase tracking-widest text-white/60 mb-2">Автомобили</p>
+                        <h2
+                            class="text-4xl font-serif text-white group-hover:translate-x-2 transition-transform duration-500">
                             Veloce
                         </h2>
                     </div>
                     <span
-                        class="text-xs uppercase tracking-widest text-[#0B1C1C] opacity-0 group-hover:opacity-100 transition-opacity">Смотреть
+                        class="text-xs uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-opacity">Смотреть
                         Кейс</span>
                 </div>
             </a>
@@ -181,8 +198,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-black/5 text-center px-6">
-        <p class="text-gray-600 text-xs uppercase tracking-widest">&copy; 2024 Onda.</p>
+    <footer class="py-20 border-t border-white/10 text-center px-6 bg-[#0B1C1C] text-white">
+        <h4 class="text-2xl font-serif italic mb-4">ONDA</h4>
+        <p class="text-white/60 text-xs uppercase tracking-widest">&copy; 2024 Onda.</p>
     </footer>
 
     <script>
@@ -190,23 +208,18 @@
 
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobileMenu'); // Corrected ID to match HTML
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
 
-        if (menuBtn && mobileMenu) {
-            // Function to toggle the menu visibility and transform
-            function toggleMenu() {
-                mobileMenu.classList.toggle('translate-x-full'); // Hides/shows the menu
-                mobileMenu.classList.toggle('translate-x-0'); // Moves it into view
+        const toggleMenu = () => {
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('translate-x-full');
+                mobileMenu.classList.toggle('translate-x-0');
             }
+        }
 
-            // Event listener for the menu button
+        if (menuBtn) {
             menuBtn.addEventListener('click', toggleMenu);
-
-            // Event listener for the close button inside the mobile menu
-            const closeMenuBtn = mobileMenu.querySelector('button[onclick="toggleMenu()"]');
-            if (closeMenuBtn) {
-                closeMenuBtn.addEventListener('click', toggleMenu);
-            }
 
             // Event listeners for menu links to close menu on click
             const menuLinks = mobileMenu.querySelectorAll('a[onclick="toggleMenu()"]');

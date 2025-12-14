@@ -153,109 +153,201 @@
                 world's most exclusive brands.
             </p>
             <div class="fade-in delay-300">
-                <a href="portfolio.html"
-                    class="inline-block border border-[#004225] px-12 py-4 text-[#004225] text-xs uppercase tracking-[0.2em] hover:bg-[#0B1C1C] hover:border-[#0B1C1C] hover:text-white transition-all duration-500 rounded-sm">
-                    View Configurator
+                <a href="#work"
+                    class="px-12 py-4 border border-[#0B1C1C] text-[#0B1C1C] text-xs uppercase tracking-[0.2em] hover:bg-[#0B1C1C] hover:border-[#0B1C1C] hover:text-white transition-all duration-500 w-auto inline-block">
+                    Explore Our Work
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Services / Agents Preview -->
-    <section id="agents" class="py-32 px-6 bg-white">
+    <!-- Scroll & Reveal Script -->
+    <style>
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+    <!-- AI Agents Section (Silver) -->
+    <section id="agents" class="py-32 px-6 bg-[#F3F4F6] relative">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-24 border-b border-black/10 pb-8">
-                <h2 class="text-4xl md:text-5xl mb-4">Our Intelligence</h2>
-                <p class="text-gray-500 font-light">Bespoke AI Agents tailored for excellence.</p>
+            <div class="text-center mb-24 fade-in-section">
+                <span class="text-[#004225] text-xs tracking-[0.4em] uppercase mb-4 block">The Engine</span>
+                <h2 class="text-4xl md:text-6xl text-[#0B1C1C] mb-8 font-serif">Autonomous <span
+                        class="italic text-gray-500">Intelligence</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">Our proprietary AI agents don't
+                    just automate tasks—they elevate them. Experience the future of digital workforce.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Agent 1 -->
-                <a href="demos.html#researcher"
-                    class="block group relative p-10 border border-black/5 hover:border-[#004225] transition-all duration-300 hover:bg-[#004225]/5">
-                    <div class="absolute top-0 right-0 p-6 text-[#004225] opacity-50 text-6xl font-serif italic">01
-                    </div>
-                    <h3 class="text-2xl mb-4 text-[#0B1C1C]">The Researcher</h3>
-                    <p class="text-gray-500 mb-8 leading-relaxed text-sm">Autonomous market analysis and competitor
-                        auditing. Delivering insights that define strategy.</p>
+                <div
+                    class="bg-white p-12 hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-[#004225]/10 fade-in-section">
                     <div
-                        class="h-[1px] w-12 bg-gray-700 group-hover:w-full group-hover:bg-[#004225] transition-all duration-500">
+                        class="w-16 h-16 bg-[#F0F2F5] rounded-full flex items-center justify-center mb-8 text-[#004225] group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="brain-circuit" class="w-8 h-8"></i>
                     </div>
-                </a>
+                    <h3 class="text-2xl mb-4 text-[#0B1C1C] font-serif">Researcher</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Scours the global web for market trends,
+                        competitor insights, and strategic opportunities in milliseconds.</p>
+                    <a href="demos.html"
+                        class="text-[#004225] text-xs uppercase tracking-widest hover:underline decoration-[#004225] underline-offset-4">Run
+                        Demo <i data-lucide="arrow-right" class="w-3 h-3 inline ml-1"></i></a>
+                </div>
 
                 <!-- Agent 2 -->
-                <a href="demos.html#visionary"
-                    class="block group relative p-10 border border-black/5 hover:border-[#004225] transition-all duration-300 hover:bg-[#004225]/5">
-                    <div class="absolute top-0 right-0 p-6 text-[#004225] opacity-50 text-6xl font-serif italic">02
-                    </div>
-                    <h3 class="text-2xl mb-4 text-[#0B1C1C]">The Visionary</h3>
-                    <p class="text-gray-500 mb-8 leading-relaxed text-sm">Visual data extraction and aesthetic analysis.
-                        Transforming imagery into structured knowledge.</p>
+                <div class="bg-white p-12 hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-[#004225]/10 fade-in-section"
+                    style="transition-delay: 100ms;">
                     <div
-                        class="h-[1px] w-12 bg-gray-700 group-hover:w-full group-hover:bg-[#004225] transition-all duration-500">
+                        class="w-16 h-16 bg-[#F0F2F5] rounded-full flex items-center justify-center mb-8 text-[#004225] group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="eye" class="w-8 h-8"></i>
                     </div>
-                </a>
+                    <h3 class="text-2xl mb-4 text-[#0B1C1C] font-serif">Visionary</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Analyzes visual assets with near-human
+                        perception to grade aesthetics, branding consistency, and emotional impact.</p>
+                    <a href="demos.html"
+                        class="text-[#004225] text-xs uppercase tracking-widest hover:underline decoration-[#004225] underline-offset-4">Run
+                        Demo <i data-lucide="arrow-right" class="w-3 h-3 inline ml-1"></i></a>
+                </div>
 
                 <!-- Agent 3 -->
-                <a href="demos.html#copywriter"
-                    class="block group relative p-10 border border-black/5 hover:border-[#004225] transition-all duration-300 hover:bg-[#004225]/5">
-                    <div class="absolute top-0 right-0 p-6 text-[#004225] opacity-50 text-6xl font-serif italic">03
-                    </div>
-                    <h3 class="text-2xl mb-4 text-[#0B1C1C]">The Copywriter</h3>
-                    <p class="text-gray-500 mb-8 leading-relaxed text-sm">Neuromarketing-driven content generation.
-                        Crafting narratives that resonate and convert.</p>
+                <div class="bg-white p-12 hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-[#004225]/10 fade-in-section"
+                    style="transition-delay: 200ms;">
                     <div
-                        class="h-[1px] w-12 bg-gray-700 group-hover:w-full group-hover:bg-[#004225] transition-all duration-500">
+                        class="w-16 h-16 bg-[#F0F2F5] rounded-full flex items-center justify-center mb-8 text-[#004225] group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="pen-tool" class="w-8 h-8"></i>
                     </div>
-                </a>
+                    <h3 class="text-2xl mb-4 text-[#0B1C1C] font-serif">Copywriter</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Crafts compelling, on-brand narratives. From
+                        technical documentation to poetic marketing copy, indistinguishable from a pro.</p>
+                    <a href="demos.html"
+                        class="text-[#004225] text-xs uppercase tracking-widest hover:underline decoration-[#004225] underline-offset-4">Run
+                        Demo <i data-lucide="arrow-right" class="w-3 h-3 inline ml-1"></i></a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Selected Works (Minimal) -->
-    <section id="work" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl text-center mb-24">Selected Works</h2>
+    <!-- Work Section (Rich Green) -->
+    <section id="work" class="py-32 px-6 bg-[#004225] text-white relative overflow-hidden">
+        <!-- Decorative subtle gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 fade-in-section">
+                <div>
+                    <span class="text-white/60 text-xs tracking-[0.4em] uppercase mb-4 block">Selected Works</span>
+                    <h2 class="text-5xl md:text-7xl font-serif">Curated <span
+                            class="italic text-white/80">Excellence</span></h2>
+                </div>
+                <a href="portfolio.html"
+                    class="hidden md:block text-xs uppercase tracking-[0.2em] border-b border-white/30 pb-2 hover:text-white hover:border-white transition-all">View
+                    Full Portfolio</a>
+            </div>
 
             <div class="space-y-32">
-                <!-- Item 1 -->
-                <div class="grid md:grid-cols-2 gap-16 items-center group">
-                    <div class="overflow-hidden">
+                <!-- Item 1: Real Estate -->
+                <div class="grid md:grid-cols-2 gap-16 items-center group fade-in-section">
+                    <div class="overflow-hidden rounded-sm shadow-2xl relative">
+                        <div
+                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
+                        </div>
                         <img src="assets/images/skyline_hero.png" alt="Real Estate"
-                            class="w-full transition-all duration-700 transform group-hover:scale-105">
+                            class="w-full transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
                     </div>
                     <div>
-                        <span class="text-[#004225] text-xs tracking-widest uppercase">Real Estate</span>
-                        <h3 class="text-5xl mb-6 mt-2 text-[#0B1C1C]">Skyline</h3>
-                        <p class="text-gray-600 mb-8 leading-relaxed text-lg font-light">Redefining luxury property
+                        <span class="text-white/60 text-xs tracking-widest uppercase">Real Estate</span>
+                        <h3
+                            class="text-5xl mb-6 mt-2 text-white group-hover:translate-x-2 transition-transform duration-500">
+                            Skyline</h3>
+                        <p class="text-white/70 mb-8 leading-relaxed text-lg font-light max-w-md">Redefining luxury
+                            property
                             viewing with immersive 3D tours and AI-driven concierge services.</p>
                         <a href="portfolio/real-estate.html"
-                            class="text-[#0B1C1C] border-b border-black/20 pb-1 hover:text-[#004225] hover:border-[#004225] transition-colors uppercase text-xs tracking-widest">View
+                            class="text-white border-b border-white/20 pb-1 hover:border-white transition-colors uppercase text-xs tracking-widest">View
                             Casestudy</a>
                     </div>
                 </div>
 
-                <!-- Item 2 -->
-                <div class="grid md:grid-cols-2 gap-16 items-center group">
-                    <div class="ordered-1 md:order-2 overflow-hidden">
-                        <img src="assets/images/jewelry_hero.png" alt="Jewelry"
-                            class="w-full transition-all duration-700 transform group-hover:scale-105">
-                    </div>
+                <!-- Item 2: Jewelry -->
+                <div class="grid md:grid-cols-2 gap-16 items-center group fade-in-section">
                     <div class="order-2 md:order-1 text-right">
-                        <span class="text-[#004225] text-xs tracking-widest uppercase">High Jewelry</span>
-                        <h3 class="text-5xl mb-6 mt-2 text-[#0B1C1C]">Lumière</h3>
-                        <p class="text-gray-600 mb-8 leading-relaxed text-lg font-light">Digital flagship for a heritage
+                        <span class="text-white/60 text-xs tracking-widest uppercase">High Jewelry</span>
+                        <h3
+                            class="text-5xl mb-6 mt-2 text-white group-hover:-translate-x-2 transition-transform duration-500">
+                            Lumière</h3>
+                        <p class="text-white/70 mb-8 leading-relaxed text-lg font-light max-w-md ml-auto">Digital
+                            flagship for a heritage
                             jewelry maison, featuring AR try-on and bespoke appointment scheduling.</p>
                         <a href="portfolio/jewelry.html"
-                            class="text-[#0B1C1C] border-b border-black/20 pb-1 hover:text-[#004225] hover:border-[#004225] transition-colors uppercase text-xs tracking-widest">View
+                            class="text-white border-b border-white/20 pb-1 hover:border-white transition-colors uppercase text-xs tracking-widest">View
+                            Casestudy</a>
+                    </div>
+                    <div class="order-1 md:order-2 overflow-hidden rounded-sm shadow-2xl relative">
+                        <div
+                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
+                        </div>
+                        <img src="assets/images/jewelry_hero.png" alt="Jewelry"
+                            class="w-full transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
+                    </div>
+                </div>
+
+                <!-- Item 3: Yachts -->
+                <div class="grid md:grid-cols-2 gap-16 items-center group fade-in-section">
+                    <div class="overflow-hidden rounded-sm shadow-2xl relative">
+                        <div
+                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
+                        </div>
+                        <img src="assets/images/yacht_hero_v2.png" alt="Yachts"
+                            class="w-full transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
+                    </div>
+                    <div>
+                        <span class="text-white/60 text-xs tracking-widest uppercase">Marine</span>
+                        <h3
+                            class="text-5xl mb-6 mt-2 text-white group-hover:translate-x-2 transition-transform duration-500">
+                            Novamare</h3>
+                        <p class="text-white/70 mb-8 leading-relaxed text-lg font-light max-w-md">Cinematic 3D
+                            configurator for superyachts, bringing the shipyard experience to the browser.</p>
+                        <a href="portfolio/yachts.html"
+                            class="text-white border-b border-white/20 pb-1 hover:border-white transition-colors uppercase text-xs tracking-widest">View
                             Casestudy</a>
                     </div>
                 </div>
             </div>
 
-            <div class="text-center mt-32">
+            <div class="text-center mt-32 fade-in-section">
                 <a href="portfolio.html"
-                    class="inline-block px-12 py-4 bg-[#F3F4F6] hover:bg-[#0B1C1C] hover:border-[#0B1C1C] hover:text-white transition-all duration-500 uppercase text-xs tracking-[0.2em] text-[#0B1C1C]">View
+                    class="inline-block px-12 py-4 border border-white/20 hover:bg-white hover:text-[#004225] transition-all duration-500 uppercase text-xs tracking-[0.2em] text-white">View
                     All Projects</a>
             </div>
         </div>
@@ -356,22 +448,72 @@
         });
     </script>
 
+    <!-- Contact Section (Obsidian) -->
+    <section id="contact" class="py-32 px-6 bg-[#0B1C1C] text-white relative">
+        <div class="max-w-4xl mx-auto text-center relative z-10 fade-in-section">
+            <h2 class="text-4xl md:text-5xl mb-8 font-serif">Initiate <span
+                    class="italic text-[#004225]">Collaboration</span></h2>
+            <p class="text-white/60 font-light mb-16 max-w-xl mx-auto">Ready to elevate your digital presence? Reach out
+                to our team to discuss your custom AI execution plan.</p>
+
+            <form id="contactForm" class="text-left space-y-8 max-w-2xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Name</label>
+                        <input type="text" id="contactName" required
+                            class="w-full bg-white/5 border-b border-white/10 py-4 px-4 text-white focus:border-[#004225] focus:bg-white/10 outline-none transition-all duration-300">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Email</label>
+                        <input type="email" id="contactEmail" required
+                            class="w-full bg-white/5 border-b border-white/10 py-4 px-4 text-white focus:border-[#004225] focus:bg-white/10 outline-none transition-all duration-300">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Interest</label>
+                    <select id="contactType"
+                        class="w-full bg-white/5 border-b border-white/10 py-4 px-4 text-white focus:border-[#004225] focus:bg-white/10 outline-none transition-all duration-300 appearance-none">
+                        <option value="Website Design" class="bg-[#0B1C1C]">Website Design</option>
+                        <option value="AI Integration" class="bg-[#0B1C1C]">AI Integration</option>
+                        <option value="Brand Identity" class="bg-[#0B1C1C]">Brand Identity</option>
+                        <option value="Other" class="bg-[#0B1C1C]">Other</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Message</label>
+                    <textarea id="contactMessage" rows="4" required
+                        class="w-full bg-white/5 border-b border-white/10 py-4 px-4 text-white focus:border-[#004225] focus:bg-white/10 outline-none transition-all duration-300 resize-none"></textarea>
+                </div>
+
+                <div class="text-center mt-12">
+                    <button type="submit"
+                        class="bg-[#004225] text-white border border-[#004225] px-12 py-4 text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-[#004225] hover:border-white transition-all duration-500">
+                        Send Inquiry
+                    </button>
+                </div>
+                <div id="formStatus" class="hidden text-center text-xs uppercase tracking-widest mt-6"></div>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="py-20 px-6 border-t border-black/5 bg-white">
+    <footer class="py-20 px-6 bg-[#000000] text-white/40 border-t border-white/5">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
             <div class="text-center md:text-left">
-                <h4 class="text-2xl font-serif italic mb-4">ONDA</h4>
-                <p class="text-gray-600 text-xs uppercase tracking-widest">Est. 2024</p>
+                <h4 class="text-2xl font-serif italic mb-4 text-white">ONDA</h4>
+                <p class="text-xs uppercase tracking-widest">Est. 2024</p>
             </div>
 
-            <div class="flex gap-8 text-xs uppercase tracking-widest text-gray-500">
-                <a href="#" class="hover:text-[#0B1C1C] transition-colors">Instagram</a>
-                <a href="#" class="hover:text-[#0B1C1C] transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-[#0B1C1C] transition-colors">Twitter</a>
+            <div class="flex gap-8 text-xs uppercase tracking-widest">
+                <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-white transition-colors">Twitter</a>
             </div>
 
             <div class="text-right">
-                <p class="text-gray-600 text-xs">Designed in Spain.</p>
+                <p class="text-xs">Designed in Spain.</p>
             </div>
         </div>
     </footer>
