@@ -4,197 +4,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onda | Пакет Интеллекта</title>
+    <title>Onda | Пакет AI Решений</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --accent-blue: #2563EB;
+            --accent-light: #EFF6FF;
+            --border-color: #E2E8F0;
+        }
+
         body {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Modern Card */
+        .modern-card {
             background: #FFFFFF;
-            background-attachment: fixed;
-            color: #0B1C1C;
-        }
-
-        a:hover {
-            text-shadow: none;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .luxury-gold {
-            color: #004225;
-        }
-
-        .border-gold {
-            border-color: #004225;
-        }
-
-        .bg-gold {
-            background-color: #004225;
-        }
-
-        .text-cream {
-            color: #0B1C1C;
-        }
-
-        /* High-End Input Styles */
-        .luxury-input {
-            background: transparent;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-            color: #0B1C1C;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             transition: all 0.3s ease;
         }
 
-        .luxury-input:focus {
-            border-color: #004225;
+        .modern-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            border-color: var(--accent-blue);
+        }
+
+        /* Primary Button */
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Secondary Button */
+        .btn-secondary {
+            background-color: #f1f5f9;
+            color: var(--text-primary);
+            padding: 12px 32px;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* Modern Input */
+        .modern-input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background-color: #f8fafc;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .modern-input:focus {
             outline: none;
+            border-color: var(--accent-blue);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        /* Agent Card */
-        .agent-card {
-            background: rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.5s ease;
+        /* Animation Utilities */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
         }
 
-        .agent-card:hover {
-            border-color: rgba(0, 66, 37, 0.3);
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
         }
     </style>
 </head>
 
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <div class="flex items-center gap-6">
-                <a href="index_ru.html?v=new" class="text-[#0B1C1C] hover:text-[#004225] transition-colors"><i
-                        data-lucide="arrow-left" class="w-5 h-5"></i></a>
-                <a href="index_ru.html?v=new"
-                    class="text-2xl font-serif italic font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
-            </div>
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index_ru.html" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                    <i data-lucide="waves" class="w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-slate-900">ONDA</span>
+            </a>
 
-            <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-600">
-                <a href="process_ru.html?v=new" class="hover:text-[#004225] transition-colors duration-300">Процесс</a>
-                <a href="index_ru.html?v=new#agents" class="hover:text-[#004225] transition-colors duration-300">AI
-                    Демо</a>
-                <a href="index_ru.html?v=new#contact"
-                    class="hover:text-[#004225] transition-colors duration-300">Контакты</a>
-                <div class="flex gap-4 border-l border-black/10 pl-6">
-                    <a href="demos.html" class="hover:text-[#0B1C1C] transition-colors">EN</a>
-                    <a href="demos_es.html" class="hover:text-[#0B1C1C] transition-colors">ES</a>
-                    <span class="text-[#004225] font-bold">RU</span>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index_ru.html#work" class="hover:text-blue-600 transition-colors">Работы</a>
+                <a href="index_ru.html#agents" class="hover:text-blue-600 transition-colors">AI Демо</a>
+                <a href="process_ru.html" class="hover:text-blue-600 transition-colors">Процесс</a>
+                <a href="index_ru.html#contact" class="hover:text-blue-600 transition-colors">Контакты</a>
+                <div class="flex gap-3 border-l border-slate-200 pl-6">
+                    <a href="demos.html" class="text-slate-400 hover:text-slate-900 transition-colors">EN</a>
+                    <a href="demos_es.html" class="text-slate-400 hover:text-slate-900 transition-colors">ES</a>
+                    <span class="text-blue-600 font-bold">RU</span>
                 </div>
             </div>
 
-            <button class="md:hidden text-[#0B1C1C]"><i data-lucide="menu"></i></button>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu"
-        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
-        <a href="index_ru.html?v=new#work"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Работы</a>
-        <a href="index_ru.html?v=new#agents"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">AI Демо</a>
-        <a href="process_ru.html?v=new"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Процесс</a>
-        <a href="index_ru.html?v=new#contact"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Контакты</a>
-        <button onclick="toggleMenu()" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x"
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8">
+        <a href="index_ru.html#work"
+            class="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors">Работы</a>
+        <a href="index_ru.html#agents"
+            class="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors">AI Демо</a>
+        <a href="process_ru.html"
+            class="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors">Процесс</a>
+        <a href="index_ru.html#contact"
+            class="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors">Контакты</a>
+        <button id="mobile-menu-close-btn" class="absolute top-8 right-6 text-slate-900"><i data-lucide="x"
                 class="w-8 h-8"></i></button>
     </div>
 
-
     <!-- Header -->
     <header class="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto">
-        <p class="text-[#004225] text-xs tracking-[0.4em] uppercase mb-6">Интерактивная Демонстрация</p>
-        <h1 class="text-4xl md:text-6xl mb-8 leading-tight font-medium">
-            Пакет <br> <span class="italic text-gray-500">Интеллекта</span>
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-6 border border-blue-100">
+            <span class="w-2 h-2 rounded-full bg-blue-600"></span> Интерактивное Демо
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight">
+            Комплекс <span class="text-blue-600">ИИ-Решений</span>
         </h1>
-        <p class="text-gray-600 text-lg font-light leading-relaxed">
-            Оцените наши фирменные модели ИИ, которые лежат в основе нашего агентства. <br>
-            Созданы для точности, креативности и глубины.
+        <p class="text-lg text-slate-600 font-light leading-relaxed max-w-2xl mx-auto">
+            Испытайте проприетарные модели ИИ, которые питают наши агентства. <br class="hidden md:block">
+            Созданы для точности, креативности и глубокого анализа.
         </p>
     </header>
 
     <!-- Agent: Researcher -->
-    <section id="researcher" class="py-20 px-6 border-t border-black/5">
+    <section id="researcher" class="py-20 px-6 border-t border-slate-100 bg-slate-50">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-            <div>
-                <span class="text-6xl text-[#0B1C1C]/5 font-serif absolute -mt-10 -ml-10 select-none">01</span>
-                <h2 class="text-3xl mb-4 relative z-10">Исследователь</h2>
-                <p class="text-gray-500 mb-8 font-light leading-relaxed">
-                    Наша автономная система аудита посещает ваш цифровой ресурс, анализирует структуру и воронку продаж,
-                    и формирует досье со стратегическими улучшениями.
+            <div class="fade-in-section">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
+                    <i data-lucide="search" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Исследователь</h2>
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    Наша система автономного аудита посещает ваш цифровой ресурс, анализирует структуру и конверсионный
+                    поток, и генерирует досье стратегических улучшений.
                 </p>
 
-                <form id="researchForm" class="space-y-8 mt-12">
+                <form id="researchForm" class="space-y-6 bg-white p-8 rounded-2xl border border-slate-200">
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Целевой URL</label>
-                        <input type="text" id="researchUrl" value="example.com"
-                            class="luxury-input w-full py-4 text-xl">
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Целевой URL</label>
+                        <input type="text" id="researchUrl" value="example.com" class="modern-input"
+                            placeholder="https://">
                     </div>
 
-                    <button type="button" onclick="runResearchDemo()"
-                        class="w-full py-4 bg-[#004225] text-white border border-[#004225] text-xs uppercase tracking-widest hover:bg-[#0B1C1C] hover:border-[#0B1C1C] hover:text-white transition-all">
-                        Начать Аудит
+                    <button type="button" onclick="runResearchDemo()" class="btn-primary w-full shadow-lg">
+                        Запустить Аудит
                     </button>
                 </form>
             </div>
 
             <div id="researchOutput"
-                class="agent-card p-12 min-h-[400px] flex flex-col justify-center items-center text-center">
-                <div class="text-gray-600">
-                    <i data-lucide="globe" class="w-8 h-8 mx-auto mb-4 opacity-50"></i>
-                    <p class="text-sm tracking-widest uppercase">Ожидание Координат</p>
+                class="modern-card p-12 min-h-[400px] flex flex-col justify-center items-center text-center bg-white fade-in-section delay-100">
+                <div class="text-slate-400">
+                    <i data-lucide="globe" class="w-12 h-12 mx-auto mb-4 opacity-50"></i>
+                    <p class="text-sm font-medium uppercase tracking-wide">Ожидание Координат</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Agent: Visionary -->
-    <section id="visionary" class="py-20 px-6 border-t border-black/5 bg-white">
+    <section id="visionary" class="py-20 px-6 border-t border-slate-100 bg-white">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div class="order-2 md:order-1 agent-card p-8 min-h-[400px] flex flex-col relative">
+            <div class="order-2 md:order-1 modern-card p-8 min-h-[400px] flex flex-col relative fade-in-section">
                 <div id="visionPreview"
-                    class="flex-1 border border-dashed border-black/10 rounded-sm flex items-center justify-center relative overflow-hidden bg-white/50 hover:bg-white/80 transition-colors cursor-pointer"
+                    class="flex-1 border-2 border-dashed border-slate-200 rounded-xl flex items-center justify-center relative overflow-hidden bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer group"
                     onclick="document.getElementById('visionInput').click()">
-                    <p class="text-gray-600 text-xs tracking-widest uppercase">Выберите Визуальный Актив</p>
+                    <div class="text-center">
+                        <i data-lucide="upload-cloud"
+                            class="w-10 h-10 text-slate-400 mx-auto mb-3 group-hover:text-purple-600 transition-colors"></i>
+                        <p class="text-slate-500 text-sm font-medium">Выбрать Визуальный Актив</p>
+                    </div>
                 </div>
                 <div id="visionResult" class="hidden mt-6 space-y-4"></div>
             </div>
 
-            <div class="order-1 md:order-2">
-                <span class="text-6xl text-[#0B1C1C]/5 font-serif absolute -mt-10 -ml-10 select-none">02</span>
-                <h2 class="text-3xl mb-4 relative z-10">Визионер</h2>
-                <p class="text-gray-500 mb-8 font-light leading-relaxed">
-                    Визуальный интеллект, выходящий за рамки пикселей. Загружайте финансовые документы, счета или макеты
-                    дизайна для структурированного извлечения данных и анализа.
+            <div class="order-1 md:order-2 fade-in-section delay-100">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 mb-6">
+                    <i data-lucide="eye" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Визионер</h2>
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    Визуальный интеллект, выходящий за рамки пиксельных данных. Загрузите финансовые документы, счета
+                    или дизайн-макеты для структурированного извлечения данных и эстетического анализа.
                 </p>
 
                 <input type="file" id="visionInput" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
 
                 <button onclick="document.getElementById('visionInput').click()"
-                    class="mt-8 px-8 py-3 bg-[#F3F4F6] text-xs uppercase tracking-widest text-gray-600 hover:text-[#0B1C1C] transition-colors">
+                    class="btn-secondary text-purple-700 bg-purple-50 hover:bg-purple-100">
                     Загрузить Файл
                 </button>
             </div>
@@ -202,58 +237,83 @@
     </section>
 
     <!-- Agent: Copywriter -->
-    <section id="copywriter" class="py-20 px-6 border-t border-black/5">
+    <section id="copywriter" class="py-20 px-6 border-t border-slate-100 bg-slate-50">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-            <div>
-                <span class="text-6xl text-[#0B1C1C]/5 font-serif absolute -mt-10 -ml-10 select-none">03</span>
-                <h2 class="text-3xl mb-4 relative z-10">Копирайтер</h2>
-                <p class="text-gray-500 mb-8 font-light leading-relaxed">
+            <div class="fade-in-section">
+                <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 mb-6">
+                    <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Копирайтер</h2>
+                <p class="text-slate-600 mb-8 leading-relaxed">
                     Создание убедительных нарративов. Предоставьте суть вашего бизнеса, и наша модель сгенерирует
                     высококонверсионные заголовки, преимущества и призывы к действию.
                 </p>
 
-                <form id="copywriterForm" class="space-y-8 mt-12">
+                <form id="copywriterForm" class="space-y-6 bg-white p-8 rounded-2xl border border-slate-200">
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Название
-                            Бизнеса</label>
-                        <input type="text" id="businessName" placeholder="например, Spa Aurelia"
-                            class="luxury-input w-full py-3">
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Название Бизнеса</label>
+                        <input type="text" id="businessName" placeholder="напр. Спа Аурелия" class="modern-input">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Описание
-                            Концепции</label>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Описание Концепции</label>
                         <textarea id="businessDescription" rows="3"
-                            placeholder="Святилище для целостного оздоровления..."
-                            class="luxury-input w-full py-3 bg-transparent resize-none"></textarea>
+                            placeholder="Святилище для холистического благополучия..."
+                            class="modern-input resize-none"></textarea>
                     </div>
 
                     <button type="button" onclick="runCopywriterDemo()"
-                        class="w-full py-4 bg-[#004225] text-white border border-[#004225] text-xs uppercase tracking-widest hover:bg-[#0B1C1C] hover:border-[#0B1C1C] hover:text-white transition-all">
+                        class="btn-primary w-full shadow-lg bg-emerald-600 hover:bg-emerald-700">
                         Сгенерировать Нарратив
                     </button>
                 </form>
             </div>
 
-            <div class="agent-card p-12 min-h-[400px] flex flex-col relative text-left">
-                <div class="absolute top-0 left-0 p-4">
-                    <span class="text-[10px] uppercase tracking-widest text-gray-600">Поток Вывода</span>
+            <div
+                class="modern-card p-12 min-h-[400px] flex flex-col relative text-left bg-white fade-in-section delay-100">
+                <div class="absolute top-0 left-0 p-6 w-full border-b border-slate-100">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Поток Вывода</span>
                 </div>
-                <div id="copywriterPreview" class="flex-1 flex items-center justify-center">
-                    <p class="text-gray-600 text-xs tracking-widest uppercase">Ожидание ввода...</p>
+                <div id="copywriterPreview" class="flex-1 flex items-center justify-center mt-8">
+                    <p class="text-slate-400 text-sm font-medium">Ожидание ввода...</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-black/5 text-center px-6">
-        <p class="text-gray-600 text-xs uppercase tracking-widest">&copy; 2024 Onda. Интеллектуальный Дизайн.</p>
+    <footer class="bg-slate-900 text-white py-12 text-center px-6">
+        <p class="text-slate-500 text-sm font-medium">&copy; 2024 Onda. Интеллектуальный Дизайн.</p>
     </footer>
 
     <script>
         lucide.createIcons();
 
-        // Detect environment: Use localhost if opening file directly, otherwise use relative path (cloud/server)
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('mobile-menu-close-btn');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('translate-x-full');
+        };
+
+        if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+        if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Detect environment
         const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';
 
         // --- Research Logic ---
@@ -263,8 +323,8 @@
 
             output.innerHTML = `
                 <div class="text-center">
-                    <div class="w-12 h-12 border border-[#004225] border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-                    <p class="text-xs uppercase tracking-widest text-[#004225]">Анализ Инфраструктуры</p>
+                    <div class="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p class="text-sm font-semibold text-blue-600">Сканирование Инфраструктуры...</p>
                 </div>
             `;
 
@@ -276,36 +336,35 @@
                 });
                 const data = await response.json();
 
-                // Safe render for improvements list to avoid [object Object]
                 const improvementsHtml = data.improvements.map(item => {
                     const text = typeof item === 'object' ? (item.description || item.text || JSON.stringify(item)) : item;
                     return `
-                        <li class="flex items-start gap-3 text-sm font-light text-gray-600">
-                            <span class="text-[#004225] mt-1">✦</span> ${text}
+                        <li class="flex items-start gap-3 text-sm text-slate-600">
+                            <span class="text-blue-500 mt-1"><i data-lucide="check-circle" class="w-4 h-4"></i></span> ${text}
                         </li>
                     `;
                 }).join('');
 
                 output.innerHTML = `
                     <div class="w-full text-left animate-fade-in">
-                        <div class="flex justify-between items-end border-b border-black/10 pb-6 mb-6">
+                        <div class="flex justify-between items-end border-b border-slate-100 pb-6 mb-6">
                             <div>
-                                <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">Оценка CRO</p>
-                                <p class="text-4xl font-serif text-[#004225]">${data.score}<span class="text-lg text-gray-600">/100</span></p>
+                                <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Оценка CRO</p>
+                                <p class="text-4xl font-bold text-blue-600">${data.score}<span class="text-lg text-slate-400 font-normal">/100</span></p>
                             </div>
                             <div class="text-right">
-                                <p class="text-xs uppercase tracking-widest text-gray-500">Анализ Завершен</p>
+                                <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Анализ Завершен</span>
                             </div>
                         </div>
                         
                         <div class="space-y-6">
                             <div>
-                                <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Резюме</p>
-                                <p class="text-sm font-light leading-relaxed text-gray-600 italic">"${data.summary}"</p>
+                                <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Исполнительное Резюме</p>
+                                <p class="text-sm leading-relaxed text-slate-600 italic">"${data.summary}"</p>
                             </div>
                             
                             <div>
-                                <p class="text-xs uppercase tracking-widest text-gray-500 mb-3">Стратегические Улучшения</p>
+                                <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Стратегические Улучшения</p>
                                 <ul class="space-y-3">
                                     ${improvementsHtml}
                                 </ul>
@@ -313,9 +372,10 @@
                         </div>
                     </div>
                 `;
+                lucide.createIcons();
             } catch (error) {
                 console.error(error);
-                output.innerHTML = `<p class="text-red-500 text-xs text-center uppercase tracking-widest">Ошибка Соединения</p>`;
+                output.innerHTML = `<p class="text-red-500 text-sm font-medium">Ошибка Соединения</p>`;
             }
         }
 
@@ -333,7 +393,7 @@
                 preview.innerHTML = `<img src="${base64Image}" class="h-full w-full object-cover transition-all duration-500">`;
 
                 resultDiv.classList.remove('hidden');
-                resultDiv.innerHTML = `<p class="text-xs uppercase tracking-widest text-[#004225] text-center mt-4">Обработка Визуальных Данных...</p>`;
+                resultDiv.innerHTML = `<p class="text-sm font-semibold text-purple-600 text-center mt-4">Обработка Визуальных Данных...</p>`;
 
                 try {
                     const response = await fetch(`${API_BASE}/api/vision`, {
@@ -344,21 +404,21 @@
                     const data = await response.json();
 
                     resultDiv.innerHTML = `
-                        <div class="bg-white/5 p-6 border-l-2 border-[#004225] animate-fade-in">
+                        <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
                             <div class="flex justify-between mb-4">
-                                <span class="text-xs uppercase tracking-widest text-gray-500">Тип Документа</span>
-                                <span class="text-xs font-bold text-[#0B1C1C]">${data.type}</span>
+                                <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Тип Документа</span>
+                                <span class="text-xs font-bold text-slate-900 bg-white px-2 py-1 rounded border border-slate-200">${data.type}</span>
                             </div>
-                            <div class="text-xs font-mono text-gray-600 mb-4 bg-white/50 p-4">
+                            <div class="text-xs font-mono text-slate-600 mb-4 bg-white p-4 rounded border border-slate-100 overflow-x-auto">
                                 ${JSON.stringify(data.data, null, 2)}
                             </div>
-                            <p class="text-sm font-light text-[#004225] italic">
+                            <p class="text-sm text-purple-700 italic border-l-2 border-purple-500 pl-4 py-1">
                                 "Инсайт: ${data.insight}"
                             </p>
                         </div>
                     `;
                 } catch (error) {
-                    resultDiv.innerHTML = `<p class="text-red-500 text-xs text-center">Ошибка ПО</p>`;
+                    resultDiv.innerHTML = `<p class="text-red-500 text-sm text-center">Ошибка ПО</p>`;
                 }
             };
             reader.readAsDataURL(file);
@@ -374,8 +434,8 @@
 
             preview.innerHTML = `
                 <div class="text-center">
-                    <div class="w-8 h-8 border border-[#004225] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p class="text-xs uppercase tracking-widest text-gray-500">Создание Нарратива...</p>
+                    <div class="w-10 h-10 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p class="text-sm font-semibold text-emerald-600">Создание Нарратива...</p>
                 </div>
              `;
 
@@ -390,27 +450,28 @@
                 preview.innerHTML = `
                     <div class="w-full text-center space-y-8 animate-fade-in">
                         <div>
-                            <h3 class="text-3xl font-serif text-[#0B1C1C] mb-2">${data.headline}</h3>
-                            <p class="text-gray-600 font-light italic text-lg border-b border-black/10 pb-6 inline-block">${data.subheadline}</p>
+                            <h3 class="text-3xl font-bold text-slate-900 mb-2 leading-tight">${data.headline}</h3>
+                            <p class="text-slate-500 text-lg border-b border-slate-100 pb-6 inline-block">${data.subheadline}</p>
                         </div>
                         
                         <div class="grid gap-4 text-left max-w-sm mx-auto">
                             ${data.benefits.map(benefit => `
-                                <div class="flex items-center gap-3 text-sm text-gray-600">
-                                    <div class="w-1 h-1 bg-[#004225] rounded-full"></div>
+                                <div class="flex items-center gap-3 text-sm text-slate-600">
+                                    <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
                                     <span>${benefit}</span>
                                 </div>
                             `).join('')}
                         </div>
 
-                        <button class="bg-[#004225] text-black px-8 py-3 text-xs uppercase tracking-widest font-bold hover:bg-white transition-colors">
-                            ${data}                  </button>
+                        <button class="bg-emerald-600 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-700 transition-all shadow-lg transform hover:-translate-y-1">
+                            ${data.cta}
+                        </button>
                     </div>
                  `;
 
             } catch (error) {
                 console.error(error);
-                preview.innerHTML = `<p class="text-red-500 text-xs uppercase tracking-widest">Ошибка Генерации</p>`;
+                preview.innerHTML = `<p class="text-red-500 text-sm font-semibold">Генерация Не Удалсь</p>`;
             }
         }
     </script>

@@ -8,390 +8,237 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --bg-color: #FFFFFF;
+            --text-primary: #0F172A;
+            /* Slate 900 */
+            --text-secondary: #64748B;
+            /* Slate 500 */
+            --accent: #2563EB;
+            /* Royal Blue */
+            --accent-soft: #EFF6FF;
+            /* Blue 50 */
+            --border-color: #E2E8F0;
+            /* Slate 200 */
+        }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #010201;
-            /* Void Black */
-            color: #E5E7EB;
-            /* Silver/White */
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
             overflow-x: hidden;
             position: relative;
-        }
-
-        /* Noise Texture Overlay */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 50;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
-        }
-
-        /* Abyssal Gradient Background */
-        .abyssal-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
-            background: linear-gradient(to bottom, #010201 0%, #020604 40%, #042f2e 100%);
         }
 
         h1,
         h2,
         h3,
-        .font-serif {
-            font-family: 'Cormorant Garamond', serif;
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            letter-spacing: -0.025em;
         }
 
-        /* Mesh Gradients (Aurora V3) */
-        .aurora-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
-            mix-blend-mode: screen;
+        /* Modern Button */
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            /* Pill shape */
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
         }
 
-        .aurora-blob {
-            position: absolute;
-            filter: blur(100px);
-            opacity: 0.3;
-            animation: drift 25s infinite alternate ease-in-out;
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        .btn-primary:hover {
+            background-color: #1D4ED8;
+            /* Darker Blue */
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.3);
         }
 
-        .blob-1 {
-            top: -20%;
-            left: -10%;
-            width: 60vw;
-            height: 60vw;
-            background: radial-gradient(circle at center, #064e3b, transparent 70%);
-            /* Emerald 900 */
+        /* Modern Card */
+        .modern-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
-        .blob-2 {
-            bottom: -20%;
-            right: -10%;
-            width: 70vw;
-            height: 70vw;
-            background: radial-gradient(circle at center, #065f46, transparent 70%);
-            /* Emerald 800 */
-            animation-delay: -8s;
-            animation-duration: 35s;
-        }
-
-        .blob-3 {
-            top: 30%;
-            left: 20%;
-            width: 50vw;
-            height: 50vw;
-            background: radial-gradient(circle at center, #0f766e, transparent 70%);
-            /* Teal 700 */
-            opacity: 0.2;
-            animation-duration: 40s;
-            animation-delay: -15s;
-        }
-
-        @keyframes drift {
-            0% {
-                transform: translate(0, 0) rotate(0deg) scale(1);
-            }
-
-            50% {
-                transform: translate(20px, 30px) rotate(5deg) scale(1.05);
-            }
-
-            100% {
-                transform: translate(-20px, 50px) rotate(-5deg) scale(1.1);
-            }
-        }
-
-        /* Glassmorphism V3 (Double Border) */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.01);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow:
-                0 4px 30px rgba(0, 0, 0, 0.3),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-            /* Inner faint border */
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Gradient Border Effect on Hover */
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: inherit;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(16, 185, 129, 0.3));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-
-        .glass-card:hover::before {
-            opacity: 1;
-        }
-
-        .glass-nav {
-            background: rgba(1, 2, 1, 0.85);
-            /* Darker Nav */
-            backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        /* Text Gradients */
-        .gold-text {
-            color: #D4AF37;
-        }
-
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FCD34D 0%, #D4AF37 50%, #B45309 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-        }
-
-        /* Circuit Line Connector */
-        .circuit-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: linear-gradient(to bottom, transparent, #064e3b 20%, #10B981 50%, #064e3b 80%, transparent);
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
-            opacity: 0.6;
+        .modern-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
 
         /* Animation Classes */
         .fade-in-section {
             opacity: 0;
-            transform: translateY(30px) scale(0.98);
-            filter: blur(5px);
-            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-                filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform, filter;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
         .fade-in-section.is-visible {
             opacity: 1;
-            transform: none;
-            filter: blur(0);
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
         }
     </style>
 </head>
 
 <body class="antialiased">
 
-    <div class="abyssal-bg"></div>
-
-    <!-- Ambient Background -->
-    <div class="aurora-container">
-        <div class="aurora-blob blob-1"></div>
-        <div class="aurora-blob blob-2"></div>
-        <div class="aurora-blob blob-3"></div>
-    </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between">
-            <a href="index.html"
-                class="text-3xl font-serif font-bold tracking-widest text-[#E5E7EB] hover:text-[#D4AF37] transition-colors">ONDA</a>
-
-            <div
-                class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-400 font-medium">
-                <a href="index.html#work" class="hover:text-[#D4AF37] transition-colors duration-500">Work</a>
-                <a href="index.html#agents" class="hover:text-[#D4AF37] transition-colors duration-500">AI Demos</a>
-                <span class="text-[#10B981] drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]">Process</span>
-                <a href="index.html#contact" class="hover:text-[#D4AF37] transition-colors duration-500">Contact</a>
-                <div class="flex gap-4 border-l border-white/10 pl-6">
-                    <span class="text-[#D4AF37] font-bold">EN</span>
-                    <a href="process_es.html" class="hover:text-white transition-colors">ES</a>
-                    <a href="process_ru.html?v=new" class="hover:text-white transition-colors">RU</a>
+    <nav class="fixed w-full z-50 bg-white/90 border-b border-gray-100 backdrop-blur-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                    <i data-lucide="waves" class="w-5 h-5"></i>
+                </div>
+                ONDA
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html#work" class="hover:text-blue-600 transition-colors">Work</a>
+                <a href="demos.html" class="hover:text-blue-600 transition-colors">Solutions</a>
+                <a href="#" class="text-blue-600 font-semibold">Process</a>
+                <a href="index.html#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+                <div class="flex gap-4 border-l border-slate-200 pl-6 text-slate-400">
+                    <span class="text-slate-900 font-semibold">EN</span>
+                    <a href="process_es.html" class="hover:text-slate-900 transition-colors">ES</a>
+                    <a href="process_ru.html?v=new" class="hover:text-slate-900 transition-colors">RU</a>
                 </div>
             </div>
-
-            <button id="mobile-menu-btn" class="md:hidden text-white"><i data-lucide="menu"></i></button>
+            <a href="index.html#contact" class="hidden md:inline-block btn-primary">Get Started</a>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobile-menu"
-        class="fixed inset-0 bg-[#020403] z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8 border-l border-white/10">
-        <a href="index.html#work"
-            class="text-4xl font-serif italic text-white hover:text-[#D4AF37] transition-colors">Work</a>
-        <a href="index.html#agents"
-            class="text-4xl font-serif italic text-white hover:text-[#D4AF37] transition-colors">AI Demos</a>
-        <a href="process.html"
-            class="text-4xl font-serif italic text-[#10B981] hover:text-[#10B981] transition-colors">Process</a>
-        <a href="index.html#contact"
-            class="text-4xl font-serif italic text-white hover:text-[#D4AF37] transition-colors">Contact</a>
-        <button id="mobile-menu-close-btn" class="absolute top-8 right-6 text-white"><i data-lucide="x"
+        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8 text-slate-900 shadow-xl">
+        <a href="index.html#work" class="text-3xl font-bold hover:text-blue-600 transition-colors">Work</a>
+        <a href="demos.html" class="text-3xl font-bold hover:text-blue-600 transition-colors">Solutions</a>
+        <a href="#" class="text-3xl font-bold text-blue-600">Process</a>
+        <a href="index.html#contact" class="text-3xl font-bold hover:text-blue-600 transition-colors">Contact</a>
+        <button id="mobile-menu-close-btn" class="absolute top-8 right-6 text-slate-900"><i data-lucide="x"
                 class="w-8 h-8"></i></button>
     </div>
 
 
     <!-- Header -->
-    <header class="pt-48 pb-32 px-6 text-center max-w-5xl mx-auto fade-in-section relative z-10">
-        <div class="inline-block mb-6 relative">
-            <div class="absolute -inset-1 blur opacity-30 bg-[#10B981] rounded-full"></div>
-            <p
-                class="relative text-[#10B981] text-xs tracking-[0.5em] uppercase font-bold bg-[#010201]/50 px-4 py-1 rounded-full border border-[#10B981]/20">
-                Our Methodology</p>
+    <header class="pt-32 pb-20 px-6 text-center max-w-5xl mx-auto bg-gradient-to-b from-slate-50 to-white">
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wide mb-6">
+            Methodology
         </div>
-        <h1 class="text-6xl md:text-9xl mb-10 leading-none font-serif text-white tracking-tight">
-            Precision <span class="italic font-light text-white/50">Engineering</span>
+        <h1 class="text-4xl md:text-6xl mb-8 leading-tight text-slate-900">
+            Precision <span class="text-blue-600">Engineering.</span>
         </h1>
-        <p class="text-gray-400 text-xl font-light leading-relaxed max-w-2xl mx-auto">
-            A meticulous four-stage process ensuring every digital artifact is a <span
-                class="text-white font-normal">masterpiece</span> of form and function.
+        <p class="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
+            A meticulous four-stage process ensuring every digital artifact is a masterpiece of form and function.
         </p>
     </header>
 
     <!-- Timeline -->
-    <section class="py-20 px-6 max-w-7xl mx-auto relative z-10">
-        <div class="space-y-36 relative">
-            <!-- Circuit Line -->
-            <div class="circuit-line hidden md:block"></div>
+    <section class="py-20 px-6 max-w-4xl mx-auto bg-white">
+        <div class="space-y-8 relative">
+            <!-- Connector Line (Visual cue only, simpler than previous circuit) -->
+            <div class="absolute left-[27px] top-4 bottom-4 w-0.5 bg-slate-200 hidden md:block"></div>
 
             <!-- Step 1 -->
-            <div class="flex flex-col md:flex-row gap-20 items-center relative fade-in-section group">
-                <div class="md:w-1/2 text-right hidden md:block pr-20 relative">
-                    <span
-                        class="text-[14rem] leading-none text-white/[0.02] font-serif absolute -top-24 -right-12 select-none pointer-events-none transition-all duration-700 group-hover:text-[#10B981]/[0.05] group-hover:scale-105">01</span>
-                    <h3 class="text-5xl mb-6 text-[#E5E7EB] font-serif relative z-10 tracking-tight">Discovery & <span
-                            class="gold-text italic font-light">Vision</span></h3>
-                    <div
-                        class="glass-card p-10 rounded-2xl text-left inline-block border-l-2 border-l-[#10B981] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_10px_40px_-10px_rgba(16,185,129,0.2)]">
-                        <p class="text-gray-400 font-light leading-relaxed text-lg">We immerse ourselves in your brand's
-                            anima. Our <span class="text-white font-medium">research agents</span> conduct deep-sector
-                            analysis to distill unique competitive advantages.</p>
-                    </div>
-                </div>
-
+            <div class="flex flex-col md:flex-row gap-8 items-start relative fade-in-section">
                 <div
-                    class="w-20 h-20 bg-[#010201] border border-[#10B981] rounded-full z-10 flex items-center justify-center shrink-0 shadow-[0_0_30px_rgba(16,185,129,0.2)] transition-all duration-500 group-hover:scale-110 group-hover:bg-[#064e3b] relative">
-                    <div class="absolute inset-0 border border-[#10B981]/30 rounded-full animate-ping opacity-20"></div>
-                    <div class="w-3 h-3 bg-[#10B981] rounded-full group-hover:bg-white box-shadow-[0_0_10px_#10B981]">
-                    </div>
+                    class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shrink-0 z-10 text-white font-bold text-xl shadow-lg shadow-blue-600/20">
+                    1
                 </div>
-
-                <div class="md:w-1/2 pl-12 md:hidden">
-                    <span class="text-8xl text-white/[0.02] font-serif absolute -top-10 -left-4">01</span>
-                    <h3 class="text-4xl mb-4 text-white font-serif relative z-10">Discovery & Vision</h3>
-                    <p class="text-gray-400 font-light leading-relaxed">We immerse ourselves in your brand's anima. Our
-                        research agents conduct deep-sector analysis to distill unique competitive advantages.</p>
+                <div class="modern-card p-8 flex-1">
+                    <h3 class="text-2xl mb-3 text-slate-900 font-bold">Discovery & Vision</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        We immerse ourselves in your brand's DNA. Our <span class="font-semibold text-blue-600">research
+                            agents</span> conduct deep-sector
+                        analysis to distill unique competitive advantages and identify growth opportunities.
+                    </p>
                 </div>
-                <div class="md:w-1/2"></div>
             </div>
 
             <!-- Step 2 -->
-            <div class="flex flex-col md:flex-row gap-20 items-center relative fade-in-section group">
-                <div class="md:w-1/2"></div>
-
+            <div class="flex flex-col md:flex-row gap-8 items-start relative fade-in-section"
+                style="transition-delay: 100ms;">
                 <div
-                    class="w-20 h-20 bg-[#010201] border border-[#D4AF37] rounded-full z-10 flex items-center justify-center shrink-0 shadow-[0_0_30px_rgba(212,175,55,0.1)] transition-all duration-500 group-hover:scale-110 group-hover:bg-[#451a03] relative">
-                    <div
-                        class="absolute inset-0 border border-[#D4AF37]/30 rounded-full animate-ping opacity-20 animation-delay-200">
-                    </div>
-                    <div class="w-3 h-3 bg-[#D4AF37] rounded-full group-hover:bg-white"></div>
+                    class="w-14 h-14 bg-white border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center shrink-0 z-10 font-bold text-xl">
+                    2
                 </div>
-
-                <div class="md:w-1/2 pl-0 md:pl-20 text-left relative">
-                    <span
-                        class="text-[14rem] leading-none text-white/[0.02] font-serif absolute -top-24 -left-12 select-none pointer-events-none transition-all duration-700 group-hover:text-[#D4AF37]/[0.05] group-hover:scale-105">02</span>
-                    <h3 class="text-5xl mb-6 text-[#E5E7EB] font-serif relative z-10 tracking-tight">Architectural <span
-                            class="gold-text italic font-light">Structure</span></h3>
-                    <div
-                        class="glass-card p-10 rounded-2xl border-r-2 border-r-[#D4AF37] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_10px_40px_-10px_rgba(212,175,55,0.15)]">
-                        <p class="text-gray-400 font-light leading-relaxed text-lg">We structure the digital void.
-                            Wireframes and kinetic user flows are forged to guarantee an <span
-                                class="text-white font-medium">intuitive</span> and immersive journey.</p>
-                    </div>
+                <div class="modern-card p-8 flex-1">
+                    <h3 class="text-2xl mb-3 text-slate-900 font-bold">Architectural Structure</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        We structure the digital experience. Wireframes and kinetic user flows are forged to guarantee
+                        an
+                        <span class="font-semibold text-blue-600">intuitive</span> and seamless journey for your users.
+                    </p>
                 </div>
             </div>
 
             <!-- Step 3 -->
-            <div class="flex flex-col md:flex-row gap-20 items-center relative fade-in-section group">
-                <div class="md:w-1/2 text-right hidden md:block pr-20 relative">
-                    <span
-                        class="text-[14rem] leading-none text-white/[0.02] font-serif absolute -top-24 -right-12 select-none pointer-events-none transition-all duration-700 group-hover:text-[#10B981]/[0.05] group-hover:scale-105">03</span>
-                    <h3 class="text-5xl mb-6 text-[#E5E7EB] font-serif relative z-10 tracking-tight">Visual <span
-                            class="gold-text italic font-light">Synthesis</span></h3>
-                    <div
-                        class="glass-card p-10 rounded-2xl text-left inline-block border-l-2 border-l-[#10B981] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_10px_40px_-10px_rgba(16,185,129,0.2)]">
-                        <p class="text-gray-400 font-light leading-relaxed text-lg">Where art meets code. We apply
-                            bespoke <span class="text-white font-medium">luxury aesthetics</span>—kinetic typography,
-                            color theory, and motion design—to bring the vision to life.</p>
-                    </div>
-                </div>
-
+            <div class="flex flex-col md:flex-row gap-8 items-start relative fade-in-section"
+                style="transition-delay: 200ms;">
                 <div
-                    class="w-20 h-20 bg-[#010201] border border-[#10B981] rounded-full z-10 flex items-center justify-center shrink-0 shadow-[0_0_30px_rgba(16,185,129,0.2)] transition-all duration-500 group-hover:scale-110 group-hover:bg-[#064e3b] relative">
-                    <div class="absolute inset-0 border border-[#10B981]/30 rounded-full animate-ping opacity-20"></div>
-                    <div class="w-3 h-3 bg-[#10B981] rounded-full group-hover:bg-white box-shadow-[0_0_10px_#10B981]">
-                    </div>
+                    class="w-14 h-14 bg-white border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center shrink-0 z-10 font-bold text-xl">
+                    3
                 </div>
-
-                <div class="md:w-1/2 pl-12 md:hidden">
-                    <span class="text-8xl text-white/[0.05] font-serif absolute -top-10 -left-4">03</span>
-                    <h3 class="text-4xl mb-4 text-white font-serif relative z-10">Visual Synthesis</h3>
-                    <p class="text-gray-400 font-light leading-relaxed">Where art meets code. We apply bespoke luxury
-                        aesthetics—kinetic typography, color theory, and motion design—to bring the vision to life.</p>
+                <div class="modern-card p-8 flex-1">
+                    <h3 class="text-2xl mb-3 text-slate-900 font-bold">Visual Synthesis</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Where design meets code. We apply bespoke <span class="font-semibold text-blue-600">modern
+                            aesthetics</span>—clean typography, color theory,
+                        and smooth interactions—to bring the vision to life.
+                    </p>
                 </div>
-                <div class="md:w-1/2"></div>
             </div>
 
             <!-- Step 4 -->
-            <div class="flex flex-col md:flex-row gap-20 items-center relative fade-in-section group">
-                <div class="md:w-1/2"></div>
-
+            <div class="flex flex-col md:flex-row gap-8 items-start relative fade-in-section"
+                style="transition-delay: 300ms;">
                 <div
-                    class="w-20 h-20 bg-[#010201] border border-[#D4AF37] rounded-full z-10 flex items-center justify-center shrink-0 shadow-[0_0_30px_rgba(212,175,55,0.1)] transition-all duration-500 group-hover:scale-110 group-hover:bg-[#451a03] relative">
-                    <div
-                        class="absolute inset-0 border border-[#D4AF37]/30 rounded-full animate-ping opacity-20 animation-delay-200">
-                    </div>
-                    <div class="w-3 h-3 bg-[#D4AF37] rounded-full group-hover:bg-white"></div>
+                    class="w-14 h-14 bg-white border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center shrink-0 z-10 font-bold text-xl">
+                    4
                 </div>
-
-                <div class="md:w-1/2 pl-0 md:pl-20 text-left relative">
-                    <span
-                        class="text-[14rem] leading-none text-white/[0.02] font-serif absolute -top-24 -left-12 select-none pointer-events-none transition-all duration-700 group-hover:text-[#D4AF37]/[0.05] group-hover:scale-105">04</span>
-                    <h3 class="text-5xl mb-6 text-[#E5E7EB] font-serif relative z-10 tracking-tight">Deploy & <span
-                            class="gold-text italic font-light">Scale</span></h3>
-                    <div
-                        class="glass-card p-10 rounded-2xl border-r-2 border-r-[#D4AF37] transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_10px_40px_-10px_rgba(212,175,55,0.15)]">
-                        <p class="text-gray-400 font-light leading-relaxed text-lg">Rigorous stress-testing followed by
-                            global deployment. We monitor performance and scale infrastructure to meet the demands of
-                            your <span class="text-white font-medium">audience</span>.</p>
-                    </div>
+                <div class="modern-card p-8 flex-1">
+                    <h3 class="text-2xl mb-3 text-slate-900 font-bold">Deploy & Scale</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Rigorous testing followed by global deployment. We monitor performance and scale infrastructure
+                        to meet the demands of
+                        your <span class="font-semibold text-blue-600">growing audience</span>.
+                    </p>
                 </div>
             </div>
 
@@ -399,23 +246,27 @@
     </section>
 
     <!-- CTA -->
-    <section class="py-48 text-center relative z-10 grid place-items-center">
-        <div class="absolute inset-0 z-0 bg-gradient-to-t from-[#064e3b]/20 to-transparent"></div>
-        <h2 class="text-6xl md:text-8xl font-serif mb-16 text-white fade-in-section relative z-10">Ready to <span
-                class="italic text-[#10B981]">Begin?</span></h2>
-        <a href="index.html#contact"
-            class="group relative inline-flex items-center justify-center px-16 py-6 overflow-hidden font-medium text-white transition-all duration-500 rounded-full bg-[#064e3b] hover:bg-[#059669] fade-in-section border border-[#10B981]/30 hover:shadow-[0_0_40px_rgba(16,185,129,0.4)]">
-            <span
-                class="absolute w-64 h-64 mt-12 transition-all duration-500 transform translate-x-12 -translate-y-12 bg-white opacity-10 rotate-45 group-hover:-translate-x-40"></span>
-            <span class="relative uppercase tracking-[0.3em] text-sm">Start the Process</span>
+    <section class="py-24 text-center relative z-10 bg-slate-50 border-t border-slate-100">
+        <h2 class="text-3xl md:text-5xl font-bold mb-8 text-slate-900 fade-in-section">Ready to <span
+                class="text-blue-600">Begin?</span></h2>
+        <a href="index.html#contact" class="btn-primary text-lg px-8 py-4 fade-in-section shadow-xl shadow-blue-600/10">
+            Start the Process
         </a>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 border-t border-white/5 text-center px-6 glass-card relative z-10">
-        <h4 class="text-4xl font-serif italic mb-8 gold-gradient-text tracking-[0.5em] opacity-80">ONDA</h4>
-        <p class="text-white/30 text-[10px] uppercase tracking-[0.4em] font-sans">&copy; 2024 Onda. All Rights Reserved.
-        </p>
+    <footer class="py-12 border-t border-slate-100 bg-white text-slate-600 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-lg font-bold text-slate-900 block mb-1">ONDA</span>
+                <p>&copy; 2024 Onda Systems. All rights reserved.</p>
+            </div>
+            <div class="flex gap-6 font-semibold">
+                <a href="#" class="hover:text-blue-600 transition-colors">GitHub</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">Twitter</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">LinkedIn</a>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -429,7 +280,6 @@
         const toggleMenu = () => {
             if (mobileMenu) {
                 mobileMenu.classList.toggle('translate-x-full');
-                mobileMenu.classList.toggle('translate-x-0');
             }
         }
 
@@ -447,7 +297,6 @@
             links.forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('translate-x-full');
-                    mobileMenu.classList.remove('translate-x-0');
                 });
             });
         }
@@ -477,4 +326,3 @@
 </body>
 
 </html>
-```

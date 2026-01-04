@@ -9,462 +9,493 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
-        rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap');
+        :root {
+            --bg-color: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --accent-blue: #2563EB;
+            --accent-light: #EFF6FF;
+            --border-color: #E2E8F0;
+        }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Modern Card */
+        .modern-card {
             background: #FFFFFF;
-            background-attachment: fixed;
-            color: #0B1C1C;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
         }
 
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Playfair Display', serif;
+        .modern-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            border-color: var(--accent-blue);
         }
 
-        .luxury-accent {
-            color: #004225;
-            /* Lime Essence */
+        /* Primary Button */
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
 
-        .border-accent {
-            border-color: #004225;
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
 
-        .bg-accent {
-            background-color: #004225;
+        /* Modern Input */
+        .modern-input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background-color: #f8fafc;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
         }
 
-        .text-silver {
-            color: #0B1C1C;
+        .modern-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        /* Elegant Fade In */
-        .fade-in {
+        /* Animation Utilities */
+        .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
         }
 
-        .delay-100 {
-            animation-delay: 0.1s;
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
         }
 
-        .delay-200 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-300 {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Custom Scrollbar */
+        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #020808;
+            background: #f1f5f9;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #333;
+            background: #cbd5e1;
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #004225;
+            background: #94a3b8;
         }
     </style>
 </head>
 
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-500 bg-white/80 backdrop-blur-sm border-b border-black/5">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <a href="#" class="text-3xl font-serif italic font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                    <i data-lucide="waves" class="w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-slate-900">ONDA</span>
+            </a>
 
-            <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-600">
-                <a href="#work" class="hover:text-[#004225] transition-colors duration-300">Работы</a>
-                <a href="#agents" class="hover:text-[#004225] transition-colors duration-300">AI Демо</a>
-                <a href="process_ru.html?v=new" class="hover:text-[#004225] transition-colors duration-300">Процесс</a>
-                <a href="#contact" class="hover:text-[#004225] transition-colors duration-300">Контакты</a>
-                <div class="flex gap-4 border-l border-black/10 pl-6">
-                    <a href="index.html" class="hover:text-[#0B1C1C] transition-colors">EN</a>
-                    <a href="index_es.html" class="hover:text-[#0B1C1C] transition-colors">ES</a>
-                    <span class="text-[#004225] font-bold">RU</span>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="#work" class="hover:text-blue-600 transition-colors">Работы</a>
+                <a href="#agents" class="hover:text-blue-600 transition-colors">AI Демо</a>
+                <a href="process_ru.html?v=new" class="hover:text-blue-600 transition-colors">Процесс</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors">Контакты</a>
+                <div class="flex gap-3 border-l border-slate-200 pl-6">
+                    <a href="index.html" class="text-slate-400 hover:text-slate-900 transition-colors">EN</a>
+                    <a href="index_es.html" class="text-slate-400 hover:text-slate-900 transition-colors">ES</a>
+                    <span class="text-blue-600 font-bold">RU</span>
                 </div>
             </div>
 
-            <button class="md:hidden text-[#0B1C1C]"><i data-lucide="menu"></i></button>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu"
-        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
-        <a href="index_ru.html?v=new#work"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Работы</a>
-        <a href="index_ru.html?v=new#agents"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">AI Демо</a>
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8">
+        <a href="#work" class="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors">Работы</a>
+        <a href="#agents" class="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors">AI
+            Демо</a>
         <a href="process_ru.html?v=new"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Процесс</a>
-        <a href="index_ru.html?v=new#contact"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Контакты</a>
-        <button onclick="toggleMenu()" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x"
+            class="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors">Процесс</a>
+        <a href="#contact"
+            class="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors">Контакты</a>
+        <button id="mobile-menu-close-btn" class="absolute top-8 right-6 text-slate-900"><i data-lucide="x"
                 class="w-8 h-8"></i></button>
     </div>
 
-
     <!-- Hero Section -->
-    <section
-        class="h-screen flex items-center justify-center relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-[#F0F2F5] to-[#E5E7EB]">
+    <section class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden bg-slate-50">
+        <!-- Abstract Background Shapes -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div
+                class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-100 rounded-full blur-3xl opacity-50">
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-indigo-50 rounded-full blur-3xl opacity-60">
+            </div>
+        </div>
 
-        <div class="relative z-10 text-center px-6 max-w-5xl">
-            <p class="text-[#004225] text-sm tracking-[0.4em] uppercase mb-8 fade-in">Новый Стандарт</p>
-            <h1 class="text-6xl md:text-9xl mb-8 leading-tight font-medium fade-in delay-100">
-                Цифровая <br> <span class="italic text-gray-500">Алхимия</span>
-            </h1>
-            <p
-                class="text-gray-600 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 fade-in delay-200 leading-relaxed">
-                Мы объединяем человеческую креативность с искусственным интеллектом для создания уникальных цифровых
-                решений для самых эксклюзивных брендов мира.
-            </p>
-            <div class="fade-in delay-300">
-                <a href="portfolio_ru.html?v=new"
-                    class="inline-block border border-[#004225] px-12 py-4 text-[#004225] text-xs uppercase tracking-[0.2em] hover:bg-[#0B1C1C] hover:border-[#0B1C1C] hover:text-white transition-all duration-500">
-                    Смотреть Коллекцию
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="fade-in-section text-center md:text-left">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wider mb-6 border border-blue-100">
+                    <span class="w-2 h-2 rounded-full bg-blue-600"></span> Новый Стандарт
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-tight tracking-tight">
+                    Автоматизация ИИ для <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Современного
+                        Бизнеса</span>
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg mx-auto md:mx-0">
+                    Мы объединяем человеческую креативность с искусственным интеллектом для создания уникальных цифровых
+                    решений для самых эксклюзивных брендов мира.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#work" class="btn-primary flex items-center justify-center gap-2">
+                        Смотреть Работы <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#agents"
+                        class="px-8 py-3 rounded-full border border-slate-200 text-slate-600 font-medium hover:bg-slate-50 hover:text-slate-900 transition-all text-center">
+                        AI Демо
+                    </a>
+                </div>
+            </div>
+
+            <div class="fade-in-section delay-200 relative">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white">
+                    <img src="assets/images/hero_modern.png" alt="Onda Dashboard Interface"
+                        class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700">
+                    <!-- Floating Badge -->
+                    <div
+                        class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-slate-100 flex items-center gap-4 max-w-xs animate-float">
+                        <div
+                            class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                            <i data-lucide="trending-up" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-medium uppercase">Рост</p>
+                            <p class="text-sm font-bold text-slate-900">+127% в месяц</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents Section (Services) -->
+    <section id="agents" class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 fade-in-section">
+                <span class="text-blue-600 font-semibold tracking-wider uppercase text-sm">Двигатель</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mt-3 mb-6">Автономный Интеллект</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto text-lg">Наши ИИ-агенты не просто автоматизируют задачи, они
+                    выводят их на новый уровень. Испытайте будущее цифровой рабочей силы.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Agent 1 -->
+                <div class="modern-card p-8 group fade-in-section">
+                    <div
+                        class="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="search" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Исследователь</h3>
+                    <p class="text-slate-500 mb-6 leading-relaxed">Сканирует глобальную сеть в поисках рыночных трендов,
+                        инсайтов о конкурентах и стратегических возможностей за миллисекунды.</p>
+                    <a href="demos_ru.html"
+                        class="inline-flex items-center text-indigo-600 font-medium hover:underline decoration-2 underline-offset-4">
+                        Запустить Демо <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Agent 2 -->
+                <div class="modern-card p-8 group fade-in-section delay-100">
+                    <div
+                        class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="eye" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Визионер</h3>
+                    <p class="text-slate-500 mb-6 leading-relaxed">Анализирует визуальные активы с почти человеческим
+                        восприятием для оценки эстетики, соответствия бренду и эмоционального воздействия.</p>
+                    <a href="demos_ru.html"
+                        class="inline-flex items-center text-purple-600 font-medium hover:underline decoration-2 underline-offset-4">
+                        Запустить Демо <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Agent 3 -->
+                <div class="modern-card p-8 group fade-in-section delay-200">
+                    <div
+                        class="w-14 h-14 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="pen-tool" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Копирайтер</h3>
+                    <p class="text-slate-500 mb-6 leading-relaxed">Создает убедительные нарративы, соответствующие
+                        бренду. От технической документации до маркетинговых текстов.</p>
+                    <a href="demos_ru.html"
+                        class="inline-flex items-center text-emerald-600 font-medium hover:underline decoration-2 underline-offset-4">
+                        Запустить Демо <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-32 px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in-section">
+                <div>
+                    <span class="text-blue-600 font-semibold tracking-wider uppercase text-sm">Избранные Проекты</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mt-3">Курируемое Совершенство</h2>
+                </div>
+                <a href="portfolio_ru.html"
+                    class="hidden md:flex items-center text-slate-600 hover:text-blue-600 font-medium transition-colors">
+                    Смотреть Портфолио <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Case Study 1 -->
+                <div class="modern-card overflow-hidden group fade-in-section">
+                    <div class="h-64 overflow-hidden">
+                        <img src="assets/images/skyline_hero.png" alt="Real Estate Project"
+                            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">Недвижимость</span>
+                            <span class="text-slate-400 text-sm">2024</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Skyline</h3>
+                        <p class="text-slate-500 mb-6">Новое определение просмотра роскошной недвижимости с иммерсивными
+                            3D-турами и консьерж-сервисом на базе ИИ.</p>
+                        <a href="portfolio/real-estate_ru.html"
+                            class="text-slate-900 font-semibold hover:text-blue-600 transition-colors">Смотреть Кейс
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="modern-card overflow-hidden group fade-in-section delay-100">
+                    <div class="h-64 overflow-hidden">
+                        <img src="assets/images/jewelry_hero.png" alt="Jewelry Brand Project"
+                            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">E-Commerce</span>
+                            <span class="text-slate-400 text-sm">2024</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Lumière</h3>
+                        <p class="text-slate-500 mb-6">Цифровой флагман для ювелирного дома с наследием, включающий
+                            AR-примерку и индивидуальную запись.</p>
+                        <a href="portfolio/jewelry_ru.html"
+                            class="text-slate-900 font-semibold hover:text-blue-600 transition-colors">Смотреть Кейс
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Case Study 3 -->
+                <div class="modern-card overflow-hidden group fade-in-section">
+                    <div class="h-64 overflow-hidden">
+                        <img src="assets/images/yacht_hero_v2.png" alt="Yacht Project"
+                            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <span
+                                class="bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">Яхтинг</span>
+                            <span class="text-slate-400 text-sm">2024</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Novamare</h3>
+                        <p class="text-slate-500 mb-6">Кинематографичный 3D-конфигуратор для суперъяхт, переносящий опыт
+                            верфи в браузер.</p>
+                        <a href="portfolio/yachts_ru.html"
+                            class="text-slate-900 font-semibold hover:text-blue-600 transition-colors">Смотреть Кейс
+                            &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center md:hidden">
+                <a href="portfolio_ru.html" class="btn-primary inline-flex items-center">
+                    Смотреть Все Проекты <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- AI Agents Section (Silver) -->
-    <section id="agents" class="py-32 px-6 bg-[#F3F4F6] relative">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24 fade-in-section">
-                <span class="text-[#004225] text-xs tracking-[0.4em] uppercase mb-4 block">Двигатель</span>
-                <h2 class="text-4xl md:text-6xl text-[#0B1C1C] mb-8 font-serif">Автономный <span
-                        class="italic text-gray-500">Интеллект</span></h2>
-                <p class="text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">Наши ИИ-агенты не просто
-                    автоматизируют задачи, они выводят их на новый уровень. Испытайте будущее цифровой рабочей силы.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Agent 1 -->
-                <div
-                    class="bg-white p-12 hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-[#004225]/10 fade-in-section">
-                    <div
-                        class="w-16 h-16 bg-[#F0F2F5] rounded-full flex items-center justify-center mb-8 text-[#004225] group-hover:scale-110 transition-transform duration-500">
-                        <i data-lucide="brain-circuit" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-2xl mb-4 text-[#0B1C1C] font-serif">Исследователь</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Сканирует глобальную сеть в поисках рыночных
-                        трендов, инсайтов о конкурентах и стратегических возможностей за миллисекунды.</p>
-                    <a href="demos_ru.html"
-                        class="text-[#004225] text-xs uppercase tracking-widest hover:underline decoration-[#004225] underline-offset-4">Запустить
-                        Демо <i data-lucide="arrow-right" class="w-3 h-3 inline ml-1"></i></a>
-                </div>
-
-                <!-- Agent 2 -->
-                <div class="bg-white p-12 hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-[#004225]/10 fade-in-section"
-                    style="transition-delay: 100ms;">
-                    <div
-                        class="w-16 h-16 bg-[#F0F2F5] rounded-full flex items-center justify-center mb-8 text-[#004225] group-hover:scale-110 transition-transform duration-500">
-                        <i data-lucide="eye" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-2xl mb-4 text-[#0B1C1C] font-serif">Визионер</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Анализирует визуальные активы с почти
-                        человеческим восприятием для оценки эстетики, соответствия бренду и эмоционального воздействия.
-                    </p>
-                    <a href="demos_ru.html"
-                        class="text-[#004225] text-xs uppercase tracking-widest hover:underline decoration-[#004225] underline-offset-4">Запустить
-                        Демо <i data-lucide="arrow-right" class="w-3 h-3 inline ml-1"></i></a>
-                </div>
-
-                <!-- Agent 3 -->
-                <div class="bg-white p-12 hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-[#004225]/10 fade-in-section"
-                    style="transition-delay: 200ms;">
-                    <div
-                        class="w-16 h-16 bg-[#F0F2F5] rounded-full flex items-center justify-center mb-8 text-[#004225] group-hover:scale-110 transition-transform duration-500">
-                        <i data-lucide="pen-tool" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-2xl mb-4 text-[#0B1C1C] font-serif">Копирайтер</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Создает убедительные нарративы,
-                        соответствующие бренду. От технической документации до маркетинговых текстов.</p>
-                    <a href="demos_ru.html"
-                        class="text-[#004225] text-xs uppercase tracking-widest hover:underline decoration-[#004225] underline-offset-4">Запустить
-                        Демо <i data-lucide="arrow-right" class="w-3 h-3 inline ml-1"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Section (Rich Green) -->
-    <section id="work" class="py-32 px-6 bg-[#004225] text-white relative overflow-hidden">
-        <!-- Decorative subtle gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-24 fade-in-section">
-                <div>
-                    <span class="text-white/60 text-xs tracking-[0.4em] uppercase mb-4 block">Избранные Проекты</span>
-                    <h2 class="text-5xl md:text-7xl font-serif">Курируемое <span
-                            class="italic text-white/80">Совершенство</span></h2>
-                </div>
-                <a href="portfolio_ru.html"
-                    class="hidden md:block text-xs uppercase tracking-[0.2em] border-b border-white/30 pb-2 hover:text-white hover:border-white transition-all">Смотреть
-                    Портфолио</a>
-            </div>
-
-            <div class="space-y-32">
-                <!-- Item 1: Real Estate -->
-                <div class="grid md:grid-cols-2 gap-16 items-center group fade-in-section">
-                    <div class="overflow-hidden rounded-sm shadow-2xl relative">
-                        <div
-                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
-                        </div>
-                        <img src="assets/images/skyline_hero.png" alt="Real Estate"
-                            class="w-full transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
-                    </div>
-                    <div>
-                        <span class="text-white/60 text-xs tracking-widest uppercase">Недвижимость</span>
-                        <h3
-                            class="text-5xl mb-6 mt-2 text-white group-hover:translate-x-2 transition-transform duration-500">
-                            Skyline</h3>
-                        <p class="text-white/70 mb-8 leading-relaxed text-lg font-light max-w-md">Новое определение
-                            просмотра роскошной недвижимости с иммерсивными 3D-турами и консьерж-сервисом на базе ИИ.
-                        </p>
-                        <a href="portfolio/real-estate_ru.html"
-                            class="text-white border-b border-white/20 pb-1 hover:border-white transition-colors uppercase text-xs tracking-widest">Смотреть
-                            Кейс</a>
-                    </div>
-                </div>
-
-                <!-- Item 2: Jewelry -->
-                <div class="grid md:grid-cols-2 gap-16 items-center group fade-in-section">
-                    <div class="order-2 md:order-1 text-right">
-                        <span class="text-white/60 text-xs tracking-widest uppercase">Высокое Ювелирное Искусство</span>
-                        <h3
-                            class="text-5xl mb-6 mt-2 text-white group-hover:-translate-x-2 transition-transform duration-500">
-                            Lumière</h3>
-                        <p class="text-white/70 mb-8 leading-relaxed text-lg font-light max-w-md ml-auto">Цифровой
-                            флагман для ювелирного дома с наследием, включающий AR-примерку и индивидуальную запись.</p>
-                        <a href="portfolio/jewelry_ru.html"
-                            class="text-white border-b border-white/20 pb-1 hover:border-white transition-colors uppercase text-xs tracking-widest">Смотреть
-                            Кейс</a>
-                    </div>
-                    <div class="order-1 md:order-2 overflow-hidden rounded-sm shadow-2xl relative">
-                        <div
-                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
-                        </div>
-                        <img src="assets/images/jewelry_hero.png" alt="Jewelry"
-                            class="w-full transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
-                    </div>
-                </div>
-
-                <!-- Item 3: Yachts -->
-                <div class="grid md:grid-cols-2 gap-16 items-center group fade-in-section">
-                    <div class="overflow-hidden rounded-sm shadow-2xl relative">
-                        <div
-                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
-                        </div>
-                        <img src="assets/images/yacht_hero_v2.png" alt="Yachts"
-                            class="w-full transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
-                    </div>
-                    <div>
-                        <span class="text-white/60 text-xs tracking-widest uppercase">Яхтинг</span>
-                        <h3
-                            class="text-5xl mb-6 mt-2 text-white group-hover:translate-x-2 transition-transform duration-500">
-                            Novamare</h3>
-                        <p class="text-white/70 mb-8 leading-relaxed text-lg font-light max-w-md">Кинематографичный
-                            3D-конфигуратор для суперъяхт, переносящий опыт верфи в браузер.</p>
-                        <a href="portfolio/yachts_ru.html"
-                            class="text-white border-b border-white/20 pb-1 hover:border-white transition-colors uppercase text-xs tracking-widest">Смотреть
-                            Кейс</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-32 fade-in-section">
-                <a href="portfolio_ru.html"
-                    class="inline-block px-12 py-4 border border-white/20 hover:bg-white hover:text-[#004225] transition-all duration-500 uppercase text-xs tracking-[0.2em] text-white">Смотреть
-                    Все Проекты</a>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
-    <section id="contact" class="py-32 px-6 bg-[#0B1C1C] text-white border-t border-white/10">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl mb-8 font-serif">Начать Сотрудничество</h2>
-            <p class="text-white/60 font-light mb-16">Готовы улучшить свое цифровое присутствие? Свяжитесь с нами.</p>
+    <section id="contact" class="py-32 px-6 bg-white">
+        <div class="max-w-xl mx-auto text-center fade-in-section">
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Начать Сотрудничество</h2>
+            <p class="text-slate-500 text-lg mb-12">Готовы улучшить свое цифровое присутствие? Свяжитесь с нами.</p>
 
-            <form id="contactForm" class="text-left space-y-8 max-w-2xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-white/50 mb-2">Имя</label>
-                        <input type="text" id="contactName" required
-                            class="w-full bg-transparent border-b border-white/20 py-4 text-white focus:border-white outline-none transition-colors placeholder-white/20">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-white/50 mb-2">Email</label>
-                        <input type="email" id="contactEmail" required
-                            class="w-full bg-transparent border-b border-white/20 py-4 text-white focus:border-white outline-none transition-colors placeholder-white/20">
-                    </div>
-                </div>
-
+            <form id="contactForm"
+                class="text-left space-y-6 bg-white p-8 rounded-2xl border border-slate-200 shadow-xl">
                 <div>
-                    <label class="block text-xs uppercase tracking-widest text-white/50 mb-2">Интерес</label>
-                    <select id="contactType"
-                        class="w-full bg-transparent border-b border-white/20 py-4 text-white focus:border-white outline-none transition-colors appearance-none cursor-pointer">
-                        <option value="Website Design" class="bg-[#0B1C1C]">Веб-дизайн</option>
-                        <option value="AI Integration" class="bg-[#0B1C1C]">Интеграция ИИ</option>
-                        <option value="Brand Identity" class="bg-[#0B1C1C]">Брендинг</option>
-                        <option value="Other" class="bg-[#0B1C1C]">Другое</option>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Имя</label>
+                    <input type="text" id="contactName" required class="modern-input" placeholder="Ваше Имя">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+                    <input type="email" id="contactEmail" required class="modern-input"
+                        placeholder="imya@kompaniya.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Интерес</label>
+                    <select id="contactType" class="modern-input">
+                        <option value="Website Design">Веб-дизайн</option>
+                        <option value="AI Integration">Интеграция ИИ</option>
+                        <option value="Brand Identity">Брендинг</option>
+                        <option value="Other">Другое</option>
                     </select>
                 </div>
-
                 <div>
-                    <label class="block text-xs uppercase tracking-widest text-white/50 mb-2">Сообщение</label>
-                    <textarea id="contactMessage" rows="4" required
-                        class="w-full bg-transparent border-b border-white/20 py-4 text-white focus:border-white outline-none transition-colors resize-none placeholder-white/20"></textarea>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Сообщение</label>
+                    <textarea id="contactMessage" rows="4" required class="modern-input font-sans"
+                        placeholder="Расскажите о вашем проекте..."></textarea>
                 </div>
 
-                <div class="text-center mt-12">
-                    <button type="submit"
-                        class="bg-white text-[#0B1C1C] border border-white px-12 py-4 text-xs uppercase tracking-[0.2em] hover:bg-transparent hover:text-white transition-all duration-500">
-                        Отправить Запрос
-                    </button>
+                <div class="pt-4">
+                    <button type="submit" class="btn-primary w-full shadow-lg">Отправить Запрос</button>
                 </div>
-                <div id="formStatus" class="hidden text-center text-xs uppercase tracking-widest mt-6"></div>
+                <div id="formStatus" class="hidden text-center text-sm font-medium mt-4"></div>
             </form>
         </div>
     </section>
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = e.target.querySelector('button');
-            const status = document.getElementById('formStatus');
-            const originalText = btn.innerText;
-
-            btn.innerText = 'Отправка...';
-            btn.disabled = true;
-
-            // Detect environment
-            const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';
-
-            const data = {
-                name: document.getElementById('contactName').value,
-                email: document.getElementById('contactEmail').value,
-                type: document.getElementById('contactType').value,
-                message: document.getElementById('contactMessage').value
-            };
-
-            try {
-                const response = await fetch(`${API_BASE}/api/contact`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-
-                if (response.ok) {
-                    status.innerText = 'Сообщение успешно отправлено';
-                    status.className = 'text-center text-xs uppercase tracking-widest mt-6 text-[#004225]';
-                    e.target.reset();
-                } else {
-                    throw new Error('Failed');
-                }
-            } catch (error) {
-                console.error(error);
-                status.innerText = 'Ошибка передачи. Пожалуйста, попробуйте снова.';
-                status.className = 'text-center text-xs uppercase tracking-widest mt-6 text-red-500';
-            } finally {
-                status.classList.remove('hidden');
-                btn.innerText = originalText;
-                btn.disabled = false;
-                setTimeout(() => status.classList.add('hidden'), 5000);
-            }
-        });
-    </script>
-
     <!-- Footer -->
-    <footer class="py-20 px-6 border-t border-black/5 bg-white">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="text-center md:text-left">
-                <h4 class="text-2xl font-serif italic mb-4">ONDA</h4>
-                <p class="text-gray-600 text-xs uppercase tracking-widest">Est. 2024</p>
+    <footer class="bg-slate-900 text-white py-16 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                    <i data-lucide="waves" class="w-5 h-5"></i>
+                </div>
+                <span class="text-2xl font-bold tracking-tight">ONDA</span>
             </div>
 
-            <div class="flex gap-8 text-xs uppercase tracking-widest text-gray-500">
-                <a href="#" class="hover:text-[#0B1C1C] transition-colors">Instagram</a>
-                <a href="#" class="hover:text-[#0B1C1C] transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-[#0B1C1C] transition-colors">Twitter</a>
+            <div class="flex gap-8 text-sm text-slate-400">
+                <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-white transition-colors">Twitter</a>
             </div>
 
-            <div class="text-right">
-                <p class="text-gray-600 text-xs">Разработано в Испании.</p>
-            </div>
+            <p class="text-slate-500 text-sm">
+                &copy; 2024 Onda. Все права защищены. Разработано в Испании.
+            </p>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
         lucide.createIcons();
 
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
-            });
-        }
-
-        // Scroll Animation Observer
+        // Scroll Animation
         document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1 });
 
             document.querySelectorAll('.fade-in-section').forEach(section => {
                 observer.observe(section);
+            });
+
+            // Mobile Menu
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeBtn = document.getElementById('mobile-menu-close-btn');
+
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('translate-x-full');
+            };
+
+            menuBtn?.addEventListener('click', toggleMenu);
+            closeBtn?.addEventListener('click', toggleMenu);
+            mobileMenu?.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+
+            // Contact Form Logic (Preserved)
+            document.getElementById('contactForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = e.target.querySelector('button');
+                const status = document.getElementById('formStatus');
+                const originalText = btn.innerText;
+
+                btn.innerText = 'Отправка...';
+                btn.disabled = true;
+
+                // Detect environment
+                const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';
+
+                const data = {
+                    name: document.getElementById('contactName').value,
+                    email: document.getElementById('contactEmail').value,
+                    type: document.getElementById('contactType').value,
+                    message: document.getElementById('contactMessage').value
+                };
+
+                try {
+                    const response = await fetch(`${API_BASE}/api/contact`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        status.innerText = 'Сообщение успешно отправлено';
+                        status.className = 'text-center text-sm font-medium mt-4 text-green-500';
+                        e.target.reset();
+                    } else {
+                        throw new Error('Failed');
+                    }
+                } catch (error) {
+                    console.error(error);
+                    status.innerText = 'Ошибка передачи. Пожалуйста, попробуйте снова.';
+                    status.className = 'text-center text-sm font-medium mt-4 text-red-500';
+                } finally {
+                    status.classList.remove('hidden');
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    setTimeout(() => status.classList.add('hidden'), 5000);
+                }
             });
         });
     </script>

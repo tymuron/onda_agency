@@ -4,24 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onda | Digital Alchemy</title>
+    <title>Onda | AI Automation Agency</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
-        rel="stylesheet">
     <style>
-        body {
-            font-family: 'Lato', sans-serif;
-            background: #FFFFFF;
-            background-attachment: fixed;
-            color: #0B1C1C;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --bg-color: #FFFFFF;
+            --text-primary: #0F172A;
+            /* Slate 900 */
+            --text-secondary: #64748B;
+            /* Slate 500 */
+            --accent: #2563EB;
+            /* Royal Blue */
+            --accent-soft: #EFF6FF;
+            /* Blue 50 */
+            --border-color: #E2E8F0;
+            /* Slate 200 */
+            --glass-bg: rgba(255, 255, 255, 0.9);
         }
 
-        a:hover {
-            text-shadow: none;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
         }
 
         h1,
@@ -30,50 +39,68 @@
         h4,
         h5,
         h6 {
-            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
         }
 
-        .luxury-accent {
-            color: #004225;
-            /* Lime Essence */
+        .text-accent {
+            color: var(--accent);
         }
 
-        .border-accent {
-            border-color: #004225;
+        .bg-accent-soft {
+            background-color: var(--accent-soft);
         }
 
-        .bg-accent {
-            background-color: #004225;
+        /* Modern Button */
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            /* Pill shape */
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
         }
 
-        .text-silver {
-            color: #0B1C1C;
+        .btn-primary:hover {
+            background-color: #1D4ED8;
+            /* Darker Blue */
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.3);
         }
 
-        /* Elegant Fade In */
-        .fade-in {
+        /* Modern Card */
+        .modern-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .modern-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Animation Classes */
+        .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .delay-100 {
-            animation-delay: 0.1s;
-        }
-
-        .delay-200 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-300 {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Custom Scrollbar */
@@ -82,326 +109,301 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #020808;
+            background: #F1F5F9;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #333;
+            background: #CBD5E1;
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #004225;
+            background: #94A3B8;
         }
     </style>
 </head>
 
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-500 bg-white/80 backdrop-blur-sm border-b border-black/5">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <a href="#" class="text-3xl font-serif italic font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
-
-            <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-600">
-                <a href="#work" class="hover:text-[#004225] transition-colors duration-300">Work</a>
-                <a href="#agents" class="hover:text-[#004225] transition-colors duration-300">AI Demos</a>
-                <a href="process.html" class="hover:text-[#004225] transition-colors duration-300">Process</a>
-                <a href="#contact" class="hover:text-[#004225] transition-colors duration-300">Contact</a>
-                <div class="flex gap-4 border-l border-black/10 pl-6">
-                    <span class="text-[#004225] font-bold">EN</span>
-                    <a href="index_es.html" class="hover:text-[#0B1C1C] transition-colors">ES</a>
-                    <a href="index_ru.html?v=new" class="hover:text-[#0B1C1C] transition-colors">RU</a>
+    <nav class="fixed w-full z-50 bg-white/90 border-b border-gray-100 backdrop-blur-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                    <i data-lucide="waves" class="w-5 h-5"></i>
+                </div>
+                ONDA
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="#work" class="hover:text-blue-600 transition-colors">Work</a>
+                <a href="#agents" class="hover:text-blue-600 transition-colors">Solutions</a>
+                <a href="process.html" class="hover:text-blue-600 transition-colors">Process</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+                <div class="flex gap-4 border-l border-slate-200 pl-6 text-slate-400">
+                    <span class="text-slate-900 font-semibold">EN</span>
+                    <a href="index_es.html" class="hover:text-slate-900 transition-colors">ES</a>
+                    <a href="index_ru.html?v=new" class="hover:text-slate-900 transition-colors">RU</a>
                 </div>
             </div>
-
-            <button class="md:hidden text-[#0B1C1C]"><i data-lucide="menu"></i></button>
+            <a href="#contact" class="hidden md:inline-block btn-primary">Get Started</a>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu"
-        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
-        <a href="index.html#work"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Work</a>
-        <a href="index.html#agents"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">AI Demos</a>
-        <a href="process.html" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Process</a>
-        <a href="index.html#contact"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Contact</a>
-        <button onclick="toggleMenu()" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x"
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8 text-slate-900shadow-xl">
+        <a href="#work" class="text-3xl font-bold hover:text-blue-600 transition-colors">Work</a>
+        <a href="#agents" class="text-3xl font-bold hover:text-blue-600 transition-colors">Solutions</a>
+        <a href="process.html" class="text-3xl font-bold hover:text-blue-600 transition-colors">Process</a>
+        <a href="#contact" class="text-3xl font-bold hover:text-blue-600 transition-colors">Contact</a>
+        <button id="mobile-menu-close-btn" class="absolute top-8 right-6 text-slate-900"><i data-lucide="x"
                 class="w-8 h-8"></i></button>
     </div>
 
-
     <!-- Hero Section -->
     <section
-        class="h-screen flex items-center justify-center relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-[#F0F2F5] to-[#E5E7EB]">
+        class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-gradient-to-b from-slate-50 to-white">
+        <div class="w-full relative z-10 fade-in-section">
+            <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto px-6">
+                <div class="md:pr-8">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wide mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                        </span>
+                        Accepting New Projects
+                    </div>
+                    <h1 class="text-5xl md:text-7xl leading-tight mb-6 text-slate-900">
+                        AI Automation for <br> <span class="text-blue-600">Modern Business.</span>
+                    </h1>
+                    <p class="text-slate-600 text-lg leading-relaxed max-w-md mb-8">
+                        We build intelligent systems that save time, reduce costs, and scale your operations without
+                        adding headcount.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#contact" class="btn-primary">Book a Demo</a>
+                        <a href="#work"
+                            class="px-6 py-3 rounded-full border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">View
+                            Work</a>
+                    </div>
 
-        <div class="relative z-10 text-center px-6 max-w-5xl">
-            <p class="text-[#004225] text-sm tracking-[0.4em] uppercase mb-8 fade-in">The New Standard</p>
-            <h1 class="text-6xl md:text-9xl mb-8 leading-tight font-medium fade-in delay-100 text-[#0B1C1C]">
-                Digital <br> <span class="italic text-[#004225]">Alchemy</span>
-            </h1>
-            <p
-                class="text-gray-600 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 fade-in delay-200 leading-relaxed">
-                We fuse human creativity with artificial intelligence to create bespoke digital experiences for the
-                world's most exclusive brands.
-            </p>
-            <div class="fade-in delay-300">
-                <a href="#work"
-                    class="px-12 py-4 border border-[#0B1C1C] text-[#0B1C1C] text-xs uppercase tracking-[0.2em] hover:bg-[#0B1C1C] hover:border-[#0B1C1C] hover:text-white transition-all duration-500 w-auto inline-block">
-                    Explore Our Work
-                </a>
+                    <div class="mt-12 flex items-center gap-4 text-sm text-slate-500 font-medium">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-slate-200 border-2 border-white"></div>
+                            <div class="w-8 h-8 rounded-full bg-slate-300 border-2 border-white"></div>
+                            <div class="w-8 h-8 rounded-full bg-slate-400 border-2 border-white"></div>
+                        </div>
+                        <p>Trusted by forward-thinking companies.</p>
+                    </div>
+                </div>
+
+                <div class="relative hidden md:block">
+                    <div
+                        class="relative z-10 rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 transition-transform hover:scale-[1.01] duration-500">
+                        <img src="assets/images/hero_modern.png" alt="Modern AI Solutions"
+                            class="w-full h-auto object-cover">
+                    </div>
+                    <!-- Decor elements -->
+                    <div
+                        class="absolute -top-10 -right-10 w-64 h-64 bg-blue-200/50 rounded-full blur-3xl mix-blend-multiply filter opacity-70 animate-pulse">
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-200/50 rounded-full blur-3xl mix-blend-multiply filter opacity-70 animate-pulse"
+                        style="animation-delay: 2s"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Scroll & Reveal Script -->
-    <style>
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease-out, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
-        }
-
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Only animate once
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.fade-in-section').forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
-
-    <!-- AI Agents Section (Silver) -->
-    <section id="agents" class="py-32 px-6 bg-[#F3F4F6] relative">
+    <!-- Agents Section -->
+    <section id="agents" class="py-24 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24 fade-in-section">
-                <span class="text-[#004225] text-xs tracking-[0.4em] uppercase mb-4 block">The Engine</span>
-                <h2 class="text-4xl md:text-6xl text-[#0B1C1C] mb-8 font-serif">Autonomous <span
-                        class="italic text-gray-500">Intelligence</span></h2>
-                <p class="text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">Our proprietary AI agents don't
-                    just automate tasks—they elevate them. Experience the future of digital workforce.</p>
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="text-3xl md:text-5xl mb-4 text-slate-900">Intelligent <span
+                        class="text-blue-600">Assistants</span></h2>
+                <p class="text-slate-600 max-w-2xl mx-auto text-lg">Deploy powerful AI modules designed to handle
+                    complex tasks 24/7.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Agent 1 -->
-                <div
-                    class="bg-white p-12 hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-[#004225]/10 fade-in-section">
+                <div class="modern-card p-8 group fade-in-section">
                     <div
-                        class="w-16 h-16 bg-[#F0F2F5] rounded-full flex items-center justify-center mb-8 text-[#004225] group-hover:scale-110 transition-transform duration-500">
-                        <i data-lucide="brain-circuit" class="w-8 h-8"></i>
+                        class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="search" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-2xl mb-4 text-[#0B1C1C] font-serif">Researcher</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Scours the global web for market trends,
-                        competitor insights, and strategic opportunities in milliseconds.</p>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Market Researcher</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">Automatically scans competitors and market trends to
+                        deliver actionable insights.</p>
                     <a href="demos.html"
-                        class="text-[#004225] text-xs uppercase tracking-widest hover:underline decoration-[#004225] underline-offset-4">Run
-                        Demo <i data-lucide="arrow-right" class="w-3 h-3 inline ml-1"></i></a>
+                        class="text-blue-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Try
+                        Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
 
                 <!-- Agent 2 -->
-                <div class="bg-white p-12 hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-[#004225]/10 fade-in-section"
-                    style="transition-delay: 100ms;">
+                <div class="modern-card p-8 group fade-in-section" style="transition-delay: 100ms;">
                     <div
-                        class="w-16 h-16 bg-[#F0F2F5] rounded-full flex items-center justify-center mb-8 text-[#004225] group-hover:scale-110 transition-transform duration-500">
-                        <i data-lucide="eye" class="w-8 h-8"></i>
+                        class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="image" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-2xl mb-4 text-[#0B1C1C] font-serif">Visionary</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Analyzes visual assets with near-human
-                        perception to grade aesthetics, branding consistency, and emotional impact.</p>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Visual Analyzer</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">Understands images and design assets to provide
+                        instant creative feedback.</p>
                     <a href="demos.html"
-                        class="text-[#004225] text-xs uppercase tracking-widest hover:underline decoration-[#004225] underline-offset-4">Run
-                        Demo <i data-lucide="arrow-right" class="w-3 h-3 inline ml-1"></i></a>
+                        class="text-blue-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Try
+                        Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
 
                 <!-- Agent 3 -->
-                <div class="bg-white p-12 hover:shadow-2xl transition-all duration-500 group border border-transparent hover:border-[#004225]/10 fade-in-section"
-                    style="transition-delay: 200ms;">
+                <div class="modern-card p-8 group fade-in-section" style="transition-delay: 200ms;">
                     <div
-                        class="w-16 h-16 bg-[#F0F2F5] rounded-full flex items-center justify-center mb-8 text-[#004225] group-hover:scale-110 transition-transform duration-500">
-                        <i data-lucide="pen-tool" class="w-8 h-8"></i>
+                        class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="pen-tool" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-2xl mb-4 text-[#0B1C1C] font-serif">Copywriter</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8">Crafts compelling, on-brand narratives. From
-                        technical documentation to poetic marketing copy, indistinguishable from a pro.</p>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Content Writer</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">Generates high-converting marketing copy and
+                        technical documentation on demand.</p>
                     <a href="demos.html"
-                        class="text-[#004225] text-xs uppercase tracking-widest hover:underline decoration-[#004225] underline-offset-4">Run
-                        Demo <i data-lucide="arrow-right" class="w-3 h-3 inline ml-1"></i></a>
+                        class="text-blue-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Try
+                        Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Work Section (Rich Green) -->
-    <section id="work" class="py-32 px-6 bg-[#004225] text-white relative overflow-hidden">
-        <!-- Decorative subtle gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-24 fade-in-section">
+    <!-- Work Section -->
+    <section id="work" class="py-24 px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16 fade-in-section">
                 <div>
-                    <span class="text-white/60 text-xs tracking-[0.4em] uppercase mb-4 block">Selected Works</span>
-                    <h2 class="text-5xl md:text-7xl font-serif">Curated <span
-                            class="italic text-white/80">Excellence</span></h2>
+                    <span class="text-blue-600 font-bold tracking-wide uppercase text-sm mb-2 block">Our
+                        Portfolio</span>
+                    <h2 class="text-3xl md:text-5xl text-slate-900">Success <span class="text-blue-600">Stories</span>
+                    </h2>
                 </div>
                 <a href="portfolio.html"
-                    class="hidden md:block text-xs uppercase tracking-[0.2em] border-b border-white/30 pb-2 hover:text-white hover:border-white transition-all">View
-                    Full Portfolio</a>
+                    class="hidden md:flex items-center gap-2 text-slate-600 font-semibold hover:text-blue-600 transition-colors">View
+                    All Projects <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
             </div>
 
-            <div class="space-y-32">
+            <div class="space-y-16">
                 <!-- Item 1: Real Estate -->
-                <div class="grid md:grid-cols-2 gap-16 items-center group fade-in-section">
-                    <div class="overflow-hidden rounded-sm shadow-2xl relative">
-                        <div
-                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
-                        </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center group fade-in-section">
+                    <div
+                        class="relative rounded-2xl overflow-hidden shadow-xl modern-card border-none hover:shadow-2xl transition-shadow">
                         <img src="assets/images/skyline_hero.png" alt="Real Estate"
-                            class="w-full transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
+                            class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
                     </div>
                     <div>
-                        <span class="text-white/60 text-xs tracking-widest uppercase">Real Estate</span>
-                        <h3
-                            class="text-5xl mb-6 mt-2 text-white group-hover:translate-x-2 transition-transform duration-500">
-                            Skyline</h3>
-                        <p class="text-white/70 mb-8 leading-relaxed text-lg font-light max-w-md">Redefining luxury
-                            property
-                            viewing with immersive 3D tours and AI-driven concierge services.</p>
-                        <a href="portfolio/real-estate.html"
-                            class="text-white border-b border-white/20 pb-1 hover:border-white transition-colors uppercase text-xs tracking-widest">View
-                            Casestudy</a>
+                        <span class="text-blue-600 font-bold text-sm tracking-wide uppercase mb-2 block">Real
+                            Estate</span>
+                        <h3 class="text-3xl mb-4 text-slate-900 font-bold">Skyline Estates</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed text-lg">Detailed 3D property tours that helped
+                            increase closing rates by 40%.</p>
+                        <ul class="space-y-2 mb-8 text-slate-500">
+                            <li class="flex items-center gap-2"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-500"></i> Interactive 3D Walkthroughs</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check"
+                                    class="w-4 h-4 text-green-500"></i> Automated Lead Qualification</li>
+                        </ul>
+                        <a href="examples/real-estate.html" class="btn-primary inline-flex items-center gap-2">View Case
+                            Study <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
 
-                <!-- Item 2: Jewelry -->
-                <div class="grid md:grid-cols-2 gap-16 items-center group fade-in-section">
-                    <div class="order-2 md:order-1 text-right">
-                        <span class="text-white/60 text-xs tracking-widest uppercase">High Jewelry</span>
-                        <h3
-                            class="text-5xl mb-6 mt-2 text-white group-hover:-translate-x-2 transition-transform duration-500">
-                            Lumière</h3>
-                        <p class="text-white/70 mb-8 leading-relaxed text-lg font-light max-w-md ml-auto">Digital
-                            flagship for a heritage
-                            jewelry maison, featuring AR try-on and bespoke appointment scheduling.</p>
-                        <a href="portfolio/jewelry.html"
-                            class="text-white border-b border-white/20 pb-1 hover:border-white transition-colors uppercase text-xs tracking-widest">View
-                            Casestudy</a>
+                <!-- Item 2: Finance -->
+                <div class="grid md:grid-cols-2 gap-12 items-center group fade-in-section">
+                    <div
+                        class="md:order-2 relative rounded-2xl overflow-hidden shadow-xl modern-card border-none hover:shadow-2xl transition-shadow">
+                        <img src="assets/images/old_money_hero.png" alt="Finance"
+                            class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
                     </div>
-                    <div class="order-1 md:order-2 overflow-hidden rounded-sm shadow-2xl relative">
-                        <div
-                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
-                        </div>
-                        <img src="assets/images/jewelry_hero.png" alt="Jewelry"
-                            class="w-full transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
-                    </div>
-                </div>
-
-                <!-- Item 3: Yachts -->
-                <div class="grid md:grid-cols-2 gap-16 items-center group fade-in-section">
-                    <div class="overflow-hidden rounded-sm shadow-2xl relative">
-                        <div
-                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10 duration-700">
-                        </div>
-                        <img src="assets/images/yacht_hero_v2.png" alt="Yachts"
-                            class="w-full transition-all duration-1000 transform group-hover:scale-105 filter group-hover:brightness-110">
-                    </div>
-                    <div>
-                        <span class="text-white/60 text-xs tracking-widest uppercase">Marine</span>
-                        <h3
-                            class="text-5xl mb-6 mt-2 text-white group-hover:translate-x-2 transition-transform duration-500">
-                            Novamare</h3>
-                        <p class="text-white/70 mb-8 leading-relaxed text-lg font-light max-w-md">Cinematic 3D
-                            configurator for superyachts, bringing the shipyard experience to the browser.</p>
-                        <a href="portfolio/yachts.html"
-                            class="text-white border-b border-white/20 pb-1 hover:border-white transition-colors uppercase text-xs tracking-widest">View
-                            Casestudy</a>
+                    <div class="md:order-1 text-right">
+                        <span class="text-blue-600 font-bold text-sm tracking-wide uppercase mb-2 block">FinTech</span>
+                        <h3 class="text-3xl mb-4 text-slate-900 font-bold">Vault Analytics</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed text-lg ml-auto">Secure data visualization
+                            dashboards for high-frequency trading firms.</p>
+                        <ul class="space-y-2 mb-8 text-slate-500 inline-block text-right">
+                            <li class="flex items-center justify-end gap-2">Real-time Data Processing <i
+                                    data-lucide="check" class="w-4 h-4 text-green-500"></i></li>
+                            <li class="flex items-center justify-end gap-2">Bank-Grade Security <i data-lucide="check"
+                                    class="w-4 h-4 text-green-500"></i></li>
+                        </ul>
+                        <br>
+                        <a href="portfolio/yachts.html" class="btn-primary inline-flex items-center gap-2">View Case
+                            Study <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
-            </div>
-
-            <div class="text-center mt-32 fade-in-section">
-                <a href="portfolio.html"
-                    class="inline-block px-12 py-4 border border-white/20 hover:bg-white hover:text-[#004225] transition-all duration-500 uppercase text-xs tracking-[0.2em] text-white">View
-                    All Projects</a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-32 px-6 border-t border-black/5 bg-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl mb-8">Initiate Collaboration</h2>
-            <p class="text-gray-500 font-light mb-16">Ready to elevate your digital presence? Reach out to our team.</p>
+    <section id="contact" class="py-24 px-6 bg-white border-t border-slate-100">
+        <div class="max-w-4xl mx-auto text-center fade-in-section">
+            <h2 class="text-3xl md:text-5xl mb-6 text-slate-900">Ready to <span class="text-blue-600">Scale?</span></h2>
+            <p class="text-slate-600 text-lg mb-12 max-w-xl mx-auto">Let's discuss how AI can transform your business
+                processes today.</p>
 
-            <form id="contactForm" class="text-left space-y-8 max-w-2xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8">
+            <form id="contactForm"
+                class="text-left space-y-6 max-w-lg mx-auto bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Name</label>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Name</label>
                         <input type="text" id="contactName" required
-                            class="w-full bg-transparent border-b border-black/10 py-4 text-[#0B1C1C] focus:border-[#004225] outline-none transition-colors">
+                            class="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                            placeholder="John Doe">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Email</label>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
                         <input type="email" id="contactEmail" required
-                            class="w-full bg-transparent border-b border-black/10 py-4 text-[#0B1C1C] focus:border-[#004225] outline-none transition-colors">
+                            class="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                            placeholder="name@company.com">
                     </div>
                 </div>
-
                 <div>
-                    <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Interest</label>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">I'm interested in...</label>
                     <select id="contactType"
-                        class="w-full bg-transparent border-b border-black/10 py-4 text-[#0B1C1C] focus:border-[#004225] outline-none transition-colors appearance-none">
-                        <option value="Website Design" class="bg-white">Website Design</option>
-                        <option value="AI Integration" class="bg-white">AI Integration</option>
-                        <option value="Brand Identity" class="bg-white">Brand Identity</option>
-                        <option value="Other" class="bg-white">Other</option>
+                        class="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all">
+                        <option value="Website Design">Full Stack Development</option>
+                        <option value="AI Integration">AI Agent Integration</option>
+                        <option value="System Architecture">System Architecture</option>
                     </select>
                 </div>
-
                 <div>
-                    <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Message</label>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Message</label>
                     <textarea id="contactMessage" rows="4" required
-                        class="w-full bg-transparent border-b border-black/10 py-4 text-[#0B1C1C] focus:border-[#004225] outline-none transition-colors resize-none"></textarea>
+                        class="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all resize-none"
+                        placeholder="Tell us about your project..."></textarea>
                 </div>
-
-                <div class="text-center mt-12">
-                    <button type="submit"
-                        class="bg-[#004225] text-white border border-[#004225] px-12 py-4 text-xs uppercase tracking-[0.2em] hover:bg-[#0B1C1C] hover:border-[#0B1C1C] hover:text-white transition-all duration-500">
-                        Send Inquiry
-                    </button>
-                </div>
-                <div id="formStatus" class="hidden text-center text-xs uppercase tracking-widest mt-6"></div>
+                <button type="submit" class="w-full btn-primary text-lg">
+                    Send Message
+                </button>
+                <div id="formStatus" class="hidden text-center text-sm font-medium mt-4 text-slate-500">Sending...</div>
             </form>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-100 bg-slate-50 text-slate-600 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-lg font-bold text-slate-900 block mb-1">ONDA</span>
+                <p>&copy; 2024 Onda Systems. All rights reserved.</p>
+            </div>
+            <div class="flex gap-6 font-semibold">
+                <a href="#" class="hover:text-blue-600 transition-colors">GitHub</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">Twitter</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
     <script>
+        lucide.createIcons();
+
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = e.target.querySelector('button');
@@ -430,7 +432,8 @@
 
                 if (response.ok) {
                     status.innerText = 'Message Sent Successfully';
-                    status.className = 'text-center text-xs uppercase tracking-widest mt-6 text-[#004225]';
+                    status.classList.remove('text-red-500');
+                    status.classList.add('text-green-600');
                     e.target.reset();
                 } else {
                     throw new Error('Failed');
@@ -438,7 +441,8 @@
             } catch (error) {
                 console.error(error);
                 status.innerText = 'Transmission Failed. Please try again.';
-                status.className = 'text-center text-xs uppercase tracking-widest mt-6 text-red-500';
+                status.classList.remove('text-green-600');
+                status.classList.add('text-red-500');
             } finally {
                 status.classList.remove('hidden');
                 btn.innerText = originalText;
@@ -446,91 +450,53 @@
                 setTimeout(() => status.classList.add('hidden'), 5000);
             }
         });
-    </script>
 
-    <!-- Contact Section (Obsidian) -->
-    <section id="contact" class="py-32 px-6 bg-[#0B1C1C] text-white relative">
-        <div class="max-w-4xl mx-auto text-center relative z-10 fade-in-section">
-            <h2 class="text-4xl md:text-5xl mb-8 font-serif">Initiate <span
-                    class="italic text-[#004225]">Collaboration</span></h2>
-            <p class="text-white/60 font-light mb-16 max-w-xl mx-auto">Ready to elevate your digital presence? Reach out
-                to our team to discuss your custom AI execution plan.</p>
+        // Toggle Menu Script
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
 
-            <form id="contactForm" class="text-left space-y-8 max-w-2xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Name</label>
-                        <input type="text" id="contactName" required
-                            class="w-full bg-white/5 border-b border-white/10 py-4 px-4 text-white focus:border-[#004225] focus:bg-white/10 outline-none transition-all duration-300">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Email</label>
-                        <input type="email" id="contactEmail" required
-                            class="w-full bg-white/5 border-b border-white/10 py-4 px-4 text-white focus:border-[#004225] focus:bg-white/10 outline-none transition-all duration-300">
-                    </div>
-                </div>
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
 
-                <div>
-                    <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Interest</label>
-                    <select id="contactType"
-                        class="w-full bg-white/5 border-b border-white/10 py-4 px-4 text-white focus:border-[#004225] focus:bg-white/10 outline-none transition-all duration-300 appearance-none">
-                        <option value="Website Design" class="bg-[#0B1C1C]">Website Design</option>
-                        <option value="AI Integration" class="bg-[#0B1C1C]">AI Integration</option>
-                        <option value="Brand Identity" class="bg-[#0B1C1C]">Brand Identity</option>
-                        <option value="Other" class="bg-[#0B1C1C]">Other</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs uppercase tracking-widest text-[#004225] mb-2">Message</label>
-                    <textarea id="contactMessage" rows="4" required
-                        class="w-full bg-white/5 border-b border-white/10 py-4 px-4 text-white focus:border-[#004225] focus:bg-white/10 outline-none transition-all duration-300 resize-none"></textarea>
-                </div>
-
-                <div class="text-center mt-12">
-                    <button type="submit"
-                        class="bg-[#004225] text-white border border-[#004225] px-12 py-4 text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-[#004225] hover:border-white transition-all duration-500">
-                        Send Inquiry
-                    </button>
-                </div>
-                <div id="formStatus" class="hidden text-center text-xs uppercase tracking-widest mt-6"></div>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-20 px-6 bg-[#000000] text-white/40 border-t border-white/5">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="text-center md:text-left">
-                <h4 class="text-2xl font-serif italic mb-4 text-white">ONDA</h4>
-                <p class="text-xs uppercase tracking-widest">Est. 2024</p>
-            </div>
-
-            <div class="flex gap-8 text-xs uppercase tracking-widest">
-                <a href="#" class="hover:text-white transition-colors">Instagram</a>
-                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-white transition-colors">Twitter</a>
-            </div>
-
-            <div class="text-right">
-                <p class="text-xs">Designed in Spain.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        lucide.createIcons();
-
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
             });
-        }
+
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.remove('translate-x-full');
+                });
+            }
+
+            if (mobileMenuCloseBtn && mobileMenu) {
+                mobileMenuCloseBtn.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                });
+            }
+
+            if (mobileMenu) {
+                const links = mobileMenu.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('translate-x-full');
+                    });
+                });
+            }
+        });
     </script>
 </body>
 

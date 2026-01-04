@@ -7,21 +7,29 @@
     <title>Onda | Intelligence Suite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
-        rel="stylesheet">
     <style>
-        body {
-            font-family: 'Lato', sans-serif;
-            background: #FFFFFF;
-            background-attachment: fixed;
-            color: #0B1C1C;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --bg-color: #FFFFFF;
+            --text-primary: #0F172A;
+            /* Slate 900 */
+            --text-secondary: #64748B;
+            /* Slate 500 */
+            --accent: #2563EB;
+            /* Royal Blue */
+            --accent-soft: #EFF6FF;
+            /* Blue 50 */
+            --border-color: #E2E8F0;
+            /* Slate 200 */
         }
 
-        a:hover {
-            text-shadow: none;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
         }
 
         h1,
@@ -30,160 +38,214 @@
         h4,
         h5,
         h6 {
-            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
         }
 
-        .luxury-gold {
-            color: #004225;
+        /* Modern Button */
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            /* Pill shape */
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
         }
 
-        .border-gold {
-            border-color: #004225;
+        .btn-primary:hover {
+            background-color: #1D4ED8;
+            /* Darker Blue */
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.3);
         }
 
-        .bg-gold {
-            background-color: #004225;
-        }
-
-        .text-cream {
-            color: #0B1C1C;
-        }
-
-        /* High-End Input Styles */
-        .luxury-input {
-            background: transparent;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-            color: #0B1C1C;
+        /* Modern Card */
+        .modern-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
             transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
-        .luxury-input:focus {
-            border-color: #004225;
+        .modern-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Modern Input */
+        .modern-input {
+            width: 100%;
+            background-color: #F8FAFC;
+            /* Slate 50 */
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-primary);
             outline: none;
+            transition: all 0.2s ease;
         }
 
-        /* Agent Card */
-        .agent-card {
-            background: rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.5s ease;
+        .modern-input:focus {
+            border-color: var(--accent);
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        .agent-card:hover {
-            border-color: rgba(0, 66, 37, 0.3);
+        /* Animation Classes */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
         }
     </style>
 </head>
 
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <div class="flex items-center gap-6">
-                <a href="index.html" class="text-[#0B1C1C] hover:text-[#004225] transition-colors"><i
-                        data-lucide="arrow-left" class="w-5 h-5"></i></a>
-                <a href="index.html"
-                    class="text-2xl font-serif italic font-bold tracking-widest text-[#0B1C1C]">ONDA</a>
-            </div>
-
-            <div class="hidden md:flex items-center gap-12 text-xs tracking-[0.2em] uppercase text-gray-600">
-                <a href="process.html" class="hover:text-[#004225] transition-colors duration-300">Process</a>
-                <a href="index.html#agents" class="hover:text-[#004225] transition-colors duration-300">AI Demos</a>
-                <a href="index.html#contact" class="hover:text-[#004225] transition-colors duration-300">Contact</a>
-                <div class="flex gap-4 border-l border-black/10 pl-6">
-                    <span class="text-[#004225] font-bold">EN</span>
-                    <a href="demos_es.html" class="hover:text-[#0B1C1C] transition-colors">ES</a>
-                    <a href="demos_ru.html?v=new" class="hover:text-[#0B1C1C] transition-colors">RU</a>
+    <nav class="fixed w-full z-50 bg-white/90 border-b border-gray-100 backdrop-blur-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                    <i data-lucide="waves" class="w-5 h-5"></i>
+                </div>
+                ONDA
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html#work" class="hover:text-blue-600 transition-colors">Work</a>
+                <a href="#" class="text-blue-600 font-semibold">Solutions</a>
+                <a href="process.html" class="hover:text-blue-600 transition-colors">Process</a>
+                <a href="index.html#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+                <div class="flex gap-4 border-l border-slate-200 pl-6 text-slate-400">
+                    <span class="text-slate-900 font-semibold">EN</span>
+                    <a href="demos_es.html" class="hover:text-slate-900 transition-colors">ES</a>
+                    <a href="demos_ru.html?v=new" class="hover:text-slate-900 transition-colors">RU</a>
                 </div>
             </div>
-
-            <button class="md:hidden text-[#0B1C1C]"><i data-lucide="menu"></i></button>
+            <a href="index.html#contact" class="hidden md:inline-block btn-primary">Get Started</a>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu"
-        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col justify-center items-center gap-8">
-        <a href="index.html#work"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Work</a>
-        <a href="index.html#agents"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">AI Demos</a>
-        <a href="process.html" class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Process</a>
-        <a href="index.html#contact"
-            class="text-3xl font-serif italic text-[#0B1C1C] hover:text-[#004225] transition-colors"
-            onclick="toggleMenu()">Contact</a>
-        <button onclick="toggleMenu()" class="absolute top-8 right-6 text-[#0B1C1C]"><i data-lucide="x"
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8 text-slate-900 shadow-xl">
+        <a href="index.html#work" class="text-3xl font-bold hover:text-blue-600 transition-colors">Work</a>
+        <a href="#" class="text-3xl font-bold text-blue-600">Solutions</a>
+        <a href="process.html" class="text-3xl font-bold hover:text-blue-600 transition-colors">Process</a>
+        <a href="index.html#contact" class="text-3xl font-bold hover:text-blue-600 transition-colors">Contact</a>
+        <button id="mobile-menu-close-btn" class="absolute top-8 right-6 text-slate-900"><i data-lucide="x"
                 class="w-8 h-8"></i></button>
     </div>
 
-
     <!-- Header -->
-    <header class="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto">
-        <p class="text-[#004225] text-xs tracking-[0.4em] uppercase mb-6">Interactive Demonstration</p>
-        <h1 class="text-4xl md:text-6xl mb-8 leading-tight font-medium">
-            The Intelligence <br> <span class="italic text-gray-500">Suite</span>
+    <header class="pt-32 pb-20 px-6 text-center max-w-4xl mx-auto bg-gradient-to-b from-slate-50 to-white">
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wide mb-6">
+            Interactive Demos
+        </div>
+        <h1 class="text-4xl md:text-6xl mb-6 leading-tight text-slate-900">
+            The Intelligence <span class="text-blue-600">Suite</span>
         </h1>
-        <p class="text-gray-600 text-lg font-light leading-relaxed">
+        <p class="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
             Experience the proprietary AI models that power our agency's backend. <br>
             Designed for precision, creativity, and insight.
         </p>
     </header>
 
     <!-- Agent: Researcher -->
-    <section id="researcher" class="py-20 px-6 border-t border-black/5">
+    <section id="researcher" class="py-20 px-6 bg-white border-t border-slate-100">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-            <div>
-                <span class="text-6xl text-[#0B1C1C]/5 font-serif absolute -mt-10 -ml-10 select-none">01</span>
-                <h2 class="text-3xl mb-4 relative z-10">The Researcher</h2>
-                <p class="text-gray-500 mb-8 font-light leading-relaxed">
+            <div class="fade-in-section">
+                <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6">
+                    <i data-lucide="search" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl mb-4 text-slate-900 font-bold">The Researcher</h2>
+                <p class="text-slate-600 mb-8 text-lg leading-relaxed">
                     Our autonomous auditing system visits your digital property, analyzes structure and conversion flow,
                     and generates a strategic improvement dossier.
                 </p>
 
-                <form id="researchForm" class="space-y-8 mt-12">
+                <form id="researchForm" class="space-y-6 mt-8 p-6 bg-slate-50 rounded-2xl border border-slate-100">
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Target URL</label>
-                        <input type="text" id="researchUrl" value="example.com"
-                            class="luxury-input w-full py-4 text-xl">
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Target URL</label>
+                        <input type="text" id="researchUrl" value="example.com" class="modern-input">
                     </div>
 
                     <button type="button" onclick="runResearchDemo()"
-                        class="w-full py-4 bg-[#004225] text-white border border-[#004225] text-xs uppercase tracking-widest hover:bg-[#0B1C1C] hover:border-[#0B1C1C] hover:text-white transition-all">
+                        class="btn-primary w-full shadow-lg shadow-blue-600/20">
                         Initiate Audit
                     </button>
                 </form>
             </div>
 
             <div id="researchOutput"
-                class="agent-card p-12 min-h-[400px] flex flex-col justify-center items-center text-center">
-                <div class="text-gray-600">
-                    <i data-lucide="globe" class="w-8 h-8 mx-auto mb-4 opacity-50"></i>
-                    <p class="text-sm tracking-widest uppercase">Awaiting Input Coordinates</p>
+                class="modern-card p-12 min-h-[400px] flex flex-col justify-center items-center text-center bg-slate-50/50 fade-in-section"
+                style="transition-delay: 100ms;">
+                <div class="text-slate-400">
+                    <i data-lucide="globe" class="w-12 h-12 mx-auto mb-4 opacity-50"></i>
+                    <p class="text-sm font-medium uppercase tracking-wide">Awaiting Input Coordinates</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Agent: Visionary -->
-    <section id="visionary" class="py-20 px-6 border-t border-black/5 bg-white">
+    <section id="visionary" class="py-20 px-6 bg-slate-50">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div class="order-2 md:order-1 agent-card p-8 min-h-[400px] flex flex-col relative">
+            <div
+                class="order-2 md:order-1 modern-card p-8 min-h-[400px] flex flex-col relative bg-white fade-in-section">
                 <div id="visionPreview"
-                    class="flex-1 border border-dashed border-black/10 rounded-sm flex items-center justify-center relative overflow-hidden bg-white/50 hover:bg-white/80 transition-colors cursor-pointer"
+                    class="flex-1 border-2 border-dashed border-slate-200 rounded-xl flex items-center justify-center relative overflow-hidden bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer"
                     onclick="document.getElementById('visionInput').click()">
-                    <p class="text-gray-600 text-xs tracking-widest uppercase">Select Visual Asset</p>
+                    <div class="text-center p-6">
+                        <i data-lucide="upload-cloud" class="w-10 h-10 text-slate-400 mx-auto mb-3"></i>
+                        <p class="text-slate-500 text-sm font-medium">Click to Upload Visual Asset</p>
+                    </div>
                 </div>
                 <div id="visionResult" class="hidden mt-6 space-y-4"></div>
             </div>
 
-            <div class="order-1 md:order-2">
-                <span class="text-6xl text-[#0B1C1C]/5 font-serif absolute -mt-10 -ml-10 select-none">02</span>
-                <h2 class="text-3xl mb-4 relative z-10">The Visionary</h2>
-                <p class="text-gray-500 mb-8 font-light leading-relaxed">
+            <div class="order-1 md:order-2 fade-in-section" style="transition-delay: 100ms;">
+                <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mb-6">
+                    <i data-lucide="image" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl mb-4 text-slate-900 font-bold">The Visionary</h2>
+                <p class="text-slate-600 mb-8 text-lg leading-relaxed">
                     Visual intelligence that transcends pixel data. Upload financial documents, invoices, or design
                     mockups for structured extraction and aesthetic analysis.
                 </p>
@@ -191,7 +253,7 @@
                 <input type="file" id="visionInput" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
 
                 <button onclick="document.getElementById('visionInput').click()"
-                    class="mt-8 px-8 py-3 bg-[#F3F4F6] text-xs uppercase tracking-widest text-gray-600 hover:text-[#0B1C1C] transition-colors">
+                    class="btn-primary bg-purple-600 hover:bg-purple-700 shadow-lg shadow-purple-600/20">
                     Upload File
                 </button>
             </div>
@@ -199,61 +261,82 @@
     </section>
 
     <!-- Agent: Copywriter -->
-    <section id="copywriter" class="py-20 px-6 border-t border-black/5">
+    <section id="copywriter" class="py-20 px-6 bg-white border-t border-slate-100">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-            <div>
-                <span class="text-6xl text-[#0B1C1C]/5 font-serif absolute -mt-10 -ml-10 select-none">03</span>
-                <h2 class="text-3xl mb-4 relative z-10">The Copywriter</h2>
-                <p class="text-gray-500 mb-8 font-light leading-relaxed">
+            <div class="fade-in-section">
+                <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600 mb-6">
+                    <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                </div>
+                <h2 class="text-3xl mb-4 text-slate-900 font-bold">The Copywriter</h2>
+                <p class="text-slate-600 mb-8 text-lg leading-relaxed">
                     Crafting persuasive narratives. Provide your business essence, and let our model generate
                     high-converting headers, benefits, and calls to action.
                 </p>
 
-                <form id="copywriterForm" class="space-y-8 mt-12">
+                <form id="copywriterForm" class="space-y-6 mt-8 p-6 bg-slate-50 rounded-2xl border border-slate-100">
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Business Name</label>
-                        <input type="text" id="businessName" placeholder="e.g. Aurelia Spa"
-                            class="luxury-input w-full py-3">
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Business Name</label>
+                        <input type="text" id="businessName" placeholder="e.g. Aurelia Spa" class="modern-input">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Concept
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Concept
                             Description</label>
                         <textarea id="businessDescription" rows="3"
                             placeholder="A sanctuary for holistic wellness and rejuvenation..."
-                            class="luxury-input w-full py-3 bg-transparent resize-none"></textarea>
+                            class="modern-input resize-none"></textarea>
                     </div>
 
                     <button type="button" onclick="runCopywriterDemo()"
-                        class="w-full py-4 bg-[#004225] text-white border border-[#004225] text-xs uppercase tracking-widest hover:bg-[#0B1C1C] hover:border-[#0B1C1C] hover:text-white transition-all">
+                        class="btn-primary w-full bg-green-600 hover:bg-green-700 shadow-lg shadow-green-600/20">
                         Generate Narrative
                     </button>
                 </form>
             </div>
 
-            <div class="agent-card p-12 min-h-[400px] flex flex-col relative text-left">
+            <div class="modern-card p-12 min-h-[400px] flex flex-col relative text-left bg-slate-50/50 fade-in-section"
+                style="transition-delay: 100ms;">
                 <div class="absolute top-0 left-0 p-4">
-                    <span class="text-[10px] uppercase tracking-widest text-gray-600">Output Stream</span>
+                    <span class="text-xs font-bold uppercase tracking-wide text-slate-400">Output Stream</span>
                 </div>
                 <div id="copywriterPreview" class="flex-1 flex items-center justify-center">
-                    <p class="text-gray-600 text-xs tracking-widest uppercase">Waiting for inputs...</p>
+                    <p class="text-slate-400 text-sm font-medium uppercase tracking-wide">Waiting for inputs...</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-black/5 text-center px-6">
-        <p class="text-gray-600 text-xs uppercase tracking-widest">&copy; 2024 Onda. Intelligent Design.</p>
+    <footer class="py-12 border-t border-slate-100 bg-slate-50 text-slate-600 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-lg font-bold text-slate-900 block mb-1">ONDA</span>
+                <p>&copy; 2024 Onda Systems. All rights reserved.</p>
+            </div>
+            <div class="flex gap-6 font-semibold">
+                <a href="#" class="hover:text-blue-600 transition-colors">GitHub</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">Twitter</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">LinkedIn</a>
+            </div>
+        </div>
     </footer>
+
 
     <script>
         lucide.createIcons();
 
         // Mobile Menu Toggle
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('translate-x-full');
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+
+        const toggleMenu = () => {
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('translate-x-full');
+            }
         }
+
+        if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+        if (mobileMenuCloseBtn) mobileMenuCloseBtn.addEventListener('click', toggleMenu);
 
         // Detect environment: Use localhost if opening file directly, otherwise use relative path (cloud/server)
         const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';
@@ -265,8 +348,8 @@
 
             output.innerHTML = `
                 <div class="text-center">
-                    <div class="w-12 h-12 border border-[#004225] border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-                    <p class="text-xs uppercase tracking-widest text-[#004225]">Infrastructure Scan Initiated...</p>
+                    <div class="w-12 h-12 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-6"></div>
+                    <p class="text-sm font-semibold text-slate-600">Scanning Infrastructure...</p>
                 </div>
             `;
 
@@ -280,28 +363,32 @@
 
                 output.innerHTML = `
                     <div class="w-full text-left animate-fade-in">
-                        <div class="flex justify-between items-end border-b border-black/10 pb-6 mb-6">
+                        <div class="flex justify-between items-end border-b border-slate-200 pb-6 mb-6">
                             <div>
-                                <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">CRO Score</p>
-                                <p class="text-4xl font-serif text-[#004225]">${data.score}<span class="text-lg text-gray-600">/100</span></p>
+                                <p class="text-xs uppercase font-bold text-slate-500 mb-1">CRO Score</p>
+                                <p class="text-4xl font-bold text-slate-900">${data.score}<span class="text-lg text-slate-400 font-normal">/100</span></p>
                             </div>
                             <div class="text-right">
-                                <p class="text-xs uppercase tracking-widest text-gray-500">Analysis Complete</p>
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                                    Complete
+                                </span>
                             </div>
                         </div>
                         
                         <div class="space-y-6">
                             <div>
-                                <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Executive Summary</p>
-                                <p class="text-sm font-light leading-relaxed text-gray-600 italic">"${data.summary}"</p>
+                                <p class="text-xs uppercase font-bold text-slate-500 mb-2">Executive Summary</p>
+                                <p class="text-sm text-slate-700 leading-relaxed">"${data.summary}"</p>
                             </div>
                             
                             <div>
-                                <p class="text-xs uppercase tracking-widest text-gray-500 mb-3">Strategic Improvements</p>
+                                <p class="text-xs uppercase font-bold text-slate-500 mb-3">Strategic Improvements</p>
                                 <ul class="space-y-3">
                                     ${data.improvements.map(item => `
-                                        <li class="flex items-start gap-3 text-sm font-light text-gray-600">
-                                            <span class="text-[#004225] mt-1">✦</span> ${item}
+                                        <li class="flex items-start gap-3 text-sm text-slate-700">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-600 mt-0.5 shrink-0"></i>
+                                            ${item}
                                         </li>
                                     `).join('')}
                                 </ul>
@@ -309,9 +396,10 @@
                         </div>
                     </div>
                 `;
+                lucide.createIcons(); // Re-init icons for dynamic content
             } catch (error) {
                 console.error(error);
-                output.innerHTML = `<p class="text-red-500 text-xs text-center uppercase tracking-widest">Connection Failed</p>`;
+                output.innerHTML = `<p class="text-red-500 text-sm font-semibold">Connection Failed. Please try again.</p>`;
             }
         }
 
@@ -326,10 +414,13 @@
             const reader = new FileReader();
             reader.onload = async function (e) {
                 const base64Image = e.target.result;
-                preview.innerHTML = `<img src="${base64Image}" class="h-full w-full object-cover transition-all duration-500">`;
+                preview.innerHTML = `<img src="${base64Image}" class="h-full w-full object-cover rounded-lg">`;
+                // Remove pointer events/cursor once uploaded
+                preview.classList.remove('cursor-pointer', 'hover:bg-slate-100');
+                preview.onclick = null;
 
                 resultDiv.classList.remove('hidden');
-                resultDiv.innerHTML = `<p class="text-xs uppercase tracking-widest text-[#004225] text-center mt-4">Processing Visual Data...</p>`;
+                resultDiv.innerHTML = `<p class="text-sm font-semibold text-slate-600 text-center mt-4">Processing Visual Data...</p>`;
 
                 try {
                     const response = await fetch(`${API_BASE}/api/vision`, {
@@ -340,21 +431,25 @@
                     const data = await response.json();
 
                     resultDiv.innerHTML = `
-                        <div class="bg-white/5 p-6 border-l-2 border-[#004225] animate-fade-in">
+                        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 animate-fade-in shadow-sm">
                             <div class="flex justify-between mb-4">
-                                <span class="text-xs uppercase tracking-widest text-gray-500">Document Type</span>
-                                <span class="text-xs font-bold text-[#0B1C1C]">${data.type}</span>
+                                <span class="text-xs font-bold uppercase text-slate-500">Document Type</span>
+                                <span class="text-xs font-bold px-2 py-1 bg-white border border-slate-200 rounded text-slate-800">${data.type}</span>
                             </div>
-                            <div class="text-xs font-mono text-gray-600 mb-4 bg-white/50 p-4">
+                            <div class="text-xs font-mono text-slate-600 mb-4 bg-white border border-slate-200 rounded p-4 overflow-x-auto">
                                 ${JSON.stringify(data.data, null, 2)}
                             </div>
-                            <p class="text-sm font-light text-[#004225] italic">
-                                "Insight: ${data.insight}"
-                            </p>
+                            <div class="flex gap-2">
+                                <i data-lucide="info" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5"></i>
+                                <p class="text-sm text-slate-700 italic">
+                                    "${data.insight}"
+                                </p>
+                            </div>
                         </div>
                     `;
+                    lucide.createIcons();
                 } catch (error) {
-                    resultDiv.innerHTML = `<p class="text-red-500 text-xs text-center">Analysis Error</p>`;
+                    resultDiv.innerHTML = `<p class="text-red-500 text-sm font-semibold text-center">Analysis Error</p>`;
                 }
             };
             reader.readAsDataURL(file);
@@ -370,8 +465,8 @@
 
             preview.innerHTML = `
                 <div class="text-center">
-                    <div class="w-8 h-8 border border-[#004225] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p class="text-xs uppercase tracking-widest text-gray-500">Crafting Narrative...</p>
+                    <div class="w-8 h-8 border-4 border-slate-200 border-t-green-600 rounded-full animate-spin mx-auto mb-4"></div>
+                    <p class="text-sm font-semibold text-slate-600">Drafting Copy...</p>
                 </div>
              `;
 
@@ -386,30 +481,53 @@
                 preview.innerHTML = `
                     <div class="w-full text-center space-y-8 animate-fade-in">
                         <div>
-                            <h3 class="text-3xl font-serif text-[#0B1C1C] mb-2">${data.headline}</h3>
-                            <p class="text-gray-600 font-light italic text-lg border-b border-black/10 pb-6 inline-block">${data.subheadline}</p>
+                            <h3 class="text-3xl font-bold text-slate-900 mb-3">${data.headline}</h3>
+                            <p class="text-slate-600 text-lg border-b border-slate-200 pb-6 inline-block">${data.subheadline}</p>
                         </div>
                         
                         <div class="grid gap-4 text-left max-w-sm mx-auto">
                             ${data.benefits.map(benefit => `
-                                <div class="flex items-center gap-3 text-sm text-gray-600">
-                                    <div class="w-1 h-1 bg-[#004225] rounded-full"></div>
+                                <div class="flex items-center gap-3 text-sm text-slate-700">
+                                    <i data-lucide="check" class="w-4 h-4 text-green-500 shrink-0"></i>
                                     <span>${benefit}</span>
                                 </div>
                             `).join('')}
                         </div>
 
-                        <button class="bg-[#004225] text-black px-8 py-3 text-xs uppercase tracking-widest font-bold hover:bg-white transition-colors">
+                        <button class="btn-primary w-full shadow-xl shadow-blue-900/10">
                             ${data.cta}
                         </button>
                     </div>
                  `;
+                lucide.createIcons();
 
             } catch (error) {
                 console.error(error);
-                preview.innerHTML = `<p class="text-red-500 text-xs uppercase tracking-widest">Generation Failed</p>`;
+                preview.innerHTML = `<p class="text-red-500 text-sm font-semibold uppercase tracking-wide">Generation Failed</p>`;
             }
         }
+
+        // Scroll Animation Observer setup
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
     </script>
 </body>
 
