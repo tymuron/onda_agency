@@ -4,201 +4,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onda | Caso Lumière</title>
+    <title>Onda | Concepto Maison Lumiere</title>
+    <meta name="description" content="Un concepto que muestra cómo una marca pequeña y premium puede sentirse más editorial, más controlada y más elegante sin perder conversión.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="icon" type="image/png" href="../favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #FFFFFF;
-            --text-primary: #0F172A;
-            --text-secondary: #64748B;
-            --accent: #2563EB;
-            --accent-soft: #EFF6FF;
-            --border-color: #E2E8F0;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            overflow-x: hidden;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #1D4ED8;
-            transform: translateY(-1px);
-        }
-
-        .modern-card {
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .modern-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 40%); color: #0f172a; }
+        .panel { background: rgba(255,255,255,.9); backdrop-filter: blur(12px); border: 1px solid #dbe4f0; border-radius: 1.5rem; box-shadow: 0 20px 45px -35px rgba(15,23,42,.35); }
+        .btn-primary { background: linear-gradient(135deg,#2563eb,#1d4ed8); color:white; padding:.85rem 1.45rem; border-radius:9999px; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; }
+        .fade-in-section { opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
+        .fade-in-section.is-visible { opacity:1; transform:translateY(0); }
     </style>
 </head>
 
 <body class="antialiased">
-
-    <!-- Navigation -->
-    <nav
-        class="relative w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="../index_es.html" class="flex items-center gap-2 group">
-                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
-                    <i data-lucide="waves" class="w-5 h-5"></i>
-                </div>
+    <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/75 backdrop-blur-xl">
+        <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+            <a href="../index_es.html" class="flex items-center gap-3">
+                <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white"><i data-lucide="waves" class="h-5 w-5"></i></div>
                 <span class="text-xl font-bold tracking-tight text-slate-900">ONDA</span>
             </a>
-
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-                <a href="../portfolio_es.html"
-                    class="flex items-center gap-2 text-blue-600 font-bold transition-colors">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a la Colección
-                </a>
-                <a href="../index_es.html#agents" class="hover:text-blue-600 transition-colors">Demos IA</a>
+            <div class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+                <a href="../portfolio_es.html" class="text-blue-600">Volver a conceptos</a>
+                <a href="../index_es.html#packages" class="hover:text-blue-600 transition-colors">Paquetes</a>
                 <a href="../process_es.html" class="hover:text-blue-600 transition-colors">Proceso</a>
                 <a href="../index_es.html#contact" class="hover:text-blue-600 transition-colors">Contacto</a>
-                <div class="flex gap-3 border-l border-slate-200 pl-6">
-                    <a href="jewelry.html" class="text-slate-400 hover:text-slate-900 transition-colors">EN</a>
-                    <span class="text-blue-600 font-bold">ES</span>
-                    <a href="jewelry_ru.html" class="text-slate-400 hover:text-slate-900 transition-colors">RU</a>
-                </div>
+                <a href="jewelry.html" class="border-l border-slate-200 pl-6 text-slate-400 hover:text-slate-900 transition-colors">EN</a>
             </div>
-
             <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8 text-slate-900 shadow-xl">
-        <a href="../portfolio_es.html" class="text-3xl font-bold text-blue-600 transition-colors">Volver a la
-            Colección</a>
-        <a href="../index_es.html#agents" class="text-3xl font-bold hover:text-blue-600 transition-colors">Demos IA</a>
+    <div id="mobile-menu" class="fixed inset-0 z-[60] flex translate-x-full flex-col items-center justify-center gap-8 bg-white text-slate-900 transition-transform duration-300 md:hidden">
+        <a href="../portfolio_es.html" class="text-3xl font-bold text-blue-600">Conceptos</a>
+        <a href="../index_es.html#packages" class="text-3xl font-bold hover:text-blue-600 transition-colors">Paquetes</a>
         <a href="../process_es.html" class="text-3xl font-bold hover:text-blue-600 transition-colors">Proceso</a>
         <a href="../index_es.html#contact" class="text-3xl font-bold hover:text-blue-600 transition-colors">Contacto</a>
-        <div class="flex gap-4 border-t border-slate-100 pt-8 mt-4">
-            <a href="jewelry.html" class="text-xl font-medium text-slate-400">EN</a>
-            <span class="text-xl font-bold text-blue-600">ES</span>
-            <a href="jewelry_ru.html" class="text-xl font-medium text-slate-400">RU</a>
-        </div>
-        <button id="mobile-menu-close-btn" class="absolute top-8 right-6 text-slate-900"><i data-lucide="x"
-                class="w-8 h-8"></i></button>
+        <a href="jewelry.html" class="text-xl font-medium text-slate-400">EN</a>
+        <button id="mobile-menu-close-btn" class="absolute right-6 top-8 text-slate-900"><i data-lucide="x" class="h-8 w-8"></i></button>
     </div>
 
-    <!-- Hero Image -->
-    <div class="h-[60vh] relative">
-        <img src="../assets/images/jewelry_hero.png" alt="Lumière" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-slate-900/30 flex items-center justify-center">
-            <div class="text-center fade-in-section">
-                <p
-                    class="text-blue-200 text-xs font-bold tracking-[0.2em] uppercase mb-4 bg-blue-900/50 inline-block px-4 py-1 rounded-full backdrop-blur-sm">
-                    Alta Joyería</p>
-                <h1 class="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight">Lumière</h1>
+    <header class="px-6 pt-28 pb-12">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <img src="../assets/images/jewelry_hero.png" alt="Concepto Maison Lumiere" class="fade-in-section h-full min-h-[360px] w-full rounded-[2rem] object-cover">
+            <div class="fade-in-section">
+                <p class="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-blue-600">Concepto comercio de lujo</p>
+                <h1 class="text-5xl font-extrabold tracking-tight text-slate-950 md:text-7xl">Maison Lumiere</h1>
+                <p class="mt-5 text-lg leading-relaxed text-slate-600">Un concepto que muestra cómo una marca pequeña y premium puede sentirse más editorial, más controlada y más elegante sin perder conversión.</p>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="../examples/jewelry.html" class="btn-primary">Abrir vista previa <i data-lucide="external-link" class="h-4 w-4"></i></a>
+                    <a href="../index_es.html#contact" class="rounded-full border border-slate-200 px-6 py-3 font-semibold text-slate-700">Pedir algo parecido</a>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Content -->
-    <section class="max-w-4xl mx-auto py-24 px-6">
-        <div class="grid md:grid-cols-2 gap-16 mb-24 fade-in-section">
-            <div>
-                <h3 class="text-2xl font-bold mb-6 text-slate-900">El Resumen</h3>
-                <p class="text-slate-600 leading-relaxed">Lumière necesitaba cerrar la brecha entre su taller
-                    en París y su clientela global. El objetivo era replicar la intimidad de una visita privada en
-                    línea.</p>
+    <section class="px-6 pb-24">
+        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
+            <div class="panel fade-in-section p-8">
+                <h2 class="text-xl font-bold text-slate-900">Lo que demuestra este concepto</h2>
+                <p class="mt-3 text-slate-600">El lujo puede sentirse sereno y caro sin volverse vago ni lento.</p>
             </div>
-            <div>
-                <h3 class="text-2xl font-bold mb-6 text-slate-900">La Solución</h3>
-                <p class="text-slate-600 leading-relaxed">Creamos una experiencia de 'Bóveda Digital'. La
-                    funcionalidad de prueba AR permite a los clientes ver las piezas en sí mismos, mientras que las
-                    consultas por video seguras se pueden reservar al instante.</p>
+            <div class="panel fade-in-section p-8" style="transition-delay:100ms;">
+                <h2 class="text-xl font-bold text-slate-900">Lo que destaca</h2>
+                <p class="mt-3 text-slate-600">Mejor ritmo visual, CTA más limpios y una narrativa de producto más controlada.</p>
             </div>
-        </div>
-
-        <div class="mb-24 text-center fade-in-section">
-            <a href="../examples/jewelry.html" class="btn-primary text-lg px-8 py-4 shadow-lg hover:shadow-xl">
-                Visitar Sitio <i data-lucide="external-link" class="w-5 h-5"></i>
-            </a>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-slate-100 pt-12 fade-in-section">
-            <div class="md:text-left text-center">
-                <span class="text-slate-400 text-xs font-bold uppercase tracking-widest block mb-2">Cliente</span>
-                <span class="text-slate-900 font-medium">Maison Lumière</span>
-            </div>
-            <div class="md:text-center text-center">
-                <span class="text-slate-400 text-xs font-bold uppercase tracking-widest block mb-2">Servicios</span>
-                <span class="text-slate-900 font-medium">Desarrollo AR, UX/UI, Backend Seguro</span>
-            </div>
-            <div class="md:text-right text-center">
-                <span class="text-slate-400 text-xs font-bold uppercase tracking-widest block mb-2">Año</span>
-                <span class="text-slate-900 font-medium">2024</span>
+            <div class="panel fade-in-section p-8" style="transition-delay:200ms;">
+                <h2 class="text-xl font-bold text-slate-900">Para quién encaja</h2>
+                <p class="mt-3 text-slate-600">Marcas boutique, joyería y negocios de producto que necesitan una sensación más premium.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12 text-center px-6 mt-12">
-        <p class="text-slate-500 text-sm font-medium">&copy; 2024 Onda. Inteligencia Aplicada.</p>
+    <section class="border-y border-slate-200 bg-white px-6 py-24">
+        <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-2">
+            <div class="fade-in-section">
+                <h2 class="text-3xl font-bold text-slate-950">Cómo podría usarse esta dirección en un cliente real</h2>
+                <p class="mt-4 text-lg leading-relaxed text-slate-600">Este tipo de diseño es útil cuando la marca necesita verse más premium online sin caer en clichés de lujo genéricos. Funciona especialmente bien para ventas por cita, showrooms o catálogos pequeños muy cuidados.</p>
+            </div>
+            <div class="panel fade-in-section p-8">
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-slate-400">Podría incluir</p>
+                <ul class="mt-5 space-y-3 text-slate-600">
+                    <li class="flex gap-3"><i data-lucide="check" class="mt-1 h-4 w-4 text-green-500"></i> Ritmo editorial en inicio</li>
+                    <li class="flex gap-3"><i data-lucide="check" class="mt-1 h-4 w-4 text-green-500"></i> CTA a cita o consulta</li>
+                    <li class="flex gap-3"><i data-lucide="check" class="mt-1 h-4 w-4 text-green-500"></i> Mejor narrativa de marca y producto</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-24 text-center">
+        <div class="mx-auto max-w-4xl fade-in-section">
+            <h2 class="text-4xl font-bold text-slate-950 md:text-5xl">¿Necesitas este nivel de pulido para una marca real?</h2>
+            <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600">Cuéntame qué vendes, cómo lo vendes y qué nivel de presentación quieres para la marca online.</p>
+            <a href="../index_es.html#contact" class="btn-primary mt-8">Pedir presupuesto</a>
+        </div>
+    </section>
+
+    <footer class="border-t border-slate-200 bg-slate-50 px-6 py-12 text-sm text-slate-600">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
+            <div>
+                <span class="block text-lg font-bold text-slate-900">ONDA</span>
+                <p>Webs rápidas y automatización inicial para negocios que necesitan moverse ya.</p>
+            </div>
+            <p class="text-center md:text-right">Basada en España. Disponible para proyectos remotos en Europa, Reino Unido y más mercados.</p>
+        </div>
     </footer>
 
     <script>
         lucide.createIcons();
 
-        // Mobile Menu
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const closeBtn = document.getElementById('mobile-menu-close-btn');
 
-        const toggleMenu = () => mobileMenu.classList.toggle('translate-x-full');
-
-        if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
-        if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
-
-        // Animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
+        if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+        if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
             });
-        }, { threshold: 0.1 });
+        }
 
-        document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries, instance) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        instance.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+        });
     </script>
 </body>
 

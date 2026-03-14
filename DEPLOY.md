@@ -12,7 +12,7 @@ git remote -v
     ```bash
     git init
     git branch -M main
-    git remote add origin https://github.com/YOUR_USERNAME/onda-agency.git
+    git remote add origin https://github.com/YOUR_USERNAME/onda_agency.git
     ```
 
 **Step 2: Save and Push Changes**

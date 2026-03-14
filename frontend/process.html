@@ -4,90 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onda | The Methodology</title>
+    <title>Onda | Process</title>
+    <meta name="description" content="Clear steps, fast build, no bloated process. See how Onda delivers polished websites for service businesses in days, not months.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --bg-color: #FFFFFF;
-            --text-primary: #0F172A;
-            /* Slate 900 */
-            --text-secondary: #64748B;
-            /* Slate 500 */
-            --accent: #2563EB;
-            /* Royal Blue */
-            --accent-soft: #EFF6FF;
-            /* Blue 50 */
-            --border-color: #E2E8F0;
-            /* Slate 200 */
+            --accent: #2563eb;
+            --border-color: #dbe4f0;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            position: relative;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 38%);
+            color: #0f172a;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-weight: 700;
-            letter-spacing: -0.025em;
-        }
-
-        /* Modern Button */
         .btn-primary {
-            background-color: var(--accent);
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 0.85rem 1.45rem;
             border-radius: 9999px;
-            /* Pill shape */
             font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
-            border: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            cursor: pointer;
+            box-shadow: 0 10px 25px -15px rgba(37, 99, 235, 0.8);
+            transition: all 0.2s ease;
         }
 
         .btn-primary:hover {
-            background-color: #1D4ED8;
-            /* Darker Blue */
             transform: translateY(-1px);
-            box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.3);
         }
 
-        /* Modern Card */
-        .modern-card {
-            background: white;
+        .panel {
+            background: rgba(255, 255, 255, 0.86);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
-            border-radius: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 45px -35px rgba(15, 23, 42, 0.35);
         }
 
-        .modern-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* Animation Classes */
         .fade-in-section {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(24px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
@@ -96,237 +60,137 @@
             transform: translateY(0);
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #F1F5F9;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #CBD5E1;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94A3B8;
+        .section-label {
+            display: inline-flex;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(37, 99, 235, 0.08);
+            color: #2563eb;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
     </style>
 </head>
 
 <body class="antialiased">
 
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 border-b border-gray-100 backdrop-blur-md transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
-                    <i data-lucide="waves" class="w-5 h-5"></i>
+    <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/75 backdrop-blur-xl">
+        <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white">
+                    <i data-lucide="waves" class="h-5 w-5"></i>
                 </div>
-                ONDA
+                <span class="text-xl font-bold tracking-tight text-slate-900">ONDA</span>
             </a>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-                <a href="index.html#work" class="hover:text-blue-600 transition-colors">Work</a>
-                <a href="demos.html" class="hover:text-blue-600 transition-colors">Solutions</a>
-                <a href="#" class="text-blue-600 font-semibold">Process</a>
+            <div class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+                <a href="index.html#packages" class="hover:text-blue-600 transition-colors">Packages</a>
+                <a href="index.html#proof" class="hover:text-blue-600 transition-colors">Concept Work</a>
+                <a href="#" class="text-blue-600">Process</a>
                 <a href="index.html#contact" class="hover:text-blue-600 transition-colors">Contact</a>
-                <div class="flex gap-4 border-l border-slate-200 pl-6 text-slate-400">
-                    <span class="text-slate-900 font-semibold">EN</span>
-                    <a href="process_es.html" class="hover:text-slate-900 transition-colors">ES</a>
-                    <a href="process_ru.html?v=new" class="hover:text-slate-900 transition-colors">RU</a>
-                </div>
+                <a href="process_es.html" class="border-l border-slate-200 pl-6 text-slate-400 hover:text-slate-900 transition-colors">ES</a>
             </div>
-            <a href="index.html#contact" class="hidden md:inline-block btn-primary">Get Started</a>
+            <a href="index.html#contact" class="hidden md:inline-flex btn-primary">Get a Quote</a>
             <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu"
-        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8 text-slate-900 shadow-xl">
-        <a href="index.html#work" class="text-3xl font-bold hover:text-blue-600 transition-colors">Work</a>
-        <a href="demos.html" class="text-3xl font-bold hover:text-blue-600 transition-colors">Solutions</a>
+        class="fixed inset-0 z-[60] flex translate-x-full flex-col items-center justify-center gap-8 bg-white text-slate-900 transition-transform duration-300 md:hidden">
+        <a href="index.html#packages" class="text-3xl font-bold hover:text-blue-600 transition-colors">Packages</a>
+        <a href="index.html#proof" class="text-3xl font-bold hover:text-blue-600 transition-colors">Concept Work</a>
         <a href="#" class="text-3xl font-bold text-blue-600">Process</a>
         <a href="index.html#contact" class="text-3xl font-bold hover:text-blue-600 transition-colors">Contact</a>
-        <div class="flex gap-4 border-t border-slate-100 pt-8 mt-4">
-            <span class="text-xl font-bold text-blue-600">EN</span>
-            <a href="process_es.html" class="text-xl font-medium text-slate-400">ES</a>
-            <a href="process_ru.html" class="text-xl font-medium text-slate-400">RU</a>
-        </div>
-        <button id="mobile-menu-close-btn" class="absolute top-8 right-6 text-slate-900"><i data-lucide="x"
-                class="w-8 h-8"></i></button>
+        <a href="process_es.html" class="text-xl font-medium text-slate-400">ES</a>
+        <button id="mobile-menu-close-btn" class="absolute right-6 top-8 text-slate-900"><i data-lucide="x" class="h-8 w-8"></i></button>
     </div>
 
-
-    <!-- Header -->
-    <header class="pt-32 pb-20 px-6 text-center max-w-5xl mx-auto bg-gradient-to-b from-slate-50 to-white">
-        <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wide mb-6">
-            Methodology
-        </div>
-        <h1 class="text-4xl md:text-6xl mb-8 leading-tight text-slate-900">
-            Precision <span class="text-blue-600">Engineering.</span>
-        </h1>
-        <p class="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
-            A meticulous four-stage process ensuring every digital artifact is a masterpiece of form and function.
+    <header class="mx-auto max-w-5xl px-6 pt-32 pb-16 text-center">
+        <div class="section-label mb-6 fade-in-section">How it works</div>
+        <h1 class="fade-in-section text-5xl font-extrabold tracking-tight text-slate-950 md:text-7xl">Clear steps. Fast build. No bloated process.</h1>
+        <p class="fade-in-section mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl">
+            The goal is to keep the project focused, move quickly, and ship something that feels far more expensive than the process behind it.
         </p>
     </header>
 
-    <!-- Timeline -->
-    <section class="py-20 px-6 max-w-4xl mx-auto bg-white">
-        <div class="space-y-8 relative">
-            <!-- Connector Line (Visual cue only, simpler than previous circuit) -->
-            <div class="absolute left-[27px] top-4 bottom-4 w-0.5 bg-slate-200 hidden md:block"></div>
-
-            <!-- Step 1 -->
-            <div class="flex flex-col md:flex-row gap-8 items-start relative fade-in-section">
-                <div
-                    class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shrink-0 z-10 text-white font-bold text-xl shadow-lg shadow-blue-600/20">
-                    1
-                </div>
-                <div class="modern-card p-8 flex-1">
-                    <h3 class="text-2xl mb-3 text-slate-900 font-bold">Discovery & Vision</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        We immerse ourselves in your brand's DNA. Our <span class="font-semibold text-blue-600">research
-                            agents</span> conduct deep-sector
-                        analysis to distill unique competitive advantages and identify growth opportunities.
-                    </p>
+    <section class="mx-auto max-w-5xl px-6 pb-24">
+        <div class="space-y-8">
+            <div class="panel fade-in-section grid gap-6 p-8 md:grid-cols-[80px_1fr]">
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600 text-2xl font-bold text-white">1</div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">Fast discovery</h2>
+                    <p class="mt-3 text-slate-600">You tell me what the business does, what is weak right now, and how soon you want to launch. I keep this short on purpose.</p>
                 </div>
             </div>
-
-            <!-- Step 2 -->
-            <div class="flex flex-col md:flex-row gap-8 items-start relative fade-in-section"
-                style="transition-delay: 100ms;">
-                <div
-                    class="w-14 h-14 bg-white border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center shrink-0 z-10 font-bold text-xl">
-                    2
-                </div>
-                <div class="modern-card p-8 flex-1">
-                    <h3 class="text-2xl mb-3 text-slate-900 font-bold">Architectural Structure</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        We structure the digital experience. Wireframes and kinetic user flows are forged to guarantee
-                        an
-                        <span class="font-semibold text-blue-600">intuitive</span> and seamless journey for your users.
-                    </p>
+            <div class="panel fade-in-section grid gap-6 p-8 md:grid-cols-[80px_1fr]" style="transition-delay: 100ms;">
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-white text-2xl font-bold text-slate-500">2</div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">Offer and direction</h2>
+                    <p class="mt-3 text-slate-600">I recommend the smallest package that solves the problem, define scope, and lock the design direction before the build starts.</p>
                 </div>
             </div>
-
-            <!-- Step 3 -->
-            <div class="flex flex-col md:flex-row gap-8 items-start relative fade-in-section"
-                style="transition-delay: 200ms;">
-                <div
-                    class="w-14 h-14 bg-white border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center shrink-0 z-10 font-bold text-xl">
-                    3
-                </div>
-                <div class="modern-card p-8 flex-1">
-                    <h3 class="text-2xl mb-3 text-slate-900 font-bold">Visual Synthesis</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        Where design meets code. We apply bespoke <span class="font-semibold text-blue-600">modern
-                            aesthetics</span>—clean typography, color theory,
-                        and smooth interactions—to bring the vision to life.
-                    </p>
+            <div class="panel fade-in-section grid gap-6 p-8 md:grid-cols-[80px_1fr]" style="transition-delay: 200ms;">
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-white text-2xl font-bold text-slate-500">3</div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">Build in days</h2>
+                    <p class="mt-3 text-slate-600">Design and development happen together so the site feels custom and polished without dragging the timeline out.</p>
                 </div>
             </div>
-
-            <!-- Step 4 -->
-            <div class="flex flex-col md:flex-row gap-8 items-start relative fade-in-section"
-                style="transition-delay: 300ms;">
-                <div
-                    class="w-14 h-14 bg-white border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center shrink-0 z-10 font-bold text-xl">
-                    4
-                </div>
-                <div class="modern-card p-8 flex-1">
-                    <h3 class="text-2xl mb-3 text-slate-900 font-bold">Deploy & Scale</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        Rigorous testing followed by global deployment. We monitor performance and scale infrastructure
-                        to meet the demands of
-                        your <span class="font-semibold text-blue-600">growing audience</span>.
-                    </p>
+            <div class="panel fade-in-section grid gap-6 p-8 md:grid-cols-[80px_1fr]" style="transition-delay: 300ms;">
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-white text-2xl font-bold text-slate-500">4</div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">Launch and improve</h2>
+                    <p class="mt-3 text-slate-600">Once the site is approved, it goes live. If needed, we add lead routing, booking, review requests, or other light automations after launch.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="py-24 text-center relative z-10 bg-slate-50 border-t border-slate-100">
-        <h2 class="text-3xl md:text-5xl font-bold mb-8 text-slate-900 fade-in-section">Ready to <span
-                class="text-blue-600">Begin?</span></h2>
-        <a href="index.html#contact" class="btn-primary text-lg px-8 py-4 fade-in-section shadow-xl shadow-blue-600/10">
-            Start the Process
-        </a>
+    <section class="border-t border-slate-200 bg-white px-6 py-24 text-center">
+        <div class="mx-auto max-w-4xl fade-in-section">
+            <h2 class="text-4xl font-bold text-slate-950 md:text-5xl">Need something polished fast?</h2>
+            <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600">Tell me what the business needs and I will recommend the quickest sensible path.</p>
+            <a href="index.html#contact" class="btn-primary mt-8">Request a Quote</a>
+        </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-slate-100 bg-white text-slate-600 text-sm">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
-                <span class="text-lg font-bold text-slate-900 block mb-1">ONDA</span>
-                <p>&copy; 2024 Onda Systems. All rights reserved.</p>
+    <footer class="border-t border-slate-200 bg-slate-50 px-6 py-12 text-sm text-slate-600">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
+            <div>
+                <span class="block text-lg font-bold text-slate-900">ONDA</span>
+                <p>Fast websites and starter automation for businesses that need to move now.</p>
             </div>
-            <div class="flex gap-6 font-semibold">
-                <a href="#" class="hover:text-blue-600 transition-colors">GitHub</a>
-                <a href="#" class="hover:text-blue-600 transition-colors">Twitter</a>
-                <a href="#" class="hover:text-blue-600 transition-colors">LinkedIn</a>
-            </div>
+            <p class="text-center md:text-right">Based in Spain. Available for remote projects across Europe, the UK, and beyond.</p>
         </div>
     </footer>
 
     <script>
         lucide.createIcons();
 
-        // Mobile Menu Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+        const closeBtn = document.getElementById('mobile-menu-close-btn');
 
-        const toggleMenu = () => {
-            if (mobileMenu) {
-                mobileMenu.classList.toggle('translate-x-full');
-            }
-        }
-
-        if (menuBtn) {
-            menuBtn.addEventListener('click', toggleMenu);
-        }
-
-        if (mobileMenuCloseBtn) {
-            mobileMenuCloseBtn.addEventListener('click', toggleMenu);
-        }
-
-        // Close menu when a link inside is clicked
+        if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+        if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
         if (mobileMenu) {
-            const links = mobileMenu.querySelectorAll('a');
-            links.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('translate-x-full');
-                });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
             });
         }
 
-        // Scroll Animation Observer
         document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries, observerInstance) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
+                        observerInstance.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1 });
 
-            document.querySelectorAll('.fade-in-section').forEach(section => {
-                observer.observe(section);
-            });
+            document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
         });
     </script>
 </body>

@@ -4,34 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onda | AI Automation Agency</title>
+    <title>Onda | Fast Premium Websites for Service Businesses</title>
+    <meta name="description"
+        content="Fast premium websites, landing pages, and starter automations for service businesses that need to look established and capture more leads.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --bg-color: #FFFFFF;
-            --text-primary: #0F172A;
-            /* Slate 900 */
-            --text-secondary: #64748B;
-            /* Slate 500 */
-            --accent: #2563EB;
-            /* Royal Blue */
-            --accent-soft: #EFF6FF;
-            /* Blue 50 */
-            --border-color: #E2E8F0;
-            /* Slate 200 */
-            --glass-bg: rgba(255, 255, 255, 0.9);
+            --bg-color: #f8fafc;
+            --surface: #ffffff;
+            --surface-soft: #eff6ff;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --border-color: #dbe4f0;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
+            background:
+                radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 28%),
+                radial-gradient(circle at top right, rgba(15, 23, 42, 0.06), transparent 24%),
+                var(--bg-color);
             color: var(--text-primary);
             overflow-x: hidden;
-            position: relative;
         }
 
         h1,
@@ -40,62 +40,61 @@
         h4,
         h5,
         h6 {
-            font-weight: 700;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.03em;
         }
 
-        .text-accent {
-            color: var(--accent);
-        }
-
-        .bg-accent-soft {
-            background-color: var(--accent-soft);
-        }
-
-        /* Modern Button */
         .btn-primary {
-            background-color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 0.85rem 1.45rem;
             border-radius: 9999px;
-            /* Pill shape */
             font-weight: 600;
             font-size: 0.95rem;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 10px 25px -15px rgba(37, 99, 235, 0.8);
             border: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             cursor: pointer;
         }
 
         .btn-primary:hover {
-            background-color: #1D4ED8;
-            /* Darker Blue */
             transform: translateY(-1px);
-            box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 14px 30px -16px rgba(37, 99, 235, 0.9);
         }
 
-        /* Modern Card */
-        .modern-card {
-            background: white;
+        .btn-secondary {
             border: 1px solid var(--border-color);
-            border-radius: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-primary);
+            padding: 0.85rem 1.45rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
-        .modern-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
+        .btn-secondary:hover {
+            background: white;
+            border-color: #c7d6ea;
         }
 
-        /* Animation Classes */
+        .panel {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(219, 228, 240, 0.9);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 45px -35px rgba(15, 23, 42, 0.35);
+        }
+
         .fade-in-section {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(24px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
@@ -104,333 +103,411 @@
             transform: translateY(0);
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
-        ::-webkit-scrollbar-track {
-            background: #F1F5F9;
+        .metric-card {
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: #CBD5E1;
-            border-radius: 4px;
+        .package-popular {
+            position: relative;
+            overflow: hidden;
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94A3B8;
+        .package-popular::before {
+            content: "Most chosen";
+            position: absolute;
+            top: 16px;
+            right: -34px;
+            transform: rotate(32deg);
+            background: #0f172a;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 40px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
     </style>
 </head>
 
 <body class="antialiased">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 border-b border-gray-100 backdrop-blur-md transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
-                    <i data-lucide="waves" class="w-5 h-5"></i>
+    <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/75 backdrop-blur-xl">
+        <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+            <a href="#" class="flex items-center gap-3">
+                <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white">
+                    <i data-lucide="waves" class="h-5 w-5"></i>
                 </div>
-                ONDA
+                <span class="text-xl font-bold tracking-tight text-slate-900">ONDA</span>
             </a>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-                <a href="#work" class="hover:text-blue-600 transition-colors">Work</a>
-                <a href="#agents" class="hover:text-blue-600 transition-colors">Solutions</a>
+            <div class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+                <a href="#packages" class="hover:text-blue-600 transition-colors">Packages</a>
+                <a href="#proof" class="hover:text-blue-600 transition-colors">Concept Work</a>
                 <a href="process.html" class="hover:text-blue-600 transition-colors">Process</a>
                 <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
-                <div class="flex gap-4 border-l border-slate-200 pl-6 text-slate-400">
-                    <span class="text-slate-900 font-semibold">EN</span>
-                    <a href="index_es.html" class="hover:text-slate-900 transition-colors">ES</a>
-                    <a href="index_ru.html" class="hover:text-slate-900 transition-colors">RU</a>
-                </div>
+                <a href="index_es.html" class="border-l border-slate-200 pl-6 text-slate-400 hover:text-slate-900 transition-colors">ES</a>
             </div>
-            <a href="#contact" class="hidden md:inline-block btn-primary">Get Started</a>
+            <a href="#contact" class="hidden md:inline-flex btn-primary">Get a Quote</a>
             <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu"
-        class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8 text-slate-900shadow-xl">
-        <a href="#work" class="text-3xl font-bold hover:text-blue-600 transition-colors">Work</a>
-        <a href="#agents" class="text-3xl font-bold hover:text-blue-600 transition-colors">Solutions</a>
+        class="fixed inset-0 z-[60] flex translate-x-full flex-col items-center justify-center gap-8 bg-white text-slate-900 transition-transform duration-300 md:hidden">
+        <a href="#packages" class="text-3xl font-bold hover:text-blue-600 transition-colors">Packages</a>
+        <a href="#proof" class="text-3xl font-bold hover:text-blue-600 transition-colors">Concept Work</a>
         <a href="process.html" class="text-3xl font-bold hover:text-blue-600 transition-colors">Process</a>
         <a href="#contact" class="text-3xl font-bold hover:text-blue-600 transition-colors">Contact</a>
-        <div class="flex gap-4 border-t border-slate-100 pt-8 mt-4">
-            <span class="text-xl font-bold text-blue-600">EN</span>
-            <a href="index_es.html" class="text-xl font-medium text-slate-400">ES</a>
-            <a href="index_ru.html" class="text-xl font-medium text-slate-400">RU</a>
-        </div>
-        <button id="mobile-menu-close-btn" class="absolute top-8 right-6 text-slate-900"><i data-lucide="x"
-                class="w-8 h-8"></i></button>
+        <a href="index_es.html" class="text-xl font-medium text-slate-400">ES</a>
+        <button id="mobile-menu-close-btn" class="absolute right-6 top-8 text-slate-900"><i data-lucide="x" class="h-8 w-8"></i></button>
     </div>
 
-    <!-- Hero Section -->
-    <section
-        class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-gradient-to-b from-slate-50 to-white">
-        <div class="w-full relative z-10 fade-in-section">
-            <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto px-6">
-                <div class="md:pr-8">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold uppercase tracking-wide mb-6">
-                        <span class="relative flex h-2 w-2">
-                            <span
-                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                        </span>
-                        Accepting New Projects
-                    </div>
-                    <h1 class="text-5xl md:text-7xl leading-tight mb-6 text-slate-900">
-                        AI Automation for <br> <span class="text-blue-600">Modern Business.</span>
-                    </h1>
-                    <p class="text-slate-600 text-lg leading-relaxed max-w-md mb-8">
-                        We build intelligent systems that save time, reduce costs, and scale your operations without
-                        adding headcount.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#contact" class="btn-primary">Book a Demo</a>
-                        <a href="#work"
-                            class="px-6 py-3 rounded-full border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">View
-                            Work</a>
-                    </div>
+    <section class="relative overflow-hidden px-6 pt-32 pb-20">
+        <div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+            <div class="fade-in-section">
+                <div class="section-label mb-6">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-500"></span>
+                    </span>
+                    Quote in 24 hours
+                </div>
+                <h1 class="mb-6 max-w-4xl text-5xl font-extrabold leading-none text-slate-950 md:text-7xl">
+                    Fast, premium websites for businesses that need to look serious this month.
+                </h1>
+                <p class="mb-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+                    If your business still runs on Instagram, WhatsApp, referrals, or a weak old site, I can turn it into
+                    something polished, credible, and built to catch more inquiries in days, not months.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="btn-primary">Get a Fast Quote <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+                    <a href="#packages" class="btn-secondary">See Packages</a>
+                </div>
+                <div class="mt-10 flex flex-wrap gap-3 text-sm text-slate-500">
+                    <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Best for service businesses</span>
+                    <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Spain-based, remote worldwide</span>
+                    <span class="rounded-full border border-slate-200 bg-white px-4 py-2">English and Spanish projects</span>
+                </div>
+            </div>
 
-                    <div class="mt-12 flex items-center gap-4 text-sm text-slate-500 font-medium">
-                        <div class="flex -space-x-2">
-                            <div class="w-8 h-8 rounded-full bg-slate-200 border-2 border-white"></div>
-                            <div class="w-8 h-8 rounded-full bg-slate-300 border-2 border-white"></div>
-                            <div class="w-8 h-8 rounded-full bg-slate-400 border-2 border-white"></div>
+            <div class="fade-in-section panel p-6 md:p-8">
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="metric-card p-5">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Starting from</p>
+                        <p class="mt-2 text-3xl font-bold text-slate-900">EUR 690</p>
+                        <p class="mt-2 text-sm text-slate-500">Lower-friction entry point for outreach and small businesses.</p>
+                    </div>
+                    <div class="metric-card p-5">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Typical launch</p>
+                        <p class="mt-2 text-3xl font-bold text-slate-900">5-10 days</p>
+                        <p class="mt-2 text-sm text-slate-500">Clear scope, no bloated agency process, no endless calls.</p>
+                    </div>
+                    <div class="metric-card p-5 md:col-span-2">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">What you are really buying</p>
+                        <p class="mt-2 text-lg font-semibold text-slate-900">A site that makes the business feel more established, more trustworthy, and easier to contact.</p>
+                        <div class="mt-4 grid gap-3 sm:grid-cols-3 text-sm text-slate-600">
+                            <div class="rounded-2xl bg-slate-50 px-4 py-3">Better first impression</div>
+                            <div class="rounded-2xl bg-slate-50 px-4 py-3">Cleaner lead capture</div>
+                            <div class="rounded-2xl bg-slate-50 px-4 py-3">Optional starter automation</div>
                         </div>
-                        <p>Trusted by forward-thinking companies.</p>
-                    </div>
-                </div>
-
-                <div class="relative hidden md:block">
-                    <div
-                        class="relative z-10 rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 transition-transform hover:scale-[1.01] duration-500">
-                        <img src="assets/images/hero_modern.png" alt="Modern AI Solutions"
-                            class="w-full h-auto object-cover">
-                    </div>
-                    <!-- Decor elements -->
-                    <div
-                        class="absolute -top-10 -right-10 w-64 h-64 bg-blue-200/50 rounded-full blur-3xl mix-blend-multiply filter opacity-70 animate-pulse">
-                    </div>
-                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-200/50 rounded-full blur-3xl mix-blend-multiply filter opacity-70 animate-pulse"
-                        style="animation-delay: 2s"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Agents Section -->
-    <section id="agents" class="py-24 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 fade-in-section">
-                <h2 class="text-3xl md:text-5xl mb-4 text-slate-900">Intelligent <span
-                        class="text-blue-600">Assistants</span></h2>
-                <p class="text-slate-600 max-w-2xl mx-auto text-lg">Deploy powerful AI modules designed to handle
-                    complex tasks 24/7.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Agent 1 -->
-                <div class="modern-card p-8 group fade-in-section">
-                    <div
-                        class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="search" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-slate-900">Market Researcher</h3>
-                    <p class="text-slate-600 leading-relaxed mb-6">Automatically scans competitors and market trends to
-                        deliver actionable insights.</p>
-                    <a href="demos.html"
-                        class="text-blue-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Try
-                        Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                </div>
-
-                <!-- Agent 2 -->
-                <div class="modern-card p-8 group fade-in-section" style="transition-delay: 100ms;">
-                    <div
-                        class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="image" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-slate-900">Visual Analyzer</h3>
-                    <p class="text-slate-600 leading-relaxed mb-6">Understands images and design assets to provide
-                        instant creative feedback.</p>
-                    <a href="demos.html"
-                        class="text-blue-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Try
-                        Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                </div>
-
-                <!-- Agent 3 -->
-                <div class="modern-card p-8 group fade-in-section" style="transition-delay: 200ms;">
-                    <div
-                        class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="pen-tool" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-slate-900">Content Writer</h3>
-                    <p class="text-slate-600 leading-relaxed mb-6">Generates high-converting marketing copy and
-                        technical documentation on demand.</p>
-                    <a href="demos.html"
-                        class="text-blue-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">Try
-                        Demo <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Section -->
-    <section id="work" class="py-24 px-6 bg-slate-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex justify-between items-end mb-16 fade-in-section">
-                <div>
-                    <span class="text-blue-600 font-bold tracking-wide uppercase text-sm mb-2 block">Our
-                        Portfolio</span>
-                    <h2 class="text-3xl md:text-5xl text-slate-900">Success <span class="text-blue-600">Stories</span>
-                    </h2>
-                </div>
-                <a href="portfolio.html"
-                    class="hidden md:flex items-center gap-2 text-slate-600 font-semibold hover:text-blue-600 transition-colors">View
-                    All Projects <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-            </div>
-
-            <div class="space-y-16">
-                <!-- Item 1: Real Estate -->
-                <div class="grid md:grid-cols-2 gap-12 items-center group fade-in-section">
-                    <div
-                        class="relative rounded-2xl overflow-hidden shadow-xl modern-card border-none hover:shadow-2xl transition-shadow">
-                        <img src="assets/images/skyline_hero.png" alt="Real Estate"
-                            class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <div>
-                        <span class="text-blue-600 font-bold text-sm tracking-wide uppercase mb-2 block">Real
-                            Estate</span>
-                        <h3 class="text-3xl mb-4 text-slate-900 font-bold">Skyline Estates</h3>
-                        <p class="text-slate-600 mb-6 leading-relaxed text-lg">Detailed 3D property tours that helped
-                            increase closing rates by 40%.</p>
-                        <ul class="space-y-2 mb-8 text-slate-500">
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-green-500"></i> Interactive 3D Walkthroughs</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-green-500"></i> Automated Lead Qualification</li>
-                        </ul>
-                        <a href="examples/real-estate.html" class="btn-primary inline-flex items-center gap-2">View Case
-                            Study <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                    </div>
-                </div>
-
-                <!-- Item 2: Novamare (Yachting) - Alternating Layout -->
-                <div class="grid md:grid-cols-2 gap-12 items-center group fade-in-section">
-                    <div
-                        class="md:order-2 relative rounded-2xl overflow-hidden shadow-xl modern-card border-none hover:shadow-2xl transition-shadow">
-                        <img src="assets/images/yacht_hero_v2.png" alt="Yachting"
-                            class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <div class="md:order-1 text-right">
-                        <span
-                            class="text-blue-600 font-bold text-sm tracking-wide uppercase mb-2 block">Automotive</span>
-                        <h3 class="text-3xl mb-4 text-slate-900 font-bold">Novamare</h3>
-                        <p class="text-slate-600 mb-6 leading-relaxed text-lg ml-auto">Cinematic 3D configurator for
-                            superyachts, bringing the shipyard experience to the browser.</p>
-                        <ul class="space-y-2 mb-8 text-slate-500 inline-block text-right">
-                            <li class="flex items-center justify-end gap-2">WebGL Configurator <i data-lucide="check"
-                                    class="w-4 h-4 text-green-500"></i></li>
-                            <li class="flex items-center justify-end gap-2">Immersive Experience <i data-lucide="check"
-                                    class="w-4 h-4 text-green-500"></i></li>
-                        </ul>
-                        <br>
-                        <a href="portfolio/yachts.html" class="btn-primary inline-flex items-center gap-2">View Case
-                            Study <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                    </div>
-                </div>
-
-                <!-- Item 3: Lumiere (Jewelry) -->
-                <div class="grid md:grid-cols-2 gap-12 items-center group fade-in-section">
-                    <div
-                        class="relative rounded-2xl overflow-hidden shadow-xl modern-card border-none hover:shadow-2xl transition-shadow">
-                        <img src="assets/images/jewelry_hero.png" alt="Jewelry"
-                            class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <div>
-                        <span
-                            class="text-blue-600 font-bold text-sm tracking-wide uppercase mb-2 block">E-Commerce</span>
-                        <h3 class="text-3xl mb-4 text-slate-900 font-bold">Maison Lumière</h3>
-                        <p class="text-slate-600 mb-6 leading-relaxed text-lg">Digital flagship for a heritage jewelry
-                            maison, featuring AR try-on and bespoke appointments.</p>
-                        <ul class="space-y-2 mb-8 text-slate-500">
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-green-500"></i> AR Try-On</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-green-500"></i> AI Appointment System</li>
-                        </ul>
-                        <a href="portfolio/jewelry.html" class="btn-primary inline-flex items-center gap-2">View Case
-                            Study <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 bg-white border-t border-slate-100">
-        <div class="max-w-4xl mx-auto text-center fade-in-section">
-            <h2 class="text-3xl md:text-5xl mb-6 text-slate-900">Ready to <span class="text-blue-600">Scale?</span></h2>
-            <p class="text-slate-600 text-lg mb-12 max-w-xl mx-auto">Let's discuss how AI can transform your business
-                processes today.</p>
+    <section id="packages" class="px-6 pb-8 pt-4">
+        <div class="mx-auto max-w-7xl">
+            <div class="fade-in-section mb-14 text-center">
+                <div class="section-label mb-4">Packages</div>
+                <h2 class="mb-4 text-4xl font-bold text-slate-950 md:text-6xl">Simple offers that are easy to say yes to.</h2>
+                <p class="mx-auto max-w-3xl text-lg text-slate-600">Built for cold outreach, referral traffic, and businesses that want to start small without getting stuck with a cheap-looking result.</p>
+            </div>
+            <div class="grid gap-8 lg:grid-cols-3">
+                <div class="panel fade-in-section p-8">
+                    <div class="mb-6 flex items-center justify-between">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+                            <i data-lucide="zap" class="h-6 w-6"></i>
+                        </div>
+                        <span class="text-sm font-bold text-blue-600">From EUR 690</span>
+                    </div>
+                    <h3 class="mb-3 text-2xl font-bold text-slate-900">Launch Page</h3>
+                    <p class="mb-6 text-slate-600">A one-page website for businesses that need to look credible fast and make it easy for people to get in touch.</p>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> One-page custom site</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> WhatsApp or contact capture</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Copy cleanup and mobile polish</li>
+                    </ul>
+                    <a href="#contact" class="mt-8 inline-flex font-semibold text-blue-600">Start here <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></a>
+                </div>
 
-            <form id="contactForm"
-                class="text-left space-y-6 max-w-lg mx-auto bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="panel package-popular fade-in-section p-8">
+                    <div class="mb-6 flex items-center justify-between">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white">
+                            <i data-lucide="layout-template" class="h-6 w-6"></i>
+                        </div>
+                        <span class="text-sm font-bold text-blue-600">From EUR 1,490</span>
+                    </div>
+                    <h3 class="mb-3 text-2xl font-bold text-slate-900">Business Website</h3>
+                    <p class="mb-6 text-slate-600">The best fit for most small service businesses that need a site that feels established, not improvised.</p>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Up to 5 pages</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Better structure, CTA flow, and trust sections</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Local SEO basics and lead routing</li>
+                    </ul>
+                    <a href="#contact" class="mt-8 inline-flex font-semibold text-blue-600">This is the popular option <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></a>
+                </div>
+
+                <div class="panel fade-in-section p-8">
+                    <div class="mb-6 flex items-center justify-between">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+                            <i data-lucide="bot" class="h-6 w-6"></i>
+                        </div>
+                        <span class="text-sm font-bold text-blue-600">From EUR 2,490</span>
+                    </div>
+                    <h3 class="mb-3 text-2xl font-bold text-slate-900">Site + Automation</h3>
+                    <p class="mb-6 text-slate-600">For businesses that want a proper website plus one practical automation that saves time immediately.</p>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Full site plus one automation</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Booking, follow-up, review request, or intake flow</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Built for operational wins, not AI theater</li>
+                    </ul>
+                    <a href="#contact" class="mt-8 inline-flex font-semibold text-blue-600">Ask for a tailored quote <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-24">
+        <div class="mx-auto max-w-7xl">
+            <div class="fade-in-section mb-12 text-center">
+                <div class="section-label mb-4">Popular add-ons</div>
+                <h2 class="text-4xl font-bold text-slate-950 md:text-5xl">Useful extras that are easy to add later.</h2>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <div class="panel fade-in-section p-6">
+                    <h3 class="text-lg font-bold text-slate-900">Extra language</h3>
+                    <p class="mt-2 text-sm text-slate-600">Add Spanish or English to the site without a full rebuild.</p>
+                    <p class="mt-4 font-semibold text-blue-600">From EUR 250</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 100ms;">
+                    <h3 class="text-lg font-bold text-slate-900">Google Business setup</h3>
+                    <p class="mt-2 text-sm text-slate-600">For local businesses that need a cleaner presence in maps and search.</p>
+                    <p class="mt-4 font-semibold text-blue-600">From EUR 190</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 200ms;">
+                    <h3 class="text-lg font-bold text-slate-900">Review request flow</h3>
+                    <p class="mt-2 text-sm text-slate-600">Simple email or text follow-up asking for reviews after service.</p>
+                    <p class="mt-4 font-semibold text-blue-600">From EUR 290</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 300ms;">
+                    <h3 class="text-lg font-bold text-slate-900">Rush delivery</h3>
+                    <p class="mt-2 text-sm text-slate-600">For projects that must go live unusually fast.</p>
+                    <p class="mt-4 font-semibold text-blue-600">From EUR 300</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-y border-slate-200 bg-white px-6 py-24">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div class="fade-in-section">
+                <div class="section-label mb-4">Best fit</div>
+                <h2 class="mb-4 text-4xl font-bold text-slate-950 md:text-5xl">This works best for businesses that already have demand but weak presentation.</h2>
+                <p class="text-lg text-slate-600">The fastest wins usually come from service businesses that are already getting referrals, calls, or Instagram traffic but still look underbuilt online.</p>
+            </div>
+            <div class="grid gap-6 sm:grid-cols-2">
+                <div class="panel fade-in-section p-6">
+                    <h3 class="mb-2 text-lg font-bold text-slate-900">Local services</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">Clinics, salons, home services, studios, and businesses that depend on trust and fast contact.</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 100ms;">
+                    <h3 class="mb-2 text-lg font-bold text-slate-900">Consultants and professionals</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">Lawyers, accountants, coaches, advisors, and specialists who need a stronger first impression.</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 200ms;">
+                    <h3 class="mb-2 text-lg font-bold text-slate-900">Real estate and property</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">Agents and property brands that need visual polish and a better inquiry path.</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 300ms;">
+                    <h3 class="mb-2 text-lg font-bold text-slate-900">Boutique brands</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">Small brands that need something custom-feeling without paying enterprise agency prices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proof" class="px-6 py-24">
+        <div class="mx-auto max-w-7xl">
+            <div class="fade-in-section mb-14 text-center">
+                <div class="section-label mb-4">Concept work</div>
+                <h2 class="mb-4 text-4xl font-bold text-slate-950 md:text-5xl">Proof of taste, motion, and visual range.</h2>
+                <p class="mx-auto max-w-3xl text-lg text-slate-600">These are concepts, not client case studies. They are here to show how polished, premium, and alive your site can feel.</p>
+            </div>
+            <div class="grid gap-8 lg:grid-cols-3">
+                <a href="portfolio/real-estate.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1">
+                    <img src="assets/images/skyline_hero.png" alt="Real estate concept" class="h-64 w-full rounded-2xl object-cover">
+                    <div class="px-2 pb-2 pt-6">
+                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Real estate concept</p>
+                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Skyline Estates</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">High-trust layout, premium imagery, and a cleaner inquiry path for property businesses.</p>
+                    </div>
+                </a>
+                <a href="portfolio/yachts.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1" style="transition-delay: 100ms;">
+                    <img src="assets/images/yacht_hero_v2.png" alt="Marine concept" class="h-64 w-full rounded-2xl object-cover">
+                    <div class="px-2 pb-2 pt-6">
+                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Marine concept</p>
+                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Novamare</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Immersive premium direction for brands that need presentation to feel expensive from the first scroll.</p>
+                    </div>
+                </a>
+                <a href="portfolio/jewelry.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1" style="transition-delay: 200ms;">
+                    <img src="assets/images/jewelry_hero.png" alt="Jewelry concept" class="h-64 w-full rounded-2xl object-cover">
+                    <div class="px-2 pb-2 pt-6">
+                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Luxury commerce concept</p>
+                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Maison Lumiere</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Elegant brand storytelling with stronger calls to action and a more controlled visual rhythm.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="mt-10 text-center fade-in-section">
+                <a href="portfolio.html" class="btn-secondary">View all concept work</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-900 px-6 py-24 text-white">
+        <div class="mx-auto max-w-4xl text-center">
+            <div class="fade-in-section">
+                <div class="section-label mb-4 bg-white/10 text-blue-200">See the work</div>
+                <h2 class="mb-4 text-4xl font-bold md:text-5xl">Want proof? Check the concept work.</h2>
+                <p class="mx-auto max-w-2xl text-lg leading-relaxed text-slate-300">These concepts show the level of polish, taste, and visual control I bring to every build. Each one was designed to feel far more premium than the price behind it.</p>
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <a href="portfolio.html" class="btn-primary">View concept work</a>
+                    <a href="process.html" class="btn-secondary border-slate-700 bg-transparent text-white hover:bg-white hover:text-slate-900">See the process</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-24">
+        <div class="mx-auto max-w-7xl">
+            <div class="fade-in-section mb-14 text-center">
+                <div class="section-label mb-4">FAQ</div>
+                <h2 class="text-4xl font-bold text-slate-950 md:text-5xl">What people usually ask before they hire.</h2>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="panel fade-in-section p-8">
+                    <h3 class="text-xl font-bold text-slate-900">Do I need to have all the content ready?</h3>
+                    <p class="mt-3 text-slate-600">No. A lot of small businesses do not. I can help shape the structure and tighten the copy so you are not blocked waiting for perfect content.</p>
+                </div>
+                <div class="panel fade-in-section p-8" style="transition-delay: 100ms;">
+                    <h3 class="text-xl font-bold text-slate-900">What if I only have Instagram or WhatsApp?</h3>
+                    <p class="mt-3 text-slate-600">That is a common starting point. The job is often to turn that into something more credible and easier to convert from.</p>
+                </div>
+                <div class="panel fade-in-section p-8" style="transition-delay: 200ms;">
+                    <h3 class="text-xl font-bold text-slate-900">Can you work outside Spain?</h3>
+                    <p class="mt-3 text-slate-600">Yes. I am based in Spain and can work remotely with businesses across Europe, the UK, and other markets.</p>
+                </div>
+                <div class="panel fade-in-section p-8" style="transition-delay: 300ms;">
+                    <h3 class="text-xl font-bold text-slate-900">Can I start small and add automation later?</h3>
+                    <p class="mt-3 text-slate-600">Yes, and that is usually the smartest move. Start with the site, then add only the automations that will actually save time or catch more leads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="border-t border-slate-200 bg-white px-6 py-24">
+        <div class="mx-auto max-w-6xl">
+            <div class="mb-12 text-center fade-in-section">
+                <div class="section-label mb-4">Get a quote</div>
+                <h2 class="mb-4 text-4xl font-bold text-slate-950 md:text-6xl">Tell me what you need and how fast you want it live.</h2>
+                <p class="mx-auto max-w-3xl text-lg text-slate-600">I will recommend the fastest sensible path instead of pushing the biggest package.</p>
+            </div>
+            <form id="contactForm" class="panel fade-in-section mx-auto max-w-3xl p-8 md:p-10">
+                <div class="grid gap-6 md:grid-cols-2">
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Name</label>
+                        <label class="mb-2 block text-sm font-semibold text-slate-700">Name</label>
                         <input type="text" id="contactName" required
-                            class="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                             placeholder="John Doe">
                     </div>
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+                        <label class="mb-2 block text-sm font-semibold text-slate-700">Email</label>
                         <input type="email" id="contactEmail" required
-                            class="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                             placeholder="name@company.com">
                     </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-slate-700">Business name</label>
+                        <input type="text" id="contactBusiness"
+                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                            placeholder="Your business">
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-slate-700">Website or Instagram</label>
+                        <input type="text" id="contactWebsite"
+                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                            placeholder="Optional">
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-slate-700">What do you need?</label>
+                        <select id="contactType"
+                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100">
+                            <option value="Launch Page">Launch Page</option>
+                            <option value="Business Website">Business Website</option>
+                            <option value="Site + Automation">Site + Automation</option>
+                            <option value="Not Sure Yet">Not Sure Yet</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-slate-700">Desired timing</label>
+                        <select id="contactTimeline"
+                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100">
+                            <option value="ASAP">ASAP</option>
+                            <option value="Within 2 weeks">Within 2 weeks</option>
+                            <option value="Within a month">Within a month</option>
+                            <option value="Exploring options">Exploring options</option>
+                        </select>
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">I'm interested in...</label>
-                    <select id="contactType"
-                        class="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all">
-                        <option value="Website Design">Full Stack Development</option>
-                        <option value="AI Integration">AI Agent Integration</option>
-                        <option value="System Architecture">System Architecture</option>
-                        <option value="Website">Website</option>
-                        <option value="Other">Other</option>
-                    </select>
+                <div class="mt-6">
+                    <label class="mb-2 block text-sm font-semibold text-slate-700">Message</label>
+                    <textarea id="contactMessage" rows="5" required
+                        class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100 resize-none"
+                        placeholder="Tell me what the business does, what feels weak right now, and what outcome you want."></textarea>
                 </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">Message</label>
-                    <textarea id="contactMessage" rows="4" required
-                        class="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all resize-none"
-                        placeholder="Tell us about your project..."></textarea>
+                <div class="mt-6 flex flex-col gap-4">
+                    <button type="submit" class="btn-primary w-full text-lg">Request my quote</button>
+                    <p class="text-center text-sm text-slate-500">Best fit for service businesses, solo operators, local brands, and firms that need something polished fast.</p>
+                    <div id="formStatus" class="hidden text-center text-sm font-medium text-slate-500">Sending...</div>
                 </div>
-                <button type="submit" class="w-full btn-primary text-lg">
-                    Send Message
-                </button>
-                <div id="formStatus" class="hidden text-center text-sm font-medium mt-4 text-slate-500">Sending...</div>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-slate-100 bg-slate-50 text-slate-600 text-sm">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
-                <span class="text-lg font-bold text-slate-900 block mb-1">ONDA</span>
-                <p>&copy; 2024 Onda Systems. All rights reserved.</p>
+    <footer class="border-t border-slate-200 bg-slate-50 px-6 py-12 text-sm text-slate-600">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
+            <div>
+                <span class="block text-lg font-bold text-slate-900">ONDA</span>
+                <p>Fast websites and starter automation for businesses that need to move now.</p>
             </div>
-            <div class="flex gap-6 font-semibold">
-                <a href="#" class="hover:text-blue-600 transition-colors">GitHub</a>
-                <a href="#" class="hover:text-blue-600 transition-colors">Twitter</a>
-                <a href="#" class="hover:text-blue-600 transition-colors">LinkedIn</a>
-            </div>
+            <p class="text-center md:text-right">Based in Spain. Available for remote projects across Europe, the UK, and beyond.</p>
         </div>
     </footer>
 
@@ -446,14 +523,18 @@
             btn.innerText = 'Sending...';
             btn.disabled = true;
 
-            // Detect environment
             const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';
 
             const data = {
                 name: document.getElementById('contactName').value,
                 email: document.getElementById('contactEmail').value,
                 type: document.getElementById('contactType').value,
-                message: document.getElementById('contactMessage').value
+                message: [
+                    document.getElementById('contactBusiness').value ? `Business: ${document.getElementById('contactBusiness').value}` : '',
+                    document.getElementById('contactWebsite').value ? `Website/Instagram: ${document.getElementById('contactWebsite').value}` : '',
+                    document.getElementById('contactTimeline').value ? `Timing: ${document.getElementById('contactTimeline').value}` : '',
+                    document.getElementById('contactMessage').value
+                ].filter(Boolean).join('\n')
             };
 
             try {
@@ -464,16 +545,17 @@
                 });
 
                 if (response.ok) {
-                    status.innerText = 'Message Sent Successfully';
+                    status.innerText = 'Thanks, your request is in. I will get back to you soon.';
                     status.classList.remove('text-red-500');
                     status.classList.add('text-green-600');
                     e.target.reset();
                 } else {
-                    throw new Error('Failed');
+                    const errorData = await response.json().catch(() => null);
+                    throw new Error(errorData?.detail || 'Failed');
                 }
             } catch (error) {
                 console.error(error);
-                status.innerText = 'Transmission Failed. Please try again.';
+                status.innerText = error.message || 'Transmission failed. Please try again.';
                 status.classList.remove('text-green-600');
                 status.classList.add('text-red-500');
             } finally {
@@ -484,49 +566,28 @@
             }
         });
 
-        // Toggle Menu Script
         document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries, observerInstance) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
+                        observerInstance.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1 });
 
-            document.querySelectorAll('.fade-in-section').forEach(section => {
-                observer.observe(section);
-            });
+            document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
 
             const menuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+            const closeBtn = document.getElementById('mobile-menu-close-btn');
 
-            if (menuBtn && mobileMenu) {
-                menuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.remove('translate-x-full');
-                });
-            }
-
-            if (mobileMenuCloseBtn && mobileMenu) {
-                mobileMenuCloseBtn.addEventListener('click', () => {
-                    mobileMenu.classList.add('translate-x-full');
-                });
-            }
+            if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+            if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
 
             if (mobileMenu) {
-                const links = mobileMenu.querySelectorAll('a');
-                links.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('translate-x-full');
-                    });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
                 });
             }
         });
