@@ -7,3 +7,6 @@ venv/
 .vscode/
 server.log
 .claude/
+node_modules/
+package-lock.json
+package.json
