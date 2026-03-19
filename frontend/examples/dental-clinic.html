@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Blanc | Your Smile, Perfected</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAFAF8;
+            --bg-white: #FFFFFF;
+            --text: #1A1A1A;
+            --text-muted: #6B6B6B;
+            --accent: #7BA68E;
+            --accent-dark: #5E8A72;
+            --accent-soft: rgba(123, 166, 142, 0.1);
+            --accent-border: rgba(123, 166, 142, 0.25);
+            --border: #E8E8E4;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-border);
+            box-shadow: 0 12px 40px -20px rgba(123, 166, 142, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .service-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent-soft);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        .trust-bar {
+            background: var(--accent);
+            color: white;
+        }
+
+        .team-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            box-shadow: 0 12px 40px -20px rgba(0,0,0,0.12);
+        }
+
+        .review-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            padding: 2rem;
+        }
+
+        input, textarea, select {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 0.75rem;
+            padding: 0.875rem 1rem;
+            font-family: 'DM Sans', sans-serif;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 2rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+        .comparison-mock {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            overflow: hidden;
+        }
+
+        .comparison-side {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[var(--bg)]/90 backdrop-blur-xl border-b border-[var(--border)]">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-[var(--accent)] rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-sm" style="font-family: 'Plus Jakarta Sans', sans-serif;">B</span>
+                </div>
+                <span class="text-xl font-bold tracking-tight" style="font-family: 'Plus Jakarta Sans', sans-serif;">Clínica Blanc</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[var(--text-muted)]">
+                <a href="#services" class="hover:text-[var(--text)] transition-colors">Services</a>
+                <a href="#team" class="hover:text-[var(--text)] transition-colors">Team</a>
+                <a href="#reviews" class="hover:text-[var(--text)] transition-colors">Reviews</a>
+                <a href="#contact" class="hover:text-[var(--text)] transition-colors">Contact</a>
+                <a href="https://agencyonda.com/index.html" class="px-4 py-2 border border-[var(--border)] rounded-full hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all">Back to Onda</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-[var(--text)]">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-[var(--bg)]/98 backdrop-blur-xl border-b border-[var(--border)] p-8 flex-col gap-4 text-center text-sm font-medium text-[var(--text-muted)]">
+            <a href="#services" class="block py-2 hover:text-[var(--text)] transition-colors">Services</a>
+            <a href="#team" class="block py-2 hover:text-[var(--text)] transition-colors">Team</a>
+            <a href="#reviews" class="block py-2 hover:text-[var(--text)] transition-colors">Reviews</a>
+            <a href="#contact" class="block py-2 hover:text-[var(--text)] transition-colors">Contact</a>
+            <a href="https://agencyonda.com/index.html" class="inline-block px-4 py-2 border border-[var(--border)] rounded-full hover:border-[var(--accent)] transition-all">Back to Onda</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-28 md:pt-36 pb-16 md:pb-24 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="fade-in">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-[var(--accent-soft)] rounded-full text-sm text-[var(--accent)] font-medium mb-6">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                    Barcelona · Eixample
+                </div>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6">
+                    Your smile,<br><span class="text-[var(--accent)]">perfected.</span>
+                </h1>
+                <p class="text-lg text-[var(--text-muted)] leading-relaxed mb-8 max-w-lg">
+                    Advanced dentistry with a personal touch. From routine care to smile transformations, we combine modern techniques with genuine warmth.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="btn-primary">
+                        Book Appointment <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#services" class="px-6 py-3.5 border border-[var(--border)] rounded-full font-semibold text-[var(--text)] hover:border-[var(--accent)] transition-colors">
+                        View Services
+                    </a>
+                </div>
+            </div>
+            <div class="fade-in" style="transition-delay: 150ms;">
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80" alt="Smiling patient"
+                    class="w-full h-[450px] md:h-[550px] object-cover rounded-3xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar py-6 px-6">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-16 text-center">
+            <div class="fade-in">
+                <p class="text-2xl md:text-3xl font-bold" style="font-family: 'Plus Jakarta Sans', sans-serif;">5,000+</p>
+                <p class="text-sm opacity-80 mt-1">Happy patients</p>
+            </div>
+            <div class="fade-in" style="transition-delay: 50ms;">
+                <p class="text-2xl md:text-3xl font-bold" style="font-family: 'Plus Jakarta Sans', sans-serif;">15</p>
+                <p class="text-sm opacity-80 mt-1">Years experience</p>
+            </div>
+            <div class="fade-in" style="transition-delay: 100ms;">
+                <p class="text-2xl md:text-3xl font-bold" style="font-family: 'Plus Jakarta Sans', sans-serif;">98%</p>
+                <p class="text-sm opacity-80 mt-1">Recommend us</p>
+            </div>
+            <div class="fade-in" style="transition-delay: 150ms;">
+                <p class="text-2xl md:text-3xl font-bold" style="font-family: 'Plus Jakarta Sans', sans-serif;">Same-day</p>
+                <p class="text-sm opacity-80 mt-1">Appointments available</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 md:py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <p class="text-sm tracking-wider uppercase text-[var(--accent)] font-semibold mb-3">Our Services</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">Everything your smile needs</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="service-card fade-in">
+                    <div class="service-icon mb-5">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4.97 0-9-2.24-9-5v-4c0-2.76 4.03-5 9-5s9 2.24 9 5v4c0 2.76-4.03 5-9 5z"/><path d="M12 8V2"/><path d="M8 4l4-2 4 2"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Dental Implants</h3>
+                    <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-4">Permanent, natural-looking tooth replacement with titanium implants and ceramic crowns.</p>
+                    <p class="text-sm font-semibold text-[var(--accent)]">From €1,200</p>
+                </div>
+
+                <div class="service-card fade-in" style="transition-delay: 80ms;">
+                    <div class="service-icon mb-5">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h5l3-9 4 18 3-9h5"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Invisible Aligners</h3>
+                    <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-4">Clear, removable aligners that straighten your teeth discreetly. Treatment plans from 6 months.</p>
+                    <p class="text-sm font-semibold text-[var(--accent)]">From €2,400</p>
+                </div>
+
+                <div class="service-card fade-in" style="transition-delay: 160ms;">
+                    <div class="service-icon mb-5">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Porcelain Veneers</h3>
+                    <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-4">Ultra-thin porcelain shells bonded to the front of your teeth for a flawless, natural smile.</p>
+                    <p class="text-sm font-semibold text-[var(--accent)]">From €450/tooth</p>
+                </div>
+
+                <div class="service-card fade-in" style="transition-delay: 240ms;">
+                    <div class="service-icon mb-5">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Teeth Whitening</h3>
+                    <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-4">Professional LED whitening for results up to 8 shades brighter in a single session.</p>
+                    <p class="text-sm font-semibold text-[var(--accent)]">From €250</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Section -->
+    <section class="py-24 md:py-32 px-6 bg-[var(--bg-white)]">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <p class="text-sm tracking-wider uppercase text-[var(--accent)] font-semibold mb-3">Results</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">Transformations that speak</h2>
+                <p class="text-[var(--text-muted)] mt-4 max-w-xl mx-auto">Real results from our patients. Every smile is designed to look naturally beautiful.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="comparison-mock fade-in">
+                    <div class="grid grid-cols-2 h-64">
+                        <div class="comparison-side bg-gray-100 text-gray-400 text-sm uppercase tracking-widest border-r border-[var(--border)]">Before</div>
+                        <div class="comparison-side bg-[var(--accent-soft)] text-[var(--accent)] text-sm uppercase tracking-widest">After</div>
+                    </div>
+                    <div class="p-5 border-t border-[var(--border)]">
+                        <p class="font-bold text-sm">Full Smile Makeover</p>
+                        <p class="text-xs text-[var(--text-muted)] mt-1">Veneers + Whitening · 3 weeks</p>
+                    </div>
+                </div>
+
+                <div class="comparison-mock fade-in" style="transition-delay: 100ms;">
+                    <div class="grid grid-cols-2 h-64">
+                        <div class="comparison-side bg-gray-100 text-gray-400 text-sm uppercase tracking-widest border-r border-[var(--border)]">Before</div>
+                        <div class="comparison-side bg-[var(--accent-soft)] text-[var(--accent)] text-sm uppercase tracking-widest">After</div>
+                    </div>
+                    <div class="p-5 border-t border-[var(--border)]">
+                        <p class="font-bold text-sm">Alignment Correction</p>
+                        <p class="text-xs text-[var(--text-muted)] mt-1">Invisible aligners · 8 months</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="py-24 md:py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <p class="text-sm tracking-wider uppercase text-[var(--accent)] font-semibold mb-3">Our Team</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">In expert hands</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="team-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=75" alt="Dr. María López"
+                        class="w-full h-72 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold">Dra. María López</h3>
+                        <p class="text-sm text-[var(--accent)] font-medium">Cosmetic Dentistry</p>
+                        <p class="text-sm text-[var(--text-muted)] mt-2">18 years of experience in smile design and porcelain restorations.</p>
+                    </div>
+                </div>
+
+                <div class="team-card fade-in" style="transition-delay: 80ms;">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=75" alt="Dr. Javier Ruiz"
+                        class="w-full h-72 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold">Dr. Javier Ruiz</h3>
+                        <p class="text-sm text-[var(--accent)] font-medium">Implantology</p>
+                        <p class="text-sm text-[var(--text-muted)] mt-2">Specialist in dental implants and full-mouth rehabilitation. 12+ years.</p>
+                    </div>
+                </div>
+
+                <div class="team-card fade-in" style="transition-delay: 160ms;">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=600&q=75" alt="Dra. Clara Navarro"
+                        class="w-full h-72 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold">Dra. Clara Navarro</h3>
+                        <p class="text-sm text-[var(--accent)] font-medium">Orthodontics</p>
+                        <p class="text-sm text-[var(--text-muted)] mt-2">Expert in invisible aligners and digital treatment planning. 9 years.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="py-24 md:py-32 px-6 bg-[var(--bg-white)]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <p class="text-sm tracking-wider uppercase text-[var(--accent)] font-semibold mb-3">Reviews</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">Trusted by thousands</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="review-card fade-in">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                    </div>
+                    <p class="text-[var(--text-muted)] leading-relaxed mb-5">"From the moment I walked in, everything felt different from other dental clinics. Calm, modern, and everyone genuinely cared. My veneers look incredible."</p>
+                    <p class="font-semibold text-sm">Ana G.</p>
+                    <p class="text-xs text-[var(--text-muted)]">Porcelain Veneers</p>
+                </div>
+
+                <div class="review-card fade-in" style="transition-delay: 80ms;">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                    </div>
+                    <p class="text-[var(--text-muted)] leading-relaxed mb-5">"I'd been putting off implants for years out of fear. Dr. Ruiz explained everything so clearly that I felt confident from day one. Best decision I've made."</p>
+                    <p class="font-semibold text-sm">Carlos T.</p>
+                    <p class="text-xs text-[var(--text-muted)]">Dental Implants</p>
+                </div>
+
+                <div class="review-card fade-in" style="transition-delay: 160ms;">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
+                    </div>
+                    <p class="text-[var(--text-muted)] leading-relaxed mb-5">"My aligners treatment was so smooth. The digital planning showed me exactly what my smile would look like before we even started. Now I can't stop smiling."</p>
+                    <p class="font-semibold text-sm">Marta S.</p>
+                    <p class="text-xs text-[var(--text-muted)]">Invisible Aligners</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Booking -->
+    <section id="contact" class="py-24 md:py-32 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16">
+            <div class="fade-in">
+                <p class="text-sm tracking-wider uppercase text-[var(--accent)] font-semibold mb-3">Get in Touch</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Ready for your<br>new smile?</h2>
+                <p class="text-[var(--text-muted)] text-lg leading-relaxed mb-8">Book your first consultation and let us show you what's possible. No pressure, no obligation — just an honest assessment and a clear plan.</p>
+
+                <div class="space-y-5">
+                    <div class="flex items-start gap-4">
+                        <div class="service-icon shrink-0">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-sm">Location</p>
+                            <p class="text-sm text-[var(--text-muted)]">Carrer de Pau Claris, 162<br>08037 Barcelona (Eixample)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="service-icon shrink-0">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-sm">Hours</p>
+                            <p class="text-sm text-[var(--text-muted)]">Mon–Fri: 9:00 – 20:00<br>Sat: 9:00 – 14:00</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="service-icon shrink-0">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-sm">Phone</p>
+                            <p class="text-sm text-[var(--text-muted)]">+34 932 000 000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fade-in" style="transition-delay: 150ms;">
+                <form class="space-y-4 bg-[var(--bg-white)] border border-[var(--border)] rounded-2xl p-8" onsubmit="return false;">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Name</label>
+                            <input type="text" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Email</label>
+                            <input type="email" placeholder="your@email.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Phone</label>
+                        <input type="tel" placeholder="+34 600 000 000">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Service</label>
+                        <select>
+                            <option value="">Select a service</option>
+                            <option value="implants">Dental Implants</option>
+                            <option value="aligners">Invisible Aligners</option>
+                            <option value="veneers">Porcelain Veneers</option>
+                            <option value="whitening">Teeth Whitening</option>
+                            <option value="general">General Check-up</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Preferred Date</label>
+                        <input type="date">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Message (optional)</label>
+                        <textarea rows="3" placeholder="Anything we should know?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full justify-center mt-2">
+                        Request Appointment
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-[var(--border)] text-center text-[var(--text-muted)] text-sm">
+        <p>&copy; 2025 Clínica Blanc. Concept by <a href="https://agencyonda.com" class="text-[var(--accent)] hover:underline">Onda</a>.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

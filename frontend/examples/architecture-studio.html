@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Forma | Architecture & Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F4F2EE;
+            --bg-white: #FFFFFF;
+            --text: #1C1C1C;
+            --text-muted: #7A7A72;
+            --accent: #C2593A;
+            --accent-hover: #A84A2F;
+            --accent-soft: rgba(194, 89, 58, 0.08);
+            --border: #D9D6CF;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project-card img {
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .project-card .project-info {
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover .project-info {
+            opacity: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        .press-item {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        input, textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.875rem 0;
+            font-family: 'DM Sans', sans-serif;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(8px); }
+            60% { transform: translateY(4px); }
+        }
+    </style>
+</head>
+
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[var(--bg)]/90 backdrop-blur-xl mix-blend-normal">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-medium tracking-tight" style="font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em;">ESTUDIO FORMA</a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm text-[var(--text-muted)]">
+                <a href="#projects" class="hover:text-[var(--text)] transition-colors">Projects</a>
+                <a href="#studio" class="hover:text-[var(--text)] transition-colors">Studio</a>
+                <a href="#contact" class="hover:text-[var(--text)] transition-colors">Contact</a>
+                <a href="https://agencyonda.com/index.html" class="px-4 py-2 border border-[var(--border)] rounded-full hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all text-xs uppercase tracking-wider">Back to Onda</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-[var(--text)]">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-[var(--bg)]/98 backdrop-blur-xl border-b border-[var(--border)] p-8 flex-col gap-4 text-center text-sm text-[var(--text-muted)]">
+            <a href="#projects" class="block py-2 hover:text-[var(--text)] transition-colors">Projects</a>
+            <a href="#studio" class="block py-2 hover:text-[var(--text)] transition-colors">Studio</a>
+            <a href="#contact" class="block py-2 hover:text-[var(--text)] transition-colors">Contact</a>
+            <a href="https://agencyonda.com/index.html" class="inline-block px-4 py-2 border border-[var(--border)] rounded-full hover:border-[var(--accent)] transition-all text-xs uppercase tracking-wider">Back to Onda</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-center px-6 pt-20">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="max-w-5xl fade-in">
+                <h1 class="text-6xl md:text-8xl lg:text-[7rem] leading-[0.95] tracking-tight mb-8">
+                    Architecture is a visual art<br class="hidden md:block"> and the buildings<br class="hidden md:block"> <em class="italic text-[var(--accent)]">speak for themselves</em>
+                </h1>
+                <p class="text-lg text-[var(--text-muted)] max-w-md mb-12 font-light">
+                    Barcelona-based architecture studio. Residential, commercial, and renovation since 2012.
+                </p>
+            </div>
+
+            <div class="fade-in mt-4" style="transition-delay: 200ms;">
+                <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1400&q=80" alt="Modern architecture"
+                    class="w-full h-[40vh] md:h-[50vh] object-cover rounded-xl">
+            </div>
+
+            <div class="flex justify-center mt-8">
+                <div class="scroll-indicator text-[var(--text-muted)]">
+                    <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Projects -->
+    <section id="projects" class="py-24 md:py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16 fade-in">
+                <div>
+                    <p class="text-xs uppercase tracking-[0.25em] text-[var(--text-muted)] mb-3">Selected Work</p>
+                    <h2 class="text-5xl md:text-6xl">Projects</h2>
+                </div>
+                <p class="hidden md:block text-sm text-[var(--text-muted)]">2012 — Present</p>
+            </div>
+
+            <!-- Staggered Grid -->
+            <div class="grid md:grid-cols-12 gap-6 md:gap-8">
+                <!-- Project 1 - Large -->
+                <div class="md:col-span-7 project-card fade-in">
+                    <div class="overflow-hidden rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="Casa Montjuïc"
+                            class="w-full h-[400px] md:h-[550px] object-cover">
+                    </div>
+                    <div class="mt-5 flex items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-3xl md:text-4xl">Casa Montjuïc</h3>
+                            <p class="text-sm text-[var(--text-muted)] mt-1">Barcelona · 2023</p>
+                        </div>
+                        <span class="tag mt-2">Residential</span>
+                    </div>
+                    <p class="text-[var(--text-muted)] mt-3 max-w-md text-sm leading-relaxed project-info md:opacity-0">A private residence on the slopes of Montjuïc. Open-plan living with floor-to-ceiling glass frames that dissolve the boundary between interior and garden.</p>
+                </div>
+
+                <!-- Project 2 - Small, offset -->
+                <div class="md:col-span-5 md:mt-32 project-card fade-in" style="transition-delay: 100ms;">
+                    <div class="overflow-hidden rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Espai Llum"
+                            class="w-full h-[350px] md:h-[400px] object-cover">
+                    </div>
+                    <div class="mt-5 flex items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-3xl md:text-4xl">Espai Llum</h3>
+                            <p class="text-sm text-[var(--text-muted)] mt-1">Valencia · 2022</p>
+                        </div>
+                        <span class="tag mt-2">Commercial</span>
+                    </div>
+                    <p class="text-[var(--text-muted)] mt-3 max-w-md text-sm leading-relaxed project-info md:opacity-0">A creative coworking space in Valencia's Ruzafa district. Exposed concrete, natural light channels, and modular partition walls.</p>
+                </div>
+
+                <!-- Project 3 - Full width -->
+                <div class="md:col-span-8 md:col-start-3 project-card fade-in" style="transition-delay: 200ms;">
+                    <div class="overflow-hidden rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80" alt="Refugi"
+                            class="w-full h-[350px] md:h-[480px] object-cover">
+                    </div>
+                    <div class="mt-5 flex items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-3xl md:text-4xl">Refugi</h3>
+                            <p class="text-sm text-[var(--text-muted)] mt-1">Costa Brava · 2024</p>
+                        </div>
+                        <span class="tag mt-2">Renovation</span>
+                    </div>
+                    <p class="text-[var(--text-muted)] mt-3 max-w-md text-sm leading-relaxed project-info md:opacity-0">A 1960s fisherman's cottage transformed into a minimal retreat. Stone walls preserved, interiors reimagined with terrazzo and white oak.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio -->
+    <section id="studio" class="py-24 md:py-32 px-6 border-t border-[var(--border)]">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+            <div class="fade-in">
+                <p class="text-xs uppercase tracking-[0.25em] text-[var(--text-muted)] mb-4">The Studio</p>
+                <h2 class="text-5xl md:text-6xl leading-tight mb-8">Founded in Barcelona,<br>2012</h2>
+                <p class="text-[var(--text-muted)] text-lg leading-relaxed mb-8">
+                    Estudio Forma is a design-led architecture practice working across residential, commercial, and renovation projects. We believe in architecture that serves its inhabitants first — quiet, considered, and built to last.
+                </p>
+                <div class="flex gap-12">
+                    <div>
+                        <p class="text-4xl md:text-5xl" style="font-family: 'Instrument Serif', serif;">47</p>
+                        <p class="text-xs uppercase tracking-wider text-[var(--text-muted)] mt-1">Projects completed</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl md:text-5xl" style="font-family: 'Instrument Serif', serif;">8</p>
+                        <p class="text-xs uppercase tracking-wider text-[var(--text-muted)] mt-1">Team members</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Approach -->
+            <div class="fade-in" style="transition-delay: 150ms;">
+                <p class="text-xs uppercase tracking-[0.25em] text-[var(--text-muted)] mb-8">Approach</p>
+                <div class="space-y-10">
+                    <div>
+                        <div class="flex items-baseline gap-4 mb-3">
+                            <span class="text-3xl text-[var(--accent)]" style="font-family: 'Instrument Serif', serif;">01</span>
+                            <h3 class="text-2xl">Research</h3>
+                        </div>
+                        <p class="text-[var(--text-muted)] text-sm leading-relaxed pl-12">Every project begins with deep context — site, climate, regulations, and the lives that will unfold inside the space.</p>
+                    </div>
+                    <div class="border-t border-[var(--border)] pt-10">
+                        <div class="flex items-baseline gap-4 mb-3">
+                            <span class="text-3xl text-[var(--accent)]" style="font-family: 'Instrument Serif', serif;">02</span>
+                            <h3 class="text-2xl">Concept</h3>
+                        </div>
+                        <p class="text-[var(--text-muted)] text-sm leading-relaxed pl-12">We develop a clear spatial idea — a single strong move that organizes the entire project and gives it identity.</p>
+                    </div>
+                    <div class="border-t border-[var(--border)] pt-10">
+                        <div class="flex items-baseline gap-4 mb-3">
+                            <span class="text-3xl text-[var(--accent)]" style="font-family: 'Instrument Serif', serif;">03</span>
+                            <h3 class="text-2xl">Realization</h3>
+                        </div>
+                        <p class="text-[var(--text-muted)] text-sm leading-relaxed pl-12">Detailed construction oversight from materials to finishes. We stay involved until the last detail is resolved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards / Press -->
+    <section class="py-12 px-6 border-y border-[var(--border)] bg-[var(--bg-white)]">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-16 fade-in">
+            <span class="press-item text-2xl md:text-3xl">Dezeen</span>
+            <span class="press-item text-2xl md:text-3xl">ArchDaily</span>
+            <span class="press-item text-2xl md:text-3xl">AD España</span>
+            <span class="press-item text-2xl md:text-3xl">Wallpaper*</span>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 md:py-32 px-6">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-16">
+            <div class="fade-in">
+                <p class="text-xs uppercase tracking-[0.25em] text-[var(--text-muted)] mb-4">Contact</p>
+                <h2 class="text-5xl md:text-6xl leading-tight mb-8">Let's talk about<br>your project</h2>
+
+                <div class="space-y-6 text-sm text-[var(--text-muted)]">
+                    <div>
+                        <p class="text-[var(--text)] font-medium mb-1">Email</p>
+                        <p>studio@estudioforma.es</p>
+                    </div>
+                    <div>
+                        <p class="text-[var(--text)] font-medium mb-1">Phone</p>
+                        <p>+34 933 000 000</p>
+                    </div>
+                    <div>
+                        <p class="text-[var(--text)] font-medium mb-1">Studio</p>
+                        <p>Carrer de Pallars, 85<br>08018 Barcelona (Poblenou)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fade-in" style="transition-delay: 150ms;">
+                <form class="space-y-6" onsubmit="return false;">
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Name</label>
+                        <input type="text" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Email</label>
+                        <input type="email" placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Project type</label>
+                        <input type="text" placeholder="Residential, commercial, renovation...">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Message</label>
+                        <textarea rows="4" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="px-8 py-4 bg-[var(--text)] text-[var(--bg)] font-medium text-sm uppercase tracking-wider hover:bg-[var(--accent)] transition-colors duration-300">
+                        Send Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-[var(--border)] text-center text-[var(--text-muted)] text-sm">
+        <p>&copy; 2025 Estudio Forma. Concept by <a href="https://agencyonda.com" class="text-[var(--accent)] hover:underline">Onda</a>.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
