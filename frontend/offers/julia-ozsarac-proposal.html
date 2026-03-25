@@ -435,14 +435,81 @@
         }
 
         /* ---- PRINT ---- */
+        /* ---- DOWNLOAD BAR ---- */
+        .download-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #dbe4f0;
+            padding: 10px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .download-bar-info {
+            font-size: 0.82rem;
+            color: #64748b;
+        }
+
+        .download-bar-info strong {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 9px 20px;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px -10px rgba(37,99,235,0.7);
+            transition: transform 0.15s, box-shadow 0.15s;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 24px -10px rgba(37,99,235,0.8);
+        }
+
+        body { padding-top: 58px; }
+
         @media print {
-            body { background: white; }
+            body { background: white; padding-top: 0; }
+            .download-bar { display: none; }
             .page { padding: 40px 30px; }
             .pricing-block { background: #0f172a !important; }
         }
     </style>
 </head>
 <body>
+
+<!-- DOWNLOAD BAR -->
+<div class="download-bar">
+    <div class="download-bar-info">
+        <strong>Commercial Offer — Julia Ozsarac</strong> &nbsp;·&nbsp; Onda, 25 March 2026
+    </div>
+    <button class="download-btn" onclick="window.print()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Save as PDF
+    </button>
+</div>
 
 <div class="page">
 
