@@ -142,6 +142,62 @@
             letter-spacing: 0.06em;
             text-transform: uppercase;
         }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #25d366;
+            color: white;
+            padding: 14px 22px 14px 18px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 6px 24px -4px rgba(37, 211, 102, 0.5);
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px -4px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-float svg { flex-shrink: 0; }
+
+        @media (max-width: 640px) {
+            .whatsapp-float span { display: none; }
+            .whatsapp-float { padding: 16px; border-radius: 50%; }
+        }
+
+        .about-initials {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+        }
+
+        .concept-dark-preview {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .concept-dark-preview::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(201, 168, 76, 0.06) 50%, transparent 70%);
+        }
     </style>
 </head>
 
@@ -199,9 +255,9 @@
                     <a href="#packages" class="btn-secondary">See Packages</a>
                 </div>
                 <div class="mt-10 flex flex-wrap gap-3 text-sm text-slate-500">
-                    <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Best for service businesses</span>
+                    <span class="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-emerald-700 font-semibold">Taking 3 new projects for April</span>
                     <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Spain-based, remote worldwide</span>
-                    <span class="rounded-full border border-slate-200 bg-white px-4 py-2">English and Spanish projects</span>
+                    <span class="rounded-full border border-slate-200 bg-white px-4 py-2">English &amp; Spanish</span>
                 </div>
             </div>
 
@@ -360,7 +416,35 @@
                 <p class="mx-auto max-w-3xl text-lg text-slate-600">These are concepts, not client case studies. They are here to show how polished, premium, and alive your site can feel.</p>
             </div>
             <div class="grid gap-8 lg:grid-cols-3">
-                <a href="portfolio/aesthetic-clinic.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1">
+                <a href="portfolio/real-estate.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1">
+                    <div class="concept-dark-preview h-64 w-full rounded-2xl flex items-center justify-center">
+                        <div class="text-center z-10 relative">
+                            <p class="text-xs tracking-widest uppercase text-gray-500 mb-1" style="letter-spacing: 0.3em;">Luxury Real Estate</p>
+                            <p class="text-2xl font-bold text-white" style="font-family: Georgia, serif;">Meridian</p>
+                            <p class="text-xs tracking-widest uppercase text-gray-400 mt-1">Estate Group</p>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-2 pt-6">
+                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Real estate concept</p>
+                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Meridian Estate Group</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Cinematic dark luxury design for property brands that need to command trust and close high-value inquiries.</p>
+                    </div>
+                </a>
+                <a href="portfolio/solo-entrepreneur.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1" style="transition-delay: 100ms;">
+                    <div class="concept-dark-preview h-64 w-full rounded-2xl flex items-center justify-center">
+                        <div class="text-center z-10 relative">
+                            <p class="text-xs tracking-widest uppercase text-gray-500 mb-1" style="letter-spacing: 0.3em;">Personal Brand</p>
+                            <p class="text-3xl font-bold text-white" style="font-family: Georgia, serif;">A.V.</p>
+                            <p class="text-xs tracking-widest uppercase text-gray-400 mt-1">Alexander Voss</p>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-2 pt-6">
+                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Solo professional concept</p>
+                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Alexander Voss</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Luxury personal brand for brokers, advisors, and solo professionals who need a site at their level.</p>
+                    </div>
+                </a>
+                <a href="portfolio/aesthetic-clinic.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1" style="transition-delay: 200ms;">
                     <img src="assets/images/aesthetic_clinic_hero.png" alt="Aesthetic clinic concept" class="h-64 w-full rounded-2xl object-cover">
                     <div class="px-2 pb-2 pt-6">
                         <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Aesthetic clinic concept</p>
@@ -368,23 +452,8 @@
                         <p class="mt-3 text-sm leading-relaxed text-slate-600">Calm, luxurious design that builds trust and drives consultation bookings for premium clinics.</p>
                     </div>
                 </a>
-                <a href="portfolio/dental-clinic.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1" style="transition-delay: 100ms;">
-                    <img src="assets/images/dental_clinic_hero.png" alt="Dental clinic concept" class="h-64 w-full rounded-2xl object-cover">
-                    <div class="px-2 pb-2 pt-6">
-                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Dental clinic concept</p>
-                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Clínica Blanc</h3>
-                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Modern, approachable dental presence with clear services and strong patient trust signals.</p>
-                    </div>
-                </a>
-                <a href="portfolio/architecture-studio.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1" style="transition-delay: 200ms;">
-                    <img src="assets/images/architecture_studio_hero.png" alt="Architecture studio concept" class="h-64 w-full rounded-2xl object-cover">
-                    <div class="px-2 pb-2 pt-6">
-                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Architecture studio concept</p>
-                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Estudio Forma</h3>
-                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Editorial portfolio presentation with confident visual hierarchy for architecture and design studios.</p>
-                    </div>
-                </a>
             </div>
+            <p class="mt-6 text-center text-sm text-slate-500 fade-in-section">Sites like these start from <strong class="text-slate-800">EUR 1,490</strong>. Not EUR 10,000.</p>
             <div class="mt-10 text-center fade-in-section">
                 <a href="portfolio.html" class="btn-secondary">View all concept work</a>
             </div>
@@ -392,14 +461,20 @@
     </section>
 
     <section class="bg-slate-900 px-6 py-24 text-white">
-        <div class="mx-auto max-w-4xl text-center">
-            <div class="fade-in-section">
-                <div class="section-label mb-4 bg-white/10 text-blue-200">See the work</div>
-                <h2 class="mb-4 text-4xl font-bold md:text-5xl">Want proof? Check the concept work.</h2>
-                <p class="mx-auto max-w-2xl text-lg leading-relaxed text-slate-300">These concepts show the level of polish, taste, and visual control I bring to every build. Each one was designed to feel far more premium than the price behind it.</p>
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <a href="portfolio.html" class="btn-primary">View concept work</a>
-                    <a href="process.html" class="btn-secondary border-slate-700 bg-transparent text-white hover:bg-white hover:text-slate-900">See the process</a>
+        <div class="mx-auto max-w-5xl">
+            <div class="fade-in-section grid gap-12 lg:grid-cols-[auto_1fr] lg:items-center">
+                <div class="flex flex-col items-center lg:items-start gap-4">
+                    <div class="about-initials">TC</div>
+                </div>
+                <div>
+                    <div class="section-label mb-4 bg-white/10 text-blue-200">Who builds this</div>
+                    <h2 class="mb-4 text-3xl font-bold md:text-4xl">I'm Tymur Chystiakov.</h2>
+                    <p class="text-lg leading-relaxed text-slate-300 max-w-2xl">I build fast, premium websites for service businesses that need to look established without paying agency prices or waiting months. Based in Spain, working remotely with clients across Europe and beyond.</p>
+                    <p class="mt-4 text-lg leading-relaxed text-slate-400 max-w-2xl">Every concept you see on this site I designed and coded myself. No templates, no page builders. When you work with Onda, you work directly with me — one point of contact, no handoffs, no miscommunication.</p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="#contact" class="btn-primary">Work with me</a>
+                        <a href="portfolio.html" class="btn-secondary border-slate-700 bg-transparent text-white hover:bg-white hover:text-slate-900">See all concept work</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -439,7 +514,7 @@
                 <h2 class="mb-4 text-4xl font-bold text-slate-950 md:text-6xl">Tell me what you need and how fast you want it live.</h2>
                 <p class="mx-auto max-w-3xl text-lg text-slate-600">I will recommend the fastest sensible path instead of pushing the biggest package.</p>
             </div>
-            <form id="contactForm" class="panel fade-in-section mx-auto max-w-3xl p-5 md:p-10">
+            <form id="contactForm" class="panel fade-in-section mx-auto max-w-2xl p-5 md:p-10">
                 <div class="grid gap-6 md:grid-cols-2">
                     <div>
                         <label class="mb-2 block text-sm font-semibold text-slate-700">Name</label>
@@ -453,49 +528,27 @@
                             class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                             placeholder="name@company.com">
                     </div>
-                    <div>
-                        <label class="mb-2 block text-sm font-semibold text-slate-700">Business name</label>
-                        <input type="text" id="contactBusiness"
-                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                            placeholder="Your business">
-                    </div>
-                    <div>
-                        <label class="mb-2 block text-sm font-semibold text-slate-700">Website or Instagram</label>
-                        <input type="text" id="contactWebsite"
-                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                            placeholder="Optional">
-                    </div>
-                    <div>
-                        <label class="mb-2 block text-sm font-semibold text-slate-700">What do you need?</label>
-                        <select id="contactType"
-                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100">
-                            <option value="Launch Page">Launch Page</option>
-                            <option value="Business Website">Business Website</option>
-                            <option value="Site + Automation">Site + Automation</option>
-                            <option value="Not Sure Yet">Not Sure Yet</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="mb-2 block text-sm font-semibold text-slate-700">Desired timing</label>
-                        <select id="contactTimeline"
-                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100">
-                            <option value="ASAP">ASAP</option>
-                            <option value="Within 2 weeks">Within 2 weeks</option>
-                            <option value="Within a month">Within a month</option>
-                            <option value="Exploring options">Exploring options</option>
-                        </select>
-                    </div>
                 </div>
                 <div class="mt-6">
-                    <label class="mb-2 block text-sm font-semibold text-slate-700">Message</label>
-                    <textarea id="contactMessage" rows="5" required
+                    <label class="mb-2 block text-sm font-semibold text-slate-700">Tell me about your project</label>
+                    <textarea id="contactMessage" rows="4" required
                         class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100 resize-none"
-                        placeholder="Tell me what the business does, what feels weak right now, and what outcome you want."></textarea>
+                        placeholder="What does your business do? What feels weak right now? How soon do you need it live?"></textarea>
                 </div>
                 <div class="mt-6 flex flex-col gap-4">
-                    <button type="submit" class="btn-primary w-full text-lg">Request my quote</button>
-                    <p class="text-center text-sm text-slate-500">Best fit for service businesses, solo operators, local brands, and firms that need something polished fast.</p>
+                    <button type="submit" class="btn-primary w-full text-lg">Get my quote in 24h</button>
                     <div id="formStatus" class="hidden text-center text-sm font-medium text-slate-500">Sending...</div>
+                </div>
+                <div class="mt-6 flex items-center gap-3 justify-center">
+                    <span class="h-px flex-1 bg-slate-200"></span>
+                    <span class="text-sm text-slate-400">or message me directly</span>
+                    <span class="h-px flex-1 bg-slate-200"></span>
+                </div>
+                <div class="mt-4 text-center">
+                    <a href="https://wa.me/34607864285?text=Hi%20Tymur%2C%20I%20saw%20your%20website%20and%20I%E2%80%99m%20interested%20in%20a%20project." class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-100" target="_blank" rel="noopener">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp me
+                    </a>
                 </div>
             </form>
         </div>
@@ -510,6 +563,11 @@
             <p class="text-center md:text-right">Based in Spain. Available for remote projects across Europe, the UK, and beyond.</p>
         </div>
     </footer>
+
+    <a href="https://wa.me/34607864285?text=Hi%20Tymur%2C%20I%20saw%20your%20website%20and%20I%E2%80%99m%20interested%20in%20a%20project." class="whatsapp-float" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>Chat on WhatsApp</span>
+    </a>
 
     <script>
         lucide.createIcons();
@@ -528,13 +586,8 @@
             const data = {
                 name: document.getElementById('contactName').value,
                 email: document.getElementById('contactEmail').value,
-                type: document.getElementById('contactType').value,
-                message: [
-                    document.getElementById('contactBusiness').value ? `Business: ${document.getElementById('contactBusiness').value}` : '',
-                    document.getElementById('contactWebsite').value ? `Website/Instagram: ${document.getElementById('contactWebsite').value}` : '',
-                    document.getElementById('contactTimeline').value ? `Timing: ${document.getElementById('contactTimeline').value}` : '',
-                    document.getElementById('contactMessage').value
-                ].filter(Boolean).join('\n')
+                type: 'Website Inquiry',
+                message: document.getElementById('contactMessage').value
             };
 
             try {
