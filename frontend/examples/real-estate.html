@@ -1,301 +1,863 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skyline Luxury Estates | Premium Real Estate</title>
+    <title>Meridian Estate Group | Luxury Real Estate</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
-        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Lato', sans-serif;
-            background-color: #0a0a0a;
-            color: #f5f5f5;
+            background: #070707;
+            color: #f5f5f0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Playfair Display', serif;
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        .gold-text {
-            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .text-heading-1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
-        .gold-border {
-            border-color: #b38728;
+        .text-heading-2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            line-height: 1.2;
         }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        .text-heading-3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 500;
         }
 
-        .fade-in {
+        .text-body {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.7;
+            color: #8a8a80;
+        }
+
+        .text-muted {
+            color: #5a5a52;
+            font-size: 0.875rem;
+        }
+
+        .text-gold {
+            color: #c9a84c;
+        }
+
+        /* Gold gradient */
+        .gold-gradient {
+            background: linear-gradient(90deg, #c9a84c, #e8d48b, #c9a84c);
+            background-size: 200% 100%;
+        }
+
+        /* Animations */
+        @keyframes slowZoom {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes lineGrow {
+            from {
+                width: 0;
+            }
+            to {
+                width: 120px;
+            }
+        }
+
+        @keyframes bounce-subtle {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(8px);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(201, 168, 76, 0.5);
+            }
+        }
+
+        .animate-slow-zoom {
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        .fade-in.visible {
+        .animate-line-grow {
+            animation: lineGrow 1s ease-out 0.5s forwards;
+            width: 0;
+        }
+
+        .animate-bounce-subtle {
+            animation: bounce-subtle 2s ease-in-out infinite;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(7, 7, 7, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 168, 76, 0);
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        nav.scrolled {
+            background: rgba(7, 7, 7, 0.95);
+            border-bottom-color: rgba(201, 168, 76, 0.15);
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero-container {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.75) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero-content > * {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .hero-content > :nth-child(1) { animation-delay: 0.2s; }
+        .hero-content > :nth-child(2) { animation-delay: 0.4s; }
+        .hero-content > :nth-child(3) { animation-delay: 0.6s; }
+        .hero-content > :nth-child(4) { animation-delay: 0.8s; }
+
+        .hero-line {
+            height: 1px;
+            background: #c9a84c;
+            margin: 24px auto;
+            animation: lineGrow 1s ease-out 0.5s forwards;
+            width: 0;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            text-align: center;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 24px;
+            background: #c9a84c;
+            margin: 0 auto 8px;
+            animation: bounce-subtle 2s ease-in-out infinite;
+        }
+
+        /* Glass Morphism */
+        .glass {
+            background: rgba(14, 14, 14, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+        }
+
+        .glass-hover {
+            transition: all 0.3s ease;
+        }
+
+        .glass-hover:hover {
+            background: rgba(14, 14, 14, 0.8);
+            border-color: rgba(201, 168, 76, 0.4);
+        }
+
+        /* Cards */
+        .card-property {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(201, 168, 76, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 600px;
+        }
+
+        .card-property:hover {
+            border-color: rgba(201, 168, 76, 0.5);
+            transform: translateY(-8px);
+        }
+
+        .card-property-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-property:hover .card-property-image {
+            transform: scale(1.05);
+        }
+
+        .card-property-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px 24px;
+            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.9));
+            transform: translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-property:hover .card-property-content {
+            transform: translateY(0);
+        }
+
+        /* Service Cards */
+        .service-card {
+            padding: 32px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top-left, rgba(201, 168, 76, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            border-color: #c9a84c !important;
+            background: rgba(14, 14, 14, 0.9) !important;
+        }
+
+        /* Form Inputs */
+        input, textarea {
+            background: rgba(14, 14, 14, 0.8) !important;
+            border: 1px solid rgba(201, 168, 76, 0.2) !important;
+            color: #f5f5f0 !important;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #c9a84c !important;
+            outline: none;
+            box-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #5a5a52 !important;
+        }
+
+        /* Button */
+        .btn-gold {
+            background: linear-gradient(90deg, #c9a84c, #e8d48b);
+            color: #070707;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
+        }
+
+        /* Stats */
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #c9a84c, #e8d48b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .text-heading-1 {
+                font-size: 3.5rem;
+            }
+            .text-heading-2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .text-heading-1 {
+                font-size: 2.5rem;
+            }
+            .text-heading-2 {
+                font-size: 2rem;
+            }
+            .hero-line {
+                margin: 16px auto;
+            }
+            .card-property {
+                height: 400px;
+            }
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        .reveal-stagger > * {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-stagger.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-stagger.visible > :nth-child(1) { transition-delay: 0.1s; }
+        .reveal-stagger.visible > :nth-child(2) { transition-delay: 0.2s; }
+        .reveal-stagger.visible > :nth-child(3) { transition-delay: 0.3s; }
+        .reveal-stagger.visible > :nth-child(4) { transition-delay: 0.4s; }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: #c9a84c;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(12px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-12px);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav .nav-links {
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: rgba(7, 7, 7, 0.98);
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            nav .nav-links.active {
+                max-height: 500px;
+            }
+
+            nav .nav-links a {
+                padding: 16px 24px;
+                border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+            }
+        }
+
+        /* Parallax effect */
+        .parallax {
+            position: relative;
+        }
+
+        .parallax-image {
+            transition: transform 0.3s ease;
+        }
     </style>
 </head>
-
-<body class="antialiased overflow-x-hidden">
-
+<body>
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 transition-all duration-300"
-        id="navbar">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-bold tracking-widest uppercase">Skyline</a>
+    <nav class="px-6 sm:px-12 py-4 sm:py-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="text-gold text-lg sm:text-xl font-300 tracking-wide hover:opacity-80 transition">← Onda</a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8 text-sm tracking-widest uppercase text-gray-400">
-                <a href="#properties" class="hover:text-white transition-colors">Properties</a>
-                <a href="#services" class="hover:text-white transition-colors">Services</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-                <a href="../index.html"
-                    class="px-4 py-2 border border-white/20 hover:bg-white hover:text-black transition-all">Back to
-                    Onda</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#properties" class="text-sm tracking-wider hover:text-gold transition">PROPERTIES</a>
+                <a href="#about" class="text-sm tracking-wider hover:text-gold transition">PHILOSOPHY</a>
+                <a href="#services" class="text-sm tracking-wider hover:text-gold transition">SERVICES</a>
+                <a href="#contact" class="text-sm tracking-wider hover:text-gold transition">CONTACT</a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                <i data-lucide="menu" class="w-8 h-8"></i>
-            </button>
+            <div class="md:hidden">
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu"
-            class="hidden md:hidden absolute top-20 left-0 w-full bg-black/95 border-b border-white/10 p-6 flex-col gap-6 text-center text-sm tracking-widest uppercase text-gray-400">
-            <a href="#properties" class="hover:text-white transition-colors py-2">Properties</a>
-            <a href="#services" class="hover:text-white transition-colors py-2">Services</a>
-            <a href="#contact" class="hover:text-white transition-colors py-2">Contact</a>
-            <a href="../index.html"
-                class="px-4 py-2 border border-white/20 hover:bg-white hover:text-black transition-all inline-block mx-auto">Back
-                to Onda</a>
+        <div class="nav-links flex-col md:hidden gap-0 max-h-0 overflow-hidden transition-all" id="navLinks">
+            <a href="#properties" class="px-6 py-4 text-sm tracking-wider hover:text-gold transition border-t border-b border-b-transparent border-t-transparent hover:border-t-gold">PROPERTIES</a>
+            <a href="#about" class="px-6 py-4 text-sm tracking-wider hover:text-gold transition">PHILOSOPHY</a>
+            <a href="#services" class="px-6 py-4 text-sm tracking-wider hover:text-gold transition">SERVICES</a>
+            <a href="#contact" class="px-6 py-4 text-sm tracking-wider hover:text-gold transition">CONTACT</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image Placeholder -->
-        <div class="absolute inset-0 z-0">
-            <img src="../assets/images/skyline_hero.png" alt="Luxury Penthouse"
-                class="w-full h-full object-cover opacity-60 scale-105 animate-[pulse_10s_ease-in-out_infinite]">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-[#0a0a0a]"></div>
+    <section class="hero-container" id="hero">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="Luxury Estate" class="hero-image">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content px-6 sm:px-12">
+            <div class="text-sm tracking-widest text-gold uppercase">Est. 2008 · Luxury Real Estate</div>
+            <h1 class="text-heading-1 mt-8 sm:mt-12">Where Legacy Meets Address</h1>
+            <div class="hero-line"></div>
+            <p class="text-lg max-w-md mx-auto" style="color: #c5c5bc;">Bespoke properties for those who demand the extraordinary</p>
         </div>
 
-        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-            <p class="text-sm md:text-base tracking-[0.3em] uppercase text-gray-400 mb-6 fade-in">Exclusive Living</p>
-            <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 leading-tight fade-in delay-100">
-                Elevate Your <br> <span class="gold-text">Perspective</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-300 font-light mb-10 max-w-2xl mx-auto fade-in delay-200">
-                Curating the world's most exceptional properties for the discerning few.
-            </p>
-            <a href="#properties"
-                class="inline-block px-8 py-4 border border-[#b38728] text-[#b38728] hover:bg-[#b38728] hover:text-black transition-all duration-300 uppercase tracking-widest text-sm fade-in delay-300">
-                View Collection
-            </a>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <!-- Featured Properties -->
-    <section id="properties" class="py-32 px-6 bg-[#0a0a0a]">
+    <!-- Stats Section -->
+    <section class="py-16 sm:py-24 px-6 sm:px-12 border-t border-b border-gray-800 bg-gradient-to-b from-gray-900 to-black">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in">
-                <div>
-                    <h2 class="text-4xl md:text-5xl mb-4">Curated Listings</h2>
-                    <div class="h-1 w-24 bg-[#b38728]"></div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                <div class="reveal text-center">
+                    <div class="stat-number">$12B+</div>
+                    <div class="text-xs uppercase tracking-wider text-muted mt-4">Total Assets Under Management</div>
                 </div>
-                <a href="#"
-                    class="hidden md:flex items-center gap-2 text-[#b38728] hover:text-white transition-colors mt-6 md:mt-0">
-                    View All Properties <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
+                <div class="reveal text-center">
+                    <div class="stat-number">340+</div>
+                    <div class="text-xs uppercase tracking-wider text-muted mt-4">Properties Curated</div>
+                </div>
+                <div class="reveal text-center">
+                    <div class="stat-number">28</div>
+                    <div class="text-xs uppercase tracking-wider text-muted mt-4">Global Markets</div>
+                </div>
+                <div class="reveal text-center">
+                    <div class="stat-number">15+</div>
+                    <div class="text-xs uppercase tracking-wider text-muted mt-4">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="py-32 px-6 sm:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-24">
+                <div class="flex items-center gap-4 mb-4">
+                    <h2 class="text-heading-2 reveal">Curated Collection</h2>
+                </div>
+                <div class="w-20 h-px bg-gradient-to-r from-gold to-transparent reveal" style="animation-delay: 0.1s"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger">
                 <!-- Property 1 -->
-                <div class="group cursor-pointer fade-in delay-100">
-                    <div class="relative h-[500px] overflow-hidden mb-6">
-                        <img src="../assets/images/skyline_villa.png" alt="Modern Villa"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div
-                            class="absolute top-4 left-4 bg-black/50 backdrop-blur px-3 py-1 text-xs uppercase tracking-wider">
-                            Just Listed</div>
-                    </div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="text-2xl mb-2 group-hover:text-[#b38728] transition-colors">The Azure Villa</h3>
-                            <p class="text-gray-400 font-light">Malibu, California</p>
+                <div class="card-property group">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80" alt="Villa Serenity" class="card-property-image">
+                    <div class="card-property-content">
+                        <h3 class="text-xl font-500 mb-2">Villa Serenity</h3>
+                        <p class="text-sm text-muted mb-4">Côte d'Azur, France</p>
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <p class="text-gold font-600">$8.5M</p>
+                                <p class="text-xs text-muted mt-1">5 Bed • 6 Bath • 8,500 sqft</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center group-hover:bg-gold/40 transition">
+                                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
                         </div>
-                        <p class="text-xl font-serif">$18,500,000</p>
-                    </div>
-                    <div class="flex gap-4 mt-4 text-sm text-gray-500 border-t border-white/10 pt-4">
-                        <span>6 Beds</span>
-                        <span>8 Baths</span>
-                        <span>8,500 sqft</span>
                     </div>
                 </div>
 
                 <!-- Property 2 -->
-                <div class="group cursor-pointer fade-in delay-200">
-                    <div class="relative h-[500px] overflow-hidden mb-6">
-                        <img src="../assets/images/skyline_loft.png" alt="NY Loft"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="text-2xl mb-2 group-hover:text-[#b38728] transition-colors">Tribeca Loft</h3>
-                            <p class="text-gray-400 font-light">New York, NY</p>
+                <div class="card-property group">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Metropolitan Heights" class="card-property-image">
+                    <div class="card-property-content">
+                        <h3 class="text-xl font-500 mb-2">Metropolitan Heights</h3>
+                        <p class="text-sm text-muted mb-4">Manhattan, New York</p>
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <p class="text-gold font-600">$24.5M</p>
+                                <p class="text-xs text-muted mt-1">4 Bed • 5 Bath • 12,000 sqft</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center group-hover:bg-gold/40 transition">
+                                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
                         </div>
-                        <p class="text-xl font-serif">$6,200,000</p>
-                    </div>
-                    <div class="flex gap-4 mt-4 text-sm text-gray-500 border-t border-white/10 pt-4">
-                        <span>3 Beds</span>
-                        <span>3.5 Baths</span>
-                        <span>3,200 sqft</span>
                     </div>
                 </div>
 
                 <!-- Property 3 -->
-                <div class="group cursor-pointer fade-in delay-300">
-                    <div class="relative h-[500px] overflow-hidden mb-6">
-                        <img src="../assets/images/skyline_penthouse.png" alt="Alpine Estate"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="text-2xl mb-2 group-hover:text-[#b38728] transition-colors">Alpine Estate</h3>
-                            <p class="text-gray-400 font-light">Aspen, Colorado</p>
+                <div class="card-property group">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80" alt="Tuscan Estate" class="card-property-image">
+                    <div class="card-property-content">
+                        <h3 class="text-xl font-500 mb-2">Tuscan Estate</h3>
+                        <p class="text-sm text-muted mb-4">Siena, Italy</p>
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <p class="text-gold font-600">$6.2M</p>
+                                <p class="text-xs text-muted mt-1">8 Bed • 7 Bath • 15,000 sqft</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center group-hover:bg-gold/40 transition">
+                                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
                         </div>
-                        <p class="text-xl font-serif">$24,000,000</p>
-                    </div>
-                    <div class="flex gap-4 mt-4 text-sm text-gray-500 border-t border-white/10 pt-4">
-                        <span>8 Beds</span>
-                        <span>10 Baths</span>
-                        <span>12,000 sqft</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="py-32 px-6 bg-[#0f0f0f]">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div class="fade-in">
-                <p class="text-[#b38728] uppercase tracking-widest text-sm mb-4">Our Services</p>
-                <h2 class="text-4xl md:text-6xl mb-8 leading-tight">Beyond <br> Real Estate</h2>
-                <p class="text-gray-400 text-lg font-light mb-8 leading-relaxed">
-                    We provide a full-service concierge experience for our clients. From private jet charters to
-                    interior design consultation, our team handles every detail of your relocation.
-                </p>
-                <ul class="space-y-4">
-                    <li class="flex items-center gap-4 text-gray-300">
-                        <div class="w-2 h-2 bg-[#b38728] rounded-full"></div>
-                        Private Sales & Off-Market Listings
-                    </li>
-                    <li class="flex items-center gap-4 text-gray-300">
-                        <div class="w-2 h-2 bg-[#b38728] rounded-full"></div>
-                        Investment Portfolio Management
-                    </li>
-                    <li class="flex items-center gap-4 text-gray-300">
-                        <div class="w-2 h-2 bg-[#b38728] rounded-full"></div>
-                        Global Relocation Concierge
-                    </li>
-                </ul>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 fade-in delay-200">
-                <div class="space-y-4 mt-12">
-                    <img src="../assets/images/skyline_concierge.png" alt="Concierge"
-                        class="w-full h-64 object-cover rounded-lg">
-                    <img src="../assets/images/yacht_interior.png" alt="Interior"
-                        class="w-full h-48 object-cover rounded-lg">
+    <!-- About / Philosophy Section -->
+    <section id="about" class="py-32 px-6 sm:px-12 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <!-- Left Content -->
+                <div class="reveal">
+                    <p class="text-heading-3 italic font-400 text-gold mb-8 leading-relaxed">"We don't sell properties. We curate legacies."</p>
+                    <p class="text-body mb-6">At Meridian Estate Group, we understand that true luxury is personal. Each property in our portfolio has been meticulously selected not just for its market value, but for its soul — the intangible qualities that transform a house into a home and an investment into a legacy.</p>
+                    <p class="text-body mb-8">With over 15 years of experience in the global luxury market, our team navigates the complexities of high-net-worth transactions with discretion, expertise, and an unwavering commitment to excellence.</p>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-600">Bespoke Consultations</p>
+                            <p class="text-sm text-muted">Tailored to your unique requirements</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="space-y-4">
-                    <img src="../assets/images/jewelry_hero.png" alt="Detail"
-                        class="w-full h-48 object-cover rounded-lg">
-                    <img src="../assets/images/skyline_hero.png" alt="Architecture"
-                        class="w-full h-64 object-cover rounded-lg">
+
+                <!-- Right Images -->
+                <div class="reveal parallax">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="col-span-2">
+                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Luxury Lifestyle" class="w-full h-64 object-cover rounded-lg parallax-image">
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Elegant Interiors" class="w-full h-64 object-cover rounded-lg parallax-image">
+                        <div class="bg-gradient-to-br from-gold/20 to-gold/5 rounded-lg h-64 flex items-center justify-center border border-gold/20">
+                            <div class="text-center">
+                                <p class="text-gold font-600 text-lg">15+</p>
+                                <p class="text-xs text-muted">Years of Excellence</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="py-32 px-6 relative overflow-hidden">
-        <div
-            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10">
-        </div>
-        <div class="max-w-3xl mx-auto text-center relative z-10 fade-in">
-            <h2 class="text-4xl md:text-5xl mb-6">Begin Your Journey</h2>
-            <p class="text-gray-400 mb-12">Contact our private office for a consultation.</p>
+    <!-- Services Section -->
+    <section id="services" class="py-32 px-6 sm:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20">
+                <h2 class="text-heading-2 reveal mb-4">Our Services</h2>
+                <div class="w-20 h-px bg-gradient-to-r from-gold to-transparent reveal" style="animation-delay: 0.1s"></div>
+            </div>
 
-            <form class="space-y-6 text-left">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Name</label>
-                        <input type="text"
-                            class="w-full bg-transparent border-b border-gray-700 py-3 text-white focus:border-[#b38728] outline-none transition-colors">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-stagger">
+                <!-- Service 1 -->
+                <div class="service-card glass glass-hover">
+                    <div class="mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email</label>
-                        <input type="email"
-                            class="w-full bg-transparent border-b border-gray-700 py-3 text-white focus:border-[#b38728] outline-none transition-colors">
+                    <h3 class="text-heading-3 mb-3">Private Sales & Off-Market</h3>
+                    <p class="text-body">Exclusive access to properties before they reach public listings. Discretion and privacy are paramount in every transaction.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card glass glass-hover">
+                    <div class="mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
                     </div>
+                    <h3 class="text-heading-3 mb-3">Investment Advisory</h3>
+                    <p class="text-body">Strategic guidance on property acquisition as a wealth preservation and growth vehicle with long-term returns.</p>
                 </div>
-                <div>
-                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Message</label>
-                    <textarea rows="4"
-                        class="w-full bg-transparent border-b border-gray-700 py-3 text-white focus:border-[#b38728] outline-none transition-colors"></textarea>
+
+                <!-- Service 3 -->
+                <div class="service-card glass glass-hover">
+                    <div class="mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0110.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20H7m6-4h.01M9 20h6"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-heading-3 mb-3">Global Relocation</h3>
+                    <p class="text-body">Seamless transitions to new markets with comprehensive support including market analysis and property placement.</p>
                 </div>
-                <div class="text-center mt-12">
-                    <button
-                        class="px-12 py-4 bg-[#b38728] text-black font-bold uppercase tracking-widest hover:bg-white transition-colors duration-300">
-                        Inquire
-                    </button>
+
+                <!-- Service 4 -->
+                <div class="service-card glass glass-hover">
+                    <div class="mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-heading-3 mb-3">Market Intelligence</h3>
+                    <p class="text-body">Real-time insights into market trends, property valuations, and emerging opportunities across global luxury segments.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-32 px-6 sm:px-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-30"></div>
+        <div class="absolute top-1/2 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center reveal">
+                <svg class="w-16 h-16 text-gold/30 mx-auto mb-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.716-5-7-5-1.5 0-2.5 1.25-2.5 2.5 0 1.5.5 3 1.5 4.5-.5 1.5-.5 3-.5 4.5 0 5 3.5 8 7 8z"></path>
+                </svg>
+
+                <blockquote class="text-heading-2 italic font-400 mb-8 leading-relaxed">
+                    "Meridian Estate Group transformed our global property search. Their attention to detail and market expertise is unparalleled."
+                </blockquote>
+
+                <div class="flex flex-col items-center gap-3">
+                    <p class="font-600">Victoria Ashford</p>
+                    <p class="text-sm text-muted">CEO, Ashford Capital Management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 sm:px-12 border-t border-gray-800">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-heading-2 mb-4">Begin Your Private Consultation</h2>
+                <p class="text-body">Our team of specialists is ready to understand your vision and curate the perfect property match.</p>
+            </div>
+
+            <form class="space-y-6 reveal" id="contactForm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Your Name" required class="px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500">
+                    <input type="email" placeholder="Your Email" required class="px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500">
+                </div>
+                <input type="tel" placeholder="Phone Number" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500">
+                <textarea placeholder="Tell us about your requirements..." rows="5" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500 resize-none"></textarea>
+
+                <div class="flex items-center gap-3">
+                    <input type="checkbox" id="privacy" required class="w-4 h-4">
+                    <label for="privacy" class="text-sm text-muted">I consent to Meridian Estate Group contacting me regarding properties and services.</label>
+                </div>
+
+                <button type="submit" class="w-full btn-gold mt-8">Schedule Consultation</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-white/10 text-center text-gray-600 text-sm uppercase tracking-widest">
-        <p>&copy; 2024 Skyline Luxury Estates. Designed by Onda.</p>
+    <footer class="border-t border-gray-800 py-16 px-6 sm:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <p class="text-gold text-xl font-300 tracking-wide mb-2">MERIDIAN</p>
+                    <p class="text-sm text-muted">Estate Group</p>
+                </div>
+                <div>
+                    <p class="text-sm font-600 mb-4 text-gold">LOCATIONS</p>
+                    <ul class="space-y-2 text-sm text-muted">
+                        <li>New York</li>
+                        <li>London</li>
+                        <li>Paris</li>
+                        <li>Monaco</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-sm font-600 mb-4 text-gold">CONNECT</p>
+                    <ul class="space-y-2 text-sm text-muted">
+                        <li><a href="#" class="hover:text-gold transition">Instagram</a></li>
+                        <li><a href="#" class="hover:text-gold transition">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-gold transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-sm font-600 mb-4 text-gold">MERIDIAN</p>
+                    <p class="text-sm text-muted">Crafted by <a href="../index.html" class="text-gold hover:text-yellow-400 transition">Onda</a></p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted">
+                <p>&copy; 2024 Meridian Estate Group. All rights reserved.</p>
+                <p>Designed by Onda</p>
+            </div>
+        </div>
     </footer>
 
     <script>
-        lucide.createIcons();
+        // Navigation scroll effect
+        const nav = document.querySelector('nav');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
 
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
 
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
+        // Hamburger menu toggle
+        hamburger?.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when link clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger?.classList.remove('active');
+                navLinks?.classList.remove('active');
             });
-        }
+        });
 
-        // Intersection Observer for Fade-in animations
+        // Intersection Observer for scroll reveals
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -304,8 +866,25 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your inquiry. Our team will contact you shortly.');
+            e.target.reset();
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.parallax-image').forEach(img => {
+                const rect = img.getBoundingClientRect();
+                const offset = rect.top * 0.3;
+                img.style.transform = `translateY(${offset}px)`;
+            });
+        });
     </script>
 </body>
-
 </html>
