@@ -102,7 +102,7 @@
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-[var(--bg)]/90 backdrop-blur-xl border-b border-[var(--border)]" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
             <a href="#" class="text-2xl font-semibold tracking-wide" style="font-family: 'Cormorant Garamond', serif;">Velara</a>
 
             <div class="hidden md:flex items-center gap-8 text-sm tracking-wide text-[var(--text-muted)]">
@@ -118,7 +118,7 @@
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full backdrop-blur-xl border-b border-[var(--border)] p-8 flex-col gap-6 text-center text-sm tracking-wide text-[var(--text-muted)]" style="background: rgba(14, 12, 11, 0.98);">
+        <div id="mobile-menu" class="hidden md:hidden absolute top-16 sm:top-20 left-0 w-full backdrop-blur-xl border-b border-[var(--border)] p-5 sm:p-6 md:p-8 flex-col gap-6 text-center text-sm tracking-wide text-[var(--text-muted)]" style="background: rgba(14, 12, 11, 0.98);">
             <a href="#treatments" class="block py-2 hover:text-[var(--text)] transition-colors">Treatments</a>
             <a href="#about" class="block py-2 hover:text-[var(--text)] transition-colors">Philosophy</a>
             <a href="#gallery" class="block py-2 hover:text-[var(--text)] transition-colors">Gallery</a>
@@ -136,10 +136,10 @@
             <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-[var(--bg)]/40"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-0">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-32 md:py-0">
             <div class="max-w-2xl">
                 <p class="text-sm tracking-[0.3em] uppercase text-[var(--accent)] mb-6 fade-in">Premium Aesthetics · Barcelona</p>
-                <h1 class="text-4xl md:text-6xl lg:text-8xl font-medium leading-[0.95] mb-8 fade-in">
+                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-medium leading-[0.95] mb-8 fade-in">
                     Where science<br>meets <em class="italic font-normal text-[var(--accent)]">beauty</em>
                 </h1>
                 <p class="text-lg md:text-xl text-[var(--text-muted)] font-light mb-10 max-w-lg fade-in">
@@ -153,14 +153,14 @@
     </section>
 
     <!-- Treatments -->
-    <section id="treatments" class="py-24 md:py-32 px-6 bg-[var(--bg)]">
+    <section id="treatments" class="py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg)]">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 fade-in">
                 <p class="text-sm tracking-[0.25em] uppercase text-[var(--accent)] mb-4">Our Treatments</p>
-                <h2 class="text-4xl md:text-6xl font-medium">Curated for results</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-medium">Curated for results</h2>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
                 <!-- Treatment 1 -->
                 <div class="treatment-card fade-in cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80" alt="HydraLift Facial"
@@ -201,7 +201,7 @@
     </section>
 
     <!-- Philosophy / About -->
-    <section id="about" class="py-24 md:py-32 px-6 bg-[var(--bg-elevated)]">
+    <section id="about" class="py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg-elevated)]">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div class="fade-in">
                 <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&q=80" alt="Clinic interior"
@@ -209,7 +209,7 @@
             </div>
             <div class="fade-in">
                 <p class="text-sm tracking-[0.25em] uppercase text-[var(--accent)] mb-4">Our Philosophy</p>
-                <h2 class="text-4xl md:text-5xl font-medium leading-tight mb-6">Subtle enhancements,<br>lasting confidence</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-6">Subtle enhancements,<br>lasting confidence</h2>
                 <p class="text-[var(--text-muted)] text-lg leading-relaxed mb-8">
                     At Velara, we believe the best work is invisible. Every treatment is designed to enhance what is already there — never to transform you into someone you are not. Our approach combines advanced techniques with an obsessive attention to natural balance.
                 </p>
@@ -232,13 +232,13 @@
     </section>
 
     <!-- Gallery Strip -->
-    <section id="gallery" class="py-24 md:py-32 px-6 bg-[var(--bg)]">
+    <section id="gallery" class="py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg)]">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12 fade-in">
                 <p class="text-sm tracking-[0.25em] uppercase text-[var(--accent)] mb-4">The Space</p>
-                <h2 class="text-4xl md:text-5xl font-medium">Designed for calm</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium">Designed for calm</h2>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 fade-in">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 fade-in">
                 <img src="https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=600&q=75" alt="Clinic space" class="gallery-img w-full">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75" alt="Treatment room" class="gallery-img w-full" style="transition-delay: 50ms;">
                 <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=75" alt="Skincare products" class="gallery-img w-full" style="transition-delay: 100ms;">
@@ -248,15 +248,15 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-24 md:py-32 px-6 bg-[var(--bg-elevated)]">
+    <section class="py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg-elevated)]">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 fade-in">
                 <p class="text-sm tracking-[0.25em] uppercase text-[var(--accent)] mb-4">Testimonials</p>
-                <h2 class="text-4xl md:text-5xl font-medium">What our clients say</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium">What our clients say</h2>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="fade-in bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+                <div class="fade-in bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-5 sm:p-6 md:p-8">
                     <div class="flex gap-1 mb-4">
                         <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
@@ -269,7 +269,7 @@
                     <p class="text-xs text-[var(--text-muted)]">HydraLift Facial</p>
                 </div>
 
-                <div class="fade-in bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8" style="transition-delay: 100ms;">
+                <div class="fade-in bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-5 sm:p-6 md:p-8" style="transition-delay: 100ms;">
                     <div class="flex gap-1 mb-4">
                         <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
@@ -282,7 +282,7 @@
                     <p class="text-xs text-[var(--text-muted)]">Dermal Contouring</p>
                 </div>
 
-                <div class="fade-in bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8" style="transition-delay: 200ms;">
+                <div class="fade-in bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-5 sm:p-6 md:p-8" style="transition-delay: 200ms;">
                     <div class="flex gap-1 mb-4">
                         <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
@@ -299,11 +299,11 @@
     </section>
 
     <!-- Booking Form -->
-    <section id="booking" class="py-24 md:py-32 px-6 bg-[var(--bg)]">
+    <section id="booking" class="py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg)]">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-12 fade-in">
                 <p class="text-sm tracking-[0.25em] uppercase text-[var(--accent)] mb-4">Book Now</p>
-                <h2 class="text-4xl md:text-5xl font-medium">Begin your journey</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium">Begin your journey</h2>
                 <p class="text-[var(--text-muted)] mt-4 text-lg">Schedule a complimentary consultation to discuss your goals.</p>
             </div>
 

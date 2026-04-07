@@ -236,7 +236,7 @@
         }
 
         .mobile-menu a {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-family: 'Cormorant Garamond', serif;
             margin: 1.5rem 0;
             color: #f5f5f5;
@@ -278,7 +278,17 @@
 
         @media (max-width: 768px) {
             .stat-number {
-                font-size: 2rem;
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stat-number {
+                font-size: 1.75rem;
+            }
+            .mobile-menu a {
+                font-size: 1.25rem;
+                margin: 1rem 0;
             }
         }
 
@@ -298,7 +308,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12">
+    <nav class="fixed top-0 left-0 right-0 z-50 py-3 sm:py-4 px-4 sm:px-6 md:px-12">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <!-- Logo/Monogram -->
             <a href="./solo-entrepreneur.html" class="text-2xl font-serif font-bold">
@@ -336,13 +346,13 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black pt-32 pb-20 md:pt-0 md:pb-0 flex items-center justify-center px-6">
+    <section class="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black pt-24 pb-16 md:pt-0 md:pb-0 flex items-center justify-center px-4 sm:px-6">
         <div class="max-w-7xl w-full">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-screen">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center md:min-h-screen">
                 <!-- Left: Text -->
                 <div class="flex flex-col justify-center">
                     <div class="mb-8">
-                        <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
+                        <h1 class="text-3xl sm:text-5xl md:text-7xl font-serif font-bold mb-4 sm:mb-6 leading-tight">
                             <span class="hero-name-word">ALEXANDER</span>
                             <span class="hero-name-word">VOSS</span>
                         </h1>
@@ -358,10 +368,10 @@
                     </p>
 
                     <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="gold-accent text-black px-8 py-4 rounded font-semibold text-center hover:shadow-lg transition transform hover:scale-105">
+                        <a href="#contact" class="gold-accent text-black px-6 py-3 sm:px-8 sm:py-4 rounded font-semibold text-center hover:shadow-lg transition transform hover:scale-105">
                             Let's Connect
                         </a>
-                        <a href="#about" class="border border-gray-600 text-gray-300 px-8 py-4 rounded font-light text-center hover:border-amber-500 transition">
+                        <a href="#about" class="border border-gray-600 text-gray-300 px-6 py-3 sm:px-8 sm:py-4 rounded font-light text-center hover:border-amber-500 transition">
                             Learn More
                         </a>
                     </div>
@@ -378,7 +388,7 @@
             </div>
 
             <!-- Scroll Indicator -->
-            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div class="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2">
                 <div class="bounce-arrow">
                     <svg class="w-6 h-6 text-amber-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -389,23 +399,23 @@
     </section>
 
     <!-- About / Intro Section -->
-    <section id="about" class="py-24 px-6 bg-black border-t border-gray-900">
+    <section id="about" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-black border-t border-gray-900">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
                 <!-- Left: Stat/Pullquote -->
                 <div class="flex flex-col justify-center">
                     <p class="text-sm text-gray-500 uppercase tracking-widest mb-4 font-light">Track Record</p>
                     <div class="mb-8">
                         <div class="gold-line mb-6" style="animation-delay: 0.2s;"></div>
                     </div>
-                    <p class="text-5xl md:text-6xl font-serif font-bold mb-4">
+                    <p class="text-3xl sm:text-5xl md:text-6xl font-serif font-bold mb-4">
                         <span class="gold-gradient">$2.4B</span>
                     </p>
-                    <p class="text-gray-400 text-lg font-light mb-12">
+                    <p class="text-gray-400 text-base sm:text-lg font-light mb-8 md:mb-12">
                         in advisory volume closed over 14 years
                     </p>
 
-                    <div class="glass p-8 md:p-10">
+                    <div class="glass p-6 sm:p-8 md:p-10">
                         <p class="italic text-gray-300 text-lg font-light leading-relaxed">
                             "The difference between good advice and great advice is understanding that every client's journey is unique. My role is to illuminate the path forward."
                         </p>
@@ -414,7 +424,7 @@
 
                 <!-- Right: Bio -->
                 <div class="fade-in">
-                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-8">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6 sm:mb-8">
                         <span class="gold-gradient">Strategic Vision</span>
                         <br />
                         <span class="text-white">for Modern Leaders</span>
@@ -439,18 +449,18 @@
     </section>
 
     <!-- Expertise Section -->
-    <section id="expertise" class="py-24 px-6 bg-gradient-to-b from-black to-gray-950 border-t border-gray-900">
+    <section id="expertise" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-black to-gray-950 border-t border-gray-900">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
+            <div class="text-center mb-10 sm:mb-16 md:mb-20">
                 <p class="text-sm text-gray-500 uppercase tracking-widest mb-4 font-light">Capabilities</p>
-                <h2 class="text-4xl md:text-5xl font-serif font-bold">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold">
                     <span class="gold-gradient">Areas of Expertise</span>
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <!-- Card 1 -->
-                <div class="card glass glass-hover p-8 group cursor-pointer">
+                <div class="card glass glass-hover p-5 sm:p-8 group cursor-pointer">
                     <div class="mb-6 inline-flex p-3 rounded-lg bg-gradient-to-br from-amber-600 to-amber-800 bg-opacity-10 group-hover:bg-opacity-20 transition">
                         <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -463,7 +473,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="card glass glass-hover p-8 group cursor-pointer" style="animation-delay: 0.15s;">
+                <div class="card glass glass-hover p-5 sm:p-8 group cursor-pointer" style="animation-delay: 0.15s;">
                     <div class="mb-6 inline-flex p-3 rounded-lg bg-gradient-to-br from-amber-600 to-amber-800 bg-opacity-10 group-hover:bg-opacity-20 transition">
                         <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
@@ -476,7 +486,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="card glass glass-hover p-8 group cursor-pointer" style="animation-delay: 0.3s;">
+                <div class="card glass glass-hover p-5 sm:p-8 group cursor-pointer" style="animation-delay: 0.3s;">
                     <div class="mb-6 inline-flex p-3 rounded-lg bg-gradient-to-br from-amber-600 to-amber-800 bg-opacity-10 group-hover:bg-opacity-20 transition">
                         <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
@@ -489,7 +499,7 @@
                 </div>
 
                 <!-- Card 4 -->
-                <div class="card glass glass-hover p-8 group cursor-pointer" style="animation-delay: 0.45s;">
+                <div class="card glass glass-hover p-5 sm:p-8 group cursor-pointer" style="animation-delay: 0.45s;">
                     <div class="mb-6 inline-flex p-3 rounded-lg bg-gradient-to-br from-amber-600 to-amber-800 bg-opacity-10 group-hover:bg-opacity-20 transition">
                         <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -505,16 +515,16 @@
     </section>
 
     <!-- Track Record / Numbers Section -->
-    <section class="py-24 px-6 bg-black border-t border-gray-900">
+    <section class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-black border-t border-gray-900">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
+            <div class="text-center mb-10 sm:mb-16 md:mb-20">
                 <p class="text-sm text-gray-500 uppercase tracking-widest mb-4 font-light">Impact</p>
-                <h2 class="text-4xl md:text-5xl font-serif font-bold">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold">
                     <span class="text-white">Proven</span> <span class="gold-gradient">Results</span>
                 </h2>
             </div>
 
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                 <!-- Stat 1 -->
                 <div class="text-center fade-in">
                     <p class="stat-number">340+</p>
@@ -543,18 +553,18 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-24 px-6 bg-gradient-to-b from-black to-gray-950 border-t border-gray-900">
+    <section class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-black to-gray-950 border-t border-gray-900">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
+            <div class="text-center mb-10 sm:mb-16 md:mb-20">
                 <p class="text-sm text-gray-500 uppercase tracking-widest mb-4 font-light">Recognition</p>
-                <h2 class="text-4xl md:text-5xl font-serif font-bold">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold">
                     <span class="text-white">Client</span> <span class="gold-gradient">Testimonials</span>
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 <!-- Testimonial 1 -->
-                <div class="card glass p-8 flex flex-col">
+                <div class="card glass p-5 sm:p-8 flex flex-col">
                     <svg class="w-8 h-8 text-amber-600 mb-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.4-5-7-5s-7 3.75-7 5c0 1 0 2 .5 4h6V7c0 1-1 2-2 2s-1 .008-1 1.031V11c0 1 0 2 1 2 1 0 2-1 2-2v-4c.5 3 3.5 7 6.5 7 1 0 2-1 2-2v-1c0-1-1-2-2-2s-1 .008-1 1.031V15c0 1 0 2 1 2 2 0 3-1 3-3z"></path>
                     </svg>
@@ -568,7 +578,7 @@
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="card glass p-8 flex flex-col" style="animation-delay: 0.15s;">
+                <div class="card glass p-5 sm:p-8 flex flex-col" style="animation-delay: 0.15s;">
                     <svg class="w-8 h-8 text-amber-600 mb-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.4-5-7-5s-7 3.75-7 5c0 1 0 2 .5 4h6V7c0 1-1 2-2 2s-1 .008-1 1.031V11c0 1 0 2 1 2 1 0 2-1 2-2v-4c.5 3 3.5 7 6.5 7 1 0 2-1 2-2v-1c0-1-1-2-2-2s-1 .008-1 1.031V15c0 1 0 2 1 2 2 0 3-1 3-3z"></path>
                     </svg>
@@ -582,7 +592,7 @@
                 </div>
 
                 <!-- Testimonial 3 -->
-                <div class="card glass p-8 flex flex-col" style="animation-delay: 0.3s;">
+                <div class="card glass p-5 sm:p-8 flex flex-col" style="animation-delay: 0.3s;">
                     <svg class="w-8 h-8 text-amber-600 mb-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.4-5-7-5s-7 3.75-7 5c0 1 0 2 .5 4h6V7c0 1-1 2-2 2s-1 .008-1 1.031V11c0 1 0 2 1 2 1 0 2-1 2-2v-4c.5 3 3.5 7 6.5 7 1 0 2-1 2-2v-1c0-1-1-2-2-2s-1 .008-1 1.031V15c0 1 0 2 1 2 2 0 3-1 3-3z"></path>
                     </svg>
@@ -599,11 +609,11 @@
     </section>
 
     <!-- Featured In / Trust Bar -->
-    <section class="py-16 px-6 bg-black border-t border-b border-gray-900">
+    <section class="py-10 sm:py-12 md:py-16 px-4 sm:px-6 bg-black border-t border-b border-gray-900">
         <div class="max-w-7xl mx-auto">
-            <p class="text-center text-sm text-gray-600 uppercase tracking-widest mb-12 font-light">As Featured In</p>
+            <p class="text-center text-sm text-gray-600 uppercase tracking-widest mb-8 md:mb-12 font-light">As Featured In</p>
 
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 items-center justify-items-center">
                 <div class="logo-bar group cursor-pointer">
                     <p class="logo-text">Forbes</p>
                 </div>
@@ -624,17 +634,17 @@
     </section>
 
     <!-- Contact / CTA Section -->
-    <section id="contact" class="py-24 px-6 bg-black border-t border-gray-900">
+    <section id="contact" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-black border-t border-gray-900">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6">
                 <span class="text-white">Let's Connect</span>
             </h2>
 
-            <p class="text-gray-400 text-lg font-light mb-12 leading-relaxed">
+            <p class="text-gray-400 text-base sm:text-lg font-light mb-8 md:mb-12 leading-relaxed">
                 Whether you're exploring strategic options, seeking clarity on complex decisions, or building for legacy, I'm here to help illuminate the path forward.
             </p>
 
-            <div class="glass p-12 rounded-2xl fade-in">
+            <div class="glass p-6 sm:p-8 md:p-12 rounded-2xl fade-in">
                 <form class="space-y-6" id="contactForm">
                     <div>
                         <input
@@ -668,7 +678,7 @@
                     </button>
                 </form>
 
-                <div class="mt-12 pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-center gap-8">
+                <div class="mt-8 pt-8 sm:mt-10 sm:pt-10 md:mt-12 md:pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-center gap-6 md:gap-8">
                     <div>
                         <p class="text-gray-600 text-sm font-light mb-2">Email</p>
                         <a href="mailto:hello@alexandervoss.com" class="text-white font-light hover:text-amber-500 transition">
@@ -688,9 +698,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black border-t border-gray-900 px-6 py-12">
+    <footer class="bg-black border-t border-gray-900 px-4 sm:px-6 py-8 sm:py-10 md:py-12">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 md:gap-8">
                 <div>
                     <p class="text-gray-400 font-light text-sm">
                         © 2024 Alexander Voss. All rights reserved.
