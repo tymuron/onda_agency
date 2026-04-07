@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barba Negra — Premium Barbershop Barcelona</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Libre Baskerville + Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        /* Custom color palette */
+        :root {
+            --olive-dark: #2d3a2e;
+            --cream-light: #f5f0e8;
+            --copper-accent: #b87333;
+            --charcoal-text: #1a1a1a;
+            --warm-gray: #6b6b6b;
+            --forest-green: #3d4a3e;
+        }
+
+        body {
+            background-color: var(--cream-light);
+            color: var(--charcoal-text);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(45, 58, 46, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--charcoal-text);
+            text-decoration: none;
+        }
+
+        nav.scrolled .nav-logo {
+            color: var(--cream-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        nav.scrolled .nav-links a {
+            color: var(--cream-light);
+        }
+
+        .nav-links a:hover {
+            color: var(--copper-accent);
+        }
+
+        .nav-cta {
+            background-color: var(--copper-accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background-color: #a0632b;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--charcoal-text);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .hamburger span {
+            background-color: var(--cream-light);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(45, 58, 46, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--cream-light);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: var(--cream-light);
+            cursor: pointer;
+            font-size: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(45, 58, 46, 0.7), rgba(26, 26, 26, 0.85)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 30%, rgba(184, 115, 51, 0.15) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: var(--cream-light);
+            max-width: 700px;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: normal;
+            letter-spacing: 3px;
+            margin: 0 0 1rem 0;
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-bottom: 3rem;
+            color: rgba(245, 240, 232, 0.85);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            background-color: var(--copper-accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .cta-primary:hover {
+            background-color: #a0632b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(184, 115, 51, 0.3);
+        }
+
+        .cta-secondary {
+            border: 2px solid var(--copper-accent);
+            color: var(--copper-accent);
+            padding: 0.95rem 2.45rem;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .cta-secondary:hover {
+            background-color: var(--copper-accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--cream-light);
+            opacity: 0.7;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 4rem 2rem;
+            background-color: var(--olive-dark);
+            color: var(--cream-light);
+            text-align: center;
+        }
+
+        .philosophy-quote {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-style: italic;
+            font-family: 'Libre Baskerville', serif;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .philosophy-line {
+            height: 1px;
+            width: 80px;
+            background-color: var(--copper-accent);
+            margin: 1.5rem auto;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--cream-light);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-family: 'Libre Baskerville', serif;
+            color: var(--charcoal-text);
+            letter-spacing: 1px;
+        }
+
+        .service-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid #d4c4b0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .service-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .service-name {
+            font-size: 1.4rem;
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 600;
+            color: var(--charcoal-text);
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .service-dots {
+            flex: 1;
+            border-bottom: 1px dotted var(--warm-gray);
+            min-width: 50px;
+        }
+
+        .service-price {
+            font-weight: 600;
+            color: var(--copper-accent);
+            white-space: nowrap;
+            font-size: 1.1rem;
+        }
+
+        .service-desc {
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+            margin-top: 0.5rem;
+        }
+
+        .service-duration {
+            display: inline-block;
+            font-size: 0.8rem;
+            background-color: #e8e0d4;
+            color: var(--olive-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Crew Section */
+        .crew {
+            padding: 5rem 2rem;
+            background-color: var(--olive-dark);
+            color: var(--cream-light);
+        }
+
+        .crew-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title-light {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-family: 'Libre Baskerville', serif;
+            color: var(--cream-light);
+            letter-spacing: 1px;
+        }
+
+        .crew-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .crew-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            text-align: center;
+        }
+
+        .crew-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .crew-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #1a2a1b 0%, #3d4a3e 50%, #2d3a2e 100%);
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .crew-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(184, 115, 51, 0.1) 0%, transparent 70%);
+        }
+
+        .crew-name {
+            font-size: 1.3rem;
+            font-family: 'Libre Baskerville', serif;
+            margin-bottom: 0.25rem;
+            color: var(--copper-accent);
+        }
+
+        .crew-specialty {
+            font-size: 0.85rem;
+            color: rgba(245, 240, 232, 0.7);
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .crew-bio {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(245, 240, 232, 0.85);
+            margin-bottom: 0.75rem;
+        }
+
+        .crew-years {
+            font-size: 0.85rem;
+            color: var(--copper-accent);
+            font-weight: 600;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 2rem;
+            background-color: var(--cream-light);
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: 2px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .gallery-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 2px;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:nth-child(1) .gallery-image {
+            background: linear-gradient(135deg, #6b7969 0%, #4a5d4c 100%);
+        }
+
+        .gallery-item:nth-child(2) .gallery-image {
+            background: linear-gradient(135deg, #8b6f47 0%, #5d4e2c 100%);
+        }
+
+        .gallery-item:nth-child(3) .gallery-image {
+            background: linear-gradient(135deg, #6b6b6b 0%, #3d3d3d 100%);
+        }
+
+        .gallery-item:nth-child(4) .gallery-image {
+            background: linear-gradient(135deg, #7a5c3a 0%, #4a3c2a 100%);
+        }
+
+        .gallery-item:nth-child(5) .gallery-image {
+            background: linear-gradient(135deg, #5a7a6b 0%, #2d4a3e 100%);
+        }
+
+        .gallery-item:nth-child(6) .gallery-image {
+            background: linear-gradient(135deg, #9b8b7b 0%, #6b5b4b 100%);
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 2rem;
+            background-color: var(--forest-green);
+            color: var(--cream-light);
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(184, 115, 51, 0.2), rgba(184, 115, 51, 0.05));
+            border: 1px solid rgba(184, 115, 51, 0.3);
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-name {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--cream-light);
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--copper-accent);
+            margin-bottom: 1rem;
+        }
+
+        .product-cta {
+            color: var(--copper-accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .product-cta:hover {
+            color: var(--cream-light);
+            transform: translateX(4px);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 2rem;
+            background-color: var(--cream-light);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-item {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .testimonial-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            font-family: 'Libre Baskerville', serif;
+            color: var(--charcoal-text);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -0.5rem;
+            font-size: 3rem;
+            color: var(--copper-accent);
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--charcoal-text);
+        }
+
+        /* Visit Section */
+        .visit {
+            padding: 5rem 2rem;
+            background-color: var(--olive-dark);
+            color: var(--cream-light);
+        }
+
+        .visit-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .visit-map {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #1a2a1b 0%, #2d3a2e 50%, #3d4a3e 100%);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visit-map::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 40% 40%, rgba(184, 115, 51, 0.15) 0%, transparent 70%);
+        }
+
+        .visit-info h3 {
+            font-size: 1.8rem;
+            font-family: 'Libre Baskerville', serif;
+            margin-bottom: 2rem;
+            color: var(--cream-light);
+        }
+
+        .visit-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .visit-label {
+            font-weight: 600;
+            color: var(--copper-accent);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .visit-content {
+            font-size: 1rem;
+            color: rgba(245, 240, 232, 0.9);
+        }
+
+        .visit-link {
+            color: var(--copper-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .visit-link:hover {
+            color: var(--cream-light);
+            text-decoration: underline;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 4rem 2rem;
+            background-color: var(--cream-light);
+            text-align: center;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-size: 1.8rem;
+            font-family: 'Libre Baskerville', serif;
+            margin-bottom: 1rem;
+            color: var(--charcoal-text);
+        }
+
+        .newsletter-subtext {
+            color: var(--warm-gray);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.95rem 1rem;
+            border: 1px solid var(--warm-gray);
+            background-color: white;
+            color: var(--charcoal-text);
+            font-family: 'Space Grotesk', sans-serif;
+            border-radius: 2px;
+            transition: border-color 0.3s ease;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--copper-accent);
+        }
+
+        .newsletter-button {
+            background-color: var(--copper-accent);
+            color: white;
+            padding: 0.95rem 2rem;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .newsletter-button:hover {
+            background-color: #a0632b;
+            transform: translateY(-2px);
+        }
+
+        .newsletter-offer {
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .newsletter-offer.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            background-color: var(--charcoal-text);
+            color: var(--cream-light);
+            text-align: center;
+            border-top: 1px solid rgba(184, 115, 51, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-tagline {
+            font-size: 0.85rem;
+            color: rgba(245, 240, 232, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-links a {
+            color: rgba(245, 240, 232, 0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--copper-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .visit-container {
+                grid-template-columns: 1fr;
+            }
+
+            .service-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .service-dots {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title,
+            .section-title-light {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">BARBA NEGRA</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#crew">The Crew</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#visit">Visit</a></li>
+            </ul>
+            <a href="#visit" class="nav-cta">BOOK NOW</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <span class="mobile-close" id="mobileClose">&times;</span>
+        <a href="#services">Services</a>
+        <a href="#crew">The Crew</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#products">Products</a>
+        <a href="#visit">Visit</a>
+        <a href="#visit" class="nav-cta">BOOK NOW</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">BARBA NEGRA</h1>
+            <p class="hero-subtitle">Craft grooming in the heart of Barcelona's Gothic Quarter</p>
+            <div class="hero-cta-group">
+                <a href="#visit" class="cta-primary">Book Your Chair</a>
+                <a href="#services" class="cta-secondary">Explore</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="philosophy">
+        <div class="philosophy-line"></div>
+        <p class="philosophy-quote">We don't do fast. We do right.</p>
+        <div class="philosophy-line"></div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <h2 class="section-title">Services</h2>
+        <div class="service-item">
+            <div class="service-header">
+                <div class="service-name">The Classic Cut</div>
+                <div class="service-dots"></div>
+                <div class="service-price">€28</div>
+            </div>
+            <p class="service-desc">Precision cut tailored to your style and face shape.</p>
+            <span class="service-duration">45 minutes</span>
+        </div>
+
+        <div class="service-item">
+            <div class="service-header">
+                <div class="service-name">Beard Sculpting</div>
+                <div class="service-dots"></div>
+                <div class="service-price">€22</div>
+            </div>
+            <p class="service-desc">Expert shaping and detailing of your beard.</p>
+            <span class="service-duration">30 minutes</span>
+        </div>
+
+        <div class="service-item">
+            <div class="service-header">
+                <div class="service-name">Hot Towel Straight Razor Shave</div>
+                <div class="service-dots"></div>
+                <div class="service-price">€32</div>
+            </div>
+            <p class="service-desc">Traditional barbering technique for the smoothest shave.</p>
+            <span class="service-duration">40 minutes</span>
+        </div>
+
+        <div class="service-item">
+            <div class="service-header">
+                <div class="service-name">The Full Ritual</div>
+                <div class="service-dots"></div>
+                <div class="service-price">€65</div>
+            </div>
+            <p class="service-desc">Complete grooming experience: cut, beard sculpting, shave, and hot towel finish.</p>
+            <span class="service-duration">90 minutes</span>
+        </div>
+
+        <div class="service-item">
+            <div class="service-header">
+                <div class="service-name">Kids Cut</div>
+                <div class="service-dots"></div>
+                <div class="service-price">€18</div>
+            </div>
+            <p class="service-desc">Friendly, quick cuts for the little ones (under 12).</p>
+            <span class="service-duration">30 minutes</span>
+        </div>
+
+        <div class="service-item">
+            <div class="service-header">
+                <div class="service-name">Grey Blending</div>
+                <div class="service-dots"></div>
+                <div class="service-price">€20</div>
+            </div>
+            <p class="service-desc">Subtle blending technique for managing grey hair.</p>
+            <span class="service-duration">20 minutes</span>
+        </div>
+    </section>
+
+    <!-- Crew -->
+    <section class="crew" id="crew">
+        <div class="crew-container">
+            <h2 class="section-title-light">The Crew</h2>
+            <div class="crew-grid">
+                <div class="crew-card">
+                    <div class="crew-photo" style="background: url('https://images.unsplash.com/photo-1619233543112-fe382ff3693d?auto=format&fit=crop&w=600&q=80'), linear-gradient(135deg, #1a2a1b 0%, #3d4a3e 50%, #2d3a2e 100%); background-size: cover; background-position: center top;"></div>
+                    <div class="crew-name">Carlos</div>
+                    <div class="crew-specialty">Founder & Master Barber</div>
+                    <p class="crew-bio">Started Barba Negra with a vision of bringing authentic European barbering to Barcelona. Passionate about craft and tradition.</p>
+                    <div class="crew-years">12 years experience</div>
+                </div>
+
+                <div class="crew-card">
+                    <div class="crew-photo" style="background: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80'), linear-gradient(135deg, #1a2a1b 0%, #3d4a3e 50%, #2d3a2e 100%); background-size: cover; background-position: center top;"></div>
+                    <div class="crew-name">Miguel</div>
+                    <div class="crew-specialty">Fade Specialist</div>
+                    <p class="crew-bio">Expert in modern cuts and fades. Known for precision work and meticulous attention to detail. Always learning new techniques.</p>
+                    <div class="crew-years">8 years experience</div>
+                </div>
+
+                <div class="crew-card">
+                    <div class="crew-photo" style="background: url('https://images.unsplash.com/photo-1653124783585-70c4b7d949c7?auto=format&fit=crop&w=600&q=80'), linear-gradient(135deg, #1a2a1b 0%, #3d4a3e 50%, #2d3a2e 100%); background-size: cover; background-position: center top;"></div>
+                    <div class="crew-name">Ana</div>
+                    <div class="crew-specialty">Beard & Styling</div>
+                    <p class="crew-bio">Specializes in beard grooming and styling consultations. Brings a refined eye to every beard design and shape.</p>
+                    <div class="crew-years">5 years experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: url('https://images.unsplash.com/photo-1647140655214-e4a2d914971f?auto=format&fit=crop&w=600&q=80') center/cover, linear-gradient(135deg, #6b7969 0%, #4a5d4c 100%);"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: url('https://images.unsplash.com/photo-1703792684940-a05aa0f1188f?auto=format&fit=crop&w=600&q=80') center/cover, linear-gradient(135deg, #8b6f47 0%, #5d4e2c 100%);"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=600&q=80') center/cover, linear-gradient(135deg, #6b6b6b 0%, #3d3d3d 100%);"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: url('https://images.unsplash.com/photo-1678356164573-9a534fe43958?auto=format&fit=crop&w=600&q=80') center/cover, linear-gradient(135deg, #7a5c3a 0%, #4a3c2a 100%);"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: url('https://images.unsplash.com/photo-1621645582931-d1d3e6564943?auto=format&fit=crop&w=600&q=80') center/cover, linear-gradient(135deg, #5a7a6b 0%, #2d4a3e 100%);"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80') center/cover, linear-gradient(135deg, #9b8b7b 0%, #6b5b4b 100%);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="products-container">
+            <h2 class="section-title-light">Premium Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1775127741095-86ee33b6b385?auto=format&fit=crop&w=400&q=80') center/cover, linear-gradient(135deg, rgba(184, 115, 51, 0.2), rgba(184, 115, 51, 0.05));"></div>
+                    <div class="product-name">House Pomade</div>
+                    <div class="product-price">€16</div>
+                    <a href="#" class="product-cta">Add to bag →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1673350963997-fc802e774580?auto=format&fit=crop&w=400&q=80') center/cover, linear-gradient(135deg, rgba(184, 115, 51, 0.2), rgba(184, 115, 51, 0.05));"></div>
+                    <div class="product-name">Beard Oil — Cedar & Pine</div>
+                    <div class="product-price">€22</div>
+                    <a href="#" class="product-cta">Add to bag →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1674921344193-d2737994fa66?auto=format&fit=crop&w=400&q=80') center/cover, linear-gradient(135deg, rgba(184, 115, 51, 0.2), rgba(184, 115, 51, 0.05));"></div>
+                    <div class="product-name">Aftershave Balm</div>
+                    <div class="product-price">€18</div>
+                    <a href="#" class="product-cta">Add to bag →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1775126251039-214af64257ff?auto=format&fit=crop&w=400&q=80') center/cover, linear-gradient(135deg, rgba(184, 115, 51, 0.2), rgba(184, 115, 51, 0.05));"></div>
+                    <div class="product-name">Styling Clay</div>
+                    <div class="product-price">€14</div>
+                    <a href="#" class="product-cta">Add to bag →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">What Clients Say</h2>
+
+        <div class="testimonial-item">
+            <p class="testimonial-quote">Walking in feels like stepping into another world. The attention to detail is incredible—every cut, every service, everything feels premium and intentional.</p>
+            <div class="testimonial-author">— Javier M.</div>
+        </div>
+
+        <div class="testimonial-item">
+            <p class="testimonial-quote">Carlos and the team understand what it means to be a craftsman. Not rushed, not templated. Just real barbering. Best barber experience I've had in Barcelona.</p>
+            <div class="testimonial-author">— David L.</div>
+        </div>
+
+        <div class="testimonial-item">
+            <p class="testimonial-quote">The whole experience is refined. From the moment you book to when you sit down, you know you're somewhere special. Highly recommend.</p>
+            <div class="testimonial-author">— Miguel R.</div>
+        </div>
+    </section>
+
+    <!-- Visit Us -->
+    <section class="visit" id="visit">
+        <div class="visit-container">
+            <div class="visit-map" style="background: url('https://images.unsplash.com/photo-1636738456135-7b46f1f32a21?auto=format&fit=crop&w=800&q=80') center/cover, linear-gradient(135deg, #1a2a1b 0%, #2d3a2e 50%, #3d4a3e 100%);"></div>
+            <div class="visit-info">
+                <h3>Visit Us</h3>
+
+                <div class="visit-item">
+                    <div class="visit-label">Location</div>
+                    <div class="visit-content">
+                        Carrer dels Banys Nous, 15<br>
+                        Gothic Quarter, Barcelona<br>
+                        08002, Spain
+                    </div>
+                </div>
+
+                <div class="visit-item">
+                    <div class="visit-label">Hours</div>
+                    <div class="visit-content">
+                        Mon – Fri: 9:00 AM – 7:00 PM<br>
+                        Sat: 10:00 AM – 6:00 PM<br>
+                        Sun: Closed
+                    </div>
+                </div>
+
+                <div class="visit-item">
+                    <div class="visit-label">Contact</div>
+                    <div class="visit-content">
+                        <a href="tel:+34933154789" class="visit-link">+34 933 154 789</a><br>
+                        <a href="mailto:hello@barbaneagra.com" class="visit-link">hello@barbaneagra.com</a>
+                    </div>
+                </div>
+
+                <div class="visit-item">
+                    <div class="visit-label">Book</div>
+                    <div class="visit-content">
+                        <a href="#" class="visit-link">WhatsApp Booking</a> ·
+                        <a href="#" class="visit-link">Phone Call</a>
+                    </div>
+                </div>
+
+                <div class="visit-item">
+                    <div class="visit-label">Follow</div>
+                    <div class="visit-content">
+                        <a href="#" class="visit-link">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <h2>Join the Barba Negra Circle</h2>
+            <p class="newsletter-subtext">Subscribe for exclusive grooming tips and special offers</p>
+            <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                <input type="email" class="newsletter-input" placeholder="Your email" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+            <p class="newsletter-offer" id="newsletterOffer">First-timers get 10% off their first visit</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">BARBA NEGRA</div>
+                <div class="footer-tagline">Craft grooming since 2012</div>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">WhatsApp</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Privacy</a></li>
+            </ul>
+            <div style="font-size: 0.85rem; color: rgba(245, 240, 232, 0.5);">
+                Website by <a href="#" style="color: var(--copper-accent); text-decoration: none;">ONDA</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Nav Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.service-item, .crew-card, .gallery-item, .product-card, .testimonial-item, .newsletter-offer').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Newsletter Handler
+        function handleNewsletter(e) {
+            e.preventDefault();
+            const input = e.target.querySelector('.newsletter-input');
+            const offer = document.getElementById('newsletterOffer');
+
+            input.value = '';
+            offer.style.opacity = '0';
+            offer.style.transform = 'translateY(10px)';
+
+            setTimeout(() => {
+                offer.textContent = 'Thanks for subscribing! Check your email.';
+                offer.style.opacity = '1';
+                offer.style.transform = 'translateY(0)';
+            }, 100);
+
+            setTimeout(() => {
+                offer.textContent = 'First-timers get 10% off their first visit';
+                offer.style.opacity = '0';
+                offer.style.transform = 'translateY(10px)';
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
