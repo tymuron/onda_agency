@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onda | სწრაფი პრემიუმ ვებსაიტები სერვის-ბიზნესებისთვის</title>
+    <meta name="description"
+        content="სწრაფი პრემიუმ ვებსაიტები, სადესანტო გვერდები და საწყისი ავტომატიზაციები სერვის-ბიზნესებისთვის, რომლებსაც დამკვიდრებული იმიჯი და მეტი ლიდები სჭირდებათ.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --bg-color: #f8fafc;
+            --surface: #ffffff;
+            --surface-soft: #eff6ff;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --border-color: #dbe4f0;
+        }
+
+        body {
+            font-family: 'Noto Sans Georgian', 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 28%),
+                radial-gradient(circle at top right, rgba(15, 23, 42, 0.06), transparent 24%),
+                var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            letter-spacing: -0.03em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            padding: 0.85rem 1.45rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 10px 25px -15px rgba(37, 99, 235, 0.8);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 30px -16px rgba(37, 99, 235, 0.9);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-primary);
+            padding: 0.85rem 1.45rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            border-color: #c7d6ea;
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(219, 228, 240, 0.9);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 45px -35px rgba(15, 23, 42, 0.35);
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+        }
+
+        .package-popular {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-popular::before {
+            content: "ყველაზე პოპულარული";
+            position: absolute;
+            top: 16px;
+            right: -34px;
+            transform: rotate(32deg);
+            background: #0f172a;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 40px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #25d366;
+            color: white;
+            padding: 14px 22px 14px 18px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 6px 24px -4px rgba(37, 211, 102, 0.5);
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 32px -4px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-float svg { flex-shrink: 0; }
+
+        @media (max-width: 640px) {
+            .whatsapp-float span { display: none; }
+            .whatsapp-float { padding: 16px; border-radius: 50%; }
+        }
+
+        .about-initials {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+        }
+
+        .concept-dark-preview {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .concept-dark-preview::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(201, 168, 76, 0.06) 50%, transparent 70%);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/75 backdrop-blur-xl">
+        <div class="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 md:h-20 md:px-6">
+            <a href="index_ka.html" class="flex items-center gap-3">
+                <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white">
+                    <i data-lucide="waves" class="h-5 w-5"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-slate-900">ONDA</span>
+            </a>
+            <div class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+                <a href="#packages" class="hover:text-blue-600 transition-colors">პაკეტები</a>
+                <a href="#proof" class="hover:text-blue-600 transition-colors">კონცეფციები</a>
+                <a href="process_ka.html" class="hover:text-blue-600 transition-colors">პროცესი</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors">კონტაქტი</a>
+                <a href="index.html" class="border-l border-slate-200 pl-6 text-slate-400 hover:text-slate-900 transition-colors">EN</a>
+                <a href="index_es.html" class="text-slate-400 hover:text-slate-900 transition-colors">ES</a>
+            </div>
+            <a href="index_ka.html#contact" class="hidden md:inline-flex btn-primary">მოითხოვეთ შეფასება</a>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[60] flex translate-x-full flex-col items-center justify-center gap-8 bg-white text-slate-900 transition-transform duration-300 md:hidden">
+        <a href="#packages" class="text-2xl sm:text-3xl font-bold hover:text-blue-600 transition-colors">პაკეტები</a>
+        <a href="#proof" class="text-2xl sm:text-3xl font-bold hover:text-blue-600 transition-colors">კონცეფციები</a>
+        <a href="process_ka.html" class="text-2xl sm:text-3xl font-bold hover:text-blue-600 transition-colors">პროცესი</a>
+        <a href="#contact" class="text-2xl sm:text-3xl font-bold hover:text-blue-600 transition-colors">კონტაქტი</a>
+        <a href="index.html" class="text-xl font-medium text-slate-400">EN</a>
+        <a href="index_es.html" class="text-xl font-medium text-slate-400">ES</a>
+        <button id="mobile-menu-close-btn" class="absolute right-4 top-5 text-slate-900"><i data-lucide="x" class="h-8 w-8"></i></button>
+    </div>
+
+    <section class="relative overflow-hidden px-6 pt-24 md:pt-32 pb-20">
+        <div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+            <div class="fade-in-section">
+                <div class="section-label mb-6">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-500"></span>
+                    </span>
+                    შეფასება 24 საათში
+                </div>
+                <h1 class="mb-6 max-w-4xl text-3xl font-extrabold leading-[1.1] text-slate-950 sm:text-4xl md:text-5xl lg:text-7xl lg:leading-none">
+                    სწრაფი, პრემიუმ ვებსაიტები ბიზნესებისთვის, რომლებსაც სერიოზული იმიჯი ამ თვეში სჭირდებათ.
+                </h1>
+                <p class="mb-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+                    თუ თქვენი ბიზნესი ჯერ კიდევ Instagram-ზე, WhatsApp-ზე, რეკომენდაციებზე ან მოძველებულ საიტზე მუშაობს, მე შემიძლია ის გავხადო გაპრიალებული, სანდო და მზად მეტი მოთხოვნების მისაღებად — დღეებში, არა თვეებში.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="btn-primary">მიიღეთ სწრაფი შეფასება <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+                    <a href="#packages" class="btn-secondary">იხილეთ პაკეტები</a>
+                </div>
+                <div class="mt-10 flex flex-wrap gap-3 text-sm text-slate-500">
+                    <span class="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-emerald-700 font-semibold">ვიღებთ 3 ახალ პროექტს აპრილისთვის</span>
+                    <span class="rounded-full border border-slate-200 bg-white px-4 py-2">ესპანეთში, დისტანციურად მსოფლიოში</span>
+                    <span class="rounded-full border border-slate-200 bg-white px-4 py-2">ინგლისური, ესპანური და ქართული</span>
+                </div>
+            </div>
+
+            <div class="fade-in-section panel p-4 sm:p-6 md:p-8">
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="metric-card p-5">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">დაწყებული</p>
+                        <p class="mt-2 text-3xl font-bold text-slate-900">EUR 690</p>
+                        <p class="mt-2 text-sm text-slate-500">დაბალბარიერიანი შესვლის წერტილი აუთრიჩისა და მცირე ბიზნესისთვის.</p>
+                    </div>
+                    <div class="metric-card p-5">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">ტიპიური გაშვება</p>
+                        <p class="mt-2 text-3xl font-bold text-slate-900">5-10 days</p>
+                        <p class="mt-2 text-sm text-slate-500">მკაფიო მოცულობა, არანაირი გაბერილი სააგენტო პროცესი, არანაირი უსასრულო ზარები.</p>
+                    </div>
+                    <div class="metric-card p-5 md:col-span-2">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">რას ყიდულობთ სინამდვილეში</p>
+                        <p class="mt-2 text-lg font-semibold text-slate-900">საიტი, რომელიც ბიზნესს უფრო დამკვიდრებულად, უფრო სანდოდ და უფრო მარტივად დასაკონტაქტებლად აჩვენებს.</p>
+                        <div class="mt-4 grid gap-3 sm:grid-cols-3 text-sm text-slate-600">
+                            <div class="rounded-2xl bg-slate-50 px-4 py-3">უკეთესი პირველი შთაბეჭდილება</div>
+                            <div class="rounded-2xl bg-slate-50 px-4 py-3">უფრო სუფთა ლიდების მოზიდვა</div>
+                            <div class="rounded-2xl bg-slate-50 px-4 py-3">არჩევითი საწყისი ავტომატიზაცია</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages" class="px-6 pb-8 pt-4">
+        <div class="mx-auto max-w-7xl">
+            <div class="fade-in-section mb-14 text-center">
+                <div class="section-label mb-4">პაკეტები</div>
+                <h2 class="mb-4 text-3xl font-bold text-slate-950 sm:text-4xl md:text-6xl">მარტივი შეთავაზებები, რომლებზეც ადვილია თანხმობის თქმა.</h2>
+                <p class="mx-auto max-w-3xl text-lg text-slate-600">შექმნილი ცივი აუთრიჩისთვის, რეფერალური ტრაფიკისთვის და ბიზნესებისთვის, რომლებსაც სურთ მცირედან დაწყება იაფფასიანი შედეგის გარეშე.</p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div class="panel fade-in-section p-7">
+                    <div class="mb-6 flex items-center justify-between">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+                            <i data-lucide="zap" class="h-6 w-6"></i>
+                        </div>
+                        <span class="text-sm font-bold text-blue-600">EUR 690-დან</span>
+                    </div>
+                    <h3 class="mb-3 text-2xl font-bold text-slate-900">გაშვების გვერდი</h3>
+                    <p class="mb-6 text-slate-600">ერთგვერდიანი ვებსაიტი ბიზნესებისთვის, რომლებსაც სწრაფად სანდო იმიჯი სჭირდებათ და ადამიანებისთვის კონტაქტის გაადვილება.</p>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> ერთგვერდიანი მორგებული საიტი</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> WhatsApp ან საკონტაქტო ფორმა</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> ტექსტის დახვეწა და მობილურისთვის ოპტიმიზაცია</li>
+                    </ul>
+                    <a href="#contact" class="mt-8 inline-flex font-semibold text-blue-600">დაიწყეთ აქედან <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></a>
+                </div>
+
+                <div class="panel package-popular fade-in-section p-7">
+                    <div class="mb-6 flex items-center justify-between">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white">
+                            <i data-lucide="layout-template" class="h-6 w-6"></i>
+                        </div>
+                        <span class="text-sm font-bold text-blue-600">EUR 1,490-დან</span>
+                    </div>
+                    <h3 class="mb-3 text-2xl font-bold text-slate-900">ბიზნეს ვებსაიტი</h3>
+                    <p class="mb-6 text-slate-600">საუკეთესო არჩევანი მცირე სერვის-ბიზნესებისთვის, რომლებსაც საიტი სჭირდებათ, რომელიც დამკვიდრებულად გამოიყურება, არა იმპროვიზირებულად.</p>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> 5 გვერდამდე</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> უკეთესი სტრუქტურა, CTA ნაკადი და ნდობის სექციები</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> ადგილობრივი SEO საფუძვლები და ლიდების მარშრუტიზაცია</li>
+                    </ul>
+                    <a href="#contact" class="mt-8 inline-flex font-semibold text-blue-600">ეს არის პოპულარული ვარიანტი <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></a>
+                </div>
+
+                <div class="panel fade-in-section p-7 md:col-span-2 lg:col-span-1">
+                    <div class="mb-6 flex items-center justify-between">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+                            <i data-lucide="bot" class="h-6 w-6"></i>
+                        </div>
+                        <span class="text-sm font-bold text-blue-600">EUR 2,490-დან</span>
+                    </div>
+                    <h3 class="mb-3 text-2xl font-bold text-slate-900">საიტი + ავტომატიზაცია</h3>
+                    <p class="mb-6 text-slate-600">ბიზნესებისთვის, რომლებსაც სრულფასოვანი ვებსაიტი სურთ პლუს ერთი პრაქტიკული ავტომატიზაცია, რომელიც დროს დაუყოვნებლივ ზოგავს.</p>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> სრული საიტი პლუს ერთი ავტომატიზაცია</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> ჯავშანი, შეხსენება, მიმოხილვის მოთხოვნა ან მიღების ნაკადი</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> შექმნილი ოპერაციული გამარჯვებისთვის, არა AI თეატრისთვის</li>
+                    </ul>
+                    <a href="#contact" class="mt-8 inline-flex font-semibold text-blue-600">მოითხოვეთ ინდივიდუალური შეფასება <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-24">
+        <div class="mx-auto max-w-7xl">
+            <div class="fade-in-section mb-12 text-center">
+                <div class="section-label mb-4">პოპულარული დანამატები</div>
+                <h2 class="text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">სასარგებლო დამატებები, რომლებიც მოგვიანებით ადვილად დაემატება.</h2>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <div class="panel fade-in-section p-6">
+                    <h3 class="text-lg font-bold text-slate-900">დამატებითი ენა</h3>
+                    <p class="mt-2 text-sm text-slate-600">დაამატეთ ესპანური ან ინგლისური საიტზე სრული გადაკეთების გარეშე.</p>
+                    <p class="mt-4 font-semibold text-blue-600">EUR 250-დან</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 100ms;">
+                    <h3 class="text-lg font-bold text-slate-900">Google Business-ის დაყენება</h3>
+                    <p class="mt-2 text-sm text-slate-600">ადგილობრივი ბიზნესებისთვის, რომლებსაც რუკებსა და ძებნაში უკეთესი ყოფნა სჭირდებათ.</p>
+                    <p class="mt-4 font-semibold text-blue-600">EUR 190-დან</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 200ms;">
+                    <h3 class="text-lg font-bold text-slate-900">მიმოხილვის მოთხოვნის ნაკადი</h3>
+                    <p class="mt-2 text-sm text-slate-600">მარტივი ელფოსტის ან SMS შეხსენება მიმოხილვის მოთხოვნით მომსახურების შემდეგ.</p>
+                    <p class="mt-4 font-semibold text-blue-600">EUR 290-დან</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 300ms;">
+                    <h3 class="text-lg font-bold text-slate-900">სწრაფი მიწოდება</h3>
+                    <p class="mt-2 text-sm text-slate-600">პროექტებისთვის, რომლებიც უჩვეულოდ სწრაფად უნდა ამუშავდეს.</p>
+                    <p class="mt-4 font-semibold text-blue-600">EUR 300-დან</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-y border-slate-200 bg-white px-6 py-24">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div class="fade-in-section">
+                <div class="section-label mb-4">საუკეთესო შესაბამისობა</div>
+                <h2 class="mb-4 text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">ეს საუკეთესოდ მუშაობს ბიზნესებისთვის, რომლებსაც უკვე აქვთ მოთხოვნა, მაგრამ სუსტი პრეზენტაცია.</h2>
+                <p class="text-lg text-slate-600">ყველაზე სწრაფი მოგება ჩვეულებრივ მოდის სერვის-ბიზნესებიდან, რომლებიც უკვე იღებენ რეფერალებს, ზარებს ან Instagram ტრაფიკს, მაგრამ ონლაინ ჯერ კიდევ არასაკმარისად გამოიყურებიან.</p>
+            </div>
+            <div class="grid gap-6 sm:grid-cols-2">
+                <div class="panel fade-in-section p-6">
+                    <h3 class="mb-2 text-lg font-bold text-slate-900">ადგილობრივი სერვისები</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">კლინიკები, სალონები, სახლის სერვისები, სტუდიები და ბიზნესები, რომლებიც ნდობასა და სწრაფ კონტაქტზეა დამოკიდებული.</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 100ms;">
+                    <h3 class="mb-2 text-lg font-bold text-slate-900">კონსულტანტები და პროფესიონალები</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">იურისტები, ბუღალტრები, ქოუჩები, მრჩევლები და სპეციალისტები, რომლებსაც უფრო ძლიერი პირველი შთაბეჭდილება სჭირდებათ.</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 200ms;">
+                    <h3 class="mb-2 text-lg font-bold text-slate-900">უძრავი ქონება</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">აგენტები და ქონების ბრენდები, რომლებსაც ვიზუალური გაპრიალება და უკეთესი მოთხოვნის გზა სჭირდებათ.</p>
+                </div>
+                <div class="panel fade-in-section p-6" style="transition-delay: 300ms;">
+                    <h3 class="mb-2 text-lg font-bold text-slate-900">ბუტიკ ბრენდები</h3>
+                    <p class="text-sm leading-relaxed text-slate-600">მცირე ბრენდები, რომლებსაც ინდივიდუალური შეგრძნების რამე სჭირდებათ საწარმო სააგენტო ფასების გადახდის გარეშე.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proof" class="px-6 py-24">
+        <div class="mx-auto max-w-7xl">
+            <div class="fade-in-section mb-14 text-center">
+                <div class="section-label mb-4">კონცეფციები</div>
+                <h2 class="mb-4 text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">გემოვნების, მოძრაობისა და ვიზუალური დიაპაზონის დადასტურება.</h2>
+                <p class="mx-auto max-w-3xl text-lg text-slate-600">ესენი კონცეფციებია, არა კლიენტის ქეისები. ისინი აჩვენებენ, რამდენად გაპრიალებული, პრემიუმ და ცოცხალი შეიძლება იყოს თქვენი საიტი.</p>
+            </div>
+            <div class="grid gap-8 lg:grid-cols-3">
+                <a href="portfolio/real-estate_ka.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1">
+                    <div class="h-64 w-full rounded-2xl overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Meridian Estate Group" class="h-full w-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 flex items-end p-6">
+                            <div>
+                                <p class="text-xs tracking-widest uppercase text-gray-300 mb-1" style="letter-spacing: 0.3em;">Luxury Real Estate</p>
+                                <p class="text-2xl font-bold text-white" style="font-family: Georgia, serif;">Meridian Estate Group</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-2 pt-6">
+                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">უძრავი ქონების კონცეფცია</p>
+                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Meridian Estate Group</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">კინემატოგრაფიული მუქი ლუქსური დიზაინი ქონების ბრენდებისთვის, რომლებსაც ნდობის მოპოვება და მაღალი ღირებულების მოთხოვნების დახურვა სჭირდებათ.</p>
+                    </div>
+                </a>
+                <a href="portfolio/solo-entrepreneur_ka.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1" style="transition-delay: 100ms;">
+                    <div class="h-64 w-full rounded-2xl overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Alexander Voss" class="h-full w-full object-cover" style="object-position: center 20%;">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 flex items-end p-6">
+                            <div>
+                                <p class="text-xs tracking-widest uppercase text-gray-300 mb-1" style="letter-spacing: 0.3em;">Personal Brand</p>
+                                <p class="text-2xl font-bold text-white" style="font-family: Georgia, serif;">Alexander Voss</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-2 pt-6">
+                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">ინდივიდუალური პროფესიონალის კონცეფცია</p>
+                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Alexander Voss</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">ლუქსური პერსონალური ბრენდი ბროკერების, მრჩეველებისა და ინდივიდუალური პროფესიონალებისთვის, რომლებსაც საიტი თავიანთ დონეზე სჭირდებათ.</p>
+                    </div>
+                </a>
+                <a href="portfolio/aesthetic-clinic_ka.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1" style="transition-delay: 200ms;">
+                    <img src="assets/images/aesthetic_clinic_hero.png" alt="Aesthetic clinic concept" class="h-64 w-full rounded-2xl object-cover">
+                    <div class="px-2 pb-2 pt-6">
+                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">ესთეტიკური კლინიკის კონცეფცია</p>
+                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Velara Aesthetics</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">მშვიდი, ლუქსური დიზაინი, რომელიც აშენებს ნდობას და კონსულტაციის ჯავშნებს პრემიუმ კლინიკებისთვის.</p>
+                    </div>
+                </a>
+            </div>
+            <p class="mt-6 text-center text-sm text-slate-500 fade-in-section">ასეთი საიტები იწყება <strong class="text-slate-800">EUR 1,490</strong>-დან. არა EUR 10,000.</p>
+            <div class="mt-10 text-center fade-in-section">
+                <a href="portfolio_ka.html" class="btn-secondary">იხილეთ ყველა კონცეფცია</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-900 px-6 py-24 text-white">
+        <div class="mx-auto max-w-5xl">
+            <div class="fade-in-section grid gap-12 lg:grid-cols-[auto_1fr] lg:items-center">
+                <div class="flex flex-col items-center lg:items-start gap-4">
+                    <div class="about-initials">TC</div>
+                </div>
+                <div>
+                    <div class="section-label mb-4 bg-white/10 text-blue-200">ვინ აშენებს ამას</div>
+                    <h2 class="mb-4 text-3xl font-bold md:text-4xl">მე ვარ თიმურ ჩისტიაკოვი.</h2>
+                    <p class="text-lg leading-relaxed text-slate-300 max-w-2xl">მე ვაშენებ სწრაფ, პრემიუმ ვებსაიტებს სერვის-ბიზნესებისთვის, რომლებსაც დამკვიდრებული იმიჯი სჭირდებათ სააგენტო ფასების გადახდისა და თვეების ლოდინის გარეშე. ესპანეთში ვცხოვრობ, დისტანციურად ვმუშაობ კლიენტებთან ევროპასა და მის ფარგლებს გარეთ.</p>
+                    <p class="mt-4 text-lg leading-relaxed text-slate-400 max-w-2xl">ყველა კონცეფცია, რომელსაც ამ საიტზე ხედავთ, მე თვითონ დავაპროექტე და დავწერე. არანაირი შაბლონები, არანაირი გვერდების ამშენებლები. როცა Onda-სთან მუშაობთ, პირდაპირ ჩემთან მუშაობთ — ერთი საკონტაქტო წერტილი, არანაირი გადაცემები, არანაირი გაუგებრობა.</p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="#contact" class="btn-primary">ითანამშრომლეთ ჩემთან</a>
+                        <a href="portfolio_ka.html" class="btn-secondary border-slate-700 bg-transparent text-white hover:bg-white hover:text-slate-900">იხილეთ ყველა კონცეფცია</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-24">
+        <div class="mx-auto max-w-7xl">
+            <div class="fade-in-section mb-14 text-center">
+                <div class="section-label mb-4">ხშირად დასმული კითხვები</div>
+                <h2 class="text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">რას ეკითხებიან ჩვეულებრივ დაქირავებამდე.</h2>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="panel fade-in-section p-5 sm:p-6 md:p-8">
+                    <h3 class="text-xl font-bold text-slate-900">უნდა მქონდეს მთელი კონტენტი მზად?</h3>
+                    <p class="mt-3 text-slate-600">არა. ბევრ მცირე ბიზნესს არ აქვს. მე შემიძლია დაგეხმაროთ სტრუქტურის ჩამოყალიბებასა და ტექსტის დახვეწაში, რომ არ დაიბლოკოთ იდეალური კონტენტის მოლოდინში.</p>
+                </div>
+                <div class="panel fade-in-section p-5 sm:p-6 md:p-8" style="transition-delay: 100ms;">
+                    <h3 class="text-xl font-bold text-slate-900">რა მოხდება, თუ მხოლოდ Instagram ან WhatsApp მაქვს?</h3>
+                    <p class="mt-3 text-slate-600">ეს ხშირი საწყისი წერტილია. ამოცანა ხშირად არის ამის გარდაქმნა უფრო სანდო და კონვერტაციისთვის მარტივ რამედ.</p>
+                </div>
+                <div class="panel fade-in-section p-5 sm:p-6 md:p-8" style="transition-delay: 200ms;">
+                    <h3 class="text-xl font-bold text-slate-900">შეგიძლიათ ესპანეთის გარეთ მუშაობა?</h3>
+                    <p class="mt-3 text-slate-600">დიახ. ესპანეთში ვარ და დისტანციურად ვმუშაობ ბიზნესებთან ევროპის, გაერთიანებული სამეფოსა და სხვა ბაზრების მასშტაბით.</p>
+                </div>
+                <div class="panel fade-in-section p-5 sm:p-6 md:p-8" style="transition-delay: 300ms;">
+                    <h3 class="text-xl font-bold text-slate-900">შემიძლია მცირედან დავიწყო და ავტომატიზაცია მოგვიანებით დავამატო?</h3>
+                    <p class="mt-3 text-slate-600">დიახ, და ეს ჩვეულებრივ ყველაზე ჭკვიანი ნაბიჯია. დაიწყეთ საიტით, შემდეგ დაამატეთ მხოლოდ ის ავტომატიზაციები, რომლებიც ნამდვილად დაზოგავს დროს ან მეტ ლიდს მოიზიდავს.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="border-t border-slate-200 bg-white px-6 py-24">
+        <div class="mx-auto max-w-6xl">
+            <div class="mb-12 text-center fade-in-section">
+                <div class="section-label mb-4">მოითხოვეთ შეფასება</div>
+                <h2 class="mb-4 text-3xl font-bold text-slate-950 sm:text-4xl md:text-6xl">მითხარით, რა გჭირდებათ და რამდენად სწრაფად გინდათ გაშვება.</h2>
+                <p class="mx-auto max-w-3xl text-lg text-slate-600">მე გირჩევთ ყველაზე სწრაფ გონივრულ გზას, ნაცვლად იმისა, რომ ყველაზე დიდ პაკეტს გიბიძგოთ.</p>
+            </div>
+            <form id="contactForm" class="panel fade-in-section mx-auto max-w-2xl p-4 sm:p-5 md:p-10">
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-slate-700">სახელი</label>
+                        <input type="text" id="contactName" required
+                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                            placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-slate-700">ელფოსტა</label>
+                        <input type="email" id="contactEmail" required
+                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                            placeholder="name@company.com">
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <label class="mb-2 block text-sm font-semibold text-slate-700">მომიყევით თქვენი პროექტის შესახებ</label>
+                    <textarea id="contactMessage" rows="4" required
+                        class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100 resize-none"
+                        placeholder="რას აკეთებს თქვენი ბიზნესი? რა არის ახლა სუსტი? რამდენად სწრაფად გჭირდებათ გაშვება?"></textarea>
+                </div>
+                <div class="mt-6 flex flex-col gap-4">
+                    <button type="submit" class="btn-primary w-full text-lg">მიიღეთ შეფასება 24 საათში</button>
+                    <div id="formStatus" class="hidden text-center text-sm font-medium text-slate-500">იგზავნება...</div>
+                </div>
+                <div class="mt-6 flex items-center gap-3 justify-center">
+                    <span class="h-px flex-1 bg-slate-200"></span>
+                    <span class="text-sm text-slate-400">ან მომწერეთ პირდაპირ</span>
+                    <span class="h-px flex-1 bg-slate-200"></span>
+                </div>
+                <div class="mt-4 text-center">
+                    <a href="https://wa.me/34607864285?text=Hi%20Tymur%2C%20I%20saw%20your%20website%20and%20I%E2%80%99m%20interested%20in%20a%20project." class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-100" target="_blank" rel="noopener">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        მომწერეთ WhatsApp-ში
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="border-t border-slate-200 bg-slate-50 px-6 py-12 text-sm text-slate-600">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
+            <div>
+                <span class="block text-lg font-bold text-slate-900">ONDA</span>
+                <p>სწრაფი ვებსაიტები და საწყისი ავტომატიზაცია ბიზნესებისთვის, რომლებსაც ახლა მოძრაობა სჭირდებათ.</p>
+            </div>
+            <p class="text-center md:text-right">ესპანეთში. ხელმისაწვდომია დისტანციური პროექტებისთვის ევროპაში, გაერთიანებულ სამეფოში და მის ფარგლებს გარეთ.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/34607864285?text=Hi%20Tymur%2C%20I%20saw%20your%20website%20and%20I%E2%80%99m%20interested%20in%20a%20project." class="whatsapp-float" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>ჩატი WhatsApp-ში</span>
+    </a>
+
+    <script>
+        lucide.createIcons();
+
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const status = document.getElementById('formStatus');
+            const originalText = btn.innerText;
+
+            btn.innerText = 'იგზავნება...';
+            btn.disabled = true;
+
+            const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';
+
+            const data = {
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                type: 'Website Inquiry',
+                message: document.getElementById('contactMessage').value
+            };
+
+            try {
+                const response = await fetch(`${API_BASE}/api/contact`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    status.innerText = 'მადლობა, თქვენი მოთხოვნა მიღებულია. მალე დაგიკავშირდებით.';
+                    status.classList.remove('text-red-500');
+                    status.classList.add('text-green-600');
+                    e.target.reset();
+                } else {
+                    const errorData = await response.json().catch(() => null);
+                    throw new Error(errorData?.detail || 'Failed');
+                }
+            } catch (error) {
+                console.error(error);
+                status.innerText = error.message || 'გაგზავნა ვერ მოხერხდა. გთხოვთ სცადოთ ხელახლა.';
+                status.classList.remove('text-green-600');
+                status.classList.add('text-red-500');
+            } finally {
+                status.classList.remove('hidden');
+                btn.innerText = originalText;
+                btn.disabled = false;
+                setTimeout(() => status.classList.add('hidden'), 5000);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries, observerInstance) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observerInstance.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeBtn = document.getElementById('mobile-menu-close-btn');
+
+            if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+            if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+            if (mobileMenu) {
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
