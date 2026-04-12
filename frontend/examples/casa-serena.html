@@ -403,63 +403,70 @@
             .rooms-track { padding: 0 5rem; gap: 2rem; }
         }
 
-        /* === EXPERIENCE — Light section === */
+        /* === EXPERIENCE — Editorial single-column === */
         .experience {
             padding: 6rem 1.5rem;
             background: var(--cream);
         }
         .exp-head {
-            text-align: center;
-            margin-bottom: 3.5rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
         }
         .exp-head h2 {
-            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+        }
+        .exp-head .exp-intro {
+            font-size: 0.95rem;
+            color: var(--ink-muted);
+            margin-top: 1.2rem;
+            max-width: 400px;
         }
         .amenities {
-            max-width: 960px;
+            max-width: 800px;
             margin: 0 auto;
-            display: grid;
-            gap: 2.5rem;
         }
         .amenity {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--sand-dark);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: baseline;
+            padding: 2.2rem 0;
+            border-top: 1px solid var(--sand-dark);
         }
-        .amenity:last-child { border-bottom: none; }
         .a-num {
             font-family: var(--serif);
             font-style: italic;
-            font-size: 2rem;
+            font-size: 3rem;
             color: var(--teal);
             line-height: 1;
-            min-width: 2.5rem;
-            opacity: 0.5;
+            opacity: 0.3;
+        }
+        .a-body {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem 1.5rem;
         }
         .a-body h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
+            font-size: 1.3rem;
             color: var(--ink);
         }
         .a-body p {
             font-size: 0.88rem;
             color: var(--ink-muted);
+            flex-basis: 100%;
         }
 
         @media (min-width: 768px) {
             .experience { padding: 8rem 3rem; }
-            .amenities { grid-template-columns: 1fr 1fr; gap: 0; }
-            .amenity {
-                padding: 2rem;
-                border-bottom: none;
-                border-right: 1px solid var(--sand-dark);
+            .a-body {
+                flex-wrap: nowrap;
+                gap: 0 3rem;
             }
-            .amenity:nth-child(2), .amenity:nth-child(4) { border-right: none; }
-            .amenity:nth-child(1), .amenity:nth-child(2) {
-                border-bottom: 1px solid var(--sand-dark);
-            }
+            .a-body h3 { white-space: nowrap; }
+            .a-body p { flex-basis: auto; }
+            .a-num { font-size: 3.5rem; }
         }
         @media (min-width: 1024px) {
             .experience { padding: 10rem 5rem; }
@@ -535,22 +542,18 @@
                 grid-column: 2 / span 2;
                 aspect-ratio: unset;
             }
-            .g-item:nth-child(5),
-            .g-item:nth-child(6) { display: none; }
         }
         @media (min-width: 1024px) {
             .gallery { padding: 10rem 5rem; }
             .g-grid {
-                grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+                grid-template-columns: 2fr 1fr 1fr;
                 grid-template-rows: 320px 320px;
             }
             .g-item:first-child { grid-column: 1; grid-row: span 2; }
-            .g-item:nth-child(4) { grid-column: 4; grid-row: span 2; aspect-ratio: unset; }
-            .g-item:nth-child(5) { display: block; grid-column: 2; grid-row: 2; }
-            .g-item:nth-child(6) { display: block; grid-column: 3; grid-row: 2; }
+            .g-item:nth-child(4) { grid-column: 2 / span 2; aspect-ratio: unset; }
         }
 
-        /* === TESTIMONIALS — Deep section === */
+        /* === TESTIMONIALS — Deep section, editorial === */
         .testimonials {
             padding: 6rem 1.5rem;
             background: var(--deep);
@@ -559,10 +562,10 @@
         }
         .testimonials .label { color: var(--warm); }
         .t-wrap {
-            max-width: 680px;
+            max-width: 720px;
             margin: 0 auto;
             position: relative;
-            min-height: 260px;
+            min-height: 280px;
         }
         .t-item {
             position: absolute;
@@ -572,139 +575,123 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.6s;
+            transform: translateY(12px);
+            transition: opacity 0.7s, transform 0.7s;
             padding: 0 0.5rem;
         }
-        .t-item.on { opacity: 1; }
+        .t-item.on { opacity: 1; transform: translateY(0); }
         .t-quote {
             font-family: var(--serif);
             font-style: italic;
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            line-height: 1.75;
-            color: rgba(250,247,242,0.9);
-            margin-bottom: 1.5rem;
+            font-size: clamp(1.15rem, 2.8vw, 1.55rem);
+            line-height: 1.8;
+            color: rgba(250,247,242,0.92);
+            margin-bottom: 2rem;
         }
         .t-quote::before {
             content: '\201C';
             display: block;
             font-family: var(--serif);
-            font-size: 4rem;
+            font-size: 5rem;
             color: var(--teal);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            opacity: 0.6;
+            line-height: 0.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.4;
+        }
+        .t-rule {
+            width: 32px;
+            height: 1px;
+            background: var(--warm);
+            opacity: 0.4;
+            margin-bottom: 1.5rem;
         }
         .t-author {
-            font-size: 0.85rem;
+            font-family: var(--sans);
+            font-size: 0.82rem;
             font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             color: var(--warm);
         }
         .t-from {
             font-size: 0.72rem;
             color: var(--ink-muted);
-            margin-top: 0.25rem;
+            margin-top: 0.35rem;
         }
-        .t-dots {
+        .t-progress {
             display: flex;
             justify-content: center;
-            gap: 0.8rem;
-            margin-top: 2rem;
+            gap: 0.5rem;
+            margin-top: 2.5rem;
         }
-        .td {
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: none;
+        .tp {
+            width: 48px;
+            height: 2px;
+            background: rgba(250,247,242,0.1);
             border: none;
-            padding: 0;
+            padding: 12px 0;
+            cursor: pointer;
+            background-clip: content-box;
+            transition: all 0.4s;
         }
-        .td::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            border: 1px solid var(--ink-muted);
-            transition: all 0.3s;
-        }
-        .td.on::before {
-            background: var(--teal);
-            border-color: var(--teal);
-            transform: scale(1.2);
+        .tp.on {
+            background-color: var(--warm);
+            background-clip: content-box;
         }
 
         @media (min-width: 768px) { .testimonials { padding: 8rem 3rem; } }
         @media (min-width: 1024px) { .testimonials { padding: 10rem 5rem; } }
 
-        /* === LOCATION — Light section === */
+        /* === LOCATION — Full-bleed image section === */
         .location {
-            padding: 6rem 1.5rem;
-            background: var(--cream);
-        }
-        .loc-inner {
-            max-width: 1140px;
-            margin: 0 auto;
-        }
-        .loc-map {
             position: relative;
-            aspect-ratio: 16/10;
-            background: var(--sand);
-            border-radius: 3px;
-            overflow: hidden;
-            margin-bottom: 3rem;
+            min-height: 70vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            background: var(--deep);
+            overflow: hidden;
         }
-        .loc-map::before {
+        .loc-bg {
+            position: absolute;
+            inset: 0;
+        }
+        .loc-bg img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .loc-bg::after {
             content: '';
             position: absolute;
             inset: 0;
-            background-image:
-                linear-gradient(rgba(42,107,94,0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(42,107,94,0.06) 1px, transparent 1px);
-            background-size: 36px 36px;
+            background: linear-gradient(135deg, rgba(14,28,42,0.85) 0%, rgba(14,28,42,0.5) 50%, rgba(14,28,42,0.2) 100%);
         }
-        .pin {
+        .loc-inner {
             position: relative;
             z-index: 2;
-            text-align: center;
+            padding: 6rem 1.5rem;
+            max-width: 560px;
         }
-        .pin::before {
-            content: '';
-            display: block;
-            width: 12px; height: 12px;
-            background: var(--teal);
-            border-radius: 50%;
-            margin: 0 auto 0.8rem;
-            box-shadow: 0 0 0 5px rgba(42,107,94,0.12), 0 0 0 10px rgba(42,107,94,0.06);
-            animation: pp 3s ease-in-out infinite;
+        .loc-inner .label { color: var(--warm); }
+        .loc-inner h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--cream);
+            margin-bottom: 2rem;
         }
-        @keyframes pp {
-            0%, 100% { box-shadow: 0 0 0 5px rgba(42,107,94,0.12), 0 0 0 10px rgba(42,107,94,0.06); }
-            50% { box-shadow: 0 0 0 9px rgba(42,107,94,0.08), 0 0 0 18px rgba(42,107,94,0.03); }
-        }
-        .pin span {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--ink-muted);
-        }
-        .loc-info { max-width: 480px; }
-        .loc-info h2 {
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
-            margin-bottom: 1.5rem;
+        .loc-rule {
+            width: 40px;
+            height: 1px;
+            background: var(--warm);
+            margin-bottom: 2rem;
+            opacity: 0.5;
         }
         .c-line {
             font-size: 0.92rem;
-            color: var(--ink-muted);
+            color: rgba(250,247,242,0.6);
             margin-bottom: 1rem;
             display: block;
         }
         .btn-book {
             display: inline-block;
-            background: var(--teal);
+            background: transparent;
             color: var(--cream);
             font-family: var(--sans);
             font-size: 0.78rem;
@@ -712,30 +699,25 @@
             letter-spacing: 0.14em;
             text-transform: uppercase;
             padding: 1rem 2.5rem;
-            border-radius: 2px;
+            border: 1px solid rgba(200,168,130,0.4);
+            border-radius: 0;
             margin-top: 2rem;
-            transition: background 0.3s;
-            border: none;
-            width: 100%;
-            max-width: 360px;
+            transition: all 0.4s;
             text-align: center;
         }
-        .btn-book:hover { background: var(--teal-hover); }
+        .btn-book:hover {
+            background: var(--warm);
+            color: var(--deep);
+            border-color: var(--warm);
+        }
 
         @media (min-width: 768px) {
-            .location { padding: 8rem 3rem; }
-            .loc-inner {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 4rem;
-                align-items: center;
-            }
-            .loc-map { margin-bottom: 0; aspect-ratio: 1; }
-            .btn-book { width: auto; }
+            .location { min-height: 75vh; }
+            .loc-inner { padding: 8rem 3rem 8rem 5rem; }
         }
         @media (min-width: 1024px) {
-            .location { padding: 10rem 5rem; }
-            .loc-inner { gap: 6rem; }
+            .location { min-height: 80vh; }
+            .loc-inner { padding: 10rem 5rem 10rem 8rem; max-width: 640px; }
         }
 
         /* === FOOTER === */
@@ -857,6 +839,7 @@
             <div class="exp-head">
                 <p class="label rv">The Experience</p>
                 <h2 class="rv rv-d1">More than a stay</h2>
+                <p class="exp-intro rv rv-d2">Four reasons guests extend their booking.</p>
             </div>
             <div class="amenities">
                 <div class="amenity rv rv-d1">
@@ -913,14 +896,6 @@
                     <img src="https://images.unsplash.com/photo-1558370781-d6196949e317?w=1000&q=80&fit=crop" alt="Old town street" loading="lazy">
                     <div class="g-cap"><span>The streets of Batumi</span></div>
                 </div>
-                <div class="g-item rv rv-d2">
-                    <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=600&q=80&fit=crop" alt="Courtyard pool" loading="lazy">
-                    <div class="g-cap"><span>The courtyard pool</span></div>
-                </div>
-                <div class="g-item rv rv-d3">
-                    <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=600&q=80&fit=crop" alt="Breakfast" loading="lazy">
-                    <div class="g-cap"><span>Morning light, morning feast</span></div>
-                </div>
             </div>
         </section>
 
@@ -930,41 +905,43 @@
             <div class="t-wrap rv rv-d1">
                 <div class="t-item on" data-i="0">
                     <p class="t-quote">We came for two nights and stayed for five. There's a quietness here that gets into your bones — you stop checking your phone, you stop rushing. It just happens.</p>
+                    <div class="t-rule"></div>
                     <p class="t-author">Elena & Marco</p>
                     <p class="t-from">Milan, Italy</p>
                 </div>
                 <div class="t-item" data-i="1">
                     <p class="t-quote">The rooftop at sunrise is the most beautiful place I've ever had coffee. The staff remembered my name after one conversation. This is what hospitality should feel like.</p>
+                    <div class="t-rule"></div>
                     <p class="t-author">Anna Krüger</p>
                     <p class="t-from">Berlin, Germany</p>
                 </div>
                 <div class="t-item" data-i="2">
                     <p class="t-quote">I've stayed at five-star hotels that didn't make me feel this taken care of. Fourteen rooms means they actually know you. The restaurant alone is worth the trip.</p>
+                    <div class="t-rule"></div>
                     <p class="t-author">James Whitfield</p>
                     <p class="t-from">London, UK</p>
                 </div>
             </div>
-            <div class="t-dots rv rv-d2">
-                <button class="td on" data-i="0" aria-label="Testimonial 1"></button>
-                <button class="td" data-i="1" aria-label="Testimonial 2"></button>
-                <button class="td" data-i="2" aria-label="Testimonial 3"></button>
+            <div class="t-progress rv rv-d2">
+                <button class="tp on" data-i="0" aria-label="Testimonial 1"></button>
+                <button class="tp" data-i="1" aria-label="Testimonial 2"></button>
+                <button class="tp" data-i="2" aria-label="Testimonial 3"></button>
             </div>
         </section>
 
         <!-- LOCATION -->
         <section class="location" id="contact">
+            <div class="loc-bg">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80&fit=crop" alt="Batumi coastline" loading="lazy">
+            </div>
             <div class="loc-inner">
-                <div class="loc-map rv">
-                    <div class="pin"><span>Batumi, Georgia</span></div>
-                </div>
-                <div class="loc-info">
-                    <p class="label rv">Find Us</p>
-                    <h2 class="rv rv-d1">Your journey begins here</h2>
-                    <span class="c-line rv rv-d2">12 Rustaveli Avenue, Batumi 6010, Georgia</span>
-                    <span class="c-line rv rv-d2">+995 422 27 00 00</span>
-                    <span class="c-line rv rv-d2">hello@casaserena.ge</span>
-                    <a href="#" class="btn-book rv rv-d3">Book Your Stay</a>
-                </div>
+                <p class="label rv">Find Us</p>
+                <h2 class="rv rv-d1">Your journey begins here</h2>
+                <div class="loc-rule rv rv-d1"></div>
+                <span class="c-line rv rv-d2">12 Rustaveli Avenue, Batumi 6010, Georgia</span>
+                <span class="c-line rv rv-d2">+995 422 27 00 00</span>
+                <span class="c-line rv rv-d2">hello@casaserena.ge</span>
+                <a href="#" class="btn-book rv rv-d3">Book Your Stay</a>
             </div>
         </section>
 
@@ -1015,15 +992,15 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.rv, .teal-rule').forEach(function(el) { obs.observe(el); });
 
-        var items = document.querySelectorAll('.t-item'), dots = document.querySelectorAll('.td'), cur = 0;
+        var items = document.querySelectorAll('.t-item'), bars = document.querySelectorAll('.tp'), cur = 0;
         function show(i) {
             items.forEach(function(t) { t.classList.remove('on'); });
-            dots.forEach(function(d) { d.classList.remove('on'); });
+            bars.forEach(function(d) { d.classList.remove('on'); });
             items[i].classList.add('on');
-            dots[i].classList.add('on');
+            bars[i].classList.add('on');
             cur = i;
         }
-        dots.forEach(function(d) { d.addEventListener('click', function() { show(+this.dataset.i); }); });
+        bars.forEach(function(d) { d.addEventListener('click', function() { show(+this.dataset.i); }); });
         setInterval(function() { show((cur + 1) % items.length); }, 6000);
 
         (function(){
