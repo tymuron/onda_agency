@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Serena — Boutique Hotel, Batumi</title>
+    <meta name="description" content="A 14-room boutique hotel where the Black Sea meets Georgian warmth. Batumi, Georgia.">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* === PALETTE — Warm Mediterranean Stone + Deep Coastal Teal === */
+        :root {
+            --sand: #EDE6DC;
+            --sand-dark: #DED5C8;
+            --cream: #FAF7F2;
+            --deep: #0E1C2A;
+            --deep-mid: #162636;
+            --ink: #1A1F25;
+            --ink-muted: #5C6369;
+            --teal: #2A6B5E;
+            --teal-hover: #358272;
+            --warm: #C8A882;
+            --warm-light: #D9C4A8;
+            --serif: 'DM Serif Display', serif;
+            --sans: 'Jost', sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--sand);
+            color: var(--ink);
+            font-weight: 300;
+            line-height: 1.75;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        body.loaded { opacity: 1; }
+
+        img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        a { color: inherit; text-decoration: none; cursor: pointer; }
+        button { cursor: pointer; font-family: var(--sans); }
+
+        h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; }
+
+        .label {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 1.2rem;
+        }
+
+        /* === SCROLL REVEAL === */
+        .rv {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .rv.v { opacity: 1; transform: translateY(0); }
+        .rv-d1 { transition-delay: 0.1s; }
+        .rv-d2 { transition-delay: 0.2s; }
+        .rv-d3 { transition-delay: 0.3s; }
+        .rv-d4 { transition-delay: 0.4s; }
+
+        /* === NAVIGATION === */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        nav.scrolled {
+            background: rgba(237, 230, 220, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 0.9rem 1.5rem;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+        }
+        .nav-brand {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            color: var(--cream);
+            transition: all 0.5s;
+        }
+        nav.scrolled .nav-brand {
+            color: var(--ink);
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 2.2rem;
+        }
+        .nav-links a {
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(250,247,242,0.7);
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--cream); }
+        nav.scrolled .nav-links a { color: var(--ink-muted); }
+        nav.scrolled .nav-links a:hover { color: var(--ink); }
+
+        .nav-back {
+            color: var(--warm-light) !important;
+            border: 1px solid rgba(200,168,130,0.4);
+            padding: 0.4rem 1rem;
+            border-radius: 2px;
+            transition: all 0.3s !important;
+        }
+        .nav-back:hover { border-color: var(--warm); }
+        nav.scrolled .nav-back {
+            color: var(--teal) !important;
+            border-color: rgba(42,107,94,0.3);
+        }
+        nav.scrolled .nav-back:hover { border-color: var(--teal); }
+
+        /* Hamburger */
+        .hb {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 8px;
+            z-index: 110;
+        }
+        .hb span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--cream);
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-origin: center;
+        }
+        nav.scrolled .hb span { background: var(--ink); }
+        .hb.on span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); background: var(--ink); }
+        .hb.on span:nth-child(2) { opacity: 0; }
+        .hb.on span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); background: var(--ink); }
+
+        /* Mobile Menu */
+        .mob-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 105;
+            background: var(--sand);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.2rem;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .mob-menu.on { transform: translateY(0); }
+        .mob-menu a {
+            font-family: var(--serif);
+            font-size: 2rem;
+            color: var(--ink);
+            transition: color 0.3s;
+        }
+        .mob-menu a:hover { color: var(--teal); }
+        .mob-menu .m-back {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--teal);
+            border: 1px solid rgba(42,107,94,0.3);
+            padding: 0.6rem 1.5rem;
+            border-radius: 2px;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            nav { padding: 1.5rem 3rem; }
+            nav.scrolled { padding: 1rem 3rem; }
+            .nav-links { display: flex; }
+            .hb { display: none; }
+        }
+        @media (min-width: 1024px) {
+            nav { padding: 1.8rem 5rem; }
+            nav.scrolled { padding: 1rem 5rem; }
+        }
+
+        /* === HERO === */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: var(--deep);
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(14,28,42,0.25) 0%, rgba(14,28,42,0.55) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 1.5rem;
+        }
+        .hero h1 {
+            font-size: clamp(2.8rem, 7.5vw, 5.5rem);
+            color: var(--cream);
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+        }
+        .hero-tagline {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+            color: var(--warm-light);
+            margin-bottom: 2.5rem;
+        }
+        .hero-rule {
+            width: 48px;
+            height: 1px;
+            background: var(--teal);
+            margin: 0 auto;
+            opacity: 0.7;
+        }
+        .scroll-cue {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .scroll-cue span {
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(250,247,242,0.35);
+        }
+        .scroll-cue::after {
+            content: '';
+            width: 1px;
+            height: 28px;
+            background: var(--teal);
+            opacity: 0.5;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scaleY(0.3); opacity: 0.2; transform-origin: top; }
+            50% { transform: scaleY(1); opacity: 0.6; }
+        }
+
+        /* === INTRO (Philosophy) — Light section === */
+        .intro {
+            padding: 6rem 1.5rem;
+            background: var(--sand);
+        }
+        .intro-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+        .intro-img {
+            position: relative;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            aspect-ratio: 4/5;
+        }
+        .intro-text { max-width: 520px; }
+        .intro-text h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+        }
+        .intro-text p {
+            color: var(--ink-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.1rem;
+        }
+        .teal-rule {
+            height: 1px;
+            background: var(--teal);
+            width: 0;
+            margin-bottom: 1.8rem;
+            transition: width 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+        }
+        .teal-rule.v { width: 40px; }
+
+        @media (min-width: 768px) {
+            .intro { padding: 8rem 3rem; }
+            .intro-inner {
+                display: grid;
+                grid-template-columns: 5fr 6fr;
+                gap: 4rem;
+                align-items: center;
+            }
+            .intro-img { margin-bottom: 0; aspect-ratio: 3/4; }
+        }
+        @media (min-width: 1024px) {
+            .intro { padding: 10rem 5rem; }
+            .intro-inner { gap: 6rem; }
+        }
+
+        /* === ROOMS — Dark section === */
+        .rooms {
+            padding: 6rem 0;
+            background: var(--deep);
+            color: var(--cream);
+        }
+        .rooms-head {
+            text-align: center;
+            padding: 0 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .rooms-head .label { color: var(--warm); }
+        .rooms-head h2 {
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            color: var(--cream);
+        }
+
+        .rooms-track {
+            display: flex;
+            gap: 1.25rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 0 1.5rem 1.5rem;
+        }
+        .rooms-track::-webkit-scrollbar { display: none; }
+
+        .room {
+            flex: 0 0 85%;
+            scroll-snap-align: center;
+            position: relative;
+            border-radius: 3px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            transition: transform 0.4s;
+        }
+        .room::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(14,28,42,0.85) 100%);
+            pointer-events: none;
+        }
+        .room-info {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 2rem 1.5rem;
+            z-index: 2;
+        }
+        .room-name {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: 0.3rem;
+        }
+        .room-price {
+            font-size: 0.75rem;
+            color: var(--warm);
+            letter-spacing: 0.08em;
+        }
+
+        @media (min-width: 768px) {
+            .rooms { padding: 8rem 0; }
+            .rooms-track {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                overflow: visible;
+                padding: 0 3rem;
+                gap: 1.5rem;
+            }
+            .room { flex: none; }
+            .room:hover { transform: translateY(-6px); }
+        }
+        @media (min-width: 1024px) {
+            .rooms { padding: 10rem 0; }
+            .rooms-track { padding: 0 5rem; gap: 2rem; }
+        }
+
+        /* === EXPERIENCE — Light section === */
+        .experience {
+            padding: 6rem 1.5rem;
+            background: var(--cream);
+        }
+        .exp-head {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .exp-head h2 {
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+        }
+        .amenities {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2.5rem;
+        }
+        .amenity {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--sand-dark);
+        }
+        .amenity:last-child { border-bottom: none; }
+        .a-num {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 2rem;
+            color: var(--teal);
+            line-height: 1;
+            min-width: 2.5rem;
+            opacity: 0.5;
+        }
+        .a-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--ink);
+        }
+        .a-body p {
+            font-size: 0.88rem;
+            color: var(--ink-muted);
+        }
+
+        @media (min-width: 768px) {
+            .experience { padding: 8rem 3rem; }
+            .amenities { grid-template-columns: 1fr 1fr; gap: 0; }
+            .amenity {
+                padding: 2rem;
+                border-bottom: none;
+                border-right: 1px solid var(--sand-dark);
+            }
+            .amenity:nth-child(2), .amenity:nth-child(4) { border-right: none; }
+            .amenity:nth-child(1), .amenity:nth-child(2) {
+                border-bottom: 1px solid var(--sand-dark);
+            }
+        }
+        @media (min-width: 1024px) {
+            .experience { padding: 10rem 5rem; }
+        }
+
+        /* === GALLERY — Sand bg, editorial layout === */
+        .gallery {
+            padding: 6rem 1.5rem;
+            background: var(--sand);
+            overflow: hidden;
+        }
+        .gallery-head {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .gallery-head h2 {
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+        }
+        .g-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+        }
+        .g-item {
+            position: relative;
+            border-radius: 3px;
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+        .g-item:first-child {
+            grid-column: span 2;
+            aspect-ratio: 16/9;
+        }
+        .g-item:nth-child(4) {
+            grid-column: span 2;
+            aspect-ratio: 2.4/1;
+        }
+        .g-cap {
+            position: absolute;
+            inset: 0;
+            background: rgba(14,28,42,0.45);
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .g-item:hover .g-cap,
+        .g-item:active .g-cap { opacity: 1; }
+        .g-cap span {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 0.88rem;
+            color: var(--cream);
+        }
+
+        @media (min-width: 768px) {
+            .gallery { padding: 8rem 3rem; }
+            .g-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+                grid-template-rows: 300px 300px;
+                gap: 0.8rem;
+            }
+            .g-item { aspect-ratio: unset; height: 100%; }
+            .g-item:first-child {
+                grid-column: 1;
+                grid-row: span 2;
+                aspect-ratio: unset;
+            }
+            .g-item:nth-child(4) {
+                grid-column: 2 / span 2;
+                aspect-ratio: unset;
+            }
+            .g-item:nth-child(5),
+            .g-item:nth-child(6) { display: none; }
+        }
+        @media (min-width: 1024px) {
+            .gallery { padding: 10rem 5rem; }
+            .g-grid {
+                grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+                grid-template-rows: 320px 320px;
+            }
+            .g-item:first-child { grid-column: 1; grid-row: span 2; }
+            .g-item:nth-child(4) { grid-column: 4; grid-row: span 2; aspect-ratio: unset; }
+            .g-item:nth-child(5) { display: block; grid-column: 2; grid-row: 2; }
+            .g-item:nth-child(6) { display: block; grid-column: 3; grid-row: 2; }
+        }
+
+        /* === TESTIMONIALS — Deep section === */
+        .testimonials {
+            padding: 6rem 1.5rem;
+            background: var(--deep);
+            color: var(--cream);
+            text-align: center;
+        }
+        .testimonials .label { color: var(--warm); }
+        .t-wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 260px;
+        }
+        .t-item {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.6s;
+            padding: 0 0.5rem;
+        }
+        .t-item.on { opacity: 1; }
+        .t-quote {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            line-height: 1.75;
+            color: rgba(250,247,242,0.9);
+            margin-bottom: 1.5rem;
+        }
+        .t-quote::before {
+            content: '\201C';
+            display: block;
+            font-family: var(--serif);
+            font-size: 4rem;
+            color: var(--teal);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            opacity: 0.6;
+        }
+        .t-author {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--warm);
+        }
+        .t-from {
+            font-size: 0.72rem;
+            color: var(--ink-muted);
+            margin-top: 0.25rem;
+        }
+        .t-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+        .td {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+        .td::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid var(--ink-muted);
+            transition: all 0.3s;
+        }
+        .td.on::before {
+            background: var(--teal);
+            border-color: var(--teal);
+            transform: scale(1.2);
+        }
+
+        @media (min-width: 768px) { .testimonials { padding: 8rem 3rem; } }
+        @media (min-width: 1024px) { .testimonials { padding: 10rem 5rem; } }
+
+        /* === LOCATION — Light section === */
+        .location {
+            padding: 6rem 1.5rem;
+            background: var(--cream);
+        }
+        .loc-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+        .loc-map {
+            position: relative;
+            aspect-ratio: 16/10;
+            background: var(--sand);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .loc-map::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(42,107,94,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(42,107,94,0.06) 1px, transparent 1px);
+            background-size: 36px 36px;
+        }
+        .pin {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .pin::before {
+            content: '';
+            display: block;
+            width: 12px; height: 12px;
+            background: var(--teal);
+            border-radius: 50%;
+            margin: 0 auto 0.8rem;
+            box-shadow: 0 0 0 5px rgba(42,107,94,0.12), 0 0 0 10px rgba(42,107,94,0.06);
+            animation: pp 3s ease-in-out infinite;
+        }
+        @keyframes pp {
+            0%, 100% { box-shadow: 0 0 0 5px rgba(42,107,94,0.12), 0 0 0 10px rgba(42,107,94,0.06); }
+            50% { box-shadow: 0 0 0 9px rgba(42,107,94,0.08), 0 0 0 18px rgba(42,107,94,0.03); }
+        }
+        .pin span {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--ink-muted);
+        }
+        .loc-info { max-width: 480px; }
+        .loc-info h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin-bottom: 1.5rem;
+        }
+        .c-line {
+            font-size: 0.92rem;
+            color: var(--ink-muted);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .btn-book {
+            display: inline-block;
+            background: var(--teal);
+            color: var(--cream);
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            border-radius: 2px;
+            margin-top: 2rem;
+            transition: background 0.3s;
+            border: none;
+            width: 100%;
+            max-width: 360px;
+            text-align: center;
+        }
+        .btn-book:hover { background: var(--teal-hover); }
+
+        @media (min-width: 768px) {
+            .location { padding: 8rem 3rem; }
+            .loc-inner {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                align-items: center;
+            }
+            .loc-map { margin-bottom: 0; aspect-ratio: 1; }
+            .btn-book { width: auto; }
+        }
+        @media (min-width: 1024px) {
+            .location { padding: 10rem 5rem; }
+            .loc-inner { gap: 6rem; }
+        }
+
+        /* === FOOTER === */
+        footer {
+            padding: 3rem 1.5rem;
+            background: var(--deep);
+            text-align: center;
+            color: var(--cream);
+        }
+        .f-brand {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        .f-social {
+            font-size: 0.78rem;
+            color: var(--ink-muted);
+            margin-bottom: 1.5rem;
+        }
+        .f-social a { color: var(--ink-muted); transition: color 0.3s; }
+        .f-social a:hover { color: var(--warm); }
+        .f-onda {
+            font-size: 0.7rem;
+            color: rgba(250,247,242,0.25);
+            margin-bottom: 0.4rem;
+        }
+        .f-onda a { color: var(--teal); transition: opacity 0.3s; }
+        .f-onda a:hover { opacity: 0.7; }
+        .f-copy { font-size: 0.62rem; color: rgba(250,247,242,0.15); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="#" class="nav-brand">Casa Serena</a>
+        <div class="nav-links">
+            <a href="#rooms">Rooms</a>
+            <a href="#experience">Experience</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+            <a href="https://agencyonda.com/portfolio.html" class="nav-back">Back to Onda</a>
+        </div>
+        <button class="hb" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+
+    <div class="mob-menu" id="mm">
+        <a href="#rooms" class="ml">Rooms</a>
+        <a href="#experience" class="ml">Experience</a>
+        <a href="#gallery" class="ml">Gallery</a>
+        <a href="#contact" class="ml">Contact</a>
+        <a href="https://agencyonda.com/portfolio.html" class="m-back">Back to Onda</a>
+    </div>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1600&q=80&fit=crop" alt="Coastline at dusk" loading="eager">
+            </div>
+            <div class="hero-content">
+                <h1>Casa Serena</h1>
+                <p class="hero-tagline">Where the Black Sea meets stillness</p>
+                <div class="hero-rule"></div>
+            </div>
+        </section>
+
+        <!-- INTRO / PHILOSOPHY -->
+        <section class="intro">
+            <div class="intro-inner">
+                <div class="intro-img rv">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80&fit=crop" alt="Hotel lounge" loading="lazy">
+                </div>
+                <div class="intro-text">
+                    <p class="label rv">Our Philosophy</p>
+                    <h2 class="rv rv-d1">A place designed for stillness</h2>
+                    <div class="teal-rule rv rv-d1"></div>
+                    <p class="rv rv-d2">Casa Serena was born from a simple belief: the best hotels don't demand your attention — they quiet everything else. Fourteen rooms, each a conversation between light, stone, and the sea beyond.</p>
+                    <p class="rv rv-d3">We chose Batumi not for its crowds, but for its mornings — the way the Black Sea catches the first light, the sound of waves through open windows, the unhurried rhythm of a coast that hasn't forgotten how to breathe.</p>
+                    <p class="rv rv-d4">Every detail here serves rest. Nothing is accidental. Nothing is excessive.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROOMS -->
+        <section class="rooms" id="rooms">
+            <div class="rooms-head">
+                <p class="label rv">Rooms & Suites</p>
+                <h2 class="rv rv-d1">Every room tells a story</h2>
+            </div>
+            <div class="rooms-track">
+                <div class="room rv rv-d1">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80&fit=crop" alt="Sea View Suite" loading="lazy">
+                    <div class="room-info">
+                        <p class="room-name">Sea View Suite</p>
+                        <p class="room-price">from €89 / night</p>
+                    </div>
+                </div>
+                <div class="room rv rv-d2">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80&fit=crop" alt="Garden Room" loading="lazy">
+                    <div class="room-info">
+                        <p class="room-name">Garden Room</p>
+                        <p class="room-price">from €69 / night</p>
+                    </div>
+                </div>
+                <div class="room rv rv-d3">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80&fit=crop" alt="Terrace Suite" loading="lazy">
+                    <div class="room-info">
+                        <p class="room-name">Terrace Suite</p>
+                        <p class="room-price">from €119 / night</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="experience" id="experience">
+            <div class="exp-head">
+                <p class="label rv">The Experience</p>
+                <h2 class="rv rv-d1">More than a stay</h2>
+            </div>
+            <div class="amenities">
+                <div class="amenity rv rv-d1">
+                    <span class="a-num">01</span>
+                    <div class="a-body">
+                        <h3>Rooftop Terrace</h3>
+                        <p>Uninterrupted views of the Black Sea, best at golden hour</p>
+                    </div>
+                </div>
+                <div class="amenity rv rv-d2">
+                    <span class="a-num">02</span>
+                    <div class="a-body">
+                        <h3>Farm-to-Table</h3>
+                        <p>Georgian cuisine made with ingredients from local markets</p>
+                    </div>
+                </div>
+                <div class="amenity rv rv-d3">
+                    <span class="a-num">03</span>
+                    <div class="a-body">
+                        <h3>Private Beach</h3>
+                        <p>A quiet stretch of coastline reserved for our guests</p>
+                    </div>
+                </div>
+                <div class="amenity rv rv-d4">
+                    <span class="a-num">04</span>
+                    <div class="a-body">
+                        <h3>Local Experiences</h3>
+                        <p>Curated walks, wine tastings, and hidden-gem excursions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="gallery" id="gallery">
+            <div class="gallery-head">
+                <p class="label rv">Atmosphere</p>
+                <h2 class="rv rv-d1">A feeling, not just a place</h2>
+            </div>
+            <div class="g-grid">
+                <div class="g-item rv">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80&fit=crop" alt="Restaurant" loading="lazy">
+                    <div class="g-cap"><span>Evening at the restaurant</span></div>
+                </div>
+                <div class="g-item rv rv-d1">
+                    <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&q=80&fit=crop" alt="Terrace at sunset" loading="lazy">
+                    <div class="g-cap"><span>The terrace at sunset</span></div>
+                </div>
+                <div class="g-item rv rv-d2">
+                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80&fit=crop" alt="Bathroom" loading="lazy">
+                    <div class="g-cap"><span>Suite bathroom</span></div>
+                </div>
+                <div class="g-item rv rv-d1">
+                    <img src="https://images.unsplash.com/photo-1558370781-d6196949e317?w=1000&q=80&fit=crop" alt="Old town street" loading="lazy">
+                    <div class="g-cap"><span>The streets of Batumi</span></div>
+                </div>
+                <div class="g-item rv rv-d2">
+                    <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=600&q=80&fit=crop" alt="Courtyard pool" loading="lazy">
+                    <div class="g-cap"><span>The courtyard pool</span></div>
+                </div>
+                <div class="g-item rv rv-d3">
+                    <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=600&q=80&fit=crop" alt="Breakfast" loading="lazy">
+                    <div class="g-cap"><span>Morning light, morning feast</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials">
+            <p class="label rv">What Guests Say</p>
+            <div class="t-wrap rv rv-d1">
+                <div class="t-item on" data-i="0">
+                    <p class="t-quote">We came for two nights and stayed for five. There's a quietness here that gets into your bones — you stop checking your phone, you stop rushing. It just happens.</p>
+                    <p class="t-author">Elena & Marco</p>
+                    <p class="t-from">Milan, Italy</p>
+                </div>
+                <div class="t-item" data-i="1">
+                    <p class="t-quote">The rooftop at sunrise is the most beautiful place I've ever had coffee. The staff remembered my name after one conversation. This is what hospitality should feel like.</p>
+                    <p class="t-author">Anna Krüger</p>
+                    <p class="t-from">Berlin, Germany</p>
+                </div>
+                <div class="t-item" data-i="2">
+                    <p class="t-quote">I've stayed at five-star hotels that didn't make me feel this taken care of. Fourteen rooms means they actually know you. The restaurant alone is worth the trip.</p>
+                    <p class="t-author">James Whitfield</p>
+                    <p class="t-from">London, UK</p>
+                </div>
+            </div>
+            <div class="t-dots rv rv-d2">
+                <button class="td on" data-i="0" aria-label="Testimonial 1"></button>
+                <button class="td" data-i="1" aria-label="Testimonial 2"></button>
+                <button class="td" data-i="2" aria-label="Testimonial 3"></button>
+            </div>
+        </section>
+
+        <!-- LOCATION -->
+        <section class="location" id="contact">
+            <div class="loc-inner">
+                <div class="loc-map rv">
+                    <div class="pin"><span>Batumi, Georgia</span></div>
+                </div>
+                <div class="loc-info">
+                    <p class="label rv">Find Us</p>
+                    <h2 class="rv rv-d1">Your journey begins here</h2>
+                    <span class="c-line rv rv-d2">12 Rustaveli Avenue, Batumi 6010, Georgia</span>
+                    <span class="c-line rv rv-d2">+995 422 27 00 00</span>
+                    <span class="c-line rv rv-d2">hello@casaserena.ge</span>
+                    <a href="#" class="btn-book rv rv-d3">Book Your Stay</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="f-brand">Casa Serena</p>
+        <p class="f-social">
+            <a href="#">Instagram</a> &ensp;·&ensp; <a href="#">Facebook</a> &ensp;·&ensp; <a href="#">TripAdvisor</a>
+        </p>
+        <p class="f-onda">Website by <a href="https://agencyonda.com">Onda</a></p>
+        <p class="f-copy">&copy; 2026 Casa Serena</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+
+        window.addEventListener('scroll', function() {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
+        }, { passive: true });
+
+        var hb = document.getElementById('hb'), mm = document.getElementById('mm');
+        hb.addEventListener('click', function() {
+            hb.classList.toggle('on');
+            mm.classList.toggle('on');
+            document.body.style.overflow = mm.classList.contains('on') ? 'hidden' : '';
+        });
+        document.querySelectorAll('.ml').forEach(function(l) {
+            l.addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = this.getAttribute('href');
+                hb.classList.remove('on');
+                mm.classList.remove('on');
+                document.body.style.overflow = '';
+                var el = document.querySelector(target);
+                if (el) el.scrollIntoView();
+            });
+        });
+
+        new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('v'); });
+        }, { threshold: 0.1 }).observe(document.documentElement);
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('v'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.rv, .teal-rule').forEach(function(el) { obs.observe(el); });
+
+        var items = document.querySelectorAll('.t-item'), dots = document.querySelectorAll('.td'), cur = 0;
+        function show(i) {
+            items.forEach(function(t) { t.classList.remove('on'); });
+            dots.forEach(function(d) { d.classList.remove('on'); });
+            items[i].classList.add('on');
+            dots[i].classList.add('on');
+            cur = i;
+        }
+        dots.forEach(function(d) { d.addEventListener('click', function() { show(+this.dataset.i); }); });
+        setInterval(function() { show((cur + 1) % items.length); }, 6000);
+
+        (function(){
+            var r = document.referrer, s = '.html';
+            if (r.indexOf('_ka') !== -1) s = '_ka.html';
+            else if (r.indexOf('_es') !== -1) s = '_es.html';
+            document.querySelectorAll('a').forEach(function(a) {
+                if (a.href.indexOf('agencyonda.com/portfolio') !== -1)
+                    a.href = 'https://agencyonda.com/portfolio' + s;
+            });
+        })();
+    </script>
+</body>
+</html>
