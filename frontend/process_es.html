@@ -1,198 +1,491 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onda | Proceso</title>
-    <meta name="description" content="Pasos claros, construcción rápida, sin proceso inflado. Así entrega Onda webs premium para negocios de servicios en días, no meses.">
+    <meta name="description" content="Pasos claros, construcci&oacute;n r&aacute;pida, sin proceso inflado. As&iacute; entrega Onda webs premium para negocios de servicios en d&iacute;as, no meses.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Onda | Proceso">
+    <meta property="og:description" content="Pasos claros, construcci&oacute;n r&aacute;pida, sin proceso inflado. Webs premium para negocios de servicios en d&iacute;as, no meses.">
+    <meta property="og:image" content="https://ondaweb.es/og-image.png">
+    <meta property="og:url" content="https://ondaweb.es/process_es.html">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Onda | Proceso">
+    <meta name="twitter:description" content="Pasos claros, construcci&oacute;n r&aacute;pida, sin proceso inflado. Webs premium en d&iacute;as, no meses.">
+    <meta name="twitter:image" content="https://ondaweb.es/og-image.png">
+
+    <!-- Fonts (preconnect + link, not @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
         :root {
-            --accent: #2563eb;
-            --border-color: #dbe4f0;
+            --bg: #0a0a0a;
+            --surface: rgba(255,255,255,0.03);
+            --surface-hover: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.06);
+            --border-hover: rgba(255,255,255,0.12);
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #3B82F6;
+            --accent-dark: #2563eb;
+            --ease: cubic-bezier(0.32, 0.72, 0, 1);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 38%);
-            color: #0f172a;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: white;
-            padding: 0.85rem 1.45rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            box-shadow: 0 10px 25px -15px rgba(37, 99, 235, 0.8);
-            transition: all 0.2s ease;
+        h1,h2,h3,h4,h5,h6 { letter-spacing: -0.03em; line-height: 1.1; }
+        ::selection { background: rgba(59,130,246,0.3); color: white; }
+        html { scroll-behavior: smooth; }
+
+        /* ===== NOISE OVERLAY ===== */
+        .noise {
+            position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.025;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        .btn-primary:hover {
-            transform: translateY(-1px);
+        /* ===== FLOATING ISLAND NAV ===== */
+        .island-nav {
+            position: fixed; top: 1.25rem; left: 50%; transform: translateX(-50%); z-index: 50;
+            border-radius: 9999px; background: rgba(10,10,10,0.6);
+            backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border); padding: 0.4rem 0.5rem 0.4rem 1.25rem;
+            display: flex; align-items: center;
+            transition: transform 0.6s var(--ease), opacity 0.6s var(--ease);
+            box-shadow: 0 8px 32px -8px rgba(0,0,0,0.5);
+        }
+        .island-nav.nav-hidden { transform: translateX(-50%) translateY(-140%); opacity: 0; }
+        .nav-link {
+            color: var(--text-secondary); font-size: 0.8125rem; font-weight: 500;
+            padding: 0.5rem 0.75rem; border-radius: 9999px;
+            transition: color 0.3s var(--ease), background 0.3s var(--ease); white-space: nowrap;
+        }
+        .nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.06); }
+        .nav-link-active { color: var(--accent) !important; }
+        .nav-cta {
+            background: var(--accent); color: white; font-size: 0.8125rem; font-weight: 600;
+            padding: 0.5rem 1.25rem; border-radius: 9999px; margin-left: 0.5rem;
+            transition: all 0.3s var(--ease); white-space: nowrap;
+        }
+        .nav-cta:hover { background: var(--accent-dark); transform: scale(0.98); }
+        .nav-cta:active { transform: scale(0.96) translateY(1px); }
+        .nav-logo { font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; color: var(--text-primary); margin-right: 1rem; }
+        .nav-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.08); margin: 0 0.25rem; }
+
+        /* ===== HERO BLOBS ===== */
+        .hero-blob {
+            position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.12; will-change: transform;
+        }
+        .hero-blob-1 { width: 600px; height: 600px; background: #3B82F6; top: -15%; left: 10%; animation: bd1 22s ease-in-out infinite alternate; }
+        .hero-blob-2 { width: 450px; height: 450px; background: #1d4ed8; bottom: -5%; right: 5%; animation: bd2 28s ease-in-out infinite alternate; }
+        @keyframes bd1 { to { transform: translate(100px,-80px) scale(1.2); } }
+        @keyframes bd2 { to { transform: translate(-80px,60px) scale(1.15); } }
+
+        /* ===== SPOTLIGHT CARDS ===== */
+        .spot {
+            position: relative; overflow: hidden;
+            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+            background: var(--surface); border: 1px solid var(--border); border-radius: 1.5rem;
+        }
+        .spot::before {
+            content: ''; position: absolute; inset: 0; opacity: 0;
+            transition: opacity 0.5s var(--ease);
+            background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(59,130,246,0.06), transparent 40%);
+            z-index: 0; pointer-events: none; border-radius: inherit;
+        }
+        .spot:hover::before { opacity: 1; }
+        .spot:hover { transform: translateY(-2px); border-color: rgba(59,130,246,0.15); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.4); }
+        .spot > * { position: relative; z-index: 1; }
+
+        /* ===== REVEAL ===== */
+        .reveal {
+            opacity: 0; transform: translateY(20px); filter: blur(6px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
+        }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+        .stagger-1 { transition-delay: 0ms !important; }
+        .stagger-2 { transition-delay: 100ms !important; }
+        .stagger-3 { transition-delay: 200ms !important; }
+        .stagger-4 { transition-delay: 300ms !important; }
+
+        /* ===== BUTTONS ===== */
+        .btn-p {
+            background: var(--accent); color: white; padding: 0.75rem 1.5rem;
+            border-radius: 9999px; font-weight: 600; font-size: 0.9375rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: all 0.3s var(--ease); border: none; cursor: pointer;
+            position: relative; overflow: hidden;
+        }
+        .btn-p:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 12px 24px -8px rgba(59,130,246,0.4); }
+        .btn-p:active { transform: scale(0.98) translateY(1px); }
+
+        /* ===== SHIMMER ===== */
+        .shimmer { position: relative; overflow: hidden; }
+        .shimmer::after {
+            content: ''; position: absolute; top: -50%; left: -75%; width: 50%; height: 200%;
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
+            animation: shimmerSweep 3.5s ease-in-out infinite; pointer-events: none;
+        }
+        @keyframes shimmerSweep { 0%,100% { transform: translateX(-100%); } 50% { transform: translateX(350%); } }
+
+        /* ===== EYEBROW ===== */
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.3rem 0.75rem; border-radius: 9999px;
+            background: rgba(59,130,246,0.08); color: var(--accent);
+            font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
         }
 
-        .panel {
-            background: rgba(255, 255, 255, 0.86);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--border-color);
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 45px -35px rgba(15, 23, 42, 0.35);
+        /* ===== DIVIDER ===== */
+        .divider {
+            height: 1px; border: none;
+            background: linear-gradient(90deg, transparent, rgba(59,130,246,0.12) 20%, rgba(59,130,246,0.18) 50%, rgba(59,130,246,0.12) 80%, transparent);
         }
 
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        /* ===== BUTTON ICON WRAP ===== */
+        .btn-icon-wrap {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px; border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            transition: all 0.3s var(--ease); flex-shrink: 0;
+        }
+        .btn-p:hover .btn-icon-wrap {
+            background: rgba(255,255,255,0.25);
+            transform: translateX(2px) translateY(-1px) scale(1.05);
         }
 
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* ===== GRID PATTERN ===== */
+        .grid-bg {
+            background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 60px 60px;
         }
 
-        .section-label {
-            display: inline-flex;
-            padding: 0.35rem 0.75rem;
-            border-radius: 9999px;
-            background: rgba(37, 99, 235, 0.08);
-            color: #2563eb;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 2rem; background: var(--bg);
+            transform: translateX(100%); transition: transform 0.4s var(--ease);
+        }
+        .mobile-menu.open { transform: translateX(0); }
+        .mobile-menu a { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); transition: color 0.3s; }
+        .mobile-menu a:hover { color: var(--accent); }
+
+        /* ===== LAMP GLOW ===== */
+        .lamp {
+            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 100%; height: 300px;
+            background: radial-gradient(ellipse at 50% 100%, rgba(59,130,246,0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline-line {
+            position: absolute;
+            left: 39px;
+            top: 100px;
+            bottom: 40px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), rgba(59,130,246,0.05));
+            z-index: 0;
+            border-radius: 2px;
+        }
+        @media (max-width: 767px) {
+            .timeline-line { display: none; }
+        }
+
+        /* ===== STEP NUMBER ===== */
+        .step-num {
+            width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem; font-weight: 800; position: relative;
+        }
+        .step-num-active {
+            background: var(--accent); color: white;
+            box-shadow: 0 0 24px -4px rgba(59,130,246,0.5);
+        }
+        .step-num-default {
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+        .spot:hover .step-num-default {
+            border-color: rgba(59,130,246,0.25); color: var(--accent);
+        }
+
+        /* ===== SKIP LINK ===== */
+        .skip-link {
+            position: absolute; left: -9999px; top: 0; z-index: 9999;
+            background: var(--accent); color: white; padding: 0.75rem 1.5rem;
+            font-weight: 600; font-size: 0.875rem; border-radius: 0 0 0.75rem 0;
+            transition: left 0.2s var(--ease);
+        }
+        .skip-link:focus { left: 0; }
+
+        /* ===== FOCUS-VISIBLE ===== */
+        *:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .btn-p:focus-visible, .nav-cta:focus-visible {
+            outline-offset: 3px;
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
+        }
+
+        /* ===== PREFERS REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1; transform: none; filter: none; }
+            .hero-blob { animation: none !important; }
+            .shimmer::after { animation: none !important; }
         }
     </style>
 </head>
 
-<body class="antialiased">
+<body>
+    <!-- Skip-to-content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-    <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/75 backdrop-blur-xl">
-        <div class="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 md:h-20 md:px-6">
-            <a href="index_es.html" class="flex items-center gap-3">
-                <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white">
-                    <i data-lucide="waves" class="h-5 w-5"></i>
-                </div>
-                <span class="text-xl font-bold tracking-tight text-slate-900">ONDA</span>
-            </a>
-            <div class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-                <a href="index_es.html#packages" class="hover:text-blue-600 transition-colors">Paquetes</a>
-                <a href="index_es.html#proof" class="hover:text-blue-600 transition-colors">Conceptos</a>
-                <a href="#" class="text-blue-600">Proceso</a>
-                <a href="index_es.html#contact" class="hover:text-blue-600 transition-colors">Contacto</a>
-                <a href="process.html" class="border-l border-slate-200 pl-6 text-slate-400 hover:text-slate-900 transition-colors">EN</a>
-                <a href="process_ka.html" class="text-slate-400 hover:text-slate-900 transition-colors">KA</a>
-            </div>
-            <a href="index_es.html#contact" class="hidden md:inline-flex btn-primary">Pedir presupuesto</a>
-            <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
+    <!-- Noise overlay -->
+    <div class="noise" aria-hidden="true"></div>
+
+    <!-- ===== FLOATING ISLAND NAV ===== -->
+    <nav class="island-nav" id="islandNav">
+        <a href="index_es.html" class="nav-logo" style="text-decoration:none;">ONDA</a>
+        <div class="hidden md:flex items-center">
+            <a href="index_es.html#packages" class="nav-link">Paquetes</a>
+            <a href="index_es.html#work" class="nav-link">Conceptos</a>
+            <a href="process_es.html" class="nav-link nav-link-active">Proceso</a>
+            <a href="index_es.html#contact" class="nav-link">Contacto</a>
+            <div class="nav-divider"></div>
+            <a href="process.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">EN</a>
+            <a href="process_ka.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">KA</a>
         </div>
+        <a href="index_es.html#contact" class="nav-cta hidden md:inline-flex">Pedir presupuesto</a>
+        <button id="mobileMenuBtn" class="md:hidden ml-2 p-2 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Abrir menú">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
     </nav>
 
-    <div id="mobile-menu"
-        class="fixed inset-0 z-[60] flex translate-x-full flex-col items-center justify-center gap-8 bg-white text-slate-900 transition-transform duration-300 md:hidden">
-        <a href="index_es.html#packages" class="text-3xl font-bold hover:text-blue-600 transition-colors">Paquetes</a>
-        <a href="index_es.html#proof" class="text-3xl font-bold hover:text-blue-600 transition-colors">Conceptos</a>
-        <a href="#" class="text-3xl font-bold text-blue-600">Proceso</a>
-        <a href="index_es.html#contact" class="text-3xl font-bold hover:text-blue-600 transition-colors">Contacto</a>
-        <a href="process.html" class="text-xl font-medium text-slate-400">EN</a>
-        <a href="process_ka.html" class="text-xl font-medium text-slate-400">KA</a>
-        <button id="mobile-menu-close-btn" class="absolute right-4 top-5 text-slate-900"><i data-lucide="x" class="h-8 w-8"></i></button>
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index_es.html#packages">Paquetes</a>
+        <a href="index_es.html#work">Conceptos</a>
+        <a href="process_es.html" style="color:var(--accent)">Proceso</a>
+        <a href="index_es.html#contact">Contacto</a>
+        <div class="flex gap-4 mt-4">
+            <a href="process.html" style="font-size:1.125rem;color:var(--text-muted)">EN</a>
+            <a href="process_ka.html" style="font-size:1.125rem;color:var(--text-muted)">KA</a>
+        </div>
+        <button id="mobileMenuClose" class="absolute right-5 top-5 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Cerrar menú">
+            <i data-lucide="x" class="w-7 h-7"></i>
+        </button>
     </div>
 
-    <header class="mx-auto max-w-5xl px-6 pt-24 md:pt-32 pb-16 text-center">
-        <div class="section-label mb-6 fade-in-section">Cómo funciona</div>
-        <h1 class="fade-in-section text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl md:text-5xl lg:text-7xl">Pasos claros. Construcción rápida. Sin proceso inflado.</h1>
-        <p class="fade-in-section mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl">
-            La idea es mantener el proyecto enfocado, movernos rápido y lanzar algo que se sienta mucho más caro de lo que cuesta el proceso.
-        </p>
-    </header>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="main-content">
 
-    <section class="mx-auto max-w-5xl px-6 pb-24">
-        <div class="space-y-8">
-            <div class="panel fade-in-section grid gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]">
-                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600 text-2xl font-bold text-white">1</div>
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-900">Descubrimiento rápido</h2>
-                    <p class="mt-3 text-slate-600">Me cuentas a qué se dedica el negocio, qué se siente flojo ahora y con qué urgencia quieres lanzar. Lo mantengo corto a propósito.</p>
+    <!-- ===== HERO ===== -->
+    <section class="relative overflow-hidden pt-28 sm:pt-36 md:pt-44 pb-16 sm:pb-20 grid-bg">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="lamp"></div>
+
+        <div class="relative z-10 mx-auto max-w-[1400px] w-full px-5 sm:px-6 md:px-10">
+            <div class="max-w-3xl">
+                <div class="eyebrow mb-5 sm:mb-8 reveal stagger-1">
+                    <span class="relative flex h-2 w-2">
+                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex h-2 w-2 rounded-full bg-blue-400"></span>
+                    </span>
+                    Cómo funciona
                 </div>
-            </div>
-            <div class="panel fade-in-section grid gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]" style="transition-delay: 100ms;">
-                <div class="flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-white text-2xl font-bold text-slate-500">2</div>
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-900">Oferta y dirección</h2>
-                    <p class="mt-3 text-slate-600">Te recomiendo el paquete más pequeño que resuelve el problema, cerramos alcance y fijamos dirección visual antes de construir.</p>
-                </div>
-            </div>
-            <div class="panel fade-in-section grid gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]" style="transition-delay: 200ms;">
-                <div class="flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-white text-2xl font-bold text-slate-500">3</div>
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-900">Desarrollo en días</h2>
-                    <p class="mt-3 text-slate-600">Diseño y desarrollo avanzan juntos para que la web se sienta personalizada y pulida sin alargar el calendario.</p>
-                </div>
-            </div>
-            <div class="panel fade-in-section grid gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]" style="transition-delay: 300ms;">
-                <div class="flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-white text-2xl font-bold text-slate-500">4</div>
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-900">Lanzamiento y mejora</h2>
-                    <p class="mt-3 text-slate-600">Cuando la web está aprobada, sale en vivo. Si hace falta, después sumamos gestión de leads, reservas, reseñas o automatizaciones ligeras.</p>
-                </div>
+                <h1 class="text-[2rem] sm:text-4xl md:text-5xl lg:text-[4.25rem] font-extrabold leading-[1.08] tracking-tight text-white mb-5 sm:mb-7 reveal stagger-2">
+                    Pasos claros. Construcción rápida.<br class="hidden sm:block"> Sin proceso inflado.
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl leading-relaxed reveal stagger-3" style="color: var(--text-secondary); max-width: 56ch;">
+                    La idea es mantener el proyecto enfocado, movernos rápido y lanzar algo que se sienta mucho más caro de lo que cuesta.
+                </p>
             </div>
         </div>
     </section>
 
-    <section class="border-t border-slate-200 bg-white px-6 py-24 text-center">
-        <div class="mx-auto max-w-4xl fade-in-section">
-            <h2 class="text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">¿Necesitas algo pulido y rápido?</h2>
-            <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600">Cuéntame qué necesita el negocio y te recomendaré el camino más rápido que tenga sentido.</p>
-            <a href="index_es.html#contact" class="btn-primary mt-8">Pedir presupuesto</a>
+    <hr class="divider mx-auto max-w-[1400px]">
+
+    <!-- ===== STEPS ===== -->
+    <section class="relative px-5 sm:px-6 md:px-10 py-16 sm:py-20 md:py-28">
+        <div class="mx-auto max-w-[1400px] relative">
+            <div class="timeline-line md:block hidden"></div>
+            <div class="space-y-6 sm:space-y-8 relative">
+
+                <!-- Step 1 -->
+                <div class="spot reveal stagger-1 grid gap-5 sm:gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]">
+                    <div class="step-num step-num-active">1</div>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">Descubrimiento rápido</h2>
+                        <p class="mt-3 leading-relaxed" style="color:var(--text-secondary);">Me cuentas a qué se dedica el negocio, qué falla ahora y con qué urgencia quieres lanzar. Lo mantengo corto a propósito.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="spot reveal stagger-2 grid gap-5 sm:gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]">
+                    <div class="step-num step-num-default">2</div>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">Oferta y dirección</h2>
+                        <p class="mt-3 leading-relaxed" style="color:var(--text-secondary);">Te recomiendo el paquete más pequeño que resuelve el problema, cerramos alcance y fijamos dirección visual antes de construir.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="spot reveal stagger-3 grid gap-5 sm:gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]">
+                    <div class="step-num step-num-default">3</div>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">Desarrollo en días</h2>
+                        <p class="mt-3 leading-relaxed" style="color:var(--text-secondary);">Diseño y desarrollo avanzan juntos para que la web se sienta personalizada y pulida sin alargar el calendario.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="spot reveal stagger-4 grid gap-5 sm:gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]">
+                    <div class="step-num step-num-default">4</div>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white">Lanzamiento y mejora</h2>
+                        <p class="mt-3 leading-relaxed" style="color:var(--text-secondary);">Cuando la web está aprobada, sale en vivo. Si hace falta, después sumamos gestión de leads, reservas, reseñas o automatizaciones ligeras.</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <footer class="border-t border-slate-200 bg-slate-50 px-6 py-12 text-sm text-slate-600">
-        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
+    <hr class="divider mx-auto max-w-[1400px]">
+
+    <!-- ===== CTA ===== -->
+    <section class="relative px-5 sm:px-6 md:px-10 py-16 sm:py-20 md:py-28 overflow-hidden">
+        <div class="lamp"></div>
+        <div class="mx-auto max-w-[1400px] relative z-10">
+            <div class="max-w-2xl reveal">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">¿Necesitas algo <span class="font-['Instrument_Serif'] italic text-[var(--accent)]">pulido</span> y rápido?</h2>
+                <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);max-width:50ch;">Cuéntame qué necesita el negocio y te recomendaré el camino más rápido que tenga sentido.</p>
+                <a href="index_es.html#contact" class="btn-p shimmer mt-8 inline-flex">Pedir presupuesto <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="px-5 sm:px-6 md:px-10 py-10 sm:py-12 text-sm" style="border-top:1px solid var(--border);color:var(--text-muted);">
+        <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-6 md:flex-row">
             <div>
-                <span class="block text-lg font-bold text-slate-900">ONDA</span>
+                <span class="block text-lg font-bold text-white">ONDA</span>
                 <p>Webs rápidas y automatización inicial para negocios que necesitan moverse ya.</p>
             </div>
-            <p class="text-center md:text-right">Basada en España. Disponible para proyectos remotos en Europa, Reino Unido y más mercados.</p>
+            <div class="text-center md:text-right">
+                <p>Basada en España. Disponible para proyectos remotos en Europa, Reino Unido y más mercados.</p>
+                <div class="mt-3 flex items-center justify-center md:justify-end gap-4 text-xs" style="color:var(--text-muted);">
+                    <a href="privacy.html" class="hover:text-white transition-colors">Política de privacidad</a>
+                    <span style="color:var(--border);">|</span>
+                    <a href="terms.html" class="hover:text-white transition-colors">Términos del servicio</a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        lucide.createIcons();
+        window.addEventListener("DOMContentLoaded", function() { lucide.createIcons(); });
 
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeBtn = document.getElementById('mobile-menu-close-btn');
+        // ===== FLOATING ISLAND NAV (hide on scroll down, show on scroll up) =====
+        (function() {
+            const nav = document.getElementById('islandNav');
+            let lastScroll = 0;
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        const currentScroll = window.scrollY;
+                        if (currentScroll > 100 && currentScroll > lastScroll) {
+                            nav.classList.add('nav-hidden');
+                        } else {
+                            nav.classList.remove('nav-hidden');
+                        }
+                        lastScroll = currentScroll;
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+        })();
 
-        if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
-        if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
-        if (mobileMenu) {
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+        // ===== SPOTLIGHT CARDS =====
+        document.querySelectorAll('.spot').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+                card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
             });
-        }
+        });
 
+        // ===== OBSERVERS =====
         document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries, observerInstance) => {
+            const revealEls = document.querySelectorAll('.reveal');
+            const quickReveal = () => {
+                revealEls.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            };
+            quickReveal();
+            setTimeout(quickReveal, 100);
+            setTimeout(quickReveal, 300);
+
+            const revealObs = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observerInstance.unobserve(entry.target);
+                        obs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
+            }, { threshold: 0.05, rootMargin: '50px' });
 
-            document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+            revealEls.forEach(el => {
+                if (!el.classList.contains('is-visible')) revealObs.observe(el);
+            });
+
+            // Mobile menu
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeBtn = document.getElementById('mobileMenuClose');
+            if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+            if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+            if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
         });
     </script>
 </body>

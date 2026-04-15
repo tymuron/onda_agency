@@ -1,382 +1,779 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Estudio Forma | Architecture & Design</title>
+
+    <!-- OG Meta Tags -->
+    <meta property="og:title" content="Estudio Forma | Architecture & Design">
+    <meta property="og:description" content="Barcelona-based architecture studio. Residential, commercial, and renovation projects since 2012. Quiet, considered, built to last.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Estudio Forma | Architecture & Design">
+    <meta name="twitter:description" content="Barcelona-based architecture studio. Residential, commercial, and renovation projects since 2012.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#F5F3EF',
+                        surface: '#FFFFFF',
+                        graphite: '#1A1A1A',
+                        concrete: '#737373',
+                        terracotta: '#B85C38',
+                    },
+                    fontFamily: {
+                        display: ['"Cabinet Grotesk"', 'sans-serif'],
+                        body: ['"Outfit"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+
     <style>
         :root {
-            --bg: #F4F2EE;
-            --bg-white: #FFFFFF;
-            --text: #1C1C1C;
-            --text-muted: #7A7A72;
-            --accent: #C2593A;
-            --accent-hover: #A84A2F;
-            --accent-soft: rgba(194, 89, 58, 0.08);
-            --border: #D9D6CF;
+            --ease: cubic-bezier(0.32, 0.72, 0, 1);
+            --bg: #F5F3EF;
+            --surface: #FFFFFF;
+            --graphite: #1A1A1A;
+            --concrete: #737373;
+            --terracotta: #B85C38;
+            --border: rgba(26, 26, 26, 0.08);
         }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-        }
-
-        h1, h2, h3 {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Outfit', sans-serif;
             font-weight: 400;
+            background-color: var(--bg);
+            color: var(--graphite);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
-        .fade-in {
+        h1, h2, h3, h4 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 0.92;
+        }
+
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            z-index: 9999;
+            background: var(--terracotta);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: top 0.3s var(--ease);
+        }
+        .skip-link:focus { top: 0; }
+
+        /* Focus visible */
+        *:focus-visible {
+            outline: 2px solid var(--terracotta);
+            outline-offset: 3px;
+        }
+
+        /* Scroll reveal */
+        .reveal {
             opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(3rem);
+            transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
         }
-
-        .fade-in.visible {
+        .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .project-card {
-            position: relative;
+        /* Hero line animation */
+        .hero-line {
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1.2s var(--ease);
+        }
+        .hero-line.animate { transform: scaleX(1); }
+
+        /* Project images */
+        .project-img {
             overflow: hidden;
-            cursor: pointer;
+            border-radius: 0.5rem;
+        }
+        .project-img img {
+            transition: transform 1.4s var(--ease);
+            will-change: transform;
+        }
+        .project-img:hover img {
+            transform: scale(1.03);
         }
 
-        .project-card img {
-            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        /* Award stagger */
+        .award-item {
+            opacity: 0;
+            transform: translateY(3rem);
+            transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
         }
-
-        .project-card:hover img {
-            transform: scale(1.04);
-        }
-
-        .project-card .project-info {
-            transition: opacity 0.4s ease;
-        }
-
-        .project-card:hover .project-info {
+        .award-item.visible {
             opacity: 1;
+            transform: translateY(0);
         }
 
-        .tag {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border: 1px solid var(--border);
-            border-radius: 9999px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-        }
-
-        .press-item {
-            font-family: 'Instrument Serif', serif;
-            font-style: italic;
-            color: var(--text-muted);
-        }
-
-        input, textarea {
+        /* Nav scroll behavior */
+        .nav-bar {
             background: transparent;
+            transition: background-color 0.5s var(--ease), box-shadow 0.5s var(--ease), transform 0.5s var(--ease);
+        }
+        .nav-bar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 1px 0 var(--border);
+        }
+        .nav-bar.nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        /* Back-to-Onda link */
+        .onda-back {
+            font-size: 0.75rem;
+            color: var(--concrete);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            padding-right: 0.75rem;
+            margin-right: 0.75rem;
+            border-right: 1px solid var(--border);
+            transition: color 0.3s var(--ease);
+            white-space: nowrap;
+        }
+        .onda-back:hover { color: var(--terracotta) !important; }
+
+        /* Button */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--terracotta);
+            color: #fff;
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
             border: none;
-            border-bottom: 1px solid var(--border);
-            color: var(--text);
-            padding: 0.875rem 0;
-            font-family: 'DM Sans', sans-serif;
-            width: 100%;
-            transition: border-color 0.3s ease;
+            cursor: pointer;
+            transition: transform 0.2s var(--ease), opacity 0.3s var(--ease);
+        }
+        .btn-primary:hover { opacity: 0.9; }
+        .btn-primary:active { transform: scale(0.98); }
+
+        /* Drop cap */
+        .drop-cap::first-letter {
+            float: left;
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: 4.5rem;
+            line-height: 0.75;
+            padding-right: 0.75rem;
+            padding-top: 0.25rem;
+            color: var(--terracotta);
         }
 
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent);
+        /* Noise overlay */
+        .noise-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            pointer-events: none;
+            opacity: 0.01;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        input::placeholder, textarea::placeholder {
-            color: var(--text-muted);
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal, .award-item { opacity: 1; transform: none; }
+            .hero-line { transform: scaleX(1); }
         }
 
-        .scroll-indicator {
-            animation: bounce 2s infinite;
-        }
+        /* Mobile touch targets */
+        @media (max-width: 767px) {
+            a, button { min-height: 44px; }
+            nav a { min-height: 44px; display: inline-flex; align-items: center; }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(8px); }
-            60% { transform: translateY(4px); }
+            /* Award rows: stack year above title so long titles don't squeeze */
+            .award-item {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 0.5rem;
+            }
+            .award-item > span:last-child {
+                text-align: left !important;
+                width: 100%;
+            }
         }
     </style>
 </head>
 
-<body class="antialiased overflow-x-hidden">
+<body>
+
+    <!-- Skip link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Noise -->
+    <div class="noise-overlay" aria-hidden="true"></div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-[var(--bg)]/90 backdrop-blur-xl mix-blend-normal">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-xl font-medium tracking-tight" style="font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em;">ESTUDIO FORMA</a>
-
-            <div class="hidden md:flex items-center gap-8 text-sm text-[var(--text-muted)]">
-                <a href="#projects" class="hover:text-[var(--text)] transition-colors">Projects</a>
-                <a href="#studio" class="hover:text-[var(--text)] transition-colors">Studio</a>
-                <a href="#contact" class="hover:text-[var(--text)] transition-colors">Contact</a>
-                <a href="https://agencyonda.com/portfolio.html" class="px-4 py-2 border border-[var(--border)] rounded-full hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all text-xs uppercase tracking-wider">Back to Onda</a>
+    <nav class="nav-bar fixed top-0 left-0 w-full z-50" role="navigation" aria-label="Main navigation">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="../portfolio.html" class="onda-back" aria-label="Back to Onda portfolio">&larr; Onda</a>
+                <a href="#" class="font-display font-bold text-lg tracking-[-0.03em] text-graphite" aria-label="Estudio Forma home">
+                    ESTUDIO FORMA
+                </a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-[var(--text)]">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+            <div class="hidden md:flex items-center gap-10">
+                <a href="#projects" class="font-body text-sm text-concrete hover:text-graphite transition-colors duration-500" style="transition-timing-function: var(--ease);">Projects</a>
+                <a href="#philosophy" class="font-body text-sm text-concrete hover:text-graphite transition-colors duration-500" style="transition-timing-function: var(--ease);">Philosophy</a>
+                <a href="#team" class="font-body text-sm text-concrete hover:text-graphite transition-colors duration-500" style="transition-timing-function: var(--ease);">Team</a>
+                <a href="#contact" class="font-body text-sm text-concrete hover:text-graphite transition-colors duration-500" style="transition-timing-function: var(--ease);">Contact</a>
+            </div>
+
+            <button id="mobile-toggle" class="md:hidden text-graphite" aria-label="Open menu" aria-expanded="false">
+                <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full backdrop-blur-xl border-b border-[var(--border)] p-5 sm:p-6 md:p-8 flex-col gap-4 text-center text-sm text-[var(--text-muted)]" style="background: rgba(244, 242, 238, 0.98);">
-            <a href="#projects" class="block py-2 hover:text-[var(--text)] transition-colors">Projects</a>
-            <a href="#studio" class="block py-2 hover:text-[var(--text)] transition-colors">Studio</a>
-            <a href="#contact" class="block py-2 hover:text-[var(--text)] transition-colors">Contact</a>
-            <a href="https://agencyonda.com/portfolio.html" class="inline-block px-4 py-2 border border-[var(--border)] rounded-full hover:border-[var(--accent)] transition-all text-xs uppercase tracking-wider">Back to Onda</a>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-surface/98 backdrop-blur-sm border-b px-6 py-8 flex flex-col gap-6" style="border-color: var(--border);">
+            <a href="#projects" class="font-body text-base text-concrete hover:text-graphite">Projects</a>
+            <a href="#philosophy" class="font-body text-base text-concrete hover:text-graphite">Philosophy</a>
+            <a href="#team" class="font-body text-base text-concrete hover:text-graphite">Team</a>
+            <a href="#contact" class="font-body text-base text-concrete hover:text-graphite">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center px-6 pt-20">
-        <div class="max-w-7xl mx-auto w-full">
-            <div class="max-w-5xl fade-in">
-                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-7xl leading-[0.95] tracking-tight mb-8">
-                    Architecture is a visual art<br class="hidden md:block"> and the buildings<br class="hidden md:block"> <em class="italic text-[var(--accent)]">speak for themselves</em>
+    <main id="main">
+
+        <!-- ============================================ -->
+        <!-- HERO — Typography dominant, no image          -->
+        <!-- ============================================ -->
+        <section class="relative flex flex-col justify-center px-6 md:px-10" style="min-height: 100dvh;" aria-label="Introduction">
+            <div class="max-w-[1400px] mx-auto w-full pt-28 md:pt-20">
+
+                <h1 class="font-display font-black text-graphite leading-[0.88] tracking-[-0.04em]"
+                    style="font-size: clamp(2.75rem, 10vw, 11rem);">
+                    STRUCTURAL<br>POETRY
                 </h1>
-                <p class="text-lg text-[var(--text-muted)] max-w-md mb-12 font-light">
-                    Barcelona-based architecture studio. Residential, commercial, and renovation since 2012.
+
+                <p class="font-body text-concrete text-lg md:text-xl max-w-md mt-8 leading-relaxed font-light">
+                    Barcelona-based architecture studio. Residential, commercial, and renovation since 2012. Quiet, considered, built to last.
                 </p>
+
+                <!-- Terracotta line -->
+                <div class="hero-line mt-10 w-[120px] h-[1.5px] bg-terracotta" aria-hidden="true"></div>
+
             </div>
 
-            <div class="fade-in mt-4" style="transition-delay: 200ms;">
-                <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1400&q=80" alt="Modern architecture"
-                    class="w-full h-[40vh] md:h-[50vh] object-cover rounded-xl">
+            <!-- Scroll indicator — bottom right -->
+            <div class="absolute bottom-10 right-6 md:right-10">
+                <span class="font-mono text-xs text-concrete tracking-wide" aria-hidden="true">Selected Works &darr;</span>
             </div>
+        </section>
 
-            <div class="flex justify-center mt-8">
-                <div class="scroll-indicator text-[var(--text-muted)]">
-                    <i data-lucide="chevron-down" class="w-6 h-6"></i>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- ============================================ -->
+        <!-- SELECTED PROJECTS                             -->
+        <!-- ============================================ -->
+        <section id="projects" class="px-6 md:px-10 pb-16" aria-label="Selected projects">
+            <div class="max-w-[1400px] mx-auto">
 
-    <!-- Selected Projects -->
-    <section id="projects" class="py-24 md:py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex justify-between items-end mb-10 md:mb-16 fade-in">
-                <div>
-                    <p class="text-xs uppercase tracking-[0.25em] text-[var(--text-muted)] mb-3">Selected Work</p>
-                    <h2 class="text-3xl sm:text-4xl md:text-6xl">Projects</h2>
-                </div>
-                <p class="hidden md:block text-sm text-[var(--text-muted)]">2012 — Present</p>
-            </div>
+                <!-- Project 01 — Casa Montjuic -->
+                <article class="py-24 md:py-32 reveal">
+                    <div class="w-full h-[1px] bg-terracotta mb-10" aria-hidden="true"></div>
 
-            <!-- Staggered Grid -->
-            <div class="grid md:grid-cols-12 gap-4 sm:gap-6 md:gap-8">
-                <!-- Project 1 - Large -->
-                <div class="md:col-span-7 project-card fade-in">
-                    <div class="overflow-hidden rounded-xl">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="Casa Montjuïc"
-                            class="w-full h-[400px] md:h-[550px] object-cover">
+                    <div class="project-img w-full" style="max-height: 70vh; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1760485275913-158eb385d5b6?w=1600&q=80"
+                             alt="Casa Montjuic: A modernist concrete villa with clean geometric lines and minimalist white facades"
+                             class="w-full h-full object-cover" style="max-height: 70vh;"
+                             loading="lazy">
                     </div>
-                    <div class="mt-5 flex items-start justify-between gap-4">
+
+                    <div class="mt-8 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
                         <div>
-                            <h3 class="text-2xl sm:text-3xl md:text-4xl">Casa Montjuïc</h3>
-                            <p class="text-sm text-[var(--text-muted)] mt-1">Barcelona · 2023</p>
+                            <h3 class="font-display font-bold text-graphite leading-none" style="font-size: clamp(1.75rem, 4vw, 3.5rem);">
+                                Casa Montju&iuml;c
+                            </h3>
+                            <p class="font-body text-concrete mt-2 text-base">Barcelona, Spain</p>
                         </div>
-                        <span class="tag mt-2">Residential</span>
+                        <div class="flex flex-col items-start md:items-end gap-1 font-mono text-sm text-concrete">
+                            <span>2023</span>
+                            <span>380 m&sup2;</span>
+                            <span>Residential</span>
+                        </div>
                     </div>
-                    <p class="text-[var(--text-muted)] mt-3 max-w-md text-sm leading-relaxed project-info md:opacity-0">A private residence on the slopes of Montjuïc. Open-plan living with floor-to-ceiling glass frames that dissolve the boundary between interior and garden.</p>
-                </div>
+                </article>
 
-                <!-- Project 2 - Small, offset -->
-                <div class="md:col-span-5 md:mt-32 project-card fade-in" style="transition-delay: 100ms;">
-                    <div class="overflow-hidden rounded-xl">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Espai Llum"
-                            class="w-full h-[350px] md:h-[400px] object-cover">
+                <!-- Project 02 — Espai Llum -->
+                <article class="py-24 md:py-32 reveal">
+                    <div class="w-full h-[1px] bg-terracotta mb-10" aria-hidden="true"></div>
+
+                    <div class="project-img w-full" style="max-height: 70vh; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1749984739767-afd0cb96c3cb?w=1600&q=80"
+                             alt="Espai Llum: A dramatic concrete cultural center interior with a monumental spiral staircase and raw concrete walls"
+                             class="w-full h-full object-cover" style="max-height: 70vh;"
+                             loading="lazy">
                     </div>
-                    <div class="mt-5 flex items-start justify-between gap-4">
+
+                    <div class="mt-8 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
                         <div>
-                            <h3 class="text-2xl sm:text-3xl md:text-4xl">Espai Llum</h3>
-                            <p class="text-sm text-[var(--text-muted)] mt-1">Valencia · 2022</p>
+                            <h3 class="font-display font-bold text-graphite leading-none" style="font-size: clamp(1.75rem, 4vw, 3.5rem);">
+                                Espai Llum
+                            </h3>
+                            <p class="font-body text-concrete mt-2 text-base">Valencia, Spain</p>
                         </div>
-                        <span class="tag mt-2">Commercial</span>
+                        <div class="flex flex-col items-start md:items-end gap-1 font-mono text-sm text-concrete">
+                            <span>2022</span>
+                            <span>720 m&sup2;</span>
+                            <span>Commercial</span>
+                        </div>
                     </div>
-                    <p class="text-[var(--text-muted)] mt-3 max-w-md text-sm leading-relaxed project-info md:opacity-0">A creative coworking space in Valencia's Ruzafa district. Exposed concrete, natural light channels, and modular partition walls.</p>
-                </div>
+                </article>
 
-                <!-- Project 3 - Full width -->
-                <div class="md:col-span-8 md:col-start-3 project-card fade-in" style="transition-delay: 200ms;">
-                    <div class="overflow-hidden rounded-xl">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80" alt="Refugi"
-                            class="w-full h-[350px] md:h-[480px] object-cover">
+                <!-- Project 03 — Refugi -->
+                <article class="py-24 md:py-32 reveal">
+                    <div class="w-full h-[1px] bg-terracotta mb-10" aria-hidden="true"></div>
+
+                    <div class="project-img w-full" style="max-height: 70vh; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1774516534076-3cb7a800a9a1?w=1600&q=80"
+                             alt="Refugi: A modern concrete mountain retreat with floor-to-ceiling windows overlooking a dramatic landscape"
+                             class="w-full h-full object-cover" style="max-height: 70vh;"
+                             loading="lazy">
                     </div>
-                    <div class="mt-5 flex items-start justify-between gap-4">
+
+                    <div class="mt-8 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
                         <div>
-                            <h3 class="text-2xl sm:text-3xl md:text-4xl">Refugi</h3>
-                            <p class="text-sm text-[var(--text-muted)] mt-1">Costa Brava · 2024</p>
+                            <h3 class="font-display font-bold text-graphite leading-none" style="font-size: clamp(1.75rem, 4vw, 3.5rem);">
+                                Refugi
+                            </h3>
+                            <p class="font-body text-concrete mt-2 text-base">Costa Brava, Spain</p>
                         </div>
-                        <span class="tag mt-2">Renovation</span>
+                        <div class="flex flex-col items-start md:items-end gap-1 font-mono text-sm text-concrete">
+                            <span>2024</span>
+                            <span>145 m&sup2;</span>
+                            <span>Renovation</span>
+                        </div>
                     </div>
-                    <p class="text-[var(--text-muted)] mt-3 max-w-md text-sm leading-relaxed project-info md:opacity-0">A 1960s fisherman's cottage transformed into a minimal retreat. Stone walls preserved, interiors reimagined with terrazzo and white oak.</p>
+                </article>
+
+                <!-- Project 04 — Pont del Mar -->
+                <article class="py-24 md:py-32 reveal">
+                    <div class="w-full h-[1px] bg-terracotta mb-10" aria-hidden="true"></div>
+
+                    <div class="project-img w-full" style="max-height: 70vh; overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1741482529106-39c9086b211d?w=1600&q=80"
+                             alt="Pont del Mar: A modern curved pedestrian bridge with clean architectural lines and minimalist concrete structure"
+                             class="w-full h-full object-cover" style="max-height: 70vh;"
+                             loading="lazy">
+                    </div>
+
+                    <div class="mt-8 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                        <div>
+                            <h3 class="font-display font-bold text-graphite leading-none" style="font-size: clamp(1.75rem, 4vw, 3.5rem);">
+                                Pont del Mar
+                            </h3>
+                            <p class="font-body text-concrete mt-2 text-base">Valencia, Spain</p>
+                        </div>
+                        <div class="flex flex-col items-start md:items-end gap-1 font-mono text-sm text-concrete">
+                            <span>2021</span>
+                            <span>2,400 m&sup2;</span>
+                            <span>Cultural</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- STUDIO PHILOSOPHY                             -->
+        <!-- ============================================ -->
+        <section id="philosophy" class="px-6 md:px-10 py-32 md:py-40" aria-label="Studio philosophy">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="max-w-[50ch] reveal">
+                    <p class="font-body text-graphite text-xl md:text-[1.35rem] leading-[1.75] drop-cap">
+                        Architecture begins long before the first line is drawn. It starts with listening &mdash; to the site, the climate, the way light enters a room at four in the afternoon. At Estudio Forma, we practice a disciplined restraint: every wall, every threshold, every material choice must justify its presence. We do not decorate space. We organize it with intention, so that what remains feels inevitable rather than designed.
+                    </p>
+                    <p class="font-body text-concrete text-xl md:text-[1.35rem] leading-[1.75] mt-8">
+                        Our work spans private residences, commercial interiors, and careful renovations of structures that carry history. Across all scales, the principle holds: architecture should serve the people inside it first, and photograph well second. Quiet buildings outlast loud ones.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Studio -->
-    <section id="studio" class="py-24 md:py-32 px-6 border-t border-[var(--border)]">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16 items-start">
-            <div class="fade-in">
-                <p class="text-xs uppercase tracking-[0.25em] text-[var(--text-muted)] mb-4">The Studio</p>
-                <h2 class="text-3xl sm:text-4xl md:text-6xl leading-tight mb-8">Founded in Barcelona,<br>2012</h2>
-                <p class="text-[var(--text-muted)] text-lg leading-relaxed mb-8">
-                    Estudio Forma is a design-led architecture practice working across residential, commercial, and renovation projects. We believe in architecture that serves its inhabitants first — quiet, considered, and built to last.
-                </p>
-                <div class="flex gap-8 sm:gap-10 md:gap-12">
-                    <div>
-                        <p class="text-3xl sm:text-4xl md:text-5xl" style="font-family: 'Instrument Serif', serif;">47</p>
-                        <p class="text-xs uppercase tracking-wider text-[var(--text-muted)] mt-1">Projects completed</p>
+        <!-- ============================================ -->
+        <!-- AWARDS / RECOGNITION                          -->
+        <!-- ============================================ -->
+        <section class="px-6 md:px-10 py-24 md:py-32" aria-label="Awards and recognition" style="border-top: 1px solid var(--border);">
+            <div class="max-w-[1400px] mx-auto">
+
+                <h2 class="font-display font-bold text-graphite mb-16 md:mb-20 tracking-[-0.04em]" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+                    Recognition
+                </h2>
+
+                <div class="space-y-0" role="list">
+
+                    <div class="award-item flex items-baseline justify-between py-6" style="border-bottom: 1px solid var(--border);" role="listitem">
+                        <span class="font-mono text-sm text-concrete w-20 shrink-0">2024</span>
+                        <span class="font-display font-bold text-graphite text-lg md:text-2xl tracking-[-0.03em] text-right">FAD Award &mdash; Interior Architecture</span>
                     </div>
-                    <div>
-                        <p class="text-3xl sm:text-4xl md:text-5xl" style="font-family: 'Instrument Serif', serif;">8</p>
-                        <p class="text-xs uppercase tracking-wider text-[var(--text-muted)] mt-1">Team members</p>
+
+                    <div class="award-item flex items-baseline justify-between py-6" style="border-bottom: 1px solid var(--border);" role="listitem">
+                        <span class="font-mono text-sm text-concrete w-20 shrink-0">2023</span>
+                        <span class="font-display font-bold text-graphite text-lg md:text-2xl tracking-[-0.03em] text-right">Dezeen Awards Longlist &mdash; Residential</span>
                     </div>
+
+                    <div class="award-item flex items-baseline justify-between py-6" style="border-bottom: 1px solid var(--border);" role="listitem">
+                        <span class="font-mono text-sm text-concrete w-20 shrink-0">2022</span>
+                        <span class="font-display font-bold text-graphite text-lg md:text-2xl tracking-[-0.03em] text-right">ArchDaily Building of the Year &mdash; Nominated</span>
+                    </div>
+
+                    <div class="award-item flex items-baseline justify-between py-6" style="border-bottom: 1px solid var(--border);" role="listitem">
+                        <span class="font-mono text-sm text-concrete w-20 shrink-0">2021</span>
+                        <span class="font-display font-bold text-graphite text-lg md:text-2xl tracking-[-0.03em] text-right">Wallpaper* Design Awards &mdash; Best New Public Space</span>
+                    </div>
+
+                    <div class="award-item flex items-baseline justify-between py-6" style="border-bottom: 1px solid var(--border);" role="listitem">
+                        <span class="font-mono text-sm text-concrete w-20 shrink-0">2019</span>
+                        <span class="font-display font-bold text-graphite text-lg md:text-2xl tracking-[-0.03em] text-right">AD Espa&ntilde;a &mdash; Emerging Studio of the Year</span>
+                    </div>
+
                 </div>
             </div>
+        </section>
 
-            <!-- Approach -->
-            <div class="fade-in" style="transition-delay: 150ms;">
-                <p class="text-xs uppercase tracking-[0.25em] text-[var(--text-muted)] mb-8">Approach</p>
-                <div class="space-y-10">
-                    <div>
-                        <div class="flex items-baseline gap-4 mb-3">
-                            <span class="text-3xl text-[var(--accent)]" style="font-family: 'Instrument Serif', serif;">01</span>
-                            <h3 class="text-2xl">Research</h3>
+        <!-- ============================================ -->
+        <!-- TEAM — Two principals                         -->
+        <!-- ============================================ -->
+        <section id="team" class="px-6 md:px-10 py-24 md:py-32" aria-label="Studio principals" style="border-top: 1px solid var(--border);">
+            <div class="max-w-[1400px] mx-auto">
+
+                <h2 class="font-display font-bold text-graphite mb-16 md:mb-20 tracking-[-0.04em]" style="font-size: clamp(2rem, 4vw, 3.5rem);">
+                    Principals
+                </h2>
+
+                <div class="flex flex-col md:flex-row gap-8 md:gap-[10%] reveal">
+
+                    <!-- Principal 1 -->
+                    <div class="w-full md:w-[45%]">
+                        <div class="overflow-hidden rounded-lg" style="aspect-ratio: 3/4;">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
+                                 alt="Portrait of Marc Puig-Riera, founding principal"
+                                 class="w-full h-full object-cover"
+                                 loading="lazy">
                         </div>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed pl-12">Every project begins with deep context — site, climate, regulations, and the lives that will unfold inside the space.</p>
+                        <h3 class="font-display font-bold text-graphite text-2xl md:text-3xl tracking-[-0.03em] mt-6">
+                            Marc Puig-Riera
+                        </h3>
+                        <p class="font-body text-concrete text-base mt-1">Founding Principal</p>
                     </div>
-                    <div class="border-t border-[var(--border)] pt-10">
-                        <div class="flex items-baseline gap-4 mb-3">
-                            <span class="text-3xl text-[var(--accent)]" style="font-family: 'Instrument Serif', serif;">02</span>
-                            <h3 class="text-2xl">Concept</h3>
+
+                    <!-- Principal 2 -->
+                    <div class="w-full md:w-[45%]">
+                        <div class="overflow-hidden rounded-lg" style="aspect-ratio: 3/4;">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                                 alt="Portrait of Clara Vidal-Serra, design principal"
+                                 class="w-full h-full object-cover"
+                                 loading="lazy">
                         </div>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed pl-12">We develop a clear spatial idea — a single strong move that organizes the entire project and gives it identity.</p>
+                        <h3 class="font-display font-bold text-graphite text-2xl md:text-3xl tracking-[-0.03em] mt-6">
+                            Clara Vidal-Serra
+                        </h3>
+                        <p class="font-body text-concrete text-base mt-1">Design Principal</p>
                     </div>
-                    <div class="border-t border-[var(--border)] pt-10">
-                        <div class="flex items-baseline gap-4 mb-3">
-                            <span class="text-3xl text-[var(--accent)]" style="font-family: 'Instrument Serif', serif;">03</span>
-                            <h3 class="text-2xl">Realization</h3>
-                        </div>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed pl-12">Detailed construction oversight from materials to finishes. We stay involved until the last detail is resolved.</p>
-                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Awards / Press -->
-    <section class="py-12 px-6 border-y border-[var(--border)] bg-[var(--bg-white)]">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-8 md:gap-16 fade-in">
-            <span class="press-item text-2xl md:text-3xl">Dezeen</span>
-            <span class="press-item text-2xl md:text-3xl">ArchDaily</span>
-            <span class="press-item text-2xl md:text-3xl">AD España</span>
-            <span class="press-item text-2xl md:text-3xl">Wallpaper*</span>
-        </div>
-    </section>
+        <!-- ============================================ -->
+        <!-- CONTACT — Split layout                        -->
+        <!-- ============================================ -->
+        <section id="contact" class="px-6 md:px-10 py-24 md:py-32" aria-label="Contact information" style="border-top: 1px solid var(--border);">
+            <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row md:justify-between gap-16 md:gap-20">
 
-    <!-- Contact -->
-    <section id="contact" class="py-24 md:py-32 px-6">
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16">
-            <div class="fade-in">
-                <p class="text-xs uppercase tracking-[0.25em] text-[var(--text-muted)] mb-4">Contact</p>
-                <h2 class="text-3xl sm:text-4xl md:text-6xl leading-tight mb-8">Let's talk about<br>your project</h2>
+                <!-- Left: headline -->
+                <div class="md:w-1/2 reveal">
+                    <h2 class="font-display font-black text-graphite leading-[0.92] tracking-[-0.04em]"
+                        style="font-size: clamp(2.5rem, 6vw, 6rem);">
+                        Let's build<br>something<br>monumental
+                    </h2>
+                </div>
 
-                <div class="space-y-6 text-sm text-[var(--text-muted)]">
+                <!-- Right: contact details -->
+                <div class="md:w-[40%] flex flex-col justify-center gap-8 reveal">
                     <div>
-                        <p class="text-[var(--text)] font-medium mb-1">Email</p>
-                        <p>studio@estudioforma.es</p>
+                        <p class="font-body text-concrete text-xs uppercase tracking-[0.15em] mb-2">Email</p>
+                        <a href="mailto:studio@estudioforma.es" class="font-mono text-graphite text-base hover:text-terracotta transition-colors duration-500" style="transition-timing-function: var(--ease);">
+                            studio@estudioforma.es
+                        </a>
                     </div>
+
                     <div>
-                        <p class="text-[var(--text)] font-medium mb-1">Phone</p>
-                        <p>+34 933 000 000</p>
+                        <p class="font-body text-concrete text-xs uppercase tracking-[0.15em] mb-2">Phone</p>
+                        <a href="tel:+34933000147" class="font-mono text-graphite text-base hover:text-terracotta transition-colors duration-500" style="transition-timing-function: var(--ease);">
+                            +34 933 000 147
+                        </a>
                     </div>
+
                     <div>
-                        <p class="text-[var(--text)] font-medium mb-1">Studio</p>
-                        <p>Carrer de Pallars, 85<br>08018 Barcelona (Poblenou)</p>
+                        <p class="font-body text-concrete text-xs uppercase tracking-[0.15em] mb-2">Studio</p>
+                        <p class="font-body text-graphite text-base leading-relaxed">
+                            Carrer de Pallars, 85<br>
+                            08018 Barcelona<br>
+                            Poblenou
+                        </p>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="mailto:studio@estudioforma.es" class="btn-primary" role="button">
+                            Start a conversation <span aria-hidden="true">&rarr;</span>
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <div class="fade-in" style="transition-delay: 150ms;">
-                <form class="space-y-6" onsubmit="return false;">
-                    <div>
-                        <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Name</label>
-                        <input type="text" placeholder="Your name">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Email</label>
-                        <input type="email" placeholder="your@email.com">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Project type</label>
-                        <input type="text" placeholder="Residential, commercial, renovation...">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Message</label>
-                        <textarea rows="4" placeholder="Tell us about your project..."></textarea>
-                    </div>
-                    <button type="submit" class="px-8 py-4 bg-[var(--text)] text-[var(--bg)] font-medium text-sm uppercase tracking-wider hover:bg-[var(--accent)] transition-colors duration-300">
-                        Send Inquiry
-                    </button>
-                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                        -->
+    <!-- ============================================ -->
+    <footer class="px-6 md:px-10 py-8" style="border-top: 1px solid var(--border);" role="contentinfo">
+        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-concrete">
+            <span class="font-display font-bold text-graphite tracking-[-0.03em]">Estudio Forma</span>
+            <span class="font-body">&copy; 2025 Estudio Forma. Concept by <a href="https://agencyonda.com" class="text-terracotta hover:underline" style="transition: color 0.3s var(--ease);">Onda</a>.</span>
+            <div class="flex items-center gap-6">
+                <a href="#" class="text-concrete hover:text-graphite transition-colors duration-500" style="transition-timing-function: var(--ease);" aria-label="Instagram">
+                    <i data-lucide="instagram" class="w-4 h-4" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="text-concrete hover:text-graphite transition-colors duration-500" style="transition-timing-function: var(--ease);" aria-label="LinkedIn">
+                    <i data-lucide="linkedin" class="w-4 h-4" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="text-concrete hover:text-graphite transition-colors duration-500" style="transition-timing-function: var(--ease);" aria-label="Pinterest">
+                    <i data-lucide="pin" class="w-4 h-4" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-10 border-t border-[var(--border)] text-center text-[var(--text-muted)] text-sm">
-        <p>&copy; 2025 Estudio Forma. Concept by <a href="https://agencyonda.com" class="text-[var(--accent)] hover:underline">Onda</a>.</p>
     </footer>
 
+    <!-- ============================================ -->
+    <!-- SCRIPTS                                       -->
+    <!-- ============================================ -->
     <script>
         lucide.createIcons();
 
-        const menuBtn = document.getElementById('mobile-menu-btn');
+        // ---- Mobile menu toggle ----
+        const mobileToggle = document.getElementById('mobile-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const open = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden', open);
+                mobileMenu.classList.toggle('flex', !open);
+                mobileToggle.setAttribute('aria-expanded', String(!open));
+                mobileToggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
             });
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
                     mobileMenu.classList.remove('flex');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                    mobileToggle.setAttribute('aria-label', 'Open menu');
                 });
             });
         }
 
-        const observer = new IntersectionObserver((entries) => {
+        // ---- Nav: show/hide on scroll + background ----
+        const navBar = document.querySelector('.nav-bar');
+        let lastScrollY = 0;
+        let ticking = false;
+
+        function updateNav() {
+            const sy = window.scrollY;
+            // Background
+            if (sy > 80) {
+                navBar.classList.add('scrolled');
+            } else {
+                navBar.classList.remove('scrolled');
+            }
+            // Hide/show
+            if (sy > lastScrollY && sy > 200) {
+                navBar.classList.add('nav-hidden');
+            } else {
+                navBar.classList.remove('nav-hidden');
+            }
+            lastScrollY = sy;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateNav);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // ---- Hero line animate on load ----
+        window.addEventListener('load', () => {
+            const heroLine = document.querySelector('.hero-line');
+            if (heroLine) {
+                requestAnimationFrame(() => { heroLine.classList.add('animate'); });
+            }
+        });
+
+        // ---- Scroll reveal (translateY + opacity, NO blur) ----
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ---- QUICK REVEAL: immediately show elements already in viewport ----
+        const quickReveal = () => {
+            document.querySelectorAll('.reveal, .award-item').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        quickReveal();
+        setTimeout(quickReveal, 100);
+        setTimeout(quickReveal, 300);
+
+        // ---- Award items staggered reveal ----
+        const awardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const items = entry.target.querySelectorAll('.award-item');
+                    items.forEach((item, i) => {
+                        setTimeout(() => { item.classList.add('visible'); }, i * 120);
+                    });
+                    awardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        const awardsContainer = document.querySelector('[aria-label="Awards and recognition"] .space-y-0');
+        if (awardsContainer) awardObserver.observe(awardsContainer);
+
+        // ---- Project image parallax (subtle translateY based on scroll) ----
+        const projectImages = document.querySelectorAll('.project-img img');
+        const parallaxObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.dataset.parallax = 'true';
+                } else {
+                    entry.target.dataset.parallax = 'false';
+                }
+            });
+        }, { threshold: 0, rootMargin: '100px 0px 100px 0px' });
+
+        projectImages.forEach(img => parallaxObserver.observe(img));
+
+        let parallaxTicking = false;
+        function updateParallax() {
+            projectImages.forEach(img => {
+                if (img.dataset.parallax !== 'true') return;
+                const rect = img.getBoundingClientRect();
+                const vh = window.innerHeight;
+                const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
+                const translate = progress * -30;
+                img.style.transform = `translateY(${translate}px)`;
+            });
+            parallaxTicking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!parallaxTicking) {
+                requestAnimationFrame(updateParallax);
+                parallaxTicking = true;
+            }
+        }, { passive: true });
     </script>
+
+    <!-- Portfolio back-link language detection -->
     <script>
-    (function(){var r=document.referrer,s='.html';if(r.indexOf('_ka')!==-1)s='_ka.html';else if(r.indexOf('_es')!==-1)s='_es.html';document.querySelectorAll('a').forEach(function(a){if(a.href.indexOf('agencyonda.com/portfolio')!==-1)a.href='https://agencyonda.com/portfolio'+s;});})();
+    (function(){
+        // Breadcrumb: if user came from an Onda hub page (index/portfolio), send them back there
+        var lastHub = null;
+        try { lastHub = sessionStorage.getItem('onda:lastHub'); } catch (_) {}
+        var r = document.referrer || '';
+        var langSrc = lastHub || r;
+        var suffix = /_ka\.html?/.test(langSrc) ? '_ka.html'
+                   : /_es\.html?/.test(langSrc) ? '_es.html'
+                   : '.html';
+        document.querySelectorAll('a[href*="portfolio"]').forEach(function(a) {
+            a.href = '../portfolio' + suffix;
+        });
+        var backHref = null;
+        if (lastHub) {
+            backHref = '..' + lastHub;
+        } else if (/\/index(_v[2-5]|_es|_ka)?\.html?/.test(r)) {
+            backHref = suffix === '_ka.html' ? '../index_ka.html'
+                     : suffix === '_es.html' ? '../index_es.html'
+                     : '../index_v5.html';
+        }
+        if (backHref && /\/index/.test(backHref) && backHref.indexOf('#') === -1) {
+            backHref += '#work';
+        }
+        if (backHref) {
+            document.querySelectorAll('.onda-back').forEach(function(a) { a.href = backHref; });
+        }
+    })();
     </script>
+
 </body>
 
 </html>

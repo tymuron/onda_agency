@@ -3,928 +3,1342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Meridian Estate Group | Luxury Real Estate</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- OG Meta Tags -->
+    <meta property="og:title" content="Meridian Estate Group | Luxury Real Estate">
+    <meta property="og:description" content="Bespoke properties for those who demand the extraordinary. Curating legacies since 2008.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Meridian Estate Group | Luxury Real Estate">
+    <meta name="twitter:description" content="Bespoke properties for those who demand the extraordinary. Curating legacies since 2008.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vanta: '#050505',
+                        surface: 'rgba(255,255,255,0.03)',
+                        champagne: '#C9A84C',
+                        silver: '#94A3B8',
+                    },
+                    fontFamily: {
+                        display: ['"Cormorant Garamond"', 'serif'],
+                        body: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
 
     <!-- Lucide Icons -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ease: cubic-bezier(0.32, 0.72, 0, 1);
+            --champagne: #C9A84C;
+            --vanta: #050505;
+            --silver: #94A3B8;
+            --white: #FAFAFA;
+            --hairline: rgba(255,255,255,0.06);
+            --glass-bg: rgba(255,255,255,0.03);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            background: #070707;
-            color: #f5f5f0;
+            background: var(--vanta);
+            color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', serif;
+        /* ---- Skip Link ---- */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            z-index: 200;
+            padding: 0.75rem 1.5rem;
+            background: var(--champagne);
+            color: var(--vanta);
+            font-weight: 600;
+            border-radius: 0 0 0.5rem 0.5rem;
+            transition: top 0.3s var(--ease);
+        }
+        .skip-link:focus { top: 0; }
+
+        /* ---- Focus Visible ---- */
+        *:focus-visible {
+            outline: 2px solid var(--champagne);
+            outline-offset: 3px;
         }
 
-        .text-heading-1 {
+        /* ---- Typography ---- */
+        .font-display { font-family: 'Cormorant Garamond', serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        .heading-hero {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 5.5rem;
+            font-size: clamp(3rem, 6vw, 5.5rem);
             font-weight: 300;
-            line-height: 1.1;
+            line-height: 1.05;
             letter-spacing: -0.02em;
+            color: var(--white);
         }
 
-        .text-heading-2 {
+        .heading-section {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
+            font-size: clamp(2.25rem, 4vw, 3.5rem);
             font-weight: 400;
-            line-height: 1.2;
+            line-height: 1.15;
         }
 
-        .text-heading-3 {
+        .heading-card {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+            font-size: clamp(1.35rem, 2vw, 1.75rem);
             font-weight: 500;
+            line-height: 1.25;
         }
 
         .text-body {
             font-size: 1rem;
-            font-weight: 400;
             line-height: 1.7;
-            color: #8a8a80;
+            color: var(--silver);
+            max-width: 65ch;
         }
 
-        .text-muted {
-            color: #5a5a52;
-            font-size: 0.875rem;
+        .text-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--champagne);
         }
 
-        .text-gold {
-            color: #c9a84c;
+        .text-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            color: var(--champagne);
         }
 
-        /* Gold gradient */
-        .gold-gradient {
-            background: linear-gradient(90deg, #c9a84c, #e8d48b, #c9a84c);
-            background-size: 200% 100%;
+        /* ---- Glass Panel ---- */
+        .glass-panel {
+            background: var(--glass-bg);
+            border: 1px solid var(--hairline);
+            border-radius: 1.25rem;
         }
 
-        /* Animations */
-        @keyframes slowZoom {
-            from {
-                transform: scale(1);
-            }
-            to {
-                transform: scale(1.08);
-            }
+        /* ---- Nav ---- */
+        .nav-float {
+            position: fixed;
+            top: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            z-index: 100;
+            width: min(92vw, 1200px);
+            background: rgba(5,5,5,0.6);
+            backdrop-filter: blur(40px) saturate(1.4);
+            -webkit-backdrop-filter: blur(40px) saturate(1.4);
+            border: 1px solid var(--hairline);
+            border-radius: 9999px;
+            padding: 0.625rem 1.5rem;
+            transition: transform 0.5s var(--ease), opacity 0.5s var(--ease);
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes lineGrow {
-            from {
-                width: 0;
-            }
-            to {
-                width: 120px;
-            }
-        }
-
-        @keyframes bounce-subtle {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(8px);
-            }
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(201, 168, 76, 0.5);
-            }
-        }
-
-        .animate-slow-zoom {
-            animation: slowZoom 20s ease-in-out infinite alternate;
-        }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
+        .nav-float.nav-hidden {
+            transform: translateX(-50%) translateY(-120%);
             opacity: 0;
         }
 
-        .animate-line-grow {
-            animation: lineGrow 1s ease-out 0.5s forwards;
-            width: 0;
+        .nav-float a {
+            transition: color 0.4s var(--ease);
+        }
+        .nav-float a:hover { color: var(--champagne); }
+
+        /* Back-to-Onda link */
+        .onda-back {
+            font-size: 0.75rem;
+            color: var(--silver);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            padding-right: 1rem;
+            border-right: 1px solid var(--hairline);
+            margin-right: 0.5rem;
+            transition: color 0.4s var(--ease);
+            white-space: nowrap;
+        }
+        .onda-back:hover { color: var(--champagne) !important; }
+
+        .nav-cta-pill {
+            background: var(--champagne);
+            color: var(--vanta);
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            transition: all 0.4s var(--ease);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-height: 44px;
+        }
+        .nav-cta-pill:hover {
+            background: #d4b55e;
+            transform: scale(0.98);
         }
 
-        .animate-bounce-subtle {
-            animation: bounce-subtle 2s ease-in-out infinite;
+        /* ---- Hero ---- */
+        .hero-split {
+            display: grid;
+            grid-template-columns: 55% 45%;
+            min-height: 100dvh;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
+        @media (max-width: 768px) {
+            .hero-split {
+                grid-template-columns: 1fr;
+                min-height: 100dvh;
+            }
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(2rem, 5vw, 6rem);
+            padding-top: clamp(6rem, 10vw, 8rem);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-right {
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            will-change: transform;
+        }
+
+        @keyframes kenBurns {
+            0%   { transform: scale(1); }
+            50%  { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+        .ken-burns {
+            animation: kenBurns 25s var(--ease) infinite;
+        }
+
+        .hero-orb {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+            background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes heroLineGrow {
+            from { transform: scaleX(0); }
+            to   { transform: scaleX(1); }
+        }
+        .hero-line {
+            width: 80px;
+            height: 1px;
+            background: var(--champagne);
+            transform-origin: left;
+            transform: scaleX(0);
+            animation: heroLineGrow 1.2s var(--ease) 0.8s forwards;
+        }
+
+        /* ---- Stat Counter ---- */
+        .stat-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @media (max-width: 768px) {
+            .stat-strip { grid-template-columns: repeat(2, 1fr); }
+        }
+        .stat-divider {
+            width: 1px;
+            height: 3rem;
+            background: var(--hairline);
+        }
+
+        /* ---- Property Grid (Asymmetric) ---- */
+        .property-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 1.5rem;
+            min-height: 600px;
+        }
+        .property-grid .hero-card {
+            grid-row: 1 / 3;
+        }
+        @media (max-width: 768px) {
+            .property-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                min-height: auto;
+            }
+            .property-grid .hero-card {
+                grid-row: auto;
+            }
+        }
+
+        .prop-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--hairline);
+            border-radius: 1.25rem;
+            cursor: pointer;
+            transition: transform 0.6s var(--ease), border-color 0.6s var(--ease), box-shadow 0.6s var(--ease);
+        }
+        .prop-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(201,168,76,0.25);
+            box-shadow: 0 24px 64px rgba(201,168,76,0.08);
+        }
+        .prop-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s var(--ease);
+        }
+        .prop-card:hover img {
+            transform: scale(1.05);
+        }
+        .prop-card .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(5,5,5,0.85) 100%);
+            pointer-events: none;
+        }
+        .prop-card .card-content {
+            position: absolute;
+            bottom: 0;
             left: 0;
             right: 0;
-            z-index: 50;
-            background: rgba(7, 7, 7, 0.7);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(201, 168, 76, 0);
-            transition: all 0.3s ease;
-            opacity: 0;
+            padding: 1.5rem;
+            z-index: 2;
+        }
+        .price-badge {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: rgba(5,5,5,0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--hairline);
+            border-radius: 9999px;
+            padding: 0.375rem 1rem;
+            z-index: 3;
         }
 
-        nav.scrolled {
-            background: rgba(7, 7, 7, 0.95);
-            border-bottom-color: rgba(201, 168, 76, 0.15);
+        /* ---- Zig-Zag Approach Section ---- */
+        .approach-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 4vw, 5rem);
+            align-items: center;
+        }
+        .approach-row.reversed .approach-text { order: 2; }
+        .approach-row.reversed .approach-image { order: 1; }
+
+        @media (max-width: 768px) {
+            .approach-row {
+                grid-template-columns: 1fr;
+            }
+            .approach-row.reversed .approach-text { order: 1; }
+            .approach-row.reversed .approach-image { order: 2; }
+        }
+
+        .approach-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(5rem, 10vw, 9rem);
+            font-weight: 300;
+            color: rgba(201,168,76,0.06);
+            line-height: 1;
+            position: absolute;
+            top: -1rem;
+            left: -0.5rem;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .approach-image-wrap {
+            border-radius: 1.25rem;
+            overflow: hidden;
+            border: 1px solid var(--hairline);
+        }
+        .approach-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s var(--ease);
+        }
+        .approach-image-wrap:hover img {
+            transform: scale(1.03);
+        }
+
+        /* ---- Testimonial ---- */
+        .quote-glyph {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(8rem, 20vw, 18rem);
+            font-weight: 300;
+            color: rgba(201,168,76,0.07);
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .testimonial-fade {
+            opacity: 0;
+            transition: opacity 0.8s var(--ease);
+        }
+        .testimonial-fade.active {
             opacity: 1;
         }
 
-        /* Hero Section */
-        .hero-container {
-            position: relative;
-            min-height: 100vh;
-            overflow: hidden;
+        /* ---- CTA Section ---- */
+        .cta-outline-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--champagne);
+            border-radius: 9999px;
+            color: var(--champagne);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.5s var(--ease);
+            min-height: 52px;
+        }
+        .cta-outline-btn:hover {
+            background: var(--champagne);
+            color: var(--vanta);
+        }
+        .cta-outline-btn:active {
+            transform: scale(0.98);
+        }
+        .cta-outline-btn .icon-circle {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            background: rgba(201,168,76,0.15);
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.5s var(--ease);
+        }
+        .cta-outline-btn:hover .icon-circle {
+            background: rgba(5,5,5,0.2);
+            transform: translateX(3px);
         }
 
-        .hero-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            animation: slowZoom 20s ease-in-out infinite alternate;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.75) 100%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-        }
-
-        .hero-content > * {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .hero-content > :nth-child(1) { animation-delay: 0.2s; }
-        .hero-content > :nth-child(2) { animation-delay: 0.4s; }
-        .hero-content > :nth-child(3) { animation-delay: 0.6s; }
-        .hero-content > :nth-child(4) { animation-delay: 0.8s; }
-
-        .hero-line {
-            height: 1px;
-            background: #c9a84c;
-            margin: 24px auto;
-            animation: lineGrow 1s ease-out 0.5s forwards;
-            width: 0;
-        }
-
-        /* Scroll Indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            text-align: center;
-        }
-
-        .scroll-line {
-            width: 1px;
-            height: 24px;
-            background: #c9a84c;
-            margin: 0 auto 8px;
-            animation: bounce-subtle 2s ease-in-out infinite;
-        }
-
-        /* Glass Morphism */
-        .glass {
-            background: rgba(14, 14, 14, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(201, 168, 76, 0.15);
-        }
-
-        .glass-hover {
-            transition: all 0.3s ease;
-        }
-
-        .glass-hover:hover {
-            background: rgba(14, 14, 14, 0.8);
-            border-color: rgba(201, 168, 76, 0.4);
-        }
-
-        /* Cards */
-        .card-property {
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(201, 168, 76, 0.1);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 600px;
-        }
-
-        .card-property:hover {
-            border-color: rgba(201, 168, 76, 0.5);
-            transform: translateY(-8px);
-        }
-
-        .card-property-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-property:hover .card-property-image {
-            transform: scale(1.05);
-        }
-
-        .card-property-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 32px 24px;
-            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.9));
-            transform: translateY(20px);
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-property:hover .card-property-content {
-            transform: translateY(0);
-        }
-
-        /* Service Cards */
-        .service-card {
-            padding: 32px;
-            border-radius: 8px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at top-left, rgba(201, 168, 76, 0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-card:hover {
-            transform: translateY(-12px);
-            border-color: #c9a84c !important;
-            background: rgba(14, 14, 14, 0.9) !important;
-        }
-
-        /* Form Inputs */
-        input, textarea {
-            background: rgba(14, 14, 14, 0.8) !important;
-            border: 1px solid rgba(201, 168, 76, 0.2) !important;
-            color: #f5f5f0 !important;
-            transition: all 0.3s ease;
-        }
-
-        input:focus, textarea:focus {
-            border-color: #c9a84c !important;
-            outline: none;
-            box-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
-        }
-
-        input::placeholder, textarea::placeholder {
-            color: #5a5a52 !important;
-        }
-
-        /* Button */
-        .btn-gold {
-            background: linear-gradient(90deg, #c9a84c, #e8d48b);
-            color: #070707;
+        /* ---- Buttons ---- */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            padding: 0.75rem 1.75rem;
+            background: var(--champagne);
+            color: var(--vanta);
             border: none;
-            padding: 14px 40px;
-            border-radius: 4px;
+            border-radius: 9999px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.875rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.4s var(--ease);
+            min-height: 44px;
+        }
+        .btn-primary:hover {
+            background: #d4b55e;
+        }
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        .btn-primary .btn-icon {
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 9999px;
+            background: rgba(5,5,5,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s var(--ease);
+        }
+        .btn-primary:hover .btn-icon {
+            transform: translateX(2px) translateY(-1px) scale(1.05);
         }
 
-        .btn-gold:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
-        }
-
-        /* Stats */
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            font-weight: 600;
-            background: linear-gradient(90deg, #c9a84c, #e8d48b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .text-heading-1 {
-                font-size: 3.5rem;
-            }
-            .text-heading-2 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .text-heading-1 {
-                font-size: 2.5rem;
-            }
-            .text-heading-2 {
-                font-size: 2rem;
-            }
-            .text-heading-3 {
-                font-size: 1.5rem;
-            }
-            .hero-line {
-                margin: 16px auto;
-            }
-            .card-property {
-                height: 400px;
-            }
-            .stat-number {
-                font-size: 2.5rem;
-            }
-            .service-card {
-                padding: 24px;
-            }
-            .btn-gold {
-                padding: 12px 28px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .text-heading-1 {
-                font-size: 2rem;
-            }
-            .text-heading-2 {
-                font-size: 1.6rem;
-            }
-            .text-heading-3 {
-                font-size: 1.3rem;
-            }
-            .stat-number {
-                font-size: 2rem;
-            }
-            .card-property {
-                height: 350px;
-            }
-            .service-card {
-                padding: 20px;
-            }
-            .hero-container {
-                min-height: 90vh;
-            }
-            .btn-gold {
-                padding: 12px 24px;
-                font-size: 0.875rem;
-            }
-        }
-
-        /* Reveal on scroll */
+        /* ---- Scroll Reveal ---- */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(32px);
+            filter: blur(6px);
+            transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease);
         }
-
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
+            filter: blur(0);
         }
 
-        .reveal-stagger > * {
+        /* ---- Mesh Gradient Background ---- */
+        .mesh-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .mesh-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+        }
+
+        /* ---- Noise Overlay ---- */
+        .noise-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 150;
+            pointer-events: none;
+            opacity: 0.025;
+        }
+
+        /* ---- Mobile Nav Overlay ---- */
+        .mobile-nav-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 90;
+            background: rgba(5,5,5,0.92);
+            backdrop-filter: blur(60px);
+            -webkit-backdrop-filter: blur(60px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            transition: opacity 0.5s var(--ease);
         }
-
-        .reveal-stagger.visible > * {
+        .mobile-nav-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-nav-overlay a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--white);
+            opacity: 0;
+            transform: translateY(1.5rem);
+            transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), color 0.3s var(--ease);
+            min-height: 52px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .mobile-nav-overlay a:hover { color: var(--champagne); }
+        .mobile-nav-overlay.open a {
             opacity: 1;
             transform: translateY(0);
         }
+        .mobile-nav-overlay.open a:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-nav-overlay.open a:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-nav-overlay.open a:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-nav-overlay.open a:nth-child(4) { transition-delay: 0.25s; }
+        .mobile-nav-overlay.open a:nth-child(5) { transition-delay: 0.3s; }
 
-        .reveal-stagger.visible > :nth-child(1) { transition-delay: 0.1s; }
-        .reveal-stagger.visible > :nth-child(2) { transition-delay: 0.2s; }
-        .reveal-stagger.visible > :nth-child(3) { transition-delay: 0.3s; }
-        .reveal-stagger.visible > :nth-child(4) { transition-delay: 0.4s; }
-
-        /* Hamburger Menu */
-        .hamburger {
+        /* ---- Hamburger ---- */
+        .hamburger-btn {
+            width: 44px;
+            height: 44px;
             display: none;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
             cursor: pointer;
-            gap: 6px;
+            background: none;
+            border: none;
+            padding: 0;
+            position: relative;
+            z-index: 110;
         }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background: #c9a84c;
-            transition: all 0.3s ease;
+        .hamburger-btn span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--champagne);
+            transition: all 0.4s var(--ease);
+            transform-origin: center;
         }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translateY(12px);
+        .hamburger-btn.active span:nth-child(1) {
+            transform: translateY(6.5px) rotate(45deg);
         }
-
-        .hamburger.active span:nth-child(2) {
+        .hamburger-btn.active span:nth-child(2) {
             opacity: 0;
+            transform: scaleX(0);
         }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translateY(-12px);
+        .hamburger-btn.active span:nth-child(3) {
+            transform: translateY(-6.5px) rotate(-45deg);
         }
 
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            nav .nav-links {
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: rgba(7, 7, 7, 0.98);
-                flex-direction: column;
-                gap: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-            }
-
-            nav .nav-links.active {
-                max-height: 500px;
-            }
-
-            nav .nav-links a {
-                padding: 16px 24px;
-                border-bottom: 1px solid rgba(201, 168, 76, 0.1);
-            }
+            .hamburger-btn { display: flex; }
+            .desktop-nav-links { display: none !important; }
+            .nav-cta-desktop { display: none !important; }
         }
 
-        /* Parallax effect */
-        .parallax {
-            position: relative;
+        /* ---- Reduced Motion ---- */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
+            }
+            .ken-burns { animation: none !important; }
+            .hero-line { transform: scaleX(1) !important; animation: none !important; }
         }
 
-        .parallax-image {
-            transition: transform 0.3s ease;
+        /* ---- Responsive ---- */
+        @media (max-width: 768px) {
+            .hero-right {
+                height: 50vh;
+                min-height: 280px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="px-6 sm:px-12 py-4 sm:py-6">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="../portfolio.html" class="text-gold text-lg sm:text-xl font-300 tracking-wide hover:opacity-80 transition">← Onda Concepts</a>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#properties" class="text-sm tracking-wider hover:text-gold transition">PROPERTIES</a>
-                <a href="#about" class="text-sm tracking-wider hover:text-gold transition">PHILOSOPHY</a>
-                <a href="#services" class="text-sm tracking-wider hover:text-gold transition">SERVICES</a>
-                <a href="#contact" class="text-sm tracking-wider hover:text-gold transition">CONTACT</a>
+    <!-- Noise Overlay (SVG feTurbulence) -->
+    <svg class="noise-overlay" aria-hidden="true">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+    </svg>
+
+    <!-- Mesh Gradient Background -->
+    <div class="mesh-bg" aria-hidden="true">
+        <div class="mesh-orb" style="width:800px;height:800px;top:-10%;right:-15%;"></div>
+        <div class="mesh-orb" style="width:600px;height:600px;bottom:20%;left:-10%;"></div>
+        <div class="mesh-orb" style="width:500px;height:500px;top:50%;right:30%;opacity:0.5;"></div>
+    </div>
+
+    <!-- Navigation (Floating Glass Pill) -->
+    <nav class="nav-float" id="mainNav" aria-label="Main navigation">
+        <div class="flex items-center justify-between w-full">
+            <!-- Back to Onda + Logo -->
+            <div class="flex items-center">
+                <a href="../portfolio.html" class="onda-back" aria-label="Back to Onda portfolio">&larr; Onda</a>
+                <a href="#" class="flex items-center gap-2 min-h-[44px]" style="min-height:44px;" aria-label="Meridian Estate Group home">
+                    <span class="font-display text-lg tracking-wide" style="color:var(--champagne);font-weight:400;">MERIDIAN</span>
+                    <span class="text-xs tracking-widest" style="color:var(--silver);">ESTATE</span>
+                </a>
             </div>
 
-            <div class="md:hidden">
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+            <!-- Desktop Nav Links -->
+            <div class="desktop-nav-links flex items-center gap-8">
+                <a href="#properties" class="text-xs tracking-widest font-medium" style="color:var(--silver);min-height:44px;display:inline-flex;align-items:center;">PROPERTIES</a>
+                <a href="#approach" class="text-xs tracking-widest font-medium" style="color:var(--silver);min-height:44px;display:inline-flex;align-items:center;">APPROACH</a>
+                <a href="#testimonials" class="text-xs tracking-widest font-medium" style="color:var(--silver);min-height:44px;display:inline-flex;align-items:center;">CLIENTS</a>
             </div>
-        </div>
 
-        <div class="nav-links flex-col md:hidden gap-0 max-h-0 overflow-hidden transition-all" id="navLinks">
-            <a href="#properties" class="px-6 py-4 text-sm tracking-wider hover:text-gold transition border-t border-b border-b-transparent border-t-transparent hover:border-t-gold">PROPERTIES</a>
-            <a href="#about" class="px-6 py-4 text-sm tracking-wider hover:text-gold transition">PHILOSOPHY</a>
-            <a href="#services" class="px-6 py-4 text-sm tracking-wider hover:text-gold transition">SERVICES</a>
-            <a href="#contact" class="px-6 py-4 text-sm tracking-wider hover:text-gold transition">CONTACT</a>
+            <!-- Desktop CTA -->
+            <a href="#contact" class="nav-cta-pill nav-cta-desktop">
+                Private Viewing
+                <span class="w-5 h-5 rounded-full flex items-center justify-center" style="background:rgba(5,5,5,0.12);" aria-hidden="true">
+                    <i data-lucide="arrow-right" style="width:12px;height:12px;"></i>
+                </span>
+            </a>
+
+            <!-- Hamburger (Mobile) -->
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-container" id="hero">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="Luxury Estate" class="hero-image">
-        <div class="hero-overlay"></div>
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNav" aria-hidden="true">
+        <a href="#properties" class="mobile-nav-link">Properties</a>
+        <a href="#approach" class="mobile-nav-link">Approach</a>
+        <a href="#testimonials" class="mobile-nav-link">Clients</a>
+        <a href="#contact" class="mobile-nav-link">Private Viewing</a>
+    </div>
 
-        <div class="hero-content px-6 sm:px-12">
-            <div class="text-sm tracking-widest text-gold uppercase">Est. 2008 · Luxury Real Estate</div>
-            <h1 class="text-heading-1 mt-8 sm:mt-12">Where Legacy Meets Address</h1>
-            <div class="hero-line"></div>
-            <p class="text-lg max-w-md mx-auto" style="color: #c5c5bc;">Bespoke properties for those who demand the extraordinary</p>
-        </div>
+    <main id="main-content">
 
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
-        </div>
-    </section>
+        <!-- ========================================
+             HERO: Editorial Split
+             ======================================== -->
+        <section class="hero-split" aria-label="Hero">
+            <!-- Left: Oversized Typography -->
+            <div class="hero-left">
+                <div class="text-label mb-6 reveal" style="transition-delay:0.1s;">Est. 2008</div>
 
-    <!-- Stats Section -->
-    <section class="py-16 sm:py-24 px-6 sm:px-12 border-t border-b border-gray-800 bg-gradient-to-b from-gray-900 to-black">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-                <div class="reveal text-center">
-                    <div class="stat-number">$12B+</div>
-                    <div class="text-xs uppercase tracking-wider text-muted mt-4">Total Assets Under Management</div>
-                </div>
-                <div class="reveal text-center">
-                    <div class="stat-number">340+</div>
-                    <div class="text-xs uppercase tracking-wider text-muted mt-4">Properties Curated</div>
-                </div>
-                <div class="reveal text-center">
-                    <div class="stat-number">28</div>
-                    <div class="text-xs uppercase tracking-wider text-muted mt-4">Global Markets</div>
-                </div>
-                <div class="reveal text-center">
-                    <div class="stat-number">15+</div>
-                    <div class="text-xs uppercase tracking-wider text-muted mt-4">Years Experience</div>
+                <h1 class="heading-hero reveal" style="transition-delay:0.2s;">
+                    <span style="display:block;">DEFINING</span>
+                    <span style="display:block;color:var(--champagne);">LUXURY</span>
+                    <span style="display:block;">LIVING</span>
+                </h1>
+
+                <div class="hero-line mt-8 mb-8" aria-hidden="true"></div>
+
+                <p class="text-body mb-10 reveal" style="transition-delay:0.5s;max-width:38ch;">
+                    Bespoke properties for those who demand the extraordinary. We curate legacies, not listings.
+                </p>
+
+                <!-- Stat Counters (hero) -->
+                <div class="flex gap-10 flex-wrap reveal" style="transition-delay:0.7s;">
+                    <div>
+                        <span class="font-mono text-2xl font-semibold" style="color:var(--champagne);" data-count-to="17">0</span>
+                        <span class="block text-xs mt-1" style="color:var(--silver);">Years</span>
+                    </div>
+                    <div>
+                        <span class="font-mono text-2xl font-semibold" style="color:var(--champagne);" data-count-to="342">0</span><span class="font-mono text-2xl font-semibold" style="color:var(--champagne);">+</span>
+                        <span class="block text-xs mt-1" style="color:var(--silver);">Properties</span>
+                    </div>
+                    <div>
+                        <span class="font-mono text-2xl font-semibold" style="color:var(--champagne);">$</span><span class="font-mono text-2xl font-semibold" style="color:var(--champagne);" data-count-to="12">0</span><span class="font-mono text-2xl font-semibold" style="color:var(--champagne);">B+</span>
+                        <span class="block text-xs mt-1" style="color:var(--silver);">Portfolio Value</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Properties Section -->
-    <section id="properties" class="py-16 sm:py-24 md:py-32 px-6 sm:px-12">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-12 sm:mb-16 md:mb-24">
-                <div class="flex items-center gap-4 mb-4">
-                    <h2 class="text-heading-2 reveal">Curated Collection</h2>
-                </div>
-                <div class="w-20 h-px bg-gradient-to-r from-gold to-transparent reveal" style="animation-delay: 0.1s"></div>
+            <!-- Right: Full-Height Property Image with Ken Burns -->
+            <div class="hero-right">
+                <div class="hero-orb" aria-hidden="true"></div>
+                <img
+                    src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80"
+                    alt="Luxury waterfront villa with infinity pool at sunset"
+                    class="ken-burns"
+                    loading="eager"
+                >
             </div>
+        </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger">
-                <!-- Property 1 -->
-                <div class="card-property group">
-                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80" alt="Villa Serenity" class="card-property-image">
-                    <div class="card-property-content">
-                        <h3 class="text-xl font-500 mb-2">Villa Serenity</h3>
-                        <p class="text-sm text-muted mb-4">Côte d'Azur, France</p>
-                        <div class="flex justify-between items-end">
-                            <div>
-                                <p class="text-gold font-600">$8.5M</p>
-                                <p class="text-xs text-muted mt-1">5 Bed • 6 Bath • 8,500 sqft</p>
+
+        <!-- ========================================
+             STATS BAR: Glass Strip
+             ======================================== -->
+        <section class="relative z-10" aria-label="Key metrics">
+            <div style="max-width:1400px;margin:0 auto;padding:0 clamp(1rem,4vw,4rem);">
+                <div class="glass-panel" style="padding:clamp(1.5rem,3vw,2.5rem) clamp(1rem,3vw,2.5rem);">
+                    <div class="stat-strip">
+                        <div class="flex flex-col items-center text-center reveal" style="transition-delay:0s;">
+                            <span class="font-mono text-3xl md:text-4xl font-semibold" style="color:var(--champagne);" data-count-to="28">0</span>
+                            <span class="text-xs mt-2" style="color:var(--silver);letter-spacing:0.12em;">GLOBAL MARKETS</span>
+                        </div>
+                        <div class="flex flex-col items-center text-center reveal" style="transition-delay:0.1s;">
+                            <span class="font-mono text-3xl md:text-4xl font-semibold" style="color:var(--champagne);">$<span data-count-to="48">0</span>M</span>
+                            <span class="text-xs mt-2" style="color:var(--silver);letter-spacing:0.12em;">AVG. TRANSACTION</span>
+                        </div>
+                        <div class="flex flex-col items-center text-center reveal" style="transition-delay:0.2s;">
+                            <span class="font-mono text-3xl md:text-4xl font-semibold" style="color:var(--champagne);"><span data-count-to="97">0</span>%</span>
+                            <span class="text-xs mt-2" style="color:var(--silver);letter-spacing:0.12em;">CLIENT RETENTION</span>
+                        </div>
+                        <div class="flex flex-col items-center text-center reveal" style="transition-delay:0.3s;">
+                            <span class="font-mono text-3xl md:text-4xl font-semibold" style="color:var(--champagne);"><span data-count-to="14">0</span></span>
+                            <span class="text-xs mt-2" style="color:var(--silver);letter-spacing:0.12em;">DAY AVG. CLOSE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================
+             FEATURED PROPERTIES: Asymmetric 2-Column
+             ======================================== -->
+        <section id="properties" class="relative z-10" style="padding:clamp(4rem,8vw,8rem) 0;">
+            <div style="max-width:1400px;margin:0 auto;padding:0 clamp(1rem,4vw,4rem);">
+                <!-- Section Header -->
+                <div class="mb-16 reveal">
+                    <span class="text-label block mb-4">The Collection</span>
+                    <h2 class="heading-section" style="color:var(--white);">Curated Properties</h2>
+                </div>
+
+                <!-- Asymmetric Grid -->
+                <div class="property-grid">
+                    <!-- Hero Card (Left - spans full height) -->
+                    <div class="prop-card hero-card group reveal" style="transition-delay:0.1s;min-height:320px;">
+                        <img
+                            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
+                            alt="Metropolitan Heights penthouse overlooking Central Park"
+                            loading="lazy"
+                        >
+                        <div class="card-overlay" aria-hidden="true"></div>
+                        <div class="price-badge">
+                            <span class="text-price text-sm">$24.5M</span>
+                        </div>
+                        <div class="card-content">
+                            <p class="text-label mb-2" style="font-size:0.625rem;">Manhattan, New York</p>
+                            <h3 class="heading-card" style="color:var(--white);margin-bottom:0.5rem;">Metropolitan Heights</h3>
+                            <p class="text-xs" style="color:var(--silver);">4 Bed &middot; 5 Bath &middot; 12,000 sqft</p>
+                        </div>
+                    </div>
+
+                    <!-- Top Right Card -->
+                    <div class="prop-card group reveal" style="transition-delay:0.2s;min-height:280px;">
+                        <img
+                            src="https://images.unsplash.com/photo-1760067537640-6ffab10b27d2?auto=format&fit=crop&w=800&q=80"
+                            alt="Modern luxury villa with swimming pool and lounge area"
+                            loading="lazy"
+                        >
+                        <div class="card-overlay" aria-hidden="true"></div>
+                        <div class="price-badge">
+                            <span class="text-price text-sm">$8.5M</span>
+                        </div>
+                        <div class="card-content">
+                            <p class="text-label mb-2" style="font-size:0.625rem;">Cote d'Azur, France</p>
+                            <h3 class="heading-card" style="color:var(--white);margin-bottom:0.5rem;">Villa Serenity</h3>
+                            <p class="text-xs" style="color:var(--silver);">5 Bed &middot; 6 Bath &middot; 8,500 sqft</p>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Right Card -->
+                    <div class="prop-card group reveal" style="transition-delay:0.3s;min-height:280px;">
+                        <img
+                            src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80"
+                            alt="Historic Tuscan estate surrounded by cypress trees"
+                            loading="lazy"
+                        >
+                        <div class="card-overlay" aria-hidden="true"></div>
+                        <div class="price-badge">
+                            <span class="text-price text-sm">$6.2M</span>
+                        </div>
+                        <div class="card-content">
+                            <p class="text-label mb-2" style="font-size:0.625rem;">Siena, Italy</p>
+                            <h3 class="heading-card" style="color:var(--white);margin-bottom:0.5rem;">Tuscan Estate</h3>
+                            <p class="text-xs" style="color:var(--silver);">8 Bed &middot; 7 Bath &middot; 15,000 sqft</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View All -->
+                <div class="mt-12 reveal" style="transition-delay:0.4s;">
+                    <button class="btn-primary">
+                        View Full Collection
+                        <span class="btn-icon" aria-hidden="true">
+                            <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================
+             APPROACH: Zig-Zag Editorial Sections
+             ======================================== -->
+        <section id="approach" class="relative z-10" style="padding:clamp(4rem,8vw,8rem) 0;">
+            <div style="max-width:1400px;margin:0 auto;padding:0 clamp(1rem,4vw,4rem);">
+                <!-- Section Header -->
+                <div class="mb-20 reveal">
+                    <span class="text-label block mb-4">Our Approach</span>
+                    <h2 class="heading-section" style="color:var(--white);">How We Work</h2>
+                </div>
+
+                <!-- Row 1: Text Left / Image Right -->
+                <div class="approach-row mb-24 md:mb-32 reveal" style="transition-delay:0.1s;">
+                    <div class="approach-text relative">
+                        <div class="approach-number" aria-hidden="true">01</div>
+                        <span class="text-label block mb-4 relative z-10">Private Sales & Off-Market</span>
+                        <h3 class="heading-card relative z-10 mb-4" style="color:var(--white);font-size:clamp(1.5rem,2.5vw,2rem);">Discretion Above All</h3>
+                        <p class="text-body relative z-10">We maintain an exclusive network of off-market listings, granting our clients access to properties before they ever reach public channels. Every transaction is handled with absolute confidentiality and care.</p>
+                    </div>
+                    <div class="approach-image">
+                        <div class="approach-image-wrap" style="height:clamp(280px,30vw,420px);">
+                            <img
+                                src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?auto=format&fit=crop&w=800&q=80"
+                                alt="Elegant luxury living room with designer furnishings"
+                                loading="lazy"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2: Image Left / Text Right (Reversed) -->
+                <div class="approach-row reversed mb-24 md:mb-32 reveal" style="transition-delay:0.1s;">
+                    <div class="approach-text relative">
+                        <div class="approach-number" aria-hidden="true">02</div>
+                        <span class="text-label block mb-4 relative z-10">Investment Advisory</span>
+                        <h3 class="heading-card relative z-10 mb-4" style="color:var(--white);font-size:clamp(1.5rem,2.5vw,2rem);">Strategic Wealth Preservation</h3>
+                        <p class="text-body relative z-10">Property as a vehicle for generational wealth. Our advisors provide data-driven guidance on acquisition timing, portfolio diversification, and long-horizon capital appreciation across 28 global markets.</p>
+                    </div>
+                    <div class="approach-image">
+                        <div class="approach-image-wrap" style="height:clamp(280px,30vw,420px);">
+                            <img
+                                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+                                alt="Elegant estate with manicured gardens"
+                                loading="lazy"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Text Left / Image Right -->
+                <div class="approach-row reveal" style="transition-delay:0.1s;">
+                    <div class="approach-text relative">
+                        <div class="approach-number" aria-hidden="true">03</div>
+                        <span class="text-label block mb-4 relative z-10">Global Relocation</span>
+                        <h3 class="heading-card relative z-10 mb-4" style="color:var(--white);font-size:clamp(1.5rem,2.5vw,2rem);">White-Glove Transitions</h3>
+                        <p class="text-body relative z-10">When your life moves across continents, we handle every detail. From market analysis and property sourcing to legal coordination and interior staging, your transition is managed end to end.</p>
+                    </div>
+                    <div class="approach-image">
+                        <div class="approach-image-wrap" style="height:clamp(280px,30vw,420px);">
+                            <img
+                                src="https://images.unsplash.com/photo-1622015663084-307d19eabbbf?auto=format&fit=crop&w=800&q=80"
+                                alt="Luxury white residence nestled among lush green trees"
+                                loading="lazy"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================
+             TESTIMONIALS: Dramatic Quote
+             ======================================== -->
+        <section id="testimonials" class="relative z-10" style="padding:clamp(5rem,10vw,10rem) 0;">
+            <div style="max-width:1000px;margin:0 auto;padding:0 clamp(1rem,4vw,4rem);position:relative;">
+                <div class="quote-glyph" aria-hidden="true">&ldquo;</div>
+
+                <div class="reveal" id="testimonialContainer">
+                    <!-- Testimonial 1 (Active) -->
+                    <div class="testimonial-slide testimonial-fade active" data-testimonial="0">
+                        <blockquote>
+                            <p class="font-display italic" style="font-size:clamp(1.5rem,3vw,2.5rem);font-weight:300;line-height:1.4;color:var(--white);margin-bottom:2rem;">
+                                "Meridian Estate Group transformed our global property search. Their attention to detail and market expertise is genuinely unparalleled in this space."
+                            </p>
+                        </blockquote>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden border" style="border-color:var(--hairline);">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=96&h=96&crop=face&q=80" alt="" aria-hidden="true" class="w-full h-full object-cover">
                             </div>
-                            <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center group-hover:bg-gold/40 transition">
-                                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
-                                </svg>
+                            <div>
+                                <p class="font-medium text-sm" style="color:var(--white);">Victoria Ashford</p>
+                                <p class="text-xs" style="color:var(--silver);">CEO, Ashford Capital Management</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide testimonial-fade" data-testimonial="1" style="position:absolute;top:0;left:0;right:0;">
+                        <blockquote>
+                            <p class="font-display italic" style="font-size:clamp(1.5rem,3vw,2.5rem);font-weight:300;line-height:1.4;color:var(--white);margin-bottom:2rem;">
+                                "They found us a property that wasn't on any market. Within three weeks, the transaction was complete. Absolute discretion, extraordinary speed."
+                            </p>
+                        </blockquote>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden border" style="border-color:var(--hairline);">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=96&h=96&crop=face&q=80" alt="" aria-hidden="true" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="font-medium text-sm" style="color:var(--white);">Henrik Lindqvist</p>
+                                <p class="text-xs" style="color:var(--silver);">Partner, Lindqvist & Borg Ventures</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide testimonial-fade" data-testimonial="2" style="position:absolute;top:0;left:0;right:0;">
+                        <blockquote>
+                            <p class="font-display italic" style="font-size:clamp(1.5rem,3vw,2.5rem);font-weight:300;line-height:1.4;color:var(--white);margin-bottom:2rem;">
+                                "We relocated our family across two continents. Meridian managed everything from the sale in London to the acquisition in Monaco without a single misstep."
+                            </p>
+                        </blockquote>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden border" style="border-color:var(--hairline);">
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=96&h=96&crop=face&q=80" alt="" aria-hidden="true" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="font-medium text-sm" style="color:var(--white);">Amara Okonkwo</p>
+                                <p class="text-xs" style="color:var(--silver);">Director, Okonkwo Family Office</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Property 2 -->
-                <div class="card-property group">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Metropolitan Heights" class="card-property-image">
-                    <div class="card-property-content">
-                        <h3 class="text-xl font-500 mb-2">Metropolitan Heights</h3>
-                        <p class="text-sm text-muted mb-4">Manhattan, New York</p>
-                        <div class="flex justify-between items-end">
-                            <div>
-                                <p class="text-gold font-600">$24.5M</p>
-                                <p class="text-xs text-muted mt-1">4 Bed • 5 Bath • 12,000 sqft</p>
-                            </div>
-                            <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center group-hover:bg-gold/40 transition">
-                                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 3 -->
-                <div class="card-property group">
-                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80" alt="Tuscan Estate" class="card-property-image">
-                    <div class="card-property-content">
-                        <h3 class="text-xl font-500 mb-2">Tuscan Estate</h3>
-                        <p class="text-sm text-muted mb-4">Siena, Italy</p>
-                        <div class="flex justify-between items-end">
-                            <div>
-                                <p class="text-gold font-600">$6.2M</p>
-                                <p class="text-xs text-muted mt-1">8 Bed • 7 Bath • 15,000 sqft</p>
-                            </div>
-                            <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center group-hover:bg-gold/40 transition">
-                                <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Testimonial Dots -->
+                <div class="flex gap-3 mt-10" id="testimonialDots" role="tablist" aria-label="Testimonial navigation">
+                    <button class="w-2 h-2 rounded-full transition-all" style="background:var(--champagne);width:2rem;" role="tab" aria-selected="true" aria-label="Testimonial 1" data-dot="0"></button>
+                    <button class="w-2 h-2 rounded-full transition-all" style="background:rgba(255,255,255,0.15);" role="tab" aria-selected="false" aria-label="Testimonial 2" data-dot="1"></button>
+                    <button class="w-2 h-2 rounded-full transition-all" style="background:rgba(255,255,255,0.15);" role="tab" aria-selected="false" aria-label="Testimonial 3" data-dot="2"></button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About / Philosophy Section -->
-    <section id="about" class="py-16 sm:py-24 md:py-32 px-6 sm:px-12 bg-gradient-to-b from-black to-gray-900">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-                <!-- Left Content -->
+
+        <!-- ========================================
+             CTA: Cinematic Full-Width
+             ======================================== -->
+        <section id="contact" class="relative z-10" style="padding:clamp(5rem,10vw,10rem) 0;">
+            <div style="max-width:1400px;margin:0 auto;padding:0 clamp(1rem,4vw,4rem);text-align:center;">
                 <div class="reveal">
-                    <p class="text-heading-3 italic font-400 text-gold mb-8 leading-relaxed">"We don't sell properties. We curate legacies."</p>
-                    <p class="text-body mb-6">At Meridian Estate Group, we understand that true luxury is personal. Each property in our portfolio has been meticulously selected not just for its market value, but for its soul — the intangible qualities that transform a house into a home and an investment into a legacy.</p>
-                    <p class="text-body mb-8">With over 15 years of experience in the global luxury market, our team navigates the complexities of high-net-worth transactions with discretion, expertise, and an unwavering commitment to excellence.</p>
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="font-600">Bespoke Consultations</p>
-                            <p class="text-sm text-muted">Tailored to your unique requirements</p>
-                        </div>
-                    </div>
-                </div>
+                    <span class="text-label block mb-6">Begin Your Search</span>
+                    <h2 class="heading-section mb-6" style="color:var(--white);max-width:600px;margin-left:auto;margin-right:auto;">Your Next Legacy Awaits</h2>
+                    <p class="text-body mb-12" style="max-width:42ch;margin-left:auto;margin-right:auto;">
+                        Our specialists are ready to understand your vision and curate the perfect property match.
+                    </p>
 
-                <!-- Right Images -->
-                <div class="reveal parallax">
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="col-span-2">
-                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Luxury Lifestyle" class="w-full h-64 object-cover rounded-lg parallax-image">
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Elegant Interiors" class="w-full h-64 object-cover rounded-lg parallax-image">
-                        <div class="bg-gradient-to-br from-gold/20 to-gold/5 rounded-lg h-64 flex items-center justify-center border border-gold/20">
-                            <div class="text-center">
-                                <p class="text-gold font-600 text-lg">15+</p>
-                                <p class="text-xs text-muted">Years of Excellence</p>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="cta-outline-btn" onclick="document.getElementById('ctaModal').showModal()">
+                        Schedule a Private Viewing
+                        <span class="icon-circle" aria-hidden="true">
+                            <i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--champagne);"></i>
+                        </span>
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 sm:py-24 md:py-32 px-6 sm:px-12">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-10 md:mb-20">
-                <h2 class="text-heading-2 reveal mb-4">Our Services</h2>
-                <div class="w-20 h-px bg-gradient-to-r from-gold to-transparent reveal" style="animation-delay: 0.1s"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-stagger">
-                <!-- Service 1 -->
-                <div class="service-card glass glass-hover">
-                    <div class="mb-4">
-                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-heading-3 mb-3">Private Sales & Off-Market</h3>
-                    <p class="text-body">Exclusive access to properties before they reach public listings. Discretion and privacy are paramount in every transaction.</p>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="service-card glass glass-hover">
-                    <div class="mb-4">
-                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-heading-3 mb-3">Investment Advisory</h3>
-                    <p class="text-body">Strategic guidance on property acquisition as a wealth preservation and growth vehicle with long-term returns.</p>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-card glass glass-hover">
-                    <div class="mb-4">
-                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0110.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20H7m6-4h.01M9 20h6"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-heading-3 mb-3">Global Relocation</h3>
-                    <p class="text-body">Seamless transitions to new markets with comprehensive support including market analysis and property placement.</p>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-card glass glass-hover">
-                    <div class="mb-4">
-                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center">
-                            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-heading-3 mb-3">Market Intelligence</h3>
-                    <p class="text-body">Real-time insights into market trends, property valuations, and emerging opportunities across global luxury segments.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonial Section -->
-    <section class="py-16 sm:py-24 md:py-32 px-6 sm:px-12 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent opacity-30"></div>
-        <div class="absolute top-1/2 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl"></div>
-
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="text-center reveal">
-                <svg class="w-16 h-16 text-gold/30 mx-auto mb-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.716-5-7-5-1.5 0-2.5 1.25-2.5 2.5 0 1.5.5 3 1.5 4.5-.5 1.5-.5 3-.5 4.5 0 5 3.5 8 7 8z"></path>
-                </svg>
-
-                <blockquote class="text-heading-2 italic font-400 mb-8 leading-relaxed">
-                    "Meridian Estate Group transformed our global property search. Their attention to detail and market expertise is unparalleled."
-                </blockquote>
-
-                <div class="flex flex-col items-center gap-3">
-                    <p class="font-600">Victoria Ashford</p>
-                    <p class="text-sm text-muted">CEO, Ashford Capital Management</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 sm:py-24 md:py-32 px-6 sm:px-12 border-t border-gray-800">
-        <div class="max-w-2xl mx-auto">
-            <div class="text-center mb-10 md:mb-16 reveal">
-                <h2 class="text-heading-2 mb-4">Begin Your Private Consultation</h2>
-                <p class="text-body">Our team of specialists is ready to understand your vision and curate the perfect property match.</p>
-            </div>
-
-            <form class="space-y-6 reveal" id="contactForm">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <input type="text" placeholder="Your Name" required class="px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500">
-                    <input type="email" placeholder="Your Email" required class="px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500">
-                </div>
-                <input type="tel" placeholder="Phone Number" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500">
-                <textarea placeholder="Tell us about your requirements..." rows="5" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white placeholder-gray-500 resize-none"></textarea>
-
-                <div class="flex items-center gap-3">
-                    <input type="checkbox" id="privacy" required class="w-4 h-4">
-                    <label for="privacy" class="text-sm text-muted">I consent to Meridian Estate Group contacting me regarding properties and services.</label>
-                </div>
-
-                <button type="submit" class="w-full btn-gold mt-8">Schedule Consultation</button>
+        <!-- Contact Dialog (replaces the old form section) -->
+        <dialog id="ctaModal" style="background:rgba(10,10,10,0.97);border:1px solid var(--hairline);border-radius:1.25rem;padding:clamp(1.5rem,3vw,3rem);max-width:520px;width:92vw;color:var(--white);">
+            <form method="dialog" class="flex justify-end mb-4">
+                <button class="w-10 h-10 flex items-center justify-center rounded-full" style="background:rgba(255,255,255,0.05);border:1px solid var(--hairline);" aria-label="Close dialog">
+                    <i data-lucide="x" style="width:16px;height:16px;color:var(--silver);"></i>
+                </button>
             </form>
-        </div>
-    </section>
+            <h3 class="font-display text-2xl mb-2" style="font-weight:400;">Private Consultation</h3>
+            <p class="text-sm mb-6" style="color:var(--silver);">Share your requirements and we will be in touch within 24 hours.</p>
+            <form id="contactForm" class="flex flex-col gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Full Name" required
+                        style="background:rgba(255,255,255,0.04);border:1px solid var(--hairline);border-radius:0.75rem;padding:0.75rem 1rem;color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.875rem;min-height:48px;outline:none;transition:border-color 0.3s;"
+                        onfocus="this.style.borderColor='var(--champagne)'" onblur="this.style.borderColor='var(--hairline)'">
+                    <input type="email" placeholder="Email Address" required
+                        style="background:rgba(255,255,255,0.04);border:1px solid var(--hairline);border-radius:0.75rem;padding:0.75rem 1rem;color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.875rem;min-height:48px;outline:none;transition:border-color 0.3s;"
+                        onfocus="this.style.borderColor='var(--champagne)'" onblur="this.style.borderColor='var(--hairline)'">
+                </div>
+                <input type="tel" placeholder="Phone Number"
+                    style="background:rgba(255,255,255,0.04);border:1px solid var(--hairline);border-radius:0.75rem;padding:0.75rem 1rem;color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.875rem;min-height:48px;outline:none;transition:border-color 0.3s;"
+                    onfocus="this.style.borderColor='var(--champagne)'" onblur="this.style.borderColor='var(--hairline)'">
+                <textarea placeholder="Tell us about your requirements..." rows="4"
+                    style="background:rgba(255,255,255,0.04);border:1px solid var(--hairline);border-radius:0.75rem;padding:0.75rem 1rem;color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.875rem;resize:none;outline:none;transition:border-color 0.3s;"
+                    onfocus="this.style.borderColor='var(--champagne)'" onblur="this.style.borderColor='var(--hairline)'"></textarea>
+                <div class="flex items-start gap-3 mt-1">
+                    <input type="checkbox" id="privacyConsent" required style="width:18px;height:18px;min-width:18px;min-height:18px;accent-color:var(--champagne);margin-top:2px;">
+                    <label for="privacyConsent" class="text-xs" style="color:var(--silver);line-height:1.5;">I consent to Meridian Estate Group contacting me regarding properties and services.</label>
+                </div>
+                <button type="submit" class="btn-primary w-full justify-center mt-2" style="padding:0.875rem 1.5rem;">
+                    Submit Inquiry
+                    <span class="btn-icon" aria-hidden="true">
+                        <i data-lucide="send" style="width:13px;height:13px;"></i>
+                    </span>
+                </button>
+            </form>
+        </dialog>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-800 py-10 sm:py-16 px-6 sm:px-12">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
+    </main>
+
+    <!-- ========================================
+         FOOTER: Two-Column
+         ======================================== -->
+    <footer class="relative z-10" style="border-top:1px solid var(--hairline);padding:clamp(3rem,5vw,5rem) 0;">
+        <div style="max-width:1400px;margin:0 auto;padding:0 clamp(1rem,4vw,4rem);">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+                <!-- Left: Brand -->
                 <div>
-                    <p class="text-gold text-xl font-300 tracking-wide mb-2">MERIDIAN</p>
-                    <p class="text-sm text-muted">Estate Group</p>
+                    <p class="font-display text-xl tracking-wide mb-2" style="color:var(--champagne);font-weight:400;">MERIDIAN</p>
+                    <p class="text-sm" style="color:var(--silver);">Estate Group &middot; Curating legacies since 2008</p>
+                    <p class="text-xs mt-6" style="color:rgba(148,163,184,0.5);">Crafted by <a href="../index.html" style="color:var(--champagne);transition:opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Onda</a></p>
                 </div>
-                <div>
-                    <p class="text-sm font-600 mb-4 text-gold">LOCATIONS</p>
-                    <ul class="space-y-2 text-sm text-muted">
-                        <li>New York</li>
-                        <li>London</li>
-                        <li>Paris</li>
-                        <li>Monaco</li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="text-sm font-600 mb-4 text-gold">CONNECT</p>
-                    <ul class="space-y-2 text-sm text-muted">
-                        <li><a href="#" class="hover:text-gold transition">Instagram</a></li>
-                        <li><a href="#" class="hover:text-gold transition">LinkedIn</a></li>
-                        <li><a href="#" class="hover:text-gold transition">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="text-sm font-600 mb-4 text-gold">MERIDIAN</p>
-                    <p class="text-sm text-muted">Crafted by <a href="../index.html" class="text-gold hover:text-yellow-400 transition">Onda</a></p>
+
+                <!-- Right: Contact Details Stacked -->
+                <div class="md:text-right">
+                    <div class="space-y-3">
+                        <p class="text-sm" style="color:var(--silver);">
+                            <span class="font-mono text-xs" style="color:var(--champagne);">TEL</span>&nbsp;&nbsp;+1 (312) 847-1928
+                        </p>
+                        <p class="text-sm" style="color:var(--silver);">
+                            <span class="font-mono text-xs" style="color:var(--champagne);">EMAIL</span>&nbsp;&nbsp;private@meridian.estate
+                        </p>
+                        <p class="text-sm" style="color:var(--silver);">
+                            <span class="font-mono text-xs" style="color:var(--champagne);">OFFICES</span>&nbsp;&nbsp;New York &middot; London &middot; Paris &middot; Monaco
+                        </p>
+                    </div>
+                    <div class="flex gap-4 mt-6 md:justify-end">
+                        <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full flex items-center justify-center" style="border:1px solid var(--hairline);transition:border-color 0.4s;" onmouseover="this.style.borderColor='var(--champagne)'" onmouseout="this.style.borderColor='var(--hairline)'">
+                            <i data-lucide="instagram" style="width:16px;height:16px;color:var(--silver);"></i>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-full flex items-center justify-center" style="border:1px solid var(--hairline);transition:border-color 0.4s;" onmouseover="this.style.borderColor='var(--champagne)'" onmouseout="this.style.borderColor='var(--hairline)'">
+                            <i data-lucide="linkedin" style="width:16px;height:16px;color:var(--silver);"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted">
+            <div class="mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs" style="border-top:1px solid var(--hairline);color:rgba(148,163,184,0.4);">
                 <p>&copy; 2024 Meridian Estate Group. All rights reserved.</p>
                 <p>Designed by Onda</p>
             </div>
         </div>
     </footer>
 
+
     <script>
-        // Navigation scroll effect
-        const nav = document.querySelector('nav');
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+    (function() {
+        'use strict';
+
+        const EASE = 'cubic-bezier(0.32, 0.72, 0, 1)';
+
+        // ---- Lucide Icons ----
+        if (window.lucide) lucide.createIcons();
+
+        // ---- Navigation: Hide on scroll down, show on scroll up ----
+        const nav = document.getElementById('mainNav');
+        let lastScrollY = 0;
+        let ticking = false;
+
+        function updateNav() {
+            const sy = window.scrollY;
+            if (sy > 200) {
+                if (sy > lastScrollY + 5) {
+                    nav.classList.add('nav-hidden');
+                } else if (sy < lastScrollY - 5) {
+                    nav.classList.remove('nav-hidden');
+                }
+            } else {
+                nav.classList.remove('nav-hidden');
+            }
+            lastScrollY = sy;
+            ticking = false;
+        }
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
+            if (!ticking) {
+                requestAnimationFrame(updateNav);
+                ticking = true;
             }
+        }, { passive: true });
+
+        // ---- Hamburger / Mobile Nav ----
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburgerBtn.addEventListener('click', () => {
+            const isOpen = mobileNav.classList.toggle('open');
+            hamburgerBtn.classList.toggle('active');
+            hamburgerBtn.setAttribute('aria-expanded', isOpen);
+            mobileNav.setAttribute('aria-hidden', !isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
-        // Hamburger menu toggle
-        hamburger?.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when link clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger?.classList.remove('active');
-                navLinks?.classList.remove('active');
+                mobileNav.classList.remove('open');
+                hamburgerBtn.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                mobileNav.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
             });
         });
 
-        // Intersection Observer for scroll reveals
-        const observer = new IntersectionObserver((entries) => {
+        // ---- Scroll Reveal (IntersectionObserver) ----
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
-            observer.observe(el);
-        });
+        revealElements.forEach(el => revealObserver.observe(el));
 
-        // Form submission
-        document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your inquiry. Our team will contact you shortly.');
-            e.target.reset();
-        });
+        // ---- QUICK REVEAL: immediately show elements already in viewport ----
+        const quickReveal = () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        quickReveal();
+        setTimeout(quickReveal, 100);
+        setTimeout(quickReveal, 300);
 
-        // Parallax effect
-        window.addEventListener('scroll', () => {
-            document.querySelectorAll('.parallax-image').forEach(img => {
-                const rect = img.getBoundingClientRect();
-                const offset = rect.top * 0.3;
-                img.style.transform = `translateY(${offset}px)`;
+        // ---- Count-Up Animation ----
+        const counterElements = document.querySelectorAll('[data-count-to]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-count-to'), 10);
+                    const duration = 1800;
+                    const start = performance.now();
+
+                    function step(now) {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        // Ease out cubic
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        el.textContent = Math.round(eased * target);
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            el.textContent = target;
+                        }
+                    }
+
+                    requestAnimationFrame(step);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        counterElements.forEach(el => counterObserver.observe(el));
+
+        // ---- Testimonial Crossfade ----
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('[data-dot]');
+        let currentTestimonial = 0;
+        let testimonialInterval;
+
+        function showTestimonial(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.style.background = 'var(--champagne)';
+                    dot.style.width = '2rem';
+                    dot.setAttribute('aria-selected', 'true');
+                } else {
+                    dot.style.background = 'rgba(255,255,255,0.15)';
+                    dot.style.width = '0.5rem';
+                    dot.setAttribute('aria-selected', 'false');
+                }
+            });
+            currentTestimonial = index;
+        }
+
+        function startTestimonialRotation() {
+            testimonialInterval = setInterval(() => {
+                showTestimonial((currentTestimonial + 1) % slides.length);
+            }, 6000);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                clearInterval(testimonialInterval);
+                showTestimonial(parseInt(dot.getAttribute('data-dot'), 10));
+                startTestimonialRotation();
             });
         });
+
+        startTestimonialRotation();
+
+        // ---- Contact Form ----
+        const contactForm = document.getElementById('contactForm');
+        const ctaModal = document.getElementById('ctaModal');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            ctaModal.close();
+            contactForm.reset();
+        });
+
+        // Close modal on backdrop click
+        ctaModal.addEventListener('click', (e) => {
+            if (e.target === ctaModal) ctaModal.close();
+        });
+
+        // Re-init lucide icons after modal opens (for dynamically rendered icons)
+        ctaModal.addEventListener('close', () => {
+            if (window.lucide) lucide.createIcons();
+        });
+
+    })();
     </script>
     <script>
-    (function(){var r=document.referrer,s='.html';if(r.indexOf('_ka')!==-1)s='_ka.html';else if(r.indexOf('_es')!==-1)s='_es.html';document.querySelectorAll('a').forEach(function(a){if(a.href.indexOf('portfolio.html')!==-1){var h=a.getAttribute('href');a.href=h.replace('portfolio.html','portfolio'+s);}});})();
+    // Onda breadcrumb back-link rewriter — isolated from page IIFE so it runs even if other scripts throw
+    (function(){
+        var lastHub = null;
+        try { lastHub = sessionStorage.getItem('onda:lastHub'); } catch (_) {}
+        var r = document.referrer || '';
+        var langSrc = lastHub || r;
+        var suffix = /_ka\.html?/.test(langSrc) ? '_ka.html'
+                   : /_es\.html?/.test(langSrc) ? '_es.html'
+                   : '.html';
+        document.querySelectorAll('a[href*="portfolio"]').forEach(function(a) {
+            a.href = '../portfolio' + suffix;
+        });
+        var backHref = null;
+        if (lastHub) {
+            backHref = '..' + lastHub;
+        } else if (/\/index(_v[2-5]|_es|_ka)?\.html?/.test(r)) {
+            backHref = suffix === '_ka.html' ? '../index_ka.html'
+                     : suffix === '_es.html' ? '../index_es.html'
+                     : '../index_v5.html';
+        }
+        if (backHref && /\/index/.test(backHref) && backHref.indexOf('#') === -1) {
+            backHref += '#work';
+        }
+        if (backHref) {
+            document.querySelectorAll('.onda-back').forEach(function(a) { a.href = backHref; });
+        }
+    })();
     </script>
 </body>
 </html>

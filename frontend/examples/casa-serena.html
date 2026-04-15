@@ -3,25 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Serena — Boutique Hotel, Batumi</title>
-    <meta name="description" content="A 14-room boutique hotel where the Black Sea meets Georgian warmth. Batumi, Georgia.">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Casa Serena — Mediterranean Boutique Hotel</title>
+    <meta name="description" content="A 14-room sanctuary where the Aegean meets ancient stone. Sun-drenched warmth, quiet luxury, unhurried days.">
+
+    <!-- OG Meta -->
+    <meta property="og:title" content="Casa Serena — Mediterranean Boutique Hotel">
+    <meta property="og:description" content="A 14-room sanctuary where the Aegean meets ancient stone. Sun-drenched warmth, quiet luxury, unhurried days.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Casa Serena — Mediterranean Boutique Hotel">
+    <meta name="twitter:description" content="A 14-room sanctuary where the Aegean meets ancient stone.">
+
+    <!-- Font preconnect + load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
     <style>
-        /* === PALETTE — Warm Mediterranean Stone + Deep Coastal Teal === */
+        /* ======================================================
+           PALETTE — Warm Mediterranean Sanctuary
+        ====================================================== */
         :root {
-            --sand: #EDE6DC;
-            --sand-dark: #DED5C8;
-            --cream: #FAF7F2;
-            --deep: #0E1C2A;
-            --deep-mid: #162636;
-            --ink: #1A1F25;
-            --ink-muted: #5C6369;
-            --teal: #2A6B5E;
-            --teal-hover: #358272;
-            --warm: #C8A882;
-            --warm-light: #D9C4A8;
+            --linen: #FBF8F4;
+            --cream: #FFFBF5;
+            --olive: #2D3B2D;
+            --sage: #6B7B6B;
+            --terracotta: #C2593A;
+            --terracotta-dark: #A84B30;
+            --golden: #D4A853;
+            --border: rgba(45,59,45,0.08);
+            --shadow-warm: rgba(45,59,45,0.06);
             --serif: 'DM Serif Display', serif;
             --sans: 'Jost', sans-serif;
+            --ease: cubic-bezier(0.32, 0.72, 0, 1);
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,317 +46,412 @@
 
         body {
             font-family: var(--sans);
-            background: var(--sand);
-            color: var(--ink);
+            background: var(--linen);
+            color: var(--olive);
             font-weight: 300;
-            line-height: 1.75;
+            line-height: 1.7;
             overflow-x: hidden;
             opacity: 0;
-            transition: opacity 0.6s ease;
+            transition: opacity 0.6s var(--ease);
         }
         body.loaded { opacity: 1; }
 
         img { display: block; width: 100%; height: 100%; object-fit: cover; }
         a { color: inherit; text-decoration: none; cursor: pointer; }
-        button { cursor: pointer; font-family: var(--sans); }
+        button { cursor: pointer; font-family: var(--sans); border: none; background: none; }
+        h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; line-height: 1.15; }
 
-        h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; }
-
-        .label {
-            font-family: var(--sans);
-            font-size: 0.72rem;
+        /* ======================================================
+           SKIP LINK
+        ====================================================== */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            z-index: 9999;
+            padding: 0.75rem 1.5rem;
+            background: var(--terracotta);
+            color: var(--cream);
+            font-size: 0.85rem;
             font-weight: 500;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--teal);
-            margin-bottom: 1.2rem;
+            border-radius: 0 0 6px 6px;
+            transition: top 0.3s var(--ease);
+        }
+        .skip-link:focus { top: 0; }
+
+        /* Focus visible */
+        *:focus-visible {
+            outline: 2px solid var(--terracotta);
+            outline-offset: 3px;
         }
 
-        /* === SCROLL REVEAL === */
+        /* ======================================================
+           FILM GRAIN OVERLAY
+        ====================================================== */
+        .grain {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            pointer-events: none;
+            opacity: 0.03;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* ======================================================
+           SCROLL REVEAL
+        ====================================================== */
         .rv {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(28px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
         }
-        .rv.v { opacity: 1; transform: translateY(0); }
+        .rv.vis { opacity: 1; transform: translateY(0); }
         .rv-d1 { transition-delay: 0.1s; }
         .rv-d2 { transition-delay: 0.2s; }
         .rv-d3 { transition-delay: 0.3s; }
         .rv-d4 { transition-delay: 0.4s; }
+        .rv-d5 { transition-delay: 0.5s; }
 
-        /* === NAVIGATION === */
-        nav {
+        /* ======================================================
+           EYEBROW LABEL
+        ====================================================== */
+        .eyebrow {
+            display: inline-block;
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 1.4rem;
+        }
+
+        /* ======================================================
+           NAVIGATION
+        ====================================================== */
+        .nav {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 100;
-            padding: 1.25rem 1.5rem;
+            padding: 1.5rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: background 0.5s var(--ease), padding 0.5s var(--ease), box-shadow 0.5s var(--ease);
         }
-        nav.scrolled {
-            background: rgba(237, 230, 220, 0.92);
+        .nav.scrolled {
+            background: rgba(251,248,244,0.94);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            padding: 0.9rem 1.5rem;
-            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+            padding: 1rem 1.5rem;
+            box-shadow: 0 1px 0 var(--border);
         }
         .nav-brand {
             font-family: var(--serif);
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             color: var(--cream);
-            transition: all 0.5s;
+            transition: color 0.5s var(--ease), font-size 0.5s var(--ease);
         }
-        nav.scrolled .nav-brand {
-            color: var(--ink);
-            font-size: 1.1rem;
-        }
+        .nav.scrolled .nav-brand { color: var(--olive); font-size: 1.15rem; }
 
         .nav-links {
             display: none;
             align-items: center;
-            gap: 2.2rem;
+            gap: 2.4rem;
         }
         .nav-links a {
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             font-weight: 400;
-            letter-spacing: 0.14em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: rgba(250,247,242,0.7);
-            transition: color 0.3s;
+            color: rgba(255,251,245,0.65);
+            position: relative;
+            transition: color 0.3s var(--ease);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--terracotta);
+            transition: width 0.4s var(--ease);
         }
         .nav-links a:hover { color: var(--cream); }
-        nav.scrolled .nav-links a { color: var(--ink-muted); }
-        nav.scrolled .nav-links a:hover { color: var(--ink); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav.scrolled .nav-links a { color: var(--sage); }
+        .nav.scrolled .nav-links a:hover { color: var(--olive); }
 
-        .nav-back {
-            color: var(--warm-light) !important;
-            border: 1px solid rgba(200,168,130,0.4);
-            padding: 0.4rem 1rem;
-            border-radius: 2px;
-            transition: all 0.3s !important;
+        .nav-cta {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--cream) !important;
+            border: 1px solid rgba(255,251,245,0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            transition: all 0.3s var(--ease) !important;
         }
-        .nav-back:hover { border-color: var(--warm); }
-        nav.scrolled .nav-back {
-            color: var(--teal) !important;
-            border-color: rgba(42,107,94,0.3);
+        .nav-cta:hover { background: rgba(255,251,245,0.1); border-color: rgba(255,251,245,0.5); }
+        .nav-cta:active { transform: scale(0.98); }
+        .nav-cta::after { display: none !important; }
+        .nav.scrolled .nav-cta {
+            color: var(--terracotta) !important;
+            border-color: rgba(194,89,58,0.3);
         }
-        nav.scrolled .nav-back:hover { border-color: var(--teal); }
+        .nav.scrolled .nav-cta:hover { background: rgba(194,89,58,0.06); border-color: var(--terracotta); }
+
+        /* Back-to-Onda link */
+        .onda-back {
+            font-size: 0.75rem;
+            color: rgba(255,251,245,0.45);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            padding-right: 0.75rem;
+            margin-right: 0.75rem;
+            border-right: 1px solid rgba(255,251,245,0.12);
+            transition: color 0.3s var(--ease);
+            white-space: nowrap;
+        }
+        .onda-back:hover { color: var(--terracotta) !important; }
+        .nav.scrolled .onda-back { color: var(--sage); border-right-color: var(--border); }
+        .nav.scrolled .onda-back:hover { color: var(--terracotta) !important; }
 
         /* Hamburger */
-        .hb {
+        .hamburger {
             display: flex;
             flex-direction: column;
             gap: 5px;
-            background: none;
-            border: none;
-            padding: 8px;
+            padding: 10px;
             z-index: 110;
+            min-width: 44px;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
         }
-        .hb span {
+        .hamburger span {
             display: block;
             width: 22px;
             height: 1.5px;
             background: var(--cream);
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.4s var(--ease);
             transform-origin: center;
         }
-        nav.scrolled .hb span { background: var(--ink); }
-        .hb.on span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); background: var(--ink); }
-        .hb.on span:nth-child(2) { opacity: 0; }
-        .hb.on span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); background: var(--ink); }
+        .nav.scrolled .hamburger span { background: var(--olive); }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); background: var(--olive); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); background: var(--olive); }
 
-        /* Mobile Menu */
-        .mob-menu {
+        /* Mobile menu */
+        .mobile-menu {
             position: fixed;
             inset: 0;
             z-index: 105;
-            background: var(--sand);
+            background: var(--linen);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 2.2rem;
+            gap: 2.5rem;
             transform: translateY(-100%);
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: transform 0.6s var(--ease);
         }
-        .mob-menu.on { transform: translateY(0); }
-        .mob-menu a {
+        .mobile-menu.open { transform: translateY(0); }
+        .mobile-menu a {
             font-family: var(--serif);
-            font-size: 2rem;
-            color: var(--ink);
-            transition: color 0.3s;
+            font-size: 2.2rem;
+            color: var(--olive);
+            transition: color 0.3s var(--ease);
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
-        .mob-menu a:hover { color: var(--teal); }
-        .mob-menu .m-back {
-            font-family: var(--sans);
-            font-size: 0.8rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--teal);
-            border: 1px solid rgba(42,107,94,0.3);
-            padding: 0.6rem 1.5rem;
-            border-radius: 2px;
-            margin-top: 1rem;
-        }
+        .mobile-menu a:hover { color: var(--terracotta); }
 
         @media (min-width: 768px) {
-            nav { padding: 1.5rem 3rem; }
-            nav.scrolled { padding: 1rem 3rem; }
+            .nav { padding: 1.8rem 3rem; }
+            .nav.scrolled { padding: 1rem 3rem; }
             .nav-links { display: flex; }
-            .hb { display: none; }
+            .hamburger { display: none; }
         }
         @media (min-width: 1024px) {
-            nav { padding: 1.8rem 5rem; }
-            nav.scrolled { padding: 1rem 5rem; }
+            .nav { padding: 2rem 5rem; }
+            .nav.scrolled { padding: 1.2rem 5rem; }
         }
 
-        /* === HERO === */
+        /* ======================================================
+           HERO — Full viewport cinematic
+        ====================================================== */
         .hero {
             position: relative;
-            height: 100vh;
-            min-height: 600px;
+            min-height: 100dvh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            align-items: flex-end;
             overflow: hidden;
-            background: var(--deep);
+            background: var(--olive);
         }
         .hero-bg {
             position: absolute;
             inset: 0;
+            will-change: transform;
+            animation: kenburns 20s var(--ease) forwards;
         }
-        .hero-bg::after {
-            content: '';
+        @keyframes kenburns {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
+        }
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(14,28,42,0.25) 0%, rgba(14,28,42,0.55) 100%);
+            background: rgba(45,59,45,0.3);
+            pointer-events: none;
         }
         .hero-content {
             position: relative;
             z-index: 2;
-            padding: 0 1.5rem;
+            padding: 0 1.5rem 4rem;
+            max-width: 800px;
         }
         .hero h1 {
-            font-size: clamp(2.8rem, 7.5vw, 5.5rem);
+            font-size: clamp(3.5rem, 9vw, 7rem);
             color: var(--cream);
-            letter-spacing: 0.04em;
-            margin-bottom: 1rem;
-        }
-        .hero-tagline {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: clamp(0.95rem, 2.2vw, 1.25rem);
-            color: var(--warm-light);
-            margin-bottom: 2.5rem;
-        }
-        .hero-rule {
-            width: 48px;
-            height: 1px;
-            background: var(--teal);
-            margin: 0 auto;
-            opacity: 0.7;
-        }
-        .scroll-cue {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .scroll-cue span {
-            font-size: 0.6rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: rgba(250,247,242,0.35);
-        }
-        .scroll-cue::after {
-            content: '';
-            width: 1px;
-            height: 28px;
-            background: var(--teal);
-            opacity: 0.5;
-            animation: pulse 2.5s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scaleY(0.3); opacity: 0.2; transform-origin: top; }
-            50% { transform: scaleY(1); opacity: 0.6; }
-        }
-
-        /* === INTRO (Philosophy) — Light section === */
-        .intro {
-            padding: 6rem 1.5rem;
-            background: var(--sand);
-        }
-        .intro-inner {
-            max-width: 1140px;
-            margin: 0 auto;
-        }
-        .intro-img {
-            position: relative;
-            border-radius: 3px;
-            overflow: hidden;
-            margin-bottom: 3rem;
-            aspect-ratio: 4/5;
-        }
-        .intro-text { max-width: 520px; }
-        .intro-text h2 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            color: var(--ink);
+            letter-spacing: 0.02em;
+            line-height: 0.95;
             margin-bottom: 1.5rem;
         }
-        .intro-text p {
-            color: var(--ink-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.1rem;
+        .hero-rule {
+            width: 56px;
+            height: 2px;
+            background: var(--terracotta);
+            margin-bottom: 1.5rem;
         }
-        .teal-rule {
-            height: 1px;
-            background: var(--teal);
-            width: 0;
-            margin-bottom: 1.8rem;
-            transition: width 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+        .hero-tagline {
+            font-family: var(--sans);
+            font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+            font-weight: 300;
+            color: rgba(255,251,245,0.8);
+            letter-spacing: 0.02em;
+            margin-bottom: 2.5rem;
+            max-width: 380px;
         }
-        .teal-rule.v { width: 40px; }
+        .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--terracotta);
+            color: var(--cream);
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: none;
+            transition: background 0.4s var(--ease), transform 0.3s var(--ease), box-shadow 0.4s var(--ease);
+            min-height: 44px;
+        }
+        .btn-hero:hover {
+            background: var(--terracotta-dark);
+            box-shadow: 0 12px 32px -8px rgba(194,89,58,0.35);
+            transform: translateY(-1px);
+        }
+        .btn-hero:active { transform: scale(0.98); }
+        .btn-hero svg { width: 16px; height: 16px; stroke: currentColor; }
 
         @media (min-width: 768px) {
-            .intro { padding: 8rem 3rem; }
+            .hero-content { padding: 0 3rem 5rem; }
+        }
+        @media (min-width: 1024px) {
+            .hero-content { padding: 0 5rem 6rem; max-width: 900px; }
+        }
+
+        /* ======================================================
+           INTRODUCTION — Editorial two-column
+        ====================================================== */
+        .intro {
+            padding: 6rem 1.5rem;
+            background: var(--linen);
+        }
+        .intro-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .intro-pull {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+            line-height: 1.35;
+            color: var(--olive);
+            margin-bottom: 2.5rem;
+        }
+        .intro-body {
+            max-width: 560px;
+        }
+        .intro-body p {
+            font-size: 0.95rem;
+            color: var(--sage);
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+        }
+        .intro-body p:first-of-type::first-letter {
+            font-family: var(--serif);
+            font-size: 3.4rem;
+            float: left;
+            line-height: 0.85;
+            margin-right: 0.15em;
+            margin-top: 0.05em;
+            color: var(--terracotta);
+        }
+        .intro-rule {
+            width: 48px;
+            height: 2px;
+            background: var(--terracotta);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transition: opacity 0.8s var(--ease), width 1s var(--ease);
+        }
+        .intro-rule.vis { opacity: 1; }
+
+        @media (min-width: 768px) {
+            .intro { padding: 10rem 3rem; }
             .intro-inner {
                 display: grid;
                 grid-template-columns: 5fr 6fr;
-                gap: 4rem;
-                align-items: center;
+                gap: 5rem;
+                align-items: start;
             }
-            .intro-img { margin-bottom: 0; aspect-ratio: 3/4; }
+            .intro-pull { margin-bottom: 0; }
         }
         @media (min-width: 1024px) {
             .intro { padding: 10rem 5rem; }
-            .intro-inner { gap: 6rem; }
+            .intro-inner { gap: 7rem; }
         }
 
-        /* === ROOMS — Dark section === */
+        /* ======================================================
+           ROOMS — Horizontal scroll gallery
+        ====================================================== */
         .rooms {
             padding: 6rem 0;
-            background: var(--deep);
-            color: var(--cream);
+            background: var(--cream);
         }
-        .rooms-head {
-            text-align: center;
+        .rooms-header {
             padding: 0 1.5rem;
             margin-bottom: 3rem;
         }
-        .rooms-head .label { color: var(--warm); }
-        .rooms-head h2 {
-            font-size: clamp(1.8rem, 4.5vw, 3rem);
-            color: var(--cream);
+        .rooms-header h2 {
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            color: var(--olive);
         }
 
         .rooms-track {
@@ -348,226 +460,263 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            padding: 0 1.5rem 1.5rem;
+            padding: 0 1.5rem 2rem;
+            scrollbar-width: none;
         }
         .rooms-track::-webkit-scrollbar { display: none; }
 
-        .room {
-            flex: 0 0 85%;
-            scroll-snap-align: center;
+        .room-card {
+            flex: 0 0 82%;
+            scroll-snap-align: start;
             position: relative;
-            border-radius: 3px;
+            border-radius: 1.5rem;
             overflow: hidden;
-            aspect-ratio: 4/5;
-            transition: transform 0.4s;
+            aspect-ratio: 16/10;
+            transition: transform 0.5s var(--ease);
         }
-        .room::after {
+        .room-card::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, transparent 50%, rgba(14,28,42,0.85) 100%);
+            background: linear-gradient(180deg, transparent 40%, rgba(45,59,45,0.75) 100%);
             pointer-events: none;
+        }
+        /* Double-bezel outer shell */
+        .room-shell {
+            flex: 0 0 82%;
+            scroll-snap-align: start;
+            padding: 6px;
+            background: rgba(45,59,45,0.04);
+            border: 1px solid var(--border);
+            border-radius: calc(1.5rem + 6px);
+            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+        }
+        .room-shell:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 48px -12px var(--shadow-warm);
+        }
+        .room-inner {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+        }
+        .room-inner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(45,59,45,0.7) 100%);
+            pointer-events: none;
+            z-index: 1;
         }
         .room-info {
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1.8rem;
             z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            background: rgba(45,59,45,0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
         .room-name {
             font-family: var(--serif);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--cream);
-            margin-bottom: 0.3rem;
         }
         .room-price {
-            font-size: 0.75rem;
-            color: var(--warm);
-            letter-spacing: 0.08em;
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: rgba(255,251,245,0.75);
+            letter-spacing: 0.05em;
         }
 
         @media (min-width: 768px) {
-            .rooms { padding: 8rem 0; }
-            .rooms-track {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                overflow: visible;
-                padding: 0 3rem;
-                gap: 1.5rem;
-            }
-            .room { flex: none; }
-            .room:hover { transform: translateY(-6px); }
+            .rooms { padding: 10rem 0; }
+            .rooms-header { padding: 0 3rem; }
+            .rooms-track { padding: 0 3rem 2rem; gap: 1.5rem; }
+            .room-shell { flex: 0 0 44%; }
         }
         @media (min-width: 1024px) {
-            .rooms { padding: 10rem 0; }
-            .rooms-track { padding: 0 5rem; gap: 2rem; }
+            .rooms-header { padding: 0 5rem; }
+            .rooms-track { padding: 0 5rem 2rem; gap: 1.75rem; }
+            .room-shell { flex: 0 0 36%; }
+        }
+        @media (min-width: 1280px) {
+            .room-shell { flex: 0 0 30%; }
         }
 
-        /* === EXPERIENCE — Editorial single-column === */
+        /* ======================================================
+           EXPERIENCE — Zig-zag layout
+        ====================================================== */
         .experience {
             padding: 6rem 1.5rem;
-            background: var(--cream);
+            background: var(--linen);
         }
-        .exp-head {
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-        .exp-head h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            line-height: 1.1;
-        }
-        .exp-head .exp-intro {
-            font-size: 0.95rem;
-            color: var(--ink-muted);
-            margin-top: 1.2rem;
-            max-width: 400px;
-        }
-        .amenities {
-            max-width: 800px;
+        .exp-inner {
+            max-width: 1200px;
             margin: 0 auto;
         }
-        .amenity {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 2rem;
-            align-items: baseline;
-            padding: 2.2rem 0;
-            border-top: 1px solid var(--sand-dark);
+        .exp-block {
+            margin-bottom: 6rem;
         }
-        .a-num {
+        .exp-block:last-child { margin-bottom: 0; }
+        .exp-img {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            margin-bottom: 2.5rem;
+        }
+        .exp-number {
             font-family: var(--serif);
-            font-style: italic;
-            font-size: 3rem;
-            color: var(--teal);
+            font-size: clamp(5rem, 12vw, 8rem);
+            color: var(--olive);
+            opacity: 0.04;
             line-height: 1;
-            opacity: 0.3;
+            position: absolute;
+            top: -0.15em;
+            left: -0.02em;
+            pointer-events: none;
+            z-index: 0;
         }
-        .a-body {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            gap: 0.5rem 1.5rem;
+        .exp-text {
+            position: relative;
+            z-index: 1;
         }
-        .a-body h3 {
-            font-size: 1.3rem;
-            color: var(--ink);
+        .exp-text h3 {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            color: var(--olive);
+            margin-bottom: 1rem;
         }
-        .a-body p {
-            font-size: 0.88rem;
-            color: var(--ink-muted);
-            flex-basis: 100%;
+        .exp-text h3 .accent {
+            color: var(--terracotta);
+        }
+        .exp-text p {
+            font-size: 0.95rem;
+            color: var(--sage);
+            max-width: 460px;
+            line-height: 1.8;
         }
 
         @media (min-width: 768px) {
-            .experience { padding: 8rem 3rem; }
-            .a-body {
-                flex-wrap: nowrap;
-                gap: 0 3rem;
+            .experience { padding: 10rem 3rem; }
+            .exp-block {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                align-items: center;
+                margin-bottom: 8rem;
             }
-            .a-body h3 { white-space: nowrap; }
-            .a-body p { flex-basis: auto; }
-            .a-num { font-size: 3.5rem; }
+            .exp-block:nth-child(even) .exp-img { order: 2; }
+            .exp-block:nth-child(even) .exp-content { order: 1; }
+            .exp-img { margin-bottom: 0; }
         }
         @media (min-width: 1024px) {
             .experience { padding: 10rem 5rem; }
+            .exp-block { gap: 6rem; margin-bottom: 10rem; }
         }
 
-        /* === GALLERY — Sand bg, editorial layout === */
+        /* ======================================================
+           GALLERY — Asymmetric photo mosaic
+        ====================================================== */
         .gallery {
             padding: 6rem 1.5rem;
-            background: var(--sand);
+            background: var(--cream);
             overflow: hidden;
         }
-        .gallery-head {
-            text-align: center;
-            margin-bottom: 3rem;
+        .gallery-header {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
         }
-        .gallery-head h2 {
-            font-size: clamp(1.8rem, 4.5vw, 3rem);
+        .gallery-header h2 {
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            color: var(--olive);
         }
-        .g-grid {
+        .mosaic {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.6rem;
+            gap: 0.75rem;
         }
-        .g-item {
+        .mosaic-item {
             position: relative;
-            border-radius: 3px;
+            border-radius: 1rem;
             overflow: hidden;
             aspect-ratio: 1;
+            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
         }
-        .g-item:first-child {
+        .mosaic-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 48px -12px var(--shadow-warm);
+        }
+        .mosaic-item:nth-child(1) {
             grid-column: span 2;
-            aspect-ratio: 16/9;
+            aspect-ratio: 2.2/1;
         }
-        .g-item:nth-child(4) {
+        .mosaic-item:nth-child(4) {
             grid-column: span 2;
-            aspect-ratio: 2.4/1;
-        }
-        .g-cap {
-            position: absolute;
-            inset: 0;
-            background: rgba(14,28,42,0.45);
-            display: flex;
-            align-items: flex-end;
-            padding: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .g-item:hover .g-cap,
-        .g-item:active .g-cap { opacity: 1; }
-        .g-cap span {
-            font-family: var(--serif);
-            font-style: italic;
-            font-size: 0.88rem;
-            color: var(--cream);
+            aspect-ratio: 2.5/1;
         }
 
         @media (min-width: 768px) {
-            .gallery { padding: 8rem 3rem; }
-            .g-grid {
+            .gallery { padding: 10rem 3rem; }
+            .mosaic {
                 grid-template-columns: 2fr 1fr 1fr;
-                grid-template-rows: 300px 300px;
-                gap: 0.8rem;
+                grid-template-rows: 280px 280px;
+                gap: 1rem;
             }
-            .g-item { aspect-ratio: unset; height: 100%; }
-            .g-item:first-child {
+            .mosaic-item {
+                aspect-ratio: unset;
+                height: 100%;
+                border-radius: 1.25rem;
+            }
+            .mosaic-item:nth-child(1) {
                 grid-column: 1;
                 grid-row: span 2;
                 aspect-ratio: unset;
             }
-            .g-item:nth-child(4) {
+            .mosaic-item:nth-child(4) {
                 grid-column: 2 / span 2;
                 aspect-ratio: unset;
             }
         }
         @media (min-width: 1024px) {
             .gallery { padding: 10rem 5rem; }
-            .g-grid {
-                grid-template-columns: 2fr 1fr 1fr;
+            .mosaic {
                 grid-template-rows: 320px 320px;
+                gap: 1.25rem;
             }
-            .g-item:first-child { grid-column: 1; grid-row: span 2; }
-            .g-item:nth-child(4) { grid-column: 2 / span 2; aspect-ratio: unset; }
+            .mosaic-item { border-radius: 1.5rem; }
         }
 
-        /* === TESTIMONIALS — Deep section, editorial === */
+        /* ======================================================
+           TESTIMONIALS — Editorial rotating quote
+        ====================================================== */
         .testimonials {
             padding: 6rem 1.5rem;
-            background: var(--deep);
-            color: var(--cream);
+            background: var(--linen);
+        }
+        .test-inner {
+            max-width: 780px;
+            margin: 0 auto;
             text-align: center;
         }
-        .testimonials .label { color: var(--warm); }
-        .t-wrap {
-            max-width: 720px;
-            margin: 0 auto;
-            position: relative;
-            min-height: 280px;
+        .test-rule {
+            width: 48px;
+            height: 2px;
+            background: var(--terracotta);
+            margin: 0 auto 3rem;
         }
-        .t-item {
+        .test-wrap {
+            position: relative;
+            min-height: 300px;
+        }
+        .test-slide {
             position: absolute;
             inset: 0;
             display: flex;
@@ -575,442 +724,753 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transform: translateY(12px);
-            transition: opacity 0.7s, transform 0.7s;
-            padding: 0 0.5rem;
+            transform: translateY(16px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+            padding: 0 1rem;
         }
-        .t-item.on { opacity: 1; transform: translateY(0); }
-        .t-quote {
+        .test-slide.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .test-quote {
             font-family: var(--serif);
             font-style: italic;
-            font-size: clamp(1.15rem, 2.8vw, 1.55rem);
-            line-height: 1.8;
-            color: rgba(250,247,242,0.92);
-            margin-bottom: 2rem;
+            font-size: clamp(1.2rem, 2.8vw, 1.65rem);
+            line-height: 1.7;
+            color: var(--olive);
+            margin-bottom: 2.5rem;
+            max-width: 640px;
         }
-        .t-quote::before {
-            content: '\201C';
-            display: block;
-            font-family: var(--serif);
-            font-size: 5rem;
-            color: var(--teal);
-            line-height: 0.6;
-            margin-bottom: 1.5rem;
-            opacity: 0.4;
-        }
-        .t-rule {
-            width: 32px;
-            height: 1px;
-            background: var(--warm);
-            opacity: 0.4;
-            margin-bottom: 1.5rem;
-        }
-        .t-author {
+        .test-author {
             font-family: var(--sans);
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 500;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--warm);
+            color: var(--olive);
         }
-        .t-from {
+        .test-location {
+            font-family: var(--sans);
             font-size: 0.72rem;
-            color: var(--ink-muted);
-            margin-top: 0.35rem;
+            font-weight: 300;
+            color: var(--sage);
+            margin-top: 0.4rem;
         }
-        .t-progress {
+
+        .test-dots {
             display: flex;
             justify-content: center;
             gap: 0.5rem;
-            margin-top: 2.5rem;
+            margin-top: 3rem;
         }
-        .tp {
+        .test-dot {
             width: 48px;
             height: 2px;
-            background: rgba(250,247,242,0.1);
-            border: none;
-            padding: 12px 0;
-            cursor: pointer;
+            background: var(--border);
+            padding: 14px 0;
             background-clip: content-box;
-            transition: all 0.4s;
+            transition: all 0.4s var(--ease);
+            min-height: 44px;
         }
-        .tp.on {
-            background-color: var(--warm);
+        .test-dot.active {
+            background-color: var(--terracotta);
             background-clip: content-box;
+        }
+        .test-dot:active { transform: scale(0.98); }
+
+        @media (min-width: 768px) {
+            .testimonials { padding: 10rem 3rem; }
+        }
+        @media (min-width: 1024px) {
+            .testimonials { padding: 10rem 5rem; }
         }
 
-        @media (min-width: 768px) { .testimonials { padding: 8rem 3rem; } }
-        @media (min-width: 1024px) { .testimonials { padding: 10rem 5rem; } }
-
-        /* === LOCATION — Full-bleed image section === */
-        .location {
+        /* ======================================================
+           BOOKING CTA — Warm linen section
+        ====================================================== */
+        .booking {
+            padding: 6rem 1.5rem;
+            background: var(--cream);
             position: relative;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            background: var(--deep);
             overflow: hidden;
         }
-        .loc-bg {
-            position: absolute;
-            inset: 0;
-        }
-        .loc-bg img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
-        .loc-bg::after {
+        .booking::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(14,28,42,0.85) 0%, rgba(14,28,42,0.5) 50%, rgba(14,28,42,0.2) 100%);
+            opacity: 0.015;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            pointer-events: none;
         }
-        .loc-inner {
+        .booking-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
             position: relative;
-            z-index: 2;
-            padding: 6rem 1.5rem;
-            max-width: 560px;
         }
-        .loc-inner .label { color: var(--warm); }
-        .loc-inner h2 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            color: var(--cream);
-            margin-bottom: 2rem;
-        }
-        .loc-rule {
-            width: 40px;
-            height: 1px;
-            background: var(--warm);
-            margin-bottom: 2rem;
-            opacity: 0.5;
-        }
-        .c-line {
-            font-size: 0.92rem;
-            color: rgba(250,247,242,0.6);
+        .booking-inner h2 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--olive);
             margin-bottom: 1rem;
-            display: block;
+        }
+        .booking-hint {
+            font-size: 0.9rem;
+            color: var(--sage);
+            margin-bottom: 2.5rem;
         }
         .btn-book {
-            display: inline-block;
-            background: transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--terracotta);
             color: var(--cream);
             font-family: var(--sans);
-            font-size: 0.78rem;
+            font-size: 0.82rem;
             font-weight: 500;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            padding: 1rem 2.5rem;
-            border: 1px solid rgba(200,168,130,0.4);
-            border-radius: 0;
-            margin-top: 2rem;
-            transition: all 0.4s;
-            text-align: center;
+            padding: 1.1rem 2.5rem;
+            border-radius: 8px;
+            border: none;
+            transition: background 0.4s var(--ease), transform 0.3s var(--ease), box-shadow 0.4s var(--ease);
+            min-height: 44px;
         }
         .btn-book:hover {
-            background: var(--warm);
-            color: var(--deep);
-            border-color: var(--warm);
+            background: var(--terracotta-dark);
+            box-shadow: 0 12px 32px -8px rgba(194,89,58,0.35);
+            transform: translateY(-1px);
+        }
+        .btn-book:active { transform: scale(0.98); }
+
+        @media (min-width: 768px) {
+            .booking { padding: 10rem 3rem; }
+        }
+        @media (min-width: 1024px) {
+            .booking { padding: 10rem 5rem; }
+        }
+
+        /* ======================================================
+           FOOTER — Warm olive
+        ====================================================== */
+        .footer {
+            padding: 4rem 1.5rem 2.5rem;
+            background: var(--olive);
+            color: var(--cream);
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        .footer-brand {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        .footer-address {
+            font-size: 0.85rem;
+            color: rgba(255,251,245,0.6);
+            line-height: 1.9;
+        }
+        .footer-address a {
+            color: rgba(255,251,245,0.6);
+            transition: color 0.3s var(--ease);
+        }
+        .footer-address a:hover { color: var(--cream); }
+        .footer-col h4 {
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,251,245,0.4);
+            margin-bottom: 1.2rem;
+        }
+        .footer-col a {
+            display: block;
+            font-size: 0.88rem;
+            color: rgba(255,251,245,0.6);
+            margin-bottom: 0.7rem;
+            transition: color 0.3s var(--ease);
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+        .footer-col a:hover { color: var(--cream); }
+
+        .footer-newsletter {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .footer-newsletter input {
+            flex: 1;
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            padding: 0.7rem 1rem;
+            background: rgba(255,251,245,0.06);
+            border: 1px solid rgba(255,251,245,0.12);
+            border-radius: 6px;
+            color: var(--cream);
+            outline: none;
+            min-height: 44px;
+            transition: border-color 0.3s var(--ease);
+        }
+        .footer-newsletter input::placeholder { color: rgba(255,251,245,0.3); }
+        .footer-newsletter input:focus { border-color: rgba(255,251,245,0.3); }
+        .footer-newsletter button {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: var(--terracotta);
+            color: var(--cream);
+            padding: 0.7rem 1.2rem;
+            border-radius: 6px;
+            transition: background 0.3s var(--ease);
+            min-height: 44px;
+            white-space: nowrap;
+        }
+        .footer-newsletter button:hover { background: var(--terracotta-dark); }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,251,245,0.08);
+        }
+        .footer-onda {
+            font-size: 0.72rem;
+            color: rgba(255,251,245,0.25);
+        }
+        .footer-onda a { color: var(--terracotta); transition: opacity 0.3s var(--ease); }
+        .footer-onda a:hover { opacity: 0.7; }
+        .footer-copy {
+            font-size: 0.65rem;
+            color: rgba(255,251,245,0.15);
         }
 
         @media (min-width: 768px) {
-            .location { min-height: 75vh; }
-            .loc-inner { padding: 8rem 3rem 8rem 5rem; }
+            .footer { padding: 5rem 3rem 2.5rem; }
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 3rem;
+            }
         }
         @media (min-width: 1024px) {
-            .location { min-height: 80vh; }
-            .loc-inner { padding: 10rem 5rem 10rem 8rem; max-width: 640px; }
+            .footer { padding: 5rem 5rem 2.5rem; }
         }
 
-        /* === FOOTER === */
-        footer {
-            padding: 3rem 1.5rem;
-            background: var(--deep);
-            text-align: center;
-            color: var(--cream);
+        /* ======================================================
+           REDUCED MOTION
+        ====================================================== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .rv { opacity: 1; transform: none; }
+            .test-slide { opacity: 0; transform: none; }
+            .test-slide.active { opacity: 1; }
+            .hero-bg { animation: none; }
+            .intro-rule { opacity: 1; }
+            body { opacity: 1; }
         }
-        .f-brand {
-            font-family: var(--serif);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-        .f-social {
-            font-size: 0.78rem;
-            color: var(--ink-muted);
-            margin-bottom: 1.5rem;
-        }
-        .f-social a { color: var(--ink-muted); transition: color 0.3s; }
-        .f-social a:hover { color: var(--warm); }
-        .f-onda {
-            font-size: 0.7rem;
-            color: rgba(250,247,242,0.25);
-            margin-bottom: 0.4rem;
-        }
-        .f-onda a { color: var(--teal); transition: opacity 0.3s; }
-        .f-onda a:hover { opacity: 0.7; }
-        .f-copy { font-size: 0.62rem; color: rgba(250,247,242,0.15); }
     </style>
 </head>
 <body>
 
-    <!-- NAV -->
-    <nav id="nav">
-        <a href="#" class="nav-brand">Casa Serena</a>
+    <!-- Skip link -->
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- Film grain -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+        <div style="display:flex;align-items:center;">
+            <a href="../portfolio.html" class="onda-back" aria-label="Back to Onda portfolio">&larr; Onda</a>
+            <a href="#" class="nav-brand">Casa Serena</a>
+        </div>
         <div class="nav-links">
             <a href="#rooms">Rooms</a>
             <a href="#experience">Experience</a>
             <a href="#gallery">Gallery</a>
             <a href="#contact">Contact</a>
-            <a href="https://agencyonda.com/portfolio.html" class="nav-back">Back to Onda</a>
         </div>
-        <button class="hb" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
     </nav>
 
-    <div class="mob-menu" id="mm">
-        <a href="#rooms" class="ml">Rooms</a>
-        <a href="#experience" class="ml">Experience</a>
-        <a href="#gallery" class="ml">Gallery</a>
-        <a href="#contact" class="ml">Contact</a>
-        <a href="https://agencyonda.com/portfolio.html" class="m-back">Back to Onda</a>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <a href="#rooms" class="mob-link">Rooms</a>
+        <a href="#experience" class="mob-link">Experience</a>
+        <a href="#gallery" class="mob-link">Gallery</a>
+        <a href="#contact" class="mob-link">Contact</a>
     </div>
 
-    <main>
+    <main id="main">
 
-        <!-- HERO -->
+        <!-- ============================================
+             HERO
+        ============================================ -->
         <section class="hero">
-            <div class="hero-bg">
-                <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1600&q=80&fit=crop" alt="Coastline at dusk" loading="eager">
+            <div class="hero-bg" aria-hidden="true">
+                <img src="https://images.unsplash.com/photo-1758839603414-89d170c4eea0?w=1600&h=900&fit=crop" alt="" loading="eager">
             </div>
+            <div class="hero-overlay" aria-hidden="true"></div>
             <div class="hero-content">
-                <h1>Casa Serena</h1>
-                <p class="hero-tagline">Where the Black Sea meets stillness</p>
-                <div class="hero-rule"></div>
+                <h1 class="rv">Casa<br>Serena</h1>
+                <div class="hero-rule rv rv-d1" aria-hidden="true"></div>
+                <p class="hero-tagline rv rv-d2">A fourteen-room sanctuary on the Mediterranean coast, where golden light meets ancient stone and the pace of life slows to the rhythm of the tide.</p>
+                <a href="#contact" class="btn-hero rv rv-d3">
+                    Reserve Your Stay
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
             </div>
         </section>
 
-        <!-- INTRO / PHILOSOPHY -->
+        <!-- ============================================
+             INTRODUCTION — Editorial two-column
+        ============================================ -->
         <section class="intro">
             <div class="intro-inner">
-                <div class="intro-img rv">
-                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80&fit=crop" alt="Hotel lounge" loading="lazy">
+                <div class="rv">
+                    <p class="intro-pull">"Where the Aegean meets ancient stone, time bends toward stillness -- and every morning tastes of salt, warm bread, and the slow unraveling of the day."</p>
                 </div>
-                <div class="intro-text">
-                    <p class="label rv">Our Philosophy</p>
-                    <h2 class="rv rv-d1">A place designed for stillness</h2>
-                    <div class="teal-rule rv rv-d1"></div>
-                    <p class="rv rv-d2">Casa Serena was born from a simple belief: the best hotels don't demand your attention — they quiet everything else. Fourteen rooms, each a conversation between light, stone, and the sea beyond.</p>
-                    <p class="rv rv-d3">We chose Batumi not for its crowds, but for its mornings — the way the Black Sea catches the first light, the sound of waves through open windows, the unhurried rhythm of a coast that hasn't forgotten how to breathe.</p>
-                    <p class="rv rv-d4">Every detail here serves rest. Nothing is accidental. Nothing is excessive.</p>
+                <div class="intro-body">
+                    <div class="intro-rule rv rv-d1" aria-hidden="true"></div>
+                    <p class="rv rv-d2">Casa Serena was born from the belief that the finest hotels do not compete for your attention. They quiet everything else. Fourteen rooms, each a dialogue between light, limestone, and the wide sea beyond.</p>
+                    <p class="rv rv-d3">We chose this coast not for its convenience but for its mornings -- the way the Aegean catches first light, the sound of cicadas through open shutters, the unhurried pace of a coastline that has not forgotten how to breathe.</p>
+                    <p class="rv rv-d4">Every surface here serves rest. Nothing is accidental. Nothing is excessive. What remains is precisely what matters.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ROOMS -->
+        <!-- ============================================
+             ROOMS — Horizontal scroll gallery
+        ============================================ -->
         <section class="rooms" id="rooms">
-            <div class="rooms-head">
-                <p class="label rv">Rooms & Suites</p>
-                <h2 class="rv rv-d1">Every room tells a story</h2>
+            <div class="rooms-header">
+                <span class="eyebrow rv">Rooms & Suites</span>
+                <h2 class="rv rv-d1">Every room tells a different story</h2>
             </div>
-            <div class="rooms-track">
-                <div class="room rv rv-d1">
-                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80&fit=crop" alt="Sea View Suite" loading="lazy">
-                    <div class="room-info">
-                        <p class="room-name">Sea View Suite</p>
-                        <p class="room-price">from €89 / night</p>
+            <div class="rooms-track" role="region" aria-label="Room gallery" tabindex="0">
+                <div class="room-shell rv rv-d1">
+                    <div class="room-inner">
+                        <img src="https://images.unsplash.com/photo-1644589381769-0f5374a52720?w=800&h=500&fit=crop" alt="Aegean Suite with panoramic sea view" loading="lazy">
+                        <div class="room-info">
+                            <p class="room-name">Aegean Suite</p>
+                            <p class="room-price">from 245 / night</p>
+                        </div>
                     </div>
                 </div>
-                <div class="room rv rv-d2">
-                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80&fit=crop" alt="Garden Room" loading="lazy">
-                    <div class="room-info">
-                        <p class="room-name">Garden Room</p>
-                        <p class="room-price">from €69 / night</p>
+                <div class="room-shell rv rv-d2">
+                    <div class="room-inner">
+                        <img src="https://images.unsplash.com/photo-1749766731472-fca72defb8dd?w=800&h=500&fit=crop" alt="Garden Room overlooking the courtyard" loading="lazy">
+                        <div class="room-info">
+                            <p class="room-name">Garden Room</p>
+                            <p class="room-price">from 178 / night</p>
+                        </div>
                     </div>
                 </div>
-                <div class="room rv rv-d3">
-                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80&fit=crop" alt="Terrace Suite" loading="lazy">
-                    <div class="room-info">
-                        <p class="room-name">Terrace Suite</p>
-                        <p class="room-price">from €119 / night</p>
+                <div class="room-shell rv rv-d3">
+                    <div class="room-inner">
+                        <img src="https://images.unsplash.com/photo-1772902362618-c45e3e804001?w=800&h=500&fit=crop" alt="Terrace Suite with private outdoor dining" loading="lazy">
+                        <div class="room-info">
+                            <p class="room-name">Terrace Suite</p>
+                            <p class="room-price">from 312 / night</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-shell rv rv-d4">
+                    <div class="room-inner">
+                        <img src="https://images.unsplash.com/photo-1738585608732-49294c24ece0?w=800&h=500&fit=crop" alt="Stone Room with vaulted ceiling" loading="lazy">
+                        <div class="room-info">
+                            <p class="room-name">Stone Room</p>
+                            <p class="room-price">from 165 / night</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-shell rv rv-d5">
+                    <div class="room-inner">
+                        <img src="https://images.unsplash.com/photo-1691784330937-4e8ee367d550?w=800&h=500&fit=crop" alt="Olive Loft with exposed timber beams" loading="lazy">
+                        <div class="room-info">
+                            <p class="room-name">Olive Loft</p>
+                            <p class="room-price">from 198 / night</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- EXPERIENCE -->
+        <!-- ============================================
+             EXPERIENCE — Zig-zag layout
+        ============================================ -->
         <section class="experience" id="experience">
-            <div class="exp-head">
-                <p class="label rv">The Experience</p>
-                <h2 class="rv rv-d1">More than a stay</h2>
-                <p class="exp-intro rv rv-d2">Four reasons guests extend their booking.</p>
-            </div>
-            <div class="amenities">
-                <div class="amenity rv rv-d1">
-                    <span class="a-num">01</span>
-                    <div class="a-body">
-                        <h3>Rooftop Terrace</h3>
-                        <p>Uninterrupted views of the Black Sea, best at golden hour</p>
+            <div class="exp-inner">
+
+                <!-- Spa -->
+                <div class="exp-block rv">
+                    <div class="exp-img">
+                        <img src="https://images.unsplash.com/photo-1737352777897-e22953991a32?w=800&h=600&fit=crop" alt="Spa treatment room with natural stone" loading="lazy">
+                    </div>
+                    <div class="exp-content">
+                        <div class="exp-number rv rv-d1" aria-hidden="true">01</div>
+                        <div class="exp-text rv rv-d2">
+                            <span class="eyebrow">The Spa</span>
+                            <h3>Rituals carved <span class="accent">from the land</span></h3>
+                            <p>Our treatments draw on centuries of Mediterranean botanicals -- wild thyme, cold-pressed olive oil, sea salt harvested from the cove below. Two treatment rooms, a hammam, and a plunge pool set into the hillside. No playlist, no rush. Just the sound of water and stone.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="amenity rv rv-d2">
-                    <span class="a-num">02</span>
-                    <div class="a-body">
-                        <h3>Farm-to-Table</h3>
-                        <p>Georgian cuisine made with ingredients from local markets</p>
+
+                <!-- Dining -->
+                <div class="exp-block rv">
+                    <div class="exp-img">
+                        <img src="https://images.unsplash.com/photo-1769622341465-b7063e544338?w=800&h=600&fit=crop" alt="Open-air dining with candlelight" loading="lazy">
+                    </div>
+                    <div class="exp-content">
+                        <div class="exp-number rv rv-d1" aria-hidden="true">02</div>
+                        <div class="exp-text rv rv-d2">
+                            <span class="eyebrow">The Table</span>
+                            <h3>A kitchen that <span class="accent">speaks the season</span></h3>
+                            <p>Chef Katarina Pavlou sources within a 30-kilometer radius: line-caught bream from the harbor, tomatoes still warm from the vine, cheese aged in the caves above the village. Dinner is served in the courtyard at a single seating, under the fig tree, by candlelight.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="amenity rv rv-d3">
-                    <span class="a-num">03</span>
-                    <div class="a-body">
-                        <h3>Private Beach</h3>
-                        <p>A quiet stretch of coastline reserved for our guests</p>
+
+                <!-- Gardens -->
+                <div class="exp-block rv">
+                    <div class="exp-img">
+                        <img src="https://images.unsplash.com/photo-1552423310-ba74b8de5e6f?w=800&h=600&fit=crop" alt="Terraced garden with olive trees and lavender" loading="lazy">
+                    </div>
+                    <div class="exp-content">
+                        <div class="exp-number rv rv-d1" aria-hidden="true">03</div>
+                        <div class="exp-text rv rv-d2">
+                            <span class="eyebrow">The Gardens</span>
+                            <h3>Three terraces <span class="accent">above the sea</span></h3>
+                            <p>Olive groves, wild lavender, jasmine that opens at dusk. The lower terrace ends at a stone wall overlooking the cove -- this is where guests read, sketch, or simply sit. No pool. The sea is twelve steps below.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="amenity rv rv-d4">
-                    <span class="a-num">04</span>
-                    <div class="a-body">
-                        <h3>Local Experiences</h3>
-                        <p>Curated walks, wine tastings, and hidden-gem excursions</p>
+
+                <!-- Excursions -->
+                <div class="exp-block rv">
+                    <div class="exp-img">
+                        <img src="https://images.unsplash.com/photo-1762947636958-298d87a5fb56?w=800&h=600&fit=crop" alt="Traditional wooden boat in a secluded cove" loading="lazy">
+                    </div>
+                    <div class="exp-content">
+                        <div class="exp-number rv rv-d1" aria-hidden="true">04</div>
+                        <div class="exp-text rv rv-d2">
+                            <span class="eyebrow">Excursions</span>
+                            <h3>The coast <span class="accent">beyond the hotel</span></h3>
+                            <p>A morning sail to the neighboring island with our captain, Nikos, who has fished these waters since he was fourteen. A walk through the hilltop monastery at golden hour. A wine tasting at the family vineyard two valleys over. We arrange everything. You carry nothing.</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- GALLERY -->
+        <!-- ============================================
+             GALLERY — Asymmetric mosaic
+        ============================================ -->
         <section class="gallery" id="gallery">
-            <div class="gallery-head">
-                <p class="label rv">Atmosphere</p>
+            <div class="gallery-header">
+                <span class="eyebrow rv">Atmosphere</span>
                 <h2 class="rv rv-d1">A feeling, not just a place</h2>
             </div>
-            <div class="g-grid">
-                <div class="g-item rv">
-                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80&fit=crop" alt="Restaurant" loading="lazy">
-                    <div class="g-cap"><span>Evening at the restaurant</span></div>
+            <div class="mosaic">
+                <div class="mosaic-item rv">
+                    <img src="https://images.unsplash.com/photo-1767617577939-690ed39cd160?w=1000&h=500&fit=crop" alt="Sunlit courtyard with linen-draped tables" loading="lazy">
                 </div>
-                <div class="g-item rv rv-d1">
-                    <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&q=80&fit=crop" alt="Terrace at sunset" loading="lazy">
-                    <div class="g-cap"><span>The terrace at sunset</span></div>
+                <div class="mosaic-item rv rv-d1">
+                    <img src="https://images.unsplash.com/photo-1675026921804-0e14dbd4fab5?w=600&h=600&fit=crop" alt="Sunset over the cove from the terrace" loading="lazy">
                 </div>
-                <div class="g-item rv rv-d2">
-                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80&fit=crop" alt="Bathroom" loading="lazy">
-                    <div class="g-cap"><span>Suite bathroom</span></div>
+                <div class="mosaic-item rv rv-d2">
+                    <img src="https://images.unsplash.com/photo-1625788717556-56d40f3ddfc4?w=600&h=600&fit=crop" alt="Hand-thrown ceramic on a stone shelf" loading="lazy">
                 </div>
-                <div class="g-item rv rv-d1">
-                    <img src="https://images.unsplash.com/photo-1558370781-d6196949e317?w=1000&q=80&fit=crop" alt="Old town street" loading="lazy">
-                    <div class="g-cap"><span>The streets of Batumi</span></div>
+                <div class="mosaic-item rv rv-d3">
+                    <img src="https://images.unsplash.com/photo-1764867074493-c8b762f39498?w=1000&h=400&fit=crop" alt="Coastal path winding above turquoise water" loading="lazy">
+                </div>
+                <div class="mosaic-item rv rv-d4">
+                    <img src="https://images.unsplash.com/photo-1698746044340-ae5559412fd5?w=600&h=600&fit=crop" alt="Morning light falling across linen sheets" loading="lazy">
                 </div>
             </div>
         </section>
 
-        <!-- TESTIMONIALS -->
+        <!-- ============================================
+             TESTIMONIALS — Rotating editorial quote
+        ============================================ -->
         <section class="testimonials">
-            <p class="label rv">What Guests Say</p>
-            <div class="t-wrap rv rv-d1">
-                <div class="t-item on" data-i="0">
-                    <p class="t-quote">We came for two nights and stayed for five. There's a quietness here that gets into your bones — you stop checking your phone, you stop rushing. It just happens.</p>
-                    <div class="t-rule"></div>
-                    <p class="t-author">Elena & Marco</p>
-                    <p class="t-from">Milan, Italy</p>
+            <div class="test-inner">
+                <span class="eyebrow rv">What Guests Say</span>
+                <div class="test-rule rv rv-d1" aria-hidden="true"></div>
+                <div class="test-wrap rv rv-d2">
+                    <div class="test-slide active" data-index="0">
+                        <p class="test-quote">"We came for two nights and stayed for five. There is a quietness here that gets into your bones -- you stop checking your phone, you stop rushing. It simply happens."</p>
+                        <p class="test-author">Elena & Marco Bianchi</p>
+                        <p class="test-location">Milan, Italy</p>
+                    </div>
+                    <div class="test-slide" data-index="1">
+                        <p class="test-quote">"The terrace at sunrise is the most beautiful place I have ever had coffee. The staff remembered my name after one conversation. This is what hospitality should feel like."</p>
+                        <p class="test-author">Anna Lindqvist</p>
+                        <p class="test-location">Stockholm, Sweden</p>
+                    </div>
+                    <div class="test-slide" data-index="2">
+                        <p class="test-quote">"I have stayed at five-star hotels that did not make me feel this taken care of. Fourteen rooms means they actually know you. The restaurant alone is worth the trip."</p>
+                        <p class="test-author">James Whitfield</p>
+                        <p class="test-location">London, United Kingdom</p>
+                    </div>
                 </div>
-                <div class="t-item" data-i="1">
-                    <p class="t-quote">The rooftop at sunrise is the most beautiful place I've ever had coffee. The staff remembered my name after one conversation. This is what hospitality should feel like.</p>
-                    <div class="t-rule"></div>
-                    <p class="t-author">Anna Krüger</p>
-                    <p class="t-from">Berlin, Germany</p>
+                <div class="test-dots rv rv-d3" role="tablist" aria-label="Testimonial navigation">
+                    <button class="test-dot active" data-index="0" role="tab" aria-selected="true" aria-label="Testimonial 1"></button>
+                    <button class="test-dot" data-index="1" role="tab" aria-selected="false" aria-label="Testimonial 2"></button>
+                    <button class="test-dot" data-index="2" role="tab" aria-selected="false" aria-label="Testimonial 3"></button>
                 </div>
-                <div class="t-item" data-i="2">
-                    <p class="t-quote">I've stayed at five-star hotels that didn't make me feel this taken care of. Fourteen rooms means they actually know you. The restaurant alone is worth the trip.</p>
-                    <div class="t-rule"></div>
-                    <p class="t-author">James Whitfield</p>
-                    <p class="t-from">London, UK</p>
-                </div>
-            </div>
-            <div class="t-progress rv rv-d2">
-                <button class="tp on" data-i="0" aria-label="Testimonial 1"></button>
-                <button class="tp" data-i="1" aria-label="Testimonial 2"></button>
-                <button class="tp" data-i="2" aria-label="Testimonial 3"></button>
             </div>
         </section>
 
-        <!-- LOCATION -->
-        <section class="location" id="contact">
-            <div class="loc-bg">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80&fit=crop" alt="Batumi coastline" loading="lazy">
-            </div>
-            <div class="loc-inner">
-                <p class="label rv">Find Us</p>
-                <h2 class="rv rv-d1">Your journey begins here</h2>
-                <div class="loc-rule rv rv-d1"></div>
-                <span class="c-line rv rv-d2">12 Rustaveli Avenue, Batumi 6010, Georgia</span>
-                <span class="c-line rv rv-d2">+995 422 27 00 00</span>
-                <span class="c-line rv rv-d2">hello@casaserena.ge</span>
-                <a href="#" class="btn-book rv rv-d3">Book Your Stay</a>
+        <!-- ============================================
+             BOOKING CTA
+        ============================================ -->
+        <section class="booking" id="contact">
+            <div class="booking-inner">
+                <span class="eyebrow rv">Plan Your Visit</span>
+                <h2 class="rv rv-d1">Begin Your Stay</h2>
+                <p class="booking-hint rv rv-d2">Select your dates and let us prepare everything. Arrivals from March through November.</p>
+                <a href="#" class="btn-book rv rv-d3">
+                    Check Availability
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
             </div>
         </section>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <p class="f-brand">Casa Serena</p>
-        <p class="f-social">
-            <a href="#">Instagram</a> &ensp;·&ensp; <a href="#">Facebook</a> &ensp;·&ensp; <a href="#">TripAdvisor</a>
-        </p>
-        <p class="f-onda">Website by <a href="https://agencyonda.com">Onda</a></p>
-        <p class="f-copy">&copy; 2026 Casa Serena</p>
+    <!-- ============================================
+         FOOTER
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <!-- Column 1: Brand + Address -->
+                <div>
+                    <p class="footer-brand">Casa Serena</p>
+                    <div class="footer-address">
+                        <span>Paralia Odos 14, Pyrgos 27131</span><br>
+                        <span>Peloponnese, Greece</span><br><br>
+                        <a href="tel:+302761034800">+30 2761 034 800</a><br>
+                        <a href="mailto:stay@casaserena.gr">stay@casaserena.gr</a>
+                    </div>
+                </div>
+                <!-- Column 2: Navigation -->
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <a href="#rooms">Rooms & Suites</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Reservations</a>
+                </div>
+                <!-- Column 3: Social + Newsletter -->
+                <div class="footer-col">
+                    <h4>Stay Connected</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Pinterest</a>
+                    <div class="footer-newsletter">
+                        <input type="email" placeholder="Your email" aria-label="Email for newsletter">
+                        <button type="button">Join</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-onda">Website by <a href="https://agencyonda.com">Onda</a></p>
+                <p class="footer-copy">&copy; 2026 Casa Serena. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- ============================================
+         SCRIPTS
+    ============================================ -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.body.classList.add('loaded');
-        });
+        (function() {
+            'use strict';
 
-        window.addEventListener('scroll', function() {
-            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
-        }, { passive: true });
-
-        var hb = document.getElementById('hb'), mm = document.getElementById('mm');
-        hb.addEventListener('click', function() {
-            hb.classList.toggle('on');
-            mm.classList.toggle('on');
-            document.body.style.overflow = mm.classList.contains('on') ? 'hidden' : '';
-        });
-        document.querySelectorAll('.ml').forEach(function(l) {
-            l.addEventListener('click', function(e) {
-                e.preventDefault();
-                var target = this.getAttribute('href');
-                hb.classList.remove('on');
-                mm.classList.remove('on');
-                document.body.style.overflow = '';
-                var el = document.querySelector(target);
-                if (el) el.scrollIntoView();
+            /* -- Body loaded -- */
+            document.addEventListener('DOMContentLoaded', function() {
+                document.body.classList.add('loaded');
             });
-        });
 
-        new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('v'); });
-        }, { threshold: 0.1 }).observe(document.documentElement);
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('v'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.rv, .teal-rule').forEach(function(el) { obs.observe(el); });
+            /* -- Nav scroll state -- */
+            var nav = document.getElementById('nav');
+            window.addEventListener('scroll', function() {
+                nav.classList.toggle('scrolled', window.scrollY > 80);
+            }, { passive: true });
 
-        var items = document.querySelectorAll('.t-item'), bars = document.querySelectorAll('.tp'), cur = 0;
-        function show(i) {
-            items.forEach(function(t) { t.classList.remove('on'); });
-            bars.forEach(function(d) { d.classList.remove('on'); });
-            items[i].classList.add('on');
-            bars[i].classList.add('on');
-            cur = i;
-        }
-        bars.forEach(function(d) { d.addEventListener('click', function() { show(+this.dataset.i); }); });
-        setInterval(function() { show((cur + 1) % items.length); }, 6000);
+            /* -- Hamburger toggle -- */
+            var hb = document.getElementById('hamburger');
+            var mm = document.getElementById('mobile-menu');
+            hb.addEventListener('click', function() {
+                var isOpen = mm.classList.toggle('open');
+                hb.classList.toggle('open');
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+                hb.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+            });
 
+            /* -- Mobile link close -- */
+            document.querySelectorAll('.mob-link').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var target = this.getAttribute('href');
+                    hb.classList.remove('open');
+                    mm.classList.remove('open');
+                    document.body.style.overflow = '';
+                    hb.setAttribute('aria-label', 'Open menu');
+                    var el = document.querySelector(target);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            /* -- Scroll reveal via IntersectionObserver -- */
+            var revealObs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('vis');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.rv, .intro-rule').forEach(function(el) {
+                revealObs.observe(el);
+            });
+
+            /* -- QUICK REVEAL: immediately show elements already in viewport -- */
+            var quickReveal = function() {
+                document.querySelectorAll('.rv, .intro-rule').forEach(function(el) {
+                    var rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('vis');
+                    }
+                });
+            };
+            quickReveal();
+            setTimeout(quickReveal, 100);
+            setTimeout(quickReveal, 300);
+
+            /* -- Parallax on zig-zag images -- */
+            var expImages = document.querySelectorAll('.exp-img');
+            if (expImages.length > 0) {
+                var parallaxObs = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.dataset.parallax = 'true';
+                        } else {
+                            entry.target.dataset.parallax = 'false';
+                        }
+                    });
+                }, { threshold: 0, rootMargin: '100px 0px 100px 0px' });
+
+                expImages.forEach(function(img) {
+                    parallaxObs.observe(img);
+                });
+
+                var lastScroll = 0;
+                var ticking = false;
+                window.addEventListener('scroll', function() {
+                    lastScroll = window.scrollY;
+                    if (!ticking) {
+                        requestAnimationFrame(function() {
+                            expImages.forEach(function(img) {
+                                if (img.dataset.parallax === 'true') {
+                                    var rect = img.getBoundingClientRect();
+                                    var center = rect.top + rect.height / 2;
+                                    var windowCenter = window.innerHeight / 2;
+                                    var offset = (center - windowCenter) * 0.06;
+                                    img.querySelector('img').style.transform = 'translateY(' + offset + 'px) scale(1.05)';
+                                }
+                            });
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
+            /* -- Testimonial crossfade -- */
+            var slides = document.querySelectorAll('.test-slide');
+            var dots = document.querySelectorAll('.test-dot');
+            var currentSlide = 0;
+            var autoTimer;
+
+            function showSlide(index) {
+                slides.forEach(function(s) { s.classList.remove('active'); });
+                dots.forEach(function(d) { d.classList.remove('active'); d.setAttribute('aria-selected', 'false'); });
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                dots[index].setAttribute('aria-selected', 'true');
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                showSlide((currentSlide + 1) % slides.length);
+            }
+
+            dots.forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    clearInterval(autoTimer);
+                    showSlide(+this.dataset.index);
+                    autoTimer = setInterval(nextSlide, 5000);
+                });
+            });
+
+            autoTimer = setInterval(nextSlide, 5000);
+
+        })();
+    </script>
+    <script>
+        /* -- Back-to-Onda language detection (isolated so it always runs) -- */
         (function(){
-            var r = document.referrer, s = '.html';
-            if (r.indexOf('_ka') !== -1) s = '_ka.html';
-            else if (r.indexOf('_es') !== -1) s = '_es.html';
-            document.querySelectorAll('a').forEach(function(a) {
-                if (a.href.indexOf('agencyonda.com/portfolio') !== -1)
-                    a.href = 'https://agencyonda.com/portfolio' + s;
+            var lastHub = null;
+            try { lastHub = sessionStorage.getItem('onda:lastHub'); } catch (_) {}
+            var r = document.referrer || '';
+            var langSrc = lastHub || r;
+            var suffix = /_ka\.html?/.test(langSrc) ? '_ka.html'
+                       : /_es\.html?/.test(langSrc) ? '_es.html'
+                       : '.html';
+            document.querySelectorAll('a[href*="portfolio"]').forEach(function(a) {
+                a.href = '../portfolio' + suffix;
             });
+            var backHref = null;
+            if (lastHub) {
+                backHref = '..' + lastHub;
+            } else if (/\/index(_v[2-5]|_es|_ka)?\.html?/.test(r)) {
+                backHref = suffix === '_ka.html' ? '../index_ka.html'
+                         : suffix === '_es.html' ? '../index_es.html'
+                         : '../index_v5.html';
+            }
+            if (backHref && /\/index/.test(backHref) && backHref.indexOf('#') === -1) {
+                backHref += '#work';
+            }
+            if (backHref) {
+                document.querySelectorAll('.onda-back').forEach(function(a) { a.href = backHref; });
+            }
         })();
     </script>
 </body>

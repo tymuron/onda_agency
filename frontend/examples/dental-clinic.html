@@ -4,527 +4,1385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Blanc | Your Smile, Perfected</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Cl&iacute;nica Blanc | Precision Dentistry, Barcelona</title>
+
+    <meta property="og:title" content="Cl&iacute;nica Blanc | Precision Dentistry, Barcelona">
+    <meta property="og:description" content="Advanced dentistry with a personal touch. From routine care to smile transformations in Barcelona's Eixample district.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cl&iacute;nica Blanc | Precision Dentistry">
+    <meta name="twitter:description" content="Clinical precision meets warm humanity. Modern dentistry in Barcelona.">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        frost: '#F8FAFB',
+                        surface: '#FFFFFF',
+                        slate: { deep: '#1E293B' },
+                        cool: { gray: '#64748B' },
+                        sage: '#059669',
+                        'sage-dark': '#047857',
+                        mint: { wash: '#ECFDF5' },
+                    },
+                    fontFamily: {
+                        satoshi: ['Satoshi', 'system-ui', 'sans-serif'],
+                        mono: ['Geist Mono', 'monospace'],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': 'calc(2rem - 0.375rem)',
+                    },
+                }
+            }
+        }
+    </script>
+
     <style>
         :root {
-            --bg: #FAFAF8;
-            --bg-white: #FFFFFF;
-            --text: #1A1A1A;
-            --text-muted: #6B6B6B;
-            --accent: #7BA68E;
-            --accent-dark: #5E8A72;
-            --accent-soft: rgba(123, 166, 142, 0.1);
-            --accent-border: rgba(123, 166, 142, 0.25);
-            --border: #E8E8E4;
+            --ease: cubic-bezier(0.32, 0.72, 0, 1);
+            --sage: #059669;
+            --sage-dark: #047857;
+            --frost: #F8FAFB;
+            --mint: #ECFDF5;
+            --slate-deep: #1E293B;
+            --cool-gray: #64748B;
+            --shadow-diffused: 0 20px 60px -15px rgba(0,0,0,0.06);
+            --shadow-lifted: 0 32px 80px -12px rgba(0,0,0,0.1);
+            --border-subtle: rgba(15,23,42,0.05);
         }
+
+        * { box-sizing: border-box; }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: 'Satoshi', system-ui, sans-serif;
+            background-color: var(--frost);
+            color: var(--slate-deep);
+            min-height: 100dvh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        /* === SKIP LINK === */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            z-index: 9999;
+            padding: 0.75rem 1.5rem;
+            background: var(--sage);
+            color: white;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 0 0 12px 12px;
+            transition: top 0.3s var(--ease);
+        }
+        .skip-link:focus { top: 0; }
+
+        /* === FOCUS === */
+        *:focus-visible {
+            outline: 2px solid var(--sage);
+            outline-offset: 3px;
         }
 
-        .fade-in {
+        /* === GRAIN OVERLAY === */
+        .grain-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.012;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* === NAV === */
+        .nav-pill {
+            position: fixed;
+            top: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px) saturate(1.6);
+            -webkit-backdrop-filter: blur(20px) saturate(1.6);
+            border-radius: 9999px;
+            box-shadow: var(--shadow-diffused);
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.5s var(--ease), opacity 0.5s var(--ease);
+        }
+        .nav-pill.nav-hidden {
+            transform: translateX(-50%) translateY(-120%);
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
 
-        .fade-in.visible {
+        /* Back-to-Onda link */
+        .onda-back {
+            font-size: 0.75rem;
+            color: var(--cool-gray);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            padding-right: 0.75rem;
+            border-right: 1px solid var(--border-subtle);
+            margin-right: 0.25rem;
+            transition: color 0.3s var(--ease);
+            white-space: nowrap;
+        }
+        .onda-back:hover { color: var(--sage) !important; }
+
+        /* === SCROLL FADE-IN === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            filter: blur(8px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
+        }
+        .reveal.visible {
             opacity: 1;
             transform: translateY(0);
+            filter: blur(0);
         }
 
-        .service-card {
-            background: var(--bg-white);
-            border: 1px solid var(--border);
-            border-radius: 1.25rem;
-            padding: 2rem;
-            transition: all 0.3s ease;
+        /* === BENTO CARD === */
+        .bento-card {
+            background: #FFFFFF;
+            border-radius: 2rem;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-diffused);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+            --spot-x: 50%;
+            --spot-y: 50%;
+        }
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(500px circle at var(--spot-x) var(--spot-y), rgba(5,150,105,0.04), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s var(--ease);
+            pointer-events: none;
+            border-radius: inherit;
+        }
+        .bento-card:hover::before { opacity: 1; }
+        .bento-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lifted);
         }
 
-        .service-card:hover {
-            border-color: var(--accent-border);
-            box-shadow: 0 12px 40px -20px rgba(123, 166, 142, 0.25);
-            transform: translateY(-2px);
-        }
-
-        .service-icon {
-            width: 3rem;
-            height: 3rem;
-            background: var(--accent-soft);
-            border-radius: 0.75rem;
+        /* === ICON CIRCLE === */
+        .icon-mint {
+            width: 3.5rem;
+            height: 3.5rem;
+            background: var(--mint);
+            border-radius: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent);
+            color: var(--sage);
+            flex-shrink: 0;
         }
 
-        .trust-bar {
-            background: var(--accent);
-            color: white;
-        }
-
-        .team-card {
-            background: var(--bg-white);
-            border: 1px solid var(--border);
-            border-radius: 1.25rem;
+        /* === TEAM ROW === */
+        .team-row {
+            position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: background 0.5s var(--ease);
         }
-
-        .team-card:hover {
-            box-shadow: 0 12px 40px -20px rgba(0,0,0,0.12);
+        .team-row::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--mint);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease);
+            z-index: 0;
+            border-radius: 1rem;
         }
-
-        .review-card {
-            background: var(--bg-white);
-            border: 1px solid var(--border);
-            border-radius: 1.25rem;
-            padding: 2rem;
+        .team-row:hover::before {
+            transform: scaleX(1);
         }
+        .team-row > * { position: relative; z-index: 1; }
 
-        input, textarea, select {
-            background: var(--bg-white);
-            border: 1px solid var(--border);
-            color: var(--text);
-            border-radius: 0.75rem;
-            padding: 0.875rem 1rem;
-            font-family: 'DM Sans', sans-serif;
+        /* === TESTIMONIAL STACK === */
+        .testimonial-stack {
+            position: relative;
             width: 100%;
-            transition: border-color 0.3s ease;
+            max-width: 540px;
+            min-height: 320px;
+        }
+        .testimonial-card {
+            position: absolute;
+            inset: 0;
+            background: #FFFFFF;
+            border-radius: 2rem;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-diffused);
+            padding: 2.5rem;
+            transition: transform 0.7s var(--ease), opacity 0.7s var(--ease), filter 0.7s var(--ease);
+            cursor: pointer;
+        }
+        .testimonial-card[data-pos="0"] {
+            transform: rotate(-1deg) scale(1);
+            z-index: 3;
+            opacity: 1;
+        }
+        .testimonial-card[data-pos="1"] {
+            transform: rotate(1.5deg) scale(0.95) translateY(12px) translateX(8px);
+            z-index: 2;
+            opacity: 0.7;
+            filter: blur(1px);
+        }
+        .testimonial-card[data-pos="2"] {
+            transform: rotate(-0.5deg) scale(0.9) translateY(24px) translateX(-6px);
+            z-index: 1;
+            opacity: 0.45;
+            filter: blur(2px);
         }
 
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-soft);
+        /* === CTA SECTION === */
+        .cta-sage {
+            background: var(--sage);
+            border-radius: 2rem;
         }
 
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            font-weight: 600;
-            padding: 0.875rem 2rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
+        /* === BUTTON === */
+        .btn-sage {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            background: var(--sage);
+            color: #FFFFFF;
+            font-weight: 700;
+            font-family: 'Satoshi', sans-serif;
+            padding: 1rem 1.75rem;
+            border-radius: 9999px;
+            transition: background 0.4s var(--ease), transform 0.2s var(--ease);
+            min-height: 48px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9375rem;
+            letter-spacing: -0.01em;
         }
+        .btn-sage:hover { background: var(--sage-dark); }
+        .btn-sage:active { transform: scale(0.98); }
 
-        .btn-primary:hover {
-            background: var(--accent-dark);
-            transform: translateY(-1px);
-        }
-
-        .comparison-mock {
-            background: var(--bg-white);
-            border: 1px solid var(--border);
-            border-radius: 1.25rem;
-            overflow: hidden;
-        }
-
-        .comparison-side {
+        .btn-sage .arrow-pill {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: transform 0.4s var(--ease), background 0.4s var(--ease);
+        }
+        .btn-sage:hover .arrow-pill {
+            transform: translateX(2px) translateY(-1px) scale(1.05);
+            background: rgba(255,255,255,0.3);
+        }
+
+        .btn-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #FFFFFF;
+            color: var(--sage);
+            font-weight: 700;
+            font-family: 'Satoshi', sans-serif;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            transition: background 0.4s var(--ease), transform 0.2s var(--ease);
+            min-height: 48px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9375rem;
+        }
+        .btn-white:hover { background: #F0FDF4; }
+        .btn-white:active { transform: scale(0.98); }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--sage);
             font-weight: 600;
-            letter-spacing: 0.05em;
+            font-family: 'Satoshi', sans-serif;
+            padding: 1rem 1.75rem;
+            border-radius: 9999px;
+            border: 1.5px solid var(--sage);
+            transition: background 0.4s var(--ease), transform 0.2s var(--ease);
+            min-height: 48px;
+            cursor: pointer;
+            font-size: 0.9375rem;
+        }
+        .btn-outline:hover { background: var(--mint); }
+
+        /* === DOUBLE-BEZEL IMAGE === */
+        .bezel-outer {
+            background: rgba(15,23,42,0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: 2rem;
+            padding: 0.375rem;
+        }
+        .bezel-inner {
+            border-radius: calc(2rem - 0.375rem);
+            overflow: hidden;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.15);
+        }
+        .bezel-inner img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* === HORIZONTAL SCROLL === */
+        .scroll-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(5,150,105,0.2) transparent;
+        }
+        .scroll-track::-webkit-scrollbar { height: 4px; }
+        .scroll-track::-webkit-scrollbar-track { background: transparent; }
+        .scroll-track::-webkit-scrollbar-thumb { background: rgba(5,150,105,0.2); border-radius: 4px; }
+        .scroll-card {
+            flex: 0 0 min(420px, 85vw);
+            scroll-snap-align: start;
+        }
+
+        /* === PILL/BADGE === */
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            background: var(--mint);
+            color: var(--sage);
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+            padding: 0.375rem 0.875rem;
+            border-radius: 9999px;
+        }
+
+        /* === STAT DIVIDER === */
+        .stat-divider {
+            width: 1px;
+            height: 2.5rem;
+            background: var(--border-subtle);
+            flex-shrink: 0;
+        }
+
+        /* === COUNTER ANIMATION === */
+        .count-up {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* === MOBILE MENU OVERLAY === */
+        .mobile-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(40px) saturate(1.8);
+            -webkit-backdrop-filter: blur(40px) saturate(1.8);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .mobile-overlay.active { display: flex; }
+        .mobile-overlay a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--slate-deep);
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), color 0.3s var(--ease);
+        }
+        .mobile-overlay.active a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mobile-overlay a:hover { color: var(--sage); }
+
+        /* === TECH ITEM === */
+        .tech-item {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+        }
+        .tech-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 767px) {
+            .nav-pill {
+                left: 1rem;
+                right: 1rem;
+                transform: none;
+                width: auto;
+            }
+            .nav-pill.nav-hidden {
+                transform: translateY(-120%);
+            }
+            .bento-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .bento-grid > * {
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
+            }
+            .bento-card {
+                padding: 1.75rem;
+            }
+            .testimonial-stack {
+                min-height: 280px;
+            }
+            .testimonial-card {
+                padding: 1.75rem;
+            }
+            .hero-split {
+                grid-template-columns: 1fr !important;
+            }
+            .hero-image-wrap {
+                max-height: 400px;
+            }
+            .tech-split {
+                grid-template-columns: 1fr !important;
+            }
+            .testimonial-split {
+                grid-template-columns: 1fr !important;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1; transform: none; filter: none; }
+            .tech-item { opacity: 1; transform: none; }
+            .testimonial-card { transition: none; }
+            .team-row::before { transition: none; }
         }
     </style>
 </head>
 
-<body class="antialiased overflow-x-hidden">
+<body class="overflow-x-hidden">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-[var(--bg)]/90 backdrop-blur-xl border-b border-[var(--border)]">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-[var(--accent)] rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-sm" style="font-family: 'Plus Jakarta Sans', sans-serif;">B</span>
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <!-- Grain -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="nav-pill" role="navigation" aria-label="Main navigation" id="main-nav">
+        <div class="flex items-center gap-2 px-3 py-2 md:px-5 md:py-2.5">
+            <!-- Back to Onda + Logo -->
+            <a href="../portfolio.html" class="onda-back" aria-label="Back to Onda portfolio">&larr; Onda</a>
+            <a href="#" class="flex items-center gap-2.5 pr-4 md:pr-8">
+                <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: var(--sage);" aria-hidden="true">
+                    <span class="text-white font-black text-sm font-satoshi">B</span>
                 </div>
-                <span class="text-xl font-bold tracking-tight" style="font-family: 'Plus Jakarta Sans', sans-serif;">Clínica Blanc</span>
+                <span class="font-bold text-lg tracking-tight font-satoshi text-slate-deep hidden sm:inline">Cl&iacute;nica Blanc</span>
             </a>
 
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[var(--text-muted)]">
-                <a href="#services" class="hover:text-[var(--text)] transition-colors">Services</a>
-                <a href="#team" class="hover:text-[var(--text)] transition-colors">Team</a>
-                <a href="#reviews" class="hover:text-[var(--text)] transition-colors">Reviews</a>
-                <a href="#contact" class="hover:text-[var(--text)] transition-colors">Contact</a>
-                <a href="https://agencyonda.com/portfolio.html" class="px-4 py-2 border border-[var(--border)] rounded-full hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all">Back to Onda</a>
+            <!-- Desktop links -->
+            <div class="hidden md:flex items-center gap-7 text-sm font-medium" style="color: var(--cool-gray);">
+                <a href="#services" class="hover:text-[var(--slate-deep)] transition-colors duration-300" style="transition-timing-function: var(--ease);">Services</a>
+                <a href="#results" class="hover:text-[var(--slate-deep)] transition-colors duration-300" style="transition-timing-function: var(--ease);">Results</a>
+                <a href="#team" class="hover:text-[var(--slate-deep)] transition-colors duration-300" style="transition-timing-function: var(--ease);">Team</a>
+                <a href="#technology" class="hover:text-[var(--slate-deep)] transition-colors duration-300" style="transition-timing-function: var(--ease);">Technology</a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-[var(--text)]">
-                <i data-lucide="menu" class="w-7 h-7"></i>
-            </button>
-        </div>
+            <!-- CTA -->
+            <a href="#booking" class="hidden md:inline-flex items-center gap-2 ml-6 px-5 py-2.5 rounded-full text-sm font-bold text-white" style="background: var(--sage); transition: background 0.3s var(--ease);" onmouseover="this.style.background='var(--sage-dark)'" onmouseout="this.style.background='var(--sage)'">
+                Book Appointment
+            </a>
 
-        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full backdrop-blur-xl border-b border-[var(--border)] p-8 flex-col gap-4 text-center text-sm font-medium text-[var(--text-muted)]" style="background: rgba(250, 250, 248, 0.98);">
-            <a href="#services" class="block py-2 hover:text-[var(--text)] transition-colors">Services</a>
-            <a href="#team" class="block py-2 hover:text-[var(--text)] transition-colors">Team</a>
-            <a href="#reviews" class="block py-2 hover:text-[var(--text)] transition-colors">Reviews</a>
-            <a href="#contact" class="block py-2 hover:text-[var(--text)] transition-colors">Contact</a>
-            <a href="https://agencyonda.com/portfolio.html" class="inline-block px-4 py-2 border border-[var(--border)] rounded-full hover:border-[var(--accent)] transition-all">Back to Onda</a>
+            <!-- Mobile hamburger -->
+            <button id="hamburger-btn" class="md:hidden ml-2 w-11 h-11 flex items-center justify-center rounded-full" style="transition: background 0.3s var(--ease);" aria-label="Open menu">
+                <svg id="hamburger-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                    <line x1="4" y1="7" x2="20" y2="7" class="ham-line ham-top" style="transition: transform 0.4s var(--ease); transform-origin: center;"/>
+                    <line x1="4" y1="17" x2="20" y2="17" class="ham-line ham-bottom" style="transition: transform 0.4s var(--ease); transform-origin: center;"/>
+                </svg>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-24 sm:pt-28 md:pt-36 pb-12 sm:pb-16 md:pb-24 px-4 sm:px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="fade-in">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-[var(--accent-soft)] rounded-full text-sm text-[var(--accent)] font-medium mb-6">
-                    <i data-lucide="map-pin" class="w-4 h-4"></i>
-                    Barcelona · Eixample
-                </div>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6">
-                    Your smile,<br><span class="text-[var(--accent)]">perfected.</span>
-                </h1>
-                <p class="text-lg text-[var(--text-muted)] leading-relaxed mb-8 max-w-lg">
-                    Advanced dentistry with a personal touch. From routine care to smile transformations, we combine modern techniques with genuine warmth.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#contact" class="btn-primary">
-                        Book Appointment <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                    <a href="#services" class="px-6 py-3.5 border border-[var(--border)] rounded-full font-semibold text-[var(--text)] hover:border-[var(--accent)] transition-colors">
-                        View Services
-                    </a>
-                </div>
-            </div>
-            <div class="fade-in" style="transition-delay: 150ms;">
-                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80" alt="Smiling patient"
-                    class="w-full h-[300px] sm:h-[400px] md:h-[550px] object-cover rounded-3xl">
-            </div>
-        </div>
-    </section>
+    <!-- Mobile overlay menu -->
+    <div id="mobile-overlay" class="mobile-overlay" role="navigation" aria-label="Mobile navigation">
+        <a href="#services" style="transition-delay: 50ms;">Services</a>
+        <a href="#results" style="transition-delay: 100ms;">Results</a>
+        <a href="#team" style="transition-delay: 150ms;">Team</a>
+        <a href="#technology" style="transition-delay: 200ms;">Technology</a>
+        <a href="#booking" class="btn-sage mt-4" style="transition-delay: 250ms;">Book Appointment
+            <span class="arrow-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <button id="close-menu-btn" class="absolute top-6 right-6 w-11 h-11 flex items-center justify-center rounded-full" aria-label="Close menu" style="background: var(--mint);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+    </div>
 
-    <!-- Trust Bar -->
-    <section class="trust-bar py-5 sm:py-6 px-4 sm:px-6">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-16 text-center">
-            <div class="fade-in">
-                <p class="text-2xl md:text-3xl font-bold" style="font-family: 'Plus Jakarta Sans', sans-serif;">5,000+</p>
-                <p class="text-sm opacity-80 mt-1">Happy patients</p>
-            </div>
-            <div class="fade-in" style="transition-delay: 50ms;">
-                <p class="text-2xl md:text-3xl font-bold" style="font-family: 'Plus Jakarta Sans', sans-serif;">15</p>
-                <p class="text-sm opacity-80 mt-1">Years experience</p>
-            </div>
-            <div class="fade-in" style="transition-delay: 100ms;">
-                <p class="text-2xl md:text-3xl font-bold" style="font-family: 'Plus Jakarta Sans', sans-serif;">98%</p>
-                <p class="text-sm opacity-80 mt-1">Recommend us</p>
-            </div>
-            <div class="fade-in" style="transition-delay: 150ms;">
-                <p class="text-2xl md:text-3xl font-bold" style="font-family: 'Plus Jakarta Sans', sans-serif;">Same-day</p>
-                <p class="text-sm opacity-80 mt-1">Appointments available</p>
-            </div>
-        </div>
-    </section>
+    <!-- ========== MAIN ========== -->
+    <main id="main-content">
 
-    <!-- Services -->
-    <section id="services" class="py-16 sm:py-24 md:py-32 px-4 sm:px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 fade-in">
-                <p class="text-sm tracking-wider uppercase text-[var(--accent)] font-semibold mb-3">Our Services</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">Everything your smile needs</h2>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <div class="service-card fade-in">
-                    <div class="service-icon mb-5">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4.97 0-9-2.24-9-5v-4c0-2.76 4.03-5 9-5s9 2.24 9 5v4c0 2.76-4.03 5-9 5z"/><path d="M12 8V2"/><path d="M8 4l4-2 4 2"/></svg>
+        <!-- ===== HERO ===== -->
+        <section class="pt-28 sm:pt-32 md:pt-40 pb-16 sm:pb-20 md:pb-32 px-4 sm:px-6" style="min-height: 100dvh; display: flex; align-items: center;">
+            <div class="max-w-[1400px] mx-auto w-full grid hero-split items-center gap-12 md:gap-16" style="grid-template-columns: 1.5fr 1fr;">
+                <!-- Left: Copy -->
+                <div class="reveal">
+                    <!-- Badge -->
+                    <div class="pill mb-8">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+                        Now accepting new patients
                     </div>
-                    <h3 class="text-lg font-bold mb-2">Dental Implants</h3>
-                    <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-4">Permanent, natural-looking tooth replacement with titanium implants and ceramic crowns.</p>
-                    <p class="text-sm font-semibold text-[var(--accent)]">From €1,200</p>
-                </div>
 
-                <div class="service-card fade-in" style="transition-delay: 80ms;">
-                    <div class="service-icon mb-5">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h5l3-9 4 18 3-9h5"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Invisible Aligners</h3>
-                    <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-4">Clear, removable aligners that straighten your teeth discreetly. Treatment plans from 6 months.</p>
-                    <p class="text-sm font-semibold text-[var(--accent)]">From €2,400</p>
-                </div>
+                    <!-- Headline -->
+                    <h1 class="font-satoshi font-black tracking-tight leading-[1.02]" style="font-size: clamp(2.75rem, 6vw, 5rem); letter-spacing: -0.02em; color: var(--slate-deep);">
+                        Your smile deserves<br>
+                        <span style="font-weight: 500; color: var(--cool-gray);">precision care</span>
+                    </h1>
 
-                <div class="service-card fade-in" style="transition-delay: 160ms;">
-                    <div class="service-icon mb-5">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Porcelain Veneers</h3>
-                    <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-4">Ultra-thin porcelain shells bonded to the front of your teeth for a flawless, natural smile.</p>
-                    <p class="text-sm font-semibold text-[var(--accent)]">From €450/tooth</p>
-                </div>
+                    <!-- Subhead -->
+                    <p class="mt-7 text-lg leading-relaxed max-w-lg" style="color: var(--cool-gray); line-height: 1.7;">
+                        Advanced dentistry with a personal touch. From routine care to complete smile transformations, we combine modern techniques with genuine warmth.
+                    </p>
 
-                <div class="service-card fade-in" style="transition-delay: 240ms;">
-                    <div class="service-icon mb-5">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Teeth Whitening</h3>
-                    <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-4">Professional LED whitening for results up to 8 shades brighter in a single session.</p>
-                    <p class="text-sm font-semibold text-[var(--accent)]">From €250</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Before/After Section -->
-    <section class="py-16 sm:py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg-white)]">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16 fade-in">
-                <p class="text-sm tracking-wider uppercase text-[var(--accent)] font-semibold mb-3">Results</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">Transformations that speak</h2>
-                <p class="text-[var(--text-muted)] mt-4 max-w-xl mx-auto">Real results from our patients. Every smile is designed to look naturally beautiful.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="comparison-mock fade-in">
-                    <div class="grid grid-cols-2 h-48 sm:h-64">
-                        <div class="comparison-side bg-gray-100 text-gray-400 text-sm uppercase tracking-widest border-r border-[var(--border)]">Before</div>
-                        <div class="comparison-side bg-[var(--accent-soft)] text-[var(--accent)] text-sm uppercase tracking-widest">After</div>
-                    </div>
-                    <div class="p-5 border-t border-[var(--border)]">
-                        <p class="font-bold text-sm">Full Smile Makeover</p>
-                        <p class="text-xs text-[var(--text-muted)] mt-1">Veneers + Whitening · 3 weeks</p>
-                    </div>
-                </div>
-
-                <div class="comparison-mock fade-in" style="transition-delay: 100ms;">
-                    <div class="grid grid-cols-2 h-48 sm:h-64">
-                        <div class="comparison-side bg-gray-100 text-gray-400 text-sm uppercase tracking-widest border-r border-[var(--border)]">Before</div>
-                        <div class="comparison-side bg-[var(--accent-soft)] text-[var(--accent)] text-sm uppercase tracking-widest">After</div>
-                    </div>
-                    <div class="p-5 border-t border-[var(--border)]">
-                        <p class="font-bold text-sm">Alignment Correction</p>
-                        <p class="text-xs text-[var(--text-muted)] mt-1">Invisible aligners · 8 months</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team -->
-    <section id="team" class="py-16 sm:py-24 md:py-32 px-4 sm:px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 fade-in">
-                <p class="text-sm tracking-wider uppercase text-[var(--accent)] font-semibold mb-3">Our Team</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">In expert hands</h2>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="team-card fade-in">
-                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=75" alt="Dr. María López"
-                        class="w-full h-56 sm:h-72 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold">Dra. María López</h3>
-                        <p class="text-sm text-[var(--accent)] font-medium">Cosmetic Dentistry</p>
-                        <p class="text-sm text-[var(--text-muted)] mt-2">18 years of experience in smile design and porcelain restorations.</p>
-                    </div>
-                </div>
-
-                <div class="team-card fade-in" style="transition-delay: 80ms;">
-                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=75" alt="Dr. Javier Ruiz"
-                        class="w-full h-56 sm:h-72 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold">Dr. Javier Ruiz</h3>
-                        <p class="text-sm text-[var(--accent)] font-medium">Implantology</p>
-                        <p class="text-sm text-[var(--text-muted)] mt-2">Specialist in dental implants and full-mouth rehabilitation. 12+ years.</p>
-                    </div>
-                </div>
-
-                <div class="team-card fade-in" style="transition-delay: 160ms;">
-                    <img src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=600&q=75" alt="Dra. Clara Navarro"
-                        class="w-full h-56 sm:h-72 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold">Dra. Clara Navarro</h3>
-                        <p class="text-sm text-[var(--accent)] font-medium">Orthodontics</p>
-                        <p class="text-sm text-[var(--text-muted)] mt-2">Expert in invisible aligners and digital treatment planning. 9 years.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews -->
-    <section id="reviews" class="py-16 sm:py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg-white)]">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 fade-in">
-                <p class="text-sm tracking-wider uppercase text-[var(--accent)] font-semibold mb-3">Reviews</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">Trusted by thousands</h2>
-            </div>
-
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="review-card fade-in">
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                    </div>
-                    <p class="text-[var(--text-muted)] leading-relaxed mb-5">"From the moment I walked in, everything felt different from other dental clinics. Calm, modern, and everyone genuinely cared. My veneers look incredible."</p>
-                    <p class="font-semibold text-sm">Ana G.</p>
-                    <p class="text-xs text-[var(--text-muted)]">Porcelain Veneers</p>
-                </div>
-
-                <div class="review-card fade-in" style="transition-delay: 80ms;">
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                    </div>
-                    <p class="text-[var(--text-muted)] leading-relaxed mb-5">"I'd been putting off implants for years out of fear. Dr. Ruiz explained everything so clearly that I felt confident from day one. Best decision I've made."</p>
-                    <p class="font-semibold text-sm">Carlos T.</p>
-                    <p class="text-xs text-[var(--text-muted)]">Dental Implants</p>
-                </div>
-
-                <div class="review-card fade-in" style="transition-delay: 160ms;">
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-[var(--accent)] fill-current"></i>
-                    </div>
-                    <p class="text-[var(--text-muted)] leading-relaxed mb-5">"My aligners treatment was so smooth. The digital planning showed me exactly what my smile would look like before we even started. Now I can't stop smiling."</p>
-                    <p class="font-semibold text-sm">Marta S.</p>
-                    <p class="text-xs text-[var(--text-muted)]">Invisible Aligners</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact / Booking -->
-    <section id="contact" class="py-16 sm:py-24 md:py-32 px-4 sm:px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16">
-            <div class="fade-in">
-                <p class="text-sm tracking-wider uppercase text-[var(--accent)] font-semibold mb-3">Get in Touch</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Ready for your<br>new smile?</h2>
-                <p class="text-[var(--text-muted)] text-lg leading-relaxed mb-8">Book your first consultation and let us show you what's possible. No pressure, no obligation — just an honest assessment and a clear plan.</p>
-
-                <div class="space-y-5">
-                    <div class="flex items-start gap-4">
-                        <div class="service-icon shrink-0">
-                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    <!-- Micro-stats -->
+                    <div class="flex items-center gap-5 sm:gap-8 mt-10 flex-wrap">
+                        <div class="text-center sm:text-left">
+                            <p class="font-mono text-2xl font-bold count-up" data-target="17" style="color: var(--slate-deep);">0</p>
+                            <p class="text-xs mt-0.5" style="color: var(--cool-gray);">Years experience</p>
                         </div>
+                        <div class="stat-divider hidden sm:block"></div>
+                        <div class="text-center sm:text-left">
+                            <p class="font-mono text-2xl font-bold count-up" data-target="4832" style="color: var(--slate-deep);">0</p>
+                            <p class="text-xs mt-0.5" style="color: var(--cool-gray);">Patients treated</p>
+                        </div>
+                        <div class="stat-divider hidden sm:block"></div>
+                        <div class="text-center sm:text-left">
+                            <p class="font-mono text-2xl font-bold" style="color: var(--slate-deep);">
+                                <span class="count-up" data-target="4" data-decimal="true" data-decimal-value="9">0</span><span class="count-decimal">.9</span>
+                            </p>
+                            <p class="text-xs mt-0.5" style="color: var(--cool-gray);">Google rating</p>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="mt-10">
+                        <a href="#booking" class="btn-sage">
+                            Book a consultation
+                            <span class="arrow-pill">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Hero image (Double-Bezel) -->
+                <div class="reveal" style="transition-delay: 150ms;">
+                    <div class="bezel-outer hero-image-wrap">
+                        <div class="bezel-inner" style="aspect-ratio: 3/4;">
+                            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=800&fit=crop&crop=center" alt="Modern dental clinic interior with minimalist design and natural light" loading="eager" width="600" height="800">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICES (Asymmetric Bento) ===== -->
+        <section id="services" class="py-24 sm:py-32 md:py-40 px-4 sm:px-6">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="mb-16 reveal">
+                    <div class="pill mb-5">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        Our services
+                    </div>
+                    <h2 class="font-satoshi font-black tracking-tight" style="font-size: clamp(2rem, 4.5vw, 3.5rem); letter-spacing: -0.02em;">
+                        Everything your<br>smile needs
+                    </h2>
+                </div>
+
+                <!-- Bento Grid: 3 columns -->
+                <div class="bento-grid grid gap-5" style="grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(200px, auto);">
+
+                    <!-- Card 1: Dental Implants (large, col-span-2, tall) -->
+                    <div class="bento-card reveal" style="grid-column: span 2; grid-row: span 1; min-height: 280px; transition-delay: 0ms;">
+                        <div class="flex flex-col justify-between h-full">
+                            <div>
+                                <div class="icon-mint mb-6" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4.97 0-9-2.24-9-5v-4c0-2.76 4.03-5 9-5s9 2.24 9 5v4c0 2.76-4.03 5-9 5z"/><path d="M12 8V2"/><path d="M8 4l4-2 4 2"/></svg>
+                                </div>
+                                <h3 class="font-satoshi font-bold text-xl mb-3" style="letter-spacing: -0.01em;">Dental Implants</h3>
+                                <p class="text-sm leading-relaxed max-w-md" style="color: var(--cool-gray);">
+                                    Permanent, natural-looking tooth replacement with titanium implants and ceramic crowns. Same-day placements available with our guided surgery protocol.
+                                </p>
+                            </div>
+                            <p class="mt-6 font-mono text-sm font-medium" style="color: var(--sage);">From &euro;1,200</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Invisible Aligners (narrow) -->
+                    <div class="bento-card reveal" style="grid-column: span 1; transition-delay: 80ms;">
+                        <div class="icon-mint mb-6" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h5l3-9 4 18 3-9h5"/></svg>
+                        </div>
+                        <h3 class="font-satoshi font-bold text-xl mb-3" style="letter-spacing: -0.01em;">Invisible Aligners</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--cool-gray);">
+                            Clear, removable aligners that straighten your teeth discreetly. Treatment plans from 6 months.
+                        </p>
+                        <p class="mt-6 font-mono text-sm font-medium" style="color: var(--sage);">From &euro;2,400</p>
+                    </div>
+
+                    <!-- Card 3: Porcelain Veneers -->
+                    <div class="bento-card reveal" style="grid-column: span 1; transition-delay: 160ms;">
+                        <div class="icon-mint mb-6" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+                        </div>
+                        <h3 class="font-satoshi font-bold text-xl mb-3" style="letter-spacing: -0.01em;">Porcelain Veneers</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--cool-gray);">
+                            Ultra-thin porcelain shells bonded to the front of your teeth for a flawless, natural result.
+                        </p>
+                        <p class="mt-6 font-mono text-sm font-medium" style="color: var(--sage);">From &euro;450/tooth</p>
+                    </div>
+
+                    <!-- Card 4: Teeth Whitening (tall, row-span-2 from here) -->
+                    <div class="bento-card reveal" style="grid-column: span 1; grid-row: span 2; transition-delay: 240ms;">
+                        <div class="flex flex-col justify-between h-full">
+                            <div>
+                                <div class="icon-mint mb-6" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                                </div>
+                                <h3 class="font-satoshi font-bold text-xl mb-3" style="letter-spacing: -0.01em;">Teeth Whitening</h3>
+                                <p class="text-sm leading-relaxed" style="color: var(--cool-gray);">
+                                    Professional LED whitening for results up to 8 shades brighter in a single visit. We use a gentle peroxide formula that minimizes sensitivity while delivering dramatic results.
+                                </p>
+                            </div>
+                            <div class="mt-8 p-4 rounded-2xl" style="background: var(--mint);">
+                                <p class="text-xs font-bold uppercase tracking-wider mb-1" style="color: var(--sage);">Most popular</p>
+                                <p class="text-sm" style="color: var(--cool-gray);">Chosen by 68% of our cosmetic patients</p>
+                            </div>
+                            <p class="mt-6 font-mono text-sm font-medium" style="color: var(--sage);">From &euro;250</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: General Dentistry -->
+                    <div class="bento-card reveal" style="grid-column: span 1; transition-delay: 320ms;">
+                        <div class="icon-mint mb-6" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <h3 class="font-satoshi font-bold text-xl mb-3" style="letter-spacing: -0.01em;">General Dentistry</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--cool-gray);">
+                            Comprehensive check-ups, cleanings, fillings, and preventive care for the whole family.
+                        </p>
+                        <p class="mt-6 font-mono text-sm font-medium" style="color: var(--sage);">From &euro;80</p>
+                    </div>
+
+                    <!-- Card 6: Periodontics -->
+                    <div class="bento-card reveal" style="grid-column: span 1; transition-delay: 400ms;">
+                        <div class="icon-mint mb-6" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06c.5.5 1.2.68 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51c.63.35 1.32.17 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06c-.5.5-.68 1.2-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        </div>
+                        <h3 class="font-satoshi font-bold text-xl mb-3" style="letter-spacing: -0.01em;">Periodontics</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--cool-gray);">
+                            Specialized gum health treatment. Deep cleanings, gum grafts, and pocket reduction surgery.
+                        </p>
+                        <p class="mt-6 font-mono text-sm font-medium" style="color: var(--sage);">From &euro;180</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== RESULTS (Horizontal scroll) ===== -->
+        <section id="results" class="py-24 sm:py-32 md:py-40 px-4 sm:px-6" style="background: #FFFFFF;">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="mb-14 reveal">
+                    <div class="pill mb-5">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                        Patient outcomes
+                    </div>
+                    <h2 class="font-satoshi font-black tracking-tight" style="font-size: clamp(2rem, 4.5vw, 3.5rem); letter-spacing: -0.02em;">
+                        Results that speak<br>for themselves
+                    </h2>
+                </div>
+
+                <div class="scroll-track reveal" style="transition-delay: 100ms;">
+                    <!-- Result card 1 -->
+                    <div class="scroll-card">
+                        <div class="bento-card" style="min-height: 260px;">
+                            <div class="flex flex-col justify-between h-full">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-5">
+                                        <div class="pill">Veneers + Whitening</div>
+                                        <span class="font-mono text-xs" style="color: var(--cool-gray);">3 weeks</span>
+                                    </div>
+                                    <blockquote class="text-base leading-relaxed mb-6" style="color: var(--slate-deep);">
+                                        "From the moment I walked in, everything felt different from other dental clinics. Calm, modern, and everyone genuinely cared. My veneers look incredible."
+                                    </blockquote>
+                                </div>
+                                <div class="flex items-center justify-between pt-4" style="border-top: 1px solid var(--border-subtle);">
+                                    <div>
+                                        <p class="font-bold text-sm">Ana G.</p>
+                                        <p class="text-xs" style="color: var(--cool-gray);">Barcelona</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-mono font-bold text-lg" style="color: var(--sage);">+6 shades</p>
+                                        <p class="text-xs" style="color: var(--cool-gray);">brightness improvement</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Result card 2 -->
+                    <div class="scroll-card">
+                        <div class="bento-card" style="min-height: 260px;">
+                            <div class="flex flex-col justify-between h-full">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-5">
+                                        <div class="pill">Dental Implants</div>
+                                        <span class="font-mono text-xs" style="color: var(--cool-gray);">4 months</span>
+                                    </div>
+                                    <blockquote class="text-base leading-relaxed mb-6" style="color: var(--slate-deep);">
+                                        "I'd been putting off implants for years out of fear. Dr. Ruiz explained everything so clearly that I felt confident from day one. Best decision I've made."
+                                    </blockquote>
+                                </div>
+                                <div class="flex items-center justify-between pt-4" style="border-top: 1px solid var(--border-subtle);">
+                                    <div>
+                                        <p class="font-bold text-sm">Carlos T.</p>
+                                        <p class="text-xs" style="color: var(--cool-gray);">Gr&agrave;cia</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-mono font-bold text-lg" style="color: var(--sage);">3 implants</p>
+                                        <p class="text-xs" style="color: var(--cool-gray);">full integration in 12 weeks</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Result card 3 -->
+                    <div class="scroll-card">
+                        <div class="bento-card" style="min-height: 260px;">
+                            <div class="flex flex-col justify-between h-full">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-5">
+                                        <div class="pill">Invisible Aligners</div>
+                                        <span class="font-mono text-xs" style="color: var(--cool-gray);">8 months</span>
+                                    </div>
+                                    <blockquote class="text-base leading-relaxed mb-6" style="color: var(--slate-deep);">
+                                        "The digital planning showed me exactly what my smile would look like before we even started. The whole process was incredibly smooth. Now I can't stop smiling."
+                                    </blockquote>
+                                </div>
+                                <div class="flex items-center justify-between pt-4" style="border-top: 1px solid var(--border-subtle);">
+                                    <div>
+                                        <p class="font-bold text-sm">Marta S.</p>
+                                        <p class="text-xs" style="color: var(--cool-gray);">Sarri&agrave;</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-mono font-bold text-lg" style="color: var(--sage);">14 aligners</p>
+                                        <p class="text-xs" style="color: var(--cool-gray);">perfect alignment achieved</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Result card 4 -->
+                    <div class="scroll-card">
+                        <div class="bento-card" style="min-height: 260px;">
+                            <div class="flex flex-col justify-between h-full">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-5">
+                                        <div class="pill">Full Rehabilitation</div>
+                                        <span class="font-mono text-xs" style="color: var(--cool-gray);">6 months</span>
+                                    </div>
+                                    <blockquote class="text-base leading-relaxed mb-6" style="color: var(--slate-deep);">
+                                        "After years of dental anxiety, this team changed everything. The sedation options made it painless and the results are beyond what I imagined possible."
+                                    </blockquote>
+                                </div>
+                                <div class="flex items-center justify-between pt-4" style="border-top: 1px solid var(--border-subtle);">
+                                    <div>
+                                        <p class="font-bold text-sm">Jordi M.</p>
+                                        <p class="text-xs" style="color: var(--cool-gray);">Eixample</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-mono font-bold text-lg" style="color: var(--sage);">Full arch</p>
+                                        <p class="text-xs" style="color: var(--cool-gray);">complete restoration</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TEAM (Editorial list) ===== -->
+        <section id="team" class="py-24 sm:py-32 md:py-40 px-4 sm:px-6">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="mb-16 reveal">
+                    <div class="pill mb-5">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        Our team
+                    </div>
+                    <h2 class="font-satoshi font-black tracking-tight" style="font-size: clamp(2rem, 4.5vw, 3.5rem); letter-spacing: -0.02em;">
+                        In expert hands
+                    </h2>
+                </div>
+
+                <div class="space-y-0">
+                    <!-- Team row 1 -->
+                    <div class="team-row flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 py-6 sm:py-7 px-4 sm:px-6 reveal cursor-default" style="border-bottom: 1px solid var(--border-subtle);">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=128&h=128&fit=crop&crop=face" alt="Dra. Mar&iacute;a L&oacute;pez" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" width="56" height="56">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-satoshi font-bold text-lg" style="letter-spacing: -0.01em;">Dra. Mar&iacute;a L&oacute;pez</h3>
+                            <p class="text-sm" style="color: var(--cool-gray);">Lead Dentist &middot; 18 years experience</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill">Cosmetic Dentistry</span>
+                            <span class="pill">Smile Design</span>
+                            <span class="pill">Porcelain Restorations</span>
+                        </div>
+                    </div>
+
+                    <!-- Team row 2 -->
+                    <div class="team-row flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 py-6 sm:py-7 px-4 sm:px-6 reveal" style="border-bottom: 1px solid var(--border-subtle); transition-delay: 80ms;">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=128&h=128&fit=crop&crop=face" alt="Dr. Javier Ruiz" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" width="56" height="56">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-satoshi font-bold text-lg" style="letter-spacing: -0.01em;">Dr. Javier Ruiz</h3>
+                            <p class="text-sm" style="color: var(--cool-gray);">Implantologist &middot; 14 years experience</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill">Dental Implants</span>
+                            <span class="pill">Guided Surgery</span>
+                            <span class="pill">Full-Mouth Rehab</span>
+                        </div>
+                    </div>
+
+                    <!-- Team row 3 -->
+                    <div class="team-row flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 py-6 sm:py-7 px-4 sm:px-6 reveal" style="border-bottom: 1px solid var(--border-subtle); transition-delay: 160ms;">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=128&h=128&fit=crop&crop=face" alt="Dra. Clara Navarro" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" width="56" height="56">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-satoshi font-bold text-lg" style="letter-spacing: -0.01em;">Dra. Clara Navarro</h3>
+                            <p class="text-sm" style="color: var(--cool-gray);">Orthodontist &middot; 9 years experience</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill">Invisible Aligners</span>
+                            <span class="pill">Digital Planning</span>
+                        </div>
+                    </div>
+
+                    <!-- Team row 4 -->
+                    <div class="team-row flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 py-6 sm:py-7 px-4 sm:px-6 reveal" style="border-bottom: 1px solid var(--border-subtle); transition-delay: 240ms;">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=128&h=128&fit=crop&crop=face" alt="Dr. Pau Ferrer" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" width="56" height="56">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-satoshi font-bold text-lg" style="letter-spacing: -0.01em;">Dr. Pau Ferrer</h3>
+                            <p class="text-sm" style="color: var(--cool-gray);">Periodontist &middot; 11 years experience</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill">Gum Health</span>
+                            <span class="pill">Microsurgery</span>
+                            <span class="pill">Regeneration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TECHNOLOGY (Two-column) ===== -->
+        <section id="technology" class="py-24 sm:py-32 md:py-40 px-4 sm:px-6" style="background: #FFFFFF;">
+            <div class="max-w-[1400px] mx-auto grid tech-split items-center gap-12 md:gap-20" style="grid-template-columns: 1fr 1fr;">
+                <!-- Left: Technology list -->
+                <div>
+                    <div class="mb-12 reveal">
+                        <div class="pill mb-5">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                            Our technology
+                        </div>
+                        <h2 class="font-satoshi font-black tracking-tight" style="font-size: clamp(2rem, 4.5vw, 3.5rem); letter-spacing: -0.02em;">
+                            Precision at<br>every step
+                        </h2>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Tech 1 -->
+                        <div class="tech-item flex items-start gap-5 py-4 px-4 rounded-2xl" style="transition-delay: 0ms;">
+                            <div class="icon-mint flex-shrink-0" aria-hidden="true">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-satoshi font-bold text-base mb-1">3D Cone Beam CT Scanner</h3>
+                                <p class="text-sm leading-relaxed" style="color: var(--cool-gray);">Full volumetric imaging for precise diagnosis and implant planning with 87% less radiation than traditional CT.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tech 2 -->
+                        <div class="tech-item flex items-start gap-5 py-4 px-4 rounded-2xl" style="transition-delay: 100ms;">
+                            <div class="icon-mint flex-shrink-0" aria-hidden="true">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-satoshi font-bold text-base mb-1">Digital Smile Design</h3>
+                                <p class="text-sm leading-relaxed" style="color: var(--cool-gray);">Preview your final result before treatment begins with our AI-powered smile simulation software.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tech 3 -->
+                        <div class="tech-item flex items-start gap-5 py-4 px-4 rounded-2xl" style="transition-delay: 200ms;">
+                            <div class="icon-mint flex-shrink-0" aria-hidden="true">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-satoshi font-bold text-base mb-1">Guided Implant Surgery</h3>
+                                <p class="text-sm leading-relaxed" style="color: var(--cool-gray);">Computer-guided placement for sub-millimeter accuracy. Faster healing, less discomfort, predictable results.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tech 4 -->
+                        <div class="tech-item flex items-start gap-5 py-4 px-4 rounded-2xl" style="transition-delay: 300ms;">
+                            <div class="icon-mint flex-shrink-0" aria-hidden="true">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-satoshi font-bold text-base mb-1">Intraoral Scanner</h3>
+                                <p class="text-sm leading-relaxed" style="color: var(--cool-gray);">No more gooey impressions. Digital scanning captures your teeth in high definition for perfect-fit restorations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Image (Double-Bezel) -->
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <div class="bezel-outer">
+                        <div class="bezel-inner" style="aspect-ratio: 4/5;">
+                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=700&h=875&fit=crop&crop=center" alt="Modern dental technology equipment in a bright, clean clinic environment" loading="lazy" width="700" height="875">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIALS (Offset stack) ===== -->
+        <section class="py-24 sm:py-32 md:py-40 px-4 sm:px-6">
+            <div class="max-w-[1400px] mx-auto grid testimonial-split items-center gap-12 md:gap-20" style="grid-template-columns: 1fr 1fr;">
+                <!-- Left: Copy -->
+                <div class="reveal">
+                    <div class="pill mb-5">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        Patient stories
+                    </div>
+                    <h2 class="font-satoshi font-black tracking-tight mb-5" style="font-size: clamp(2rem, 4.5vw, 3.5rem); letter-spacing: -0.02em;">
+                        Trusted by<br>thousands
+                    </h2>
+                    <p class="text-base leading-relaxed max-w-md" style="color: var(--cool-gray);">
+                        Every patient walks in with a different story. We listen carefully, plan precisely, and deliver results that exceed expectations.
+                    </p>
+                    <div class="mt-8 flex items-center gap-6">
                         <div>
-                            <p class="font-semibold text-sm">Location</p>
-                            <p class="text-sm text-[var(--text-muted)]">Carrer de Pau Claris, 162<br>08037 Barcelona (Eixample)</p>
+                            <p class="font-mono text-3xl font-bold count-up" data-target="4832" style="color: var(--slate-deep);">0</p>
+                            <p class="text-sm" style="color: var(--cool-gray);">patients trust us</p>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div>
+                            <p class="font-mono text-3xl font-bold" style="color: var(--slate-deep);">97<span class="text-lg">%</span></p>
+                            <p class="text-sm" style="color: var(--cool-gray);">recommend us</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="service-icon shrink-0">
-                            <i data-lucide="clock" class="w-5 h-5"></i>
+                </div>
+
+                <!-- Right: Card stack -->
+                <div class="reveal flex justify-center" style="transition-delay: 150ms;">
+                    <div class="testimonial-stack" id="testimonial-stack" role="region" aria-label="Patient testimonials" aria-roledescription="carousel">
+                        <!-- Card 1 -->
+                        <div class="testimonial-card" data-pos="0" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 3">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--mint)" stroke="none" aria-hidden="true" class="mb-5"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                            <p class="text-base leading-relaxed mb-8" style="color: var(--slate-deep);">
+                                "The entire experience was unlike any dental visit I've had. The clinic feels more like a wellness space. Calm, considered, and the results are stunning."
+                            </p>
+                            <div>
+                                <p class="font-bold text-sm">Elena V.</p>
+                                <p class="text-xs" style="color: var(--cool-gray);">Porcelain Veneers</p>
+                            </div>
                         </div>
-                        <div>
-                            <p class="font-semibold text-sm">Hours</p>
-                            <p class="text-sm text-[var(--text-muted)]">Mon–Fri: 9:00 – 20:00<br>Sat: 9:00 – 14:00</p>
+                        <!-- Card 2 -->
+                        <div class="testimonial-card" data-pos="1" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 3">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--mint)" stroke="none" aria-hidden="true" class="mb-5"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                            <p class="text-base leading-relaxed mb-8" style="color: var(--slate-deep);">
+                                "Dr. Ruiz and his team made what I thought would be a terrifying procedure feel routine. Three implants, minimal downtime, and they look completely natural."
+                            </p>
+                            <div>
+                                <p class="font-bold text-sm">Marc B.</p>
+                                <p class="text-xs" style="color: var(--cool-gray);">Dental Implants</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="service-icon shrink-0">
-                            <i data-lucide="phone" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-sm">Phone</p>
-                            <p class="text-sm text-[var(--text-muted)]">+34 932 000 000</p>
+                        <!-- Card 3 -->
+                        <div class="testimonial-card" data-pos="2" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 3">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--mint)" stroke="none" aria-hidden="true" class="mb-5"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                            <p class="text-base leading-relaxed mb-8" style="color: var(--slate-deep);">
+                                "My daughter was terrified of dentists. Dra. Navarro spent 20 minutes just talking to her before even looking at her teeth. Now she asks when her next appointment is."
+                            </p>
+                            <div>
+                                <p class="font-bold text-sm">Laia R.</p>
+                                <p class="text-xs" style="color: var(--cool-gray);">Orthodontics</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="fade-in" style="transition-delay: 150ms;">
-                <form class="space-y-4 bg-[var(--bg-white)] border border-[var(--border)] rounded-2xl p-8" onsubmit="return false;">
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Name</label>
-                            <input type="text" placeholder="Your name">
+        <!-- ===== BOOKING CTA ===== -->
+        <section id="booking" class="py-24 sm:py-32 md:py-40 px-4 sm:px-6">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="cta-sage px-8 sm:px-16 md:px-24 py-16 sm:py-20 md:py-28 text-center reveal">
+                    <h2 class="font-satoshi font-black text-white tracking-tight mb-6" style="font-size: clamp(2rem, 5vw, 3.75rem); letter-spacing: -0.02em;">
+                        Ready for your visit?
+                    </h2>
+                    <p class="text-base sm:text-lg leading-relaxed mx-auto mb-10 max-w-lg" style="color: rgba(255,255,255,0.8);">
+                        Book your first consultation and let us show you what's possible. No pressure, no obligation &mdash; just an honest assessment and a clear plan.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="tel:+34932847163" class="btn-white">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span class="font-mono text-sm">+34 932 847 163</span>
+                        </a>
+                        <a href="#contact-form" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold text-white border-2 border-white/30 hover:bg-white/10" style="transition: background 0.3s var(--ease); min-height: 48px;">
+                            Request online
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="py-16 sm:py-20 px-4 sm:px-6" style="background: #F1F5F9;">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="footer-grid grid gap-12 md:gap-8" style="grid-template-columns: 1.5fr 1fr 1.2fr;">
+                <!-- Col 1: Clinic info -->
+                <div>
+                    <div class="flex items-center gap-2.5 mb-6">
+                        <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: var(--sage);" aria-hidden="true">
+                            <span class="text-white font-black text-sm font-satoshi">B</span>
                         </div>
-                        <div>
-                            <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Email</label>
-                            <input type="email" placeholder="your@email.com">
-                        </div>
+                        <span class="font-bold text-lg tracking-tight font-satoshi">Cl&iacute;nica Blanc</span>
                     </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Phone</label>
-                        <input type="tel" placeholder="+34 600 000 000">
+                    <p class="text-sm leading-relaxed mb-6" style="color: var(--cool-gray); max-width: 320px;">
+                        Advanced dentistry with a personal touch. Located in Barcelona's Eixample district since 2009.
+                    </p>
+                    <div class="space-y-2 text-sm" style="color: var(--cool-gray);">
+                        <p class="font-bold" style="color: var(--slate-deep);">Hours</p>
+                        <p>Mon&ndash;Fri: <span class="font-mono">09:00 &ndash; 20:00</span></p>
+                        <p>Saturday: <span class="font-mono">09:00 &ndash; 14:00</span></p>
+                        <p>Sunday: Closed</p>
                     </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Service</label>
-                        <select>
-                            <option value="">Select a service</option>
-                            <option value="implants">Dental Implants</option>
-                            <option value="aligners">Invisible Aligners</option>
-                            <option value="veneers">Porcelain Veneers</option>
-                            <option value="whitening">Teeth Whitening</option>
-                            <option value="general">General Check-up</option>
-                        </select>
+                </div>
+
+                <!-- Col 2: Quick links -->
+                <div>
+                    <p class="font-bold text-sm mb-5" style="color: var(--slate-deep);">Quick links</p>
+                    <ul class="space-y-3 text-sm" style="color: var(--cool-gray);">
+                        <li><a href="#services" class="hover:text-[var(--sage)]" style="transition: color 0.3s var(--ease);">Services</a></li>
+                        <li><a href="#results" class="hover:text-[var(--sage)]" style="transition: color 0.3s var(--ease);">Patient results</a></li>
+                        <li><a href="#team" class="hover:text-[var(--sage)]" style="transition: color 0.3s var(--ease);">Our team</a></li>
+                        <li><a href="#technology" class="hover:text-[var(--sage)]" style="transition: color 0.3s var(--ease);">Technology</a></li>
+                        <li><a href="#booking" class="hover:text-[var(--sage)]" style="transition: color 0.3s var(--ease);">Book appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact -->
+                <div>
+                    <p class="font-bold text-sm mb-5" style="color: var(--slate-deep);">Contact</p>
+                    <div class="space-y-3 text-sm" style="color: var(--cool-gray);">
+                        <p>Carrer de Pau Claris, 162<br>08037 Barcelona (Eixample)</p>
+                        <p>
+                            <a href="tel:+34932847163" class="font-mono hover:text-[var(--sage)]" style="transition: color 0.3s var(--ease);">+34 932 847 163</a>
+                        </p>
+                        <p>
+                            <a href="mailto:hola@clinicablanc.es" class="hover:text-[var(--sage)]" style="transition: color 0.3s var(--ease);">hola@clinicablanc.es</a>
+                        </p>
+                        <a href="https://maps.google.com/?q=Carrer+de+Pau+Claris+162+Barcelona" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-full text-xs font-bold hover:bg-[var(--mint)]" style="border: 1px solid var(--border-subtle); color: var(--sage); transition: background 0.3s var(--ease);">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            View on map
+                        </a>
                     </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Preferred Date</label>
-                        <input type="date">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-[var(--text-muted)] font-medium mb-2">Message (optional)</label>
-                        <textarea rows="3" placeholder="Anything we should know?"></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary w-full justify-center mt-2">
-                        Request Appointment
-                    </button>
-                </form>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs" style="border-top: 1px solid var(--border-subtle); color: var(--cool-gray);">
+                <p>2025 Cl&iacute;nica Blanc. Concept by <a href="https://agencyonda.com" class="hover:text-[var(--sage)]" style="transition: color 0.3s var(--ease);">Onda</a>.</p>
+                <p class="font-mono">This is a concept demo &mdash; not a real clinic</p>
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-10 border-t border-[var(--border)] text-center text-[var(--text-muted)] text-sm">
-        <p>&copy; 2025 Clínica Blanc. Concept by <a href="https://agencyonda.com" class="text-[var(--accent)] hover:underline">Onda</a>.</p>
     </footer>
 
+    <!-- ========== SCRIPTS ========== -->
     <script>
-        lucide.createIcons();
+    (function() {
+        'use strict';
 
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // === NAV SCROLL-HIDE ===
+        var nav = document.getElementById('main-nav');
+        var lastScroll = 0;
+        var ticking = false;
 
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
-            });
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    var currentScroll = window.pageYOffset;
+                    if (currentScroll > 80) {
+                        if (currentScroll > lastScroll + 5) {
+                            nav.classList.add('nav-hidden');
+                        } else if (currentScroll < lastScroll - 5) {
+                            nav.classList.remove('nav-hidden');
+                        }
+                    } else {
+                        nav.classList.remove('nav-hidden');
+                    }
+                    lastScroll = currentScroll;
+                    ticking = false;
                 });
+                ticking = true;
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // === MOBILE MENU ===
+        var hamburger = document.getElementById('hamburger-btn');
+        var overlay = document.getElementById('mobile-overlay');
+        var closeBtn = document.getElementById('close-menu-btn');
+
+        function openMenu() {
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            hamburger.setAttribute('aria-label', 'Close menu');
+        }
+        function closeMenu() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            hamburger.setAttribute('aria-label', 'Open menu');
+        }
+
+        if (hamburger) hamburger.addEventListener('click', openMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) {
+            overlay.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', closeMenu);
             });
         }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        // === SCROLL REVEAL (IntersectionObserver) ===
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            revealObserver.observe(el);
+        });
+
+        // === QUICK REVEAL: immediately show elements already in viewport ===
+        var quickReveal = function() {
+            document.querySelectorAll('.reveal, .tech-item').forEach(function(el) {
+                var rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        quickReveal();
+        setTimeout(quickReveal, 100);
+        setTimeout(quickReveal, 300);
+
+        // === TECH ITEMS STAGGER REVEAL ===
+        var techObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    techObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.tech-item').forEach(function(el) {
+            techObserver.observe(el);
+        });
+
+        // === BENTO CARD SPOTLIGHT ===
+        document.querySelectorAll('.bento-card').forEach(function(card) {
+            card.addEventListener('mousemove', function(e) {
+                var rect = card.getBoundingClientRect();
+                card.style.setProperty('--spot-x', (e.clientX - rect.left) + 'px');
+                card.style.setProperty('--spot-y', (e.clientY - rect.top) + 'px');
+            });
+        });
+
+        // === COUNT-UP ANIMATION ===
+        var counted = new Set();
+        var countObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !counted.has(entry.target)) {
+                    counted.add(entry.target);
+                    var el = entry.target;
+                    var target = parseInt(el.getAttribute('data-target'), 10);
+                    var isDecimal = el.getAttribute('data-decimal') === 'true';
+                    var duration = 1800;
+                    var start = performance.now();
+
+                    function easeOut(t) {
+                        return 1 - Math.pow(1 - t, 3);
+                    }
+
+                    function animate(now) {
+                        var elapsed = now - start;
+                        var progress = Math.min(elapsed / duration, 1);
+                        var value = Math.round(easeOut(progress) * target);
+
+                        if (isDecimal) {
+                            el.textContent = value;
+                        } else if (target >= 1000) {
+                            el.textContent = value.toLocaleString('en-US');
+                        } else {
+                            el.textContent = value;
+                        }
+
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        }
+                    }
+                    requestAnimationFrame(animate);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.count-up').forEach(function(el) {
+            countObserver.observe(el);
+        });
+
+        // === TESTIMONIAL STACK ROTATION ===
+        var stack = document.getElementById('testimonial-stack');
+        if (stack) {
+            var cards = stack.querySelectorAll('.testimonial-card');
+            var positions = [0, 1, 2];
+            var autoTimer;
+
+            function updateCards() {
+                cards.forEach(function(card, i) {
+                    card.setAttribute('data-pos', String(positions[i]));
+                });
+            }
+
+            function advance() {
+                // Rotate: front goes to back
+                var front = positions.indexOf(0);
+                positions = positions.map(function(p) {
+                    return (p + 2) % 3; // shift backwards
+                });
+                updateCards();
+            }
+
+            function startAuto() {
+                autoTimer = setInterval(advance, 4500);
+            }
+
+            // Click to advance
+            stack.addEventListener('click', function() {
+                clearInterval(autoTimer);
+                advance();
+                startAuto();
+            });
+
+            startAuto();
+        }
+
+        // === SMOOTH SCROLL FOR NAV ===
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+    })();
     </script>
+
+    <!-- Portfolio back-link language detection -->
     <script>
-    (function(){var r=document.referrer,s='.html';if(r.indexOf('_ka')!==-1)s='_ka.html';else if(r.indexOf('_es')!==-1)s='_es.html';document.querySelectorAll('a').forEach(function(a){if(a.href.indexOf('agencyonda.com/portfolio')!==-1)a.href='https://agencyonda.com/portfolio'+s;});})();
+    (function(){
+        // Breadcrumb: if user came from an Onda hub page (index/portfolio), send them back there
+        var lastHub = null;
+        try { lastHub = sessionStorage.getItem('onda:lastHub'); } catch (_) {}
+        var r = document.referrer || '';
+        var langSrc = lastHub || r;
+        var suffix = /_ka\.html?/.test(langSrc) ? '_ka.html'
+                   : /_es\.html?/.test(langSrc) ? '_es.html'
+                   : '.html';
+        document.querySelectorAll('a[href*="portfolio"]').forEach(function(a) {
+            a.href = '../portfolio' + suffix;
+        });
+        var backHref = null;
+        if (lastHub) {
+            backHref = '..' + lastHub;
+        } else if (/\/index(_v[2-5]|_es|_ka)?\.html?/.test(r)) {
+            backHref = suffix === '_ka.html' ? '../index_ka.html'
+                     : suffix === '_es.html' ? '../index_es.html'
+                     : '../index_v5.html';
+        }
+        if (backHref && /\/index/.test(backHref) && backHref.indexOf('#') === -1) {
+            backHref += '#work';
+        }
+        if (backHref) {
+            document.querySelectorAll('.onda-back').forEach(function(a) { a.href = backHref; });
+        }
+    })();
     </script>
-</body>
 
+</body>
 </html>

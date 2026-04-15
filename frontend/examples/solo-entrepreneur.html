@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexander Voss - High-End Advisor & Strategist</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Kai Andersen — Product Builder & Design Technologist</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- OG Meta Tags -->
+    <meta property="og:title" content="Kai Andersen — Product Builder & Design Technologist">
+    <meta property="og:description" content="I build products that people actually use. Fifteen years shipping software at the intersection of design and engineering.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kai Andersen — Product Builder & Design Technologist">
+    <meta name="twitter:description" content="I build products that people actually use. Fifteen years shipping software at the intersection of design and engineering.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,803 +28,993 @@
     <!-- Lucide Icons -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'system-ui', 'sans-serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'monospace'],
+                    },
+                    colors: {
+                        surface: '#FFFFFF',
+                        canvas: '#FAFAFA',
+                        ink: '#0F172A',
+                        steel: '#64748B',
+                        indigo: {
+                            DEFAULT: '#4F46E5',
+                            dark: '#4338CA',
+                            light: '#E0E7FF',
+                        }
+                    }
+                }
+            }
         }
+    </script>
 
-        html {
-            scroll-behavior: smooth;
-        }
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: #0a0a0a;
-            color: #f5f5f5;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAFAFA;
+            color: #0F172A;
+            font-family: 'Outfit', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-        }
-
-        /* Gold Gradient */
-        .gold-gradient {
-            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #b38728 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .gold-accent {
-            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #b38728 100%);
-        }
-
-        .gold-border {
-            border-color: #bf953f;
-        }
-
-        /* Glass Morphism */
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-        }
-
-        .glass-hover:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(191, 149, 63, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes goldLine {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes heroNameReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        .slide-in-left {
-            animation: slideInLeft 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        .slide-in-right {
-            animation: slideInRight 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        .gold-line {
-            height: 3px;
-            background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728);
-            animation: goldLine 1.2s ease-out forwards;
-            width: 0;
-        }
-
-        .hero-name-word {
-            display: inline-block;
-            animation: heroNameReveal 0.8s ease-out forwards;
-            margin-right: 0.15em;
-        }
-
-        .hero-name-word:nth-child(1) { animation-delay: 0s; }
-        .hero-name-word:nth-child(2) { animation-delay: 0.15s; }
-        .hero-name-word:nth-child(3) { animation-delay: 0.3s; }
-
-        .bounce-arrow {
-            animation: bounce 2s infinite;
-        }
-
-        /* Portrait Placeholder */
-        .portrait-placeholder {
-            background: linear-gradient(135deg, rgba(191, 149, 63, 0.1) 0%, rgba(252, 246, 186, 0.05) 50%, rgba(179, 135, 40, 0.1) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portrait-placeholder::before {
-            content: '';
+        /* --- Skip Link --- */
+        .skip-link {
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at top right, rgba(191, 149, 63, 0.15), transparent);
-            animation: gradientShift 8s ease-in-out infinite;
+            top: -100%;
+            left: 1rem;
+            z-index: 9999;
+            padding: 0.75rem 1.5rem;
+            background: #4F46E5;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 0 0 0.75rem 0.75rem;
+            transition: top 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        .skip-link:focus { top: 0; }
+
+        /* --- Focus Visible --- */
+        *:focus-visible {
+            outline: 2px solid #4F46E5;
+            outline-offset: 3px;
         }
 
-        @keyframes gradientShift {
-            0%, 100% {
-                transform: translate(0, 0);
-            }
-            50% {
-                transform: translate(10px, 10px);
-            }
+        /* --- Custom Ease --- */
+        :root {
+            --ease: cubic-bezier(0.32, 0.72, 0, 1);
         }
 
-        /* Navigation */
-        nav {
-            background: rgba(10, 10, 10, 0.7);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(10, 10, 10, 0.95);
-            border-bottom: 1px solid rgba(191, 149, 63, 0.2);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
+        /* --- Noise Overlay --- */
+        body::after {
+            content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 40;
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease-out;
+            inset: 0;
+            z-index: 9998;
+            pointer-events: none;
+            opacity: 0.015;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 200px 200px;
         }
 
-        .mobile-menu.active {
-            display: flex;
+        /* --- Scroll Reveal --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(2rem);
+            filter: blur(6px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
         }
 
-        .mobile-menu a {
-            font-size: 1.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            margin: 1.5rem 0;
-            color: #f5f5f5;
-            transition: all 0.3s ease;
+        /* --- Floating Nav --- */
+        .nav-floating {
+            transition: transform 0.5s var(--ease), opacity 0.5s var(--ease);
         }
-
-        .mobile-menu a:hover {
-            color: #fcf6ba;
-        }
-
-        /* Section Spacing */
-        section {
-            scroll-margin-top: 80px;
-        }
-
-        /* Card Stagger */
-        .card {
-            animation: fadeInUp 0.8s ease-out forwards;
+        .nav-floating.nav-hidden {
+            transform: translateY(-120%);
             opacity: 0;
         }
 
-        .card:nth-child(1) { animation-delay: 0s; }
-        .card:nth-child(2) { animation-delay: 0.15s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.45s; }
-
-        /* Stats */
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #b38728 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .stat-number {
-                font-size: 2.25rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .stat-number {
-                font-size: 1.75rem;
-            }
-            .mobile-menu a {
-                font-size: 1.25rem;
-                margin: 1rem 0;
-            }
-        }
-
-        /* Logo Placeholder */
-        .logo-text {
+        /* Back-to-Onda link */
+        .onda-back {
             font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: #666;
-            transition: all 0.3s ease;
+            color: #94A3B8;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            padding-right: 0.75rem;
+            border-right: 1px solid rgba(15,23,42,0.08);
+            margin-right: 0.75rem;
+            transition: color 0.3s var(--ease);
+            white-space: nowrap;
+        }
+        .onda-back:hover { color: #4F46E5 !important; }
+
+        /* --- Hero Geometric Shapes --- */
+        .geo-shape {
+            position: absolute;
+            border-radius: 1.5rem;
+            background: rgba(79, 70, 229, 0.06);
+            border: 1px solid rgba(79, 70, 229, 0.08);
+        }
+        .geo-shape-1 {
+            width: 280px; height: 320px;
+            top: 10%; right: 5%;
+            transform: rotate(6deg);
+            animation: geoFloat1 8s var(--ease) infinite alternate;
+        }
+        .geo-shape-2 {
+            width: 200px; height: 200px;
+            top: 35%; right: 25%;
+            background: rgba(79, 70, 229, 0.04);
+            border-color: rgba(79, 70, 229, 0.06);
+            transform: rotate(-4deg);
+            animation: geoFloat2 10s var(--ease) infinite alternate;
+        }
+        .geo-shape-3 {
+            width: 140px; height: 180px;
+            bottom: 15%; right: 12%;
+            background: rgba(79, 70, 229, 0.08);
+            border-color: rgba(79, 70, 229, 0.1);
+            transform: rotate(12deg);
+            animation: geoFloat3 7s var(--ease) infinite alternate;
+        }
+        .geo-shape-4 {
+            width: 100px; height: 100px;
+            top: 20%; right: 35%;
+            background: rgba(79, 70, 229, 0.03);
+            border-color: rgba(79, 70, 229, 0.05);
+            border-radius: 50%;
+            animation: geoFloat4 9s var(--ease) infinite alternate;
         }
 
-        .logo-bar:hover .logo-text {
-            color: #bf953f;
-            transform: translateY(-2px);
+        @keyframes geoFloat1 { from { transform: rotate(6deg) translateY(0); } to { transform: rotate(6deg) translateY(-18px); } }
+        @keyframes geoFloat2 { from { transform: rotate(-4deg) translateY(0); } to { transform: rotate(-4deg) translateY(14px); } }
+        @keyframes geoFloat3 { from { transform: rotate(12deg) translateY(0); } to { transform: rotate(12deg) translateY(-10px); } }
+        @keyframes geoFloat4 { from { transform: translateY(0); } to { transform: translateY(12px); } }
+
+        /* --- Marquee --- */
+        .marquee-track {
+            display: flex;
+            animation: marqueeScroll 30s linear infinite;
+            width: max-content;
+        }
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- Service Row --- */
+        .service-row {
+            position: relative;
+            padding-left: 0;
+            border-left: 3px solid transparent;
+            transition: border-color 0.5s var(--ease), padding-left 0.5s var(--ease);
+        }
+        .service-row:hover {
+            border-left-color: #4F46E5;
+            padding-left: 1.5rem;
+        }
+
+        /* --- Project Card --- */
+        .project-card {
+            scroll-snap-align: start;
+            transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.12);
+        }
+
+        /* --- Testimonial Stack --- */
+        .testimonial-card {
+            position: absolute;
+            width: 100%;
+            transition: transform 0.7s var(--ease), opacity 0.7s var(--ease), box-shadow 0.5s var(--ease);
+            cursor: pointer;
+        }
+        .testimonial-card[data-position="0"] {
+            z-index: 3;
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        .testimonial-card[data-position="1"] {
+            z-index: 2;
+            transform: translateY(20px) scale(0.97);
+            opacity: 0.7;
+        }
+        .testimonial-card[data-position="2"] {
+            z-index: 1;
+            transform: translateY(40px) scale(0.94);
+            opacity: 0.4;
+        }
+
+        /* --- Timeline --- */
+        .timeline-step {
+            opacity: 0;
+            transform: translateY(2rem);
+            filter: blur(4px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
+        }
+        .timeline-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        /* --- Counter Animation --- */
+        .counter { font-variant-numeric: tabular-nums; }
+
+        /* --- Button Hover --- */
+        .btn-primary {
+            transition: background-color 0.4s var(--ease), transform 0.2s var(--ease);
+        }
+        .btn-primary:hover { background-color: #4338CA; }
+        .btn-primary:active { transform: scale(0.98); }
+
+        .btn-secondary {
+            transition: background-color 0.4s var(--ease), transform 0.2s var(--ease), color 0.4s var(--ease);
+        }
+        .btn-secondary:hover { background-color: #4F46E5; color: #fff; }
+        .btn-secondary:active { transform: scale(0.98); }
+
+        /* --- Horizontal scroll --- */
+        .scroll-container {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .scroll-container::-webkit-scrollbar { display: none; }
+
+        /* --- Reduced Motion --- */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal { opacity: 1; transform: none; filter: none; }
+            .timeline-step { opacity: 1; transform: none; filter: none; }
+            .marquee-track { animation: none; }
+        }
+
+        /* --- Mobile Overrides --- */
+        @media (max-width: 767px) {
+            .geo-shape { display: none; }
+            .hero-grid { grid-template-columns: 1fr !important; }
+            .service-grid { grid-template-columns: 1fr !important; }
+            .service-row:hover { padding-left: 1rem; }
         }
     </style>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 py-3 sm:py-4 px-4 sm:px-6 md:px-12">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo/Monogram -->
-            <a href="./solo-entrepreneur.html" class="text-2xl font-serif font-bold">
-                <span class="gold-gradient">A.V.</span>
-            </a>
+    <!-- Skip Link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex gap-8 items-center">
-                <a href="#about" class="text-sm font-light hover:gold-gradient transition">About</a>
-                <a href="#expertise" class="text-sm font-light hover:gold-gradient transition">Expertise</a>
-                <a href="#contact" class="text-sm font-light hover:gold-gradient transition">Contact</a>
-                <a href="../portfolio.html" class="text-sm font-light border border-gray-600 px-4 py-2 rounded hover:border-gray-400 transition">← Back to Concepts</a>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav-floating fixed top-0 left-0 right-0 z-50 pt-5 px-4 md:px-8" role="navigation" aria-label="Primary navigation">
+        <div class="mx-auto max-w-5xl">
+            <div class="bg-white/90 backdrop-blur-xl rounded-full px-5 py-3 flex items-center justify-between" style="box-shadow: 0 8px 32px -8px rgba(0,0,0,0.06); border: 1px solid rgba(15,23,42,0.06);">
+                <!-- Back to Onda + Logo -->
+                <div class="flex items-center">
+                    <a href="../portfolio.html" class="onda-back" aria-label="Back to Onda portfolio">&larr; Onda</a>
+                    <a href="#" class="font-bold text-lg tracking-tight text-ink" aria-label="Kai Andersen - Home">
+                        kai<span class="text-indigo">.</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-steel">
+                    <a href="#work" class="hover:text-ink transition-colors duration-300">Work</a>
+                    <a href="#expertise" class="hover:text-ink transition-colors duration-300">Expertise</a>
+                    <a href="#approach" class="hover:text-ink transition-colors duration-300">Approach</a>
+                    <a href="#testimonials" class="hover:text-ink transition-colors duration-300">Kind Words</a>
+                </div>
+
+                <!-- CTA -->
+                <a href="#contact" class="btn-primary inline-flex items-center gap-2 bg-indigo text-white text-sm font-semibold rounded-full px-5 py-2.5">
+                    <span>Let's talk</span>
+                    <span class="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center">
+                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    </span>
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="menuToggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="block w-5 h-0.5 bg-ink rounded-full transition-all duration-500" style="transition-timing-function: var(--ease);"></span>
+                    <span class="block w-5 h-0.5 bg-ink rounded-full transition-all duration-500" style="transition-timing-function: var(--ease);"></span>
+                </button>
             </div>
-
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-white" id="mobileMenuBtn">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="absolute top-6 right-6 text-white" id="closeMenuBtn">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-        <a href="#about" class="mobile-menu-link">About</a>
-        <a href="#expertise" class="mobile-menu-link">Expertise</a>
-        <a href="#contact" class="mobile-menu-link">Contact</a>
-        <a href="../portfolio.html" class="mobile-menu-link">← Back to Concepts</a>
+    <!-- ===== MOBILE MENU OVERLAY ===== -->
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-opacity duration-500" style="transition-timing-function: var(--ease);" role="dialog" aria-label="Mobile navigation">
+        <a href="#work" class="text-3xl font-bold text-ink mobile-link" style="transform: translateY(1.5rem); opacity: 0; transition: transform 0.5s var(--ease), opacity 0.5s var(--ease);">Work</a>
+        <a href="#expertise" class="text-3xl font-bold text-ink mobile-link" style="transform: translateY(1.5rem); opacity: 0; transition: transform 0.5s var(--ease) 0.05s, opacity 0.5s var(--ease) 0.05s;">Expertise</a>
+        <a href="#approach" class="text-3xl font-bold text-ink mobile-link" style="transform: translateY(1.5rem); opacity: 0; transition: transform 0.5s var(--ease) 0.1s, opacity 0.5s var(--ease) 0.1s;">Approach</a>
+        <a href="#testimonials" class="text-3xl font-bold text-ink mobile-link" style="transform: translateY(1.5rem); opacity: 0; transition: transform 0.5s var(--ease) 0.15s, opacity 0.5s var(--ease) 0.15s;">Kind Words</a>
+        <a href="#contact" class="text-3xl font-bold text-indigo mobile-link" style="transform: translateY(1.5rem); opacity: 0; transition: transform 0.5s var(--ease) 0.2s, opacity 0.5s var(--ease) 0.2s;">Contact</a>
     </div>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black pt-24 pb-16 md:pt-0 md:pb-0 flex items-center justify-center px-4 sm:px-6">
-        <div class="max-w-7xl w-full">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center md:min-h-screen">
-                <!-- Left: Text -->
-                <div class="flex flex-col justify-center">
-                    <div class="mb-8">
-                        <h1 class="text-3xl sm:text-5xl md:text-7xl font-serif font-bold mb-4 sm:mb-6 leading-tight">
-                            <span class="hero-name-word">ALEXANDER</span>
-                            <span class="hero-name-word">VOSS</span>
+    <!-- ===== MAIN ===== -->
+    <main id="main">
+
+        <!-- ===== HERO ===== -->
+        <section class="min-h-[100dvh] flex items-center relative overflow-hidden pt-28 pb-20 px-4 md:px-8" aria-label="Introduction">
+            <div class="mx-auto max-w-6xl w-full">
+                <div class="hero-grid grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <!-- Left Content — 7 cols -->
+                    <div class="md:col-span-7 relative z-10">
+                        <div class="reveal">
+                            <p class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.2em] font-medium text-indigo bg-indigo/5 border border-indigo/10 mb-8">
+                                Product Builder
+                            </p>
+                        </div>
+                        <h1 class="reveal" style="transition-delay: 0.1s;">
+                            <span class="block font-black tracking-[-0.03em] text-ink" style="font-size: clamp(2.75rem, 6.5vw, 5rem); line-height: 1.05;">I build products</span>
+                            <span class="block font-light tracking-[-0.03em] text-steel" style="font-size: clamp(2.75rem, 6.5vw, 5rem); line-height: 1.05;">that people</span>
+                            <span class="block font-black tracking-[-0.03em] text-ink" style="font-size: clamp(2.75rem, 6.5vw, 5rem); line-height: 1.05;">actually use.</span>
                         </h1>
-                        <div class="gold-line mb-6"></div>
-                    </div>
-
-                    <p class="text-lg md:text-xl text-gray-400 mb-6 font-light">
-                        <span class="text-amber-400">Advisory</span> · <span class="text-amber-400">Strategy</span> · <span class="text-amber-400">Results</span>
-                    </p>
-
-                    <p class="text-base md:text-lg text-gray-300 max-w-md leading-relaxed font-light">
-                        Guiding high-net-worth individuals and enterprises through complex decisions. Dedicated to unlocking value and sustainable growth.
-                    </p>
-
-                    <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="gold-accent text-black px-6 py-3 sm:px-8 sm:py-4 rounded font-semibold text-center hover:shadow-lg transition transform hover:scale-105">
-                            Let's Connect
-                        </a>
-                        <a href="#about" class="border border-gray-600 text-gray-300 px-6 py-3 sm:px-8 sm:py-4 rounded font-light text-center hover:border-amber-500 transition">
-                            Learn More
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right: Portrait Placeholder -->
-                <div class="hidden md:flex items-center justify-center">
-                    <div class="portrait-placeholder w-full aspect-square rounded-2xl flex items-center justify-center relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Alexander Voss" class="absolute inset-0 w-full h-full object-cover opacity-75">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40"></div>
-                        <div class="absolute inset-0 rounded-2xl border border-amber-900 border-opacity-20"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scroll Indicator -->
-            <div class="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2">
-                <div class="bounce-arrow">
-                    <svg class="w-6 h-6 text-amber-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About / Intro Section -->
-    <section id="about" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-black border-t border-gray-900">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-                <!-- Left: Stat/Pullquote -->
-                <div class="flex flex-col justify-center">
-                    <p class="text-sm text-gray-500 uppercase tracking-widest mb-4 font-light">Track Record</p>
-                    <div class="mb-8">
-                        <div class="gold-line mb-6" style="animation-delay: 0.2s;"></div>
-                    </div>
-                    <p class="text-3xl sm:text-5xl md:text-6xl font-serif font-bold mb-4">
-                        <span class="gold-gradient">$2.4B</span>
-                    </p>
-                    <p class="text-gray-400 text-base sm:text-lg font-light mb-8 md:mb-12">
-                        in advisory volume closed over 14 years
-                    </p>
-
-                    <div class="glass p-6 sm:p-8 md:p-10">
-                        <p class="italic text-gray-300 text-lg font-light leading-relaxed">
-                            "The difference between good advice and great advice is understanding that every client's journey is unique. My role is to illuminate the path forward."
+                        <p class="reveal mt-8 text-lg text-steel max-w-md leading-relaxed" style="transition-delay: 0.2s;">
+                            Fifteen years at the intersection of design and engineering. Currently helping founders turn rough ideas into shipped software.
                         </p>
+                        <div class="reveal mt-10 flex flex-wrap items-center gap-4" style="transition-delay: 0.3s;">
+                            <a href="#contact" class="btn-primary group inline-flex items-center gap-3 bg-indigo text-white text-base font-semibold rounded-full px-7 py-4">
+                                <span>Start a project</span>
+                                <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-500" style="transition-timing-function: var(--ease);">
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style="transition-timing-function: var(--ease);"></i>
+                                </span>
+                            </a>
+                            <div class="flex items-center gap-3 text-sm text-steel">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span>Available for Q3 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Geometric Field — 5 cols -->
+                    <div class="hidden md:block md:col-span-5 relative" style="min-height: 480px;" aria-hidden="true">
+                        <div class="geo-shape geo-shape-1"></div>
+                        <div class="geo-shape geo-shape-2"></div>
+                        <div class="geo-shape geo-shape-3"></div>
+                        <div class="geo-shape geo-shape-4"></div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Right: Bio -->
-                <div class="fade-in">
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6 sm:mb-8">
-                        <span class="gold-gradient">Strategic Vision</span>
-                        <br />
-                        <span class="text-white">for Modern Leaders</span>
+        <!-- ===== CREDIBILITY BAR ===== -->
+        <section class="py-8 border-t border-b" style="border-color: rgba(15,23,42,0.06);" aria-label="Featured in">
+            <div class="overflow-hidden">
+                <div class="marquee-track">
+                    <!-- Duplicated for infinite scroll -->
+                    <div class="flex items-center gap-16 px-8 shrink-0">
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Fast Company</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Stripe</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Y Combinator</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Figma</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Vercel</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">The Verge</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Linear</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Notion</span>
+                    </div>
+                    <div class="flex items-center gap-16 px-8 shrink-0" aria-hidden="true">
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Fast Company</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Stripe</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Y Combinator</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Figma</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Vercel</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">The Verge</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Linear</span>
+                        <span class="text-sm font-medium text-steel/40 tracking-widest uppercase whitespace-nowrap">Notion</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== STATS ROW ===== -->
+        <section class="py-24 md:py-32 px-4 md:px-8" aria-label="Key numbers">
+            <div class="mx-auto max-w-6xl">
+                <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                    <div class="text-center md:text-left">
+                        <p class="text-4xl md:text-5xl font-bold tracking-tight text-ink counter" data-target="15">0</p>
+                        <p class="mt-2 text-sm text-steel font-medium">Years building</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <p class="text-4xl md:text-5xl font-bold tracking-tight text-ink counter" data-target="42">0</p>
+                        <p class="mt-2 text-sm text-steel font-medium">Products shipped</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <p class="text-4xl md:text-5xl font-bold tracking-tight text-ink"><span class="counter" data-target="3">0</span>.<span class="counter" data-target="2">0</span>M</p>
+                        <p class="mt-2 text-sm text-steel font-medium">Users reached</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <p class="text-4xl md:text-5xl font-bold tracking-tight text-ink counter" data-target="8">0</p>
+                        <p class="mt-2 text-sm text-steel font-medium">Acquisitions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EXPERTISE / SERVICES ===== -->
+        <section id="expertise" class="py-24 md:py-36 px-4 md:px-8" aria-label="Areas of expertise">
+            <div class="mx-auto max-w-6xl">
+                <div class="service-grid grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+                    <!-- Left Column — Header -->
+                    <div class="md:col-span-5">
+                        <div class="reveal md:sticky md:top-32">
+                            <p class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.2em] font-medium text-indigo bg-indigo/5 border border-indigo/10 mb-6">
+                                Expertise
+                            </p>
+                            <h2 class="text-4xl md:text-5xl font-bold tracking-[-0.03em] text-ink leading-tight">
+                                Things I do<br>
+                                <span class="text-steel font-light">exceptionally well.</span>
+                            </h2>
+                            <p class="mt-6 text-steel leading-relaxed max-w-sm">
+                                I work across the full product lifecycle, from the napkin sketch to the production deploy. Here is where I add the most value.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Right Column — Service Rows -->
+                    <div class="md:col-span-7">
+                        <div class="flex flex-col">
+                            <!-- Service 01 -->
+                            <div class="reveal service-row py-8 border-b" style="border-color: rgba(15,23,42,0.06);">
+                                <div class="flex items-start gap-6">
+                                    <span class="font-mono text-sm text-indigo/40 mt-1 shrink-0">01</span>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-ink tracking-tight">Product Strategy</h3>
+                                        <p class="mt-2 text-steel leading-relaxed">Defining what to build, for whom, and why it matters. Market positioning, feature prioritization, and go-to-market planning grounded in real user data.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Service 02 -->
+                            <div class="reveal service-row py-8 border-b" style="border-color: rgba(15,23,42,0.06); transition-delay: 0.08s;">
+                                <div class="flex items-start gap-6">
+                                    <span class="font-mono text-sm text-indigo/40 mt-1 shrink-0">02</span>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-ink tracking-tight">Design Systems</h3>
+                                        <p class="mt-2 text-steel leading-relaxed">Building cohesive, scalable component libraries that keep interfaces consistent as products grow. Tokens, variants, documentation, governance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Service 03 -->
+                            <div class="reveal service-row py-8 border-b" style="border-color: rgba(15,23,42,0.06); transition-delay: 0.16s;">
+                                <div class="flex items-start gap-6">
+                                    <span class="font-mono text-sm text-indigo/40 mt-1 shrink-0">03</span>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-ink tracking-tight">Frontend Architecture</h3>
+                                        <p class="mt-2 text-steel leading-relaxed">React, Next.js, and TypeScript at scale. Performance-obsessed builds with Core Web Vitals in green from day one. Server components, edge rendering, the works.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Service 04 -->
+                            <div class="reveal service-row py-8 border-b" style="border-color: rgba(15,23,42,0.06); transition-delay: 0.24s;">
+                                <div class="flex items-start gap-6">
+                                    <span class="font-mono text-sm text-indigo/40 mt-1 shrink-0">04</span>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-ink tracking-tight">Rapid Prototyping</h3>
+                                        <p class="mt-2 text-steel leading-relaxed">From concept to clickable prototype in days, not months. High-fidelity builds for investor demos, user testing, and internal alignment.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Service 05 -->
+                            <div class="reveal service-row py-8" style="transition-delay: 0.32s;">
+                                <div class="flex items-start gap-6">
+                                    <span class="font-mono text-sm text-indigo/40 mt-1 shrink-0">05</span>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-ink tracking-tight">Technical Advisory</h3>
+                                        <p class="mt-2 text-steel leading-relaxed">Fractional CTO engagements, architecture reviews, and technical due diligence for pre-seed through Series B startups. Honest assessments, no fluff.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SELECTED WORK ===== -->
+        <section id="work" class="py-24 md:py-36 px-4 md:px-8" aria-label="Selected projects">
+            <div class="mx-auto max-w-6xl mb-12">
+                <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                    <div>
+                        <p class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.2em] font-medium text-indigo bg-indigo/5 border border-indigo/10 mb-6">
+                            Selected Work
+                        </p>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-[-0.03em] text-ink leading-tight">
+                            Recent projects.
+                        </h2>
+                    </div>
+                    <p class="text-steel text-sm">Drag to explore</p>
+                </div>
+            </div>
+            <div class="mx-auto max-w-7xl">
+                <div class="scroll-container flex gap-6 overflow-x-auto pb-8 px-4 md:px-8 snap-x snap-mandatory">
+                    <!-- Project 1 -->
+                    <article class="project-card shrink-0 w-[320px] md:w-[380px] rounded-[1.5rem] bg-white overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); aspect-ratio: 3/4;">
+                        <div class="relative h-full flex flex-col">
+                            <div class="flex-1 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=760&h=900&q=80" alt="Meridian app interface showing dashboard" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent backdrop-blur-sm pt-16">
+                                <p class="font-mono text-xs text-indigo tracking-wider uppercase mb-1">SaaS Platform</p>
+                                <h3 class="text-xl font-bold text-ink tracking-tight">Meridian</h3>
+                                <p class="text-sm text-steel mt-1">Revenue analytics for subscription businesses. Series A funded, 12k+ users.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Project 2 -->
+                    <article class="project-card shrink-0 w-[320px] md:w-[380px] rounded-[1.5rem] bg-white overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); aspect-ratio: 3/4;">
+                        <div class="relative h-full flex flex-col">
+                            <div class="flex-1 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&w=760&h=900&q=80" alt="Canopy health app interface" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent backdrop-blur-sm pt-16">
+                                <p class="font-mono text-xs text-indigo tracking-wider uppercase mb-1">Health Tech</p>
+                                <h3 class="text-xl font-bold text-ink tracking-tight">Canopy Health</h3>
+                                <p class="text-sm text-steel mt-1">Patient engagement platform. Reduced no-shows by 34% across 200+ clinics.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Project 3 -->
+                    <article class="project-card shrink-0 w-[320px] md:w-[380px] rounded-[1.5rem] bg-white overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); aspect-ratio: 3/4;">
+                        <div class="relative h-full flex flex-col">
+                            <div class="flex-1 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=760&h=900&q=80" alt="Threadline collaboration tool" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent backdrop-blur-sm pt-16">
+                                <p class="font-mono text-xs text-indigo tracking-wider uppercase mb-1">Collaboration</p>
+                                <h3 class="text-xl font-bold text-ink tracking-tight">Threadline</h3>
+                                <p class="text-sm text-steel mt-1">Async-first team communication. Acquired by a Fortune 500 in 2024.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Project 4 -->
+                    <article class="project-card shrink-0 w-[320px] md:w-[380px] rounded-[1.5rem] bg-white overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); aspect-ratio: 3/4;">
+                        <div class="relative h-full flex flex-col">
+                            <div class="flex-1 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=760&h=900&q=80" alt="Vaulted fintech app" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent backdrop-blur-sm pt-16">
+                                <p class="font-mono text-xs text-indigo tracking-wider uppercase mb-1">Fintech</p>
+                                <h3 class="text-xl font-bold text-ink tracking-tight">Vaulted</h3>
+                                <p class="text-sm text-steel mt-1">Personal finance OS for freelancers. $1.8M pre-seed, 8k active users.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Project 5 -->
+                    <article class="project-card shrink-0 w-[320px] md:w-[380px] rounded-[1.5rem] bg-white overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); aspect-ratio: 3/4;">
+                        <div class="relative h-full flex flex-col">
+                            <div class="flex-1 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=760&h=900&q=80" alt="Forma design tool interface" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent backdrop-blur-sm pt-16">
+                                <p class="font-mono text-xs text-indigo tracking-wider uppercase mb-1">Design Tool</p>
+                                <h3 class="text-xl font-bold text-ink tracking-tight">Forma Studio</h3>
+                                <p class="text-sm text-steel mt-1">Generative layout engine for brand teams. Featured in Fast Company.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== APPROACH / PROCESS ===== -->
+        <section id="approach" class="py-24 md:py-36 px-4 md:px-8" aria-label="Working approach">
+            <div class="mx-auto max-w-5xl">
+                <div class="reveal text-center mb-20">
+                    <p class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.2em] font-medium text-indigo bg-indigo/5 border border-indigo/10 mb-6">
+                        How I Work
+                    </p>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-[-0.03em] text-ink leading-tight">
+                        A clear path from<br>
+                        <span class="text-steel font-light">idea to impact.</span>
                     </h2>
+                </div>
 
-                    <div class="space-y-6 text-gray-300 font-light leading-relaxed">
-                        <p>
-                            For over a decade and a half, I've partnered with entrepreneurs, executives, and investors to navigate transformative moments. Whether building from zero or scaling to prominence, every engagement is grounded in rigorous analysis and authentic partnership.
-                        </p>
+                <!-- Timeline -->
+                <div class="relative">
+                    <!-- Vertical Line -->
+                    <div class="hidden md:block absolute left-[140px] top-0 bottom-0 w-px bg-gradient-to-b from-indigo/20 via-indigo/10 to-transparent" aria-hidden="true"></div>
 
-                        <p>
-                            My approach combines deep market intelligence with emotional acuity—understanding not just what needs to change, but why, and how to make it sustainable. I don't offer one-size-fits-all solutions; I offer clarity in complexity.
-                        </p>
+                    <!-- Step 1 -->
+                    <div class="timeline-step flex flex-col md:flex-row gap-6 md:gap-12 mb-16 md:mb-20">
+                        <div class="shrink-0 md:w-[140px] md:text-right">
+                            <span class="text-7xl md:text-8xl font-black text-indigo/[0.07] leading-none">01</span>
+                        </div>
+                        <div class="md:pl-12 md:border-l border-transparent">
+                            <h3 class="text-2xl font-bold text-ink tracking-tight">Understand</h3>
+                            <p class="mt-3 text-steel leading-relaxed max-w-lg">Deep-dive into your business, users, and market. I interview stakeholders, audit existing systems, and map the competitive landscape. No assumptions, only evidence.</p>
+                        </div>
+                    </div>
 
-                        <p>
-                            Specializing in sectors ranging from technology and finance to luxury goods and professional services, I bring a holistic view of value creation, risk mitigation, and long-term positioning.
-                        </p>
+                    <!-- Step 2 -->
+                    <div class="timeline-step flex flex-col md:flex-row gap-6 md:gap-12 mb-16 md:mb-20" style="transition-delay: 0.1s;">
+                        <div class="shrink-0 md:w-[140px] md:text-right">
+                            <span class="text-7xl md:text-8xl font-black text-indigo/[0.07] leading-none">02</span>
+                        </div>
+                        <div class="md:pl-12 md:border-l border-transparent">
+                            <h3 class="text-2xl font-bold text-ink tracking-tight">Define</h3>
+                            <p class="mt-3 text-steel leading-relaxed max-w-lg">Synthesize research into a product brief with clear scope, success metrics, and a phased roadmap. We align on what "done" looks like before a single pixel moves.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-step flex flex-col md:flex-row gap-6 md:gap-12 mb-16 md:mb-20" style="transition-delay: 0.2s;">
+                        <div class="shrink-0 md:w-[140px] md:text-right">
+                            <span class="text-7xl md:text-8xl font-black text-indigo/[0.07] leading-none">03</span>
+                        </div>
+                        <div class="md:pl-12 md:border-l border-transparent">
+                            <h3 class="text-2xl font-bold text-ink tracking-tight">Build</h3>
+                            <p class="mt-3 text-steel leading-relaxed max-w-lg">Rapid iteration in two-week cycles. Design and code move together. You see working software every Friday, not slide decks. I write the code myself and own the output.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-step flex flex-col md:flex-row gap-6 md:gap-12" style="transition-delay: 0.3s;">
+                        <div class="shrink-0 md:w-[140px] md:text-right">
+                            <span class="text-7xl md:text-8xl font-black text-indigo/[0.07] leading-none">04</span>
+                        </div>
+                        <div class="md:pl-12 md:border-l border-transparent">
+                            <h3 class="text-2xl font-bold text-ink tracking-tight">Launch & Learn</h3>
+                            <p class="mt-3 text-steel leading-relaxed max-w-lg">Ship to real users, instrument everything, and iterate based on actual behavior. I stay engaged post-launch to optimize, not just hand off and disappear.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Expertise Section -->
-    <section id="expertise" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-black to-gray-950 border-t border-gray-900">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-10 sm:mb-16 md:mb-20">
-                <p class="text-sm text-gray-500 uppercase tracking-widest mb-4 font-light">Capabilities</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold">
-                    <span class="gold-gradient">Areas of Expertise</span>
-                </h2>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                <!-- Card 1 -->
-                <div class="card glass glass-hover p-5 sm:p-8 group cursor-pointer">
-                    <div class="mb-6 inline-flex p-3 rounded-lg bg-gradient-to-br from-amber-600 to-amber-800 bg-opacity-10 group-hover:bg-opacity-20 transition">
-                        <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
+        <!-- ===== TESTIMONIALS ===== -->
+        <section id="testimonials" class="py-24 md:py-36 px-4 md:px-8" aria-label="Client testimonials">
+            <div class="mx-auto max-w-5xl">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-start">
+                    <!-- Left -->
+                    <div class="md:col-span-5">
+                        <div class="reveal">
+                            <p class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.2em] font-medium text-indigo bg-indigo/5 border border-indigo/10 mb-6">
+                                Kind Words
+                            </p>
+                            <h2 class="text-4xl md:text-5xl font-bold tracking-[-0.03em] text-ink leading-tight">
+                                What clients<br>
+                                <span class="text-steel font-light">say about me.</span>
+                            </h2>
+                            <p class="mt-6 text-steel leading-relaxed">
+                                Tap a card to cycle through testimonials from founders and leaders I have worked with.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-serif font-bold mb-3">Market Strategy</h3>
-                    <p class="text-gray-400 font-light text-sm">
-                        Identifying untapped opportunities and competitive positioning in dynamic markets.
+                    <!-- Right — Stacked Cards -->
+                    <div class="md:col-span-7">
+                        <div class="reveal relative" style="min-height: 380px;" id="testimonialStack" role="region" aria-label="Testimonial carousel" aria-roledescription="carousel">
+                            <!-- Card 1 -->
+                            <div class="testimonial-card bg-white rounded-[1.5rem] p-8 md:p-10" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); border: 1px solid rgba(15,23,42,0.06);" data-position="0" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 3" tabindex="0">
+                                <i data-lucide="quote" class="w-8 h-8 text-indigo/20 mb-6"></i>
+                                <blockquote class="text-lg md:text-xl text-ink leading-relaxed font-medium">
+                                    "Kai took a vague idea and turned it into a product that generated $400k ARR within eight months. He thinks like a founder, not a contractor."
+                                </blockquote>
+                                <div class="mt-8 flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-indigo/10 flex items-center justify-center">
+                                        <span class="text-sm font-bold text-indigo">EM</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-ink">Elena Moretti</p>
+                                        <p class="font-mono text-xs text-steel">CEO, Meridian Analytics</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="testimonial-card bg-white rounded-[1.5rem] p-8 md:p-10" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); border: 1px solid rgba(15,23,42,0.06);" data-position="1" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 3" tabindex="0">
+                                <i data-lucide="quote" class="w-8 h-8 text-indigo/20 mb-6"></i>
+                                <blockquote class="text-lg md:text-xl text-ink leading-relaxed font-medium">
+                                    "We hired Kai for six weeks. He rebuilt our entire frontend, cut load times by 73%, and left us with a codebase we could actually maintain."
+                                </blockquote>
+                                <div class="mt-8 flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-indigo/10 flex items-center justify-center">
+                                        <span class="text-sm font-bold text-indigo">TK</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-ink">Tobias Kramer</p>
+                                        <p class="font-mono text-xs text-steel">CTO, Canopy Health</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="testimonial-card bg-white rounded-[1.5rem] p-8 md:p-10" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); border: 1px solid rgba(15,23,42,0.06);" data-position="2" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 3" tabindex="0">
+                                <i data-lucide="quote" class="w-8 h-8 text-indigo/20 mb-6"></i>
+                                <blockquote class="text-lg md:text-xl text-ink leading-relaxed font-medium">
+                                    "The rare person who can whiteboard product strategy at 10 AM and push production code at 4 PM. Worth every dollar and then some."
+                                </blockquote>
+                                <div class="mt-8 flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-indigo/10 flex items-center justify-center">
+                                        <span class="text-sm font-bold text-indigo">RH</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-ink">Rachel Hsu</p>
+                                        <p class="font-mono text-xs text-steel">Partner, Basecamp Ventures</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT CTA ===== -->
+        <section id="contact" class="py-24 md:py-36 px-4 md:px-8" aria-label="Get in touch">
+            <div class="mx-auto max-w-6xl">
+                <div class="reveal bg-indigo rounded-[2rem] md:rounded-[2.5rem] px-8 md:px-16 py-16 md:py-24 text-center relative overflow-hidden">
+                    <!-- Subtle shapes in background -->
+                    <div class="absolute top-[-60px] right-[-60px] w-[200px] h-[200px] rounded-full bg-white/[0.04]" aria-hidden="true"></div>
+                    <div class="absolute bottom-[-40px] left-[-40px] w-[160px] h-[160px] rounded-[2rem] bg-white/[0.03] rotate-12" aria-hidden="true"></div>
+
+                    <h2 class="text-4xl md:text-6xl font-bold text-white tracking-[-0.03em] leading-tight relative z-10">
+                        Let's build<br>something.
+                    </h2>
+                    <p class="mt-6 text-white/70 text-lg max-w-md mx-auto leading-relaxed relative z-10">
+                        Have a product idea, a team that needs help, or just want to talk shop? I am always open to the right conversation.
                     </p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="card glass glass-hover p-5 sm:p-8 group cursor-pointer" style="animation-delay: 0.15s;">
-                    <div class="mb-6 inline-flex p-3 rounded-lg bg-gradient-to-br from-amber-600 to-amber-800 bg-opacity-10 group-hover:bg-opacity-20 transition">
-                        <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-serif font-bold mb-3">Client Advisory</h3>
-                    <p class="text-gray-400 font-light text-sm">
-                        Personalized counsel for wealth preservation, growth, and legacy planning.
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="card glass glass-hover p-5 sm:p-8 group cursor-pointer" style="animation-delay: 0.3s;">
-                    <div class="mb-6 inline-flex p-3 rounded-lg bg-gradient-to-br from-amber-600 to-amber-800 bg-opacity-10 group-hover:bg-opacity-20 transition">
-                        <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-serif font-bold mb-3">Portfolio Growth</h3>
-                    <p class="text-gray-400 font-light text-sm">
-                        Strategic expansion and diversification across sectors and geographies.
-                    </p>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="card glass glass-hover p-5 sm:p-8 group cursor-pointer" style="animation-delay: 0.45s;">
-                    <div class="mb-6 inline-flex p-3 rounded-lg bg-gradient-to-br from-amber-600 to-amber-800 bg-opacity-10 group-hover:bg-opacity-20 transition">
-                        <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-serif font-bold mb-3">Brand Positioning</h3>
-                    <p class="text-gray-400 font-light text-sm">
-                        Crafting and elevating personal and corporate brands in competitive landscapes.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Track Record / Numbers Section -->
-    <section class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-black border-t border-gray-900">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-10 sm:mb-16 md:mb-20">
-                <p class="text-sm text-gray-500 uppercase tracking-widest mb-4 font-light">Impact</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold">
-                    <span class="text-white">Proven</span> <span class="gold-gradient">Results</span>
-                </h2>
-            </div>
-
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-                <!-- Stat 1 -->
-                <div class="text-center fade-in">
-                    <p class="stat-number">340+</p>
-                    <p class="text-gray-400 font-light">Active Clients</p>
-                </div>
-
-                <!-- Stat 2 -->
-                <div class="text-center fade-in" style="animation-delay: 0.15s;">
-                    <p class="stat-number">$2.4B</p>
-                    <p class="text-gray-400 font-light">Advisory Volume</p>
-                </div>
-
-                <!-- Stat 3 -->
-                <div class="text-center fade-in" style="animation-delay: 0.3s;">
-                    <p class="stat-number">98%</p>
-                    <p class="text-gray-400 font-light">Retention Rate</p>
-                </div>
-
-                <!-- Stat 4 -->
-                <div class="text-center fade-in" style="animation-delay: 0.45s;">
-                    <p class="stat-number">14</p>
-                    <p class="text-gray-400 font-light">Years of Excellence</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-b from-black to-gray-950 border-t border-gray-900">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-10 sm:mb-16 md:mb-20">
-                <p class="text-sm text-gray-500 uppercase tracking-widest mb-4 font-light">Recognition</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold">
-                    <span class="text-white">Client</span> <span class="gold-gradient">Testimonials</span>
-                </h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                <!-- Testimonial 1 -->
-                <div class="card glass p-5 sm:p-8 flex flex-col">
-                    <svg class="w-8 h-8 text-amber-600 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.4-5-7-5s-7 3.75-7 5c0 1 0 2 .5 4h6V7c0 1-1 2-2 2s-1 .008-1 1.031V11c0 1 0 2 1 2 1 0 2-1 2-2v-4c.5 3 3.5 7 6.5 7 1 0 2-1 2-2v-1c0-1-1-2-2-2s-1 .008-1 1.031V15c0 1 0 2 1 2 2 0 3-1 3-3z"></path>
-                    </svg>
-                    <p class="text-gray-300 font-light mb-6 flex-grow leading-relaxed">
-                        "Alexander's strategic insight fundamentally reshaped how we approach market positioning. His counsel proved invaluable during our most pivotal transitions."
-                    </p>
-                    <div>
-                        <p class="font-semibold text-white">Margaret Chen</p>
-                        <p class="text-sm text-gray-500 font-light">CEO, Nexus Capital</p>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="card glass p-5 sm:p-8 flex flex-col" style="animation-delay: 0.15s;">
-                    <svg class="w-8 h-8 text-amber-600 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.4-5-7-5s-7 3.75-7 5c0 1 0 2 .5 4h6V7c0 1-1 2-2 2s-1 .008-1 1.031V11c0 1 0 2 1 2 1 0 2-1 2-2v-4c.5 3 3.5 7 6.5 7 1 0 2-1 2-2v-1c0-1-1-2-2-2s-1 .008-1 1.031V15c0 1 0 2 1 2 2 0 3-1 3-3z"></path>
-                    </svg>
-                    <p class="text-gray-300 font-light mb-6 flex-grow leading-relaxed">
-                        "What sets Alexander apart is his ability to see around corners. He doesn't just solve today's problems; he positions you for tomorrow's opportunities."
-                    </p>
-                    <div>
-                        <p class="font-semibold text-white">David Sterling</p>
-                        <p class="text-sm text-gray-500 font-light">Founder, Heritage Ventures</p>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="card glass p-5 sm:p-8 flex flex-col" style="animation-delay: 0.3s;">
-                    <svg class="w-8 h-8 text-amber-600 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.4-5-7-5s-7 3.75-7 5c0 1 0 2 .5 4h6V7c0 1-1 2-2 2s-1 .008-1 1.031V11c0 1 0 2 1 2 1 0 2-1 2-2v-4c.5 3 3.5 7 6.5 7 1 0 2-1 2-2v-1c0-1-1-2-2-2s-1 .008-1 1.031V15c0 1 0 2 1 2 2 0 3-1 3-3z"></path>
-                    </svg>
-                    <p class="text-gray-300 font-light mb-6 flex-grow leading-relaxed">
-                        "Exceptional clarity, exceptional results. Alexander combines analytical rigor with genuine care for long-term outcomes. A true partner."
-                    </p>
-                    <div>
-                        <p class="font-semibold text-white">Sophia Reeves</p>
-                        <p class="text-sm text-gray-500 font-light">Managing Partner, Prime Holdings</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured In / Trust Bar -->
-    <section class="py-10 sm:py-12 md:py-16 px-4 sm:px-6 bg-black border-t border-b border-gray-900">
-        <div class="max-w-7xl mx-auto">
-            <p class="text-center text-sm text-gray-600 uppercase tracking-widest mb-8 md:mb-12 font-light">As Featured In</p>
-
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 items-center justify-items-center">
-                <div class="logo-bar group cursor-pointer">
-                    <p class="logo-text">Forbes</p>
-                </div>
-                <div class="logo-bar group cursor-pointer">
-                    <p class="logo-text">Bloomberg</p>
-                </div>
-                <div class="logo-bar group cursor-pointer">
-                    <p class="logo-text">WSJ</p>
-                </div>
-                <div class="logo-bar group cursor-pointer">
-                    <p class="logo-text">Financial Times</p>
-                </div>
-                <div class="logo-bar group cursor-pointer">
-                    <p class="logo-text">Entrepreneur</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact / CTA Section -->
-    <section id="contact" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-black border-t border-gray-900">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6">
-                <span class="text-white">Let's Connect</span>
-            </h2>
-
-            <p class="text-gray-400 text-base sm:text-lg font-light mb-8 md:mb-12 leading-relaxed">
-                Whether you're exploring strategic options, seeking clarity on complex decisions, or building for legacy, I'm here to help illuminate the path forward.
-            </p>
-
-            <div class="glass p-6 sm:p-8 md:p-12 rounded-2xl fade-in">
-                <form class="space-y-6" id="contactForm">
-                    <div>
-                        <input
-                            type="text"
-                            placeholder="Full Name"
-                            required
-                            class="w-full bg-transparent border border-gray-700 px-6 py-4 rounded focus:outline-none focus:border-amber-600 transition text-white placeholder-gray-600"
-                        >
-                    </div>
-                    <div>
-                        <input
-                            type="email"
-                            placeholder="Email Address"
-                            required
-                            class="w-full bg-transparent border border-gray-700 px-6 py-4 rounded focus:outline-none focus:border-amber-600 transition text-white placeholder-gray-600"
-                        >
-                    </div>
-                    <div>
-                        <textarea
-                            placeholder="Tell me about your opportunity or challenge..."
-                            rows="5"
-                            required
-                            class="w-full bg-transparent border border-gray-700 px-6 py-4 rounded focus:outline-none focus:border-amber-600 transition text-white placeholder-gray-600 resize-none"
-                        ></textarea>
-                    </div>
-                    <button
-                        type="submit"
-                        class="w-full gold-accent text-black px-8 py-4 rounded font-semibold hover:shadow-lg transition transform hover:scale-105"
-                    >
-                        Send Message
-                    </button>
-                </form>
-
-                <div class="mt-8 pt-8 sm:mt-10 sm:pt-10 md:mt-12 md:pt-12 border-t border-gray-800 flex flex-col md:flex-row justify-center gap-6 md:gap-8">
-                    <div>
-                        <p class="text-gray-600 text-sm font-light mb-2">Email</p>
-                        <a href="mailto:hello@alexandervoss.com" class="text-white font-light hover:text-amber-500 transition">
-                            hello@alexandervoss.com
+                    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
+                        <a href="mailto:kai@andersen.studio" class="btn-secondary group inline-flex items-center gap-3 bg-white text-indigo text-base font-semibold rounded-full px-7 py-4 hover:bg-white hover:text-indigo-dark" style="transition: transform 0.2s var(--ease);">
+                            <span>kai@andersen.studio</span>
+                            <span class="w-8 h-8 rounded-full bg-indigo/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-0.5" style="transition-timing-function: var(--ease);">
+                                <i data-lucide="mail" class="w-4 h-4 text-indigo"></i>
+                            </span>
                         </a>
-                    </div>
-                    <div class="hidden md:block w-px bg-gray-800"></div>
-                    <div>
-                        <p class="text-gray-600 text-sm font-light mb-2">Phone</p>
-                        <a href="tel:+14155551234" class="text-white font-light hover:text-amber-500 transition">
-                            +1 (415) 555-1234
+                        <a href="#" class="inline-flex items-center gap-2 text-white/80 text-sm font-medium hover:text-white transition-colors duration-300" style="transition-timing-function: var(--ease);">
+                            <span>Book a 30-min call</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-900 px-4 sm:px-6 py-8 sm:py-10 md:py-12">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 md:gap-8">
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="py-16 px-4 md:px-8 border-t" style="border-color: rgba(15,23,42,0.06); background: #F5F5F5;" role="contentinfo">
+        <div class="mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+                <!-- Brand -->
                 <div>
-                    <p class="text-gray-400 font-light text-sm">
-                        © 2024 Alexander Voss. All rights reserved.
+                    <a href="#" class="text-2xl font-bold tracking-tight text-ink">kai<span class="text-indigo">.</span></a>
+                    <p class="mt-4 text-steel text-sm leading-relaxed max-w-xs">
+                        Product builder and design technologist based in Copenhagen. Helping founders ship software that matters.
                     </p>
                 </div>
-
-                <div class="flex gap-6">
-                    <a href="#" class="text-gray-600 hover:text-amber-500 transition">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.731-2.004 1.438-.103.25-.129.599-.129.948v5.419h-3.554s.05-8.736 0-9.646h3.554v1.365c.43-.664 1.199-1.61 2.920-1.61 2.135 0 3.753 1.395 3.753 4.402v5.489zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.706 0-.955.77-1.706 1.915-1.706 1.144 0 1.915.751 1.915 1.706 0 .948-.771 1.706-1.915 1.706zm1.6 11.597H3.738V9.859h3.199v10.593zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path>
-                        </svg>
-                    </a>
-                    <a href="#" class="text-gray-600 hover:text-amber-500 transition">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 002.856-3.51 10.02 10.02 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
-                        </svg>
-                    </a>
-                    <a href="mailto:hello@alexandervoss.com" class="text-gray-600 hover:text-amber-500 transition">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                    </a>
-                </div>
-
+                <!-- Quick Links -->
                 <div>
-                    <p class="text-gray-600 font-light text-xs">
-                        Designed by <span class="text-amber-600">Onda</span>
-                    </p>
+                    <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-steel/60 mb-5">Navigate</h4>
+                    <ul class="flex flex-col gap-3">
+                        <li><a href="#work" class="text-sm text-steel hover:text-ink transition-colors duration-300" style="transition-timing-function: var(--ease);">Selected Work</a></li>
+                        <li><a href="#expertise" class="text-sm text-steel hover:text-ink transition-colors duration-300" style="transition-timing-function: var(--ease);">Expertise</a></li>
+                        <li><a href="#approach" class="text-sm text-steel hover:text-ink transition-colors duration-300" style="transition-timing-function: var(--ease);">Approach</a></li>
+                        <li><a href="#testimonials" class="text-sm text-steel hover:text-ink transition-colors duration-300" style="transition-timing-function: var(--ease);">Kind Words</a></li>
+                    </ul>
                 </div>
+                <!-- Social -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-steel/60 mb-5">Connect</h4>
+                    <ul class="flex flex-col gap-3">
+                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><i data-lucide="twitter" class="w-4 h-4"></i> X / Twitter</a></li>
+                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn</a></li>
+                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><i data-lucide="github" class="w-4 h-4"></i> GitHub</a></li>
+                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><i data-lucide="dribbble" class="w-4 h-4"></i> Dribbble</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t flex flex-col md:flex-row md:items-center md:justify-between gap-4" style="border-color: rgba(15,23,42,0.06);">
+                <p class="text-xs text-steel/50 font-mono">2026 Kai Andersen. All rights reserved.</p>
+                <p class="text-xs text-steel/50 font-mono">Built with craft in Copenhagen.</p>
             </div>
         </div>
     </footer>
 
+    <!-- ===== SCRIPTS ===== -->
     <script>
-        // Mobile Menu
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
-        const mobileLinks = document.querySelectorAll('.mobile-menu-link');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
         });
 
-        closeMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
+        // --- Scroll Reveal ---
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // --- QUICK REVEAL: immediately show elements already in viewport ---
+        const quickReveal = () => {
+            document.querySelectorAll('.reveal, .timeline-step').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        quickReveal();
+        setTimeout(quickReveal, 100);
+        setTimeout(quickReveal, 300);
+
+        // --- Timeline Steps ---
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    timelineObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.timeline-step').forEach(el => timelineObserver.observe(el));
+
+        // --- Nav Scroll Hide ---
+        let lastScrollY = 0;
+        const nav = document.querySelector('.nav-floating');
+        window.addEventListener('scroll', () => {
+            const currentY = window.scrollY;
+            if (currentY > lastScrollY && currentY > 200) {
+                nav.classList.add('nav-hidden');
+            } else {
+                nav.classList.remove('nav-hidden');
+            }
+            lastScrollY = currentY;
+        }, { passive: true });
+
+        // --- Mobile Menu ---
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+        const menuLines = menuToggle.querySelectorAll('span');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            menuToggle.setAttribute('aria-expanded', menuOpen);
+
+            if (menuOpen) {
+                mobileMenu.style.opacity = '1';
+                mobileMenu.style.pointerEvents = 'auto';
+                mobileLinks.forEach(link => {
+                    link.style.transform = 'translateY(0)';
+                    link.style.opacity = '1';
+                });
+                // Morph to X
+                menuLines[0].style.transform = 'rotate(45deg) translateY(4px)';
+                menuLines[1].style.transform = 'rotate(-45deg) translateY(-4px)';
+            } else {
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.pointerEvents = 'none';
+                mobileLinks.forEach(link => {
+                    link.style.transform = 'translateY(1.5rem)';
+                    link.style.opacity = '0';
+                });
+                menuLines[0].style.transform = 'rotate(0) translateY(0)';
+                menuLines[1].style.transform = 'rotate(0) translateY(0)';
+            }
         });
 
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
+                menuOpen = false;
+                menuToggle.setAttribute('aria-expanded', false);
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.pointerEvents = 'none';
+                mobileLinks.forEach(l => {
+                    l.style.transform = 'translateY(1.5rem)';
+                    l.style.opacity = '0';
+                });
+                menuLines[0].style.transform = 'rotate(0) translateY(0)';
+                menuLines[1].style.transform = 'rotate(0) translateY(0)';
             });
         });
 
-        // Navigation Scroll Effect
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+        // --- Testimonial Card Stack ---
+        const testimonialStack = document.getElementById('testimonialStack');
+        const testimonialCards = testimonialStack.querySelectorAll('.testimonial-card');
+        let currentTestimonial = 0;
 
-        // Intersection Observer for Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        // Observe sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Contact Form
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Thank you for reaching out! We\'ll be in touch shortly.');
-                contactForm.reset();
+        function cycleTestimonials() {
+            currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+            testimonialCards.forEach((card, i) => {
+                const position = (i - currentTestimonial + testimonialCards.length) % testimonialCards.length;
+                card.setAttribute('data-position', position);
+                card.setAttribute('aria-label', `Testimonial ${i + 1} of ${testimonialCards.length}`);
             });
         }
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        testimonialCards.forEach(card => {
+            card.addEventListener('click', cycleTestimonials);
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    cycleTestimonials();
                 }
             });
         });
+
+        // --- Counter Animation ---
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'), 10);
+                    let current = 0;
+                    const duration = 1800;
+                    const startTime = performance.now();
+
+                    function tick(now) {
+                        const elapsed = now - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        // Ease-out cubic
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        current = Math.round(eased * target);
+                        el.textContent = current;
+                        if (progress < 1) {
+                            requestAnimationFrame(tick);
+                        } else {
+                            el.textContent = target;
+                        }
+                    }
+                    requestAnimationFrame(tick);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
     </script>
+
+    <!-- Portfolio back-link language detection -->
     <script>
-    (function(){var r=document.referrer,s='.html';if(r.indexOf('_ka')!==-1)s='_ka.html';else if(r.indexOf('_es')!==-1)s='_es.html';document.querySelectorAll('a').forEach(function(a){if(a.href.indexOf('portfolio.html')!==-1){var h=a.getAttribute('href');a.href=h.replace('portfolio.html','portfolio'+s);}});})();
+    (function(){
+        // Breadcrumb: if user came from an Onda hub page (index/portfolio), send them back there
+        var lastHub = null;
+        try { lastHub = sessionStorage.getItem('onda:lastHub'); } catch (_) {}
+        var r = document.referrer || '';
+        var langSrc = lastHub || r;
+        var suffix = /_ka\.html?/.test(langSrc) ? '_ka.html'
+                   : /_es\.html?/.test(langSrc) ? '_es.html'
+                   : '.html';
+        document.querySelectorAll('a[href*="portfolio"]').forEach(function(a) {
+            a.href = '../portfolio' + suffix;
+        });
+        var backHref = null;
+        if (lastHub) {
+            backHref = '..' + lastHub;
+        } else if (/\/index(_v[2-5]|_es|_ka)?\.html?/.test(r)) {
+            backHref = suffix === '_ka.html' ? '../index_ka.html'
+                     : suffix === '_es.html' ? '../index_es.html'
+                     : '../index_v5.html';
+        }
+        if (backHref && /\/index/.test(backHref) && backHref.indexOf('#') === -1) {
+            backHref += '#work';
+        }
+        if (backHref) {
+            document.querySelectorAll('.onda-back').forEach(function(a) { a.href = backHref; });
+        }
+    })();
     </script>
 </body>
 </html>

@@ -1,621 +1,1411 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onda | Webs premium rápidas para negocios de servicios</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Onda | Webs premium en días para negocios de servicios</title>
     <meta name="description"
-        content="Webs premium rápidas, landings y automatizaciones iniciales para negocios de servicios que necesitan verse serios y captar más leads.">
+        content="Webs premium, landings y automatizaciones para negocios de servicios que quieren verse profesionales y captar más clientes. Desde 690 EUR.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Onda | Webs premium en días para negocios de servicios">
+    <meta property="og:description" content="Webs premium y automatizaciones para negocios que quieren verse profesionales y captar más clientes. Desde España, remoto en toda Europa.">
+    <meta property="og:image" content="https://ondaweb.es/og-image.png">
+    <meta property="og:url" content="https://ondaweb.es">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Onda | Webs premium en días para negocios de servicios">
+    <meta name="twitter:description" content="Webs premium y automatizaciones para negocios que quieren verse profesionales. Desde España, remoto en toda Europa.">
+    <meta name="twitter:image" content="https://ondaweb.es/og-image.png">
+
+    <!-- Fonts (preconnect + link, not @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --bg-color: #f8fafc;
-            --surface: #ffffff;
-            --surface-soft: #eff6ff;
-            --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --accent: #2563eb;
-            --accent-dark: #1d4ed8;
-            --border-color: #dbe4f0;
+            --bg: #0a0a0a;
+            --surface: rgba(255,255,255,0.03);
+            --surface-hover: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.06);
+            --border-hover: rgba(255,255,255,0.12);
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #3B82F6;
+            --accent-dark: #2563eb;
+            --ease: cubic-bezier(0.32, 0.72, 0, 1);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background:
-                radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 28%),
-                radial-gradient(circle at top right, rgba(15, 23, 42, 0.06), transparent 24%),
-                var(--bg-color);
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
             color: var(--text-primary);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            letter-spacing: -0.03em;
+        h1,h2,h3,h4,h5,h6 { letter-spacing: -0.03em; line-height: 1.1; }
+        ::selection { background: rgba(59,130,246,0.3); color: white; }
+        html { scroll-behavior: smooth; }
+
+        /* ===== NOISE OVERLAY ===== */
+        .noise {
+            position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.025;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: white;
-            padding: 0.85rem 1.45rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 10px 25px -15px rgba(37, 99, 235, 0.8);
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            cursor: pointer;
+        /* ===== FLOATING ISLAND NAV ===== */
+        .island-nav {
+            position: fixed; top: 1.25rem; left: 50%; transform: translateX(-50%); z-index: 50;
+            border-radius: 9999px; background: rgba(10,10,10,0.6);
+            backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border); padding: 0.4rem 0.5rem 0.4rem 1.25rem;
+            display: flex; align-items: center;
+            transition: transform 0.6s var(--ease), opacity 0.6s var(--ease);
+            box-shadow: 0 8px 32px -8px rgba(0,0,0,0.5);
+        }
+        .island-nav.nav-hidden { transform: translateX(-50%) translateY(-140%); opacity: 0; }
+        .nav-link {
+            color: var(--text-secondary); font-size: 0.8125rem; font-weight: 500;
+            padding: 0.5rem 0.75rem; border-radius: 9999px;
+            transition: color 0.3s var(--ease), background 0.3s var(--ease); white-space: nowrap;
+        }
+        .nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.06); }
+        .nav-cta {
+            background: var(--accent); color: white; font-size: 0.8125rem; font-weight: 600;
+            padding: 0.5rem 1.25rem; border-radius: 9999px; margin-left: 0.5rem;
+            transition: all 0.3s var(--ease); white-space: nowrap;
+        }
+        .nav-cta:hover { background: var(--accent-dark); transform: scale(0.98); }
+        .nav-cta:active { transform: scale(0.96) translateY(1px); }
+        .nav-logo { font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; color: var(--text-primary); margin-right: 1rem; }
+        .nav-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.08); margin: 0 0.25rem; }
+
+        /* ===== HERO BLOBS ===== */
+        .hero-blob {
+            position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.12; will-change: transform;
+        }
+        .hero-blob-1 { width: 600px; height: 600px; background: #3B82F6; top: -15%; left: 10%; animation: bd1 22s ease-in-out infinite alternate; }
+        .hero-blob-2 { width: 450px; height: 450px; background: #1d4ed8; bottom: -5%; right: 5%; animation: bd2 28s ease-in-out infinite alternate; }
+        .hero-blob-3 { width: 350px; height: 350px; background: #60a5fa; top: 30%; left: 55%; animation: bd3 20s ease-in-out infinite alternate; }
+        @keyframes bd1 { to { transform: translate(100px,-80px) scale(1.2); } }
+        @keyframes bd2 { to { transform: translate(-80px,60px) scale(1.15); } }
+        @keyframes bd3 { to { transform: translate(60px,-50px) scale(1.1); } }
+
+        /* ===== METEORS ===== */
+        .meteor {
+            position: absolute; width: 2px;
+            background: linear-gradient(to bottom, transparent, rgba(59,130,246,0.5), transparent);
+            border-radius: 9999px; transform: rotate(-45deg);
+            animation: meteorFall linear infinite; opacity: 0; pointer-events: none;
+        }
+        @keyframes meteorFall {
+            0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 0; }
+            5% { opacity: 0.7; }
+            60% { opacity: 0.3; }
+            100% { transform: translateX(-600px) translateY(600px) rotate(-45deg); opacity: 0; }
         }
 
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 14px 30px -16px rgba(37, 99, 235, 0.9);
+        /* ===== FLIP WORDS ===== */
+        .flip-words-container {
+            display: inline-block; position: relative; overflow: hidden;
+            vertical-align: bottom; height: 1.15em; min-width: 4em;
+        }
+        .flip-word {
+            display: block; position: absolute; left: 0; bottom: 0; width: max-content;
+            opacity: 0; transform: translateY(100%);
+            font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent);
+        }
+        .flip-word.active { animation: flipIn 0.6s var(--ease) forwards; }
+        .flip-word.exiting { animation: flipOut 0.4s cubic-bezier(0.55,0,1,0.45) forwards; }
+        @keyframes flipIn { from { transform: translateY(100%); opacity: 0; filter: blur(4px); } to { transform: translateY(0); opacity: 1; filter: blur(0); } }
+        @keyframes flipOut { from { transform: translateY(0); opacity: 1; filter: blur(0); } to { transform: translateY(-100%); opacity: 0; filter: blur(4px); } }
+
+        /* ===== DOUBLE-BEZEL (Doppelrand) ===== */
+        .doppelrand {
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            border-radius: 1.5rem; padding: 0.375rem;
+            transition: all 0.5s var(--ease);
+        }
+        .doppelrand:hover { border-color: var(--border-hover); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.5); }
+        .doppelrand-inner {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);
+            border-radius: calc(1.5rem - 0.375rem); padding: 1.75rem;
         }
 
-        .btn-secondary {
-            border: 1px solid var(--border-color);
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--text-primary);
-            padding: 0.85rem 1.45rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+        /* ===== SPOTLIGHT CARDS ===== */
+        .spot {
+            position: relative; overflow: hidden;
+            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+            background: var(--surface); border: 1px solid var(--border); border-radius: 1.5rem;
+        }
+        .spot::before {
+            content: ''; position: absolute; inset: 0; opacity: 0;
+            transition: opacity 0.5s var(--ease);
+            background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(59,130,246,0.06), transparent 40%);
+            z-index: 0; pointer-events: none; border-radius: inherit;
+        }
+        .spot:hover::before { opacity: 1; }
+        .spot:hover { transform: translateY(-2px); border-color: rgba(59,130,246,0.15); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.4); }
+        .spot > * { position: relative; z-index: 1; }
+
+        /* ===== REVEAL ===== */
+        .reveal {
+            opacity: 0; transform: translateY(20px); filter: blur(6px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
+        }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+        .stagger-1 { transition-delay: 0ms !important; }
+        .stagger-2 { transition-delay: 100ms !important; }
+        .stagger-3 { transition-delay: 200ms !important; }
+        .stagger-4 { transition-delay: 300ms !important; }
+
+        /* ===== TEXT GENERATE ===== */
+        .text-gen span { opacity: 0.08; transition: opacity 0.6s var(--ease); }
+        .text-gen.is-visible span { opacity: 1; }
+
+        /* ===== BUTTONS ===== */
+        .btn-p {
+            background: var(--accent); color: white; padding: 0.75rem 1.5rem;
+            border-radius: 9999px; font-weight: 600; font-size: 0.9375rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: all 0.3s var(--ease); border: none; cursor: pointer;
+            position: relative; overflow: hidden;
+        }
+        .btn-p:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 12px 24px -8px rgba(59,130,246,0.4); }
+        .btn-p:active { transform: scale(0.98) translateY(1px); }
+        .btn-g {
+            background: transparent; color: var(--text-secondary); padding: 0.75rem 1.5rem;
+            border-radius: 9999px; font-weight: 600; font-size: 0.9375rem;
+            border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: all 0.3s var(--ease); cursor: pointer;
+        }
+        .btn-g:hover { color: var(--text-primary); border-color: var(--border-hover); background: var(--surface); }
+        .btn-g:active { transform: scale(0.98) translateY(1px); }
+
+        /* ===== SHIMMER ===== */
+        .shimmer { position: relative; overflow: hidden; }
+        .shimmer::after {
+            content: ''; position: absolute; top: -50%; left: -75%; width: 50%; height: 200%;
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
+            animation: shimmerSweep 3.5s ease-in-out infinite; pointer-events: none;
+        }
+        @keyframes shimmerSweep { 0%,100% { transform: translateX(-100%); } 50% { transform: translateX(350%); } }
+
+        /* ===== EYEBROW ===== */
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.3rem 0.75rem; border-radius: 9999px;
+            background: rgba(59,130,246,0.08); color: var(--accent);
+            font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
         }
 
-        .btn-secondary:hover {
-            background: white;
-            border-color: #c7d6ea;
+        /* ===== DIVIDER ===== */
+        .divider {
+            height: 1px; border: none;
+            background: linear-gradient(90deg, transparent, rgba(59,130,246,0.12) 20%, rgba(59,130,246,0.18) 50%, rgba(59,130,246,0.12) 80%, transparent);
         }
 
-        .panel {
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(219, 228, 240, 0.9);
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 45px -35px rgba(15, 23, 42, 0.35);
+        /* ===== COUNTER ===== */
+        .counter-value { display: inline-block; font-variant-numeric: tabular-nums; }
+
+        /* ===== 3D TILT ===== */
+        .tilt-wrap { perspective: 1000px; }
+        .tilt-card {
+            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+            transform-style: preserve-3d; position: relative;
+        }
+        .tilt-card:hover { box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5); }
+        .tilt-card .tilt-img { transition: transform 0.6s var(--ease); }
+        .tilt-card:hover .tilt-img { transform: scale(1.05); }
+        .tilt-card::after {
+            content: ''; position: absolute; inset: 0; border-radius: inherit; opacity: 0;
+            transition: opacity 0.5s var(--ease);
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 55%, transparent 60%);
+            pointer-events: none; z-index: 5;
+        }
+        .tilt-card:hover::after { opacity: 1; }
+
+        /* ===== TEAM CARDS ===== */
+        .team-card {
+            border-radius: 1.25rem; background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06); transition: all 0.5s var(--ease);
+        }
+        .team-card:hover {
+            background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12);
+            transform: translateY(-3px); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.4);
+        }
+        .team-avatar {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: linear-gradient(135deg, #1e3a5f, var(--accent));
+            color: white; display: flex; align-items: center; justify-content: center;
+            font-size: 0.875rem; font-weight: 800; letter-spacing: 0.05em; flex-shrink: 0;
+            border: 2px solid rgba(255,255,255,0.08);
+        }
+        .team-status {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.6875rem; font-weight: 600; padding: 3px 10px; border-radius: 9999px;
+            background: rgba(34,197,94,0.08); color: #4ade80; border: 1px solid rgba(34,197,94,0.15);
+        }
+        .status-dot {
+            width: 5px; height: 5px; border-radius: 50%; background: #4ade80;
+            box-shadow: 0 0 6px rgba(74,222,128,0.5); animation: pulseDot 2s ease-in-out infinite;
+        }
+        @keyframes pulseDot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
+        .social-btn {
+            display: flex; align-items: center; justify-content: center;
+            width: 34px; height: 34px; border-radius: 10px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+            color: var(--text-muted); transition: all 0.3s var(--ease);
+        }
+        .social-btn:hover { background: rgba(255,255,255,0.08); color: var(--text-primary); transform: translateY(-1px); }
+        .social-btn.wa:hover { background: rgba(37,211,102,0.12); color: #25d366; border-color: rgba(37,211,102,0.25); }
+
+        /* ===== FAQ ===== */
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-trigger {
+            display: flex; align-items: center; justify-content: space-between; width: 100%;
+            padding: 1.25rem 0; font-size: 0.9375rem; font-weight: 600; color: var(--text-primary);
+            background: none; border: none; cursor: pointer; text-align: left;
+            transition: color 0.3s var(--ease); font-family: 'DM Sans', sans-serif;
+        }
+        .faq-trigger:hover { color: var(--accent); }
+        .faq-icon {
+            width: 28px; height: 28px; border-radius: 50%; background: var(--surface);
+            border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; transition: all 0.4s var(--ease); color: var(--text-muted);
+        }
+        .faq-item.open .faq-icon { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.2); transform: rotate(45deg); color: var(--accent); }
+        .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease), opacity 0.4s var(--ease); opacity: 0; }
+        .faq-item.open .faq-body { opacity: 1; }
+
+        /* ===== TRACING BEAM ===== */
+        .tracing-beam { position: fixed; left: 20px; top: 0; width: 2px; height: 100vh; z-index: 40; border-radius: 2px; }
+        .tracing-track { position: absolute; inset: 0; background: rgba(59,130,246,0.06); border-radius: 2px; }
+        .tracing-progress {
+            position: absolute; top: 0; left: 0; width: 100%;
+            background: var(--accent); border-radius: 2px; transform-origin: top;
+            box-shadow: 0 0 8px rgba(59,130,246,0.4); transition: height 0.1s linear;
+        }
+        .tracing-dot {
+            position: absolute; left: -3px; width: 8px; height: 8px; border-radius: 50%;
+            background: var(--accent); box-shadow: 0 0 12px 3px rgba(59,130,246,0.5); transition: top 0.1s linear;
+        }
+        @media (min-width: 640px) { .faq-trigger { padding: 1.5rem 0; font-size: 1.0625rem; } }
+        @media (max-width: 768px) { .tracing-beam { display: none; } }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .wa-float {
+            position: fixed; bottom: 24px; right: 24px; z-index: 100;
+            display: flex; align-items: center; gap: 10px;
+            background: #25d366; color: white; padding: 14px 22px 14px 18px;
+            border-radius: 60px; font-weight: 600; font-size: 0.9375rem;
+            box-shadow: 0 6px 24px -4px rgba(37,211,102,0.5);
+            transition: all 0.3s var(--ease); text-decoration: none;
+        }
+        .wa-float:hover { transform: translateY(-2px); box-shadow: 0 10px 32px -4px rgba(37,211,102,0.6); }
+        .wa-float svg { flex-shrink: 0; }
+        @media (max-width: 640px) { .wa-float span { display: none; } .wa-float { padding: 16px; border-radius: 50%; } }
+
+        /* ===== FOCUS CARDS ===== */
+        .focus-group:hover .focus-card {
+            filter: blur(2px); opacity: 0.5; transform: scale(0.98); transition: all 0.5s var(--ease);
+        }
+        .focus-group .focus-card { transition: all 0.5s var(--ease); }
+        .focus-group:hover .focus-card:hover { filter: blur(0); opacity: 1; transform: scale(1.01); }
+
+        /* ===== GRID PATTERN ===== */
+        .grid-bg {
+            background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 60px 60px;
         }
 
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        /* ===== POPULAR HIGHLIGHT ===== */
+        .pkg-popular { border-color: rgba(59,130,246,0.2) !important; background: rgba(59,130,246,0.03) !important; }
+
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 2rem; background: var(--bg);
+            transform: translateX(100%); transition: transform 0.4s var(--ease);
+        }
+        .mobile-menu.open { transform: translateX(0); }
+        .mobile-menu a { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); transition: color 0.3s; }
+        .mobile-menu a:hover { color: var(--accent); }
+
+        /* ===== LAMP GLOW ===== */
+        .lamp {
+            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 100%; height: 300px;
+            background: radial-gradient(ellipse at 50% 100%, rgba(59,130,246,0.06) 0%, transparent 60%);
+            pointer-events: none;
         }
 
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* Wave animation */
+        .wave-path {
+            fill: none; stroke-linecap: round; stroke-linejoin: round;
         }
 
-        .section-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.35rem 0.75rem;
-            border-radius: 9999px;
-            background: rgba(37, 99, 235, 0.08);
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+        /* Input dark */
+        .input-dark {
+            width: 100%; border-radius: 0.75rem; padding: 0.875rem 1rem;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+            color: var(--text-primary); outline: none;
+            transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+            font-family: 'DM Sans', sans-serif;
+        }
+        .input-dark::placeholder { color: var(--text-muted); }
+        .input-dark:focus { border-color: rgba(59,130,246,0.4); box-shadow: 0 0 0 3px rgba(59,130,246,0.08); }
+
+        /* Particles */
+        .particle {
+            position: absolute; width: 2px; height: 2px;
+            background: rgba(59,130,246,0.25); border-radius: 50%;
+            animation: particleFloat linear infinite; pointer-events: none;
+        }
+        @keyframes particleFloat {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(40px); opacity: 0; }
         }
 
-        .metric-card {
-            background: rgba(255, 255, 255, 0.88);
-            border: 1px solid var(--border-color);
-            border-radius: 1.25rem;
+        /* ===== SKIP LINK (Accessibility) ===== */
+        .skip-link {
+            position: absolute; left: -9999px; top: 0; z-index: 9999;
+            background: var(--accent); color: white; padding: 0.75rem 1.5rem;
+            font-weight: 600; font-size: 0.875rem; border-radius: 0 0 0.75rem 0;
+            transition: left 0.2s var(--ease);
+        }
+        .skip-link:focus { left: 0; }
+
+        /* ===== FOCUS-VISIBLE (Keyboard Nav) ===== */
+        *:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .btn-p:focus-visible, .btn-g:focus-visible, .nav-cta:focus-visible {
+            outline-offset: 3px;
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
+        }
+        input:focus-visible, textarea:focus-visible {
+            outline: none; /* uses custom border-color + box-shadow already */
         }
 
-        .package-popular {
-            position: relative;
-            overflow: hidden;
+        /* ===== BUTTON-IN-BUTTON (Trailing Icon) ===== */
+        .btn-icon-wrap {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px; border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            transition: all 0.3s var(--ease); flex-shrink: 0;
+        }
+        .btn-p:hover .btn-icon-wrap {
+            background: rgba(255,255,255,0.25);
+            transform: translateX(2px) translateY(-1px) scale(1.05);
         }
 
-        .package-popular::before {
-            content: "Mas elegido";
-            position: absolute;
-            top: 16px;
-            right: -34px;
-            transform: rotate(32deg);
-            background: #0f172a;
-            color: white;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 6px 40px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+        /* ===== CONCEPT PREVIEW GRAPHICS (homepage) ===== */
+        .concept-preview {
+            width: 100%; height: 100%; position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .concept-preview .pv-content { position: relative; z-index: 2; text-align: center; }
+        .concept-preview .pv-grain {
+            position: absolute; inset: 0; opacity: 0.035; pointer-events: none; z-index: 3;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        .whatsapp-float {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #25d366;
-            color: white;
-            padding: 14px 22px 14px 18px;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            box-shadow: 0 6px 24px -4px rgba(37, 211, 102, 0.5);
-            transition: all 0.25s ease;
-            text-decoration: none;
+        /* Meridian — cinematic gold */
+        .preview-meridian { background: #050505; }
+        .preview-meridian::before {
+            content: ''; position: absolute; inset: 20px;
+            border: 1px solid rgba(201,168,76,0.15); pointer-events: none;
         }
-        .whatsapp-float:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 32px -4px rgba(37, 211, 102, 0.6);
+        .preview-meridian::after {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 50% 55%, rgba(201,168,76,0.07) 0%, transparent 60%);
+            pointer-events: none;
         }
-        .whatsapp-float svg { flex-shrink: 0; }
-
-        @media (max-width: 640px) {
-            .whatsapp-float span { display: none; }
-            .whatsapp-float { padding: 16px; border-radius: 50%; }
+        .preview-meridian .pv-title {
+            font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2rem;
+            color: #FAFAFA; letter-spacing: 0.18em; text-transform: uppercase;
+        }
+        .preview-meridian .pv-sub {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; font-size: 0.55rem;
+            color: #94A3B8; letter-spacing: 0.35em; text-transform: uppercase; margin-top: 0.75rem;
+        }
+        .preview-meridian .pv-diag {
+            position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(135deg, transparent 47%, rgba(201,168,76,0.06) 49.5%, rgba(201,168,76,0.06) 50.5%, transparent 53%);
         }
 
-        .about-initials {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-            flex-shrink: 0;
+        /* Casa Serena — Mediterranean warmth */
+        .preview-serena { background: #FBF8F4; }
+        .preview-serena::before {
+            content: ''; position: absolute; width: 180px; height: 90px;
+            top: 0; left: 50%; transform: translateX(-50%);
+            border-radius: 0 0 180px 180px; background: rgba(212,168,83,0.1);
+            pointer-events: none;
+        }
+        .preview-serena::after {
+            content: ''; position: absolute; width: 100px; height: 50px; bottom: 0; left: 15%;
+            border-radius: 100px 100px 0 0; background: rgba(212,168,83,0.06);
+            pointer-events: none;
+        }
+        .preview-serena .pv-title {
+            font-family: 'DM Serif Display', serif; font-size: 2.2rem;
+            color: #2D3B2D; line-height: 1.1;
+        }
+        .preview-serena .pv-line {
+            width: 40px; height: 2px; background: #C2593A; margin: 0.75rem auto 0; border-radius: 2px;
+        }
+        .preview-serena .pv-sub {
+            font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.6rem;
+            color: #6B7B6B; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.5rem;
+        }
+        .preview-serena .pv-circle {
+            position: absolute; width: 50px; height: 50px; border-radius: 50%;
+            background: rgba(45,59,45,0.04); border: 1px solid rgba(45,59,45,0.06);
+            bottom: 15%; right: 18%;
         }
 
-        .concept-dark-preview {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
-            position: relative;
-            overflow: hidden;
+        /* Velara — dark luxury with rose-gold */
+        .preview-velara { background: #0A0A0A; }
+        .preview-velara::before {
+            content: ''; position: absolute; width: 350px; height: 350px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(196,149,106,0.2) 0%, transparent 65%);
+            top: -10%; right: -10%; filter: blur(50px); pointer-events: none;
         }
-        .concept-dark-preview::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(201, 168, 76, 0.06) 50%, transparent 70%);
+        .preview-velara::after {
+            content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(196,149,106,0.12) 0%, transparent 65%);
+            bottom: -5%; left: 5%; filter: blur(40px); pointer-events: none;
+        }
+        .preview-velara .pv-title {
+            font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+            font-size: 3rem; color: #F5F0EB; letter-spacing: 0.02em; line-height: 1;
+        }
+        .preview-velara .pv-sub {
+            font-family: 'DM Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.3em;
+            text-transform: uppercase; color: #C4956A; margin-top: 1rem;
+        }
+        .preview-velara .pv-line {
+            width: 40px; height: 1px; background: #C4956A; margin: 0.75rem auto 0; opacity: 0.5;
+        }
+
+        /* ===== PREFERS REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1; transform: none; filter: none; }
+            .flip-word { animation: none !important; }
+            .flip-word.active { opacity: 1; transform: none; }
+            .hero-blob { animation: none !important; }
+            .meteor { display: none; }
+            .particle { display: none; }
+            .shimmer::after { animation: none !important; }
+            .tracing-beam { display: none; }
+            .status-dot { animation: none !important; }
         }
     </style>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Onda",
+        "description": "Webs premium y automatizaciones para negocios de servicios que quieren verse profesionales y captar más clientes.",
+        "url": "https://ondaweb.es",
+        "areaServed": ["Europe", "United Kingdom", "Spain"],
+        "priceRange": "EUR 690 – EUR 2,490",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ES"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Tymur Chystiakov"
+        },
+        "knowsLanguage": ["English", "Spanish"],
+        "serviceType": ["Web Design", "Web Development", "Business Automation"],
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Landing de lanzamiento",
+                "price": "690",
+                "priceCurrency": "EUR",
+                "description": "Web a medida de una página con captación por WhatsApp o formulario"
+            },
+            {
+                "@type": "Offer",
+                "name": "Web de negocio",
+                "price": "1490",
+                "priceCurrency": "EUR",
+                "description": "Hasta 5 páginas con SEO, flujo de CTA y secciones de confianza"
+            },
+            {
+                "@type": "Offer",
+                "name": "Web + automatización",
+                "price": "2490",
+                "priceCurrency": "EUR",
+                "description": "Web completa más una automatización práctica"
+            }
+        ]
+    }
+    </script>
 </head>
 
-<body class="antialiased">
+<body>
+    <script>
+        try{sessionStorage.setItem('onda:lastHub',location.pathname);}catch(_){}
+        // Tailwind CDN causes late layout shift — force re-scroll to hash after Tailwind settles
+        if (location.hash) {
+            (function(){
+                var id = location.hash.slice(1);
+                var tries = 0;
+                function snap() {
+                    var el = document.getElementById(id);
+                    if (!el) return;
+                    el.scrollIntoView({ block: 'start', behavior: 'instant' });
+                }
+                function kick() {
+                    if (tries++ > 6) return;
+                    snap();
+                    setTimeout(kick, 100);
+                }
+                document.addEventListener('DOMContentLoaded', kick);
+                window.addEventListener('load', snap);
+            })();
+        }
+    </script>
+    <!-- Skip-to-content (Accessibility) -->
+    <a href="#main-content" class="skip-link">Ir al contenido principal</a>
 
-    <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/75 backdrop-blur-xl">
-        <div class="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 md:h-20 md:px-6">
-            <a href="#" class="flex items-center gap-3">
-                <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white">
-                    <i data-lucide="waves" class="h-5 w-5"></i>
-                </div>
-                <span class="text-xl font-bold tracking-tight text-slate-900">ONDA</span>
-            </a>
-            <div class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-                <a href="#packages" class="hover:text-blue-600 transition-colors">Paquetes</a>
-                <a href="#proof" class="hover:text-blue-600 transition-colors">Conceptos</a>
-                <a href="process_es.html" class="hover:text-blue-600 transition-colors">Proceso</a>
-                <a href="#contact" class="hover:text-blue-600 transition-colors">Contacto</a>
-                <a href="index.html" class="border-l border-slate-200 pl-6 text-slate-400 hover:text-slate-900 transition-colors">EN</a>
-                <a href="index_ka.html" class="text-slate-400 hover:text-slate-900 transition-colors">KA</a>
-            </div>
-            <a href="#contact" class="hidden md:inline-flex btn-primary">Pedir presupuesto</a>
-            <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
-        </div>
-    </nav>
+    <!-- Noise overlay -->
+    <div class="noise" aria-hidden="true"></div>
 
-    <div id="mobile-menu"
-        class="fixed inset-0 z-[60] flex translate-x-full flex-col items-center justify-center gap-8 bg-white text-slate-900 transition-transform duration-300 md:hidden">
-        <a href="#packages" class="text-2xl sm:text-3xl font-bold hover:text-blue-600 transition-colors">Paquetes</a>
-        <a href="#proof" class="text-2xl sm:text-3xl font-bold hover:text-blue-600 transition-colors">Conceptos</a>
-        <a href="process_es.html" class="text-2xl sm:text-3xl font-bold hover:text-blue-600 transition-colors">Proceso</a>
-        <a href="#contact" class="text-2xl sm:text-3xl font-bold hover:text-blue-600 transition-colors">Contacto</a>
-        <a href="index.html" class="text-xl font-medium text-slate-400">EN</a>
-        <a href="index_ka.html" class="text-xl font-medium text-slate-400">KA</a>
-        <button id="mobile-menu-close-btn" class="absolute right-4 top-5 text-slate-900"><i data-lucide="x" class="h-8 w-8"></i></button>
+    <!-- Tracing beam -->
+    <div class="tracing-beam" id="tracingBeam" aria-hidden="true">
+        <div class="tracing-track"></div>
+        <div class="tracing-progress" id="tracingProgress" style="height:0"></div>
+        <div class="tracing-dot" id="tracingDot" style="top:0"></div>
     </div>
 
-    <section class="relative overflow-hidden px-6 pt-24 md:pt-32 pb-20">
-        <div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
-            <div class="fade-in-section">
-                <div class="mb-6 inline-flex items-center gap-2">
-                    <span class="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-emerald-700 font-semibold text-sm">Aceptando 3 proyectos nuevos en abril</span>
+    <!-- ===== FLOATING ISLAND NAV ===== -->
+    <nav class="island-nav" id="islandNav">
+        <a href="#" class="nav-logo" style="text-decoration:none;">ONDA</a>
+        <div class="hidden md:flex items-center">
+            <a href="#packages" class="nav-link">Paquetes</a>
+            <a href="#work" class="nav-link">Conceptos</a>
+            <a href="process_es.html" class="nav-link">Proceso</a>
+            <a href="#contact" class="nav-link">Contacto</a>
+            <div class="nav-divider"></div>
+            <a href="index_v5.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">EN</a>
+            <a href="index_ka.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">KA</a>
+        </div>
+        <a href="#contact" class="nav-cta hidden md:inline-flex">Pide tu presupuesto</a>
+        <button id="mobileMenuBtn" class="md:hidden ml-2 p-2 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Abrir menú">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+    </nav>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#packages">Paquetes</a>
+        <a href="#work">Conceptos</a>
+        <a href="process_es.html">Proceso</a>
+        <a href="#contact">Contacto</a>
+        <div class="flex gap-4 mt-4">
+            <a href="index_v5.html" style="font-size:1.125rem;color:var(--text-muted)">EN</a>
+            <a href="index_ka.html" style="font-size:1.125rem;color:var(--text-muted)">KA</a>
+        </div>
+        <button id="mobileMenuClose" class="absolute right-5 top-5 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Cerrar menú">
+            <i data-lucide="x" class="w-7 h-7"></i>
+        </button>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="min-h-[100dvh] relative flex items-center overflow-hidden">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+        <div id="meteorContainer" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;"></div>
+        <div class="lamp"></div>
+
+        <div class="relative z-10 mx-auto max-w-[1400px] w-full px-5 sm:px-6 md:px-10 grid lg:grid-cols-[1.1fr_0.9fr] items-center gap-10 lg:gap-20 pt-24 sm:pt-28 pb-14 sm:pb-20 lg:pt-0 lg:pb-0">
+            <div>
+                <div class="eyebrow mb-5 sm:mb-8 reveal stagger-1">
+                    <span class="relative flex h-2 w-2">
+                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex h-2 w-2 rounded-full bg-blue-400"></span>
+                    </span>
+                    Presupuesto en 24h
                 </div>
-                <h1 class="mb-6 max-w-4xl text-3xl font-extrabold leading-[1.1] text-slate-950 sm:text-4xl md:text-5xl lg:text-7xl lg:leading-none">
-                    Webs premium y rápidas para negocios que necesitan verse serios este mes.
+                <h1 class="text-[2rem] sm:text-4xl md:text-5xl lg:text-[4.25rem] font-extrabold leading-[1.08] tracking-tight text-white mb-5 sm:mb-7 reveal stagger-2" style="max-width: 20ch; text-wrap: balance;">
+                    Webs premium en días para negocios que quieren verse
+                    <span class="flip-words-container" id="flipWords">
+                        <span class="flip-word active">serios.</span>
+                        <span class="flip-word">fiables.</span>
+                        <span class="flip-word">sólidos.</span>
+                        <span class="flip-word">únicos.</span>
+                    </span>
                 </h1>
-                <p class="mb-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
-                    Si tu negocio todavía vive de Instagram, WhatsApp, referencias o una web floja, puedo convertirlo en
-                    algo más pulido, más creíble y preparado para captar más consultas en días, no en meses.
+                <p class="text-base sm:text-lg md:text-xl leading-relaxed mb-7 sm:mb-10 reveal stagger-3" style="color: var(--text-secondary); max-width: 56ch;">
+                    Si tu negocio vive de Instagram, WhatsApp, el boca a boca o una web que no te representa, puedo convertirlo en algo profesional, que genere confianza y capte consultas en días, no en meses.
                 </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#contact" class="btn-primary">Pedir presupuesto rápido <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
-                    <a href="#packages" class="btn-secondary">Ver paquetes</a>
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10 reveal stagger-4">
+                    <a href="#contact" class="btn-p shimmer justify-center sm:w-auto">Pide tu presupuesto <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
+                    <a href="#packages" class="btn-g justify-center sm:w-auto">Ver paquetes</a>
                 </div>
-                <div class="mt-10 flex flex-wrap gap-3 text-sm text-slate-500">
-                    <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Ideal para negocios de servicios</span>
-                    <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Basada en España, trabajo en remoto</span>
-                    <span class="rounded-full border border-slate-200 bg-white px-4 py-2">Proyectos en inglés y español</span>
+                <div class="flex flex-wrap gap-3 reveal" style="transition-delay: 400ms !important;">
+                    <span class="rounded-full border border-emerald-500/20 px-4 py-2 font-medium" style="background:rgba(16,185,129,0.06);color:#4ade80;font-size:0.8125rem;">3 plazas libres en abril</span>
+                    <span class="rounded-full border px-4 py-2 font-medium" style="border-color:var(--border);color:var(--text-muted);font-size:0.8125rem;">Desde España, remoto en toda Europa</span>
+                    <span class="rounded-full border px-4 py-2 font-medium" style="border-color:var(--border);color:var(--text-muted);font-size:0.8125rem;">En inglés y español</span>
                 </div>
             </div>
 
-            <div class="fade-in-section panel p-4 sm:p-6 md:p-8">
-                <div class="grid gap-4 md:grid-cols-2">
-                    <div class="metric-card p-5">
-                        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Desde</p>
-                        <p class="mt-2 text-3xl font-bold text-slate-900">EUR 690</p>
-                        <p class="mt-2 text-sm text-slate-500">Entrada más fácil para prospección, referencias y negocios pequeños.</p>
-                    </div>
-                    <div class="metric-card p-5">
-                        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Plazo habitual</p>
-                        <p class="mt-2 text-3xl font-bold text-slate-900">5-10 días</p>
-                        <p class="mt-2 text-sm text-slate-500">Alcance claro, sin proceso inflado ni reuniones eternas.</p>
-                    </div>
-                    <div class="metric-card p-5 md:col-span-2">
-                        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Lo que realmente compras</p>
-                        <p class="mt-2 text-lg font-semibold text-slate-900">Una web que hace que el negocio se vea más establecido, más fiable y mucho más fácil de contactar.</p>
-                        <div class="mt-4 grid gap-3 sm:grid-cols-3 text-sm text-slate-600">
-                            <div class="rounded-2xl bg-slate-50 px-4 py-3">Mejor primera impresión</div>
-                            <div class="rounded-2xl bg-slate-50 px-4 py-3">Captación más clara</div>
-                            <div class="rounded-2xl bg-slate-50 px-4 py-3">Automatización opcional</div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Right: decorative wave SVG -->
+            <div class="hidden lg:flex items-center justify-center relative" style="height: 480px;">
+                <svg class="absolute w-full h-full" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice" style="opacity:0.35;" id="heroWaves">
+                    <defs>
+                        <linearGradient id="wg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.6"/>
+                            <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.2"/>
+                        </linearGradient>
+                        <linearGradient id="wg2" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.5"/>
+                            <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.1"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="wave-path" stroke="url(#wg1)" stroke-width="2" d="M0,250 C80,200 120,300 200,250 C280,200 320,300 400,250 C480,200 500,250 500,250"/>
+                    <path class="wave-path" stroke="url(#wg2)" stroke-width="2.5" d="M0,280 C90,230 130,330 210,280 C290,230 330,330 410,280 C490,230 500,280 500,280"/>
+                    <path class="wave-path" stroke="url(#wg1)" stroke-width="1.8" d="M0,220 C70,170 110,270 190,220 C270,170 310,270 390,220 C470,170 500,220 500,220"/>
+                    <path class="wave-path" stroke="url(#wg2)" stroke-width="2.2" d="M0,310 C100,260 140,360 220,310 C300,260 340,360 420,310 C500,260 500,310 500,310"/>
+                    <path class="wave-path" stroke="url(#wg1)" stroke-width="1.5" d="M0,190 C60,140 100,240 180,190 C260,140 300,240 380,190 C460,140 500,190 500,190"/>
+                </svg>
+                <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,0.08),transparent 70%);filter:blur(50px);"></div>
             </div>
         </div>
     </section>
 
-    <section id="packages" class="px-6 pb-8 pt-4">
-        <div class="mx-auto max-w-7xl">
-            <div class="fade-in-section mb-14 text-center">
-                <div class="section-label mb-4">Paquetes</div>
-                <h2 class="mb-4 text-3xl font-bold text-slate-950 sm:text-4xl md:text-6xl">Ofertas simples a las que es fácil decir que sí.</h2>
-                <p class="mx-auto max-w-3xl text-lg text-slate-600">Pensadas para prospección, tráfico por referencias y negocios que quieren empezar en pequeño sin terminar con algo barato o genérico.</p>
-            </div>
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <div class="panel fade-in-section p-7">
-                    <div class="mb-6 flex items-center justify-between">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
-                            <i data-lucide="zap" class="h-6 w-6"></i>
-                        </div>
-                        <span class="text-sm font-bold text-blue-600">Desde EUR 690</span>
-                    </div>
-                    <h3 class="mb-3 text-2xl font-bold text-slate-900">Landing de lanzamiento</h3>
-                    <p class="mb-6 text-slate-600">Una web de una sola página para negocios que necesitan verse serios rápido y poner fácil el contacto.</p>
-                    <ul class="space-y-3 text-sm text-slate-600">
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Web a medida de una página</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Captación por WhatsApp o formulario</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Copy más claro y versión móvil pulida</li>
-                    </ul>
-                    <a href="#contact" class="mt-8 inline-flex font-semibold text-blue-600">Empezar aquí <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></a>
-                </div>
-
-                <div class="panel package-popular fade-in-section p-7">
-                    <div class="mb-6 flex items-center justify-between">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white">
-                            <i data-lucide="layout-template" class="h-6 w-6"></i>
-                        </div>
-                        <span class="text-sm font-bold text-blue-600">Desde EUR 1,490</span>
-                    </div>
-                    <h3 class="mb-3 text-2xl font-bold text-slate-900">Web de negocio</h3>
-                    <p class="mb-6 text-slate-600">La mejor opción para la mayoría de pequeños negocios de servicios que necesitan una web que se sienta establecida y no improvisada.</p>
-                    <ul class="space-y-3 text-sm text-slate-600">
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Hasta 5 páginas</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Mejor estructura, CTA y secciones de confianza</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> SEO local básico y gestión de leads</li>
-                    </ul>
-                    <a href="#contact" class="mt-8 inline-flex font-semibold text-blue-600">La opción más elegida <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></a>
-                </div>
-
-                <div class="panel fade-in-section p-7 md:col-span-2 lg:col-span-1">
-                    <div class="mb-6 flex items-center justify-between">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
-                            <i data-lucide="bot" class="h-6 w-6"></i>
-                        </div>
-                        <span class="text-sm font-bold text-blue-600">Desde EUR 2,490</span>
-                    </div>
-                    <h3 class="mb-3 text-2xl font-bold text-slate-900">Web + automatización</h3>
-                    <p class="mb-6 text-slate-600">Para negocios que quieren una web seria más una automatización práctica que empiece a ahorrar tiempo desde ya.</p>
-                    <ul class="space-y-3 text-sm text-slate-600">
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Web completa más una automatización</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Reservas, seguimiento, reseñas o captación inicial</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-green-500"></i> Pensado para utilidad real, no humo de IA</li>
-                    </ul>
-                    <a href="#contact" class="mt-8 inline-flex font-semibold text-blue-600">Pide un presupuesto a medida <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="px-6 py-24">
-        <div class="mx-auto max-w-7xl">
-            <div class="fade-in-section mb-12 text-center">
-                <div class="section-label mb-4">Extras</div>
-                <h2 class="text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">Extras útiles que se pueden sumar después.</h2>
-            </div>
-            <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-                <div class="panel fade-in-section p-6">
-                    <h3 class="text-lg font-bold text-slate-900">Idioma extra</h3>
-                    <p class="mt-2 text-sm text-slate-600">Añade español o inglés sin rehacer toda la web.</p>
-                    <p class="mt-4 font-semibold text-blue-600">Desde EUR 250</p>
-                </div>
-                <div class="panel fade-in-section p-6" style="transition-delay: 100ms;">
-                    <h3 class="text-lg font-bold text-slate-900">Configuración de Google Business</h3>
-                    <p class="mt-2 text-sm text-slate-600">Para negocios locales que necesitan una presencia más limpia en Google Maps y búsqueda.</p>
-                    <p class="mt-4 font-semibold text-blue-600">Desde EUR 190</p>
-                </div>
-                <div class="panel fade-in-section p-6" style="transition-delay: 200ms;">
-                    <h3 class="text-lg font-bold text-slate-900">Flujo de reseñas</h3>
-                    <p class="mt-2 text-sm text-slate-600">Seguimiento simple por email o mensaje para pedir reseñas después del servicio.</p>
-                    <p class="mt-4 font-semibold text-blue-600">Desde EUR 290</p>
-                </div>
-                <div class="panel fade-in-section p-6" style="transition-delay: 300ms;">
-                    <h3 class="text-lg font-bold text-slate-900">Entrega urgente</h3>
-                    <p class="mt-2 text-sm text-slate-600">Para proyectos que necesitan salir especialmente rápido.</p>
-                    <p class="mt-4 font-semibold text-blue-600">Desde EUR 300</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="border-y border-slate-200 bg-white px-6 py-24">
-        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-            <div class="fade-in-section">
-                <div class="section-label mb-4">Encaje</div>
-                <h2 class="mb-4 text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">Esto funciona mejor para negocios que ya tienen demanda, pero una mala presentación online.</h2>
-                <p class="text-lg text-slate-600">Los resultados más rápidos suelen venir de negocios que ya reciben llamadas, recomendaciones o tráfico por Instagram, pero todavía se ven flojos online.</p>
-            </div>
-            <div class="grid gap-6 sm:grid-cols-2">
-                <div class="panel fade-in-section p-6">
-                    <h3 class="mb-2 text-lg font-bold text-slate-900">Servicios locales</h3>
-                    <p class="text-sm leading-relaxed text-slate-600">Clínicas, salones, estudios, reformas y negocios que dependen de confianza y contacto rápido.</p>
-                </div>
-                <div class="panel fade-in-section p-6" style="transition-delay: 100ms;">
-                    <h3 class="mb-2 text-lg font-bold text-slate-900">Consultores y profesionales</h3>
-                    <p class="text-sm leading-relaxed text-slate-600">Abogados, asesores, coaches y especialistas que necesitan una primera impresión más seria.</p>
-                </div>
-                <div class="panel fade-in-section p-6" style="transition-delay: 200ms;">
-                    <h3 class="mb-2 text-lg font-bold text-slate-900">Inmobiliaria y propiedades</h3>
-                    <p class="text-sm leading-relaxed text-slate-600">Marcas y agentes que necesitan más presencia visual y un mejor flujo de consultas.</p>
-                </div>
-                <div class="panel fade-in-section p-6" style="transition-delay: 300ms;">
-                    <h3 class="mb-2 text-lg font-bold text-slate-900">Marcas boutique</h3>
-                    <p class="text-sm leading-relaxed text-slate-600">Marcas pequeñas que quieren algo con criterio sin pagar precios de agencia grande.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="proof" class="px-6 py-24">
-        <div class="mx-auto max-w-7xl">
-            <div class="fade-in-section mb-14 text-center">
-                <div class="section-label mb-4">Conceptos</div>
-                <h2 class="mb-4 text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">Prueba de gusto, movimiento y rango visual.</h2>
-                <p class="mx-auto max-w-3xl text-lg text-slate-600">Estos trabajos son conceptos, no casos reales de clientes. Están aquí para mostrar lo pulida, premium y viva que puede sentirse una web.</p>
-            </div>
-            <div class="grid gap-8 lg:grid-cols-3">
-                <a href="portfolio/real-estate_es.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1">
-                    <div class="h-64 w-full rounded-2xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Meridian Estate Group" class="h-full w-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 flex items-end p-6">
-                            <div>
-                                <p class="text-xs tracking-widest uppercase text-gray-300 mb-1" style="letter-spacing: 0.3em;">Luxury Real Estate</p>
-                                <p class="text-2xl font-bold text-white" style="font-family: Georgia, serif;">Meridian Estate Group</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-2 pb-2 pt-6">
-                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Concepto inmobiliario</p>
-                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Meridian Estate Group</h3>
-                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Diseño cinematográfico oscuro para marcas inmobiliarias que necesitan generar confianza y cerrar consultas de alto valor.</p>
-                    </div>
-                </a>
-                <a href="examples/casa-serena.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1" style="transition-delay: 100ms;">
-                    <div class="h-64 w-full rounded-2xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80" alt="Casa Serena" class="h-full w-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 flex items-end p-6">
-                            <div>
-                                <p class="text-xs tracking-widest uppercase text-gray-300 mb-1" style="letter-spacing: 0.3em;">Hotel Boutique</p>
-                                <p class="text-2xl font-bold text-white" style="font-family: Georgia, serif;">Casa Serena</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-2 pb-2 pt-6">
-                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Concepto hotel boutique</p>
-                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Casa Serena</h3>
-                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Un hotel boutique de 14 habitaciones en Batumi, Georgia — diseño mediterráneo cálido inspirado en Aman Resorts y The Hoxton.</p>
-                    </div>
-                </a>
-                <a href="portfolio/aesthetic-clinic_es.html" class="panel fade-in-section overflow-hidden p-4 transition-transform hover:-translate-y-1" style="transition-delay: 200ms;">
-                    <img src="assets/images/aesthetic_clinic_hero.png" alt="Concepto clínica estética" class="h-64 w-full rounded-2xl object-cover">
-                    <div class="px-2 pb-2 pt-6">
-                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Concepto de clínica estética</p>
-                        <h3 class="mt-2 text-2xl font-bold text-slate-900">Velara Aesthetics</h3>
-                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Diseño calmado y lujoso que genera confianza y capta reservas para clínicas premium.</p>
-                    </div>
-                </a>
-            </div>
-            <p class="mt-6 text-center text-sm text-slate-500 fade-in-section">Webs como estas desde <strong class="text-slate-800">EUR 1.490</strong>. No EUR 10.000.</p>
-            <div class="mt-10 text-center fade-in-section">
-                <a href="portfolio_es.html" class="btn-secondary">Ver todos los conceptos</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-slate-900 px-6 py-24 text-white">
+    <!-- ===== METRICS ===== -->
+    <section class="px-5 sm:px-6 md:px-10 py-12 sm:py-16 md:py-20">
         <div class="mx-auto max-w-5xl">
-            <div class="fade-in-section">
-                <div class="section-label mb-4 bg-white/10 text-blue-200">Quién construye esto</div>
-                <h2 class="mb-10 text-3xl font-bold md:text-4xl">El equipo detrás de Onda.</h2>
-                <div class="grid gap-10 md:grid-cols-2">
-                    <div class="flex gap-5 items-start">
-                        <div class="about-initials flex-shrink-0">TC</div>
-                        <div>
-                            <h3 class="text-xl font-bold">Tymur Chystiakov</h3>
-                            <p class="text-sm font-semibold text-blue-300 mt-1">Diseño y Desarrollo</p>
-                            <p class="mt-3 text-slate-300 leading-relaxed">Creo webs rápidas y premium para negocios de servicio. Cada concepto en esta web lo diseñé y programé yo. Sin plantillas, sin page builders. Con base en España, trabajo en remoto por toda Europa.</p>
+            <div class="doppelrand reveal">
+                <div class="doppelrand-inner">
+                    <div class="grid gap-6 md:grid-cols-2">
+                        <div class="rounded-xl p-5" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
+                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.18em]" style="color:var(--text-muted);">Desde</p>
+                            <p class="mt-2 text-3xl font-bold text-white">EUR <span class="counter-value" data-target="690" data-suffix="">0</span></p>
+                            <p class="mt-2 text-sm" style="color:var(--text-secondary);">Punto de entrada accesible para negocios pequeños.</p>
+                        </div>
+                        <div class="rounded-xl p-5" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
+                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.18em]" style="color:var(--text-muted);">Plazo habitual</p>
+                            <p class="mt-2 text-3xl font-bold text-white"><span class="counter-value" data-target="5" data-suffix="">0</span>–<span class="counter-value" data-target="10" data-suffix="">0</span> días</p>
+                            <p class="mt-2 text-sm" style="color:var(--text-secondary);">Alcance claro, sin procesos hinchados ni reuniones eternas.</p>
+                        </div>
+                        <div class="rounded-xl p-5 md:col-span-2" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
+                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.18em]" style="color:var(--text-muted);">Lo que realmente compras</p>
+                            <p class="mt-2 text-lg font-semibold text-white">Una web que hace que tu negocio se vea sólido, genere confianza y sea fácil de contactar.</p>
+                            <div class="mt-4 grid gap-3 sm:grid-cols-3 text-sm" style="color:var(--text-secondary);">
+                                <div class="rounded-xl px-4 py-3" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);">Mejor primera impresión</div>
+                                <div class="rounded-xl px-4 py-3" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);">Captación de clientes clara</div>
+                                <div class="rounded-xl px-4 py-3" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);">Automatización opcional</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex gap-5 items-start">
-                        <div class="about-initials flex-shrink-0">NK</div>
-                        <div>
-                            <h3 class="text-xl font-bold">Nika</h3>
-                            <p class="text-sm font-semibold text-blue-300 mt-1">Desarrollo de Negocio</p>
-                            <p class="mt-3 text-slate-300 leading-relaxed">Nika gestiona las relaciones con clientes y las consultas de negocio, ayudándote a encontrar el paquete adecuado y guiándote desde la primera llamada hasta el lanzamiento.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-10 flex flex-wrap gap-4">
-                    <a href="#contact" class="btn-primary">Trabaja con nosotros</a>
-                    <a href="portfolio_es.html" class="btn-secondary border-slate-700 bg-transparent text-white hover:bg-white hover:text-slate-900">Ver todos los conceptos</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="px-6 py-24">
-        <div class="mx-auto max-w-7xl">
-            <div class="fade-in-section mb-14 text-center">
-                <div class="section-label mb-4">FAQ</div>
-                <h2 class="text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">Lo que normalmente preguntan antes de contratar.</h2>
+    <hr class="divider mx-auto max-w-lg">
+
+    <!-- ===== PACKAGES (Bento Grid) ===== -->
+    <section id="packages" class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28 grid-bg">
+        <div class="mx-auto max-w-[1400px]">
+            <div class="reveal mb-10 sm:mb-14 md:mb-16">
+                <div class="eyebrow mb-4 sm:mb-5">Paquetes</div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-gen" style="max-width: 20ch;">Paquetes claros, fáciles de elegir.</h2>
+                <p class="mt-3 sm:mt-5 text-base sm:text-lg" style="color:var(--text-secondary);max-width:65ch;">Pensados para negocios que quieren empezar sin complicaciones y sin acabar con algo barato o genérico.</p>
+            </div>
+
+            <!-- Bento: 2 columns, popular card spans 2 rows -->
+            <div class="grid gap-6 lg:grid-cols-[1fr_1.3fr] lg:grid-rows-[auto_auto]">
+                <!-- Launch Page -->
+                <div class="spot reveal stagger-1 p-5 sm:p-7">
+                    <div class="mb-6 flex items-center justify-between">
+                        <div class="flex h-11 w-11 items-center justify-center rounded-xl" style="background:rgba(59,130,246,0.08);color:var(--accent);"><i data-lucide="zap" class="h-5 w-5"></i></div>
+                        <span class="text-sm font-bold" style="color:var(--accent);">Desde EUR 690</span>
+                    </div>
+                    <h3 class="mb-3 text-xl font-bold text-white">Landing de lanzamiento</h3>
+                    <p class="mb-6 text-sm" style="color:var(--text-secondary);max-width:50ch;">Una web de una sola página para negocios que necesitan verse profesionales rápido y facilitar el contacto.</p>
+                    <ul class="space-y-3 text-sm" style="color:var(--text-secondary);">
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Web a medida de una página</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Captación por WhatsApp o formulario</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Textos claros y versión móvil cuidada</li>
+                    </ul>
+                    <a href="#contact" class="mt-6 inline-flex items-center font-semibold text-sm group" style="color:var(--accent);">Empezar aquí <i data-lucide="arrow-right" class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"></i></a>
+                </div>
+
+                <!-- Business Website (popular, row-span-2) -->
+                <div class="spot pkg-popular reveal stagger-2 p-5 sm:p-7 lg:row-span-2 flex flex-col">
+                    <div class="mb-4 sm:mb-6">
+                        <span class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[0.6875rem] font-bold uppercase tracking-wider" style="background:rgba(59,130,246,0.1);color:var(--accent);border:1px solid rgba(59,130,246,0.2);">El más elegido</span>
+                    </div>
+                    <div class="mb-5 sm:mb-6 flex items-center justify-between">
+                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-slate-900"><i data-lucide="layout-template" class="h-5 w-5"></i></div>
+                        <span class="text-sm font-bold" style="color:var(--accent);">Desde EUR 1.490</span>
+                    </div>
+                    <h3 class="mb-3 text-2xl font-bold text-white">Web de negocio</h3>
+                    <p class="mb-6" style="color:var(--text-secondary);max-width:50ch;">La mejor opción para negocios de servicios que necesitan una web que transmita solidez, no improvisación.</p>
+                    <ul class="space-y-3 text-sm flex-1" style="color:var(--text-secondary);">
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Hasta 5 páginas</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Estructura clara, CTAs y secciones de confianza</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> SEO local básico y gestión de contactos</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Asesoría de textos y maquetación</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Diseño móvil primero y optimizada en rendimiento</li>
+                    </ul>
+                    <a href="#contact" class="mt-8 inline-flex items-center font-semibold group" style="color:var(--accent);">Elegir este paquete <i data-lucide="arrow-right" class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"></i></a>
+                </div>
+
+                <!-- Site + Automation -->
+                <div class="spot reveal stagger-3 p-5 sm:p-7">
+                    <div class="mb-6 flex items-center justify-between">
+                        <div class="flex h-11 w-11 items-center justify-center rounded-xl" style="background:rgba(16,185,129,0.08);color:#34d399;"><i data-lucide="bot" class="h-5 w-5"></i></div>
+                        <span class="text-sm font-bold" style="color:var(--accent);">Desde EUR 2.490</span>
+                    </div>
+                    <h3 class="mb-3 text-xl font-bold text-white">Web + automatización</h3>
+                    <p class="mb-6 text-sm" style="color:var(--text-secondary);max-width:50ch;">Para negocios que quieren una web profesional más una automatización práctica que ahorre tiempo desde el primer día.</p>
+                    <ul class="space-y-3 text-sm" style="color:var(--text-secondary);">
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Web completa más una automatización</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Reservas, seguimiento, reseñas o captación</li>
+                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Pensado para resultados reales, no humo</li>
+                    </ul>
+                    <a href="#contact" class="mt-6 inline-flex items-center font-semibold text-sm group" style="color:var(--accent);">Pide presupuesto a medida <i data-lucide="arrow-right" class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider mx-auto max-w-lg">
+
+    <!-- ===== ADD-ONS ===== -->
+    <section class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-24">
+        <div class="mx-auto max-w-[1400px]">
+            <div class="reveal mb-8 sm:mb-12">
+                <div class="eyebrow mb-4 sm:mb-5">Extras</div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-gen">Extras que puedes añadir cuando quieras.</h2>
+            </div>
+            <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+                <div class="spot reveal stagger-1 p-6">
+                    <h3 class="text-base font-bold text-white">Idioma extra</h3>
+                    <p class="mt-2 text-sm" style="color:var(--text-secondary);">Añade español o inglés sin rehacer toda la web.</p>
+                    <p class="mt-4 font-semibold text-sm" style="color:var(--accent);">Desde EUR 250</p>
+                </div>
+                <div class="spot reveal stagger-2 p-6">
+                    <h3 class="text-base font-bold text-white">Google Business Profile</h3>
+                    <p class="mt-2 text-sm" style="color:var(--text-secondary);">Para negocios locales que quieren una presencia más cuidada en Google Maps y búsqueda.</p>
+                    <p class="mt-4 font-semibold text-sm" style="color:var(--accent);">Desde EUR 190</p>
+                </div>
+                <div class="spot reveal stagger-3 p-6">
+                    <h3 class="text-base font-bold text-white">Flujo de reseñas</h3>
+                    <p class="mt-2 text-sm" style="color:var(--text-secondary);">Seguimiento automático por email o mensaje para pedir reseñas tras el servicio.</p>
+                    <p class="mt-4 font-semibold text-sm" style="color:var(--accent);">Desde EUR 290</p>
+                </div>
+                <div class="spot reveal stagger-4 p-6">
+                    <h3 class="text-base font-bold text-white">Entrega urgente</h3>
+                    <p class="mt-2 text-sm" style="color:var(--text-secondary);">Para proyectos que necesitan estar listos cuanto antes.</p>
+                    <p class="mt-4 font-semibold text-sm" style="color:var(--accent);">Desde EUR 300</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider mx-auto max-w-lg">
+
+    <!-- ===== BEST FIT (Editorial split) ===== -->
+    <section class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28">
+        <div class="mx-auto max-w-[1400px] grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+            <div class="reveal">
+                <div class="eyebrow mb-5">Encaje</div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-gen" style="max-width: 18ch;">Ideal para negocios con demanda pero mala imagen online.</h2>
+                <p class="mt-3 sm:mt-5 text-base sm:text-lg" style="color:var(--text-secondary);max-width:50ch;">Los mejores resultados vienen de negocios que ya reciben llamadas o recomendaciones, pero su presencia online no les hace justicia.</p>
+            </div>
+            <div class="grid gap-5 sm:grid-cols-2 focus-group">
+                <div class="spot focus-card reveal stagger-1 p-6">
+                    <h3 class="mb-2 text-base font-bold text-white">Servicios locales</h3>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Clínicas, peluquerías, reformas, estudios y negocios donde la confianza y el contacto rápido lo son todo.</p>
+                </div>
+                <div class="spot focus-card reveal stagger-2 p-6">
+                    <h3 class="mb-2 text-base font-bold text-white">Consultores y profesionales</h3>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Abogados, asesores, coaches y especialistas que necesitan una primera impresión a la altura.</p>
+                </div>
+                <div class="spot focus-card reveal stagger-3 p-6">
+                    <h3 class="mb-2 text-base font-bold text-white">Inmobiliarias</h3>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Agencias y agentes que necesitan más presencia visual y un mejor flujo de consultas.</p>
+                </div>
+                <div class="spot focus-card reveal stagger-4 p-6">
+                    <h3 class="mb-2 text-base font-bold text-white">Marcas boutique</h3>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Marcas pequeñas que quieren algo hecho con criterio sin pagar precios de agencia grande.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider mx-auto max-w-lg">
+
+    <!-- ===== PORTFOLIO (Asymmetric grid) ===== -->
+    <section id="work" class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28 grid-bg">
+        <div class="mx-auto max-w-[1400px]">
+            <div class="reveal mb-10 sm:mb-14 md:mb-16">
+                <div class="eyebrow mb-4 sm:mb-5">Conceptos</div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-gen" style="max-width: 22ch;">Criterio, movimiento y rango visual.</h2>
+                <p class="mt-3 sm:mt-5 text-base sm:text-lg" style="color:var(--text-secondary);max-width:65ch;">Son conceptos, no casos de clientes. Están aquí para que veas lo profesional, cuidada y viva que puede ser tu web.</p>
+            </div>
+
+            <!-- Asymmetric: featured left (larger), 2 stacked right -->
+            <div class="grid gap-6 lg:grid-cols-[1.4fr_1fr] focus-group">
+                <!-- Featured: Meridian -->
+                <div class="tilt-wrap focus-card reveal stagger-1 lg:row-span-2">
+                    <a href="examples/real-estate.html" class="tilt-card spot block overflow-hidden p-4 relative h-full" style="display:flex;flex-direction:column;">
+                        <div class="flex-1 min-h-[280px] lg:min-h-[400px] w-full rounded-xl overflow-hidden relative">
+                            <div class="concept-preview preview-meridian" role="img" aria-label="Meridian Estate Group concept preview"><div class="pv-content"><div class="pv-title">Meridian</div><div class="pv-sub">Estate Group</div></div><div class="pv-diag"></div></div>
+                        </div>
+                        <div class="px-2 pb-2 pt-5">
+                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.16em]" style="color:var(--accent);">Concepto inmobiliario</p>
+                            <h3 class="mt-2 text-xl font-bold text-white">Meridian Estate Group</h3>
+                            <p class="mt-2 text-sm leading-relaxed" style="color:var(--text-secondary);">Diseño cinematográfico oscuro para inmobiliarias que necesitan generar confianza y cerrar consultas de alto valor.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Casa Serena -->
+                <div class="tilt-wrap focus-card reveal stagger-2">
+                    <a href="examples/casa-serena.html" class="tilt-card spot block overflow-hidden p-4 relative">
+                        <div class="h-52 w-full rounded-xl overflow-hidden relative">
+                            <div class="concept-preview preview-serena" role="img" aria-label="Casa Serena concept preview"><div class="pv-content"><div class="pv-title">Casa Serena</div><div class="pv-line"></div><div class="pv-sub">Boutique Hotel</div></div><div class="pv-circle"></div></div>
+                        </div>
+                        <div class="px-2 pb-2 pt-4">
+                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.16em]" style="color:var(--accent);">Concepto hotel boutique</p>
+                            <h3 class="mt-1 text-lg font-bold text-white">Casa Serena</h3>
+                            <p class="mt-1 text-sm leading-relaxed" style="color:var(--text-secondary);">Un hotel boutique de 14 habitaciones en Batumi, Georgia — diseño mediterráneo cálido inspirado en Aman Resorts y The Hoxton.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Velara -->
+                <div class="tilt-wrap focus-card reveal stagger-3">
+                    <a href="examples/aesthetic-clinic.html" class="tilt-card spot block overflow-hidden p-4 relative">
+                        <div class="h-52 w-full rounded-xl overflow-hidden relative">
+                            <div class="concept-preview preview-velara" role="img" aria-label="Velara Aesthetics concept preview"><div class="pv-content"><div class="pv-title">Velara</div><div class="pv-sub">Aesthetics</div><div class="pv-line"></div></div><div class="pv-grain"></div></div>
+                        </div>
+                        <div class="px-2 pb-2 pt-4">
+                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.16em]" style="color:var(--accent);">Concepto clínica estética</p>
+                            <h3 class="mt-1 text-lg font-bold text-white">Velara Aesthetics</h3>
+                            <p class="mt-1 text-sm leading-relaxed" style="color:var(--text-secondary);">Diseño sereno y lujoso que genera confianza y capta reservas para clínicas premium.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <p class="mt-8 text-center text-sm reveal" style="color:var(--text-muted);">Webs así desde <strong class="text-white">1.490 EUR</strong>. No 10.000 EUR.</p>
+            <div class="mt-8 text-center reveal">
+                <a href="portfolio_es.html" class="btn-g">Ver todos los conceptos</a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider mx-auto max-w-lg">
+
+    <!-- ===== TEAM ===== -->
+    <section class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28 relative overflow-hidden">
+        <div id="teamParticles" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;"></div>
+        <div class="mx-auto max-w-5xl relative z-10">
+            <div class="reveal">
+                <div class="eyebrow mb-5">Quién lo hace</div>
+                <h2 class="mb-8 sm:mb-12 text-2xl sm:text-3xl md:text-4xl font-bold text-white">El equipo detrás de Onda.</h2>
             </div>
             <div class="grid gap-6 md:grid-cols-2">
-                <div class="panel fade-in-section p-5 sm:p-6 md:p-8">
-                    <h3 class="text-xl font-bold text-slate-900">¿Tengo que tener todo el contenido listo?</h3>
-                    <p class="mt-3 text-slate-600">No. Muchos negocios pequeños no lo tienen. Puedo ayudarte a estructurar mejor el contenido y a limpiar el copy para no bloquear el proyecto.</p>
+                <!-- Tymur -->
+                <div class="team-card reveal stagger-1">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="flex items-center gap-4">
+                                <div class="team-avatar">TC</div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">Tymur Chystiakov</h3>
+                                    <p class="text-sm font-medium" style="color:var(--accent);">Diseño y Desarrollo</p>
+                                </div>
+                            </div>
+                            <span class="team-status">
+                                <span class="status-dot"></span>
+                                Disponible
+                            </span>
+                        </div>
+                        <p class="text-sm leading-relaxed mb-6" style="color:var(--text-secondary);">Creo webs premium para negocios de servicios. Cada concepto de esta web lo diseñé y programé yo. Sin plantillas, sin page builders. Desde España, trabajo en remoto por toda Europa.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:var(--text-muted);">España, remoto en toda Europa</span>
+                            <div class="flex items-center gap-2">
+                                <a href="https://www.linkedin.com/in/tymur-chystiakov" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                </a>
+                                <a href="https://wa.me/34607864285?text=Hola%20Tymur%2C%20vi%20tu%20web%20y%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener" class="social-btn wa" title="WhatsApp">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="panel fade-in-section p-8" style="transition-delay: 100ms;">
-                    <h3 class="text-xl font-bold text-slate-900">¿Y si solo tengo Instagram o WhatsApp?</h3>
-                    <p class="mt-3 text-slate-600">Es un punto de partida muy común. El objetivo suele ser convertir eso en algo más creíble y más fácil de convertir.</p>
+
+                <!-- Nika -->
+                <div class="team-card reveal stagger-2">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="flex items-center gap-4">
+                                <div class="team-avatar">NK</div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">Nika Mikuchadze</h3>
+                                    <p class="text-sm font-medium" style="color:var(--accent);">Desarrollo de Negocio</p>
+                                </div>
+                            </div>
+                            <span class="team-status">
+                                <span class="status-dot"></span>
+                                Disponible
+                            </span>
+                        </div>
+                        <p class="text-sm leading-relaxed mb-6" style="color:var(--text-secondary);">Nika gestiona la relación con clientes y las consultas comerciales. Te ayuda a elegir el paquete adecuado y te acompaña desde la primera llamada hasta el lanzamiento.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:var(--text-muted);">Georgia y España</span>
+                            <div class="flex items-center gap-2">
+                                <a href="https://www.linkedin.com/in/nika-mikuchadze-0a23893b3/" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                </a>
+                                <a href="https://wa.me/34634829075?text=Hola%2C%20vi%20la%20web%20de%20Onda%20y%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener" class="social-btn wa" title="WhatsApp">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="panel fade-in-section p-8" style="transition-delay: 200ms;">
-                    <h3 class="text-xl font-bold text-slate-900">¿Puedes trabajar fuera de España?</h3>
-                    <p class="mt-3 text-slate-600">Sí. Estoy en España y puedo trabajar en remoto con negocios de Europa, Reino Unido y otros mercados.</p>
+            </div>
+            <div class="mt-12 flex flex-wrap gap-4 reveal stagger-3">
+                <a href="#contact" class="btn-p shimmer">Empieza tu proyecto <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
+                <a href="portfolio_es.html" class="btn-g">Ver todos los conceptos</a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider mx-auto max-w-lg">
+
+    <!-- ===== FAQ (Accordion) ===== -->
+    <section class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28">
+        <div class="mx-auto max-w-3xl">
+            <div class="reveal mb-8 sm:mb-14">
+                <div class="eyebrow mb-4 sm:mb-5">Preguntas frecuentes</div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-gen">Lo que suelen preguntar antes de empezar.</h2>
+            </div>
+            <div class="reveal" id="faqContainer">
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>¿Tengo que tener todo el contenido listo?</span>
+                        <span class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></span>
+                    </button>
+                    <div class="faq-body">
+                        <p class="pb-5 text-sm leading-relaxed" style="color:var(--text-secondary);max-width:65ch;">No. La mayoría de negocios pequeños no lo tienen. Puedo ayudarte a estructurar el contenido y pulir los textos para que el proyecto no se quede parado.</p>
+                    </div>
                 </div>
-                <div class="panel fade-in-section p-8" style="transition-delay: 300ms;">
-                    <h3 class="text-xl font-bold text-slate-900">¿Puedo empezar pequeño y sumar automatización luego?</h3>
-                    <p class="mt-3 text-slate-600">Sí, y de hecho suele ser lo más inteligente. Primero la web, luego solo las automatizaciones que de verdad ahorren tiempo o capten más leads.</p>
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>¿Y si solo tengo Instagram o WhatsApp?</span>
+                        <span class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></span>
+                    </button>
+                    <div class="faq-body">
+                        <p class="pb-5 text-sm leading-relaxed" style="color:var(--text-secondary);max-width:65ch;">Es un punto de partida muy común. El objetivo es transformar eso en algo más profesional que convierta mejor.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>¿Puedes trabajar fuera de España?</span>
+                        <span class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></span>
+                    </button>
+                    <div class="faq-body">
+                        <p class="pb-5 text-sm leading-relaxed" style="color:var(--text-secondary);max-width:65ch;">Sí. Estoy en España y trabajo en remoto con negocios de toda Europa, Reino Unido y otros mercados.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-trigger" aria-expanded="false">
+                        <span>¿Puedo empezar con la web y añadir automatización después?</span>
+                        <span class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></span>
+                    </button>
+                    <div class="faq-body">
+                        <p class="pb-5 text-sm leading-relaxed" style="color:var(--text-secondary);max-width:65ch;">Sí, y suele ser lo más inteligente. Primero la web, y luego solo las automatizaciones que de verdad ahorren tiempo o capten más clientes.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="border-t border-slate-200 bg-white px-6 py-24">
+    <hr class="divider mx-auto max-w-lg">
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28">
         <div class="mx-auto max-w-6xl">
-            <div class="mb-12 text-center fade-in-section">
-                <div class="section-label mb-4">Presupuesto</div>
-                <h2 class="mb-4 text-3xl font-bold text-slate-950 sm:text-4xl md:text-6xl">Cuéntame qué necesitas y con qué urgencia quieres lanzarlo.</h2>
-                <p class="mx-auto max-w-3xl text-lg text-slate-600">Te recomendaré el camino más rápido y más sensato, no el paquete más grande.</p>
+            <div class="mb-8 sm:mb-14 reveal">
+                <div class="eyebrow mb-4 sm:mb-5">Presupuesto</div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-gen" style="max-width: 24ch;">Cuéntame qué necesitas y para cuándo.</h2>
+                <p class="mt-3 sm:mt-5 text-base sm:text-lg" style="color:var(--text-secondary);max-width:65ch;">Te recomendaré la opción más rápida y sensata, no el paquete más caro.</p>
             </div>
-            <form id="contactForm" class="panel fade-in-section mx-auto max-w-3xl p-4 sm:p-5 md:p-10">
-                <div class="grid gap-6 md:grid-cols-2 mb-6">
-                    <div>
-                        <label class="mb-2 block text-sm font-semibold text-slate-700">Nombre</label>
-                        <input type="text" id="contactName" required
-                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                            placeholder="Nombre y apellido">
-                    </div>
-                    <div>
-                        <label class="mb-2 block text-sm font-semibold text-slate-700">Email</label>
-                        <input type="email" id="contactEmail" required
-                            class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                            placeholder="nombre@empresa.com">
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <label class="mb-2 block text-sm font-semibold text-slate-700">Cuéntame sobre tu proyecto</label>
-                    <textarea id="contactMessage" rows="5" required
-                        class="w-full rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-100 resize-none"
-                        placeholder="¿Qué hace tu negocio? ¿Qué sientes que falla? ¿Para cuándo lo necesitas?"></textarea>
-                </div>
-                <div class="mt-6 flex flex-col gap-4">
-                    <button type="submit" class="btn-primary w-full text-lg">Recibir presupuesto en 24h</button>
-                    <div id="formStatus" class="hidden text-center text-sm font-medium text-slate-500">Enviando...</div>
-                    <div class="border-t border-slate-200 pt-6">
-                        <p class="text-center text-sm text-slate-500 mb-4">o escríbenos directamente</p>
-                        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                            <a href="https://wa.me/34634829075?text=Hola%2C%20vi%20la%20web%20de%20Onda%20y%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-100">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <div class="doppelrand reveal mx-auto max-w-2xl">
+                <div class="doppelrand-inner">
+                    <form id="contactForm">
+                        <div class="grid gap-5 md:grid-cols-2">
+                            <div>
+                                <label class="mb-2 block text-sm font-semibold" style="color:var(--text-secondary);">Nombre</label>
+                                <input type="text" id="contactName" required class="input-dark" placeholder="Nombre y apellido">
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-semibold" style="color:var(--text-secondary);">Email</label>
+                                <input type="email" id="contactEmail" required class="input-dark" placeholder="nombre@empresa.com">
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <label class="mb-2 block text-sm font-semibold" style="color:var(--text-secondary);">Cuéntame sobre tu proyecto</label>
+                            <textarea id="contactMessage" rows="4" required class="input-dark resize-none" placeholder="¿A qué se dedica tu negocio? ¿Qué falla ahora mismo? ¿Para cuándo lo necesitas?"></textarea>
+                        </div>
+                        <div class="mt-6 flex flex-col gap-4">
+                            <button type="submit" class="btn-p shimmer w-full justify-center text-base" style="padding:0.875rem 1.5rem;">Recibe tu presupuesto en 24h <span class="btn-icon-wrap"><i data-lucide="send" class="h-3.5 w-3.5"></i></span></button>
+                            <div id="formStatus" class="hidden text-center text-sm font-medium" style="color:var(--text-muted);">Enviando...</div>
+                        </div>
+                        <div class="mt-6 flex items-center gap-3 justify-center">
+                            <span class="h-px flex-1" style="background:var(--border);"></span>
+                            <span class="text-sm" style="color:var(--text-muted);">o escríbenos directamente</span>
+                            <span class="h-px flex-1" style="background:var(--border);"></span>
+                        </div>
+                        <div class="mt-4 flex flex-col sm:flex-row gap-3 sm:justify-center">
+                            <a href="https://wa.me/34634829075?text=Hola%2C%20vi%20la%20web%20de%20Onda%20y%20me%20interesa%20un%20proyecto." class="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition" style="background:rgba(37,211,102,0.08);color:#4ade80;border:1px solid rgba(37,211,102,0.15);" target="_blank" rel="noopener">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                                 WhatsApp Nika
                             </a>
-                            <a href="https://wa.me/34607864285?text=Hola%20Tymur%2C%20vi%20tu%20web%20y%20me%20interesa%20un%20proyecto." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-600 transition hover:bg-slate-100">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            <a href="https://wa.me/34607864285?text=Hola%20Tymur%2C%20vi%20tu%20web%20y%20me%20interesa%20un%20proyecto." class="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition" style="background:var(--surface);color:var(--text-secondary);border:1px solid var(--border);" target="_blank" rel="noopener">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                                 WhatsApp Tymur
                             </a>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
 
-    <footer class="border-t border-slate-200 bg-slate-50 px-6 py-12 text-sm text-slate-600">
-        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="px-5 sm:px-6 md:px-10 pt-10 sm:pt-12 pb-24 sm:pb-12 text-sm" style="border-top:1px solid var(--border);color:var(--text-muted);">
+        <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-6 md:flex-row">
             <div>
-                <span class="block text-lg font-bold text-slate-900">ONDA</span>
-                <p>Webs rápidas y automatización inicial para negocios que necesitan moverse ya.</p>
+                <span class="block text-lg font-bold text-white">ONDA</span>
+                <p>Webs premium y automatización para negocios que necesitan moverse ya.</p>
             </div>
-            <p class="text-center md:text-right">Basada en España. Disponible para proyectos remotos en Europa, Reino Unido y más mercados.</p>
+            <div class="text-center md:text-right">
+                <p>Desde España. Disponible para proyectos en remoto en toda Europa y más.</p>
+                <div class="mt-3 flex items-center justify-center md:justify-end gap-4 text-xs" style="color:var(--text-muted);">
+                    <a href="privacy.html" class="hover:text-white transition-colors">Política de privacidad</a>
+                    <span style="color:var(--border);">|</span>
+                    <a href="terms.html" class="hover:text-white transition-colors">Términos de servicio</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/34607864285?text=Hola%20Tymur%2C%20vi%20tu%20web%20y%20me%20interesa%20un%20proyecto." class="whatsapp-float" target="_blank" rel="noopener">
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href="https://wa.me/34607864285?text=Hola%20Tymur%2C%20vi%20tu%20web%20y%20me%20interesa%20un%20proyecto." class="wa-float" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        <span>WhatsApp</span>
+        <span>Chatear por WhatsApp</span>
     </a>
 
     <script>
-        lucide.createIcons();
+        window.addEventListener("DOMContentLoaded", function() { lucide.createIcons(); });
 
+        // ===== FLOATING ISLAND NAV (hide on scroll down, show on scroll up) =====
+        (function() {
+            const nav = document.getElementById('islandNav');
+            let lastScroll = 0;
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        const currentScroll = window.scrollY;
+                        if (currentScroll > 100 && currentScroll > lastScroll) {
+                            nav.classList.add('nav-hidden');
+                        } else {
+                            nav.classList.remove('nav-hidden');
+                        }
+                        lastScroll = currentScroll;
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+        })();
+
+        // ===== FLIP WORDS =====
+        (function() {
+            const words = document.querySelectorAll('#flipWords .flip-word');
+            let current = 0;
+            setInterval(() => {
+                const prev = current;
+                current = (current + 1) % words.length;
+                words[prev].classList.remove('active');
+                words[prev].classList.add('exiting');
+                setTimeout(() => words[prev].classList.remove('exiting'), 500);
+                words[current].classList.add('active');
+            }, 3000);
+        })();
+
+        // ===== SPOTLIGHT CARDS =====
+        document.querySelectorAll('.spot').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+                card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+            });
+        });
+
+        // ===== TEXT GENERATE =====
+        document.querySelectorAll('.text-gen').forEach(el => {
+            const text = el.textContent.trim();
+            el.innerHTML = text.split(' ').map((word, i) =>
+                `<span style="transition-delay:${i * 50}ms">${word}</span>`
+            ).join(' ');
+        });
+
+        // ===== 3D TILT =====
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            const parent = card.closest('.tilt-wrap');
+            if (!parent) return;
+            parent.addEventListener('mousemove', e => {
+                const rect = parent.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                card.style.transform = `rotateX(${(0.5 - y) * 10}deg) rotateY(${(x - 0.5) * 10}deg) scale(1.02)`;
+            });
+            parent.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // ===== COUNTER =====
+        function animateCounters() {
+            document.querySelectorAll('.counter-value').forEach(el => {
+                const target = parseInt(el.dataset.target);
+                const suffix = el.dataset.suffix || '';
+                const dur = 1200;
+                const start = performance.now();
+                function update(now) {
+                    const p = Math.min((now - start) / dur, 1);
+                    const eased = 1 - Math.pow(1 - p, 3);
+                    el.textContent = Math.round(eased * target) + suffix;
+                    if (p < 1) requestAnimationFrame(update);
+                }
+                requestAnimationFrame(update);
+            });
+        }
+
+        // ===== TRACING BEAM =====
+        (function() {
+            const progress = document.getElementById('tracingProgress');
+            const dot = document.getElementById('tracingDot');
+            if (!progress || !dot) return;
+            function update() {
+                const s = window.scrollY;
+                const d = document.documentElement.scrollHeight - window.innerHeight;
+                const pct = d > 0 ? Math.min(s / d, 1) : 0;
+                const h = pct * window.innerHeight;
+                progress.style.height = h + 'px';
+                dot.style.top = h + 'px';
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        })();
+
+        // ===== METEORS =====
+        (function() {
+            const container = document.getElementById('meteorContainer');
+            if (!container) return;
+            const meteorData = [
+                { top: '5%', left: '15%', height: '80px', duration: '4s', delay: '0s' },
+                { top: '12%', left: '45%', height: '60px', duration: '3.5s', delay: '1.2s' },
+                { top: '8%', left: '70%', height: '100px', duration: '5s', delay: '2.5s' },
+                { top: '20%', left: '30%', height: '70px', duration: '4.2s', delay: '0.8s' },
+                { top: '3%', left: '80%', height: '50px', duration: '3.8s', delay: '3.2s' },
+                { top: '15%', left: '55%', height: '90px', duration: '4.5s', delay: '1.8s' },
+            ];
+            meteorData.forEach(m => {
+                const el = document.createElement('div');
+                el.className = 'meteor';
+                el.style.top = m.top;
+                el.style.left = m.left;
+                el.style.height = m.height;
+                el.style.animationDuration = m.duration;
+                el.style.animationDelay = m.delay;
+                container.appendChild(el);
+            });
+        })();
+
+        // ===== TEAM PARTICLES =====
+        (function() {
+            const container = document.getElementById('teamParticles');
+            if (!container) return;
+            for (let i = 0; i < 25; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.top = Math.random() * 100 + '%';
+                p.style.width = (1 + Math.random() * 2) + 'px';
+                p.style.height = p.style.width;
+                p.style.animationDuration = (8 + Math.random() * 15) + 's';
+                p.style.animationDelay = (Math.random() * 10) + 's';
+                container.appendChild(p);
+            }
+        })();
+
+        // ===== FAQ ACCORDION =====
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.closest('.faq-item');
+                const body = item.querySelector('.faq-body');
+                const isOpen = item.classList.contains('open');
+
+                // Close all
+                document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.faq-body').style.maxHeight = '0';
+                    openItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+                });
+
+                if (!isOpen) {
+                    item.classList.add('open');
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // ===== WAVE SVG ANIMATION =====
+        (function() {
+            const paths = document.querySelectorAll('.wave-path');
+            paths.forEach(path => {
+                const len = path.getTotalLength();
+                path.style.strokeDasharray = len;
+                path.style.strokeDashoffset = len;
+                path.style.transition = 'stroke-dashoffset 2s cubic-bezier(0.32, 0.72, 0, 1)';
+            });
+            setTimeout(() => {
+                paths.forEach((path, i) => {
+                    setTimeout(() => {
+                        path.style.strokeDashoffset = '0';
+                    }, i * 200);
+                });
+            }, 400);
+        })();
+
+        // ===== OBSERVERS =====
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealEls = document.querySelectorAll('.reveal, .text-gen');
+            const quickReveal = () => {
+                revealEls.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            };
+            quickReveal();
+            setTimeout(quickReveal, 100);
+            setTimeout(quickReveal, 300);
+
+            const revealObs = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.05, rootMargin: '50px' });
+
+            revealEls.forEach(el => {
+                if (!el.classList.contains('is-visible')) revealObs.observe(el);
+            });
+
+            // Counter observer
+            const counterObs = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            const metric = document.querySelector('.counter-value');
+            if (metric) counterObs.observe(metric.closest('.doppelrand') || metric);
+
+            // Mobile menu
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeBtn = document.getElementById('mobileMenuClose');
+            if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+            if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+            if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+        });
+
+        // ===== CONTACT FORM =====
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const btn = e.target.querySelector('button');
+            const btn = e.target.querySelector('button[type="submit"]');
             const status = document.getElementById('formStatus');
             const originalText = btn.innerText;
-
-            btn.innerText = 'Enviando...';
-            btn.disabled = true;
-
+            btn.innerText = 'Enviando...'; btn.disabled = true;
             const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';
-
             const data = {
                 name: document.getElementById('contactName').value,
                 email: document.getElementById('contactEmail').value,
                 type: 'Website Inquiry',
                 message: document.getElementById('contactMessage').value
             };
-
             try {
                 const response = await fetch(`${API_BASE}/api/contact`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
                 });
-
                 if (response.ok) {
-                    status.innerText = 'Gracias, tu solicitud ya está enviada. Te respondere pronto.';
-                    status.classList.remove('text-red-500');
-                    status.classList.add('text-green-600');
+                    status.innerText = 'Gracias, tu solicitud ya está enviada. Te responderé pronto.';
+                    status.classList.remove('hidden');
+                    status.style.color = '#4ade80';
                     e.target.reset();
                 } else {
                     const errorData = await response.json().catch(() => null);
@@ -623,41 +1413,22 @@
                 }
             } catch (error) {
                 console.error(error);
-                status.innerText = error.message || 'Ha fallado el envio. Intentalo otra vez.';
-                status.classList.remove('text-green-600');
-                status.classList.add('text-red-500');
-            } finally {
+                status.innerText = error.message || 'Ha fallado el envío. Inténtalo otra vez.';
                 status.classList.remove('hidden');
-                btn.innerText = originalText;
-                btn.disabled = false;
+                status.style.color = '#f87171';
+            } finally {
+                btn.innerText = originalText; btn.disabled = false;
                 setTimeout(() => status.classList.add('hidden'), 5000);
             }
         });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries, observerInstance) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observerInstance.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
-
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const closeBtn = document.getElementById('mobile-menu-close-btn');
-
-            if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
-            if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
-
-            if (mobileMenu) {
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
-                });
-            }
+    </script>
+    <script>
+        localStorage.setItem('onda_lang_override', 'es');
+        document.querySelectorAll('a[href="index_v5.html"]').forEach(function(a) {
+            a.addEventListener('click', function() { localStorage.setItem('onda_lang_override', 'en'); });
+        });
+        document.querySelectorAll('a[href="index_ka.html"]').forEach(function(a) {
+            a.addEventListener('click', function() { localStorage.setItem('onda_lang_override', 'ka'); });
         });
     </script>
 </body>

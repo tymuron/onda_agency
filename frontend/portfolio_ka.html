@@ -1,252 +1,793 @@
 <!DOCTYPE html>
-<html lang="ka" class="scroll-smooth">
+<html lang="ka">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Onda | კონცეფციები</title>
-    <meta name="description" content="კონცეფციები, რომლებიც აჩვენებენ Onda-ს მიერ რეალური პროექტებისთვის მოტანილ ხარისხს, არტ-დირექშნსა და ვიზუალურ დიაპაზონს.">
+    <meta name="description" content="კონცეფციები, რომლებიც ასახავს Onda-ს არტ-დირექშნის, დიზაინისა და დახვეწის დონეს რეალურ კლიენტის პროექტებში.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Onda | კონცეფციები">
+    <meta property="og:description" content="კონცეფციები, რომლებიც ასახავს Onda-ს დიზაინისა და დახვეწის დონეს.">
+    <meta property="og:image" content="https://ondaweb.es/og-image.png">
+    <meta property="og:url" content="https://ondaweb.es/portfolio_ka.html">
+    <meta property="og:locale" content="ka_GE">
+
+    <!-- Fonts (preconnect + link, not @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Instrument+Serif:ital@0;1&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=cabinet-grotesk@700,900&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&display=swap');
+        :root {
+            --bg: #0a0a0a;
+            --surface: rgba(255,255,255,0.03);
+            --surface-hover: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.06);
+            --border-hover: rgba(255,255,255,0.12);
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #3B82F6;
+            --accent-dark: #2563eb;
+            --ease: cubic-bezier(0.32, 0.72, 0, 1);
+        }
 
         body {
-            font-family: 'Noto Sans Georgian', 'Inter', sans-serif;
-            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 38%);
-            color: #0f172a;
+            font-family: 'Noto Sans Georgian', 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .panel {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(12px);
-            border: 1px solid #dbe4f0;
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 45px -35px rgba(15, 23, 42, 0.35);
+        h1,h2,h3,h4,h5,h6 { letter-spacing: -0.03em; line-height: 1.1; word-break: break-word; }
+        ::selection { background: rgba(59,130,246,0.3); color: white; }
+        html { scroll-behavior: smooth; }
+
+        /* ===== NOISE OVERLAY ===== */
+        .noise {
+            position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.025;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: white;
-            padding: 0.85rem 1.45rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            box-shadow: 0 10px 25px -15px rgba(37, 99, 235, 0.8);
-            transition: all 0.2s ease;
+        /* ===== FLOATING ISLAND NAV ===== */
+        .island-nav {
+            position: fixed; top: 1.25rem; left: 50%; transform: translateX(-50%); z-index: 50;
+            border-radius: 9999px; background: rgba(10,10,10,0.6);
+            backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border); padding: 0.4rem 0.5rem 0.4rem 1.25rem;
+            display: flex; align-items: center;
+            transition: transform 0.6s var(--ease), opacity 0.6s var(--ease);
+            box-shadow: 0 8px 32px -8px rgba(0,0,0,0.5);
+        }
+        .island-nav.nav-hidden { transform: translateX(-50%) translateY(-140%); opacity: 0; }
+        .nav-link {
+            color: var(--text-secondary); font-size: 0.8125rem; font-weight: 500;
+            padding: 0.5rem 0.75rem; border-radius: 9999px;
+            transition: color 0.3s var(--ease), background 0.3s var(--ease); white-space: nowrap;
+        }
+        .nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.06); }
+        .nav-link.active { color: var(--text-primary); }
+        .nav-cta {
+            background: var(--accent); color: white; font-size: 0.8125rem; font-weight: 600;
+            padding: 0.5rem 1.25rem; border-radius: 9999px; margin-left: 0.5rem;
+            transition: all 0.3s var(--ease); white-space: nowrap;
+        }
+        .nav-cta:hover { background: var(--accent-dark); transform: scale(0.98); }
+        .nav-cta:active { transform: scale(0.96) translateY(1px); }
+        .nav-logo { font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; color: var(--text-primary); margin-right: 1rem; font-family: 'DM Sans', sans-serif; }
+        .nav-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.08); margin: 0 0.25rem; }
+
+        /* ===== HERO BLOBS ===== */
+        .hero-blob {
+            position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.12; will-change: transform;
+        }
+        .hero-blob-1 { width: 500px; height: 500px; background: #3B82F6; top: -10%; left: 15%; animation: bd1 22s ease-in-out infinite alternate; }
+        .hero-blob-2 { width: 350px; height: 350px; background: #1d4ed8; bottom: 0%; right: 10%; animation: bd2 28s ease-in-out infinite alternate; }
+        @keyframes bd1 { to { transform: translate(80px,-60px) scale(1.15); } }
+        @keyframes bd2 { to { transform: translate(-60px,40px) scale(1.1); } }
+
+        /* ===== REVEAL ===== */
+        .reveal {
+            opacity: 0; transform: translateY(20px); filter: blur(6px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
+        }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+        .stagger-1 { transition-delay: 0ms !important; }
+        .stagger-2 { transition-delay: 100ms !important; }
+        .stagger-3 { transition-delay: 200ms !important; }
+        .stagger-4 { transition-delay: 300ms !important; }
+
+        /* ===== EYEBROW ===== */
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.3rem 0.75rem; border-radius: 9999px;
+            background: rgba(59,130,246,0.08); color: var(--accent);
+            font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
         }
 
-        .btn-primary:hover {
+        /* ===== DIVIDER ===== */
+        .divider {
+            height: 1px; border: none;
+            background: linear-gradient(90deg, transparent, rgba(59,130,246,0.12) 20%, rgba(59,130,246,0.18) 50%, rgba(59,130,246,0.12) 80%, transparent);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-p {
+            background: var(--accent); color: white; padding: 0.75rem 1.5rem;
+            border-radius: 9999px; font-weight: 600; font-size: 0.9375rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: all 0.3s var(--ease); border: none; cursor: pointer;
+            position: relative; overflow: hidden;
+        }
+        .btn-p:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 12px 24px -8px rgba(59,130,246,0.4); }
+        .btn-p:active { transform: scale(0.98) translateY(1px); }
+
+        /* ===== SHIMMER ===== */
+        .shimmer { position: relative; overflow: hidden; }
+        .shimmer::after {
+            content: ''; position: absolute; top: -50%; left: -75%; width: 50%; height: 200%;
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
+            animation: shimmerSweep 3.5s ease-in-out infinite; pointer-events: none;
+        }
+        @keyframes shimmerSweep { 0%,100% { transform: translateX(-100%); } 50% { transform: translateX(350%); } }
+
+        /* ===== BUTTON-IN-BUTTON (Trailing Icon) ===== */
+        .btn-icon-wrap {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px; border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            transition: all 0.3s var(--ease); flex-shrink: 0;
+        }
+        .btn-p:hover .btn-icon-wrap {
+            background: rgba(255,255,255,0.25);
+            transform: translateX(2px) translateY(-1px) scale(1.05);
+        }
+
+        /* ===== SPOTLIGHT CARDS ===== */
+        .spot {
+            position: relative; overflow: hidden;
+            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+            background: var(--surface); border: 1px solid var(--border); border-radius: 1.5rem;
+        }
+        .spot::before {
+            content: ''; position: absolute; inset: 0; opacity: 0;
+            transition: opacity 0.5s var(--ease);
+            background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(59,130,246,0.06), transparent 40%);
+            z-index: 0; pointer-events: none; border-radius: inherit;
+        }
+        .spot:hover::before { opacity: 1; }
+        .spot:hover { transform: translateY(-2px); border-color: rgba(59,130,246,0.15); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.4); }
+        .spot > * { position: relative; z-index: 1; }
+
+        /* ===== 3D TILT ===== */
+        .tilt-wrap { perspective: 1000px; }
+        .tilt-card {
+            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+            transform-style: preserve-3d; position: relative;
+        }
+        .tilt-card:hover { box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5); }
+        .tilt-card .tilt-img { transition: transform 0.6s var(--ease); }
+        .tilt-card:hover .tilt-img { transform: scale(1.05); }
+        .tilt-card::after {
+            content: ''; position: absolute; inset: 0; border-radius: inherit; opacity: 0;
+            transition: opacity 0.5s var(--ease);
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 55%, transparent 60%);
+            pointer-events: none; z-index: 5;
+        }
+        .tilt-card:hover::after { opacity: 1; }
+
+        /* ===== TAG HOVER ===== */
+        .tag-hover {
+            transition: all 0.3s var(--ease);
+        }
+        .tag-hover:hover {
+            background: rgba(59,130,246,0.12);
+            color: var(--accent);
             transform: translateY(-1px);
         }
 
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        /* ===== ARROW ANIMATION ===== */
+        .arrow-animate i { transition: transform 0.3s var(--ease); }
+        .spot:hover .arrow-animate i,
+        .tilt-card:hover .arrow-animate i { transform: translateX(4px); }
+
+        /* ===== FOCUS CARDS ===== */
+        .focus-group:hover .focus-card {
+            filter: blur(2px); opacity: 0.5; transform: scale(0.98); transition: all 0.5s var(--ease);
+        }
+        .focus-group .focus-card { transition: all 0.5s var(--ease); }
+        .focus-group:hover .focus-card:hover { filter: blur(0); opacity: 1; transform: scale(1.01); }
+
+        /* ===== GRID PATTERN ===== */
+        .grid-bg {
+            background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 60px 60px;
         }
 
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* ===== LAMP GLOW ===== */
+        .lamp {
+            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 100%; height: 300px;
+            background: radial-gradient(ellipse at 50% 100%, rgba(59,130,246,0.06) 0%, transparent 60%);
+            pointer-events: none;
         }
 
-        .section-label {
-            display: inline-flex;
-            padding: 0.35rem 0.75rem;
-            border-radius: 9999px;
-            background: rgba(37, 99, 235, 0.08);
-            color: #2563eb;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 2rem; background: var(--bg);
+            transform: translateX(100%); transition: transform 0.4s var(--ease);
+        }
+        .mobile-menu.open { transform: translateX(0); }
+        .mobile-menu a { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); transition: color 0.3s; }
+        .mobile-menu a:hover { color: var(--accent); }
+
+        /* ===== SKIP LINK (Accessibility) ===== */
+        .skip-link {
+            position: absolute; left: -9999px; top: 0; z-index: 9999;
+            background: var(--accent); color: white; padding: 0.75rem 1.5rem;
+            font-weight: 600; font-size: 0.875rem; border-radius: 0 0 0.75rem 0;
+            transition: left 0.2s var(--ease);
+        }
+        .skip-link:focus { left: 0; }
+
+        /* ===== FOCUS-VISIBLE (Keyboard Nav) ===== */
+        *:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .btn-p:focus-visible, .nav-cta:focus-visible {
+            outline-offset: 3px;
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
+        }
+
+        /* ===== CONCEPT PREVIEW GRAPHICS ===== */
+        .concept-preview {
+            width: 100%; height: 300px; min-height: 240px; max-height: 360px;
+            border-radius: 1rem; position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.6s var(--ease);
+        }
+        .tilt-card:hover .concept-preview { transform: scale(1.02); }
+        .concept-preview .pv-content { position: relative; z-index: 2; text-align: center; }
+        .concept-preview .pv-grain {
+            position: absolute; inset: 0; opacity: 0.035; pointer-events: none; z-index: 3;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* 1. Velara — dark luxury with rose-gold */
+        .preview-velara { background: #0A0A0A; }
+        .preview-velara::before {
+            content: ''; position: absolute; width: 350px; height: 350px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(196,149,106,0.2) 0%, transparent 65%);
+            top: -10%; right: -10%; filter: blur(50px); pointer-events: none;
+        }
+        .preview-velara::after {
+            content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(196,149,106,0.12) 0%, transparent 65%);
+            bottom: -5%; left: 5%; filter: blur(40px); pointer-events: none;
+        }
+        .preview-velara .pv-title {
+            font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+            font-size: 3rem; color: #F5F0EB; letter-spacing: 0.02em; line-height: 1;
+        }
+        .preview-velara .pv-sub {
+            font-family: 'DM Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.3em;
+            text-transform: uppercase; color: #C4956A; margin-top: 1rem;
+        }
+        .preview-velara .pv-line {
+            width: 40px; height: 1px; background: #C4956A; margin: 0.75rem auto 0; opacity: 0.5;
+        }
+
+        /* 2. Clínica Blanc — clean bento */
+        .preview-blanc { background: #F8FAFB; }
+        .preview-blanc::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background-image: linear-gradient(rgba(30,41,59,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(30,41,59,0.035) 1px, transparent 1px);
+            background-size: 48px 48px;
+        }
+        .preview-blanc .pv-box { position: absolute; background: #ECFDF5; border: 1px solid rgba(5,150,105,0.12); border-radius: 12px; }
+        .preview-blanc .pv-b1 { width: 38%; height: 42%; top: 10%; left: 6%; }
+        .preview-blanc .pv-b2 { width: 28%; height: 58%; top: 6%; right: 8%; }
+        .preview-blanc .pv-b3 { width: 32%; height: 30%; bottom: 8%; left: 10%; }
+        .preview-blanc .pv-b4 { width: 22%; height: 22%; bottom: 12%; right: 12%; background: rgba(5,150,105,0.06); border-color: rgba(5,150,105,0.15); }
+        .preview-blanc .pv-title {
+            position: absolute; bottom: 15%; right: 14%; z-index: 2;
+            font-family: 'Satoshi', system-ui, sans-serif; font-weight: 900; font-size: 1.1rem;
+            color: #1E293B; letter-spacing: -0.02em;
+        }
+        .preview-blanc .pv-dot {
+            position: absolute; width: 10px; height: 10px; border-radius: 50%;
+            background: #059669; top: 14%; left: 12%;
+        }
+
+        /* 3. Estudio Forma — typographic architecture */
+        .preview-forma { background: #F5F3EF; }
+        .preview-forma::before {
+            content: ''; position: absolute; left: 12%; top: 8%; bottom: 8%;
+            width: 3px; background: #B85C38; pointer-events: none;
+        }
+        .preview-forma::after {
+            content: ''; position: absolute; top: 55%; left: 8%; right: 15%;
+            height: 1px; background: rgba(184,92,56,0.25); pointer-events: none;
+        }
+        .preview-forma .pv-content { text-align: left; padding-left: 22%; }
+        .preview-forma .pv-title {
+            font-family: 'Cabinet Grotesk', sans-serif; font-weight: 900; font-size: 2.8rem;
+            color: #1A1A1A; letter-spacing: -0.04em; line-height: 0.88; opacity: 0.9;
+        }
+        .preview-forma .pv-counter {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 400;
+            color: #737373; margin-top: 1rem; letter-spacing: 0.05em;
+        }
+        .preview-forma .pv-sq {
+            position: absolute; width: 14px; height: 14px; background: #1A1A1A;
+            bottom: 12%; right: 10%; opacity: 0.12;
+        }
+        .preview-forma .pv-cols {
+            position: absolute; inset: 0; pointer-events: none;
+            background-image: linear-gradient(90deg, rgba(26,26,26,0.03) 1px, transparent 1px);
+            background-size: 72px 72px; background-position: 18% 0;
+        }
+
+        /* 4. Meridian — cinematic gold */
+        .preview-meridian { background: #050505; }
+        .preview-meridian::before {
+            content: ''; position: absolute; inset: 20px;
+            border: 1px solid rgba(201,168,76,0.15); pointer-events: none;
+        }
+        .preview-meridian::after {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 50% 55%, rgba(201,168,76,0.07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .preview-meridian .pv-title {
+            font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2rem;
+            color: #FAFAFA; letter-spacing: 0.18em; text-transform: uppercase;
+        }
+        .preview-meridian .pv-sub {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; font-size: 0.55rem;
+            color: #94A3B8; letter-spacing: 0.35em; text-transform: uppercase; margin-top: 0.75rem;
+        }
+        .preview-meridian .pv-diag {
+            position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(135deg, transparent 47%, rgba(201,168,76,0.06) 49.5%, rgba(201,168,76,0.06) 50.5%, transparent 53%);
+        }
+
+        /* 5. Casa Serena — Mediterranean warmth */
+        .preview-serena { background: #FBF8F4; }
+        .preview-serena::before {
+            content: ''; position: absolute; width: 180px; height: 90px;
+            top: 0; left: 50%; transform: translateX(-50%);
+            border-radius: 0 0 180px 180px; background: rgba(212,168,83,0.1);
+            pointer-events: none;
+        }
+        .preview-serena::after {
+            content: ''; position: absolute; width: 100px; height: 50px; bottom: 0; left: 15%;
+            border-radius: 100px 100px 0 0; background: rgba(212,168,83,0.06);
+            pointer-events: none;
+        }
+        .preview-serena .pv-title {
+            font-family: 'DM Serif Display', serif; font-size: 2.2rem;
+            color: #2D3B2D; line-height: 1.1;
+        }
+        .preview-serena .pv-line {
+            width: 40px; height: 2px; background: #C2593A; margin: 0.75rem auto 0; border-radius: 2px;
+        }
+        .preview-serena .pv-sub {
+            font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.6rem;
+            color: #6B7B6B; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.5rem;
+        }
+        .preview-serena .pv-circle {
+            position: absolute; width: 50px; height: 50px; border-radius: 50%;
+            background: rgba(45,59,45,0.04); border: 1px solid rgba(45,59,45,0.06);
+            bottom: 15%; right: 18%;
+        }
+
+        /* 6. Barba Negra — craft copper */
+        .preview-barba { background: #0C0A09; }
+        .preview-barba::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(135deg, transparent 30%, rgba(184,115,51,0.08) 40%, rgba(184,115,51,0.15) 50%, rgba(184,115,51,0.08) 60%, transparent 70%);
+        }
+        .preview-barba::after {
+            content: ''; position: absolute; top: 50%; left: 20%; right: 20%;
+            height: 1px; background: rgba(250,250,249,0.06); pointer-events: none;
+        }
+        .preview-barba .pv-title {
+            font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400;
+            font-size: 2.4rem; color: #FAFAF9; line-height: 1;
+        }
+        .preview-barba .pv-sub {
+            font-family: 'Space Grotesk', sans-serif; font-weight: 300; font-size: 0.6rem;
+            color: #A8A29E; letter-spacing: 0.25em; text-transform: uppercase; margin-top: 1rem;
+        }
+        .preview-barba .pv-accent {
+            width: 30px; height: 1px; background: #B87333; margin: 0.6rem auto 0;
+        }
+
+        /* 7. Kai Andersen — tech indigo */
+        .preview-voss { background: #FAFAFA; }
+        .preview-voss::before {
+            content: ''; position: absolute; width: 240px; height: 240px;
+            top: 50%; left: 58%; transform: translate(-50%, -50%) rotate(45deg);
+            background: rgba(79,70,229,0.04); pointer-events: none;
+        }
+        .preview-voss::after {
+            content: ''; position: absolute; width: 120px; height: 120px;
+            top: 20%; right: 8%; transform: rotate(45deg);
+            border: 1px solid rgba(79,70,229,0.08); pointer-events: none;
+        }
+        .preview-voss .pv-title {
+            font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.8rem;
+            color: #0F172A; letter-spacing: -0.02em;
+        }
+        .preview-voss .pv-sub {
+            font-family: 'Outfit', sans-serif; font-weight: 300; font-size: 0.7rem;
+            color: #64748B; margin-top: 0.5rem;
+        }
+        .preview-voss .pv-dot {
+            position: absolute; width: 8px; height: 8px; border-radius: 50%;
+            background: #4F46E5; top: 25%; left: 20%;
+        }
+        .preview-voss .pv-grid {
+            position: absolute; inset: 0; pointer-events: none;
+            background-image: radial-gradient(rgba(79,70,229,0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* ===== PREFERS REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1; transform: none; filter: none; }
+            .hero-blob { animation: none !important; }
+            .shimmer::after { animation: none !important; }
         }
     </style>
 </head>
 
-<body class="antialiased">
+<body>
+    <script>try{sessionStorage.setItem('onda:lastHub',location.pathname);}catch(_){}</script>
+    <!-- Skip-to-content (Accessibility) -->
+    <a href="#main-content" class="skip-link">გადასვლა მთავარ შინაარსზე</a>
 
-    <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/75 backdrop-blur-xl">
-        <div class="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 md:h-20 md:px-6">
-            <a href="index_ka.html" class="flex items-center gap-3">
-                <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white">
-                    <i data-lucide="waves" class="h-5 w-5"></i>
-                </div>
-                <span class="text-xl font-bold tracking-tight text-slate-900">ONDA</span>
-            </a>
-            <div class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
-                <a href="index_ka.html#packages" class="hover:text-blue-600 transition-colors">პაკეტები</a>
-                <a href="#" class="text-blue-600">კონცეფციები</a>
-                <a href="process_ka.html" class="hover:text-blue-600 transition-colors">პროცესი</a>
-                <a href="index_ka.html#contact" class="hover:text-blue-600 transition-colors">კონტაქტი</a>
-                <a href="portfolio.html" class="border-l border-slate-200 pl-6 text-slate-400 hover:text-slate-900 transition-colors">EN</a>
-                <a href="portfolio_es.html" class="text-slate-400 hover:text-slate-900 transition-colors">ES</a>
-            </div>
-            <a href="index_ka.html#contact" class="hidden md:inline-flex btn-primary">მოითხოვეთ შეფასება</a>
-            <button id="mobile-menu-btn" class="md:hidden text-slate-900"><i data-lucide="menu"></i></button>
+    <!-- Noise overlay -->
+    <div class="noise" aria-hidden="true"></div>
+
+    <!-- ===== FLOATING ISLAND NAV ===== -->
+    <nav class="island-nav" id="islandNav">
+        <a href="index_ka.html" class="nav-logo" style="text-decoration:none;">ONDA</a>
+        <div class="hidden md:flex items-center">
+            <a href="index_ka.html#packages" class="nav-link">პაკეტები</a>
+            <a href="portfolio_ka.html" class="nav-link active">კონცეფციები</a>
+            <a href="process_ka.html" class="nav-link">პროცესი</a>
+            <a href="index_ka.html#contact" class="nav-link">კონტაქტი</a>
+            <div class="nav-divider"></div>
+            <a href="portfolio.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">EN</a>
+            <a href="portfolio_es.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">ES</a>
         </div>
+        <a href="index_ka.html#contact" class="nav-cta hidden md:inline-flex">შეფასება</a>
+        <button id="mobileMenuBtn" class="md:hidden ml-2 p-2 text-white" style="background:none;border:none;cursor:pointer;" aria-label="მენიუს გახსნა">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
     </nav>
 
-    <div id="mobile-menu"
-        class="fixed inset-0 z-[60] flex translate-x-full flex-col items-center justify-center gap-8 bg-white text-slate-900 transition-transform duration-300 md:hidden">
-        <a href="index_ka.html#packages" class="text-3xl font-bold hover:text-blue-600 transition-colors">პაკეტები</a>
-        <a href="#" class="text-3xl font-bold text-blue-600">კონცეფციები</a>
-        <a href="process_ka.html" class="text-3xl font-bold hover:text-blue-600 transition-colors">პროცესი</a>
-        <a href="index_ka.html#contact" class="text-3xl font-bold hover:text-blue-600 transition-colors">კონტაქტი</a>
-        <a href="portfolio.html" class="text-xl font-medium text-slate-400">EN</a>
-        <a href="portfolio_es.html" class="text-xl font-medium text-slate-400">ES</a>
-        <button id="mobile-menu-close-btn" class="absolute right-4 top-5 text-slate-900"><i data-lucide="x" class="h-8 w-8"></i></button>
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index_ka.html#packages">პაკეტები</a>
+        <a href="portfolio_ka.html" style="color:var(--accent)">კონცეფციები</a>
+        <a href="process_ka.html">პროცესი</a>
+        <a href="index_ka.html#contact">კონტაქტი</a>
+        <div class="flex gap-4 mt-4">
+            <a href="portfolio.html" style="font-size:1.125rem;color:var(--text-muted)">EN</a>
+            <a href="portfolio_es.html" style="font-size:1.125rem;color:var(--text-muted)">ES</a>
+        </div>
+        <button id="mobileMenuClose" class="absolute right-5 top-5 text-white" style="background:none;border:none;cursor:pointer;" aria-label="მენიუს დახურვა">
+            <i data-lucide="x" class="w-7 h-7"></i>
+        </button>
     </div>
 
-    <header class="mx-auto max-w-5xl px-6 pt-24 md:pt-32 pb-16 text-center">
-        <div class="section-label mb-6 fade-in-section">კონცეფციები</div>
-        <h1 class="fade-in-section text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl md:text-5xl lg:text-7xl">ხარისხი, გემოვნება და ვიზუალური დიაპაზონი.</h1>
-        <p class="fade-in-section mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl">ესენი კონცეფციებია, არა კლიენტის ქეისები. მათი მიზანია აჩვენოს არტ-დირექშნის, განლაგების კონტროლისა და დასრულების დონე, რომელსაც რეალურ სამუშაოში ვიტან.</p>
-    </header>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="main-content">
 
-    <section class="px-6 pb-24">
-        <div class="mx-auto grid max-w-7xl gap-8">
-            <a href="portfolio/aesthetic-clinic_ka.html" class="panel fade-in-section grid gap-8 p-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-                <img src="assets/images/aesthetic_clinic_hero.png" alt="Velara Aesthetics concept" class="max-h-[280px] sm:max-h-[360px] lg:max-h-none lg:h-full min-h-[240px] sm:min-h-[320px] w-full rounded-3xl object-cover">
-                <div class="p-2">
-                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">ესთეტიკური კლინიკის კონცეფცია</p>
-                    <h2 class="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">Velara Aesthetics</h2>
-                    <p class="mt-4 text-lg leading-relaxed text-slate-600">კონცეფცია, რომელიც აჩვენებს, როგორ შეუძლია პრემიუმ ესთეტიკურ კლინიკას ნდობის აშენება და კონსულტაციების დაჯავშნა მშვიდი, ლუქსური დიზაინითა და მკაფიო სერვისების პრეზენტაციით.</p>
-                    <div class="mt-6 flex flex-wrap gap-3 text-sm text-slate-500">
-                        <span class="rounded-full bg-slate-100 px-4 py-2">ლუქსური ესთეტიკა</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">ჯავშნის ნაკადი</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">ნდობაზე ორიენტირებული დიზაინი</span>
-                    </div>
-                    <span class="mt-8 inline-flex font-semibold text-blue-600">იხილეთ კონცეფციის შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
-                </div>
-            </a>
-
-            <a href="portfolio/dental-clinic_ka.html" class="panel fade-in-section grid gap-8 p-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-center" style="transition-delay: 100ms;">
-                <img src="assets/images/dental_clinic_hero.png" alt="Clínica Blanc concept" class="max-h-[280px] sm:max-h-[360px] lg:max-h-none lg:h-full min-h-[240px] sm:min-h-[320px] w-full rounded-3xl object-cover lg:order-2">
-                <div class="p-2 lg:order-1">
-                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">სტომატოლოგიური კლინიკის კონცეფცია</p>
-                    <h2 class="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">Clínica Blanc</h2>
-                    <p class="mt-4 text-lg leading-relaxed text-slate-600">კონცეფცია, რომელიც ამტკიცებს, რომ თანამედროვე სტომატოლოგიური კლინიკები ერთდროულად შეიძლება იყვნენ მისაწვდომნი და პრემიუმ, მკაფიო სერვისებითა და უფრო ძლიერი პაციენტის ნდობის სიგნალებით.</p>
-                    <div class="mt-6 flex flex-wrap gap-3 text-sm text-slate-500">
-                        <span class="rounded-full bg-slate-100 px-4 py-2">სუფთა ინტერფეისი</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">სერვისის სიცხადე</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">პაციენტის ნდობა</span>
-                    </div>
-                    <span class="mt-8 inline-flex font-semibold text-blue-600">იხილეთ კონცეფციის შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
-                </div>
-            </a>
-
-            <a href="portfolio/architecture-studio_ka.html" class="panel fade-in-section grid gap-8 p-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-center" style="transition-delay: 200ms;">
-                <img src="assets/images/architecture_studio_hero.png" alt="Estudio Forma concept" class="max-h-[280px] sm:max-h-[360px] lg:max-h-none lg:h-full min-h-[240px] sm:min-h-[320px] w-full rounded-3xl object-cover">
-                <div class="p-2">
-                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">არქიტექტურული სტუდიის კონცეფცია</p>
-                    <h2 class="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">Estudio Forma</h2>
-                    <p class="mt-4 text-lg leading-relaxed text-slate-600">კონცეფცია, რომელიც იკვლევს, როგორ შეუძლიათ არქიტექტურისა და დიზაინის სტუდიებს თავიანთი პორტფოლიოს წარმოდგენა სარედაქციო თავდაჯერებულობითა და ძლიერი ვიზუალური იერარქიით.</p>
-                    <div class="mt-6 flex flex-wrap gap-3 text-sm text-slate-500">
-                        <span class="rounded-full bg-slate-100 px-4 py-2">სარედაქციო განლაგება</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">პორტფოლიოზე ფოკუსი</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">მინიმალური სიზუსტე</span>
-                    </div>
-                    <span class="mt-8 inline-flex font-semibold text-blue-600">იხილეთ კონცეფციის შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
-                </div>
-            </a>
-
-            <a href="portfolio/real-estate_ka.html" class="panel fade-in-section grid gap-8 p-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-center" style="transition-delay: 300ms;">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Meridian Estate Group concept" class="max-h-[280px] sm:max-h-[360px] lg:max-h-none lg:h-full min-h-[240px] sm:min-h-[320px] w-full rounded-3xl object-cover lg:order-2">
-                <div class="p-2 lg:order-1">
-                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">უძრავი ქონების კონცეფცია</p>
-                    <h2 class="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">Meridian Estate Group</h2>
-                    <p class="mt-4 text-lg leading-relaxed text-slate-600">კინემატოგრაფიული, ლუქსურ-მუქი კონცეფცია, რომელიც აჩვენებს, როგორ შეუძლიათ ქონების ბრენდებს ნდობის მოპოვება და მაღალი ღირებულების მოთხოვნების დახურვა პრემიუმ დიზაინით.</p>
-                    <div class="mt-6 flex flex-wrap gap-3 text-sm text-slate-500">
-                        <span class="rounded-full bg-slate-100 px-4 py-2">კინემატოგრაფიული დიზაინი</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">ოქროს აქცენტის სისტემა</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">მაღალი ნდობის განლაგება</span>
-                    </div>
-                    <span class="mt-8 inline-flex font-semibold text-blue-600">იხილეთ კონცეფციის შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
-                </div>
-            </a>
-
-            <a href="examples/casa-serena.html" class="panel fade-in-section grid gap-8 p-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-center" style="transition-delay: 400ms;">
-                <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80" alt="Casa Serena concept" class="max-h-[280px] sm:max-h-[360px] lg:max-h-none lg:h-full min-h-[240px] sm:min-h-[320px] w-full rounded-3xl object-cover">
-                <div class="p-2">
-                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">ბუტიკ სასტუმროს კონცეფცია</p>
-                    <h2 class="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">Casa Serena</h2>
-                    <p class="mt-4 text-lg leading-relaxed text-slate-600">14-ოთახიანი ბუტიკ სასტუმრო ბათუმში — თბილი ხმელთაშუა ზღვის დიზაინი, შთაგონებული Aman Resorts-ითა და The Hoxton-ით.</p>
-                    <div class="mt-6 flex flex-wrap gap-3 text-sm text-slate-500">
-                        <span class="rounded-full bg-slate-100 px-4 py-2">ხმელთაშუა ზღვის დიზაინი</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">სარედაქციო ფოტოგრაფია</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">ლუქსური სტუმართმოყვარეობა</span>
-                    </div>
-                    <span class="mt-8 inline-flex font-semibold text-blue-600">იხილეთ კონცეფციის შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
-                </div>
-            </a>
-
-            <a href="portfolio/barbershop_ka.html" class="panel fade-in-section grid gap-8 p-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-center" style="transition-delay: 500ms;">
-                <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80" alt="Barba Negra concept" class="max-h-[280px] sm:max-h-[360px] lg:max-h-none lg:h-full min-h-[240px] sm:min-h-[320px] w-full rounded-3xl object-cover lg:order-2">
-                <div class="p-2 lg:order-1">
-                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">საპარიკმახეროს კონცეფცია</p>
-                    <h2 class="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">Barba Negra</h2>
-                    <p class="mt-4 text-lg leading-relaxed text-slate-600">„წინა და შემდეგ" ქეის-სტადი, რომელიც აჩვენებს, როგორ შეუძლია ტრადიციულ ბარსელონის საპარიკმახეროს თავისი ონლაინ პრეზენტაციის ტრანსფორმაცია ატმოსფერული ფოტოგრაფიით, მენიუ-სტილის ფასებითა და გუნდის ბიოებით.</p>
-                    <div class="mt-6 flex flex-wrap gap-3 text-sm text-slate-500">
-                        <span class="rounded-full bg-slate-100 px-4 py-2">წინა და შემდეგ</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">თამამი მასკულინური დიზაინი</span>
-                        <span class="rounded-full bg-slate-100 px-4 py-2">ჯავშნის ნაკადი</span>
-                    </div>
-                    <span class="mt-8 inline-flex font-semibold text-blue-600">იხილეთ კონცეფციის შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
-                </div>
-            </a>
+    <!-- ===== HERO ===== -->
+    <section class="relative overflow-hidden pt-28 sm:pt-36 pb-16 sm:pb-20">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="relative z-10 mx-auto max-w-5xl px-5 sm:px-6 text-center">
+            <div class="eyebrow mb-6 reveal stagger-1">კონცეფციები</div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-white reveal stagger-2">ხარისხი, გემოვნება და<br class="hidden sm:block"> <span style="font-family:'Instrument Serif',serif;font-style:italic;color:var(--accent);">ვიზუალური დიაპაზონი.</span></h1>
+            <p class="mx-auto mt-6 max-w-3xl text-lg leading-relaxed md:text-xl reveal stagger-3" style="color:var(--text-secondary);">კონცეფციები, რომლებიც აჩვენებენ დიზაინისა და დახვეწის დონეს რეალურ პროექტებში.</p>
         </div>
     </section>
 
-    <section class="border-t border-slate-200 bg-white px-6 py-24 text-center">
-        <div class="mx-auto max-w-4xl fade-in-section">
-            <h2 class="text-3xl font-bold text-slate-950 sm:text-4xl md:text-5xl">გსურთ ასეთი მიმართულება რეალური ბიზნესისთვის?</h2>
-            <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600">მითხარით ბიზნესი, ბაზარი და ვადები. მე გირჩევთ ყველაზე გონივრულ პაკეტს, არა ყველაზე დიდს.</p>
-            <a href="index_ka.html#contact" class="btn-primary mt-8">მოითხოვეთ შეფასება</a>
-        </div>
-    </section>
+    <hr class="divider mx-auto max-w-5xl">
 
-    <footer class="border-t border-slate-200 bg-slate-50 px-6 py-12 text-sm text-slate-600">
-        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
-            <div>
-                <span class="block text-lg font-bold text-slate-900">ONDA</span>
-                <p>კონცეფციები იმის საჩვენებლად, რისი აშენებაა შესაძლებელი რეალური კლიენტის პროექტებისთვის.</p>
+    <!-- ===== PORTFOLIO GRID ===== -->
+    <section class="px-5 sm:px-6 md:px-10 py-16 sm:py-24">
+        <div class="mx-auto max-w-7xl grid gap-10 focus-group">
+
+            <!-- 1. Velara Aesthetics -->
+            <div class="tilt-wrap reveal">
+                <a href="examples/aesthetic-clinic.html" class="tilt-card spot focus-card grid gap-0 lg:grid-cols-[1.1fr_0.9fr] lg:items-center p-4 sm:p-5 block" style="text-decoration:none;color:inherit;">
+                    <div class="overflow-hidden rounded-2xl">
+                        <div class="concept-preview preview-velara" role="img" aria-label="Velara Aesthetics კონცეფციის გადახედვა"><div class="pv-content"><div class="pv-title">Velara</div><div class="pv-sub">Aesthetics</div><div class="pv-line"></div></div><div class="pv-grain"></div></div>
+                    </div>
+                    <div class="p-4 sm:p-6 lg:p-8">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em]" style="color:var(--accent);">ესთეტიკური კლინიკა</p>
+                        <h2 class="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-white">Velara Aesthetics</h2>
+                        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);">პრემიუმ კლინიკის ნდობის აშენება და ჯავშნების ზრდა მშვიდი, ლუქსური დიზაინით.</p>
+                        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">ესთეტიკა</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">ჯავშნის ნაკადი</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">ნდობის დიზაინი</span>
+                        </div>
+                        <span class="arrow-animate mt-8 inline-flex font-semibold" style="color:var(--accent);">შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
+                    </div>
+                </a>
             </div>
-            <p class="text-center md:text-right">ესპანეთში. ხელმისაწვდომია დისტანციური პროექტებისთვის ევროპაში, გაერთიანებულ სამეფოში და მის ფარგლებს გარეთ.</p>
+
+            <!-- 2. Clinica Blanc -->
+            <div class="tilt-wrap reveal">
+                <a href="examples/dental-clinic.html" class="tilt-card spot focus-card grid gap-0 lg:grid-cols-[1.1fr_0.9fr] lg:items-center p-4 sm:p-5 block" style="text-decoration:none;color:inherit;">
+                    <div class="overflow-hidden rounded-2xl lg:order-2">
+                        <div class="concept-preview preview-blanc" role="img" aria-label="Clínica Blanc კონცეფციის გადახედვა"><div class="pv-box pv-b1"></div><div class="pv-box pv-b2"></div><div class="pv-box pv-b3"></div><div class="pv-box pv-b4"></div><div class="pv-title">Blanc</div><div class="pv-dot"></div></div>
+                    </div>
+                    <div class="p-4 sm:p-6 lg:p-8 lg:order-1">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em]" style="color:var(--accent);">სტომატოლოგიური კლინიკა</p>
+                        <h2 class="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-white">Cl&iacute;nica Blanc</h2>
+                        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);">თანამედროვე კლინიკა — მისაწვდომი და პრემიუმ, მკაფიო სერვისებითა და ნდობის სიგნალებით.</p>
+                        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">სუფთა ინტერფეისი</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">სერვისის სიცხადე</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">პაციენტის ნდობა</span>
+                        </div>
+                        <span class="arrow-animate mt-8 inline-flex font-semibold" style="color:var(--accent);">შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 3. Estudio Forma -->
+            <div class="tilt-wrap reveal">
+                <a href="examples/architecture-studio.html" class="tilt-card spot focus-card grid gap-0 lg:grid-cols-[1.1fr_0.9fr] lg:items-center p-4 sm:p-5 block" style="text-decoration:none;color:inherit;">
+                    <div class="overflow-hidden rounded-2xl">
+                        <div class="concept-preview preview-forma" role="img" aria-label="Estudio Forma კონცეფციის გადახედვა"><div class="pv-content"><div class="pv-title">Forma</div><div class="pv-counter">001 — concept</div></div><div class="pv-cols"></div><div class="pv-sq"></div></div>
+                    </div>
+                    <div class="p-4 sm:p-6 lg:p-8">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em]" style="color:var(--accent);">არქიტექტურული სტუდია</p>
+                        <h2 class="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-white">Estudio Forma</h2>
+                        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);">არქიტექტურული სტუდიის პორტფოლიო სარედაქციო სტილითა და ძლიერი ვიზუალური იერარქიით.</p>
+                        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">სარედაქციო</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">პორტფოლიო</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">სიზუსტე</span>
+                        </div>
+                        <span class="arrow-animate mt-8 inline-flex font-semibold" style="color:var(--accent);">შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 4. Meridian Estate Group -->
+            <div class="tilt-wrap reveal">
+                <a href="examples/real-estate.html" class="tilt-card spot focus-card grid gap-0 lg:grid-cols-[1.1fr_0.9fr] lg:items-center p-4 sm:p-5 block" style="text-decoration:none;color:inherit;">
+                    <div class="overflow-hidden rounded-2xl lg:order-2">
+                        <div class="concept-preview preview-meridian" role="img" aria-label="Meridian Estate Group კონცეფციის გადახედვა"><div class="pv-content"><div class="pv-title">Meridian</div><div class="pv-sub">Estate Group</div></div><div class="pv-diag"></div></div>
+                    </div>
+                    <div class="p-4 sm:p-6 lg:p-8 lg:order-1">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em]" style="color:var(--accent);">უძრავი ქონება</p>
+                        <h2 class="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-white">Meridian Estate Group</h2>
+                        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);">კინემატოგრაფიული მუქი დიზაინი ქონების ბრენდებისთვის — ნდობა და პრემიუმ მოთხოვნები.</p>
+                        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">კინემატოგრაფია</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">ოქროს აქცენტი</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">მაღალი ნდობა</span>
+                        </div>
+                        <span class="arrow-animate mt-8 inline-flex font-semibold" style="color:var(--accent);">შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 5. Casa Serena -->
+            <div class="tilt-wrap reveal">
+                <a href="examples/casa-serena.html" class="tilt-card spot focus-card grid gap-0 lg:grid-cols-[1.1fr_0.9fr] lg:items-center p-4 sm:p-5 block" style="text-decoration:none;color:inherit;">
+                    <div class="overflow-hidden rounded-2xl">
+                        <div class="concept-preview preview-serena" role="img" aria-label="Casa Serena კონცეფციის გადახედვა"><div class="pv-content"><div class="pv-title">Casa Serena</div><div class="pv-line"></div><div class="pv-sub">Boutique Hotel</div></div><div class="pv-circle"></div></div>
+                    </div>
+                    <div class="p-4 sm:p-6 lg:p-8">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em]" style="color:var(--accent);">ბუტიკ სასტუმრო</p>
+                        <h2 class="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-white">Casa Serena</h2>
+                        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);">ბუტიკ სასტუმრო ბათუმში — თბილი ხმელთაშუა ზღვის სტილი.</p>
+                        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">ხმელთაშუა ზღვა</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">ფოტოგრაფია</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">სტუმართმოყვარეობა</span>
+                        </div>
+                        <span class="arrow-animate mt-8 inline-flex font-semibold" style="color:var(--accent);">შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 6. Barba Negra -->
+            <div class="tilt-wrap reveal">
+                <a href="examples/barbershop.html" class="tilt-card spot focus-card grid gap-0 lg:grid-cols-[1.1fr_0.9fr] lg:items-center p-4 sm:p-5 block" style="text-decoration:none;color:inherit;">
+                    <div class="overflow-hidden rounded-2xl lg:order-2">
+                        <div class="concept-preview preview-barba" role="img" aria-label="Barba Negra კონცეფციის გადახედვა"><div class="pv-content"><div class="pv-title">Barba Negra</div><div class="pv-sub">Barbershop</div><div class="pv-accent"></div></div></div>
+                    </div>
+                    <div class="p-4 sm:p-6 lg:p-8 lg:order-1">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em]" style="color:var(--accent);">საპარიკმახერო</p>
+                        <h2 class="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-white">Barba Negra</h2>
+                        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);">"წინა და შემდეგ" — ბარსელონის საპარიკმახერო ატმოსფერული ფოტოთი, მენიუ-ფასებითა და გუნდის ბიოებით.</p>
+                        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">წინა და შემდეგ</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">თამამი დიზაინი</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">ჯავშნის ნაკადი</span>
+                        </div>
+                        <span class="arrow-animate mt-8 inline-flex font-semibold" style="color:var(--accent);">შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 7. Alexander Voss -->
+            <div class="tilt-wrap reveal">
+                <a href="examples/solo-entrepreneur.html" class="tilt-card spot focus-card grid gap-0 lg:grid-cols-[1.1fr_0.9fr] lg:items-center p-4 sm:p-5 block" style="text-decoration:none;color:inherit;">
+                    <div class="overflow-hidden rounded-2xl">
+                        <div class="concept-preview preview-voss" role="img" aria-label="Alexander Voss კონცეფციის გადახედვა"><div class="pv-content"><div class="pv-title">Voss</div><div class="pv-sub">Strategy & Growth</div></div><div class="pv-dot"></div><div class="pv-grid"></div></div>
+                    </div>
+                    <div class="p-4 sm:p-6 lg:p-8">
+                        <p class="text-xs font-bold uppercase tracking-[0.18em]" style="color:var(--accent);">ინდივიდუალური პროფესიონალის კონცეფცია</p>
+                        <h2 class="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-white">Alexander Voss</h2>
+                        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);">სუფთა, თანამედროვე პერსონალური ბრენდის კონცეფცია მეწარმეებისთვის, კონსულტანტებისა და დამოუკიდებელი პროფესიონალებისთვის.</p>
+                        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">პერსონალური ბრენდი</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">მინიმალიზმი</span>
+                            <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">სანდოობა</span>
+                        </div>
+                        <span class="arrow-animate mt-8 inline-flex font-semibold" style="color:var(--accent);">შენიშვნები <i data-lucide="arrow-right" class="ml-1 h-4 w-4"></i></span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="divider mx-auto max-w-5xl">
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="relative px-5 sm:px-6 md:px-10 py-20 sm:py-28 text-center overflow-hidden">
+        <div class="lamp"></div>
+        <div class="grid-bg absolute inset-0"></div>
+        <div class="mx-auto max-w-4xl relative z-10 reveal">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">გსურთ ასეთი საიტი?</h2>
+            <p class="mx-auto mt-5 max-w-2xl text-lg" style="color:var(--text-secondary);">მითხარით ბიზნესი და ვადები. გირჩევთ გონივრულ პაკეტს.</p>
+            <a href="index_ka.html#contact" class="btn-p shimmer mt-8 inline-flex">შეფასება <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="px-5 sm:px-6 md:px-10 py-10 sm:py-12 text-sm" style="border-top:1px solid var(--border);color:var(--text-muted);">
+        <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-6 md:flex-row">
+            <div>
+                <span class="block text-lg font-bold text-white" style="font-family:'DM Sans',sans-serif;">ONDA</span>
+                <p>კონცეფციები რეალური პროექტებისთვის.</p>
+            </div>
+            <div class="text-center md:text-right">
+                <p>ესპანეთი. დისტანციურად ევროპაში და მის ფარგლებს გარეთ.</p>
+                <div class="mt-3 flex items-center justify-center md:justify-end gap-4 text-xs" style="color:var(--text-muted);">
+                    <a href="privacy.html" class="hover:text-white transition-colors">კონფიდენციალურობის პოლიტიკა</a>
+                    <span style="color:var(--border);">|</span>
+                    <a href="terms.html" class="hover:text-white transition-colors">მომსახურების პირობები</a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        lucide.createIcons();
+        window.addEventListener("DOMContentLoaded", function() { lucide.createIcons(); });
 
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeBtn = document.getElementById('mobile-menu-close-btn');
+        // ===== FLOATING ISLAND NAV (hide on scroll down, show on scroll up) =====
+        (function() {
+            const nav = document.getElementById('islandNav');
+            let lastScroll = 0;
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        const currentScroll = window.scrollY;
+                        if (currentScroll > 100 && currentScroll > lastScroll) {
+                            nav.classList.add('nav-hidden');
+                        } else {
+                            nav.classList.remove('nav-hidden');
+                        }
+                        lastScroll = currentScroll;
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+        })();
 
-        if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
-        if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
-        if (mobileMenu) {
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+        // ===== SPOTLIGHT CARDS =====
+        document.querySelectorAll('.spot').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+                card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
             });
-        }
+        });
 
+        // ===== 3D TILT =====
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            const parent = card.closest('.tilt-wrap');
+            if (!parent) return;
+            parent.addEventListener('mousemove', e => {
+                const rect = parent.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                card.style.transform = `rotateX(${(0.5 - y) * 8}deg) rotateY(${(x - 0.5) * 8}deg) scale(1.01)`;
+            });
+            parent.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // ===== OBSERVERS =====
         document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries, observerInstance) => {
+            const revealEls = document.querySelectorAll('.reveal');
+            const quickReveal = () => {
+                revealEls.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            };
+            quickReveal();
+            setTimeout(quickReveal, 100);
+            setTimeout(quickReveal, 300);
+
+            const revealObs = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observerInstance.unobserve(entry.target);
+                        obs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
+            }, { threshold: 0.05, rootMargin: '50px' });
 
-            document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+            revealEls.forEach(el => {
+                if (!el.classList.contains('is-visible')) revealObs.observe(el);
+            });
+
+            // Mobile menu
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeBtn = document.getElementById('mobileMenuClose');
+            if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+            if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+            if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
         });
     </script>
 </body>

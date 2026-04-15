@@ -1,388 +1,1192 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velara Aesthetics | Where Science Meets Beauty</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Velara Aesthetics | The Art of Refined Beauty</title>
+
+    <!-- OG Meta Tags -->
+    <meta property="og:title" content="Velara Aesthetics | The Art of Refined Beauty">
+    <meta property="og:description" content="An intimate atelier of aesthetic medicine in Barcelona. Discreet, precision-driven enhancements for those who value subtlety above all.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Velara Aesthetics | The Art of Refined Beauty">
+    <meta name="twitter:description" content="An intimate atelier of aesthetic medicine in Barcelona. Discreet, precision-driven enhancements for those who value subtlety above all.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"DM Sans"', 'sans-serif'],
+                        mono: ['"Geist Mono"', 'monospace'],
+                    },
+                    colors: {
+                        bg: '#0A0A0A',
+                        surface: '#161616',
+                        ivory: '#F5F0EB',
+                        silver: '#A39E99',
+                        rose: '#C4956A',
+                        deep: '#070707',
+                    },
+                }
+            }
+        }
+    </script>
+
     <style>
         :root {
-            --bg: #0e0c0b;
-            --bg-elevated: #161412;
-            --bg-card: #1a1816;
-            --text: #f5f0eb;
-            --text-muted: #a69e95;
-            --accent: #c9a96e;
-            --accent-soft: rgba(201, 169, 110, 0.12);
-            --accent-hover: #dbbf88;
-            --border: rgba(201, 169, 110, 0.15);
+            --bg: #0A0A0A;
+            --surface: #161616;
+            --ivory: #F5F0EB;
+            --silver: #A39E99;
+            --rose: #C4956A;
+            --rose-dim: rgba(196, 149, 106, 0.1);
+            --rose-glow: rgba(196, 149, 106, 0.25);
+            --glass: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(196, 149, 106, 0.1);
+            --ease: cubic-bezier(0.32, 0.72, 0, 1);
         }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'DM Sans', sans-serif;
             background-color: var(--bg);
-            color: var(--text);
+            color: var(--ivory);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Cormorant Garamond', serif;
         }
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        /* ---- Skip Link ---- */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            background: var(--rose);
+            color: var(--bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: top 0.3s var(--ease);
+        }
+        .skip-link:focus { top: 0; }
+
+        /* ---- Focus Visible ---- */
+        *:focus-visible {
+            outline: 2px solid var(--rose);
+            outline-offset: 3px;
         }
 
-        .fade-in.visible {
+        /* ---- Film Grain ---- */
+        .grain {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* ---- Ambient Orbs ---- */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(120px);
+            z-index: 0;
+        }
+        .orb-1 {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(196,149,106,0.025) 0%, transparent 70%);
+            top: -200px; right: -100px;
+            animation: drift1 30s cubic-bezier(0.32, 0.72, 0, 1) infinite alternate;
+        }
+        .orb-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(196,149,106,0.02) 0%, transparent 70%);
+            bottom: 10%; left: -150px;
+            animation: drift2 35s cubic-bezier(0.32, 0.72, 0, 1) infinite alternate;
+        }
+        .orb-3 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(196,149,106,0.018) 0%, transparent 70%);
+            top: 50%; left: 40%;
+            animation: drift3 28s cubic-bezier(0.32, 0.72, 0, 1) infinite alternate;
+        }
+
+        @keyframes drift1 {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-80px, 60px); }
+        }
+        @keyframes drift2 {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, -40px); }
+        }
+        @keyframes drift3 {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-50px, -70px); }
+        }
+
+        /* ---- Navigation ---- */
+        .nav-glass {
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            transition: transform 0.5s var(--ease), opacity 0.5s var(--ease);
+        }
+        .nav-glass.nav-hidden {
+            transform: translateY(-120%);
+            opacity: 0;
+        }
+        .nav-glass a:hover {
+            text-shadow: 0 0 20px rgba(196, 149, 106, 0.4);
+        }
+
+        /* Back-to-Onda link */
+        .onda-back {
+            font-size: 0.75rem;
+            color: var(--silver);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            padding-right: 0.75rem;
+            margin-right: 0.75rem;
+            border-right: 1px solid var(--glass-border);
+            transition: color 0.3s var(--ease);
+            white-space: nowrap;
+        }
+        .onda-back:hover { color: var(--rose) !important; text-shadow: none !important; }
+
+        /* ---- Hero Stagger ---- */
+        .hero-line {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: heroReveal 1s var(--ease) forwards;
+        }
+        .hero-line:nth-child(1) { animation-delay: 0.2s; }
+        .hero-line:nth-child(2) { animation-delay: 0.5s; }
+        .hero-line:nth-child(3) { animation-delay: 0.8s; }
+
+        @keyframes heroReveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: heroReveal 0.8s var(--ease) forwards;
+        }
+
+        /* ---- Scroll Reveal ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+        }
+        .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .treatment-card {
+        /* ---- Accordion ---- */
+        .treatment-item {
+            border-bottom: 1px solid var(--glass-border);
+            transition: background-color 0.4s var(--ease);
+        }
+        .treatment-item:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        .treatment-item[aria-expanded="true"] {
+            border-left: 2px solid var(--rose);
+            padding-left: calc(1.5rem - 2px);
+        }
+        .treatment-body {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.6s var(--ease), opacity 0.4s var(--ease), padding 0.4s var(--ease);
+        }
+        .treatment-body.open {
+            max-height: 300px;
+            opacity: 1;
+        }
+
+        /* ---- Gallery ---- */
+        .gallery-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-bottom: 1rem;
+        }
+        .gallery-track::-webkit-scrollbar { display: none; }
+        .gallery-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            .gallery-card { flex: 0 0 400px; }
+        }
+
+        /* ---- Team Cards ---- */
+        .team-card {
+            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+        }
+        .team-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 16px 48px rgba(196, 149, 106, 0.08), 0 4px 16px rgba(196, 149, 106, 0.04);
+        }
+
+        /* ---- Testimonial Crossfade ---- */
+        .testimonial-slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.8s var(--ease);
+        }
+        .testimonial-slide.active {
+            opacity: 1;
+        }
+
+        /* ---- Buttons ---- */
+        .btn-primary {
+            background: var(--rose);
+            color: var(--bg);
+            font-weight: 600;
+            border-radius: 0.625rem;
+            padding: 0.875rem 2rem;
+            font-size: 0.875rem;
+            letter-spacing: 0.04em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: background-color 0.3s var(--ease), transform 0.15s var(--ease);
             position: relative;
             overflow: hidden;
-            border-radius: 1rem;
-            aspect-ratio: 3/4;
+        }
+        .btn-primary:hover { background: #d4a57a; }
+        .btn-primary:active { transform: scale(0.98); }
+        .btn-primary .btn-arrow {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: rgba(10, 10, 10, 0.15);
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.3s var(--ease);
+        }
+        .btn-primary:hover .btn-arrow {
+            transform: translate(2px, -1px) scale(1.05);
         }
 
-        .treatment-card img {
-            transition: transform 0.7s ease;
+        .btn-secondary {
+            border: 1px solid var(--rose-dim);
+            color: var(--rose);
+            border-radius: 0.625rem;
+            padding: 0.75rem 1.75rem;
+            font-size: 0.875rem;
+            letter-spacing: 0.03em;
+            transition: border-color 0.3s var(--ease), background-color 0.3s var(--ease), transform 0.15s var(--ease);
+        }
+        .btn-secondary:hover {
+            border-color: var(--rose);
+            background: rgba(196, 149, 106, 0.06);
+        }
+        .btn-secondary:active { transform: scale(0.98); }
+
+        /* ---- Drop Cap ---- */
+        .drop-cap::first-letter {
+            float: left;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            line-height: 0.8;
+            font-weight: 600;
+            color: var(--rose);
+            padding-right: 0.5rem;
+            padding-top: 0.25rem;
         }
 
-        .treatment-card:hover img {
-            transform: scale(1.08);
+        /* ---- Reduced Motion ---- */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .hero-line, .hero-fade, .reveal {
+                opacity: 1;
+                transform: none;
+            }
+            .orb { animation: none !important; }
         }
 
-        .treatment-card .overlay {
-            background: linear-gradient(to top, rgba(14, 12, 11, 0.9) 0%, rgba(14, 12, 11, 0.3) 50%, transparent 100%);
-        }
-
-        .gallery-img {
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            border-radius: 0.75rem;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-img:hover {
-            transform: scale(1.03);
-        }
-
-        .star {
-            color: var(--accent);
-        }
-
-        input, textarea, select {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text);
-            border-radius: 0.75rem;
-            padding: 0.875rem 1rem;
-            font-family: 'DM Sans', sans-serif;
-            transition: border-color 0.3s ease;
-        }
-
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        select option {
-            background: var(--bg-card);
-            color: var(--text);
+        /* ---- Responsive ---- */
+        @media (max-width: 767px) {
+            .gallery-card { flex: 0 0 280px; }
         }
     </style>
 </head>
 
-<body class="antialiased overflow-x-hidden">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-[var(--bg)]/90 backdrop-blur-xl border-b border-[var(--border)]" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-semibold tracking-wide" style="font-family: 'Cormorant Garamond', serif;">Velara</a>
+    <!-- Skip Link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
 
-            <div class="hidden md:flex items-center gap-8 text-sm tracking-wide text-[var(--text-muted)]">
-                <a href="#treatments" class="hover:text-[var(--text)] transition-colors">Treatments</a>
-                <a href="#about" class="hover:text-[var(--text)] transition-colors">Philosophy</a>
-                <a href="#gallery" class="hover:text-[var(--text)] transition-colors">Gallery</a>
-                <a href="#booking" class="hover:text-[var(--text)] transition-colors">Book</a>
-                <a href="https://agencyonda.com/portfolio.html" class="px-4 py-2 border border-[var(--border)] rounded-full hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all">Back to Onda</a>
+    <!-- Film Grain -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Ambient Orbs -->
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="orb orb-3" aria-hidden="true"></div>
+
+    <!-- ============================== -->
+    <!-- NAVIGATION -->
+    <!-- ============================== -->
+    <nav class="nav-glass fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 rounded-full px-4 sm:px-6 md:px-8 py-3" id="navbar" aria-label="Primary navigation">
+        <div class="flex items-center gap-6 md:gap-10">
+            <!-- Back to Onda + Logo -->
+            <div class="flex items-center">
+                <a href="../portfolio.html" class="onda-back" aria-label="Back to Onda portfolio">&larr; Onda</a>
+                <a href="#" class="font-serif italic text-xl md:text-2xl font-medium text-ivory tracking-wide whitespace-nowrap" aria-label="Velara Aesthetics home">
+                    Velara
+                </a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-[var(--text)]">
-                <i data-lucide="menu" class="w-7 h-7"></i>
-            </button>
-        </div>
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center gap-7 text-[13px] tracking-wide text-silver">
+                <a href="#treatments" class="transition-colors duration-300 hover:text-ivory" style="transition-timing-function: var(--ease);">Treatments</a>
+                <a href="#philosophy" class="transition-colors duration-300 hover:text-ivory" style="transition-timing-function: var(--ease);">Philosophy</a>
+                <a href="#results" class="transition-colors duration-300 hover:text-ivory" style="transition-timing-function: var(--ease);">Results</a>
+                <a href="#team" class="transition-colors duration-300 hover:text-ivory" style="transition-timing-function: var(--ease);">Specialists</a>
+            </div>
 
-        <div id="mobile-menu" class="hidden md:hidden absolute top-16 sm:top-20 left-0 w-full backdrop-blur-xl border-b border-[var(--border)] p-5 sm:p-6 md:p-8 flex-col gap-6 text-center text-sm tracking-wide text-[var(--text-muted)]" style="background: rgba(14, 12, 11, 0.98);">
-            <a href="#treatments" class="block py-2 hover:text-[var(--text)] transition-colors">Treatments</a>
-            <a href="#about" class="block py-2 hover:text-[var(--text)] transition-colors">Philosophy</a>
-            <a href="#gallery" class="block py-2 hover:text-[var(--text)] transition-colors">Gallery</a>
-            <a href="#booking" class="block py-2 hover:text-[var(--text)] transition-colors">Book</a>
-            <a href="https://agencyonda.com/portfolio.html" class="inline-block px-4 py-2 border border-[var(--border)] rounded-full hover:border-[var(--accent)] transition-all">Back to Onda</a>
+            <!-- CTA -->
+            <a href="#booking" class="hidden md:inline-flex btn-primary text-[13px] py-2.5 px-5 gap-2 ml-2">
+                Book Now
+                <span class="btn-arrow w-6 h-6"><i data-lucide="arrow-up-right" class="w-3.5 h-3.5" aria-hidden="true"></i></span>
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button id="nav-toggle" class="md:hidden text-ivory p-1" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+                <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1400&q=80" alt="Luxury aesthetic clinic interior"
-                class="w-full h-full object-cover opacity-50">
-            <div class="absolute inset-0 bg-gradient-to-r from-[var(--bg)] via-[var(--bg)]/70 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-[var(--bg)]/40"></div>
-        </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-nav" class="fixed inset-0 z-40 bg-[#0A0A0A]/95 backdrop-blur-3xl flex flex-col items-center justify-center gap-8 text-center opacity-0 pointer-events-none transition-opacity duration-500" style="transition-timing-function: var(--ease);" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <button id="nav-close" class="absolute top-5 right-5 text-ivory p-2" aria-label="Close navigation menu">
+            <i data-lucide="x" class="w-7 h-7" aria-hidden="true"></i>
+        </button>
+        <a href="#treatments" class="mobile-nav-link font-serif text-3xl text-ivory opacity-0 translate-y-8" style="transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); transition-delay: 0.1s;">Treatments</a>
+        <a href="#philosophy" class="mobile-nav-link font-serif text-3xl text-ivory opacity-0 translate-y-8" style="transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); transition-delay: 0.15s;">Philosophy</a>
+        <a href="#results" class="mobile-nav-link font-serif text-3xl text-ivory opacity-0 translate-y-8" style="transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); transition-delay: 0.2s;">Results</a>
+        <a href="#team" class="mobile-nav-link font-serif text-3xl text-ivory opacity-0 translate-y-8" style="transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); transition-delay: 0.25s;">Specialists</a>
+        <a href="#booking" class="mobile-nav-link btn-primary text-lg mt-4 opacity-0 translate-y-8" style="transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); transition-delay: 0.3s;">
+            Book Consultation
+            <span class="btn-arrow"><i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i></span>
+        </a>
+    </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-32 md:py-0">
-            <div class="max-w-2xl">
-                <p class="text-sm tracking-[0.3em] uppercase text-[var(--accent)] mb-6 fade-in">Premium Aesthetics · Barcelona</p>
-                <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-medium leading-[0.95] mb-8 fade-in">
-                    Where science<br>meets <em class="italic font-normal text-[var(--accent)]">beauty</em>
-                </h1>
-                <p class="text-lg md:text-xl text-[var(--text-muted)] font-light mb-10 max-w-lg fade-in">
-                    Subtle, science-backed treatments in a setting designed for calm. Results you can see. Enhancements only you need to know about.
-                </p>
-                <a href="#booking" class="inline-block px-8 py-4 bg-[var(--accent)] text-[var(--bg)] font-semibold rounded-full hover:bg-[var(--accent-hover)] transition-colors duration-300 fade-in">
-                    Book a Consultation
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Treatments -->
-    <section id="treatments" class="py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg)]">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 fade-in">
-                <p class="text-sm tracking-[0.25em] uppercase text-[var(--accent)] mb-4">Our Treatments</p>
-                <h2 class="text-3xl sm:text-4xl md:text-6xl font-medium">Curated for results</h2>
+    <main id="main">
+
+        <!-- ============================== -->
+        <!-- HERO -->
+        <!-- ============================== -->
+        <section class="relative min-h-[100dvh] flex items-center overflow-hidden" aria-label="Hero">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0" aria-hidden="true">
+                <img src="https://images.unsplash.com/photo-1760722326919-b020ecfbffce?auto=format&fit=crop&w=1600&h=900&q=80" alt="" class="w-full h-full object-cover" loading="eager">
+                <div class="absolute inset-0" style="background: rgba(10,10,10,0.72);"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent"></div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-                <!-- Treatment 1 -->
-                <div class="treatment-card fade-in cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80" alt="HydraLift Facial"
-                        class="absolute inset-0 w-full h-full object-cover">
-                    <div class="overlay absolute inset-0 z-10"></div>
-                    <div class="relative z-20 h-full flex flex-col justify-end p-6">
-                        <p class="text-xs tracking-[0.2em] uppercase text-[var(--accent)] mb-2">From €180</p>
-                        <h3 class="text-2xl md:text-3xl">HydraLift Facial</h3>
-                        <p class="text-sm text-[var(--text-muted)] mt-2">Deep hydration and lifting in a single session. Immediate radiance with zero downtime.</p>
-                    </div>
-                </div>
+            <div class="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-32 md:py-0">
+                <div class="max-w-3xl">
+                    <!-- Eyebrow -->
+                    <p class="hero-fade text-[11px] font-mono tracking-[0.35em] uppercase text-silver mb-8" style="animation-delay: 0s;">
+                        Est. 2014 &mdash; Barcelona
+                    </p>
 
-                <!-- Treatment 2 -->
-                <div class="treatment-card fade-in cursor-pointer" style="transition-delay: 100ms;">
-                    <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80" alt="Dermal Contouring"
-                        class="absolute inset-0 w-full h-full object-cover">
-                    <div class="overlay absolute inset-0 z-10"></div>
-                    <div class="relative z-20 h-full flex flex-col justify-end p-6">
-                        <p class="text-xs tracking-[0.2em] uppercase text-[var(--accent)] mb-2">From €350</p>
-                        <h3 class="text-2xl md:text-3xl">Dermal Contouring</h3>
-                        <p class="text-sm text-[var(--text-muted)] mt-2">Precision sculpting for jawline, cheekbones, and profile. Subtle definition, natural movement.</p>
-                    </div>
-                </div>
+                    <!-- Headline -->
+                    <h1 class="font-serif leading-[0.92] mb-8">
+                        <span class="hero-line block text-[clamp(2.5rem,7vw,6rem)] font-light italic text-ivory">The Art of</span>
+                        <span class="hero-line block text-[clamp(2.5rem,7vw,6rem)] font-light italic text-ivory">Refined <em class="not-italic font-medium text-rose">Beauty</em></span>
+                    </h1>
 
-                <!-- Treatment 3 -->
-                <div class="treatment-card fade-in cursor-pointer" style="transition-delay: 200ms;">
-                    <img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=800&q=80" alt="Sculpt & Tone"
-                        class="absolute inset-0 w-full h-full object-cover">
-                    <div class="overlay absolute inset-0 z-10"></div>
-                    <div class="relative z-20 h-full flex flex-col justify-end p-6">
-                        <p class="text-xs tracking-[0.2em] uppercase text-[var(--accent)] mb-2">From €290</p>
-                        <h3 class="text-2xl md:text-3xl">Sculpt &amp; Tone</h3>
-                        <p class="text-sm text-[var(--text-muted)] mt-2">Non-invasive body contouring and skin tightening. Visible results after the first session.</p>
+                    <!-- Rose-gold line -->
+                    <div class="hero-fade w-16 h-[1px] bg-rose mb-8" style="animation-delay: 1s;" aria-hidden="true"></div>
+
+                    <!-- Tagline -->
+                    <p class="hero-fade text-lg md:text-xl text-silver font-light leading-relaxed max-w-lg mb-10" style="animation-delay: 1.1s;">
+                        Discreet, precision-driven aesthetic enhancements in an intimate setting designed for those who value subtlety above all.
+                    </p>
+
+                    <!-- CTA -->
+                    <div class="hero-fade" style="animation-delay: 1.3s;">
+                        <a href="#booking" class="btn-primary">
+                            Schedule Consultation
+                            <span class="btn-arrow"><i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i></span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Philosophy / About -->
-    <section id="about" class="py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg-elevated)]">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            <div class="fade-in">
-                <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&q=80" alt="Clinic interior"
-                    class="w-full h-[500px] object-cover rounded-2xl">
-            </div>
-            <div class="fade-in">
-                <p class="text-sm tracking-[0.25em] uppercase text-[var(--accent)] mb-4">Our Philosophy</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-6">Subtle enhancements,<br>lasting confidence</h2>
-                <p class="text-[var(--text-muted)] text-lg leading-relaxed mb-8">
-                    At Velara, we believe the best work is invisible. Every treatment is designed to enhance what is already there — never to transform you into someone you are not. Our approach combines advanced techniques with an obsessive attention to natural balance.
-                </p>
-                <div class="grid grid-cols-3 gap-6">
-                    <div class="text-center">
-                        <p class="text-3xl md:text-4xl font-medium text-[var(--accent)]" style="font-family: 'Cormorant Garamond', serif;">12+</p>
-                        <p class="text-xs tracking-wider uppercase text-[var(--text-muted)] mt-1">Years</p>
+
+        <!-- ============================== -->
+        <!-- PHILOSOPHY / ABOUT -->
+        <!-- ============================== -->
+        <section id="philosophy" class="py-28 md:py-40 px-5 sm:px-8 lg:px-12" aria-label="Our philosophy">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 md:gap-0 items-start">
+                    <!-- Left: Pull Quote -->
+                    <div class="reveal md:pr-12 lg:pr-20 relative">
+                        <p class="text-[11px] font-mono tracking-[0.3em] uppercase text-rose mb-8">Philosophy</p>
+                        <blockquote class="font-serif italic text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.15] text-ivory font-light">
+                            &ldquo;We don&rsquo;t change who you are &mdash; we reveal your best self.&rdquo;
+                        </blockquote>
+                        <div class="mt-10 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden border border-rose/20">
+                                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=200&h=200&crop=face&q=80" alt="Dr. Elena Vidal" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-ivory">Dr. Elena Vidal</p>
+                                <p class="text-xs text-silver font-mono">Founder & Medical Director</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-center">
-                        <p class="text-3xl md:text-4xl font-medium text-[var(--accent)]" style="font-family: 'Cormorant Garamond', serif;">4,500</p>
-                        <p class="text-xs tracking-wider uppercase text-[var(--text-muted)] mt-1">Treatments</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-3xl md:text-4xl font-medium text-[var(--accent)]" style="font-family: 'Cormorant Garamond', serif;">98%</p>
-                        <p class="text-xs tracking-wider uppercase text-[var(--text-muted)] mt-1">Satisfaction</p>
+
+                    <!-- Vertical Divider (desktop) -->
+                    <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-rose/10" style="position: relative;" aria-hidden="true"></div>
+
+                    <!-- Right: Body Text -->
+                    <div class="reveal md:pl-12 lg:pl-20 md:border-l md:border-rose/10" style="transition-delay: 0.15s;">
+                        <p class="drop-cap text-silver leading-[1.75] text-[15px] mb-6">
+                            At Velara, we practice aesthetic medicine as a discipline of restraint. Every intervention is governed by a single principle: less is always more. Our clients come to us not for transformation, but for refinement &mdash; the quiet confidence that comes from looking exactly like yourself, only rested, balanced, luminous.
+                        </p>
+                        <p class="text-silver leading-[1.75] text-[15px] mb-8">
+                            Founded in 2014 by Dr. Elena Vidal, our practice draws on over 12 years of facial anatomy research and a deep belief that aesthetic medicine should be invisible. We work in micro-corrections &mdash; movements measured in fractions of a millimeter, results measured in how you feel when you catch your reflection unguarded.
+                        </p>
+
+                        <!-- Stats -->
+                        <div class="grid grid-cols-2 gap-6 pt-6 border-t border-rose/10">
+                            <div>
+                                <p class="font-serif text-3xl md:text-4xl font-medium text-rose">4,738</p>
+                                <p class="text-[11px] font-mono tracking-wider uppercase text-silver mt-1">Treatments performed</p>
+                            </div>
+                            <div>
+                                <p class="font-serif text-3xl md:text-4xl font-medium text-rose">97.3%</p>
+                                <p class="text-[11px] font-mono tracking-wider uppercase text-silver mt-1">Client satisfaction</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Strip -->
-    <section id="gallery" class="py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg)]">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12 fade-in">
-                <p class="text-sm tracking-[0.25em] uppercase text-[var(--accent)] mb-4">The Space</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium">Designed for calm</h2>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 fade-in">
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=75" alt="Clinic space" class="gallery-img w-full">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75" alt="Treatment room" class="gallery-img w-full" style="transition-delay: 50ms;">
-                <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=75" alt="Skincare products" class="gallery-img w-full" style="transition-delay: 100ms;">
-                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=600&q=75" alt="Reception area" class="gallery-img w-full" style="transition-delay: 150ms;">
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section class="py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg-elevated)]">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 fade-in">
-                <p class="text-sm tracking-[0.25em] uppercase text-[var(--accent)] mb-4">Testimonials</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium">What our clients say</h2>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-                <div class="fade-in bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-5 sm:p-6 md:p-8">
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                    </div>
-                    <p class="text-[var(--text-muted)] leading-relaxed mb-6">"The results were so natural that even my closest friends couldn't tell. They just said I looked rested. Exactly what I wanted."</p>
-                    <p class="text-sm font-semibold">Laura M.</p>
-                    <p class="text-xs text-[var(--text-muted)]">HydraLift Facial</p>
+        <!-- ============================== -->
+        <!-- TREATMENTS (Accordion) -->
+        <!-- ============================== -->
+        <section id="treatments" class="py-28 md:py-40 px-5 sm:px-8 lg:px-12 bg-surface" aria-label="Treatment menu">
+            <div class="max-w-5xl mx-auto">
+                <!-- Header -->
+                <div class="reveal mb-16 md:mb-20">
+                    <p class="text-[11px] font-mono tracking-[0.3em] uppercase text-rose mb-4">Treatment Menu</p>
+                    <h2 class="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light italic text-ivory leading-[1.05]">A curated selection</h2>
                 </div>
 
-                <div class="fade-in bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-5 sm:p-6 md:p-8" style="transition-delay: 100ms;">
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                    </div>
-                    <p class="text-[var(--text-muted)] leading-relaxed mb-6">"I was nervous about my first treatment. The team made me feel completely at ease. The clinic itself feels like a five-star hotel."</p>
-                    <p class="text-sm font-semibold">Sofía R.</p>
-                    <p class="text-xs text-[var(--text-muted)]">Dermal Contouring</p>
-                </div>
+                <!-- Accordion List -->
+                <div class="divide-y divide-rose/10 border-t border-rose/10" role="list">
 
-                <div class="fade-in bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-5 sm:p-6 md:p-8" style="transition-delay: 200ms;">
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 star fill-current"></i>
+                    <!-- Treatment 1 -->
+                    <div class="treatment-item reveal pl-6" role="listitem" aria-expanded="false" tabindex="0" data-treatment>
+                        <button class="w-full flex items-center justify-between py-6 md:py-7 text-left" aria-controls="treat-1-body" aria-expanded="false">
+                            <div class="flex items-baseline gap-3 md:gap-4">
+                                <span class="font-mono text-[11px] text-silver tracking-wider">01</span>
+                                <h3 class="font-serif text-xl md:text-2xl text-ivory font-medium">HydraLift Facial</h3>
+                            </div>
+                            <div class="flex items-center gap-4 md:gap-6">
+                                <span class="font-mono text-sm text-silver hidden sm:inline">45 min</span>
+                                <span class="font-mono text-sm md:text-base text-rose">&euro;180</span>
+                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                            </div>
+                        </button>
+                        <div id="treat-1-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
+                            <div class="pb-6 md:pb-7">
+                                <p class="text-silver text-sm leading-relaxed max-w-2xl mb-4">
+                                    A multi-phase hydration protocol combining hyaluronic micro-infusion with LED bio-stimulation and lymphatic sculpting massage. Immediate luminosity, zero downtime. Ideal as monthly maintenance or pre-event preparation.
+                                </p>
+                                <a href="#booking" class="text-rose text-sm font-medium hover:underline underline-offset-4 transition-colors duration-300" style="transition-timing-function: var(--ease);">Book this treatment &rarr;</a>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-[var(--text-muted)] leading-relaxed mb-6">"Three sessions in and I'm already seeing a real difference. The approach is gentle but effective. I finally found a clinic I trust."</p>
-                    <p class="text-sm font-semibold">Elena P.</p>
-                    <p class="text-xs text-[var(--text-muted)]">Sculpt & Tone</p>
+
+                    <!-- Treatment 2 -->
+                    <div class="treatment-item reveal pl-6" role="listitem" aria-expanded="false" tabindex="0" data-treatment style="transition-delay: 0.05s;">
+                        <button class="w-full flex items-center justify-between py-6 md:py-7 text-left" aria-controls="treat-2-body" aria-expanded="false">
+                            <div class="flex items-baseline gap-3 md:gap-4">
+                                <span class="font-mono text-[11px] text-silver tracking-wider">02</span>
+                                <h3 class="font-serif text-xl md:text-2xl text-ivory font-medium">Dermal Contouring</h3>
+                            </div>
+                            <div class="flex items-center gap-4 md:gap-6">
+                                <span class="font-mono text-sm text-silver hidden sm:inline">60 min</span>
+                                <span class="font-mono text-sm md:text-base text-rose">&euro;350</span>
+                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                            </div>
+                        </button>
+                        <div id="treat-2-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
+                            <div class="pb-6 md:pb-7">
+                                <p class="text-silver text-sm leading-relaxed max-w-2xl mb-4">
+                                    Precision volumetric sculpting for jawline, cheekbone, and profile refinement using next-generation cross-linked hyaluronic acid. We work in micro-doses, building structure gradually across 2&ndash;3 sessions for results that look entirely natural.
+                                </p>
+                                <a href="#booking" class="text-rose text-sm font-medium hover:underline underline-offset-4 transition-colors duration-300" style="transition-timing-function: var(--ease);">Book this treatment &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Treatment 3 -->
+                    <div class="treatment-item reveal pl-6" role="listitem" aria-expanded="false" tabindex="0" data-treatment style="transition-delay: 0.1s;">
+                        <button class="w-full flex items-center justify-between py-6 md:py-7 text-left" aria-controls="treat-3-body" aria-expanded="false">
+                            <div class="flex items-baseline gap-3 md:gap-4">
+                                <span class="font-mono text-[11px] text-silver tracking-wider">03</span>
+                                <h3 class="font-serif text-xl md:text-2xl text-ivory font-medium">Sculpt &amp; Tone</h3>
+                            </div>
+                            <div class="flex items-center gap-4 md:gap-6">
+                                <span class="font-mono text-sm text-silver hidden sm:inline">75 min</span>
+                                <span class="font-mono text-sm md:text-base text-rose">&euro;290</span>
+                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                            </div>
+                        </button>
+                        <div id="treat-3-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
+                            <div class="pb-6 md:pb-7">
+                                <p class="text-silver text-sm leading-relaxed max-w-2xl mb-4">
+                                    Non-invasive body contouring combining radiofrequency skin tightening with electromagnetic muscle stimulation. Targets stubborn areas with clinical precision. Most clients report visible results after the first session; optimal results at week six.
+                                </p>
+                                <a href="#booking" class="text-rose text-sm font-medium hover:underline underline-offset-4 transition-colors duration-300" style="transition-timing-function: var(--ease);">Book this treatment &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Treatment 4 -->
+                    <div class="treatment-item reveal pl-6" role="listitem" aria-expanded="false" tabindex="0" data-treatment style="transition-delay: 0.15s;">
+                        <button class="w-full flex items-center justify-between py-6 md:py-7 text-left" aria-controls="treat-4-body" aria-expanded="false">
+                            <div class="flex items-baseline gap-3 md:gap-4">
+                                <span class="font-mono text-[11px] text-silver tracking-wider">04</span>
+                                <h3 class="font-serif text-xl md:text-2xl text-ivory font-medium">Micro-Needling Complex</h3>
+                            </div>
+                            <div class="flex items-center gap-4 md:gap-6">
+                                <span class="font-mono text-sm text-silver hidden sm:inline">50 min</span>
+                                <span class="font-mono text-sm md:text-base text-rose">&euro;220</span>
+                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                            </div>
+                        </button>
+                        <div id="treat-4-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
+                            <div class="pb-6 md:pb-7">
+                                <p class="text-silver text-sm leading-relaxed max-w-2xl mb-4">
+                                    Advanced collagen induction therapy with customized peptide serums. Addresses fine lines, uneven texture, and post-inflammatory hyperpigmentation. Performed with medical-grade devices under topical anaesthesia for a comfortable experience.
+                                </p>
+                                <a href="#booking" class="text-rose text-sm font-medium hover:underline underline-offset-4 transition-colors duration-300" style="transition-timing-function: var(--ease);">Book this treatment &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Treatment 5 -->
+                    <div class="treatment-item reveal pl-6" role="listitem" aria-expanded="false" tabindex="0" data-treatment style="transition-delay: 0.2s;">
+                        <button class="w-full flex items-center justify-between py-6 md:py-7 text-left" aria-controls="treat-5-body" aria-expanded="false">
+                            <div class="flex items-baseline gap-3 md:gap-4">
+                                <span class="font-mono text-[11px] text-silver tracking-wider">05</span>
+                                <h3 class="font-serif text-xl md:text-2xl text-ivory font-medium">Expression Refinement</h3>
+                            </div>
+                            <div class="flex items-center gap-4 md:gap-6">
+                                <span class="font-mono text-sm text-silver hidden sm:inline">30 min</span>
+                                <span class="font-mono text-sm md:text-base text-rose">&euro;280</span>
+                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                            </div>
+                        </button>
+                        <div id="treat-5-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
+                            <div class="pb-6 md:pb-7">
+                                <p class="text-silver text-sm leading-relaxed max-w-2xl mb-4">
+                                    Precision neuromodulator treatment for dynamic lines &mdash; forehead, glabella, crow&rsquo;s feet. We use conservative dosing and anatomical mapping to soften expression without freezing it. You will still look like you. Just rested.
+                                </p>
+                                <a href="#booking" class="text-rose text-sm font-medium hover:underline underline-offset-4 transition-colors duration-300" style="transition-timing-function: var(--ease);">Book this treatment &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Treatment 6 -->
+                    <div class="treatment-item reveal pl-6" role="listitem" aria-expanded="false" tabindex="0" data-treatment style="transition-delay: 0.25s;">
+                        <button class="w-full flex items-center justify-between py-6 md:py-7 text-left" aria-controls="treat-6-body" aria-expanded="false">
+                            <div class="flex items-baseline gap-3 md:gap-4">
+                                <span class="font-mono text-[11px] text-silver tracking-wider">06</span>
+                                <h3 class="font-serif text-xl md:text-2xl text-ivory font-medium">The Velara Signature</h3>
+                            </div>
+                            <div class="flex items-center gap-4 md:gap-6">
+                                <span class="font-mono text-sm text-silver hidden sm:inline">120 min</span>
+                                <span class="font-mono text-sm md:text-base text-rose">&euro;580</span>
+                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                            </div>
+                        </button>
+                        <div id="treat-6-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
+                            <div class="pb-6 md:pb-7">
+                                <p class="text-silver text-sm leading-relaxed max-w-2xl mb-4">
+                                    Our comprehensive facial architecture session. Begins with clinical skin analysis, followed by a bespoke combination of hydration, bio-stimulation, and micro-volumetric correction. Concludes with LED therapy and cryo-sculpting. The complete Velara experience.
+                                </p>
+                                <a href="#booking" class="text-rose text-sm font-medium hover:underline underline-offset-4 transition-colors duration-300" style="transition-timing-function: var(--ease);">Book this treatment &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Booking Form -->
-    <section id="booking" class="py-24 md:py-32 px-4 sm:px-6 bg-[var(--bg)]">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-12 fade-in">
-                <p class="text-sm tracking-[0.25em] uppercase text-[var(--accent)] mb-4">Book Now</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium">Begin your journey</h2>
-                <p class="text-[var(--text-muted)] mt-4 text-lg">Schedule a complimentary consultation to discuss your goals.</p>
-            </div>
 
-            <form class="space-y-5 fade-in" onsubmit="return false;">
-                <div class="grid md:grid-cols-2 gap-5">
+        <!-- ============================== -->
+        <!-- RESULTS / GALLERY -->
+        <!-- ============================== -->
+        <section id="results" class="py-28 md:py-40 px-5 sm:px-8 lg:px-12" aria-label="Treatment results gallery">
+            <div class="max-w-7xl mx-auto">
+                <!-- Header -->
+                <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16 gap-4">
                     <div>
-                        <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Full Name</label>
-                        <input type="text" placeholder="Your name" class="w-full">
+                        <p class="text-[11px] font-mono tracking-[0.3em] uppercase text-rose mb-4">Results</p>
+                        <h2 class="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light italic text-ivory leading-[1.05]">The quiet transformation</h2>
                     </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Phone</label>
-                        <input type="tel" placeholder="+34 600 000 000" class="w-full">
-                    </div>
+                    <p class="text-silver text-sm md:text-right max-w-xs">Swipe to explore representative outcomes from our treatment protocols.</p>
                 </div>
-                <div>
-                    <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Email</label>
-                    <input type="email" placeholder="your@email.com" class="w-full">
-                </div>
-                <div>
-                    <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Treatment of Interest</label>
-                    <select class="w-full">
-                        <option value="">Select a treatment</option>
-                        <option value="hydralift">HydraLift Facial — from €180</option>
-                        <option value="contouring">Dermal Contouring — from €350</option>
-                        <option value="sculpt">Sculpt & Tone — from €290</option>
-                        <option value="consultation">General Consultation</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs uppercase tracking-[0.15em] text-[var(--text-muted)] mb-2">Message (optional)</label>
-                    <textarea rows="4" placeholder="Tell us about your goals..." class="w-full"></textarea>
-                </div>
-                <div class="text-center pt-4">
-                    <button type="submit" class="px-10 py-4 bg-[var(--accent)] text-[var(--bg)] font-semibold rounded-full hover:bg-[var(--accent-hover)] transition-colors duration-300 text-sm tracking-wide uppercase">
-                        Request Consultation
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-[var(--border)] text-center text-[var(--text-muted)] text-sm">
-        <p>&copy; 2025 Velara Aesthetics. Concept by <a href="https://agencyonda.com" class="text-[var(--accent)] hover:underline">Onda</a>.</p>
+                <!-- Horizontal Scroll Gallery -->
+                <div class="gallery-track reveal" role="list" aria-label="Results gallery">
+
+                    <!-- Card 1 -->
+                    <div class="gallery-card" role="listitem">
+                        <img src="https://images.unsplash.com/photo-1516815989420-9cb5ef0fce78?auto=format&fit=crop&w=600&h=750&q=80" alt="HydraLift Facial result" class="w-full h-[400px] md:h-[480px] object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-5" style="background: rgba(10,10,10,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(196,149,106,0.1);">
+                            <p class="font-serif text-lg text-ivory">HydraLift Facial</p>
+                            <p class="font-mono text-[11px] text-silver tracking-wider mt-1">45 min &middot; Zero downtime</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="gallery-card" role="listitem">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&h=750&q=80" alt="Dermal Contouring result" class="w-full h-[400px] md:h-[480px] object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-5" style="background: rgba(10,10,10,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(196,149,106,0.1);">
+                            <p class="font-serif text-lg text-ivory">Dermal Contouring</p>
+                            <p class="font-mono text-[11px] text-silver tracking-wider mt-1">60 min &middot; 2&ndash;3 sessions</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="gallery-card" role="listitem">
+                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&h=750&q=80" alt="Expression Refinement result" class="w-full h-[400px] md:h-[480px] object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-5" style="background: rgba(10,10,10,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(196,149,106,0.1);">
+                            <p class="font-serif text-lg text-ivory">Expression Refinement</p>
+                            <p class="font-mono text-[11px] text-silver tracking-wider mt-1">30 min &middot; Results in 5 days</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="gallery-card" role="listitem">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&h=750&q=80" alt="Micro-Needling Complex result" class="w-full h-[400px] md:h-[480px] object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-5" style="background: rgba(10,10,10,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(196,149,106,0.1);">
+                            <p class="font-serif text-lg text-ivory">Micro-Needling Complex</p>
+                            <p class="font-mono text-[11px] text-silver tracking-wider mt-1">50 min &middot; 3 session protocol</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="gallery-card" role="listitem">
+                        <img src="https://images.unsplash.com/photo-1747303969063-3b90bcb3942e?auto=format&fit=crop&w=600&h=750&q=80" alt="Velara Signature result" class="w-full h-[400px] md:h-[480px] object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-5" style="background: rgba(10,10,10,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(196,149,106,0.1);">
+                            <p class="font-serif text-lg text-ivory">The Velara Signature</p>
+                            <p class="font-mono text-[11px] text-silver tracking-wider mt-1">120 min &middot; Complete renewal</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================== -->
+        <!-- TEAM / SPECIALISTS -->
+        <!-- ============================== -->
+        <section id="team" class="py-28 md:py-40 px-5 sm:px-8 lg:px-12 bg-surface" aria-label="Our specialists">
+            <div class="max-w-7xl mx-auto">
+
+                <!-- Lead Specialist Feature -->
+                <div class="reveal grid md:grid-cols-5 gap-8 md:gap-12 items-start mb-20 md:mb-28">
+                    <!-- Photo: 3/5 width -->
+                    <div class="md:col-span-3">
+                        <!-- Double-bezel frame -->
+                        <div class="p-1.5 rounded-[1.5rem] border border-rose/10 bg-white/[0.02]">
+                            <div class="rounded-[calc(1.5rem-0.375rem)] overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&h=1000&crop=face&q=80" alt="Dr. Elena Vidal, Founder and Medical Director" class="w-full h-[400px] md:h-[560px] object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bio: 2/5 width -->
+                    <div class="md:col-span-2 flex flex-col justify-center">
+                        <p class="text-[11px] font-mono tracking-[0.3em] uppercase text-rose mb-4">Lead Specialist</p>
+                        <h2 class="font-serif text-[clamp(1.75rem,3vw,2.75rem)] font-medium italic text-ivory leading-[1.1] mb-2">Dr. Elena Vidal</h2>
+                        <p class="font-mono text-[12px] text-silver tracking-wider mb-6">MD, MSc Dermatology &middot; Barcelona</p>
+                        <p class="text-silver text-[15px] leading-[1.75] mb-6">
+                            Board-certified in dermatology and aesthetic medicine with over 12 years of clinical experience. Dr. Vidal trained at Hospital Cl&iacute;nic de Barcelona and completed advanced fellowships in facial anatomy at the University of Paris. She is known for her conservative approach and belief that the best work is the work no one notices.
+                        </p>
+                        <p class="text-silver text-[15px] leading-[1.75]">
+                            She lectures internationally on micro-volumetric techniques and has contributed to peer-reviewed research on minimally invasive facial rejuvenation protocols.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Team Members -->
+                <div class="reveal" style="transition-delay: 0.1s;">
+                    <p class="text-[11px] font-mono tracking-[0.3em] uppercase text-rose mb-8">The Team</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
+                    <!-- Team Member 1 -->
+                    <div class="team-card reveal p-1.5 rounded-[1.5rem] border border-rose/10 bg-white/[0.02]" style="transition-delay: 0.15s;">
+                        <div class="rounded-[calc(1.5rem-0.375rem)] bg-[#161616] overflow-hidden flex flex-col sm:flex-row">
+                            <div class="sm:w-40 md:w-48 flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&h=500&crop=face&q=80" alt="Dr. Marc Castellanos" class="w-full h-48 sm:h-full object-cover">
+                            </div>
+                            <div class="p-5 sm:p-6 flex flex-col justify-center">
+                                <h3 class="font-serif text-xl text-ivory font-medium">Dr. Marc Castellanos</h3>
+                                <p class="font-mono text-[11px] text-silver tracking-wider mt-1 mb-3">Aesthetic Physician</p>
+                                <p class="text-silver text-sm leading-relaxed">
+                                    Specializes in non-surgical body contouring and regenerative skin therapies. Trained at Universitat Aut&ograve;noma de Barcelona with advanced certification in laser medicine.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="team-card reveal p-1.5 rounded-[1.5rem] border border-rose/10 bg-white/[0.02]" style="transition-delay: 0.2s;">
+                        <div class="rounded-[calc(1.5rem-0.375rem)] bg-[#161616] overflow-hidden flex flex-col sm:flex-row">
+                            <div class="sm:w-40 md:w-48 flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=500&q=80" alt="Carla Fern&aacute;ndez" class="w-full h-48 sm:h-full object-cover">
+                            </div>
+                            <div class="p-5 sm:p-6 flex flex-col justify-center">
+                                <h3 class="font-serif text-xl text-ivory font-medium">Carla Fern&aacute;ndez</h3>
+                                <p class="font-mono text-[11px] text-silver tracking-wider mt-1 mb-3">Senior Aesthetician</p>
+                                <p class="text-silver text-sm leading-relaxed">
+                                    Eight years of experience in advanced facial protocols and skin health. CIDESCO-certified with additional training in cosmeceutical formulation and lymphatic drainage technique.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="team-card reveal p-1.5 rounded-[1.5rem] border border-rose/10 bg-white/[0.02]" style="transition-delay: 0.25s;">
+                        <div class="rounded-[calc(1.5rem-0.375rem)] bg-[#161616] overflow-hidden flex flex-col sm:flex-row">
+                            <div class="sm:w-40 md:w-48 flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&h=500&crop=face&q=80" alt="Laura Puig" class="w-full h-48 sm:h-full object-cover">
+                            </div>
+                            <div class="p-5 sm:p-6 flex flex-col justify-center">
+                                <h3 class="font-serif text-xl text-ivory font-medium">Laura Puig</h3>
+                                <p class="font-mono text-[11px] text-silver tracking-wider mt-1 mb-3">Patient Coordinator</p>
+                                <p class="text-silver text-sm leading-relaxed">
+                                    Your first point of contact. Laura ensures each visit is frictionless and discreet, managing scheduling, aftercare follow-up, and the private Velara client experience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="team-card reveal p-1.5 rounded-[1.5rem] border border-rose/10 bg-white/[0.02]" style="transition-delay: 0.3s;">
+                        <div class="rounded-[calc(1.5rem-0.375rem)] bg-[#161616] overflow-hidden flex flex-col sm:flex-row">
+                            <div class="sm:w-40 md:w-48 flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&h=500&crop=face&q=80" alt="Andrea Soler" class="w-full h-48 sm:h-full object-cover">
+                            </div>
+                            <div class="p-5 sm:p-6 flex flex-col justify-center">
+                                <h3 class="font-serif text-xl text-ivory font-medium">Andrea Soler</h3>
+                                <p class="font-mono text-[11px] text-silver tracking-wider mt-1 mb-3">Clinical Nurse</p>
+                                <p class="text-silver text-sm leading-relaxed">
+                                    Registered nurse with specialized training in aesthetic injectables and patient safety. Andrea assists all clinical procedures and manages sterile protocols with meticulous care.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================== -->
+        <!-- TESTIMONIALS -->
+        <!-- ============================== -->
+        <section class="py-28 md:py-40 px-5 sm:px-8 lg:px-12" aria-label="Client testimonials">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="reveal text-[11px] font-mono tracking-[0.3em] uppercase text-rose mb-12 md:mb-16">What Our Clients Say</p>
+
+                <!-- Testimonial Rotator -->
+                <div class="relative min-h-[320px] md:min-h-[280px]" id="testimonial-container" aria-live="polite" aria-atomic="true">
+
+                    <!-- Oversized quote glyph -->
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 font-serif text-[180px] md:text-[220px] leading-none text-rose/[0.06] pointer-events-none select-none" aria-hidden="true">&ldquo;</div>
+
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide active" data-testimonial="0">
+                        <blockquote class="font-serif italic text-[clamp(1.25rem,3vw,2rem)] leading-[1.3] text-ivory font-light max-w-2xl mx-auto mb-8 px-4">
+                            &ldquo;The results were so natural that even my closest friends couldn&rsquo;t tell. They just said I looked rested. Exactly what I wanted.&rdquo;
+                        </blockquote>
+                        <p class="font-mono text-[12px] text-silver tracking-wider">L.M. &mdash; HydraLift Facial</p>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide" data-testimonial="1">
+                        <blockquote class="font-serif italic text-[clamp(1.25rem,3vw,2rem)] leading-[1.3] text-ivory font-light max-w-2xl mx-auto mb-8 px-4">
+                            &ldquo;I was nervous about my first treatment. The team made me feel completely at ease. The clinic itself feels like somewhere you want to return to, not escape from.&rdquo;
+                        </blockquote>
+                        <p class="font-mono text-[12px] text-silver tracking-wider">S.R. &mdash; Dermal Contouring</p>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide" data-testimonial="2">
+                        <blockquote class="font-serif italic text-[clamp(1.25rem,3vw,2rem)] leading-[1.3] text-ivory font-light max-w-2xl mx-auto mb-8 px-4">
+                            &ldquo;Three sessions in and the difference is remarkable. The approach is gentle but effective. I finally found practitioners I trust completely.&rdquo;
+                        </blockquote>
+                        <p class="font-mono text-[12px] text-silver tracking-wider">E.P. &mdash; Sculpt &amp; Tone</p>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="testimonial-slide" data-testimonial="3">
+                        <blockquote class="font-serif italic text-[clamp(1.25rem,3vw,2rem)] leading-[1.3] text-ivory font-light max-w-2xl mx-auto mb-8 px-4">
+                            &ldquo;What I appreciate most is the restraint. Dr. Vidal talked me out of two things I thought I wanted and the result was better for it. That takes real confidence in your craft.&rdquo;
+                        </blockquote>
+                        <p class="font-mono text-[12px] text-silver tracking-wider">A.G. &mdash; Expression Refinement</p>
+                    </div>
+
+                </div>
+
+                <!-- Dots -->
+                <div class="flex justify-center gap-2 mt-8" role="tablist" aria-label="Testimonial navigation">
+                    <button class="w-2 h-2 rounded-full bg-rose transition-all duration-300" style="transition-timing-function: var(--ease);" role="tab" aria-selected="true" aria-label="Testimonial 1" data-dot="0"></button>
+                    <button class="w-2 h-2 rounded-full bg-rose/20 transition-all duration-300" style="transition-timing-function: var(--ease);" role="tab" aria-selected="false" aria-label="Testimonial 2" data-dot="1"></button>
+                    <button class="w-2 h-2 rounded-full bg-rose/20 transition-all duration-300" style="transition-timing-function: var(--ease);" role="tab" aria-selected="false" aria-label="Testimonial 3" data-dot="2"></button>
+                    <button class="w-2 h-2 rounded-full bg-rose/20 transition-all duration-300" style="transition-timing-function: var(--ease);" role="tab" aria-selected="false" aria-label="Testimonial 4" data-dot="3"></button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================== -->
+        <!-- BOOKING CTA -->
+        <!-- ============================== -->
+        <section id="booking" class="relative py-28 md:py-40 px-5 sm:px-8 lg:px-12 overflow-hidden" aria-label="Book a consultation">
+            <!-- Subtle rose-gold gradient bg -->
+            <div class="absolute inset-0 z-0" aria-hidden="true" style="background: radial-gradient(ellipse at 50% 50%, rgba(196,149,106,0.05) 0%, transparent 70%);"></div>
+
+            <div class="relative z-10 max-w-3xl mx-auto text-center">
+                <div class="reveal">
+                    <p class="text-[11px] font-mono tracking-[0.3em] uppercase text-rose mb-6">Private Consultation</p>
+                    <h2 class="font-serif text-[clamp(2rem,5vw,4rem)] font-light italic text-ivory leading-[1] mb-6">Begin Your<br>Transformation</h2>
+                    <div class="w-12 h-[1px] bg-rose mx-auto mb-8" aria-hidden="true"></div>
+                    <p class="text-silver text-lg leading-relaxed max-w-lg mx-auto mb-10">
+                        Every journey begins with a private, complimentary consultation. We listen first. Then we craft a plan that respects your features, your timeline, and your privacy.
+                    </p>
+
+                    <!-- Phone -->
+                    <p class="font-mono text-lg md:text-xl text-ivory tracking-wider mb-10">
+                        <a href="tel:+34932847156" class="hover:text-rose transition-colors duration-300" style="transition-timing-function: var(--ease);">+34 932 847 156</a>
+                    </p>
+
+                    <!-- CTA -->
+                    <a href="tel:+34932847156" class="btn-primary text-base">
+                        Schedule Consultation
+                        <span class="btn-arrow"><i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i></span>
+                    </a>
+
+                    <p class="text-silver/60 text-xs font-mono mt-8 tracking-wider">
+                        Mon&ndash;Fri 09:00&ndash;19:00 &middot; Sat 10:00&ndash;14:00 &middot; By appointment only
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ============================== -->
+    <!-- FOOTER -->
+    <!-- ============================== -->
+    <footer class="bg-[#070707] border-t border-rose/10 py-16 md:py-20 px-5 sm:px-8 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-12">
+                <!-- Col 1: Brand -->
+                <div>
+                    <a href="#" class="font-serif italic text-2xl text-rose tracking-wide">Velara</a>
+                    <p class="text-silver text-sm mt-4 leading-relaxed max-w-xs">
+                        An intimate atelier of aesthetic medicine in the heart of Barcelona. Discretion, precision, natural beauty.
+                    </p>
+                </div>
+
+                <!-- Col 2: Address -->
+                <div>
+                    <p class="text-[11px] font-mono tracking-[0.2em] uppercase text-silver mb-4">Visit</p>
+                    <address class="not-italic text-ivory text-sm leading-relaxed">
+                        Passeig de Gr&agrave;cia, 47<br>
+                        Planta 3a, Porta 2<br>
+                        08007 Barcelona, Spain
+                    </address>
+                    <p class="text-silver text-sm mt-3">
+                        <a href="mailto:hello@velara.es" class="hover:text-rose transition-colors duration-300" style="transition-timing-function: var(--ease);">hello@velara.es</a>
+                    </p>
+                </div>
+
+                <!-- Col 3: Hours & Social -->
+                <div>
+                    <p class="text-[11px] font-mono tracking-[0.2em] uppercase text-silver mb-4">Hours</p>
+                    <div class="text-ivory text-sm leading-relaxed space-y-1">
+                        <p>Monday &ndash; Friday: <span class="font-mono text-silver">09:00 &ndash; 19:00</span></p>
+                        <p>Saturday: <span class="font-mono text-silver">10:00 &ndash; 14:00</span></p>
+                        <p>Sunday: <span class="font-mono text-silver">Closed</span></p>
+                    </div>
+                    <div class="flex gap-4 mt-6">
+                        <a href="#" class="text-silver hover:text-rose transition-colors duration-300" style="transition-timing-function: var(--ease);" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-5 h-5" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-silver hover:text-rose transition-colors duration-300" style="transition-timing-function: var(--ease);" aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-5 h-5" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-silver hover:text-rose transition-colors duration-300" style="transition-timing-function: var(--ease);" aria-label="LinkedIn">
+                            <i data-lucide="linkedin" class="w-5 h-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-rose/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-silver/60 font-mono tracking-wider">
+                <p>&copy; 2025 Velara Aesthetics. All rights reserved.</p>
+                <p>Concept by <a href="../portfolio.html" class="text-rose/60 hover:text-rose transition-colors duration-300" style="transition-timing-function: var(--ease);">Onda</a></p>
+            </div>
+        </div>
     </footer>
 
+
+    <!-- ============================== -->
+    <!-- SCRIPTS -->
+    <!-- ============================== -->
     <script>
+        // Initialize Lucide icons
         lucide.createIcons();
 
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // ---- Mobile Nav ----
+        const navToggle = document.getElementById('nav-toggle');
+        const navClose = document.getElementById('nav-close');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileLinks = mobileNav.querySelectorAll('.mobile-nav-link');
 
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('flex');
-            });
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                });
+        function openMobileNav() {
+            mobileNav.classList.remove('opacity-0', 'pointer-events-none');
+            mobileNav.classList.add('opacity-100', 'pointer-events-auto');
+            navToggle.setAttribute('aria-expanded', 'true');
+            // Stagger reveal links
+            mobileLinks.forEach(link => {
+                link.classList.remove('opacity-0', 'translate-y-8');
+                link.classList.add('opacity-100', 'translate-y-0');
             });
         }
 
-        const observer = new IntersectionObserver((entries) => {
+        function closeMobileNav() {
+            mobileLinks.forEach(link => {
+                link.classList.add('opacity-0', 'translate-y-8');
+                link.classList.remove('opacity-100', 'translate-y-0');
+            });
+            setTimeout(() => {
+                mobileNav.classList.add('opacity-0', 'pointer-events-none');
+                mobileNav.classList.remove('opacity-100', 'pointer-events-auto');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }, 300);
+        }
+
+        navToggle.addEventListener('click', openMobileNav);
+        navClose.addEventListener('click', closeMobileNav);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMobileNav));
+
+
+        // ---- Scroll-hide Nav ----
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            const current = window.scrollY;
+            if (current > lastScroll && current > 100) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+            lastScroll = current;
+        }, { passive: true });
+
+
+        // ---- Scroll Reveal (IntersectionObserver) ----
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ---- QUICK REVEAL: immediately show elements already in viewport ----
+        const quickReveal = () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        quickReveal();
+        setTimeout(quickReveal, 100);
+        setTimeout(quickReveal, 300);
+
+
+        // ---- Accordion Treatments ----
+        document.querySelectorAll('[data-treatment]').forEach(item => {
+            const btn = item.querySelector('button');
+            const body = item.querySelector('.treatment-body');
+            const icon = btn.querySelector('[data-lucide]');
+
+            btn.addEventListener('click', () => {
+                const isOpen = body.classList.contains('open');
+
+                // Close all others
+                document.querySelectorAll('[data-treatment]').forEach(other => {
+                    const otherBody = other.querySelector('.treatment-body');
+                    const otherIcon = other.querySelector('button [data-lucide]');
+                    const otherBtn = other.querySelector('button');
+                    otherBody.classList.remove('open');
+                    other.setAttribute('aria-expanded', 'false');
+                    otherBtn.setAttribute('aria-expanded', 'false');
+                    if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+                });
+
+                // Toggle current
+                if (!isOpen) {
+                    body.classList.add('open');
+                    item.setAttribute('aria-expanded', 'true');
+                    btn.setAttribute('aria-expanded', 'true');
+                    if (icon) icon.style.transform = 'rotate(45deg)';
+                }
+            });
+        });
+
+
+        // ---- Testimonial Auto-Rotate ----
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('[data-dot]');
+        let currentSlide = 0;
+        let testimonialTimer;
+
+        function goToSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => {
+                d.classList.remove('bg-rose');
+                d.classList.add('bg-rose/20');
+                d.setAttribute('aria-selected', 'false');
+            });
+            slides[index].classList.add('active');
+            dots[index].classList.remove('bg-rose/20');
+            dots[index].classList.add('bg-rose');
+            dots[index].setAttribute('aria-selected', 'true');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            goToSlide((currentSlide + 1) % slides.length);
+        }
+
+        function startAutoRotate() {
+            testimonialTimer = setInterval(nextSlide, 6000);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                clearInterval(testimonialTimer);
+                goToSlide(parseInt(dot.dataset.dot));
+                startAutoRotate();
+            });
+        });
+
+        startAutoRotate();
     </script>
+
     <script>
-    (function(){var r=document.referrer,s='.html';if(r.indexOf('_ka')!==-1)s='_ka.html';else if(r.indexOf('_es')!==-1)s='_es.html';document.querySelectorAll('a').forEach(function(a){if(a.href.indexOf('agencyonda.com/portfolio')!==-1)a.href='https://agencyonda.com/portfolio'+s;});})();
+    (function(){
+        var lastHub = null;
+        try { lastHub = sessionStorage.getItem('onda:lastHub'); } catch (_) {}
+        var r = document.referrer || '';
+        var langSrc = lastHub || r;
+        var suffix = /_ka\.html?/.test(langSrc) ? '_ka.html'
+                   : /_es\.html?/.test(langSrc) ? '_es.html'
+                   : '.html';
+        document.querySelectorAll('a[href*="portfolio"]').forEach(function(a) {
+            a.href = '../portfolio' + suffix;
+        });
+        var backHref = null;
+        if (lastHub) {
+            backHref = '..' + lastHub;
+        } else if (/\/index(_v[2-5]|_es|_ka)?\.html?/.test(r)) {
+            backHref = suffix === '_ka.html' ? '../index_ka.html'
+                     : suffix === '_es.html' ? '../index_es.html'
+                     : '../index_v5.html';
+        }
+        if (backHref && /\/index/.test(backHref) && backHref.indexOf('#') === -1) {
+            backHref += '#work';
+        }
+        if (backHref) {
+            document.querySelectorAll('.onda-back').forEach(function(a) { a.href = backHref; });
+        }
+    })();
     </script>
+
 </body>
 
 </html>
