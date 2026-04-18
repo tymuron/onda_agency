@@ -128,14 +128,16 @@
         /* Nav scroll behavior */
         .nav-bar {
             background: transparent;
-            transition: background-color 0.5s var(--ease), box-shadow 0.5s var(--ease), transform 0.5s var(--ease);
+            transform: translateY(0);
+            will-change: transform;
+            transition: background-color 0.5s var(--ease), box-shadow 0.5s var(--ease), transform 0.4s var(--ease);
         }
         .nav-bar.scrolled {
             background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 1px 0 var(--border);
         }
         .nav-bar.nav-hidden {
-            transform: translateY(-100%);
+            transform: translateY(-110%);
         }
 
         /* Back-to-Onda link */
@@ -276,7 +278,7 @@
         </div>
 
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-surface/98 backdrop-blur-sm border-b px-6 py-8 flex flex-col gap-6" style="border-color: var(--border);">
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full backdrop-blur-sm border-b px-6 py-8 flex flex-col gap-6" style="border-color: var(--border); background: var(--bg); box-shadow: 0 8px 24px rgba(26,26,26,0.08);">
             <a href="#projects" class="font-body text-base text-concrete hover:text-graphite">Projects</a>
             <a href="#philosophy" class="font-body text-base text-concrete hover:text-graphite">Philosophy</a>
             <a href="#team" class="font-body text-base text-concrete hover:text-graphite">Team</a>
