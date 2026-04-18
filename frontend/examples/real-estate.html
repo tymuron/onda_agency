@@ -142,11 +142,13 @@
             border: 1px solid var(--hairline);
             border-radius: 9999px;
             padding: 0.625rem 1.5rem;
-            transition: transform 0.5s var(--ease), opacity 0.5s var(--ease);
+            transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s linear;
+            will-change: transform, opacity;
         }
         .nav-float.nav-hidden {
-            transform: translateX(-50%) translateY(-120%);
+            transform: translateX(-50%) translateY(-140%);
             opacity: 0;
+            pointer-events: none;
         }
 
         .nav-float a {
