@@ -23,32 +23,9 @@
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        bg: '#F5F3EF',
-                        surface: '#FFFFFF',
-                        graphite: '#1A1A1A',
-                        concrete: '#737373',
-                        terracotta: '#B85C38',
-                    },
-                    fontFamily: {
-                        display: ['"Cabinet Grotesk"', 'sans-serif'],
-                        body: ['"Outfit"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
-                    },
-                }
-            }
-        }
-    </script>
 
     <style>
         :root {
@@ -249,6 +226,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="./_css/architecture-studio.css">
 </head>
 
 <body>
@@ -277,7 +255,23 @@
             </div>
 
             <button id="mobile-toggle" class="md:hidden text-graphite" aria-label="Open menu" aria-expanded="false">
-                <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
+                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-menu w-6 h-6"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" />
+</svg>
             </button>
         </div>
 
@@ -329,10 +323,12 @@
                     <div class="w-full h-[1px] bg-terracotta mb-10" aria-hidden="true"></div>
 
                     <div class="project-img w-full" style="max-height: 70vh; overflow: hidden;">
-                        <img src="https://images.unsplash.com/photo-1760485275913-158eb385d5b6?w=1600&q=80"
+                        <img src="https://images.unsplash.com/photo-1760485275913-158eb385d5b6?w=1024&q=75"
+                             srcset="https://images.unsplash.com/photo-1760485275913-158eb385d5b6?w=640&q=70 640w, https://images.unsplash.com/photo-1760485275913-158eb385d5b6?w=1024&q=75 1024w, https://images.unsplash.com/photo-1760485275913-158eb385d5b6?w=1600&q=75 1600w"
+                             sizes="(min-width: 1024px) 1200px, 100vw"
                              alt="Casa Montjuic: A modernist concrete villa with clean geometric lines and minimalist white facades"
                              class="w-full h-full object-cover" style="max-height: 70vh;"
-                             loading="lazy">
+                             loading="lazy" decoding="async">
                     </div>
 
                     <div class="mt-8 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
@@ -355,10 +351,12 @@
                     <div class="w-full h-[1px] bg-terracotta mb-10" aria-hidden="true"></div>
 
                     <div class="project-img w-full" style="max-height: 70vh; overflow: hidden;">
-                        <img src="https://images.unsplash.com/photo-1749984739767-afd0cb96c3cb?w=1600&q=80"
+                        <img src="https://images.unsplash.com/photo-1749984739767-afd0cb96c3cb?w=1024&q=75"
+                             srcset="https://images.unsplash.com/photo-1749984739767-afd0cb96c3cb?w=640&q=70 640w, https://images.unsplash.com/photo-1749984739767-afd0cb96c3cb?w=1024&q=75 1024w, https://images.unsplash.com/photo-1749984739767-afd0cb96c3cb?w=1600&q=75 1600w"
+                             sizes="(min-width: 1024px) 1200px, 100vw"
                              alt="Espai Llum: A dramatic concrete cultural center interior with a monumental spiral staircase and raw concrete walls"
                              class="w-full h-full object-cover" style="max-height: 70vh;"
-                             loading="lazy">
+                             loading="lazy" decoding="async">
                     </div>
 
                     <div class="mt-8 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
@@ -381,10 +379,12 @@
                     <div class="w-full h-[1px] bg-terracotta mb-10" aria-hidden="true"></div>
 
                     <div class="project-img w-full" style="max-height: 70vh; overflow: hidden;">
-                        <img src="https://images.unsplash.com/photo-1774516534076-3cb7a800a9a1?w=1600&q=80"
+                        <img src="https://images.unsplash.com/photo-1774516534076-3cb7a800a9a1?w=1024&q=75"
+                             srcset="https://images.unsplash.com/photo-1774516534076-3cb7a800a9a1?w=640&q=70 640w, https://images.unsplash.com/photo-1774516534076-3cb7a800a9a1?w=1024&q=75 1024w, https://images.unsplash.com/photo-1774516534076-3cb7a800a9a1?w=1600&q=75 1600w"
+                             sizes="(min-width: 1024px) 1200px, 100vw"
                              alt="Refugi: A modern concrete mountain retreat with floor-to-ceiling windows overlooking a dramatic landscape"
                              class="w-full h-full object-cover" style="max-height: 70vh;"
-                             loading="lazy">
+                             loading="lazy" decoding="async">
                     </div>
 
                     <div class="mt-8 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
@@ -407,10 +407,12 @@
                     <div class="w-full h-[1px] bg-terracotta mb-10" aria-hidden="true"></div>
 
                     <div class="project-img w-full" style="max-height: 70vh; overflow: hidden;">
-                        <img src="https://images.unsplash.com/photo-1741482529106-39c9086b211d?w=1600&q=80"
+                        <img src="https://images.unsplash.com/photo-1741482529106-39c9086b211d?w=1024&q=75"
+                             srcset="https://images.unsplash.com/photo-1741482529106-39c9086b211d?w=640&q=70 640w, https://images.unsplash.com/photo-1741482529106-39c9086b211d?w=1024&q=75 1024w, https://images.unsplash.com/photo-1741482529106-39c9086b211d?w=1600&q=75 1600w"
+                             sizes="(min-width: 1024px) 1200px, 100vw"
                              alt="Pont del Mar: A modern curved pedestrian bridge with clean architectural lines and minimalist concrete structure"
                              class="w-full h-full object-cover" style="max-height: 70vh;"
-                             loading="lazy">
+                             loading="lazy" decoding="async">
                     </div>
 
                     <div class="mt-8 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
@@ -503,7 +505,7 @@
                     <!-- Principal 1 -->
                     <div class="w-full md:w-[45%]">
                         <div class="overflow-hidden rounded-lg" style="aspect-ratio: 3/4;">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=75" srcset="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=70 400w, https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=75 800w" sizes="(min-width: 768px) 400px, 100vw" decoding="async"
                                  alt="Portrait of Marc Puig-Riera, founding principal"
                                  class="w-full h-full object-cover"
                                  loading="lazy">
@@ -517,7 +519,7 @@
                     <!-- Principal 2 -->
                     <div class="w-full md:w-[45%]">
                         <div class="overflow-hidden rounded-lg" style="aspect-ratio: 3/4;">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=75" srcset="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=70 400w, https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=75 800w" sizes="(min-width: 768px) 400px, 100vw" decoding="async"
                                  alt="Portrait of Clara Vidal-Serra, design principal"
                                  class="w-full h-full object-cover"
                                  loading="lazy">
@@ -592,13 +594,28 @@
             <span class="font-body">&copy; 2025 Estudio Forma. Concept by <a href="https://agencyonda.com" class="text-terracotta hover:underline" style="transition: color 0.3s var(--ease);">Onda</a>.</span>
             <div class="flex items-center gap-6">
                 <a href="#" class="text-concrete hover:text-graphite transition-colors duration-500" style="transition-timing-function: var(--ease);" aria-label="Instagram">
-                    <i data-lucide="instagram" class="w-4 h-4" aria-hidden="true"></i>
+                    <svg aria-hidden="true" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                 </a>
                 <a href="#" class="text-concrete hover:text-graphite transition-colors duration-500" style="transition-timing-function: var(--ease);" aria-label="LinkedIn">
-                    <i data-lucide="linkedin" class="w-4 h-4" aria-hidden="true"></i>
+                    <svg aria-hidden="true" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
                 <a href="#" class="text-concrete hover:text-graphite transition-colors duration-500" style="transition-timing-function: var(--ease);" aria-label="Pinterest">
-                    <i data-lucide="pin" class="w-4 h-4" aria-hidden="true"></i>
+                    <!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-pin w-4 h-4"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 17v5" />
+  <path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z" />
+</svg>
                 </a>
             </div>
         </div>
@@ -608,26 +625,26 @@
     <!-- SCRIPTS                                       -->
     <!-- ============================================ -->
     <script>
-        lucide.createIcons();
 
         // ---- Mobile menu toggle ----
         const mobileToggle = document.getElementById('mobile-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileToggle && mobileMenu) {
+            function setMobileOpen(open) {
+                mobileMenu.classList.toggle('hidden', !open);
+                mobileMenu.classList.toggle('flex', open);
+                mobileToggle.setAttribute('aria-expanded', String(open));
+                mobileToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+                document.body.style.overflow = open ? 'hidden' : '';
+            }
             mobileToggle.addEventListener('click', () => {
-                const open = !mobileMenu.classList.contains('hidden');
-                mobileMenu.classList.toggle('hidden', open);
-                mobileMenu.classList.toggle('flex', !open);
-                mobileToggle.setAttribute('aria-expanded', String(!open));
-                mobileToggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+                setMobileOpen(mobileMenu.classList.contains('hidden'));
             });
             mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                    mobileToggle.setAttribute('aria-expanded', 'false');
-                    mobileToggle.setAttribute('aria-label', 'Open menu');
-                });
+                link.addEventListener('click', () => setMobileOpen(false));
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) setMobileOpen(false);
             });
         }
 
@@ -637,16 +654,20 @@
         let ticking = false;
 
         function updateNav() {
+            const mm = document.getElementById('mobile-menu');
+            if (mm && mm.classList.contains('flex')) { ticking = false; return; }
             const sy = window.scrollY;
-            // Background
             if (sy > 80) {
                 navBar.classList.add('scrolled');
             } else {
                 navBar.classList.remove('scrolled');
             }
-            // Hide/show
-            if (sy > lastScrollY && sy > 200) {
-                navBar.classList.add('nav-hidden');
+            if (sy > 200) {
+                if (sy > lastScrollY + 6) {
+                    navBar.classList.add('nav-hidden');
+                } else if (sy < lastScrollY - 6) {
+                    navBar.classList.remove('nav-hidden');
+                }
             } else {
                 navBar.classList.remove('nav-hidden');
             }

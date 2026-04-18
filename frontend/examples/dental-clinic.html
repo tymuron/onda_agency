@@ -18,40 +18,13 @@
     <meta name="twitter:title" content="Cl&iacute;nica Blanc | Precision Dentistry">
     <meta name="twitter:description" content="Clinical precision meets warm humanity. Modern dentistry in Barcelona.">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=800&fit=crop&crop=center&q=75" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        frost: '#F8FAFB',
-                        surface: '#FFFFFF',
-                        slate: { deep: '#1E293B' },
-                        cool: { gray: '#64748B' },
-                        sage: '#059669',
-                        'sage-dark': '#047857',
-                        mint: { wash: '#ECFDF5' },
-                    },
-                    fontFamily: {
-                        satoshi: ['Satoshi', 'system-ui', 'sans-serif'],
-                        mono: ['Geist Mono', 'monospace'],
-                    },
-                    borderRadius: {
-                        '4xl': '2rem',
-                        '5xl': 'calc(2rem - 0.375rem)',
-                    },
-                }
-            }
-        }
-    </script>
 
     <style>
         :root {
@@ -503,6 +476,7 @@
             .team-row::before { transition: none; }
         }
     </style>
+    <link rel="stylesheet" href="./_css/dental-clinic.css">
 </head>
 
 <body class="overflow-x-hidden">
@@ -622,7 +596,7 @@
                 <div class="reveal" style="transition-delay: 150ms;">
                     <div class="bezel-outer hero-image-wrap">
                         <div class="bezel-inner" style="aspect-ratio: 3/4;">
-                            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=800&fit=crop&crop=center" alt="Modern dental clinic interior with minimalist design and natural light" loading="eager" width="600" height="800">
+                            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=800&fit=crop&crop=center&q=75" alt="Modern dental clinic interior with minimalist design and natural light" loading="eager" fetchpriority="high" decoding="async" width="600" height="800">
                         </div>
                     </div>
                 </div>
@@ -873,7 +847,7 @@
                 <div class="space-y-0">
                     <!-- Team row 1 -->
                     <div class="team-row flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 py-6 sm:py-7 px-4 sm:px-6 reveal cursor-default" style="border-bottom: 1px solid var(--border-subtle);">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=128&h=128&fit=crop&crop=face" alt="Dra. Mar&iacute;a L&oacute;pez" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" width="56" height="56">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=128&h=128&fit=crop&crop=face&q=75" alt="Dra. Mar&iacute;a L&oacute;pez" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" decoding="async" width="56" height="56">
                         <div class="flex-1 min-w-0">
                             <h3 class="font-satoshi font-bold text-lg" style="letter-spacing: -0.01em;">Dra. Mar&iacute;a L&oacute;pez</h3>
                             <p class="text-sm" style="color: var(--cool-gray);">Lead Dentist &middot; 18 years experience</p>
@@ -887,7 +861,7 @@
 
                     <!-- Team row 2 -->
                     <div class="team-row flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 py-6 sm:py-7 px-4 sm:px-6 reveal" style="border-bottom: 1px solid var(--border-subtle); transition-delay: 80ms;">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=128&h=128&fit=crop&crop=face" alt="Dr. Javier Ruiz" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" width="56" height="56">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=128&h=128&fit=crop&crop=face&q=75" alt="Dr. Javier Ruiz" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" decoding="async" width="56" height="56">
                         <div class="flex-1 min-w-0">
                             <h3 class="font-satoshi font-bold text-lg" style="letter-spacing: -0.01em;">Dr. Javier Ruiz</h3>
                             <p class="text-sm" style="color: var(--cool-gray);">Implantologist &middot; 14 years experience</p>
@@ -901,7 +875,7 @@
 
                     <!-- Team row 3 -->
                     <div class="team-row flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 py-6 sm:py-7 px-4 sm:px-6 reveal" style="border-bottom: 1px solid var(--border-subtle); transition-delay: 160ms;">
-                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=128&h=128&fit=crop&crop=face" alt="Dra. Clara Navarro" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" width="56" height="56">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=128&h=128&fit=crop&crop=face&q=75" alt="Dra. Clara Navarro" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" decoding="async" width="56" height="56">
                         <div class="flex-1 min-w-0">
                             <h3 class="font-satoshi font-bold text-lg" style="letter-spacing: -0.01em;">Dra. Clara Navarro</h3>
                             <p class="text-sm" style="color: var(--cool-gray);">Orthodontist &middot; 9 years experience</p>
@@ -914,7 +888,7 @@
 
                     <!-- Team row 4 -->
                     <div class="team-row flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 py-6 sm:py-7 px-4 sm:px-6 reveal" style="border-bottom: 1px solid var(--border-subtle); transition-delay: 240ms;">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=128&h=128&fit=crop&crop=face" alt="Dr. Pau Ferrer" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" width="56" height="56">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=128&h=128&fit=crop&crop=face&q=75" alt="Dr. Pau Ferrer" class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" decoding="async" width="56" height="56">
                         <div class="flex-1 min-w-0">
                             <h3 class="font-satoshi font-bold text-lg" style="letter-spacing: -0.01em;">Dr. Pau Ferrer</h3>
                             <p class="text-sm" style="color: var(--cool-gray);">Periodontist &middot; 11 years experience</p>
@@ -995,7 +969,7 @@
                 <div class="reveal" style="transition-delay: 200ms;">
                     <div class="bezel-outer">
                         <div class="bezel-inner" style="aspect-ratio: 4/5;">
-                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=700&h=875&fit=crop&crop=center" alt="Modern dental technology equipment in a bright, clean clinic environment" loading="lazy" width="700" height="875">
+                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=700&h=875&fit=crop&crop=center&q=75" alt="Modern dental technology equipment in a bright, clean clinic environment" loading="lazy" decoding="async" width="700" height="875">
                         </div>
                     </div>
                 </div>
@@ -1171,11 +1145,13 @@
         function onScroll() {
             if (!ticking) {
                 window.requestAnimationFrame(function() {
+                    var ov = document.getElementById('mobile-overlay');
+                    if (ov && ov.classList.contains('active')) { ticking = false; return; }
                     var currentScroll = window.pageYOffset;
                     if (currentScroll > 80) {
-                        if (currentScroll > lastScroll + 5) {
+                        if (currentScroll > lastScroll + 6) {
                             nav.classList.add('nav-hidden');
-                        } else if (currentScroll < lastScroll - 5) {
+                        } else if (currentScroll < lastScroll - 6) {
                             nav.classList.remove('nav-hidden');
                         }
                     } else {
@@ -1212,6 +1188,9 @@
                 link.addEventListener('click', closeMenu);
             });
         }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) closeMenu();
+        });
 
         // === SCROLL REVEAL (IntersectionObserver) ===
         var revealObserver = new IntersectionObserver(function(entries) {

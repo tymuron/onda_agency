@@ -14,7 +14,7 @@
     <meta property="og:title" content="Barba Negra — Premium Barbershop Barcelona">
     <meta property="og:description" content="Craft grooming in the heart of Barcelona's Gothic Quarter. Precision cuts, beard sculpting, and hot towel shaves by master barbers.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&h=630&q=75">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Barba Negra — Premium Barbershop Barcelona">
     <meta name="twitter:description" content="Craft grooming in the heart of Barcelona's Gothic Quarter.">
@@ -22,34 +22,13 @@
     <!-- Fonts: preconnect + link (NOT @import) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&h=900&q=75" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        espresso: '#0C0A09',
-                        surface: '#1C1917',
-                        cream: '#FAFAF9',
-                        stone: '#A8A29E',
-                        copper: '#B87333',
-                        'copper-dark': '#9A5F2A',
-                    },
-                    fontFamily: {
-                        display: ['"Playfair Display"', 'serif'],
-                        body: ['"Space Grotesk"', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
 
     <style>
         :root {
@@ -472,6 +451,7 @@
             .testimonial-glyph { font-size: 6rem !important; }
         }
     </style>
+    <link rel="stylesheet" href="./_css/barbershop.css">
 </head>
 <body>
 
@@ -558,10 +538,10 @@
                 <div class="bezel" style="width:100%;max-width:520px;height:min(80vh, 700px);">
                     <div class="bezel-inner" style="padding:0;height:100%;overflow:hidden;">
                         <img
-                            src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&h=900&q=80"
+                            src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&h=900&q=75"
                             alt="Interior of Barba Negra barbershop with leather chairs and warm lighting"
                             style="width:100%;height:100%;object-fit:cover;"
-                            loading="eager"
+                            loading="eager" fetchpriority="high" decoding="async"
                         />
                     </div>
                 </div>
@@ -688,22 +668,22 @@
 
             <div class="h-gallery sr" style="padding-left:0;">
                 <div class="h-gallery-item" style="width:360px;height:480px;">
-                    <img src="https://images.unsplash.com/photo-1541533848490-bc8115cd6522?auto=format&fit=crop&w=360&h=480&q=80" alt="Barber performing precision cut" loading="lazy"/>
+                    <img src="https://images.unsplash.com/photo-1541533848490-bc8115cd6522?auto=format&fit=crop&w=360&h=480&q=75" alt="Barber performing precision cut" loading="lazy" decoding="async"/>
                 </div>
                 <div class="h-gallery-item" style="width:300px;height:400px;">
-                    <img src="https://images.unsplash.com/photo-1654097803253-d481b6751f29?auto=format&fit=crop&w=300&h=400&q=80" alt="Beard sculpting in progress" loading="lazy"/>
+                    <img src="https://images.unsplash.com/photo-1654097803253-d481b6751f29?auto=format&fit=crop&w=300&h=400&q=75" alt="Beard sculpting in progress" loading="lazy" decoding="async"/>
                 </div>
                 <div class="h-gallery-item" style="width:420px;height:320px;">
-                    <img src="https://images.unsplash.com/photo-1572663459735-75425e957ab9?auto=format&fit=crop&w=420&h=320&q=80" alt="Barba Negra shop interior" loading="lazy"/>
+                    <img src="https://images.unsplash.com/photo-1572663459735-75425e957ab9?auto=format&fit=crop&w=420&h=320&q=75" alt="Barba Negra shop interior" loading="lazy" decoding="async"/>
                 </div>
                 <div class="h-gallery-item" style="width:280px;height:440px;">
-                    <img src="https://images.unsplash.com/photo-1761148438883-e34e0289a214?auto=format&fit=crop&w=280&h=440&q=80" alt="Straight razor detail" loading="lazy"/>
+                    <img src="https://images.unsplash.com/photo-1761148438883-e34e0289a214?auto=format&fit=crop&w=280&h=440&q=75" alt="Straight razor detail" loading="lazy" decoding="async"/>
                 </div>
                 <div class="h-gallery-item" style="width:380px;height:380px;">
-                    <img src="https://images.unsplash.com/photo-1596362601603-b74f6ef166e4?auto=format&fit=crop&w=380&h=380&q=80" alt="Vintage barbering tools on display" loading="lazy"/>
+                    <img src="https://images.unsplash.com/photo-1596362601603-b74f6ef166e4?auto=format&fit=crop&w=380&h=380&q=75" alt="Vintage barbering tools on display" loading="lazy" decoding="async"/>
                 </div>
                 <div class="h-gallery-item" style="width:320px;height:460px;">
-                    <img src="https://images.unsplash.com/photo-1621645582931-d1d3e6564943?auto=format&fit=crop&w=320&h=460&q=80" alt="Leather barber chair" loading="lazy"/>
+                    <img src="https://images.unsplash.com/photo-1621645582931-d1d3e6564943?auto=format&fit=crop&w=320&h=460&q=75" alt="Leather barber chair" loading="lazy" decoding="async"/>
                 </div>
             </div>
         </section>
@@ -724,11 +704,11 @@
                     <div class="bezel">
                         <div class="bezel-inner" style="padding:0;overflow:hidden;">
                             <img
-                                src="https://images.unsplash.com/photo-1619233543112-fe382ff3693d?auto=format&fit=crop&w=700&h=520&q=80"
+                                src="https://images.unsplash.com/photo-1619233543112-fe382ff3693d?auto=format&fit=crop&w=700&h=520&q=75"
                                 alt="Carlos, founder and master barber"
                                 class="crew-photo-large"
                                 style="width:100%;height:420px;object-fit:cover;display:block;"
-                                loading="lazy"
+                                loading="lazy" decoding="async"
                             />
                         </div>
                     </div>
@@ -755,11 +735,11 @@
                     <div class="bezel">
                         <div class="bezel-inner" style="padding:0;overflow:hidden;">
                             <img
-                                src="https://images.unsplash.com/photo-1589315876349-1201fd1baaef?auto=format&fit=crop&w=700&h=520&q=80"
+                                src="https://images.unsplash.com/photo-1589315876349-1201fd1baaef?auto=format&fit=crop&w=700&h=520&q=75"
                                 alt="Miguel, fade specialist"
                                 class="crew-photo-large"
                                 style="width:100%;height:420px;object-fit:cover;display:block;"
-                                loading="lazy"
+                                loading="lazy" decoding="async"
                             />
                         </div>
                     </div>
@@ -769,11 +749,11 @@
                     <div class="bezel">
                         <div class="bezel-inner" style="padding:0;overflow:hidden;">
                             <img
-                                src="https://images.unsplash.com/photo-1590540179778-c783d4048cab?auto=format&fit=crop&w=700&h=520&q=80"
+                                src="https://images.unsplash.com/photo-1590540179778-c783d4048cab?auto=format&fit=crop&w=700&h=520&q=75"
                                 alt="Ana, beard and styling specialist"
                                 class="crew-photo-large"
                                 style="width:100%;height:420px;object-fit:cover;display:block;"
-                                loading="lazy"
+                                loading="lazy" decoding="async"
                             />
                         </div>
                     </div>
@@ -846,10 +826,10 @@
                     <!-- Left: atmospheric image -->
                     <div class="contact-bg-col" style="position:relative;min-height:500px;overflow:hidden;">
                         <img
-                            src="https://images.unsplash.com/photo-1768938896401-fe52fd18d3af?auto=format&fit=crop&w=800&h=600&q=80"
+                            src="https://images.unsplash.com/photo-1768938896401-fe52fd18d3af?auto=format&fit=crop&w=800&h=600&q=75"
                             alt="Barba Negra storefront in Barcelona's Gothic Quarter"
                             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            loading="lazy"
+                            loading="lazy" decoding="async"
                         />
                         <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(12,10,9,0.7) 0%, rgba(12,10,9,0.3) 100%);" aria-hidden="true"></div>
                         <div style="position:absolute;bottom:2rem;left:2rem;right:2rem;">
@@ -960,9 +940,15 @@
         let ticking = false;
 
         function updateNav() {
+            const overlay = document.getElementById('mobileOverlay');
+            if (overlay && overlay.classList.contains('open')) { ticking = false; return; }
             const y = window.scrollY;
-            if (y > lastY && y > 120) {
-                nav.classList.add('hidden');
+            if (y > 120) {
+                if (y > lastY + 6) {
+                    nav.classList.add('hidden');
+                } else if (y < lastY - 6) {
+                    nav.classList.remove('hidden');
+                }
             } else {
                 nav.classList.remove('hidden');
             }
@@ -1006,13 +992,17 @@
             }
         });
 
+        function closeMenu() {
+            overlay.classList.remove('open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
         mobileLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                overlay.classList.remove('open');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            });
+            link.addEventListener('click', closeMenu);
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
         });
 
 
@@ -1117,11 +1107,6 @@
             });
         });
 
-
-        // ---- LUCIDE ICONS INIT ----
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
 
     })();
     </script>

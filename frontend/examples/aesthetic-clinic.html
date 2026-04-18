@@ -22,32 +22,11 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        serif: ['"Cormorant Garamond"', 'serif'],
-                        sans: ['"DM Sans"', 'sans-serif'],
-                        mono: ['"Geist Mono"', 'monospace'],
-                    },
-                    colors: {
-                        bg: '#0A0A0A',
-                        surface: '#161616',
-                        ivory: '#F5F0EB',
-                        silver: '#A39E99',
-                        rose: '#C4956A',
-                        deep: '#070707',
-                    },
-                }
-            }
-        }
-    </script>
+    <!-- Preload hero image for LCP -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1760722326919-b020ecfbffce?auto=format&fit=crop&w=900&q=75" imagesrcset="https://images.unsplash.com/photo-1760722326919-b020ecfbffce?auto=format&fit=crop&w=640&q=70 640w, https://images.unsplash.com/photo-1760722326919-b020ecfbffce?auto=format&fit=crop&w=1024&q=75 1024w, https://images.unsplash.com/photo-1760722326919-b020ecfbffce?auto=format&fit=crop&w=1600&q=75 1600w" imagesizes="100vw" fetchpriority="high">
 
     <style>
         :root {
@@ -160,10 +139,11 @@
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--glass-border);
-            transition: transform 0.5s var(--ease), opacity 0.5s var(--ease);
+            transition: transform 0.4s var(--ease), opacity 0.4s var(--ease);
+            will-change: transform;
         }
         .nav-glass.nav-hidden {
-            transform: translateY(-120%);
+            transform: translate(-50%, -140%);
             opacity: 0;
         }
         .nav-glass a:hover {
@@ -363,6 +343,7 @@
             .gallery-card { flex: 0 0 280px; }
         }
     </style>
+    <link rel="stylesheet" href="./_css/aesthetic-clinic.css">
 </head>
 
 <body>
@@ -402,12 +383,43 @@
             <!-- CTA -->
             <a href="#booking" class="hidden md:inline-flex btn-primary text-[13px] py-2.5 px-5 gap-2 ml-2">
                 Book Now
-                <span class="btn-arrow w-6 h-6"><i data-lucide="arrow-up-right" class="w-3.5 h-3.5" aria-hidden="true"></i></span>
+                <span class="btn-arrow w-6 h-6"><!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-arrow-up-right w-3.5 h-3.5"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 7h10v10" />
+  <path d="M7 17 17 7" />
+</svg></span>
             </a>
 
             <!-- Mobile Toggle -->
             <button id="nav-toggle" class="md:hidden text-ivory p-1" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
-                <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
+                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-menu w-6 h-6"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" />
+</svg>
             </button>
         </div>
     </nav>
@@ -415,7 +427,22 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-nav" class="fixed inset-0 z-40 bg-[#0A0A0A]/95 backdrop-blur-3xl flex flex-col items-center justify-center gap-8 text-center opacity-0 pointer-events-none transition-opacity duration-500" style="transition-timing-function: var(--ease);" role="dialog" aria-modal="true" aria-label="Navigation menu">
         <button id="nav-close" class="absolute top-5 right-5 text-ivory p-2" aria-label="Close navigation menu">
-            <i data-lucide="x" class="w-7 h-7" aria-hidden="true"></i>
+            <!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-x w-7 h-7"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M18 6 6 18" />
+  <path d="m6 6 12 12" />
+</svg>
         </button>
         <a href="#treatments" class="mobile-nav-link font-serif text-3xl text-ivory opacity-0 translate-y-8" style="transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); transition-delay: 0.1s;">Treatments</a>
         <a href="#philosophy" class="mobile-nav-link font-serif text-3xl text-ivory opacity-0 translate-y-8" style="transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); transition-delay: 0.15s;">Philosophy</a>
@@ -423,7 +450,22 @@
         <a href="#team" class="mobile-nav-link font-serif text-3xl text-ivory opacity-0 translate-y-8" style="transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); transition-delay: 0.25s;">Specialists</a>
         <a href="#booking" class="mobile-nav-link btn-primary text-lg mt-4 opacity-0 translate-y-8" style="transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); transition-delay: 0.3s;">
             Book Consultation
-            <span class="btn-arrow"><i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i></span>
+            <span class="btn-arrow"><!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-arrow-up-right w-4 h-4"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 7h10v10" />
+  <path d="M7 17 17 7" />
+</svg></span>
         </a>
     </div>
 
@@ -436,7 +478,7 @@
         <section class="relative min-h-[100dvh] flex items-center overflow-hidden" aria-label="Hero">
             <!-- Background Image -->
             <div class="absolute inset-0 z-0" aria-hidden="true">
-                <img src="https://images.unsplash.com/photo-1760722326919-b020ecfbffce?auto=format&fit=crop&w=1600&h=900&q=80" alt="" class="w-full h-full object-cover" loading="eager">
+                <img src="https://images.unsplash.com/photo-1760722326919-b020ecfbffce?auto=format&fit=crop&w=1024&q=75" srcset="https://images.unsplash.com/photo-1760722326919-b020ecfbffce?auto=format&fit=crop&w=640&q=70 640w, https://images.unsplash.com/photo-1760722326919-b020ecfbffce?auto=format&fit=crop&w=1024&q=75 1024w, https://images.unsplash.com/photo-1760722326919-b020ecfbffce?auto=format&fit=crop&w=1600&q=75 1600w" sizes="100vw" alt="" class="w-full h-full object-cover" style="object-position: 65% center;" fetchpriority="high" decoding="async" width="1600" height="900">
                 <div class="absolute inset-0" style="background: rgba(10,10,10,0.72);"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent"></div>
             </div>
@@ -466,7 +508,22 @@
                     <div class="hero-fade" style="animation-delay: 1.3s;">
                         <a href="#booking" class="btn-primary">
                             Schedule Consultation
-                            <span class="btn-arrow"><i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i></span>
+                            <span class="btn-arrow"><!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-arrow-up-right w-4 h-4"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 7h10v10" />
+  <path d="M7 17 17 7" />
+</svg></span>
                         </a>
                     </div>
                 </div>
@@ -488,7 +545,7 @@
                         </blockquote>
                         <div class="mt-10 flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full overflow-hidden border border-rose/20">
-                                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=200&h=200&crop=face&q=80" alt="Dr. Elena Vidal" class="w-full h-full object-cover">
+                                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=128&h=128&crop=faces&q=75" alt="Dr. Elena Vidal" class="w-full h-full object-cover" loading="lazy" decoding="async" width="128" height="128">
                             </div>
                             <div>
                                 <p class="text-sm font-medium text-ivory">Dr. Elena Vidal</p>
@@ -550,7 +607,22 @@
                             <div class="flex items-center gap-4 md:gap-6">
                                 <span class="font-mono text-sm text-silver hidden sm:inline">45 min</span>
                                 <span class="font-mono text-sm md:text-base text-rose">&euro;180</span>
-                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-plus w-4 h-4 text-silver transition-transform duration-300"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="M12 5v14" />
+</svg>
                             </div>
                         </button>
                         <div id="treat-1-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
@@ -573,7 +645,22 @@
                             <div class="flex items-center gap-4 md:gap-6">
                                 <span class="font-mono text-sm text-silver hidden sm:inline">60 min</span>
                                 <span class="font-mono text-sm md:text-base text-rose">&euro;350</span>
-                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-plus w-4 h-4 text-silver transition-transform duration-300"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="M12 5v14" />
+</svg>
                             </div>
                         </button>
                         <div id="treat-2-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
@@ -596,7 +683,22 @@
                             <div class="flex items-center gap-4 md:gap-6">
                                 <span class="font-mono text-sm text-silver hidden sm:inline">75 min</span>
                                 <span class="font-mono text-sm md:text-base text-rose">&euro;290</span>
-                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-plus w-4 h-4 text-silver transition-transform duration-300"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="M12 5v14" />
+</svg>
                             </div>
                         </button>
                         <div id="treat-3-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
@@ -619,7 +721,22 @@
                             <div class="flex items-center gap-4 md:gap-6">
                                 <span class="font-mono text-sm text-silver hidden sm:inline">50 min</span>
                                 <span class="font-mono text-sm md:text-base text-rose">&euro;220</span>
-                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-plus w-4 h-4 text-silver transition-transform duration-300"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="M12 5v14" />
+</svg>
                             </div>
                         </button>
                         <div id="treat-4-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
@@ -642,7 +759,22 @@
                             <div class="flex items-center gap-4 md:gap-6">
                                 <span class="font-mono text-sm text-silver hidden sm:inline">30 min</span>
                                 <span class="font-mono text-sm md:text-base text-rose">&euro;280</span>
-                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-plus w-4 h-4 text-silver transition-transform duration-300"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="M12 5v14" />
+</svg>
                             </div>
                         </button>
                         <div id="treat-5-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
@@ -665,7 +797,22 @@
                             <div class="flex items-center gap-4 md:gap-6">
                                 <span class="font-mono text-sm text-silver hidden sm:inline">120 min</span>
                                 <span class="font-mono text-sm md:text-base text-rose">&euro;580</span>
-                                <i data-lucide="plus" class="w-4 h-4 text-silver transition-transform duration-300" style="transition-timing-function: var(--ease);" aria-hidden="true"></i>
+                                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-plus w-4 h-4 text-silver transition-transform duration-300"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="M12 5v14" />
+</svg>
                             </div>
                         </button>
                         <div id="treat-6-body" class="treatment-body px-0 md:px-8 pb-0" role="region">
@@ -702,7 +849,7 @@
 
                     <!-- Card 1 -->
                     <div class="gallery-card" role="listitem">
-                        <img src="https://images.unsplash.com/photo-1516815989420-9cb5ef0fce78?auto=format&fit=crop&w=600&h=750&q=80" alt="HydraLift Facial result" class="w-full h-[400px] md:h-[480px] object-cover">
+                        <img src="https://images.unsplash.com/photo-1516815989420-9cb5ef0fce78?auto=format&fit=crop&w=600&h=750&q=75" alt="HydraLift Facial result" class="w-full h-[400px] md:h-[480px] object-cover" loading="lazy" decoding="async" width="600" height="750">
                         <div class="absolute bottom-0 left-0 right-0 p-5" style="background: rgba(10,10,10,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(196,149,106,0.1);">
                             <p class="font-serif text-lg text-ivory">HydraLift Facial</p>
                             <p class="font-mono text-[11px] text-silver tracking-wider mt-1">45 min &middot; Zero downtime</p>
@@ -711,7 +858,7 @@
 
                     <!-- Card 2 -->
                     <div class="gallery-card" role="listitem">
-                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&h=750&q=80" alt="Dermal Contouring result" class="w-full h-[400px] md:h-[480px] object-cover">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&h=750&q=75" alt="Dermal Contouring result" class="w-full h-[400px] md:h-[480px] object-cover" loading="lazy" decoding="async" width="600" height="750">
                         <div class="absolute bottom-0 left-0 right-0 p-5" style="background: rgba(10,10,10,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(196,149,106,0.1);">
                             <p class="font-serif text-lg text-ivory">Dermal Contouring</p>
                             <p class="font-mono text-[11px] text-silver tracking-wider mt-1">60 min &middot; 2&ndash;3 sessions</p>
@@ -720,7 +867,7 @@
 
                     <!-- Card 3 -->
                     <div class="gallery-card" role="listitem">
-                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&h=750&q=80" alt="Expression Refinement result" class="w-full h-[400px] md:h-[480px] object-cover">
+                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=600&h=750&q=75" alt="Expression Refinement result" class="w-full h-[400px] md:h-[480px] object-cover" loading="lazy" decoding="async" width="600" height="750">
                         <div class="absolute bottom-0 left-0 right-0 p-5" style="background: rgba(10,10,10,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(196,149,106,0.1);">
                             <p class="font-serif text-lg text-ivory">Expression Refinement</p>
                             <p class="font-mono text-[11px] text-silver tracking-wider mt-1">30 min &middot; Results in 5 days</p>
@@ -729,7 +876,7 @@
 
                     <!-- Card 4 -->
                     <div class="gallery-card" role="listitem">
-                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&h=750&q=80" alt="Micro-Needling Complex result" class="w-full h-[400px] md:h-[480px] object-cover">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&h=750&q=75" alt="Micro-Needling Complex result" class="w-full h-[400px] md:h-[480px] object-cover" loading="lazy" decoding="async" width="600" height="750">
                         <div class="absolute bottom-0 left-0 right-0 p-5" style="background: rgba(10,10,10,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(196,149,106,0.1);">
                             <p class="font-serif text-lg text-ivory">Micro-Needling Complex</p>
                             <p class="font-mono text-[11px] text-silver tracking-wider mt-1">50 min &middot; 3 session protocol</p>
@@ -738,7 +885,7 @@
 
                     <!-- Card 5 -->
                     <div class="gallery-card" role="listitem">
-                        <img src="https://images.unsplash.com/photo-1747303969063-3b90bcb3942e?auto=format&fit=crop&w=600&h=750&q=80" alt="Velara Signature result" class="w-full h-[400px] md:h-[480px] object-cover">
+                        <img src="https://images.unsplash.com/photo-1747303969063-3b90bcb3942e?auto=format&fit=crop&w=600&h=750&q=75" alt="Velara Signature result" class="w-full h-[400px] md:h-[480px] object-cover" loading="lazy" decoding="async" width="600" height="750">
                         <div class="absolute bottom-0 left-0 right-0 p-5" style="background: rgba(10,10,10,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(196,149,106,0.1);">
                             <p class="font-serif text-lg text-ivory">The Velara Signature</p>
                             <p class="font-mono text-[11px] text-silver tracking-wider mt-1">120 min &middot; Complete renewal</p>
@@ -763,7 +910,7 @@
                         <!-- Double-bezel frame -->
                         <div class="p-1.5 rounded-[1.5rem] border border-rose/10 bg-white/[0.02]">
                             <div class="rounded-[calc(1.5rem-0.375rem)] overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&h=1000&crop=face&q=80" alt="Dr. Elena Vidal, Founder and Medical Director" class="w-full h-[400px] md:h-[560px] object-cover">
+                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&h=750&crop=faces&q=75" srcset="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&h=500&crop=faces&q=75 400w, https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&h=1000&crop=faces&q=75 800w" sizes="(min-width: 768px) 50vw, 100vw" alt="Dr. Elena Vidal, Founder and Medical Director" class="w-full h-[400px] md:h-[560px] object-cover object-top" loading="lazy" decoding="async" width="800" height="1000">
                             </div>
                         </div>
                     </div>
@@ -791,7 +938,7 @@
                     <div class="team-card reveal p-1.5 rounded-[1.5rem] border border-rose/10 bg-white/[0.02]" style="transition-delay: 0.15s;">
                         <div class="rounded-[calc(1.5rem-0.375rem)] bg-[#161616] overflow-hidden flex flex-col sm:flex-row">
                             <div class="sm:w-40 md:w-48 flex-shrink-0">
-                                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&h=500&crop=face&q=80" alt="Dr. Marc Castellanos" class="w-full h-48 sm:h-full object-cover">
+                                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&h=500&crop=faces&q=75" alt="Dr. Marc Castellanos" class="w-full aspect-[4/5] sm:aspect-auto sm:h-full object-cover object-top" loading="lazy" decoding="async" width="400" height="500">
                             </div>
                             <div class="p-5 sm:p-6 flex flex-col justify-center">
                                 <h3 class="font-serif text-xl text-ivory font-medium">Dr. Marc Castellanos</h3>
@@ -807,7 +954,7 @@
                     <div class="team-card reveal p-1.5 rounded-[1.5rem] border border-rose/10 bg-white/[0.02]" style="transition-delay: 0.2s;">
                         <div class="rounded-[calc(1.5rem-0.375rem)] bg-[#161616] overflow-hidden flex flex-col sm:flex-row">
                             <div class="sm:w-40 md:w-48 flex-shrink-0">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=500&q=80" alt="Carla Fern&aacute;ndez" class="w-full h-48 sm:h-full object-cover">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=500&crop=faces&q=75" alt="Carla Fern&aacute;ndez" class="w-full aspect-[4/5] sm:aspect-auto sm:h-full object-cover object-top" loading="lazy" decoding="async" width="400" height="500">
                             </div>
                             <div class="p-5 sm:p-6 flex flex-col justify-center">
                                 <h3 class="font-serif text-xl text-ivory font-medium">Carla Fern&aacute;ndez</h3>
@@ -823,7 +970,7 @@
                     <div class="team-card reveal p-1.5 rounded-[1.5rem] border border-rose/10 bg-white/[0.02]" style="transition-delay: 0.25s;">
                         <div class="rounded-[calc(1.5rem-0.375rem)] bg-[#161616] overflow-hidden flex flex-col sm:flex-row">
                             <div class="sm:w-40 md:w-48 flex-shrink-0">
-                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&h=500&crop=face&q=80" alt="Laura Puig" class="w-full h-48 sm:h-full object-cover">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&h=500&crop=faces&q=75" alt="Laura Puig" class="w-full aspect-[4/5] sm:aspect-auto sm:h-full object-cover object-top" loading="lazy" decoding="async" width="400" height="500">
                             </div>
                             <div class="p-5 sm:p-6 flex flex-col justify-center">
                                 <h3 class="font-serif text-xl text-ivory font-medium">Laura Puig</h3>
@@ -839,7 +986,7 @@
                     <div class="team-card reveal p-1.5 rounded-[1.5rem] border border-rose/10 bg-white/[0.02]" style="transition-delay: 0.3s;">
                         <div class="rounded-[calc(1.5rem-0.375rem)] bg-[#161616] overflow-hidden flex flex-col sm:flex-row">
                             <div class="sm:w-40 md:w-48 flex-shrink-0">
-                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&h=500&crop=face&q=80" alt="Andrea Soler" class="w-full h-48 sm:h-full object-cover">
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&h=500&crop=faces&q=75" alt="Andrea Soler" class="w-full aspect-[4/5] sm:aspect-auto sm:h-full object-cover object-top" loading="lazy" decoding="async" width="400" height="500">
                             </div>
                             <div class="p-5 sm:p-6 flex flex-col justify-center">
                                 <h3 class="font-serif text-xl text-ivory font-medium">Andrea Soler</h3>
@@ -938,7 +1085,22 @@
                     <!-- CTA -->
                     <a href="tel:+34932847156" class="btn-primary text-base">
                         Schedule Consultation
-                        <span class="btn-arrow"><i data-lucide="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i></span>
+                        <span class="btn-arrow"><!-- @license lucide-static v1.8.0 - ISC -->
+<svg aria-hidden="true"
+  class="lucide lucide-arrow-up-right w-4 h-4"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 7h10v10" />
+  <path d="M7 17 17 7" />
+</svg></span>
                     </a>
 
                     <p class="text-silver/60 text-xs font-mono mt-8 tracking-wider">
@@ -988,13 +1150,13 @@
                     </div>
                     <div class="flex gap-4 mt-6">
                         <a href="#" class="text-silver hover:text-rose transition-colors duration-300" style="transition-timing-function: var(--ease);" aria-label="Instagram">
-                            <i data-lucide="instagram" class="w-5 h-5" aria-hidden="true"></i>
+                            <svg aria-hidden="true" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                         </a>
                         <a href="#" class="text-silver hover:text-rose transition-colors duration-300" style="transition-timing-function: var(--ease);" aria-label="Facebook">
-                            <i data-lucide="facebook" class="w-5 h-5" aria-hidden="true"></i>
+                            <svg aria-hidden="true" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                         </a>
                         <a href="#" class="text-silver hover:text-rose transition-colors duration-300" style="transition-timing-function: var(--ease);" aria-label="LinkedIn">
-                            <i data-lucide="linkedin" class="w-5 h-5" aria-hidden="true"></i>
+                            <svg aria-hidden="true" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                         </a>
                     </div>
                 </div>
@@ -1014,7 +1176,6 @@
     <!-- ============================== -->
     <script>
         // Initialize Lucide icons
-        lucide.createIcons();
 
         // ---- Mobile Nav ----
         const navToggle = document.getElementById('nav-toggle');
@@ -1026,6 +1187,7 @@
             mobileNav.classList.remove('opacity-0', 'pointer-events-none');
             mobileNav.classList.add('opacity-100', 'pointer-events-auto');
             navToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
             // Stagger reveal links
             mobileLinks.forEach(link => {
                 link.classList.remove('opacity-0', 'translate-y-8');
@@ -1038,29 +1200,51 @@
                 link.classList.add('opacity-0', 'translate-y-8');
                 link.classList.remove('opacity-100', 'translate-y-0');
             });
+            document.body.style.overflow = '';
             setTimeout(() => {
                 mobileNav.classList.add('opacity-0', 'pointer-events-none');
                 mobileNav.classList.remove('opacity-100', 'pointer-events-auto');
                 navToggle.setAttribute('aria-expanded', 'false');
             }, 300);
         }
+        // Escape key closes menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('pointer-events-auto')) closeMobileNav();
+        });
 
         navToggle.addEventListener('click', openMobileNav);
         navClose.addEventListener('click', closeMobileNav);
         mobileLinks.forEach(link => link.addEventListener('click', closeMobileNav));
 
 
-        // ---- Scroll-hide Nav ----
-        let lastScroll = 0;
+        // ---- Scroll-hide Nav (rAF-throttled, delta-thresholded) ----
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
+        let lastScroll = 0;
+        let navTicking = false;
+        function updateNav() {
+            // Don't hide while mobile menu is open
+            if (mobileNav && mobileNav.classList.contains('pointer-events-auto')) {
+                navTicking = false;
+                return;
+            }
             const current = window.scrollY;
-            if (current > lastScroll && current > 100) {
-                navbar.classList.add('nav-hidden');
+            if (current > 120) {
+                if (current > lastScroll + 6) {
+                    navbar.classList.add('nav-hidden');
+                } else if (current < lastScroll - 6) {
+                    navbar.classList.remove('nav-hidden');
+                }
             } else {
                 navbar.classList.remove('nav-hidden');
             }
             lastScroll = current;
+            navTicking = false;
+        }
+        window.addEventListener('scroll', () => {
+            if (!navTicking) {
+                window.requestAnimationFrame(updateNav);
+                navTicking = true;
+            }
         }, { passive: true });
 
 
@@ -1094,7 +1278,7 @@
         document.querySelectorAll('[data-treatment]').forEach(item => {
             const btn = item.querySelector('button');
             const body = item.querySelector('.treatment-body');
-            const icon = btn.querySelector('[data-lucide]');
+            const icon = btn.querySelector('svg');
 
             btn.addEventListener('click', () => {
                 const isOpen = body.classList.contains('open');
@@ -1102,7 +1286,7 @@
                 // Close all others
                 document.querySelectorAll('[data-treatment]').forEach(other => {
                     const otherBody = other.querySelector('.treatment-body');
-                    const otherIcon = other.querySelector('button [data-lucide]');
+                    const otherIcon = other.querySelector('button svg');
                     const otherBtn = other.querySelector('button');
                     otherBody.classList.remove('open');
                     other.setAttribute('aria-expanded', 'false');

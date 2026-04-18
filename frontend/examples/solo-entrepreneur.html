@@ -22,37 +22,10 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Lucide Icons -->
-    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'system-ui', 'sans-serif'],
-                        mono: ['Geist Mono', 'ui-monospace', 'monospace'],
-                    },
-                    colors: {
-                        surface: '#FFFFFF',
-                        canvas: '#FAFAFA',
-                        ink: '#0F172A',
-                        steel: '#64748B',
-                        indigo: {
-                            DEFAULT: '#4F46E5',
-                            dark: '#4338CA',
-                            light: '#E0E7FF',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -300,6 +273,7 @@
             .service-row:hover { padding-left: 1rem; }
         }
     </style>
+    <link rel="stylesheet" href="./_css/solo-entrepreneur.css">
 </head>
 
 <body>
@@ -330,7 +304,22 @@
                 <a href="#contact" class="btn-primary inline-flex items-center gap-2 bg-indigo text-white text-sm font-semibold rounded-full px-5 py-2.5">
                     <span>Let's talk</span>
                     <span class="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center">
-                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        <!-- @license lucide-static v1.8.0 - ISC -->
+<svg
+  class="lucide lucide-arrow-up-right w-3.5 h-3.5"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 7h10v10" />
+  <path d="M7 17 17 7" />
+</svg>
                     </span>
                 </a>
 
@@ -378,7 +367,22 @@
                             <a href="#contact" class="btn-primary group inline-flex items-center gap-3 bg-indigo text-white text-base font-semibold rounded-full px-7 py-4">
                                 <span>Start a project</span>
                                 <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-500" style="transition-timing-function: var(--ease);">
-                                    <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style="transition-timing-function: var(--ease);"></i>
+                                    <!-- @license lucide-static v1.8.0 - ISC -->
+<svg
+  class="lucide lucide-arrow-up-right w-4 h-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 7h10v10" />
+  <path d="M7 17 17 7" />
+</svg>
                                 </span>
                             </a>
                             <div class="flex items-center gap-3 text-sm text-steel">
@@ -550,7 +554,7 @@
                     <article class="project-card shrink-0 w-[320px] md:w-[380px] rounded-[1.5rem] bg-white overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); aspect-ratio: 3/4;">
                         <div class="relative h-full flex flex-col">
                             <div class="flex-1 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=760&h=900&q=80" alt="Meridian app interface showing dashboard" class="w-full h-full object-cover" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&h=600&q=75" alt="Meridian app interface showing dashboard" class="w-full h-full object-cover" loading="lazy" decoding="async">
                             </div>
                             <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent backdrop-blur-sm pt-16">
                                 <p class="font-mono text-xs text-indigo tracking-wider uppercase mb-1">SaaS Platform</p>
@@ -563,7 +567,7 @@
                     <article class="project-card shrink-0 w-[320px] md:w-[380px] rounded-[1.5rem] bg-white overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); aspect-ratio: 3/4;">
                         <div class="relative h-full flex flex-col">
                             <div class="flex-1 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&w=760&h=900&q=80" alt="Canopy health app interface" class="w-full h-full object-cover" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&w=500&h=600&q=75" alt="Canopy health app interface" class="w-full h-full object-cover" loading="lazy" decoding="async">
                             </div>
                             <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent backdrop-blur-sm pt-16">
                                 <p class="font-mono text-xs text-indigo tracking-wider uppercase mb-1">Health Tech</p>
@@ -576,7 +580,7 @@
                     <article class="project-card shrink-0 w-[320px] md:w-[380px] rounded-[1.5rem] bg-white overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); aspect-ratio: 3/4;">
                         <div class="relative h-full flex flex-col">
                             <div class="flex-1 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=760&h=900&q=80" alt="Threadline collaboration tool" class="w-full h-full object-cover" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&h=600&q=75" alt="Threadline collaboration tool" class="w-full h-full object-cover" loading="lazy" decoding="async">
                             </div>
                             <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent backdrop-blur-sm pt-16">
                                 <p class="font-mono text-xs text-indigo tracking-wider uppercase mb-1">Collaboration</p>
@@ -589,7 +593,7 @@
                     <article class="project-card shrink-0 w-[320px] md:w-[380px] rounded-[1.5rem] bg-white overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); aspect-ratio: 3/4;">
                         <div class="relative h-full flex flex-col">
                             <div class="flex-1 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=760&h=900&q=80" alt="Vaulted fintech app" class="w-full h-full object-cover" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=500&h=600&q=75" alt="Vaulted fintech app" class="w-full h-full object-cover" loading="lazy" decoding="async">
                             </div>
                             <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent backdrop-blur-sm pt-16">
                                 <p class="font-mono text-xs text-indigo tracking-wider uppercase mb-1">Fintech</p>
@@ -602,7 +606,7 @@
                     <article class="project-card shrink-0 w-[320px] md:w-[380px] rounded-[1.5rem] bg-white overflow-hidden" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); aspect-ratio: 3/4;">
                         <div class="relative h-full flex flex-col">
                             <div class="flex-1 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=760&h=900&q=80" alt="Forma design tool interface" class="w-full h-full object-cover" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=500&h=600&q=75" alt="Forma design tool interface" class="w-full h-full object-cover" loading="lazy" decoding="async">
                             </div>
                             <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent backdrop-blur-sm pt-16">
                                 <p class="font-mono text-xs text-indigo tracking-wider uppercase mb-1">Design Tool</p>
@@ -704,7 +708,22 @@
                         <div class="reveal relative" style="min-height: 380px;" id="testimonialStack" role="region" aria-label="Testimonial carousel" aria-roledescription="carousel">
                             <!-- Card 1 -->
                             <div class="testimonial-card bg-white rounded-[1.5rem] p-8 md:p-10" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); border: 1px solid rgba(15,23,42,0.06);" data-position="0" role="group" aria-roledescription="slide" aria-label="Testimonial 1 of 3" tabindex="0">
-                                <i data-lucide="quote" class="w-8 h-8 text-indigo/20 mb-6"></i>
+                                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg
+  class="lucide lucide-quote w-8 h-8 text-indigo/20 mb-6"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+  <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+</svg>
                                 <blockquote class="text-lg md:text-xl text-ink leading-relaxed font-medium">
                                     "Kai took a vague idea and turned it into a product that generated $400k ARR within eight months. He thinks like a founder, not a contractor."
                                 </blockquote>
@@ -720,7 +739,22 @@
                             </div>
                             <!-- Card 2 -->
                             <div class="testimonial-card bg-white rounded-[1.5rem] p-8 md:p-10" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); border: 1px solid rgba(15,23,42,0.06);" data-position="1" role="group" aria-roledescription="slide" aria-label="Testimonial 2 of 3" tabindex="0">
-                                <i data-lucide="quote" class="w-8 h-8 text-indigo/20 mb-6"></i>
+                                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg
+  class="lucide lucide-quote w-8 h-8 text-indigo/20 mb-6"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+  <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+</svg>
                                 <blockquote class="text-lg md:text-xl text-ink leading-relaxed font-medium">
                                     "We hired Kai for six weeks. He rebuilt our entire frontend, cut load times by 73%, and left us with a codebase we could actually maintain."
                                 </blockquote>
@@ -736,7 +770,22 @@
                             </div>
                             <!-- Card 3 -->
                             <div class="testimonial-card bg-white rounded-[1.5rem] p-8 md:p-10" style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08); border: 1px solid rgba(15,23,42,0.06);" data-position="2" role="group" aria-roledescription="slide" aria-label="Testimonial 3 of 3" tabindex="0">
-                                <i data-lucide="quote" class="w-8 h-8 text-indigo/20 mb-6"></i>
+                                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg
+  class="lucide lucide-quote w-8 h-8 text-indigo/20 mb-6"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+  <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+</svg>
                                 <blockquote class="text-lg md:text-xl text-ink leading-relaxed font-medium">
                                     "The rare person who can whiteboard product strategy at 10 AM and push production code at 4 PM. Worth every dollar and then some."
                                 </blockquote>
@@ -774,12 +823,42 @@
                         <a href="mailto:kai@andersen.studio" class="btn-secondary group inline-flex items-center gap-3 bg-white text-indigo text-base font-semibold rounded-full px-7 py-4 hover:bg-white hover:text-indigo-dark" style="transition: transform 0.2s var(--ease);">
                             <span>kai@andersen.studio</span>
                             <span class="w-8 h-8 rounded-full bg-indigo/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-0.5" style="transition-timing-function: var(--ease);">
-                                <i data-lucide="mail" class="w-4 h-4 text-indigo"></i>
+                                <!-- @license lucide-static v1.8.0 - ISC -->
+<svg
+  class="lucide lucide-mail w-4 h-4 text-indigo"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+  <rect x="2" y="4" width="20" height="16" rx="2" />
+</svg>
                             </span>
                         </a>
                         <a href="#" class="inline-flex items-center gap-2 text-white/80 text-sm font-medium hover:text-white transition-colors duration-300" style="transition-timing-function: var(--ease);">
                             <span>Book a 30-min call</span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            <!-- @license lucide-static v1.8.0 - ISC -->
+<svg
+  class="lucide lucide-arrow-up-right w-4 h-4"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 7h10v10" />
+  <path d="M7 17 17 7" />
+</svg>
                         </a>
                     </div>
                 </div>
@@ -813,10 +892,10 @@
                 <div>
                     <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-steel/60 mb-5">Connect</h4>
                     <ul class="flex flex-col gap-3">
-                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><i data-lucide="twitter" class="w-4 h-4"></i> X / Twitter</a></li>
-                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn</a></li>
-                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><i data-lucide="github" class="w-4 h-4"></i> GitHub</a></li>
-                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><i data-lucide="dribbble" class="w-4 h-4"></i> Dribbble</a></li>
+                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg> X / Twitter</a></li>
+                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn</a></li>
+                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub</a></li>
+                        <li><a href="#" class="text-sm text-steel hover:text-ink transition-colors duration-300 inline-flex items-center gap-2" style="transition-timing-function: var(--ease);"><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"/><path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"/><path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"/></svg> Dribbble</a></li>
                     </ul>
                 </div>
             </div>
@@ -831,7 +910,6 @@
     <script>
         // Initialize Lucide Icons
         document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
         });
 
         // --- Scroll Reveal ---
@@ -871,17 +949,30 @@
 
         document.querySelectorAll('.timeline-step').forEach(el => timelineObserver.observe(el));
 
-        // --- Nav Scroll Hide ---
-        let lastScrollY = 0;
+        // --- Nav Scroll Hide (rAF + delta threshold) ---
         const nav = document.querySelector('.nav-floating');
-        window.addEventListener('scroll', () => {
+        let lastScrollY = 0;
+        let navTicking = false;
+        function updateFloatingNav() {
+            if (typeof menuOpen !== 'undefined' && menuOpen) { navTicking = false; return; }
             const currentY = window.scrollY;
-            if (currentY > lastScrollY && currentY > 200) {
-                nav.classList.add('nav-hidden');
+            if (currentY > 200) {
+                if (currentY > lastScrollY + 6) {
+                    nav.classList.add('nav-hidden');
+                } else if (currentY < lastScrollY - 6) {
+                    nav.classList.remove('nav-hidden');
+                }
             } else {
                 nav.classList.remove('nav-hidden');
             }
             lastScrollY = currentY;
+            navTicking = false;
+        }
+        window.addEventListener('scroll', () => {
+            if (!navTicking) {
+                window.requestAnimationFrame(updateFloatingNav);
+                navTicking = true;
+            }
         }, { passive: true });
 
         // --- Mobile Menu ---
@@ -891,18 +982,17 @@
         const menuLines = menuToggle.querySelectorAll('span');
         let menuOpen = false;
 
-        menuToggle.addEventListener('click', () => {
-            menuOpen = !menuOpen;
-            menuToggle.setAttribute('aria-expanded', menuOpen);
-
-            if (menuOpen) {
+        function setMenuOpen(open) {
+            menuOpen = open;
+            menuToggle.setAttribute('aria-expanded', open);
+            document.body.style.overflow = open ? 'hidden' : '';
+            if (open) {
                 mobileMenu.style.opacity = '1';
                 mobileMenu.style.pointerEvents = 'auto';
                 mobileLinks.forEach(link => {
                     link.style.transform = 'translateY(0)';
                     link.style.opacity = '1';
                 });
-                // Morph to X
                 menuLines[0].style.transform = 'rotate(45deg) translateY(4px)';
                 menuLines[1].style.transform = 'rotate(-45deg) translateY(-4px)';
             } else {
@@ -915,21 +1005,14 @@
                 menuLines[0].style.transform = 'rotate(0) translateY(0)';
                 menuLines[1].style.transform = 'rotate(0) translateY(0)';
             }
+        }
+        menuToggle.addEventListener('click', () => setMenuOpen(!menuOpen));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuOpen) setMenuOpen(false);
         });
 
         mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuOpen = false;
-                menuToggle.setAttribute('aria-expanded', false);
-                mobileMenu.style.opacity = '0';
-                mobileMenu.style.pointerEvents = 'none';
-                mobileLinks.forEach(l => {
-                    l.style.transform = 'translateY(1.5rem)';
-                    l.style.opacity = '0';
-                });
-                menuLines[0].style.transform = 'rotate(0) translateY(0)';
-                menuLines[1].style.transform = 'rotate(0) translateY(0)';
-            });
+            link.addEventListener('click', () => setMenuOpen(false));
         });
 
         // --- Testimonial Card Stack ---

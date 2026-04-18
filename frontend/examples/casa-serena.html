@@ -22,6 +22,8 @@
     <!-- Font preconnect + load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1758839603414-89d170c4eea0?w=1024&q=75&fit=crop" imagesrcset="https://images.unsplash.com/photo-1758839603414-89d170c4eea0?w=640&q=70&fit=crop 640w, https://images.unsplash.com/photo-1758839603414-89d170c4eea0?w=1024&q=75&fit=crop 1024w, https://images.unsplash.com/photo-1758839603414-89d170c4eea0?w=1600&q=75&fit=crop 1600w" imagesizes="100vw" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 
     <style>
@@ -311,6 +313,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 40%;
         }
         .hero-overlay {
             position: absolute;
@@ -1033,7 +1036,7 @@
         ============================================ -->
         <section class="hero">
             <div class="hero-bg" aria-hidden="true">
-                <img src="https://images.unsplash.com/photo-1758839603414-89d170c4eea0?w=1600&h=900&fit=crop" alt="" loading="eager">
+                <img src="https://images.unsplash.com/photo-1758839603414-89d170c4eea0?w=1024&q=75&fit=crop" srcset="https://images.unsplash.com/photo-1758839603414-89d170c4eea0?w=640&q=70&fit=crop 640w, https://images.unsplash.com/photo-1758839603414-89d170c4eea0?w=1024&q=75&fit=crop 1024w, https://images.unsplash.com/photo-1758839603414-89d170c4eea0?w=1600&q=75&fit=crop 1600w" sizes="100vw" alt="" fetchpriority="high" decoding="async" width="1600" height="900">
             </div>
             <div class="hero-overlay" aria-hidden="true"></div>
             <div class="hero-content">
@@ -1075,7 +1078,7 @@
             <div class="rooms-track" role="region" aria-label="Room gallery" tabindex="0">
                 <div class="room-shell rv rv-d1">
                     <div class="room-inner">
-                        <img src="https://images.unsplash.com/photo-1644589381769-0f5374a52720?w=800&h=500&fit=crop" alt="Aegean Suite with panoramic sea view" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1644589381769-0f5374a52720?w=800&h=500&fit=crop&q=75" alt="Aegean Suite with panoramic sea view" loading="lazy" decoding="async">
                         <div class="room-info">
                             <p class="room-name">Aegean Suite</p>
                             <p class="room-price">from 245 / night</p>
@@ -1084,7 +1087,7 @@
                 </div>
                 <div class="room-shell rv rv-d2">
                     <div class="room-inner">
-                        <img src="https://images.unsplash.com/photo-1749766731472-fca72defb8dd?w=800&h=500&fit=crop" alt="Garden Room overlooking the courtyard" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1749766731472-fca72defb8dd?w=800&h=500&fit=crop&q=75" alt="Garden Room overlooking the courtyard" loading="lazy" decoding="async">
                         <div class="room-info">
                             <p class="room-name">Garden Room</p>
                             <p class="room-price">from 178 / night</p>
@@ -1093,7 +1096,7 @@
                 </div>
                 <div class="room-shell rv rv-d3">
                     <div class="room-inner">
-                        <img src="https://images.unsplash.com/photo-1772902362618-c45e3e804001?w=800&h=500&fit=crop" alt="Terrace Suite with private outdoor dining" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1772902362618-c45e3e804001?w=800&h=500&fit=crop&q=75" alt="Terrace Suite with private outdoor dining" loading="lazy" decoding="async">
                         <div class="room-info">
                             <p class="room-name">Terrace Suite</p>
                             <p class="room-price">from 312 / night</p>
@@ -1102,7 +1105,7 @@
                 </div>
                 <div class="room-shell rv rv-d4">
                     <div class="room-inner">
-                        <img src="https://images.unsplash.com/photo-1738585608732-49294c24ece0?w=800&h=500&fit=crop" alt="Stone Room with vaulted ceiling" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1738585608732-49294c24ece0?w=800&h=500&fit=crop&q=75" alt="Stone Room with vaulted ceiling" loading="lazy" decoding="async">
                         <div class="room-info">
                             <p class="room-name">Stone Room</p>
                             <p class="room-price">from 165 / night</p>
@@ -1111,7 +1114,7 @@
                 </div>
                 <div class="room-shell rv rv-d5">
                     <div class="room-inner">
-                        <img src="https://images.unsplash.com/photo-1691784330937-4e8ee367d550?w=800&h=500&fit=crop" alt="Olive Loft with exposed timber beams" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1691784330937-4e8ee367d550?w=800&h=500&fit=crop&q=75" alt="Olive Loft with exposed timber beams" loading="lazy" decoding="async">
                         <div class="room-info">
                             <p class="room-name">Olive Loft</p>
                             <p class="room-price">from 198 / night</p>
@@ -1130,7 +1133,7 @@
                 <!-- Spa -->
                 <div class="exp-block rv">
                     <div class="exp-img">
-                        <img src="https://images.unsplash.com/photo-1737352777897-e22953991a32?w=800&h=600&fit=crop" alt="Spa treatment room with natural stone" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1737352777897-e22953991a32?w=800&h=600&fit=crop&q=75" alt="Spa treatment room with natural stone" loading="lazy" decoding="async">
                     </div>
                     <div class="exp-content">
                         <div class="exp-number rv rv-d1" aria-hidden="true">01</div>
@@ -1145,7 +1148,7 @@
                 <!-- Dining -->
                 <div class="exp-block rv">
                     <div class="exp-img">
-                        <img src="https://images.unsplash.com/photo-1769622341465-b7063e544338?w=800&h=600&fit=crop" alt="Open-air dining with candlelight" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1769622341465-b7063e544338?w=800&h=600&fit=crop&q=75" alt="Open-air dining with candlelight" loading="lazy" decoding="async">
                     </div>
                     <div class="exp-content">
                         <div class="exp-number rv rv-d1" aria-hidden="true">02</div>
@@ -1160,7 +1163,7 @@
                 <!-- Gardens -->
                 <div class="exp-block rv">
                     <div class="exp-img">
-                        <img src="https://images.unsplash.com/photo-1552423310-ba74b8de5e6f?w=800&h=600&fit=crop" alt="Terraced garden with olive trees and lavender" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1552423310-ba74b8de5e6f?w=800&h=600&fit=crop&q=75" alt="Terraced garden with olive trees and lavender" loading="lazy" decoding="async">
                     </div>
                     <div class="exp-content">
                         <div class="exp-number rv rv-d1" aria-hidden="true">03</div>
@@ -1175,7 +1178,7 @@
                 <!-- Excursions -->
                 <div class="exp-block rv">
                     <div class="exp-img">
-                        <img src="https://images.unsplash.com/photo-1762947636958-298d87a5fb56?w=800&h=600&fit=crop" alt="Traditional wooden boat in a secluded cove" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1762947636958-298d87a5fb56?w=800&h=600&fit=crop&q=75" alt="Traditional wooden boat in a secluded cove" loading="lazy" decoding="async">
                     </div>
                     <div class="exp-content">
                         <div class="exp-number rv rv-d1" aria-hidden="true">04</div>
@@ -1200,19 +1203,19 @@
             </div>
             <div class="mosaic">
                 <div class="mosaic-item rv">
-                    <img src="https://images.unsplash.com/photo-1767617577939-690ed39cd160?w=1000&h=500&fit=crop" alt="Sunlit courtyard with linen-draped tables" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1767617577939-690ed39cd160?w=1000&h=500&fit=crop&q=75" alt="Sunlit courtyard with linen-draped tables" loading="lazy" decoding="async">
                 </div>
                 <div class="mosaic-item rv rv-d1">
-                    <img src="https://images.unsplash.com/photo-1675026921804-0e14dbd4fab5?w=600&h=600&fit=crop" alt="Sunset over the cove from the terrace" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1675026921804-0e14dbd4fab5?w=600&h=600&fit=crop&q=75" alt="Sunset over the cove from the terrace" loading="lazy" decoding="async">
                 </div>
                 <div class="mosaic-item rv rv-d2">
-                    <img src="https://images.unsplash.com/photo-1625788717556-56d40f3ddfc4?w=600&h=600&fit=crop" alt="Hand-thrown ceramic on a stone shelf" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1625788717556-56d40f3ddfc4?w=600&h=600&fit=crop&q=75" alt="Hand-thrown ceramic on a stone shelf" loading="lazy" decoding="async">
                 </div>
                 <div class="mosaic-item rv rv-d3">
-                    <img src="https://images.unsplash.com/photo-1764867074493-c8b762f39498?w=1000&h=400&fit=crop" alt="Coastal path winding above turquoise water" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1764867074493-c8b762f39498?w=1000&h=400&fit=crop&q=75" alt="Coastal path winding above turquoise water" loading="lazy" decoding="async">
                 </div>
                 <div class="mosaic-item rv rv-d4">
-                    <img src="https://images.unsplash.com/photo-1698746044340-ae5559412fd5?w=600&h=600&fit=crop" alt="Morning light falling across linen sheets" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1698746044340-ae5559412fd5?w=600&h=600&fit=crop&q=75" alt="Morning light falling across linen sheets" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
@@ -1329,11 +1332,18 @@
             /* -- Hamburger toggle -- */
             var hb = document.getElementById('hamburger');
             var mm = document.getElementById('mobile-menu');
+            function setMenu(open) {
+                mm.classList.toggle('open', open);
+                hb.classList.toggle('open', open);
+                document.body.style.overflow = open ? 'hidden' : '';
+                hb.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+                hb.setAttribute('aria-expanded', String(open));
+            }
             hb.addEventListener('click', function() {
-                var isOpen = mm.classList.toggle('open');
-                hb.classList.toggle('open');
-                document.body.style.overflow = isOpen ? 'hidden' : '';
-                hb.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+                setMenu(!mm.classList.contains('open'));
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mm.classList.contains('open')) setMenu(false);
             });
 
             /* -- Mobile link close -- */
