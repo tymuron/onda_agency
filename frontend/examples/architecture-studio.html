@@ -657,7 +657,7 @@
 
         function updateNav() {
             const mm = document.getElementById('mobile-menu');
-            if (mm && mm.classList.contains('flex')) { ticking = false; return; }
+            if (mm && !mm.classList.contains('hidden')) { ticking = false; return; }
             const sy = window.scrollY;
             if (sy > 80) {
                 navBar.classList.add('scrolled');
