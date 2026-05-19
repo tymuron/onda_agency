@@ -11,25 +11,24 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Onda | Proceso">
     <meta property="og:description" content="Pasos claros, construcci&oacute;n r&aacute;pida, sin proceso inflado. Webs premium para negocios de servicios en d&iacute;as, no meses.">
-    <meta property="og:image" content="https://ondaweb.es/og-image.png">
-    <meta property="og:url" content="https://ondaweb.es/process_es.html">
+    <meta property="og:image" content="https://agencyonda.com/og-image.png">
+    <meta property="og:url" content="https://agencyonda.com/process_es.html">
     <meta property="og:locale" content="es_ES">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Onda | Proceso">
     <meta name="twitter:description" content="Pasos claros, construcci&oacute;n r&aacute;pida, sin proceso inflado. Webs premium en d&iacute;as, no meses.">
-    <meta name="twitter:image" content="https://ondaweb.es/og-image.png">
+    <meta name="twitter:image" content="https://agencyonda.com/og-image.png">
 
     <!-- Fonts (preconnect + link, not @import) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -266,6 +265,68 @@
             .shimmer::after { animation: none !important; }
         }
     </style>
+    <!-- onda-seo:start (managed by scripts/site_patch.py) -->
+    <link rel="canonical" href="https://agencyonda.com/process_es.html">
+    <link rel="alternate" hreflang="en" href="https://agencyonda.com/process.html">
+    <link rel="alternate" hreflang="es" href="https://agencyonda.com/process_es.html">
+    <link rel="alternate" hreflang="x-default" href="https://agencyonda.com/process.html">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://agencyonda.com/#org",
+      "name": "Onda",
+      "url": "https://agencyonda.com",
+      "logo": "https://agencyonda.com/logo.png",
+      "image": "https://agencyonda.com/og-image.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Tymur Chystiakov"
+      },
+      "areaServed": [
+        "Spain",
+        "Europe",
+        "United Kingdom"
+      ],
+      "knowsLanguage": [
+        "en",
+        "es"
+      ],
+      "slogan": "Fast premium websites for service businesses."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://agencyonda.com/#website",
+      "url": "https://agencyonda.com",
+      "name": "Onda",
+      "inLanguage": "es",
+      "publisher": {
+        "@id": "https://agencyonda.com/#org"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://agencyonda.com/index_es.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Proceso",
+          "item": "https://agencyonda.com/process_es.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <!-- onda-seo:end -->
 </head>
 
 <body>
@@ -285,7 +346,6 @@
             <a href="index_es.html#contact" class="nav-link">Contacto</a>
             <div class="nav-divider"></div>
             <a href="process.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">EN</a>
-            <a href="process_ka.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">KA</a>
         </div>
         <a href="index_es.html#contact" class="nav-cta hidden md:inline-flex">Pedir presupuesto</a>
         <button id="mobileMenuBtn" class="md:hidden ml-2 p-2 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Abrir menú">
@@ -301,7 +361,6 @@
         <a href="index_es.html#contact">Contacto</a>
         <div class="flex gap-4 mt-4">
             <a href="process.html" style="font-size:1.125rem;color:var(--text-muted)">EN</a>
-            <a href="process_ka.html" style="font-size:1.125rem;color:var(--text-muted)">KA</a>
         </div>
         <button id="mobileMenuClose" class="absolute right-5 top-5 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Cerrar menú">
             <i data-lucide="x" class="w-7 h-7"></i>
@@ -489,6 +548,9 @@
             if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
         });
     </script>
+    <!-- onda-analytics:start -->
+    <script defer src="/assets/js/analytics.js"></script>
+    <!-- onda-analytics:end -->
 </body>
 
 </html>

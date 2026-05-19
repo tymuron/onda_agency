@@ -6,6 +6,8 @@ venv/
 .idea/
 .vscode/
 server.log
+*.db
+backend/analytics.db
 .claude/
 node_modules/
 package-lock.json

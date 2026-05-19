@@ -1,0 +1,89 @@
+/* Onda — lean brand stylesheet for content/landing/blog pages.
+   Same tokens & look as the homepage, but no heavy animation/JS — fast by
+   default (Core Web Vitals). Pairs with the built Tailwind utilities. */
+:root{
+  --bg:#0a0a0a; --surface:rgba(255,255,255,.03); --surface-2:rgba(255,255,255,.05);
+  --border:rgba(255,255,255,.08); --border-2:rgba(255,255,255,.14);
+  --text-primary:#fafafa; --text-secondary:#a1a1aa; --text-muted:#71717a;
+  --accent:#3B82F6; --accent-dark:#2563eb; --ease:cubic-bezier(.32,.72,0,1);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text-primary);
+  font-family:'DM Sans',system-ui,-apple-system,sans-serif;
+  line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+.prose{max-width:46rem;margin:0 auto}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--text-muted)}
+h1,h2,h3{color:#fff;line-height:1.12;letter-spacing:-.02em;font-weight:800}
+h1{font-size:clamp(2rem,5vw,3.25rem)}
+h2{font-size:clamp(1.5rem,3.4vw,2.25rem);margin-top:0}
+h3{font-size:1.15rem;font-weight:700}
+p{color:var(--text-secondary)}
+.lead{font-size:1.15rem;color:var(--text-secondary);max-width:60ch}
+section{padding:4rem 0}
+@media(min-width:768px){section{padding:5.5rem 0}}
+.divider{border:0;border-top:1px solid var(--border);max-width:32rem;margin:0 auto}
+
+/* nav */
+.nav{position:fixed;top:1rem;left:50%;transform:translateX(-50%);z-index:50;
+  display:flex;align-items:center;gap:1.25rem;background:rgba(15,15,18,.7);
+  backdrop-filter:blur(14px);border:1px solid var(--border);
+  border-radius:9999px;padding:.6rem 1rem .6rem 1.4rem;max-width:calc(100vw - 2rem)}
+.nav a{font-size:.875rem;color:var(--text-secondary);white-space:nowrap}
+.nav a:hover{color:#fff}
+.nav .brand{font-weight:800;color:#fff;letter-spacing:-.02em}
+.nav .cta{background:var(--accent);color:#fff;padding:.5rem 1rem;
+  border-radius:9999px;font-weight:600}
+.nav .cta:hover{background:var(--accent-dark);color:#fff}
+@media(max-width:680px){.nav .hide-sm{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;
+  font-weight:600;font-size:.95rem;padding:.85rem 1.5rem;transition:.2s var(--ease);
+  cursor:pointer}
+.btn-p{background:var(--accent);color:#fff}
+.btn-p:hover{background:var(--accent-dark);transform:translateY(-1px)}
+.btn-g{background:var(--surface);color:var(--text-primary);
+  border:1px solid var(--border-2)}
+.btn-g:hover{border-color:var(--accent);color:#fff}
+
+/* cards & lists */
+.grid{display:grid;gap:1.25rem}
+@media(min-width:760px){.cols-2{grid-template-columns:1fr 1fr}
+  .cols-3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--surface);border:1px solid var(--border);
+  border-radius:1rem;padding:1.5rem}
+.card h3{margin-bottom:.4rem}
+.check{display:flex;gap:.65rem;align-items:flex-start;color:var(--text-secondary);
+  margin:.6rem 0}
+.check::before{content:"";flex:none;width:1.1rem;height:1.1rem;margin-top:.15rem;
+  border-radius:50%;background:rgba(59,130,246,.15);
+  box-shadow:inset 0 0 0 1px rgba(59,130,246,.4)}
+
+/* faq */
+.faq{border-top:1px solid var(--border)}
+.faq details{border-bottom:1px solid var(--border)}
+.faq summary{cursor:pointer;list-style:none;padding:1.15rem 0;font-weight:600;
+  color:#fff;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent);font-weight:700}
+.faq details[open] summary::after{content:"\2013"}
+.faq p{padding:0 0 1.2rem;font-size:.95rem;max-width:65ch}
+
+/* breadcrumb + footer */
+.crumb{font-size:.8rem;color:var(--text-muted)}
+.crumb a:hover{color:#fff}
+footer{border-top:1px solid var(--border);color:var(--text-muted);
+  font-size:.85rem;padding:2.5rem 0}
+footer a:hover{color:#fff}
+.reveal{opacity:0;transform:translateY(14px);
+  animation:rv .7s var(--ease) forwards}
+@keyframes rv{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}
+  html{scroll-behavior:auto}}
