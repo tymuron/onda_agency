@@ -57,6 +57,11 @@ PAGES = [
     ("/how-much-does-a-website-cost-spain-es.html", "how-much-does-a-website-cost-spain-es.html", "es", "post-cost"),
     ("/how-to-choose-a-web-designer.html", "how-to-choose-a-web-designer.html", "en", "post-choose"),
     ("/how-to-choose-a-web-designer-es.html", "how-to-choose-a-web-designer-es.html", "es", "post-choose"),
+    # Legal pages
+    ("/privacy.html", "privacy.html", "en", "legal-privacy"),
+    ("/privacy-es.html", "privacy-es.html", "es", "legal-privacy"),
+    ("/terms.html", "terms.html", "en", "legal-terms"),
+    ("/terms-es.html", "terms-es.html", "es", "legal-terms"),
 ]
 
 # Load .env from backend/ so it works when run from project root (e.g. python backend/main.py)

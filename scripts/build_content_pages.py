@@ -88,6 +88,8 @@ def footer(lang, links):
                  for s, n in links)
     blog = "blog.html" if lang == "en" else "blog-es.html"
     contact = t["contact"]
+    privacy_label = "Privacy" if lang == "en" else "Privacidad"
+    terms_label = "Terms" if lang == "en" else "Términos"
     return (f'<footer><div class="wrap" style="display:flex;flex-wrap:wrap;'
             f'gap:1.5rem;justify-content:space-between">'
             f'<div><span style="color:#fff;font-weight:800">ONDA</span><br>'
@@ -96,6 +98,8 @@ def footer(lang, links):
             f'flex-wrap:wrap;max-width:34rem">{ls}'
             f'<a href="/{blog}">{t["blog"]}</a>'
             f'<a href="{contact}">{"Contact" if lang=="en" else "Contacto"}</a>'
+            f'<a href="/{slug_file("privacy",lang)}" style="opacity:.7">{privacy_label}</a>'
+            f'<a href="/{slug_file("terms",lang)}" style="opacity:.7">{terms_label}</a>'
             f'</nav></div></footer>')
 
 
@@ -755,6 +759,133 @@ def blog_index(lang):
     return head(t["blog_title"], t["blog_desc"], slug, lang, jsonld) + body + tail(lang, links)
 
 
+LEGAL = [
+  {"slug": "privacy",
+   "en": {"crumb": "Privacy", "title": "Privacy Policy | Onda",
+    "h1": "Privacy policy", "updated": "19 May 2026",
+    "desc": ("How Onda handles personal data: contact form, cookieless "
+             "analytics, what we keep, your GDPR rights."),
+    "sections": [
+     ("Plain summary", """We're a small studio. We collect the bare minimum — what you tell us through the contact form, plus aggregate, cookieless usage stats. No cookies, no ad trackers, no selling data. Below is the full version."""),
+     ("1. Who we are", """Onda ("we", "us") is a web design studio based in Spain, operating the site agencyonda.com. For any question about your data or this policy, contact us via the form on the home page."""),
+     ("2. What personal data we collect", """Contact form — when you submit it we receive your name, email, optional phone and the message you write. If you message us on WhatsApp instead, that conversation is handled by WhatsApp under its own terms.
+
+Cookieless visitor analytics — a privacy-first measurement tool we built. It does NOT use cookies and does NOT store any persistent identifier. For each visit it records the pages loaded, scroll depth, language, broad device type (mobile/tablet/desktop), referrer site and a country-level location best-effort from your IP. To count unique visitors without identifying you, we generate a one-way SHA-256 hash of your IP + browser User-Agent + a secret salt that rotates every day. The hash cannot be reversed back to your IP, and rotating the salt daily means the same person appears as a fresh visitor the next day.
+
+Server logs — our hosting provider records standard access logs (IP, timestamp, URL) for security and operations.
+
+We do NOT use advertising or marketing cookies, social-network tracking pixels, browser fingerprinting, ad networks, or anything that follows you across the web. We do not sell or rent your data."""),
+     ("3. Why we process it and our legal basis (GDPR Art. 6)", """Contact-form messages — to reply to your enquiry, prepare a quote and follow up. Basis: steps prior to a contract (Art. 6(1)(b)) and our legitimate interest in answering enquiries (Art. 6(1)(f)).
+
+Cookieless analytics — to understand how visitors find and use the site so we can improve it. Basis: legitimate interest (Art. 6(1)(f)). Because the measurement is cookieless and uses no persistent identifier, AEPD/EDPB guidance treats it as consent-exempt audience measurement, which is why this site has no cookie banner.
+
+Security and logs — to keep the site available and safe. Basis: legitimate interest."""),
+     ("4. Who we share it with", """We use a small number of trusted services so the site works: Resend (resend.com) sends us the email notification when you submit the contact form; Neon (neon.tech) stores cookieless analytics events; Render (render.com) hosts the website; Google Fonts (gstatic.com) delivers web fonts when you load the page; unpkg.com delivers a small icon library. Where any of these involves data leaving the EEA, we rely on the EU–US Data Privacy Framework and/or Standard Contractual Clauses approved by the European Commission."""),
+     ("5. Cookies and similar technologies", """This site uses no advertising or analytics cookies. The only client-side storage is a short-lived sessionStorage value (a tab session ID for analytics, deleted when you close the tab) and, optionally, a localStorage value to remember your language choice. These are not transmitted to anyone and are not used to track you across sites."""),
+     ("6. How long we keep your data", """Contact-form messages: up to 24 months after our last contact, unless you ask us to delete them earlier. Analytics events: up to 14 months at row level; aggregate, anonymous statistics may be kept longer. Server logs: typically a few weeks, as set by our hosting provider."""),
+     ("7. Your rights under GDPR (Articles 15–22)", """Access — ask what we hold about you. Rectification — ask us to correct it. Erasure ("right to be forgotten") — ask us to delete it. Restriction or objection — ask us to limit or stop a particular processing. Portability — get a copy of the data you gave us in a portable format.
+
+To use any of these rights, message us through the contact form. We answer within 30 days. If you think we have not handled your data properly, you can complain to the Spanish Data Protection Authority (AEPD): www.aepd.es."""),
+     ("8. Children", """This site is aimed at business owners. We do not knowingly collect data from anyone under 16."""),
+     ("9. Changes", """If we change this policy in any meaningful way, we'll update the "Last updated" date at the top and, where appropriate, mention it on the site."""),
+     ("10. Contact", """For any privacy question or request, contact us via the form on the home page.""")]},
+   "es": {"crumb": "Privacidad", "title": "Política de privacidad | Onda",
+    "h1": "Política de privacidad", "updated": "19 de mayo de 2026",
+    "desc": ("Cómo Onda trata los datos personales: formulario, "
+             "analítica sin cookies, qué guardamos, tus derechos RGPD."),
+    "sections": [
+     ("Resumen", """Somos un estudio pequeño. Recogemos lo mínimo: lo que nos dices por el formulario y estadísticas de uso agregadas y sin cookies. Sin cookies de publicidad, sin trackers, sin venta de datos. Abajo está la versión completa."""),
+     ("1. Quiénes somos", """Onda ("nosotros") es un estudio de diseño web con base en España que opera el sitio agencyonda.com. Para cualquier consulta sobre tus datos o esta política, escríbenos por el formulario de la página principal."""),
+     ("2. Qué datos personales recogemos", """Formulario de contacto — al enviarlo recibimos tu nombre, email, teléfono (opcional) y el mensaje que escribes. Si nos escribes por WhatsApp, esa conversación la gestiona el propio servicio de WhatsApp según sus términos.
+
+Analítica sin cookies — una herramienta de medición propia centrada en la privacidad. NO usa cookies y NO guarda ningún identificador persistente. Por cada visita registra las páginas cargadas, la profundidad de scroll, el idioma, el tipo de dispositivo (móvil/tablet/escritorio), el sitio de procedencia y una localización a nivel país (mejor esfuerzo, basada en la IP). Para contar visitantes únicos sin identificarte, generamos un hash SHA-256 unidireccional de tu IP + User-Agent del navegador + un "sal" secreto que rota cada día. El hash no se puede revertir a tu IP y, al día siguiente, la misma persona figura como nueva.
+
+Registros del servidor — nuestro proveedor de hosting guarda registros de acceso estándar (IP, fecha, URL) por seguridad y operativa.
+
+NO usamos cookies de publicidad o marketing, píxeles de redes sociales, huella digital (fingerprinting), redes de anuncios ni nada que te siga por la web. No vendemos ni alquilamos tus datos."""),
+     ("3. Por qué los procesamos y base legal (RGPD Art. 6)", """Mensajes del formulario — para responder a tu consulta, preparar un presupuesto y hacer seguimiento. Base: pasos previos a un contrato (Art. 6(1)(b)) e interés legítimo en atender consultas (Art. 6(1)(f)).
+
+Analítica sin cookies — para entender cómo se llega y se usa la web. Base: interés legítimo (Art. 6(1)(f)). Como la medición es sin cookies y sin identificador persistente, la AEPD/CEPD la consideran medición de audiencia exenta de consentimiento, por eso esta web no muestra un banner de cookies.
+
+Seguridad y registros — para mantener la web disponible y segura. Base: interés legítimo."""),
+     ("4. Con quién los compartimos", """Usamos un grupo reducido de servicios de confianza: Resend (resend.com) envía el email cuando rellenas el formulario; Neon (neon.tech) almacena los eventos de analítica; Render (render.com) hospeda la web; Google Fonts (gstatic.com) entrega las fuentes; unpkg.com entrega una pequeña librería de iconos. Cuando alguno implique transferencia de datos fuera del EEE, nos apoyamos en el Marco de Privacidad UE–EE. UU. y/o en las Cláusulas Contractuales Tipo aprobadas por la Comisión Europea."""),
+     ("5. Cookies y tecnologías similares", """Esta web no usa cookies de publicidad ni de analítica. Lo único que guardamos en el navegador es un valor temporal de sessionStorage (ID de sesión para la analítica, se borra al cerrar la pestaña) y, si eliges idioma, un valor localStorage para recordarlo. No se transmiten a nadie ni se usan para rastrearte entre sitios."""),
+     ("6. Cuánto tiempo conservamos los datos", """Mensajes del formulario: hasta 24 meses tras el último contacto, salvo que pidas su eliminación antes. Eventos de analítica: hasta 14 meses a nivel de evento; las estadísticas agregadas y anónimas pueden conservarse más tiempo. Registros del servidor: normalmente unas semanas, según nuestro proveedor de hosting."""),
+     ("7. Tus derechos (RGPD Arts. 15–22)", """Acceso, rectificación, supresión ("derecho al olvido"), limitación u oposición y portabilidad. Para ejercerlos, escríbenos por el formulario. Respondemos en un plazo de 30 días. Si crees que no hemos tratado tus datos correctamente, puedes reclamar ante la Agencia Española de Protección de Datos (AEPD): www.aepd.es."""),
+     ("8. Menores", """Esta web va dirigida a personas adultas con un negocio. No recogemos datos de menores de 16 años de manera consciente."""),
+     ("9. Cambios", """Si cambiamos esta política de forma significativa, actualizaremos la fecha "Última actualización" arriba y, cuando corresponda, lo señalaremos en el sitio."""),
+     ("10. Contacto", """Para cualquier consulta sobre privacidad, escríbenos por el formulario de la página principal.""")]}},
+  {"slug": "terms",
+   "en": {"crumb": "Terms", "title": "Terms of Service | Onda",
+    "h1": "Terms of service", "updated": "19 May 2026",
+    "desc": ("Terms governing the use of agencyonda.com — what you can do "
+             "here, what we offer, and the legal basics."),
+    "sections": [
+     ("Short version", """These terms cover your use of this website. They are not the contract for a project — that's a separate written agreement we sign with you for each engagement."""),
+     ("1. About us", """Onda is a web design studio based in Spain that builds websites for service businesses."""),
+     ("2. Use of this site", """You can browse the site and contact us through the form. By using the site you agree to use it lawfully, not to damage or interfere with it, and not to attempt to access systems you are not authorised to access."""),
+     ("3. The contact form", """Submitting the form is a request for information or a quote — not a contract. Don't include sensitive personal data, payment details or anything confidential; share that only when we explicitly ask."""),
+     ("4. Content and intellectual property", """All design, copy and code on this site is owned by Onda, including the concept-work shown in the portfolio (clearly labelled as concepts, not paid client work). You may not copy, reproduce or republish it without our written permission. You may share normal browser screenshots for reasonable commentary and link to the site."""),
+     ("5. Third-party links", """We link to external services (e.g. WhatsApp, GitHub, partner directories). We don't control them and aren't responsible for their content, terms or privacy practices."""),
+     ("6. No warranty", """The site is provided "as is". We try to keep it accurate and available but don't guarantee it will be error-free or always available. Prices shown on the site are indicative and confirmed in writing in each project proposal."""),
+     ("7. Limitation of liability", """To the maximum extent allowed by law, Onda is not liable for indirect or consequential damages arising from your use of this website. Nothing here limits any liability that cannot be limited under Spanish law (for example liability for death, personal injury caused by negligence, or fraud)."""),
+     ("8. Governing law and jurisdiction", """These terms are governed by Spanish law. Any dispute we can't resolve informally will be subject to the courts of Spain."""),
+     ("9. Changes", """We may update these terms from time to time. We'll update the "Last updated" date when we do."""),
+     ("10. Contact", """For questions about these terms, write to us via the contact form on the home page.""")]},
+   "es": {"crumb": "Términos", "title": "Condiciones del servicio | Onda",
+    "h1": "Condiciones del servicio", "updated": "19 de mayo de 2026",
+    "desc": ("Condiciones que rigen el uso de agencyonda.com — qué "
+             "puedes hacer aquí, qué ofrecemos y la base legal."),
+    "sections": [
+     ("En corto", """Estas condiciones cubren el uso de esta web. No son el contrato de proyecto — ese es un acuerdo aparte que firmamos contigo en cada encargo."""),
+     ("1. Sobre nosotros", """Onda es un estudio de diseño web con base en España que construye webs para negocios de servicios."""),
+     ("2. Uso de este sitio", """Puedes navegar y escribirnos por el formulario. Al usar la web te comprometes a usarla de forma lícita, no dañarla ni interferir con ella y no intentar acceder a sistemas para los que no estés autorizado."""),
+     ("3. Formulario de contacto", """Enviar el formulario es una solicitud de información o presupuesto — no un contrato. No incluyas datos sensibles, datos de pago ni información confidencial; eso solo cuando te lo pidamos expresamente."""),
+     ("4. Contenido y propiedad intelectual", """Todo el diseño, texto y código de esta web pertenece a Onda, incluidos los conceptos del portfolio (etiquetados como conceptos, no como trabajo cliente real). No se pueden copiar, reproducir ni republicar sin nuestro permiso por escrito. Sí puedes compartir capturas razonables para comentario y enlazar a la web."""),
+     ("5. Enlaces a terceros", """Enlazamos a servicios externos (WhatsApp, GitHub, directorios). No los controlamos y no nos hacemos responsables de su contenido, términos o prácticas de privacidad."""),
+     ("6. Sin garantía", """La web se ofrece "tal cual". Intentamos que sea precisa y esté disponible, pero no garantizamos que esté libre de errores ni siempre accesible. Los precios mostrados son orientativos y se confirman por escrito en cada propuesta de proyecto."""),
+     ("7. Limitación de responsabilidad", """En la máxima medida permitida por la ley, Onda no responde por daños indirectos o consecuentes derivados del uso de esta web. Nada en estas condiciones limita responsabilidades que la ley española no permita limitar (por ejemplo, fallecimiento, daños personales por negligencia o fraude)."""),
+     ("8. Ley aplicable y jurisdicción", """Estas condiciones se rigen por la ley española. Cualquier disputa que no podamos resolver de forma amistosa quedará sometida a los tribunales españoles."""),
+     ("9. Cambios", """Podemos actualizar estas condiciones de vez en cuando. Cuando lo hagamos, actualizaremos la fecha "Última actualización"."""),
+     ("10. Contacto", """Para dudas sobre estas condiciones, escríbenos por el formulario de contacto de la página principal.""")]}},
+]
+
+
+def legal_page(p, lang):
+    c = p[lang]
+    t = T[lang]
+    url = url_of(p["slug"], lang)
+    secs = ""
+    for ht, bd in c["sections"]:
+        secs += f'<h2 style="margin-top:2.4rem">{html.escape(ht)}</h2>'
+        for para in bd.split("\n\n"):
+            secs += f'<p style="margin-top:.8rem">{html.escape(para)}</p>'
+    jsonld = [
+        {"@context": "https://schema.org", "@type": "WebPage",
+         "name": c["h1"], "description": c["desc"], "url": url,
+         "inLanguage": lang,
+         "isPartOf": {"@type": "WebSite", "@id": f"{SITE}/#website"},
+         "publisher": {"@type": "Organization", "@id": f"{SITE}/#org"},
+         "dateModified": "2026-05-19"},
+        {"@context": "https://schema.org", "@type": "BreadcrumbList",
+         "itemListElement": [
+             {"@type": "ListItem", "position": 1, "name": t["home"], "item": SITE},
+             {"@type": "ListItem", "position": 2, "name": c["crumb"],
+              "item": url}]}]
+    links = FOOTER_LINKS if lang == "en" else FOOTER_LINKS_ES
+    home = "/" if lang == "en" else "/index_es.html"
+    updated_label = "Last updated" if lang == "en" else "Última actualización"
+    body = f"""
+<section><div class="wrap prose reveal">
+  <div class="crumb"><a href="{home}">{t['home']}</a> · {html.escape(c['crumb'])}</div>
+  <h1 style="margin:1.4rem 0 .6rem;max-width:22ch">{html.escape(c['h1'])}</h1>
+  <p class="lead" style="color:var(--text-muted);font-size:.95rem">{updated_label}: {html.escape(c['updated'])}</p>
+  {secs}
+  <p style="margin-top:2.5rem"><a class="btn btn-g" href="{t['contact']}">{t['quote']}</a></p>
+</div></section>"""
+    return head(c["title"], c["desc"], p["slug"], lang, jsonld) + body + tail(lang, links)
+
+
 def main():
     n = 0
     for lang in ("en", "es"):
@@ -766,10 +897,14 @@ def main():
             (FRONTEND / slug_file(p["slug"], lang)).write_text(
                 blog_post_page(p, lang), encoding="utf-8")
             n += 1
+        for lp in LEGAL:
+            (FRONTEND / slug_file(lp["slug"], lang)).write_text(
+                legal_page(lp, lang), encoding="utf-8")
+            n += 1
         (FRONTEND / ("blog.html" if lang == "en" else "blog-es.html")).write_text(
             blog_index(lang), encoding="utf-8")
         n += 1
-    print(f"  generated {n} pages (EN+ES verticals/posts/blog)")
+    print(f"  generated {n} pages (EN+ES verticals/posts/blog/legal)")
 
 
 if __name__ == "__main__":
