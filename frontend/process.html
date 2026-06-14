@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
     <title>Onda | Process</title>
     <meta name="description" content="Clear steps, fast build, no bloated process. See how Onda delivers polished websites for service businesses in days, not months.">
 
@@ -26,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest" defer></script>
@@ -92,15 +93,6 @@
         .nav-cta:active { transform: scale(0.96) translateY(1px); }
         .nav-logo { font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; color: var(--text-primary); margin-right: 1rem; }
         .nav-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.08); margin: 0 0.25rem; }
-
-        /* ===== HERO BLOBS ===== */
-        .hero-blob {
-            position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.12; will-change: transform;
-        }
-        .hero-blob-1 { width: 600px; height: 600px; background: #3B82F6; top: -15%; left: 10%; animation: bd1 22s ease-in-out infinite alternate; }
-        .hero-blob-2 { width: 450px; height: 450px; background: #1d4ed8; bottom: -5%; right: 5%; animation: bd2 28s ease-in-out infinite alternate; }
-        @keyframes bd1 { to { transform: translate(100px,-80px) scale(1.2); } }
-        @keyframes bd2 { to { transform: translate(-80px,60px) scale(1.15); } }
 
         /* ===== SPOTLIGHT CARDS ===== */
         .spot {
@@ -191,14 +183,6 @@
         .mobile-menu a { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); transition: color 0.3s; }
         .mobile-menu a:hover { color: var(--accent); }
 
-        /* ===== LAMP GLOW ===== */
-        .lamp {
-            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 100%; height: 300px;
-            background: radial-gradient(ellipse at 50% 100%, rgba(59,130,246,0.06) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
         /* ===== TIMELINE ===== */
         .timeline-line {
             position: absolute;
@@ -261,7 +245,6 @@
                 scroll-behavior: auto !important;
             }
             .reveal { opacity: 1; transform: none; filter: none; }
-            .hero-blob { animation: none !important; }
             .shimmer::after { animation: none !important; }
         }
     </style>
@@ -338,16 +321,16 @@
 
     <!-- ===== FLOATING ISLAND NAV ===== -->
     <nav class="island-nav" id="islandNav">
-        <a href="index.html" class="nav-logo" style="text-decoration:none;">ONDA</a>
+        <a href="/" class="nav-logo" style="text-decoration:none;">ONDA</a>
         <div class="hidden md:flex items-center">
-            <a href="index.html#packages" class="nav-link">Packages</a>
-            <a href="index.html#work" class="nav-link">Work</a>
+            <a href="/#packages" class="nav-link">Packages</a>
+            <a href="/#work" class="nav-link">Work</a>
             <a href="process.html" class="nav-link nav-link-active">Process</a>
-            <a href="index.html#contact" class="nav-link">Contact</a>
+            <a href="/#contact" class="nav-link">Contact</a>
             <div class="nav-divider"></div>
             <a href="process_es.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">ES</a>
         </div>
-        <a href="index.html#contact" class="nav-cta hidden md:inline-flex">Get a Quote</a>
+        <a href="/#contact" class="nav-cta hidden md:inline-flex">Get a Quote</a>
         <button id="mobileMenuBtn" class="md:hidden ml-2 p-2 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Open menu">
             <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
@@ -355,10 +338,10 @@
 
     <!-- ===== MOBILE MENU ===== -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html#packages">Packages</a>
-        <a href="index.html#work">Work</a>
+        <a href="/#packages">Packages</a>
+        <a href="/#work">Work</a>
         <a href="process.html" style="color:var(--accent)">Process</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="/#contact">Contact</a>
         <div class="flex gap-4 mt-4">
             <a href="process_es.html" style="font-size:1.125rem;color:var(--text-muted)">ES</a>
         </div>
@@ -372,9 +355,7 @@
 
     <!-- ===== HERO ===== -->
     <section class="relative overflow-hidden pt-28 sm:pt-36 md:pt-44 pb-16 sm:pb-20 grid-bg">
-        <div class="hero-blob hero-blob-1"></div>
-        <div class="hero-blob hero-blob-2"></div>
-        <div class="lamp"></div>
+        <!-- restrained: ambient blobs / lamp removed -->
 
         <div class="relative z-10 mx-auto max-w-[1400px] w-full px-5 sm:px-6 md:px-10">
             <div class="max-w-3xl">
@@ -391,6 +372,7 @@
                 <p class="text-base sm:text-lg md:text-xl leading-relaxed reveal stagger-3" style="color: var(--text-secondary); max-width: 56ch;">
                     The goal is to keep the project focused, move quickly, and ship something that feels far more expensive than the process behind it.
                 </p>
+                <p class="reveal" style="margin-top:1.5rem;font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:var(--accent);opacity:.85;transition-delay:400ms !important;">everything moves in waves.</p>
             </div>
         </div>
     </section>
@@ -447,12 +429,11 @@
 
     <!-- ===== CTA ===== -->
     <section class="relative px-5 sm:px-6 md:px-10 py-16 sm:py-20 md:py-28 overflow-hidden">
-        <div class="lamp"></div>
         <div class="mx-auto max-w-[1400px] relative z-10">
             <div class="max-w-2xl reveal">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">Need something <span class="font-['Instrument_Serif'] italic text-[var(--accent)]">polished</span> fast?</h2>
                 <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);max-width:50ch;">Tell me what the business needs and I will recommend the quickest sensible path.</p>
-                <a href="index.html#contact" class="btn-p shimmer mt-8 inline-flex">Request a Quote <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
+                <a href="/#contact" class="btn-p shimmer mt-8 inline-flex">Request a Quote <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
             </div>
         </div>
     </section>

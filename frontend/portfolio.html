@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
     <title>Onda | Concept Work</title>
     <meta name="description" content="Concept work showing the level of polish, art direction, and visual range Onda brings to real client projects.">
 
@@ -20,9 +21,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Playfair+Display:ital@1&family=DM+Serif+Display:ital@0&family=Jost:wght@300&family=Outfit:wght@300;600&family=Space+Grotesk:wght@300&family=Plus+Jakarta+Sans:wght@300&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=cabinet-grotesk@700,900&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900&f[]=cabinet-grotesk@900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest" defer></script>
@@ -88,15 +89,6 @@
         .nav-cta:active { transform: scale(0.96) translateY(1px); }
         .nav-logo { font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; color: var(--text-primary); margin-right: 1rem; }
         .nav-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.08); margin: 0 0.25rem; }
-
-        /* ===== HERO BLOBS ===== */
-        .hero-blob {
-            position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.12; will-change: transform;
-        }
-        .hero-blob-1 { width: 500px; height: 500px; background: #3B82F6; top: -10%; left: 15%; animation: bd1 22s ease-in-out infinite alternate; }
-        .hero-blob-2 { width: 350px; height: 350px; background: #1d4ed8; bottom: 0%; right: 10%; animation: bd2 28s ease-in-out infinite alternate; }
-        @keyframes bd1 { to { transform: translate(80px,-60px) scale(1.15); } }
-        @keyframes bd2 { to { transform: translate(-60px,40px) scale(1.1); } }
 
         /* ===== REVEAL ===== */
         .reveal {
@@ -216,14 +208,6 @@
             background-size: 60px 60px;
         }
 
-        /* ===== LAMP GLOW ===== */
-        .lamp {
-            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 100%; height: 300px;
-            background: radial-gradient(ellipse at 50% 100%, rgba(59,130,246,0.06) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
         /* ===== MOBILE MENU ===== */
         .mobile-menu {
             position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column;
@@ -268,7 +252,7 @@
             background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        /* 1. Velara — dark luxury with rose-gold */
+        /* 1. Velara, dark luxury with rose-gold */
         .preview-velara { background: #0A0A0A; }
         .preview-velara::before {
             content: ''; position: absolute; width: 350px; height: 350px; border-radius: 50%;
@@ -292,7 +276,7 @@
             width: 40px; height: 1px; background: #C4956A; margin: 0.75rem auto 0; opacity: 0.5;
         }
 
-        /* 2. Clínica Blanc — clean bento */
+        /* 2. Clínica Blanc, clean bento */
         .preview-blanc { background: #F8FAFB; }
         .preview-blanc::before {
             content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -314,7 +298,7 @@
             background: #059669; top: 14%; left: 12%;
         }
 
-        /* 3. Estudio Forma — typographic architecture */
+        /* 3. Estudio Forma, typographic architecture */
         .preview-forma { background: #F5F3EF; }
         .preview-forma::before {
             content: ''; position: absolute; left: 12%; top: 8%; bottom: 8%;
@@ -343,7 +327,7 @@
             background-size: 72px 72px; background-position: 18% 0;
         }
 
-        /* 4. Meridian — cinematic gold */
+        /* 4. Meridian, cinematic gold */
         .preview-meridian { background: #050505; }
         .preview-meridian::before {
             content: ''; position: absolute; inset: 20px;
@@ -367,7 +351,7 @@
             background: linear-gradient(135deg, transparent 47%, rgba(201,168,76,0.06) 49.5%, rgba(201,168,76,0.06) 50.5%, transparent 53%);
         }
 
-        /* 5. Casa Serena — Mediterranean warmth */
+        /* 5. Casa Serena, Mediterranean warmth */
         .preview-serena { background: #FBF8F4; }
         .preview-serena::before {
             content: ''; position: absolute; width: 180px; height: 90px;
@@ -397,7 +381,7 @@
             bottom: 15%; right: 18%;
         }
 
-        /* 6. Barba Negra — craft copper */
+        /* 6. Barba Negra, craft copper */
         .preview-barba { background: #0C0A09; }
         .preview-barba::before {
             content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -419,7 +403,7 @@
             width: 30px; height: 1px; background: #B87333; margin: 0.6rem auto 0;
         }
 
-        /* 7. Kai Andersen — tech indigo */
+        /* 7. Kai Andersen, tech indigo */
         .preview-kai { background: #FAFAFA; }
         .preview-kai::before {
             content: ''; position: absolute; width: 240px; height: 240px;
@@ -458,7 +442,6 @@
                 scroll-behavior: auto !important;
             }
             .reveal { opacity: 1; transform: none; filter: none; }
-            .hero-blob { animation: none !important; }
             .shimmer::after { animation: none !important; }
         }
     </style>
@@ -536,16 +519,16 @@
 
     <!-- ===== FLOATING ISLAND NAV ===== -->
     <nav class="island-nav" id="islandNav">
-        <a href="index.html" class="nav-logo" style="text-decoration:none;">ONDA</a>
+        <a href="/" class="nav-logo" style="text-decoration:none;">ONDA</a>
         <div class="hidden md:flex items-center">
-            <a href="index.html#packages" class="nav-link">Packages</a>
+            <a href="/#packages" class="nav-link">Packages</a>
             <a href="portfolio.html" class="nav-link active">Work</a>
             <a href="process.html" class="nav-link">Process</a>
-            <a href="index.html#contact" class="nav-link">Contact</a>
+            <a href="/#contact" class="nav-link">Contact</a>
             <div class="nav-divider"></div>
             <a href="portfolio_es.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">ES</a>
         </div>
-        <a href="index.html#contact" class="nav-cta hidden md:inline-flex">Get a Quote</a>
+        <a href="/#contact" class="nav-cta hidden md:inline-flex">Get a Quote</a>
         <button id="mobileMenuBtn" class="md:hidden ml-2 p-2 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Open menu">
             <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
@@ -553,10 +536,10 @@
 
     <!-- ===== MOBILE MENU ===== -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html#packages">Packages</a>
+        <a href="/#packages">Packages</a>
         <a href="portfolio.html" style="color:var(--accent)">Work</a>
         <a href="process.html">Process</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="/#contact">Contact</a>
         <div class="flex gap-4 mt-4">
             <a href="portfolio_es.html" style="font-size:1.125rem;color:var(--text-muted)">ES</a>
         </div>
@@ -570,12 +553,12 @@
 
     <!-- ===== HERO ===== -->
     <section class="relative overflow-hidden pt-28 sm:pt-36 pb-16 sm:pb-20">
-        <div class="hero-blob hero-blob-1"></div>
-        <div class="hero-blob hero-blob-2"></div>
+        <!-- restrained: ambient blobs removed -->
         <div class="relative z-10 mx-auto max-w-5xl px-5 sm:px-6 text-center">
             <div class="eyebrow mb-6 reveal stagger-1">Concept work</div>
             <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-white reveal stagger-2">Polish, taste, and<br class="hidden sm:block"> <span style="font-family:'Instrument Serif',serif;font-style:italic;color:var(--accent);">visual range.</span></h1>
             <p class="mx-auto mt-6 max-w-3xl text-lg leading-relaxed md:text-xl reveal stagger-3" style="color:var(--text-secondary);">These pieces are concepts, not client case studies. Their purpose is to show the level of art direction, layout control, and finish I can bring to real work.</p>
+            <p class="reveal" style="margin-top:1.5rem;font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:var(--accent);opacity:.85;transition-delay:300ms !important;">everything moves in waves.</p>
         </div>
     </section>
 
@@ -629,7 +612,7 @@
             <div class="tilt-wrap reveal">
                 <a href="examples/architecture-studio.html" class="tilt-card spot focus-card grid gap-0 lg:grid-cols-[1.1fr_0.9fr] lg:items-center p-4 sm:p-5 block" style="text-decoration:none;color:inherit;">
                     <div class="overflow-hidden rounded-2xl">
-                        <div class="concept-preview preview-forma" role="img" aria-label="Estudio Forma concept preview"><div class="pv-content"><div class="pv-title">Forma</div><div class="pv-counter">001 — concept</div></div><div class="pv-cols"></div><div class="pv-sq"></div></div>
+                        <div class="concept-preview preview-forma" role="img" aria-label="Estudio Forma concept preview"><div class="pv-content"><div class="pv-title">Forma</div><div class="pv-counter">001, concept</div></div><div class="pv-cols"></div><div class="pv-sq"></div></div>
                     </div>
                     <div class="p-4 sm:p-6 lg:p-8">
                         <p class="text-xs font-bold uppercase tracking-[0.18em]" style="color:var(--accent);">Architecture studio concept</p>
@@ -674,7 +657,7 @@
                     <div class="p-4 sm:p-6 lg:p-8">
                         <p class="text-xs font-bold uppercase tracking-[0.18em]" style="color:var(--accent);">Boutique hotel concept</p>
                         <h2 class="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-white">Casa Serena</h2>
-                        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);">A 14-room boutique hotel in Batumi, Georgia — warm Mediterranean design inspired by Aman Resorts and The Hoxton.</p>
+                        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);">A 14-room boutique hotel in Batumi, Georgia, warm Mediterranean design inspired by Aman Resorts and The Hoxton.</p>
                         <div class="mt-6 flex flex-wrap gap-3 text-sm">
                             <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">Mediterranean design</span>
                             <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">Editorial photography</span>
@@ -714,7 +697,7 @@
                     <div class="p-4 sm:p-6 lg:p-8">
                         <p class="text-xs font-bold uppercase tracking-[0.18em]" style="color:var(--accent);">Solo professional concept</p>
                         <h2 class="mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-white">Kai Andersen</h2>
-                        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);">A clean, modern personal brand concept for solo entrepreneurs, consultants, and independent professionals — minimal design with indigo accents and clear expertise positioning.</p>
+                        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);">A clean, modern personal brand concept for solo entrepreneurs, consultants, and independent professionals, minimal design with indigo accents and clear expertise positioning.</p>
                         <div class="mt-6 flex flex-wrap gap-3 text-sm">
                             <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">Personal brand</span>
                             <span class="tag-hover rounded-full px-4 py-2" style="background:rgba(255,255,255,0.05);color:var(--text-muted);border:1px solid var(--border);">Minimal design</span>
@@ -732,12 +715,11 @@
 
     <!-- ===== CTA SECTION ===== -->
     <section class="relative px-5 sm:px-6 md:px-10 py-20 sm:py-28 text-center overflow-hidden">
-        <div class="lamp"></div>
         <div class="grid-bg absolute inset-0"></div>
         <div class="mx-auto max-w-4xl relative z-10 reveal">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Want something in this direction for a real business?</h2>
             <p class="mx-auto mt-5 max-w-2xl text-lg" style="color:var(--text-secondary);">Tell me the business, the market, and the timing. I will recommend the most sensible package, not the biggest one.</p>
-            <a href="index.html#contact" class="btn-p shimmer mt-8 inline-flex">Request a Quote <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
+            <a href="/#contact" class="btn-p shimmer mt-8 inline-flex">Request a Quote <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
         </div>
     </section>
 

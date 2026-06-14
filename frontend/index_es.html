@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
     <title>Onda | Webs premium en días para negocios de servicios</title>
     <meta name="description"
         content="Webs premium, landings y automatizaciones para negocios de servicios que quieren verse profesionales y captar más clientes. Desde 690 EUR.">
@@ -27,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Serif+Display:ital@0&family=Jost:wght@300&family=Plus+Jakarta+Sans:wght@300&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest" defer></script>
@@ -359,6 +360,14 @@
             fill: none; stroke-linecap: round; stroke-linejoin: round;
         }
 
+        /* Signature Onda wave (canvas), one luminous wave emerging from black */
+        .onda-wave {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+            -webkit-mask-image: radial-gradient(125% 125% at 62% 45%, #000 26%, transparent 78%);
+            mask-image: radial-gradient(125% 125% at 62% 45%, #000 26%, transparent 78%);
+        }
+
         /* Input dark */
         .input-dark {
             width: 100%; border-radius: 0.75rem; padding: 0.875rem 1rem;
@@ -429,7 +438,7 @@
             background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        /* Meridian — cinematic gold */
+        /* Meridian, cinematic gold */
         .preview-meridian { background: #050505; }
         .preview-meridian::before {
             content: ''; position: absolute; inset: 20px;
@@ -453,7 +462,7 @@
             background: linear-gradient(135deg, transparent 47%, rgba(201,168,76,0.06) 49.5%, rgba(201,168,76,0.06) 50.5%, transparent 53%);
         }
 
-        /* Casa Serena — Mediterranean warmth */
+        /* Casa Serena, Mediterranean warmth */
         .preview-serena { background: #FBF8F4; }
         .preview-serena::before {
             content: ''; position: absolute; width: 180px; height: 90px;
@@ -483,7 +492,7 @@
             bottom: 15%; right: 18%;
         }
 
-        /* Velara — dark luxury with rose-gold */
+        /* Velara, dark luxury with rose-gold */
         .preview-velara { background: #0A0A0A; }
         .preview-velara::before {
             content: ''; position: absolute; width: 350px; height: 350px; border-radius: 50%;
@@ -662,7 +671,7 @@
 <body>
     <script>
         try{sessionStorage.setItem('onda:lastHub',location.pathname);}catch(_){}
-        // Tailwind CDN causes late layout shift — force re-scroll to hash after Tailwind settles
+        // Tailwind CDN causes late layout shift, force re-scroll to hash after Tailwind settles
         if (location.hash) {
             (function(){
                 var id = location.hash.slice(1);
@@ -688,12 +697,7 @@
     <!-- Noise overlay -->
     <div class="noise" aria-hidden="true"></div>
 
-    <!-- Tracing beam -->
-    <div class="tracing-beam" id="tracingBeam" aria-hidden="true">
-        <div class="tracing-track"></div>
-        <div class="tracing-progress" id="tracingProgress" style="height:0"></div>
-        <div class="tracing-dot" id="tracingDot" style="top:0"></div>
-    </div>
+    <!-- Tracing beam removed for restraint (Ondas: one signal, not many) -->
 
     <!-- ===== FLOATING ISLAND NAV ===== -->
     <nav class="island-nav" id="islandNav">
@@ -731,11 +735,7 @@
 
     <!-- ===== HERO ===== -->
     <section class="min-h-[100dvh] relative flex items-center overflow-hidden">
-        <div class="hero-blob hero-blob-1"></div>
-        <div class="hero-blob hero-blob-2"></div>
-        <div class="hero-blob hero-blob-3"></div>
-        <div id="meteorContainer" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;"></div>
-        <div class="lamp"></div>
+        <!-- restrained: ambient blobs / meteors / lamp removed; one signature wave carries the hero -->
 
         <div class="relative z-10 mx-auto max-w-[1400px] w-full px-5 sm:px-6 md:px-10 grid lg:grid-cols-[1.1fr_0.9fr] items-center gap-10 lg:gap-20 pt-24 sm:pt-28 pb-14 sm:pb-20 lg:pt-0 lg:pb-0">
             <div>
@@ -752,7 +752,7 @@
                     </span>
                 </h1>
                 <p class="text-base sm:text-lg md:text-xl leading-relaxed mb-7 sm:mb-10 reveal stagger-3" style="color: var(--text-secondary); max-width: 56ch;">
-                    Onda es un estudio de diseño web para clínicas, restaurantes, inmobiliarias y estudios de toda España. Hacemos webs rápidas y a medida — sin plantillas, sin maquetadores — con un solo objetivo: convertir visitas en clientes.
+                    Onda es un estudio de diseño web para clínicas, restaurantes, inmobiliarias y estudios de toda España. Hacemos webs rápidas y a medida, sin plantillas, sin maquetadores, con un solo objetivo: convertir visitas en clientes.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-7 sm:mb-9 reveal stagger-4">
                     <a href="#contact" class="btn-p shimmer justify-center sm:w-auto">Pedir presupuesto <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
@@ -761,28 +761,12 @@
                 <p class="text-sm reveal" style="color:var(--text-muted);transition-delay:400ms !important;max-width:56ch;">
                     Precio cerrado, acordado de antemano. La mayoría de webs se publican en unas tres semanas. Cada concepto de abajo lo diseñamos y programamos nosotros.
                 </p>
+                <p class="reveal" style="margin-top:1.5rem;font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:var(--accent);opacity:.85;transition-delay:500ms !important;">todo se mueve en ondas.</p>
             </div>
 
-            <!-- Right: decorative wave SVG -->
-            <div class="hidden lg:flex items-center justify-center relative" style="height: 480px;">
-                <svg class="absolute w-full h-full" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice" style="opacity:0.35;" id="heroWaves">
-                    <defs>
-                        <linearGradient id="wg1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.6"/>
-                            <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.2"/>
-                        </linearGradient>
-                        <linearGradient id="wg2" x1="100%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.5"/>
-                            <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.1"/>
-                        </linearGradient>
-                    </defs>
-                    <path class="wave-path" stroke="url(#wg1)" stroke-width="2" d="M0,250 C80,200 120,300 200,250 C280,200 320,300 400,250 C480,200 500,250 500,250"/>
-                    <path class="wave-path" stroke="url(#wg2)" stroke-width="2.5" d="M0,280 C90,230 130,330 210,280 C290,230 330,330 410,280 C490,230 500,280 500,280"/>
-                    <path class="wave-path" stroke="url(#wg1)" stroke-width="1.8" d="M0,220 C70,170 110,270 190,220 C270,170 310,270 390,220 C470,170 500,220 500,220"/>
-                    <path class="wave-path" stroke="url(#wg2)" stroke-width="2.2" d="M0,310 C100,260 140,360 220,310 C300,260 340,360 420,310 C500,260 500,310 500,310"/>
-                    <path class="wave-path" stroke="url(#wg1)" stroke-width="1.5" d="M0,190 C60,140 100,240 180,190 C260,140 300,240 380,190 C460,140 500,190 500,190"/>
-                </svg>
-                <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,0.08),transparent 70%);filter:blur(50px);"></div>
+            <!-- Right: signature Onda wave (one luminous wave, emerging from black) -->
+            <div class="hidden lg:flex items-center justify-center relative" style="height: 520px;">
+                <canvas id="ondaWave" class="onda-wave" aria-hidden="true"></canvas>
             </div>
         </div>
     </section>
@@ -797,12 +781,12 @@
                     <div class="grid gap-6 md:grid-cols-2">
                         <div class="rounded-xl p-5" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
                             <p class="text-[0.6875rem] font-bold uppercase tracking-[0.18em]" style="color:var(--text-muted);">Desde</p>
-                            <p class="mt-2 text-3xl font-bold text-white">EUR <span class="counter-value" data-target="690" data-suffix="">0</span></p>
+                            <p class="mt-2 text-3xl font-bold text-white">EUR <span class="counter-value" data-target="690" data-suffix="">690</span></p>
                             <p class="mt-2 text-sm" style="color:var(--text-secondary);">Punto de entrada accesible para negocios pequeños.</p>
                         </div>
                         <div class="rounded-xl p-5" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
                             <p class="text-[0.6875rem] font-bold uppercase tracking-[0.18em]" style="color:var(--text-muted);">Plazo habitual</p>
-                            <p class="mt-2 text-3xl font-bold text-white"><span class="counter-value" data-target="5" data-suffix="">0</span>–<span class="counter-value" data-target="10" data-suffix="">0</span> días</p>
+                            <p class="mt-2 text-3xl font-bold text-white"><span class="counter-value" data-target="5" data-suffix="">5</span>–<span class="counter-value" data-target="10" data-suffix="">10</span> días</p>
                             <p class="mt-2 text-sm" style="color:var(--text-secondary);">Alcance claro, sin procesos hinchados ni reuniones eternas.</p>
                         </div>
                         <div class="rounded-xl p-5 md:col-span-2" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
@@ -856,7 +840,7 @@
                         <div class="px-2 pb-2 pt-4">
                             <p class="text-[0.6875rem] font-bold uppercase tracking-[0.16em]" style="color:var(--accent);">Concepto hotel boutique</p>
                             <h3 class="mt-1 text-lg font-bold text-white">Casa Serena</h3>
-                            <p class="mt-1 text-sm leading-relaxed" style="color:var(--text-secondary);">Un hotel boutique de 14 habitaciones en Batumi, Georgia — diseño mediterráneo cálido inspirado en Aman Resorts y The Hoxton.</p>
+                            <p class="mt-1 text-sm leading-relaxed" style="color:var(--text-secondary);">Un hotel boutique de 14 habitaciones en Batumi, Georgia, diseño mediterráneo cálido inspirado en Aman Resorts y The Hoxton.</p>
                         </div>
                     </a>
                 </div>
@@ -887,12 +871,12 @@
 
 <!-- ===== TEAM ===== -->
     <section class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28 relative overflow-hidden">
-        <div id="teamParticles" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;"></div>
+        <!-- team particle field removed for restraint -->
         <div class="mx-auto max-w-5xl relative z-10">
             <div class="reveal">
                 <div class="eyebrow mb-5">El estudio</div>
                 <h2 class="mb-6 sm:mb-10 text-2xl sm:text-3xl md:text-4xl font-bold text-white" style="max-width:24ch;">Un estudio pequeño. Trabajo senior, sin burocracia de agencia.</h2>
-                <p class="mb-8 sm:mb-12 text-base sm:text-lg" style="color:var(--text-secondary);max-width:60ch;">Onda es deliberadamente pequeño. Hablas directamente con quien hace el trabajo, las decisiones son rápidas y los proyectos se publican en semanas — no en los meses que una agencia grande gasta en procesos y traspasos.</p>
+                <p class="mb-8 sm:mb-12 text-base sm:text-lg" style="color:var(--text-secondary);max-width:60ch;">Onda es deliberadamente pequeño. Hablas directamente con quien hace el trabajo, las decisiones son rápidas y los proyectos se publican en semanas, no en los meses que una agencia grande gasta en procesos y traspasos.</p>
             </div>
             <div class="grid gap-6 max-w-2xl mx-auto">
                 <!-- Tymur -->
@@ -911,7 +895,7 @@
                                 Disponible
                             </span>
                         </div>
-                        <p class="text-sm leading-relaxed mb-6" style="color:var(--text-secondary);">Fundé Onda para crear webs rápidas y a medida para negocios de servicios — sin plantillas, sin maquetadores. Cada concepto de esta web lo diseñamos y programamos en casa. Desde España, trabajamos con clientes por toda Europa.</p>
+                        <p class="text-sm leading-relaxed mb-6" style="color:var(--text-secondary);">Fundé Onda para crear webs rápidas y a medida para negocios de servicios, sin plantillas, sin maquetadores. Cada concepto de esta web lo diseñamos y programamos en casa. Desde España, trabajamos con clientes por toda Europa.</p>
                         <div class="flex items-center justify-between">
                             <span class="text-xs font-medium uppercase tracking-wider" style="color:var(--text-muted);">España, remoto en toda Europa</span>
                             <div class="flex items-center gap-2">
@@ -1142,7 +1126,7 @@
                             </div>
                         </div>
                         <div class="mt-5">
-                            <label class="mb-2 block text-sm font-semibold" style="color:var(--text-secondary);">Teléfono <span style="color:var(--text-muted);font-weight:400;">(opcional — para responderte rápido por WhatsApp)</span></label>
+                            <label class="mb-2 block text-sm font-semibold" style="color:var(--text-secondary);">Teléfono <span style="color:var(--text-muted);font-weight:400;">(opcional, para responderte rápido por WhatsApp)</span></label>
                             <input type="tel" id="contactPhone" autocomplete="tel" class="input-dark" placeholder="+34 600 000 000">
                         </div>
                         <div class="mt-5">
@@ -1388,6 +1372,47 @@
                     }, i * 200);
                 });
             }, 400);
+        })();
+
+        // ===== SIGNATURE ONDA WAVE (canvas, dependency-free, restrained) =====
+        (function(){
+            const c = document.getElementById('ondaWave');
+            if (!c) return;
+            const ctx = c.getContext('2d');
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let w, h, dpr, raf, t = 0;
+            function size(){
+                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                const r = c.getBoundingClientRect();
+                w = c.width = Math.max(1, Math.floor(r.width * dpr));
+                h = c.height = Math.max(1, Math.floor(r.height * dpr));
+            }
+            function line(yo, amp, len, phase, alpha, width){
+                ctx.beginPath();
+                for (let x = 0; x <= w; x += 6 * dpr){
+                    const y = yo
+                        + Math.sin(x / (len * dpr) + phase) * amp * dpr
+                        + Math.sin(x / (len * 0.5 * dpr) + phase * 1.7) * amp * 0.35 * dpr;
+                    x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+                }
+                const g = ctx.createLinearGradient(0, 0, w, 0);
+                g.addColorStop(0, 'rgba(59,130,246,0)');
+                g.addColorStop(0.5, 'rgba(96,165,250,' + alpha + ')');
+                g.addColorStop(1, 'rgba(59,130,246,0)');
+                ctx.strokeStyle = g; ctx.lineWidth = width * dpr; ctx.stroke();
+            }
+            function paint(anim){
+                ctx.clearRect(0, 0, w, h);
+                ctx.globalCompositeOperation = 'lighter';
+                const cy = h * 0.5;
+                for (let i = 0; i < 7; i++){
+                    line(cy + (i - 3) * 15 * dpr, 24 - i * 1.6, 110 + i * 16, (anim ? t * 0.018 : 0) + i * 0.5, 0.17, 1.1);
+                }
+            }
+            function frame(){ paint(true); t += 1; raf = requestAnimationFrame(frame); }
+            size();
+            reduce ? paint(false) : frame();
+            window.addEventListener('resize', () => { cancelAnimationFrame(raf); size(); reduce ? paint(false) : frame(); }, { passive: true });
         })();
 
         // ===== OBSERVERS =====
