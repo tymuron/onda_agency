@@ -1,607 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0a0a0a">
-    <title>Onda | Fast Premium Websites for Service Businesses</title>
-    <meta name="description"
-        content="Fast premium websites, landing pages, and starter automations for service businesses that need to look established and capture more leads.">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0a0a" />
+<title>Onda · web design studio, Barcelona</title>
+<meta name="description" content="Web design studio in Barcelona. Fast, custom websites with fixed pricing, a quote in 24h and live in about 3 weeks. Founding-client pricing from €490." />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Onda | Fast Premium Websites for Service Businesses">
-    <meta property="og:description" content="Fast premium websites and starter automations for businesses that need to look serious and capture more leads. Based in Spain, remote worldwide.">
-    <meta property="og:image" content="https://agencyonda.com/og-image.png">
-    <meta property="og:url" content="https://agencyonda.com">
-    <meta property="og:locale" content="en_US">
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Onda · web design studio, Barcelona" />
+<meta property="og:description" content="Fast, custom websites and starter automations for service businesses that need to look established and capture more leads. Founding-client pricing from €490." />
+<meta property="og:image" content="https://agencyonda.com/og-image.png" />
+<meta property="og:url" content="https://agencyonda.com/index_v5.html" />
+<meta property="og:locale" content="en_US" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Onda | Fast Premium Websites for Service Businesses">
-    <meta name="twitter:description" content="Premium websites and starter automations for businesses that need to look serious. Based in Spain, remote worldwide.">
-    <meta name="twitter:image" content="https://agencyonda.com/og-image.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Onda · web design studio, Barcelona" />
+<meta name="twitter:description" content="Fast, custom websites and starter automations for service businesses. Based in Barcelona, remote across Europe. Founding-client pricing from €490." />
+<meta name="twitter:image" content="https://agencyonda.com/og-image.png" />
 
-    <!-- Fonts (preconnect + link, not @import) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://unpkg.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Serif+Display:ital@0&family=Jost:wght@300&family=Plus+Jakarta+Sans:wght@300&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="apple-touch-icon" href="/assets/favicon.png" />
 
-    <link rel="stylesheet" href="/assets/css/tailwind.css">
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <style>
+<!-- ============================================================
+     ONDA · homepage · art direction "MAREA"
+     Dark-luxury fashion editorial. Type IS the design.
+       · Display      Fraunces (high-optical fashion serif)
+       · Flourish     Instrument Serif italic · the rotating word + thesis line, in blue
+       · Workhorse    DM Sans (all UI, body, labels)
+       · Meta/index   JetBrains Mono (numbering, captions, prices)
+     Blue (#3B82F6) is used like INK: rotating word, section indices,
+     one drawn hairline, CTAs, links, focus. Imagery carries every other colour.
+     ============================================================ -->
 
-        :root {
-            --bg: #0a0a0a;
-            --surface: rgba(255,255,255,0.03);
-            --surface-hover: rgba(255,255,255,0.06);
-            --border: rgba(255,255,255,0.06);
-            --border-hover: rgba(255,255,255,0.12);
-            --text-primary: #fafafa;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --accent: #3B82F6;
-            --accent-dark: #2563eb;
-            --ease: cubic-bezier(0.32, 0.72, 0, 1);
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+<link rel="stylesheet" href="/assets/css/editorial.css" />
 
-        h1,h2,h3,h4,h5,h6 { letter-spacing: -0.03em; line-height: 1.1; }
-        ::selection { background: rgba(59,130,246,0.3); color: white; }
-        html { scroll-behavior: smooth; }
-
-        /* ===== NOISE OVERLAY ===== */
-        .noise {
-            position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.025;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
-
-        /* ===== FLOATING ISLAND NAV ===== */
-        .island-nav {
-            position: fixed; top: 1.25rem; left: 50%; transform: translateX(-50%); z-index: 50;
-            border-radius: 9999px; background: rgba(10,10,10,0.6);
-            backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border: 1px solid var(--border); padding: 0.4rem 0.5rem 0.4rem 1.25rem;
-            display: flex; align-items: center;
-            transition: transform 0.6s var(--ease), opacity 0.6s var(--ease);
-            box-shadow: 0 8px 32px -8px rgba(0,0,0,0.5);
-        }
-        .island-nav.nav-hidden { transform: translateX(-50%) translateY(-140%); opacity: 0; }
-        .nav-link {
-            color: var(--text-secondary); font-size: 0.8125rem; font-weight: 500;
-            padding: 0.5rem 0.75rem; border-radius: 9999px;
-            transition: color 0.3s var(--ease), background 0.3s var(--ease); white-space: nowrap;
-        }
-        .nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.06); }
-        .nav-cta {
-            background: var(--accent); color: white; font-size: 0.8125rem; font-weight: 600;
-            padding: 0.5rem 1.25rem; border-radius: 9999px; margin-left: 0.5rem;
-            transition: all 0.3s var(--ease); white-space: nowrap;
-        }
-        .nav-cta:hover { background: var(--accent-dark); transform: scale(0.98); }
-        .nav-cta:active { transform: scale(0.96) translateY(1px); }
-        .nav-logo { font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; color: var(--text-primary); margin-right: 1rem; }
-        .nav-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.08); margin: 0 0.25rem; }
-
-        /* ===== HERO BLOBS ===== */
-        .hero-blob {
-            position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.12; will-change: transform;
-        }
-        .hero-blob-1 { width: 600px; height: 600px; background: #3B82F6; top: -15%; left: 10%; animation: bd1 22s ease-in-out infinite alternate; }
-        .hero-blob-2 { width: 450px; height: 450px; background: #1d4ed8; bottom: -5%; right: 5%; animation: bd2 28s ease-in-out infinite alternate; }
-        .hero-blob-3 { width: 350px; height: 350px; background: #60a5fa; top: 30%; left: 55%; animation: bd3 20s ease-in-out infinite alternate; }
-        @keyframes bd1 { to { transform: translate(100px,-80px) scale(1.2); } }
-        @keyframes bd2 { to { transform: translate(-80px,60px) scale(1.15); } }
-        @keyframes bd3 { to { transform: translate(60px,-50px) scale(1.1); } }
-
-        /* ===== METEORS ===== */
-        .meteor {
-            position: absolute; width: 2px;
-            background: linear-gradient(to bottom, transparent, rgba(59,130,246,0.5), transparent);
-            border-radius: 9999px; transform: rotate(-45deg);
-            animation: meteorFall linear infinite; opacity: 0; pointer-events: none;
-        }
-        @keyframes meteorFall {
-            0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 0; }
-            5% { opacity: 0.7; }
-            60% { opacity: 0.3; }
-            100% { transform: translateX(-600px) translateY(600px) rotate(-45deg); opacity: 0; }
-        }
-
-        /* ===== FLIP WORDS ===== */
-        .flip-words-container {
-            display: inline-block; position: relative; overflow: hidden;
-            vertical-align: bottom; height: 1.15em; min-width: 4em;
-        }
-        .flip-word {
-            display: block; position: absolute; left: 0; bottom: 0; width: max-content;
-            opacity: 0; transform: translateY(100%);
-            font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent);
-        }
-        .flip-word.active { animation: flipIn 0.6s var(--ease) forwards; }
-        .flip-word.exiting { animation: flipOut 0.4s cubic-bezier(0.55,0,1,0.45) forwards; }
-        @keyframes flipIn { from { transform: translateY(100%); opacity: 0; filter: blur(4px); } to { transform: translateY(0); opacity: 1; filter: blur(0); } }
-        @keyframes flipOut { from { transform: translateY(0); opacity: 1; filter: blur(0); } to { transform: translateY(-100%); opacity: 0; filter: blur(4px); } }
-
-        /* ===== DOUBLE-BEZEL (Doppelrand) ===== */
-        .doppelrand {
-            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-            border-radius: 1.5rem; padding: 0.375rem;
-            transition: all 0.5s var(--ease);
-        }
-        .doppelrand:hover { border-color: var(--border-hover); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.5); }
-        .doppelrand-inner {
-            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);
-            border-radius: calc(1.5rem - 0.375rem); padding: 1.75rem;
-        }
-
-        /* ===== SPOTLIGHT CARDS ===== */
-        .spot {
-            position: relative; overflow: hidden;
-            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
-            background: var(--surface); border: 1px solid var(--border); border-radius: 1.5rem;
-        }
-        .spot::before {
-            content: ''; position: absolute; inset: 0; opacity: 0;
-            transition: opacity 0.5s var(--ease);
-            background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(59,130,246,0.06), transparent 40%);
-            z-index: 0; pointer-events: none; border-radius: inherit;
-        }
-        .spot:hover::before { opacity: 1; }
-        .spot:hover { transform: translateY(-2px); border-color: rgba(59,130,246,0.15); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.4); }
-        .spot > * { position: relative; z-index: 1; }
-
-        /* ===== REVEAL ===== */
-        .reveal {
-            opacity: 0; transform: translateY(20px); filter: blur(6px);
-            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
-        }
-        .reveal.is-visible { opacity: 1; transform: translateY(0); filter: blur(0); }
-        .stagger-1 { transition-delay: 0ms !important; }
-        .stagger-2 { transition-delay: 100ms !important; }
-        .stagger-3 { transition-delay: 200ms !important; }
-        .stagger-4 { transition-delay: 300ms !important; }
-
-        /* ===== TEXT GENERATE ===== */
-        .text-gen span { opacity: 0.08; transition: opacity 0.6s var(--ease); }
-        .text-gen.is-visible span { opacity: 1; }
-
-        /* ===== BUTTONS ===== */
-        .btn-p {
-            background: var(--accent); color: white; padding: 0.75rem 1.5rem;
-            border-radius: 9999px; font-weight: 600; font-size: 0.9375rem;
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            transition: all 0.3s var(--ease); border: none; cursor: pointer;
-            position: relative; overflow: hidden;
-        }
-        .btn-p:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 12px 24px -8px rgba(59,130,246,0.4); }
-        .btn-p:active { transform: scale(0.98) translateY(1px); }
-        .btn-g {
-            background: transparent; color: var(--text-secondary); padding: 0.75rem 1.5rem;
-            border-radius: 9999px; font-weight: 600; font-size: 0.9375rem;
-            border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 0.5rem;
-            transition: all 0.3s var(--ease); cursor: pointer;
-        }
-        .btn-g:hover { color: var(--text-primary); border-color: var(--border-hover); background: var(--surface); }
-        .btn-g:active { transform: scale(0.98) translateY(1px); }
-
-        /* ===== SHIMMER ===== */
-        .shimmer { position: relative; overflow: hidden; }
-        .shimmer::after {
-            content: ''; position: absolute; top: -50%; left: -75%; width: 50%; height: 200%;
-            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
-            animation: shimmerSweep 3.5s ease-in-out infinite; pointer-events: none;
-        }
-        @keyframes shimmerSweep { 0%,100% { transform: translateX(-100%); } 50% { transform: translateX(350%); } }
-
-        /* ===== EYEBROW ===== */
-        .eyebrow {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 0.3rem 0.75rem; border-radius: 9999px;
-            background: rgba(59,130,246,0.08); color: var(--accent);
-            font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-        }
-
-        /* ===== DIVIDER ===== */
-        .divider {
-            height: 1px; border: none;
-            background: linear-gradient(90deg, transparent, rgba(59,130,246,0.12) 20%, rgba(59,130,246,0.18) 50%, rgba(59,130,246,0.12) 80%, transparent);
-        }
-
-        /* ===== COUNTER ===== */
-        .counter-value { display: inline-block; font-variant-numeric: tabular-nums; }
-
-        /* ===== 3D TILT ===== */
-        .tilt-wrap { perspective: 1000px; }
-        .tilt-card {
-            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
-            transform-style: preserve-3d; position: relative;
-        }
-        .tilt-card:hover { box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5); }
-        .tilt-card .tilt-img { transition: transform 0.6s var(--ease); }
-        .tilt-card:hover .tilt-img { transform: scale(1.05); }
-        .tilt-card::after {
-            content: ''; position: absolute; inset: 0; border-radius: inherit; opacity: 0;
-            transition: opacity 0.5s var(--ease);
-            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 55%, transparent 60%);
-            pointer-events: none; z-index: 5;
-        }
-        .tilt-card:hover::after { opacity: 1; }
-
-        /* ===== TEAM CARDS ===== */
-        .team-card {
-            border-radius: 1.25rem; background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06); transition: all 0.5s var(--ease);
-        }
-        .team-card:hover {
-            background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.12);
-            transform: translateY(-3px); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.4);
-        }
-        .team-avatar {
-            width: 48px; height: 48px; border-radius: 50%;
-            background: linear-gradient(135deg, #1e3a5f, var(--accent));
-            color: white; display: flex; align-items: center; justify-content: center;
-            font-size: 0.875rem; font-weight: 800; letter-spacing: 0.05em; flex-shrink: 0;
-            border: 2px solid rgba(255,255,255,0.08);
-        }
-        .team-status {
-            display: inline-flex; align-items: center; gap: 6px;
-            font-size: 0.6875rem; font-weight: 600; padding: 3px 10px; border-radius: 9999px;
-            background: rgba(34,197,94,0.08); color: #4ade80; border: 1px solid rgba(34,197,94,0.15);
-        }
-        .status-dot {
-            width: 5px; height: 5px; border-radius: 50%; background: #4ade80;
-            box-shadow: 0 0 6px rgba(74,222,128,0.5); animation: pulseDot 2s ease-in-out infinite;
-        }
-        @keyframes pulseDot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
-        .social-btn {
-            display: flex; align-items: center; justify-content: center;
-            width: 34px; height: 34px; border-radius: 10px;
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-            color: var(--text-muted); transition: all 0.3s var(--ease);
-        }
-        .social-btn:hover { background: rgba(255,255,255,0.08); color: var(--text-primary); transform: translateY(-1px); }
-        .social-btn.wa:hover { background: rgba(37,211,102,0.12); color: #25d366; border-color: rgba(37,211,102,0.25); }
-
-        /* ===== FAQ ===== */
-        .faq-item { border-bottom: 1px solid var(--border); }
-        .faq-trigger {
-            display: flex; align-items: center; justify-content: space-between; width: 100%;
-            padding: 1.25rem 0; font-size: 0.9375rem; font-weight: 600; color: var(--text-primary);
-            background: none; border: none; cursor: pointer; text-align: left;
-            transition: color 0.3s var(--ease); font-family: 'DM Sans', sans-serif;
-        }
-        .faq-trigger:hover { color: var(--accent); }
-        .faq-icon {
-            width: 28px; height: 28px; border-radius: 50%; background: var(--surface);
-            border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0; transition: all 0.4s var(--ease); color: var(--text-muted);
-        }
-        .faq-item.open .faq-icon { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.2); transform: rotate(45deg); color: var(--accent); }
-        .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease), opacity 0.4s var(--ease); opacity: 0; }
-        .faq-item.open .faq-body { opacity: 1; }
-
-        /* ===== TRACING BEAM ===== */
-        .tracing-beam { position: fixed; left: 20px; top: 0; width: 2px; height: 100vh; z-index: 40; border-radius: 2px; }
-        .tracing-track { position: absolute; inset: 0; background: rgba(59,130,246,0.06); border-radius: 2px; }
-        .tracing-progress {
-            position: absolute; top: 0; left: 0; width: 100%;
-            background: var(--accent); border-radius: 2px; transform-origin: top;
-            box-shadow: 0 0 8px rgba(59,130,246,0.4); transition: height 0.1s linear;
-        }
-        .tracing-dot {
-            position: absolute; left: -3px; width: 8px; height: 8px; border-radius: 50%;
-            background: var(--accent); box-shadow: 0 0 12px 3px rgba(59,130,246,0.5); transition: top 0.1s linear;
-        }
-        @media (min-width: 640px) { .faq-trigger { padding: 1.5rem 0; font-size: 1.0625rem; } }
-        @media (max-width: 768px) { .tracing-beam { display: none; } }
-
-        /* ===== WHATSAPP FLOAT ===== */
-        .wa-float {
-            position: fixed; bottom: 24px; right: 24px; z-index: 100;
-            display: flex; align-items: center; gap: 10px;
-            background: #25d366; color: white; padding: 14px 22px 14px 18px;
-            border-radius: 60px; font-weight: 600; font-size: 0.9375rem;
-            box-shadow: 0 6px 24px -4px rgba(37,211,102,0.5);
-            transition: all 0.3s var(--ease); text-decoration: none;
-        }
-        .wa-float:hover { transform: translateY(-2px); box-shadow: 0 10px 32px -4px rgba(37,211,102,0.6); }
-        .wa-float svg { flex-shrink: 0; }
-        @media (max-width: 640px) { .wa-float span { display: none; } .wa-float { padding: 16px; border-radius: 50%; } }
-
-        /* ===== FOCUS CARDS ===== */
-        .focus-group:hover .focus-card {
-            filter: blur(2px); opacity: 0.5; transform: scale(0.98); transition: all 0.5s var(--ease);
-        }
-        .focus-group .focus-card { transition: all 0.5s var(--ease); }
-        .focus-group:hover .focus-card:hover { filter: blur(0); opacity: 1; transform: scale(1.01); }
-
-        /* ===== GRID PATTERN ===== */
-        .grid-bg {
-            background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-
-        /* ===== POPULAR HIGHLIGHT ===== */
-        .pkg-popular { border-color: rgba(59,130,246,0.2) !important; background: rgba(59,130,246,0.03) !important; }
-
-        /* ===== MOBILE MENU ===== */
-        .mobile-menu {
-            position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; gap: 2rem; background: var(--bg);
-            transform: translateX(100%); transition: transform 0.4s var(--ease);
-        }
-        .mobile-menu.open { transform: translateX(0); }
-        .mobile-menu a { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); transition: color 0.3s; }
-        .mobile-menu a:hover { color: var(--accent); }
-
-        /* ===== LAMP GLOW ===== */
-        .lamp {
-            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 100%; height: 300px;
-            background: radial-gradient(ellipse at 50% 100%, rgba(59,130,246,0.06) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        /* Wave animation */
-        .wave-path {
-            fill: none; stroke-linecap: round; stroke-linejoin: round;
-        }
-
-        /* Signature Onda wave (canvas), one luminous wave emerging from black */
-        .onda-wave {
-            position: absolute; inset: 0; width: 100%; height: 100%;
-            z-index: 0; pointer-events: none;
-            -webkit-mask-image: radial-gradient(125% 125% at 62% 45%, #000 26%, transparent 78%);
-            mask-image: radial-gradient(125% 125% at 62% 45%, #000 26%, transparent 78%);
-        }
-
-        /* Input dark */
-        .input-dark {
-            width: 100%; border-radius: 0.75rem; padding: 0.875rem 1rem;
-            background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-            color: var(--text-primary); outline: none;
-            transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
-            font-family: 'DM Sans', sans-serif;
-        }
-        .input-dark::placeholder { color: var(--text-muted); }
-        .input-dark:focus { border-color: rgba(59,130,246,0.4); box-shadow: 0 0 0 3px rgba(59,130,246,0.08); }
-
-        /* Particles */
-        .particle {
-            position: absolute; width: 2px; height: 2px;
-            background: rgba(59,130,246,0.25); border-radius: 50%;
-            animation: particleFloat linear infinite; pointer-events: none;
-        }
-        @keyframes particleFloat {
-            0% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) translateX(40px); opacity: 0; }
-        }
-
-        /* ===== SKIP LINK (Accessibility) ===== */
-        .skip-link {
-            position: absolute; left: -9999px; top: 0; z-index: 9999;
-            background: var(--accent); color: white; padding: 0.75rem 1.5rem;
-            font-weight: 600; font-size: 0.875rem; border-radius: 0 0 0.75rem 0;
-            transition: left 0.2s var(--ease);
-        }
-        .skip-link:focus { left: 0; }
-
-        /* ===== FOCUS-VISIBLE (Keyboard Nav) ===== */
-        *:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-            border-radius: 4px;
-        }
-        .btn-p:focus-visible, .btn-g:focus-visible, .nav-cta:focus-visible {
-            outline-offset: 3px;
-            box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
-        }
-        input:focus-visible, textarea:focus-visible {
-            outline: none; /* uses custom border-color + box-shadow already */
-        }
-
-        /* ===== BUTTON-IN-BUTTON (Trailing Icon) ===== */
-        .btn-icon-wrap {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 28px; height: 28px; border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-            transition: all 0.3s var(--ease); flex-shrink: 0;
-        }
-        .btn-p:hover .btn-icon-wrap {
-            background: rgba(255,255,255,0.25);
-            transform: translateX(2px) translateY(-1px) scale(1.05);
-        }
-
-        /* ===== CONCEPT PREVIEW GRAPHICS (homepage) ===== */
-        .concept-preview {
-            width: 100%; height: 100%; position: relative; overflow: hidden;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .concept-preview .pv-content { position: relative; z-index: 2; text-align: center; }
-        .concept-preview .pv-grain {
-            position: absolute; inset: 0; opacity: 0.035; pointer-events: none; z-index: 3;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
-
-        /* Meridian, cinematic gold */
-        .preview-meridian { background: #050505; }
-        .preview-meridian::before {
-            content: ''; position: absolute; inset: 20px;
-            border: 1px solid rgba(201,168,76,0.15); pointer-events: none;
-        }
-        .preview-meridian::after {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(ellipse at 50% 55%, rgba(201,168,76,0.07) 0%, transparent 60%);
-            pointer-events: none;
-        }
-        .preview-meridian .pv-title {
-            font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2rem;
-            color: #FAFAFA; letter-spacing: 0.18em; text-transform: uppercase;
-        }
-        .preview-meridian .pv-sub {
-            font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; font-size: 0.55rem;
-            color: #94A3B8; letter-spacing: 0.35em; text-transform: uppercase; margin-top: 0.75rem;
-        }
-        .preview-meridian .pv-diag {
-            position: absolute; inset: 0; pointer-events: none;
-            background: linear-gradient(135deg, transparent 47%, rgba(201,168,76,0.06) 49.5%, rgba(201,168,76,0.06) 50.5%, transparent 53%);
-        }
-
-        /* Casa Serena, Mediterranean warmth */
-        .preview-serena { background: #FBF8F4; }
-        .preview-serena::before {
-            content: ''; position: absolute; width: 180px; height: 90px;
-            top: 0; left: 50%; transform: translateX(-50%);
-            border-radius: 0 0 180px 180px; background: rgba(212,168,83,0.1);
-            pointer-events: none;
-        }
-        .preview-serena::after {
-            content: ''; position: absolute; width: 100px; height: 50px; bottom: 0; left: 15%;
-            border-radius: 100px 100px 0 0; background: rgba(212,168,83,0.06);
-            pointer-events: none;
-        }
-        .preview-serena .pv-title {
-            font-family: 'DM Serif Display', serif; font-size: 2.2rem;
-            color: #2D3B2D; line-height: 1.1;
-        }
-        .preview-serena .pv-line {
-            width: 40px; height: 2px; background: #C2593A; margin: 0.75rem auto 0; border-radius: 2px;
-        }
-        .preview-serena .pv-sub {
-            font-family: 'Jost', sans-serif; font-weight: 300; font-size: 0.6rem;
-            color: #6B7B6B; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.5rem;
-        }
-        .preview-serena .pv-circle {
-            position: absolute; width: 50px; height: 50px; border-radius: 50%;
-            background: rgba(45,59,45,0.04); border: 1px solid rgba(45,59,45,0.06);
-            bottom: 15%; right: 18%;
-        }
-
-        /* Velara, dark luxury with rose-gold */
-        .preview-velara { background: #0A0A0A; }
-        .preview-velara::before {
-            content: ''; position: absolute; width: 350px; height: 350px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(196,149,106,0.2) 0%, transparent 65%);
-            top: -10%; right: -10%; filter: blur(50px); pointer-events: none;
-        }
-        .preview-velara::after {
-            content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(196,149,106,0.12) 0%, transparent 65%);
-            bottom: -5%; left: 5%; filter: blur(40px); pointer-events: none;
-        }
-        .preview-velara .pv-title {
-            font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
-            font-size: 3rem; color: #F5F0EB; letter-spacing: 0.02em; line-height: 1;
-        }
-        .preview-velara .pv-sub {
-            font-family: 'DM Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.3em;
-            text-transform: uppercase; color: #C4956A; margin-top: 1rem;
-        }
-        .preview-velara .pv-line {
-            width: 40px; height: 1px; background: #C4956A; margin: 0.75rem auto 0; opacity: 0.5;
-        }
-
-        /* ===== PREFERS REDUCED MOTION ===== */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-            .reveal { opacity: 1; transform: none; filter: none; }
-            .flip-word { animation: none !important; }
-            .flip-word.active { opacity: 1; transform: none; }
-            .hero-blob { animation: none !important; }
-            .meteor { display: none; }
-            .particle { display: none; }
-            .shimmer::after { animation: none !important; }
-            .tracing-beam { display: none; }
-            .status-dot { animation: none !important; }
-        }
-    </style>
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Onda",
-        "description": "Fast premium websites and starter automations for service businesses.",
-        "url": "https://agencyonda.com",
-        "areaServed": ["Europe", "United Kingdom", "Spain"],
-        "priceRange": "EUR 690 – EUR 2,490",
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "ES"
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Onda",
+    "description": "Fast, custom websites and starter automations for service businesses. Founding-client pricing from EUR 490.",
+    "url": "https://agencyonda.com",
+    "areaServed": ["Spain", "Europe", "United Kingdom"],
+    "priceRange": "EUR 490 - EUR 1,690",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Barcelona",
+        "addressCountry": "ES"
+    },
+    "founder": {
+        "@type": "Person",
+        "name": "Tymur Chystiakov"
+    },
+    "knowsLanguage": ["English", "Spanish"],
+    "serviceType": ["Web Design", "Web Development", "Business Automation"],
+    "offers": [
+        {
+            "@type": "Offer",
+            "name": "Launch Page",
+            "price": "490",
+            "priceCurrency": "EUR",
+            "description": "One-page custom website with WhatsApp or contact capture"
         },
-        "founder": {
-            "@type": "Person",
-            "name": "Tymur Chystiakov"
+        {
+            "@type": "Offer",
+            "name": "Business Website",
+            "price": "990",
+            "priceCurrency": "EUR",
+            "description": "Up to 5 pages with SEO, CTA flow, and trust sections"
         },
-        "knowsLanguage": ["English", "Spanish"],
-        "serviceType": ["Web Design", "Web Development", "Business Automation"],
-        "offers": [
-            {
-                "@type": "Offer",
-                "name": "Launch Page",
-                "price": "690",
-                "priceCurrency": "EUR",
-                "description": "One-page custom website with WhatsApp or contact capture"
-            },
-            {
-                "@type": "Offer",
-                "name": "Business Website",
-                "price": "1490",
-                "priceCurrency": "EUR",
-                "description": "Up to 5 pages with SEO, CTA flow, and trust sections"
-            },
-            {
-                "@type": "Offer",
-                "name": "Site + Automation",
-                "price": "2490",
-                "priceCurrency": "EUR",
-                "description": "Full website plus one practical automation"
-            }
-        ]
-    }
-    </script>
-    <!-- onda-seo:start (managed by scripts/site_patch.py) -->
-    <link rel="canonical" href="https://agencyonda.com">
-    <link rel="alternate" hreflang="en" href="https://agencyonda.com">
-    <link rel="alternate" hreflang="es" href="https://agencyonda.com/index_es.html">
+        {
+            "@type": "Offer",
+            "name": "Site + Automation",
+            "price": "1690",
+            "priceCurrency": "EUR",
+            "description": "Full website plus one practical automation"
+        }
+    ]
+}
+</script>
+<!-- onda-seo:start (managed by scripts/site_patch.py) -->
+    <link rel="canonical" href="https://agencyonda.com/index_v5.html">
+    <link rel="alternate" hreflang="en" href="https://agencyonda.com/index_v5.html">
+    <link rel="alternate" hreflang="es" href="https://agencyonda.com">
     <link rel="alternate" hreflang="x-default" href="https://agencyonda.com">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "ProfessionalService"
+      ],
       "@id": "https://agencyonda.com/#org",
       "name": "Onda",
       "url": "https://agencyonda.com",
       "logo": "https://agencyonda.com/logo.png",
       "image": "https://agencyonda.com/og-image.png",
+      "telephone": "+34604963489",
+      "priceRange": "EUR 490 to EUR 1690",
       "founder": {
         "@type": "Person",
         "name": "Tymur Chystiakov"
       },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Barcelona",
+        "addressRegion": "Catalonia",
+        "addressCountry": "ES"
+      },
       "areaServed": [
+        "Barcelona",
         "Spain",
         "Europe",
         "United Kingdom"
@@ -610,7 +129,11 @@
         "en",
         "es"
       ],
-      "slogan": "Fast premium websites for service businesses."
+      "sameAs": [
+        "https://www.instagram.com/agencyonda",
+        "https://www.linkedin.com/in/tymur-chystiakov"
+      ],
+      "slogan": "Web design studio in Barcelona. Fast, premium websites for service businesses."
     },
     {
       "@type": "WebSite",
@@ -624,15 +147,15 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "https://agencyonda.com#faq",
+      "@id": "https://agencyonda.com/index_v5.html#faq",
       "inLanguage": "en",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Do I need to have all the content ready?",
+          "name": "Do I need all the content ready?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. A lot of small businesses do not. I can help shape the structure and tighten the copy so you are not blocked waiting for perfect content."
+            "text": "No. We shape the structure and tighten the copy with you. A rough idea of the business and a few photos is enough to start."
           }
         },
         {
@@ -640,7 +163,7 @@
           "name": "What if I only have Instagram or WhatsApp?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "That is a common starting point. The job is often to turn that into something more credible and easier to convert from."
+            "text": "That’s a common starting point. We turn a profile and a phone number into something credible that people trust enough to contact."
           }
         },
         {
@@ -648,7 +171,7 @@
           "name": "Can you work outside Spain?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. I am based in Spain and can work remotely with businesses across Europe, the UK, and other markets."
+            "text": "Yes, remotely across Europe and the UK, in English and Spanish. Most of the work happens over WhatsApp and a short call."
           }
         },
         {
@@ -656,7 +179,7 @@
           "name": "Can I start small and add automation later?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, and that is usually the smartest move. Start with the site, then add only the automations that will actually save time or catch more leads."
+            "text": "Usually the smartest move. Launch the site, let it earn, then layer on booking or follow-up automation once you can see where it pays off."
           }
         }
       ]
@@ -664,859 +187,660 @@
   ]
 }
     </script>
-    <script>(function(){try{var o=localStorage.getItem('onda_lang_override');var c="en";var m={"en": "/", "es": "/index_es.html"};if(o&&m[o]&&o!==c){location.replace(m[o]);}}catch(e){}})();</script>
+    <script>(function(){try{var o=localStorage.getItem('onda_lang_override');var c="en";var m={"en": "/index_v5.html", "es": "/"};if(o&&m[o]&&o!==c){location.replace(m[o]);}}catch(e){}})();</script>
     <!-- onda-seo:end -->
 </head>
-
 <body>
-    <script>
-        try{sessionStorage.setItem('onda:lastHub',location.pathname);}catch(_){}
-        // Tailwind CDN causes late layout shift, force re-scroll to hash after Tailwind settles
-        if (location.hash) {
-            (function(){
-                var id = location.hash.slice(1);
-                var tries = 0;
-                function snap() {
-                    var el = document.getElementById(id);
-                    if (!el) return;
-                    el.scrollIntoView({ block: 'start', behavior: 'instant' });
-                }
-                function kick() {
-                    if (tries++ > 6) return;
-                    snap();
-                    setTimeout(kick, 100);
-                }
-                document.addEventListener('DOMContentLoaded', kick);
-                window.addEventListener('load', snap);
-            })();
-        }
-    </script>
-    <!-- Skip-to-content (Accessibility) -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+<a class="skip" href="#top">Skip to content</a>
+<div class="noise" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
 
-    <!-- Noise overlay -->
-    <div class="noise" aria-hidden="true"></div>
-
-    <!-- Tracing beam removed for restraint (Ondas: one signal, not many) -->
-
-    <!-- ===== FLOATING ISLAND NAV ===== -->
-    <nav class="island-nav" id="islandNav">
-        <a href="#" class="nav-logo" style="text-decoration:none;">ONDA</a>
-        <div class="hidden md:flex items-center">
-            <a href="#packages" class="nav-link">Packages</a>
-            <a href="#work" class="nav-link">Work</a>
-            <a href="process.html" class="nav-link">Process</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <div class="nav-divider"></div>
-            <a href="index_es.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">ES</a>
-        </div>
-        <a href="#contact" class="nav-cta hidden md:inline-flex">Get a Quote</a>
-        <button id="mobileMenuBtn" class="md:hidden ml-2 p-2 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Open menu">
-            <i data-lucide="menu" class="w-5 h-5"></i>
-        </button>
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="Onda, home"><span class="dot" aria-hidden="true"></span>ONDA</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#packages">Packages</a>
+      <a href="#process">Process</a>
+      <a href="#studio">Studio</a>
+      <a href="#contact">Contact</a>
+      <a href="index_es.html" style="color:var(--muted)">ES</a>
     </nav>
+    <a class="nav-cta" href="https://wa.me/34604963489" target="_blank" rel="noopener">Get a quote
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+  </div>
+</header>
 
-    <!-- ===== MOBILE MENU ===== -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#packages">Packages</a>
-        <a href="#work">Work</a>
-        <a href="process.html">Process</a>
-        <a href="#contact">Contact</a>
-        <div class="flex gap-4 mt-4">
-            <a href="index_es.html" style="font-size:1.125rem;color:var(--text-muted)">ES</a>
-        </div>
-        <button id="mobileMenuClose" class="absolute right-5 top-5 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Close menu">
-            <i data-lucide="x" class="w-7 h-7"></i>
-        </button>
+<!-- mobile menu -->
+<div class="msheet" id="msheet" aria-hidden="true">
+  <div class="msheet-top">
+    <span class="brand"><span class="dot" aria-hidden="true"></span>ONDA</span>
+    <button class="menu-btn" id="menuClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="#work"><span class="n">01</span>Work</a>
+    <a href="#studio"><span class="n">02</span>Studio</a>
+    <a href="#packages"><span class="n">03</span>Packages</a>
+    <a href="#process"><span class="n">04</span>Process</a>
+    <a href="#contact"><span class="n">05</span>Contact</a>
+    <a href="index_es.html"><span class="n">ES</span>Español</a>
+  </nav>
+  <a class="wa" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" width="20" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+    Message us on WhatsApp
+  </a>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero wrap" aria-label="Intro">
+  <div class="locator reveal">
+    <div class="l">
+      <span>Independent web design studio</span><span class="sep" aria-hidden="true"></span>
+      <span>Barcelona</span>
     </div>
+    <span class="edition"><span class="on">EN</span> <a href="index_es.html" class="off" style="color:var(--faint)">/ ES</a></span>
+  </div>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <main id="main-content">
+  <div class="hero-head">
+    <!-- Signature wave: a single luminous blue line drawn once on load, then breathing
+         slowly. It rides through the headline rather than sitting behind it as a blob. -->
+    <svg class="wave-bg" viewBox="0 0 1200 300" fill="none" aria-hidden="true" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="wg" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#3B82F6" stop-opacity="0"/>
+          <stop offset="0.25" stop-color="#60a5fa" stop-opacity="0.9"/>
+          <stop offset="0.6" stop-color="#3B82F6" stop-opacity="0.8"/>
+          <stop offset="1" stop-color="#1d4ed8" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="wglow" x="-20%" y="-60%" width="140%" height="220%">
+          <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <g class="wave-breathe">
+        <path class="wave-path" d="M0,180 C200,80 320,260 520,160 C700,70 820,250 1000,150 C1100,100 1160,160 1200,140"
+          stroke="url(#wg)" stroke-width="2.5" filter="url(#wglow)"/>
+      </g>
+    </svg>
 
-    <!-- ===== HERO ===== -->
-    <section class="min-h-[100dvh] relative flex items-center overflow-hidden">
-        <!-- restrained: ambient blobs / meteors / lamp removed; one signature wave carries the hero -->
+    <h1 class="lead reveal" data-d="1">we build websites that get local businesses more
+      <span class="rot-wrap"><em class="rot" id="rot" aria-live="polite"><span class="w">bookings</span></em></span>
+    </h1>
+  </div>
 
-        <div class="relative z-10 mx-auto max-w-[1400px] w-full px-5 sm:px-6 md:px-10 grid lg:grid-cols-[1.1fr_0.9fr] items-center gap-10 lg:gap-20 pt-24 sm:pt-28 pb-14 sm:pb-20 lg:pt-0 lg:pb-0">
-            <div>
-                <div class="eyebrow mb-5 sm:mb-8 reveal stagger-1" style="color:var(--text-muted);">
-                    Independent web studio · Spain · EN / ES
-                </div>
-                <h1 class="text-[2rem] sm:text-4xl md:text-5xl lg:text-[4.25rem] font-extrabold leading-[1.08] tracking-tight text-white mb-5 sm:mb-7 reveal stagger-2" style="max-width: 20ch;">
-                    We build websites that get local businesses more
-                    <span class="flip-words-container" id="flipWords">
-                        <span class="flip-word active">bookings.</span>
-                        <span class="flip-word">calls.</span>
-                        <span class="flip-word">clients.</span>
-                        <span class="flip-word">trust.</span>
-                    </span>
-                </h1>
-                <p class="text-base sm:text-lg md:text-xl leading-relaxed mb-7 sm:mb-10 reveal stagger-3" style="color: var(--text-secondary); max-width: 56ch;">
-                    Onda is a web design studio for clinics, restaurants, real-estate firms and studios across Spain. We build fast, custom sites, no templates, no page-builders, with one job: turn visitors into booked clients.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-7 sm:mb-9 reveal stagger-4">
-                    <a href="#contact" class="btn-p shimmer justify-center sm:w-auto">Get a quote <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
-                    <a href="https://wa.me/34607864285?text=Hi%2C%20I%20saw%20agencyonda.com%20and%20I%E2%80%99m%20interested%20in%20a%20project." target="_blank" rel="noopener" class="btn-g justify-center sm:w-auto">Message us on WhatsApp</a>
-                </div>
-                <p class="text-sm reveal" style="color:var(--text-muted);transition-delay:400ms !important;max-width:56ch;">
-                    Fixed price, agreed up front. Most sites go live in about three weeks. Every concept below was designed and built in-house.
-                </p>
-                <p class="reveal" style="margin-top:1.5rem;font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:var(--accent);opacity:.85;transition-delay:500ms !important;">everything moves in waves.</p>
-            </div>
+  <div class="hero-sub">
+    <div class="reveal" data-d="2">
+      <p>Onda is a web design studio for clinics, restaurants, real-estate firms and studios across Spain.
+        <strong>Fast, custom sites</strong>, no templates, no page-builders, with one job: turn the people who find you into clients who contact you.</p>
+      <div class="trust">
+        <span><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Fixed price, agreed up front</span>
+        <span><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Live in about 3 weeks</span>
+        <span><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Built in-house, no templates</span>
+      </div>
+    </div>
+    <div class="cta-row reveal" data-d="3">
+      <a class="btn-wa" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+        Message us on WhatsApp
+      </a>
+      <a class="btn-ghost" href="#work">See the work
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
 
-            <!-- Right: signature Onda wave (one luminous wave, emerging from black) -->
-            <div class="hidden lg:flex items-center justify-center relative" style="height: 520px;">
-                <canvas id="ondaWave" class="onda-wave" aria-hidden="true"></canvas>
-            </div>
+  <!-- masthead facts -->
+  <div class="facts reveal" data-d="4" aria-label="Key facts">
+    <div class="fact"><span class="v"><span class="cur">€</span>490</span><span class="k">Starting from</span></div>
+    <div class="fact"><span class="v">~3 wks</span><span class="k">Typical launch</span></div>
+    <div class="fact"><span class="v">24h</span><span class="k">Quote turnaround</span></div>
+    <div class="fact"><span class="v">100%</span><span class="k">Built in-house</span></div>
+  </div>
+</section>
+
+<!-- ============ 01 · WORK ============ -->
+<section class="work wrap" id="work" aria-label="Selected work">
+  <div class="idx reveal">
+    <div class="idx-l"><span class="idx-num">01</span><span class="idx-label">Selected work</span></div>
+    <p class="idx-desc">Concept sites built to show range. The taste is the proof, real client cases land here as they ship.</p>
+  </div>
+
+  <!-- lead cover -->
+  <a class="cover lead-cover reveal" href="portfolio.html" aria-label="Meridian Estate Group, real estate concept">
+    <div class="media">
+      <img src="/assets/skyline_hero.webp" alt="Cinematic dark-luxury penthouse interior overlooking a city skyline at dusk" loading="lazy" decoding="async" />
+      <div class="grain" aria-hidden="true"></div>
+      <div class="scrim" aria-hidden="true"></div>
+    </div>
+    <div class="meta">
+      <div>
+        <div class="no">001 · concept</div>
+        <div class="name">Meridian Estate Group</div>
+        <div class="sector"><span class="chip">Real estate</span><span class="chip">Dark luxury</span> Cinematic property pages built to close high-value inquiries.</div>
+      </div>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+  </a>
+
+  <!-- pair -->
+  <div class="work-pair">
+    <a class="cover reveal" href="portfolio.html" aria-label="Casa Serena, boutique hotel concept">
+      <div class="media">
+        <div class="slot-serena" role="img" aria-label="Warm Mediterranean placeholder, swap in real hotel photography">
+          <span class="sun" aria-hidden="true"></span>
+          <span class="slot-tag">image slot · warm hospitality</span>
         </div>
-    </section>
-
-    <hr class="divider mx-auto max-w-lg">
-
-<!-- ===== METRICS ===== -->
-    <section class="px-5 sm:px-6 md:px-10 py-12 sm:py-16 md:py-20">
-        <div class="mx-auto max-w-5xl">
-            <div class="doppelrand reveal">
-                <div class="doppelrand-inner">
-                    <div class="grid gap-6 md:grid-cols-2">
-                        <div class="rounded-xl p-5" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
-                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.18em]" style="color:var(--text-muted);">Starting from</p>
-                            <p class="mt-2 text-3xl font-bold text-white">EUR <span class="counter-value" data-target="690" data-suffix="">690</span></p>
-                            <p class="mt-2 text-sm" style="color:var(--text-secondary);">Lower-friction entry point for outreach and small businesses.</p>
-                        </div>
-                        <div class="rounded-xl p-5" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
-                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.18em]" style="color:var(--text-muted);">Typical launch</p>
-                            <p class="mt-2 text-3xl font-bold text-white"><span class="counter-value" data-target="5" data-suffix="">5</span>–<span class="counter-value" data-target="10" data-suffix="">10</span> days</p>
-                            <p class="mt-2 text-sm" style="color:var(--text-secondary);">Clear scope, no bloated agency process, no endless calls.</p>
-                        </div>
-                        <div class="rounded-xl p-5 md:col-span-2" style="background:rgba(255,255,255,0.02);border:1px solid var(--border);">
-                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.18em]" style="color:var(--text-muted);">What you are really buying</p>
-                            <p class="mt-2 text-lg font-semibold text-white">A site that makes the business feel more established, more trustworthy, and easier to contact.</p>
-                            <div class="mt-4 grid gap-3 sm:grid-cols-3 text-sm" style="color:var(--text-secondary);">
-                                <div class="rounded-xl px-4 py-3" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);">Better first impression</div>
-                                <div class="rounded-xl px-4 py-3" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);">Cleaner lead capture</div>
-                                <div class="rounded-xl px-4 py-3" style="background:rgba(255,255,255,0.03);border:1px solid var(--border);">Optional starter automation</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="scrim" aria-hidden="true"></div>
+      </div>
+      <div class="meta">
+        <div>
+          <div class="no">002 · concept</div>
+          <div class="name">Casa Serena</div>
+          <div class="sector"><span class="chip">Boutique hotel</span> Calm, Mediterranean, hospitality-first.</div>
         </div>
-    </section>
-
-    <hr class="divider mx-auto max-w-lg">
-
-<!-- ===== PORTFOLIO (Asymmetric grid) ===== -->
-    <section id="work" class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28 grid-bg">
-        <div class="mx-auto max-w-[1400px]">
-            <div class="reveal mb-10 sm:mb-14 md:mb-16">
-                <div class="eyebrow mb-4 sm:mb-5">Concept work</div>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-gen" style="max-width: 22ch;">Proof of taste, motion, and visual range.</h2>
-                <p class="mt-3 sm:mt-5 text-base sm:text-lg" style="color:var(--text-secondary);max-width:65ch;">These are concepts, not client case studies. They are here to show how polished, premium, and alive your site can feel.</p>
-            </div>
-
-            <!-- Asymmetric: featured left (larger), 2 stacked right -->
-            <div class="grid gap-6 lg:grid-cols-[1.4fr_1fr] focus-group">
-                <!-- Featured: Meridian -->
-                <div class="tilt-wrap focus-card reveal stagger-1 lg:row-span-2">
-                    <a href="examples/real-estate.html" class="tilt-card spot block overflow-hidden p-4 relative h-full" style="display:flex;flex-direction:column;">
-                        <div class="flex-1 min-h-[280px] lg:min-h-[400px] w-full rounded-xl overflow-hidden relative">
-                            <div class="concept-preview preview-meridian" role="img" aria-label="Meridian Estate Group concept preview"><div class="pv-content"><div class="pv-title">Meridian</div><div class="pv-sub">Estate Group</div></div><div class="pv-diag"></div></div>
-                        </div>
-                        <div class="px-2 pb-2 pt-5">
-                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.16em]" style="color:var(--accent);">Real estate concept</p>
-                            <h3 class="mt-2 text-xl font-bold text-white">Meridian Estate Group</h3>
-                            <p class="mt-2 text-sm leading-relaxed" style="color:var(--text-secondary);">Cinematic dark luxury design for property brands that need to command trust and close high-value inquiries.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Casa Serena -->
-                <div class="tilt-wrap focus-card reveal stagger-2">
-                    <a href="examples/casa-serena.html" class="tilt-card spot block overflow-hidden p-4 relative">
-                        <div class="h-52 w-full rounded-xl overflow-hidden relative">
-                            <div class="concept-preview preview-serena" role="img" aria-label="Casa Serena concept preview"><div class="pv-content"><div class="pv-title">Casa Serena</div><div class="pv-line"></div><div class="pv-sub">Boutique Hotel</div></div><div class="pv-circle"></div></div>
-                        </div>
-                        <div class="px-2 pb-2 pt-4">
-                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.16em]" style="color:var(--accent);">Boutique hotel concept</p>
-                            <h3 class="mt-1 text-lg font-bold text-white">Casa Serena</h3>
-                            <p class="mt-1 text-sm leading-relaxed" style="color:var(--text-secondary);">A 14-room boutique hotel in Batumi, Georgia, warm Mediterranean design inspired by Aman Resorts and The Hoxton.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Velara -->
-                <div class="tilt-wrap focus-card reveal stagger-3">
-                    <a href="examples/aesthetic-clinic.html" class="tilt-card spot block overflow-hidden p-4 relative">
-                        <div class="h-52 w-full rounded-xl overflow-hidden relative">
-                            <div class="concept-preview preview-velara" role="img" aria-label="Velara Aesthetics concept preview"><div class="pv-content"><div class="pv-title">Velara</div><div class="pv-sub">Aesthetics</div><div class="pv-line"></div></div><div class="pv-grain"></div></div>
-                        </div>
-                        <div class="px-2 pb-2 pt-4">
-                            <p class="text-[0.6875rem] font-bold uppercase tracking-[0.16em]" style="color:var(--accent);">Aesthetic clinic concept</p>
-                            <h3 class="mt-1 text-lg font-bold text-white">Velara Aesthetics</h3>
-                            <p class="mt-1 text-sm leading-relaxed" style="color:var(--text-secondary);">Calm, luxurious design that builds trust and drives consultation bookings for premium clinics.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <p class="mt-8 text-center text-sm reveal" style="color:var(--text-muted);">Sites like these start from <strong class="text-white">EUR 1,490</strong>. Not EUR 10,000.</p>
-            <div class="mt-8 text-center reveal">
-                <a href="portfolio.html" class="btn-g">View all concept work</a>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider mx-auto max-w-lg">
-
-<!-- ===== TEAM ===== -->
-    <section class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28 relative overflow-hidden">
-        <!-- team particle field removed for restraint -->
-        <div class="mx-auto max-w-5xl relative z-10">
-            <div class="reveal">
-                <div class="eyebrow mb-5">The studio</div>
-                <h2 class="mb-6 sm:mb-10 text-2xl sm:text-3xl md:text-4xl font-bold text-white" style="max-width:24ch;">A small studio. Senior work, no agency bloat.</h2>
-                <p class="mb-8 sm:mb-12 text-base sm:text-lg" style="color:var(--text-secondary);max-width:60ch;">Onda is deliberately small. You deal directly with the people doing the work, decisions happen fast, and projects ship in weeks, not the months a big agency burns on process and handoffs.</p>
-            </div>
-            <div class="grid gap-6 max-w-2xl mx-auto">
-                <!-- Tymur -->
-                <div class="team-card reveal stagger-1">
-                    <div class="p-6">
-                        <div class="flex items-start justify-between mb-5">
-                            <div class="flex items-center gap-4">
-                                <div class="team-avatar">TC</div>
-                                <div>
-                                    <h3 class="text-lg font-bold text-white">Tymur Chystiakov</h3>
-                                    <p class="text-sm font-medium" style="color:var(--accent);">Founder · Design & Build</p>
-                                </div>
-                            </div>
-                            <span class="team-status">
-                                <span class="status-dot"></span>
-                                Open to chat
-                            </span>
-                        </div>
-                        <p class="text-sm leading-relaxed mb-6" style="color:var(--text-secondary);">I founded Onda to build fast, custom websites for service businesses, no templates, no page-builders. Every concept on this site was designed and built in-house. Based in Spain, working with clients across Europe.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-medium uppercase tracking-wider" style="color:var(--text-muted);">Spain, remote worldwide</span>
-                            <div class="flex items-center gap-2">
-                                <a href="https://www.linkedin.com/in/tymur-chystiakov" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                                </a>
-                                <a href="https://wa.me/34607864285?text=Hi%20Tymur%2C%20I%20saw%20your%20website%20and%20I%E2%80%99m%20interested%20in%20a%20project." target="_blank" rel="noopener" class="social-btn wa" title="WhatsApp">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="mt-12 flex flex-wrap gap-4 reveal stagger-3">
-                <a href="#contact" class="btn-p shimmer">Start a project <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
-                <a href="portfolio.html" class="btn-g">See all concept work</a>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider mx-auto max-w-lg">
-
-<!-- ===== PACKAGES (Bento Grid) ===== -->
-    <section id="packages" class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28 grid-bg">
-        <div class="mx-auto max-w-[1400px]">
-            <div class="reveal mb-10 sm:mb-14 md:mb-16">
-                <div class="eyebrow mb-4 sm:mb-5">Packages</div>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-gen" style="max-width: 20ch;">Simple offers that are easy to say yes to.</h2>
-                <p class="mt-3 sm:mt-5 text-base sm:text-lg" style="color:var(--text-secondary);max-width:65ch;">Built for cold outreach, referral traffic, and businesses that want to start small without getting stuck with a cheap-looking result.</p>
-            </div>
-
-            <!-- Bento: 2 columns, popular card spans 2 rows -->
-            <div class="grid gap-6 lg:grid-cols-[1fr_1.3fr] lg:grid-rows-[auto_auto]">
-                <!-- Launch Page -->
-                <div class="spot reveal stagger-1 p-5 sm:p-7">
-                    <div class="mb-6 flex items-center justify-between">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl" style="background:rgba(59,130,246,0.08);color:var(--accent);"><i data-lucide="zap" class="h-5 w-5"></i></div>
-                        <span class="text-sm font-bold" style="color:var(--accent);">From EUR 690</span>
-                    </div>
-                    <h3 class="mb-3 text-xl font-bold text-white">Launch Page</h3>
-                    <p class="mb-6 text-sm" style="color:var(--text-secondary);max-width:50ch;">A one-page website for businesses that need to look credible fast and make it easy for people to get in touch.</p>
-                    <ul class="space-y-3 text-sm" style="color:var(--text-secondary);">
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> One-page custom site</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> WhatsApp or contact capture</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Copy cleanup and mobile polish</li>
-                    </ul>
-                    <a href="#contact" class="mt-6 inline-flex items-center font-semibold text-sm group" style="color:var(--accent);">Get started <i data-lucide="arrow-right" class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"></i></a>
-                </div>
-
-                <!-- Business Website (popular, row-span-2) -->
-                <div class="spot pkg-popular reveal stagger-2 p-5 sm:p-7 lg:row-span-2 flex flex-col">
-                    <div class="mb-4 sm:mb-6">
-                        <span class="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[0.6875rem] font-bold uppercase tracking-wider" style="background:rgba(59,130,246,0.1);color:var(--accent);border:1px solid rgba(59,130,246,0.2);">Most chosen</span>
-                    </div>
-                    <div class="mb-5 sm:mb-6 flex items-center justify-between">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-slate-900"><i data-lucide="layout-template" class="h-5 w-5"></i></div>
-                        <span class="text-sm font-bold" style="color:var(--accent);">From EUR 1,490</span>
-                    </div>
-                    <h3 class="mb-3 text-2xl font-bold text-white">Business Website</h3>
-                    <p class="mb-6" style="color:var(--text-secondary);max-width:50ch;">The best fit for most small service businesses that need a site that feels established, not improvised.</p>
-                    <ul class="space-y-3 text-sm flex-1" style="color:var(--text-secondary);">
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Up to 5 pages</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Better structure, CTA flow, and trust sections</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Local SEO basics and lead routing</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Copy and layout consultation</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Mobile-first, performance-optimized</li>
-                    </ul>
-                    <a href="#contact" class="mt-8 inline-flex items-center font-semibold group" style="color:var(--accent);">Choose this package <i data-lucide="arrow-right" class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"></i></a>
-                </div>
-
-                <!-- Site + Automation -->
-                <div class="spot reveal stagger-3 p-5 sm:p-7">
-                    <div class="mb-6 flex items-center justify-between">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl" style="background:rgba(16,185,129,0.08);color:#34d399;"><i data-lucide="bot" class="h-5 w-5"></i></div>
-                        <span class="text-sm font-bold" style="color:var(--accent);">From EUR 2,490</span>
-                    </div>
-                    <h3 class="mb-3 text-xl font-bold text-white">Site + Automation</h3>
-                    <p class="mb-6 text-sm" style="color:var(--text-secondary);max-width:50ch;">For businesses that want a proper website plus one practical automation that saves time immediately.</p>
-                    <ul class="space-y-3 text-sm" style="color:var(--text-secondary);">
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Full site plus one automation</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Booking, follow-up, review request, or intake flow</li>
-                        <li class="flex gap-3"><i data-lucide="check" class="mt-0.5 h-4 w-4 text-emerald-400 flex-shrink-0"></i> Built for operational wins, not AI theater</li>
-                    </ul>
-                    <a href="#contact" class="mt-6 inline-flex items-center font-semibold text-sm group" style="color:var(--accent);">Get a tailored quote <i data-lucide="arrow-right" class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider mx-auto max-w-lg">
-
-<!-- ===== BEST FIT (Editorial split) ===== -->
-    <section class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28">
-        <div class="mx-auto max-w-[1400px] grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-            <div class="reveal">
-                <div class="eyebrow mb-5">Best fit</div>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-gen" style="max-width: 18ch;">This works best for businesses that already have demand but weak presentation.</h2>
-                <p class="mt-3 sm:mt-5 text-base sm:text-lg" style="color:var(--text-secondary);max-width:50ch;">The fastest wins usually come from service businesses that are already getting referrals, calls, or Instagram traffic but still look underbuilt online.</p>
-            </div>
-            <div class="grid gap-5 sm:grid-cols-2 focus-group">
-                <div class="spot focus-card reveal stagger-1 p-6">
-                    <h3 class="mb-2 text-base font-bold text-white">Local services</h3>
-                    <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Clinics, salons, home services, studios, and businesses that depend on trust and fast contact.</p>
-                </div>
-                <div class="spot focus-card reveal stagger-2 p-6">
-                    <h3 class="mb-2 text-base font-bold text-white">Consultants and professionals</h3>
-                    <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Lawyers, accountants, coaches, advisors, and specialists who need a stronger first impression.</p>
-                </div>
-                <div class="spot focus-card reveal stagger-3 p-6">
-                    <h3 class="mb-2 text-base font-bold text-white">Real estate and property</h3>
-                    <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Agents and property brands that need visual polish and a better inquiry path.</p>
-                </div>
-                <div class="spot focus-card reveal stagger-4 p-6">
-                    <h3 class="mb-2 text-base font-bold text-white">Boutique brands</h3>
-                    <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Small brands that need something custom-feeling without paying enterprise agency prices.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider mx-auto max-w-lg">
-
-<!-- ===== ADD-ONS ===== -->
-    <section class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-24">
-        <div class="mx-auto max-w-[1400px]">
-            <div class="reveal mb-8 sm:mb-12">
-                <div class="eyebrow mb-4 sm:mb-5">Popular add-ons</div>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-gen">Useful extras that are easy to add later.</h2>
-            </div>
-            <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-                <div class="spot reveal stagger-1 p-6">
-                    <h3 class="text-base font-bold text-white">Extra language</h3>
-                    <p class="mt-2 text-sm" style="color:var(--text-secondary);">Add Spanish or English to the site without a full rebuild.</p>
-                    <p class="mt-4 font-semibold text-sm" style="color:var(--accent);">From EUR 250</p>
-                </div>
-                <div class="spot reveal stagger-2 p-6">
-                    <h3 class="text-base font-bold text-white">Google Business setup</h3>
-                    <p class="mt-2 text-sm" style="color:var(--text-secondary);">For local businesses that need a cleaner presence in maps and search.</p>
-                    <p class="mt-4 font-semibold text-sm" style="color:var(--accent);">From EUR 190</p>
-                </div>
-                <div class="spot reveal stagger-3 p-6">
-                    <h3 class="text-base font-bold text-white">Review request flow</h3>
-                    <p class="mt-2 text-sm" style="color:var(--text-secondary);">Simple email or text follow-up asking for reviews after service.</p>
-                    <p class="mt-4 font-semibold text-sm" style="color:var(--accent);">From EUR 290</p>
-                </div>
-                <div class="spot reveal stagger-4 p-6">
-                    <h3 class="text-base font-bold text-white">Rush delivery</h3>
-                    <p class="mt-2 text-sm" style="color:var(--text-secondary);">For projects that must go live unusually fast.</p>
-                    <p class="mt-4 font-semibold text-sm" style="color:var(--accent);">From EUR 300</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider mx-auto max-w-lg">
-
-<!-- ===== FAQ (Accordion) ===== -->
-    <section class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28">
-        <div class="mx-auto max-w-3xl">
-            <div class="reveal mb-8 sm:mb-14">
-                <div class="eyebrow mb-4 sm:mb-5">FAQ</div>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-gen">What people usually ask before they hire.</h2>
-            </div>
-            <div class="reveal" id="faqContainer">
-                <div class="faq-item">
-                    <button class="faq-trigger" aria-expanded="false">
-                        <span>Do I need to have all the content ready?</span>
-                        <span class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></span>
-                    </button>
-                    <div class="faq-body">
-                        <p class="pb-5 text-sm leading-relaxed" style="color:var(--text-secondary);max-width:65ch;">No. A lot of small businesses do not. I can help shape the structure and tighten the copy so you are not blocked waiting for perfect content.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-trigger" aria-expanded="false">
-                        <span>What if I only have Instagram or WhatsApp?</span>
-                        <span class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></span>
-                    </button>
-                    <div class="faq-body">
-                        <p class="pb-5 text-sm leading-relaxed" style="color:var(--text-secondary);max-width:65ch;">That is a common starting point. The job is often to turn that into something more credible and easier to convert from.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-trigger" aria-expanded="false">
-                        <span>Can you work outside Spain?</span>
-                        <span class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></span>
-                    </button>
-                    <div class="faq-body">
-                        <p class="pb-5 text-sm leading-relaxed" style="color:var(--text-secondary);max-width:65ch;">Yes. I am based in Spain and can work remotely with businesses across Europe, the UK, and other markets.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-trigger" aria-expanded="false">
-                        <span>Can I start small and add automation later?</span>
-                        <span class="faq-icon"><i data-lucide="plus" class="w-4 h-4"></i></span>
-                    </button>
-                    <div class="faq-body">
-                        <p class="pb-5 text-sm leading-relaxed" style="color:var(--text-secondary);max-width:65ch;">Yes, and that is usually the smartest move. Start with the site, then add only the automations that will actually save time or catch more leads.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr class="divider mx-auto max-w-lg">
-
-<!-- ===== CONTACT ===== -->
-    <section id="contact" class="px-5 sm:px-6 md:px-10 py-14 sm:py-20 md:py-28">
-        <div class="mx-auto max-w-6xl">
-            <div class="mb-8 sm:mb-14 reveal">
-                <div class="eyebrow mb-4 sm:mb-5">Get a quote</div>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-gen" style="max-width: 24ch;">Tell me what you need and how fast you want it live.</h2>
-                <p class="mt-3 sm:mt-5 text-base sm:text-lg" style="color:var(--text-secondary);max-width:65ch;">I will recommend the fastest sensible path instead of pushing the biggest package.</p>
-            </div>
-            <div class="doppelrand reveal mx-auto max-w-2xl">
-                <div class="doppelrand-inner">
-                    <form id="contactForm">
-                        <div class="grid gap-5 md:grid-cols-2">
-                            <div>
-                                <label class="mb-2 block text-sm font-semibold" style="color:var(--text-secondary);">Name</label>
-                                <input type="text" id="contactName" required class="input-dark" placeholder="Your name">
-                            </div>
-                            <div>
-                                <label class="mb-2 block text-sm font-semibold" style="color:var(--text-secondary);">Email</label>
-                                <input type="email" id="contactEmail" required class="input-dark" placeholder="name@company.com">
-                            </div>
-                        </div>
-                        <div class="mt-5">
-                            <label class="mb-2 block text-sm font-semibold" style="color:var(--text-secondary);">Phone <span style="color:var(--text-muted);font-weight:400;">(optional, for a quick WhatsApp reply)</span></label>
-                            <input type="tel" id="contactPhone" autocomplete="tel" class="input-dark" placeholder="+34 600 000 000">
-                        </div>
-                        <div class="mt-5">
-                            <label class="mb-2 block text-sm font-semibold" style="color:var(--text-secondary);">Tell me about your project</label>
-                            <textarea id="contactMessage" rows="4" required class="input-dark resize-none" placeholder="What does your business do? What feels weak right now? How soon do you need it live?"></textarea>
-                        </div>
-                        <div class="mt-6 flex flex-col gap-4">
-                            <button type="submit" class="btn-p shimmer w-full justify-center text-base" style="padding:0.875rem 1.5rem;">Get my quote in 24h <span class="btn-icon-wrap"><i data-lucide="send" class="h-3.5 w-3.5"></i></span></button>
-                            <div id="formStatus" class="hidden text-center text-sm font-medium" style="color:var(--text-muted);">Sending...</div>
-                        </div>
-                        <div class="mt-6 flex items-center gap-3 justify-center">
-                            <span class="h-px flex-1" style="background:var(--border);"></span>
-                            <span class="text-sm" style="color:var(--text-muted);">or message directly</span>
-                            <span class="h-px flex-1" style="background:var(--border);"></span>
-                        </div>
-                        <div class="mt-4 flex flex-col sm:flex-row gap-3 sm:justify-center">
-                            <a href="https://wa.me/34607864285?text=Hi%20Tymur%2C%20I%20saw%20agencyonda.com%20and%20I%E2%80%99m%20interested%20in%20a%20project." class="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition" style="background:rgba(37,211,102,0.08);color:#4ade80;border:1px solid rgba(37,211,102,0.15);" target="_blank" rel="noopener">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                                WhatsApp Tymur
-                            </a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="px-5 sm:px-6 md:px-10 py-10 sm:py-12 text-sm" style="border-top:1px solid var(--border);color:var(--text-muted);">
-        <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-6 md:flex-row">
-            <div>
-                <span class="block text-lg font-bold text-white">ONDA</span>
-                <p>Fast websites and starter automation for businesses that need to move now.</p>
-            </div>
-            <nav aria-label="Industries" class="text-xs" style="display:flex;flex-wrap:wrap;gap:.55rem 1.1rem;color:var(--text-muted);max-width:22rem;justify-content:center;">
-                <a href="web-design-dental-clinics.html" class="hover:text-white transition-colors">Dental clinics</a>
-                <a href="web-design-restaurants.html" class="hover:text-white transition-colors">Restaurants</a>
-                <a href="web-design-real-estate.html" class="hover:text-white transition-colors">Real estate</a>
-                <a href="web-design-aesthetic-clinics.html" class="hover:text-white transition-colors">Aesthetic clinics</a>
-                <a href="web-design-architecture-studios.html" class="hover:text-white transition-colors">Architecture</a>
-                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
-            </nav>
-            <div class="text-center md:text-right">
-                <p>Based in Spain. Available for remote projects across Europe, the UK, and beyond.</p>
-                <div class="mt-3 flex items-center justify-center md:justify-end gap-4 text-xs" style="color:var(--text-muted);">
-                    <a href="privacy.html" class="hover:text-white transition-colors">Privacy policy</a>
-                    <span style="color:var(--border);">|</span>
-                    <a href="terms.html" class="hover:text-white transition-colors">Terms of service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ===== WHATSAPP FLOAT ===== -->
-    <a href="https://wa.me/34607864285?text=Hi%20Tymur%2C%20I%20saw%20your%20website%20and%20I%E2%80%99m%20interested%20in%20a%20project." class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        <span>Chat on WhatsApp</span>
+        <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
     </a>
 
-    <script>
-        window.addEventListener("DOMContentLoaded", function() { lucide.createIcons(); });
+    <a class="cover reveal" data-d="1" href="portfolio.html" aria-label="Velara Aesthetics, aesthetic clinic concept">
+      <div class="media">
+        <img src="/assets/jewelry_hero.webp" alt="Dark, jewel-lit luxury still life evoking a high-end aesthetic clinic" loading="lazy" decoding="async" />
+        <div class="grain" aria-hidden="true"></div>
+        <div class="scrim" aria-hidden="true"></div>
+      </div>
+      <div class="meta">
+        <div>
+          <div class="no">003 · concept</div>
+          <div class="name">Velara Aesthetics</div>
+          <div class="sector"><span class="chip">Aesthetic clinic</span> Dark luxury, rose-gold, consultation bookings.</div>
+        </div>
+        <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+  </div>
 
-        // ===== FLOATING ISLAND NAV (hide on scroll down, show on scroll up) =====
-        (function() {
-            const nav = document.getElementById('islandNav');
-            let lastScroll = 0;
-            let ticking = false;
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        const currentScroll = window.scrollY;
-                        if (currentScroll > 100 && currentScroll > lastScroll) {
-                            nav.classList.add('nav-hidden');
-                        } else {
-                            nav.classList.remove('nav-hidden');
-                        }
-                        lastScroll = currentScroll;
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-        })();
+  <!-- also available -->
+  <div class="also">
+    <a class="also-card reveal" href="portfolio.html">
+      <span class="thumb"><img src="/assets/dental_clinic_hero.png" alt="Bright modern dental surgery" loading="lazy" decoding="async" /></span>
+      <span><span class="t">Clínica Blanc</span><span class="s">Dental, clinical, calm, trust-led</span></span>
+      <span class="a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="also-card reveal" data-d="1" href="portfolio.html">
+      <span class="thumb"><img src="/assets/architecture_studio_hero.png" alt="Sculptural modern architecture against a pale sky" loading="lazy" decoding="async" /></span>
+      <span><span class="t">Estudio Forma</span><span class="s">Architecture, typographic, restrained</span></span>
+      <span class="a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
 
-        // ===== FLIP WORDS =====
-        (function() {
-            const words = document.querySelectorAll('#flipWords .flip-word');
-            let current = 0;
-            setInterval(() => {
-                const prev = current;
-                current = (current + 1) % words.length;
-                words[prev].classList.remove('active');
-                words[prev].classList.add('exiting');
-                setTimeout(() => words[prev].classList.remove('exiting'), 500);
-                words[current].classList.add('active');
-            }, 3000);
-        })();
+  <div class="work-foot reveal">
+    <p class="price-note">sites like these from <b>€990</b>.<br>not <span class="strike">€10,000</span>.</p>
+    <a class="link-arrow" href="portfolio.html">View all work
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
 
-        // ===== SPOTLIGHT CARDS =====
-        document.querySelectorAll('.spot').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
-                card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
-            });
+<!-- ============ REAL-CASE SLOTS (proof, arriving) ============ -->
+<!-- HIDDEN until the first real client case ships: remove `hidden` and fill in the
+     real name/sector/result/quote/screenshot. Empty scaffolding ("Client name",
+     "A real client quote drops in here") reads as unfinished to a buyer. -->
+<section class="proof wrap" id="proof" aria-label="Client results" hidden>
+  <div class="idx reveal">
+    <div class="idx-l"><span class="idx-num">·</span><span class="idx-label">Client results</span></div>
+    <p class="idx-desc">Real projects, real outcomes. These slots fill in as the first founding-client sites go live.</p>
+  </div>
+
+  <div class="proof-grid">
+    <!-- REAL CASE 1: replace name / sector / 1-line result / quote / image.
+         Drop a screenshot into .case-media as <img src="/assets/cases/case-1.jpg" alt="..." loading="lazy" decoding="async">
+         and delete the .case-marker block. Fill name, sector, result, quote, attribution. -->
+    <article class="case-slot reveal">
+      <div class="case-media">
+        <img src="/assets/cases/case-1.jpg" alt="Onda client project preview, case 01" width="1000" height="750" loading="lazy" decoding="async">
+      </div>
+      <div class="case-body">
+        <span class="case-tag">Sector</span>
+        <h3 class="case-name"><span class="blank">Client name</span></h3>
+        <p class="case-result"><span class="blank">One line on the result, what changed after launch.</span></p>
+        <p class="case-quote"><span class="blank">A real client quote drops in here once the project ships.</span></p>
+        <div class="case-attr">
+          <span class="av" aria-hidden="true">01</span>
+          <span class="who">name · business · city</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- REAL CASE 2: replace name / sector / 1-line result / quote / image. Same structure as case 1. -->
+    <article class="case-slot reveal" data-d="1">
+      <div class="case-media">
+        <img src="/assets/cases/case-2.jpg" alt="Onda client project preview, case 02" width="1000" height="750" loading="lazy" decoding="async">
+      </div>
+      <div class="case-body">
+        <span class="case-tag">Sector</span>
+        <h3 class="case-name"><span class="blank">Client name</span></h3>
+        <p class="case-result"><span class="blank">One line on the result, what changed after launch.</span></p>
+        <p class="case-quote"><span class="blank">A real client quote drops in here once the project ships.</span></p>
+        <div class="case-attr">
+          <span class="av" aria-hidden="true">02</span>
+          <span class="who">name · business · city</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- REAL CASE 3: replace name / sector / 1-line result / quote / image. Same structure as case 1. -->
+    <article class="case-slot reveal" data-d="2">
+      <div class="case-media">
+        <img src="/assets/cases/case-3.jpg" alt="Onda client project preview, case 03" width="1000" height="750" loading="lazy" decoding="async">
+      </div>
+      <div class="case-body">
+        <span class="case-tag">Sector</span>
+        <h3 class="case-name"><span class="blank">Client name</span></h3>
+        <p class="case-result"><span class="blank">One line on the result, what changed after launch.</span></p>
+        <p class="case-quote"><span class="blank">A real client quote drops in here once the project ships.</span></p>
+        <div class="case-attr">
+          <span class="av" aria-hidden="true">03</span>
+          <span class="who">name · business · city</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 02 · STUDIO ============ -->
+<section class="studio wrap" id="studio" aria-label="The studio">
+  <div class="idx reveal">
+    <div class="idx-l"><span class="idx-num">02</span><span class="idx-label">The studio</span></div>
+    <p class="idx-desc">You deal directly with the people doing the work.</p>
+  </div>
+  <div class="studio-grid">
+    <div class="reveal">
+      <h2>a small studio.<br>senior work, <em>no agency bloat.</em></h2>
+    </div>
+    <div class="studio-body reveal" data-d="1">
+      <p>You talk to the people doing the work, not an account manager, not a junior. Decisions happen fast, scope stays honest, and projects ship in weeks, not months.</p>
+      <p>Everything is designed and built in-house. No templates passed off as custom. No page-builder shortcuts. Just a senior team treating your site like it carries the business, because it does.</p>
+      <div class="founder">
+        <span class="ph"><img src="/assets/team/tymur.jpg" alt="Tymur Chystiakov, founder of Onda" width="108" height="108" loading="lazy" decoding="async"><i aria-hidden="true">T</i></span>
+        <div>
+          <div class="mono">Founder</div>
+          <div class="nm">Tymur Chystiakov</div>
+          <div class="mono" style="margin-top:.25rem;letter-spacing:.04em;text-transform:none">Barcelona, remote across Europe</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · PACKAGES ============ -->
+<section class="pkg wrap" id="packages" aria-label="Packages">
+  <div class="idx reveal">
+    <div class="idx-l"><span class="idx-num">03</span><span class="idx-label">Packages</span></div>
+    <p class="idx-desc">Transparent, fixed pricing agreed before we start. Pick the smallest one that solves the problem.</p>
+  </div>
+
+  <p class="founding-note reveal"><span class="d" aria-hidden="true"></span>Founding-client pricing while we build our Barcelona portfolio, limited to the next few projects.</p>
+
+  <div class="pkg-grid">
+    <div class="plan reveal">
+      <div class="pno">P-01</div>
+      <div class="pname">Launch Page</div>
+      <div class="price"><span class="from">from</span><span class="amt"><span class="cur">€</span>490</span></div>
+      <p class="ptag">One sharp page that turns a profile or a flyer into something credible.</p>
+      <ul>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>One-page custom site</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>WhatsApp + contact capture</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Copy cleanup + mobile polish</li>
+      </ul>
+      <div class="pcta">
+        <a class="pbtn" href="https://wa.me/34604963489" target="_blank" rel="noopener">Choose Launch</a>
+      </div>
+    </div>
+
+    <div class="plan feat reveal" data-d="1">
+      <span class="tag">Most chosen</span>
+      <div class="pno">P-02</div>
+      <div class="pname">Business Website</div>
+      <div class="price"><span class="from">from</span><span class="amt"><span class="cur">€</span>990</span></div>
+      <p class="ptag">The full picture, structure, trust and a clear path from visitor to inquiry.</p>
+      <ul>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Up to 5 pages, fully custom</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Structure, CTA flow + trust sections</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Local SEO basics + lead routing</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Mobile-first, performance-optimized</li>
+      </ul>
+      <div class="pcta">
+        <a class="pbtn" href="https://wa.me/34604963489" target="_blank" rel="noopener">Choose Business
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="plan reveal" data-d="2">
+      <div class="pno">P-03</div>
+      <div class="pname">Site + Automation</div>
+      <div class="price"><span class="from">from</span><span class="amt"><span class="cur">€</span>1,690</span></div>
+      <p class="ptag">A full site plus one automation that quietly does work every day.</p>
+      <ul>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Everything in Business Website</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>One automation: booking, follow-up, reviews or intake</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Focused on real results, not AI hype</li>
+      </ul>
+      <div class="pcta">
+        <a class="pbtn" href="https://wa.me/34604963489" target="_blank" rel="noopener">Choose Site + Automation</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- add-ons -->
+  <div class="addons reveal">
+    <div class="addons-head">Add-ons</div>
+    <div class="addon"><span class="n">Extra language</span><span class="p"><span class="cur">€</span>250</span></div>
+    <div class="addon"><span class="n">Google Business setup</span><span class="p"><span class="cur">€</span>190</span></div>
+    <div class="addon"><span class="n">Review request flow</span><span class="p"><span class="cur">€</span>290</span></div>
+    <div class="addon"><span class="n">Rush delivery</span><span class="p"><span class="cur">€</span>300</span></div>
+  </div>
+</section>
+
+<!-- ============ FIT ============ -->
+<section class="fit wrap" aria-label="Best fit">
+  <div class="idx reveal">
+    <div class="idx-l"><span class="idx-num">·</span><span class="idx-label">Best fit</span></div>
+    <p class="idx-desc">Businesses with demand but weak presentation.</p>
+  </div>
+  <h2 class="fit-head reveal">for businesses that already have demand, but look <em>underbuilt</em> online.</h2>
+  <div class="fit-list reveal" data-d="1">
+    <span class="f"><span class="n">01</span>Dental &amp; aesthetic clinics</span>
+    <span class="f"><span class="n">02</span>Restaurants &amp; hospitality</span>
+    <span class="f"><span class="n">03</span>Real estate &amp; property</span>
+    <span class="f"><span class="n">04</span>Architecture &amp; studios</span>
+    <span class="f"><span class="n">05</span>Consultants &amp; professionals</span>
+    <span class="f"><span class="n">06</span>Boutique brands</span>
+  </div>
+</section>
+
+<!-- ============ 04 · PROCESS ============ -->
+<section class="proc wrap" id="process" aria-label="Process">
+  <div class="idx reveal">
+    <div class="idx-l"><span class="idx-num">04</span><span class="idx-label">Process</span></div>
+    <p class="idx-desc">From first message to live site, usually three weeks.</p>
+  </div>
+  <div class="proc-grid">
+    <div class="step reveal"><span class="ln" aria-hidden="true"></span>
+      <div class="sn">01</div><h3>Send the brief</h3>
+      <p>Tell us the business, the market and the timing, by WhatsApp or the form. No deck required.</p>
+    </div>
+    <div class="step reveal" data-d="1"><span class="ln" aria-hidden="true"></span>
+      <div class="sn">02</div><h3>Quote in 24h</h3>
+      <p>A fixed price and a clear scope within a day. You know exactly what you&rsquo;re getting before anything starts.</p>
+    </div>
+    <div class="step reveal" data-d="2"><span class="ln" aria-hidden="true"></span>
+      <div class="sn">03</div><h3>Live in ~3 weeks</h3>
+      <p>Designed and built in-house, then launched. Optional automation layered on once it&rsquo;s earning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 · FAQ ============ -->
+<section class="faq wrap" aria-label="Questions">
+  <div class="idx reveal">
+    <div class="idx-l"><span class="idx-num">05</span><span class="idx-label">Questions</span></div>
+    <p class="idx-desc">The ones we get most.</p>
+  </div>
+  <div class="faq-list reveal">
+    <details>
+      <summary>Do I need all the content ready?
+        <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <div class="ans"><p>No. We shape the structure and tighten the copy with you. A rough idea of the business and a few photos is enough to start.</p></div>
+    </details>
+    <details>
+      <summary>What if I only have Instagram or WhatsApp?
+        <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <div class="ans"><p>That&rsquo;s a common starting point. We turn a profile and a phone number into something credible that people trust enough to contact.</p></div>
+    </details>
+    <details>
+      <summary>Can you work outside Spain?
+        <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <div class="ans"><p>Yes, remotely across Europe and the UK, in English and Spanish. Most of the work happens over WhatsApp and a short call.</p></div>
+    </details>
+    <details>
+      <summary>Can I start small and add automation later?
+        <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <div class="ans"><p>Usually the smartest move. Launch the site, let it earn, then layer on booking or follow-up automation once you can see where it pays off.</p></div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact wrap" id="contact" aria-label="Contact">
+  <div class="lamp" aria-hidden="true"></div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <h2>let&rsquo;s see if it <em>fits.</em></h2>
+      <p style="color:var(--text-2);max-width:38ch;margin-top:1.2rem;line-height:1.6">Tell us the business, the market and the timing. We&rsquo;ll recommend the most sensible package, not the biggest one.</p>
+      <div class="promise"><span class="d" aria-hidden="true"></span>Quote within 24 hours</div>
+      <div>
+        <a class="wa-direct" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+          <span>Message us on WhatsApp<br><span class="sub">+34 604 963 489</span></span>
+        </a>
+      </div>
+    </div>
+
+    <form class="reveal" data-d="1" id="leadForm" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required placeholder="Your name" autocomplete="name" />
+      </div>
+      <div class="f-row">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@business.com" autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="phone">Phone <span class="opt">(optional, for a quick WhatsApp reply)</span></label>
+          <input id="phone" name="phone" type="tel" placeholder="+34 …" autocomplete="tel" />
+        </div>
+      </div>
+      <div class="field">
+        <label for="msg">What are you building?</label>
+        <textarea id="msg" name="msg" rows="4" required placeholder="The business, the market, and roughly when you'd want it live."></textarea>
+      </div>
+      <button class="submit" type="submit">Send, get a quote in 24h
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <p class="form-note" id="formNote">No spam, no newsletter. Just a reply from the person who&rsquo;d build it.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer aria-label="Footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="wm">ONDA</div>
+        <!-- Brand thesis line, used exactly once, quietly. -->
+        <p class="thesis">everything moves in waves.</p>
+        <p class="es">todo se mueve en ondas.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Web design for</h4>
+        <a href="web-design-dental-clinics.html">Dental clinics</a>
+        <a href="web-design-restaurants.html">Restaurants</a>
+        <a href="web-design-real-estate.html">Real estate</a>
+        <a href="web-design-aesthetic-clinics.html">Aesthetic clinics</a>
+        <a href="web-design-architecture-studios.html">Architecture studios</a>
+      </div>
+      <div class="foot-col">
+        <h4>Studio</h4>
+        <a href="#work">Work</a>
+        <a href="#packages">Packages</a>
+        <a href="#process">Process</a>
+        <a href="#studio">Studio</a>
+        <a href="blog.html">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Elsewhere</h4>
+        <a href="https://wa.me/34604963489" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://instagram.com/agencyonda" target="_blank" rel="noopener">Instagram, @agencyonda</a>
+        <a href="https://www.linkedin.com/in/tymur-chystiakov" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="index_es.html">Español</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Onda, Barcelona</span>
+      <span class="legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a class="wa-float" href="https://wa.me/34604963489" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+  <span class="lab">WhatsApp</span>
+</a>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- rotating hero word (the accent) ---- */
+  var words = ["bookings","calls","clients","trust"];
+  var rot = document.getElementById("rot");
+  if (rot){
+    if (reduce){
+      // static: show the strongest word, no motion
+      rot.querySelector(".w").textContent = "clients";
+    } else {
+      var i = 0;
+      setInterval(function(){
+        var span = rot.querySelector(".w");
+        span.style.transition = "transform .4s var(--ease), opacity .4s, filter .4s";
+        span.style.transform = "translateY(-40%) rotateX(-40deg)";
+        span.style.opacity = "0"; span.style.filter = "blur(4px)";
+        setTimeout(function(){
+          i = (i+1) % words.length;
+          span.textContent = words[i];
+          span.style.transition = "none";
+          span.style.transform = "translateY(40%) rotateX(40deg)";
+          // force reflow
+          void span.offsetWidth;
+          span.style.transition = "transform .6s var(--ease), opacity .6s, filter .6s";
+          span.style.transform = "none"; span.style.opacity = "1"; span.style.filter = "none";
+        }, 400);
+      }, 2600);
+    }
+  }
+
+  /* ---- reveal on scroll ---- */
+  var reveals = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)){
+    reveals.forEach(function(el){ el.classList.add("in-view"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in-view"); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12, rootMargin:"0px 0px -8% 0px"});
+    reveals.forEach(function(el){ io.observe(el); });
+    // process line draw
+    var pg = document.querySelector(".proc-grid");
+    if (pg){
+      var io2 = new IntersectionObserver(function(en){
+        en.forEach(function(e){ if(e.isIntersecting){ pg.classList.add("in-view"); io2.unobserve(e.target);} });
+      },{threshold:0.3});
+      io2.observe(pg);
+    }
+  }
+
+  /* ---- nav hide on scroll down / show on scroll up ---- */
+  var nav = document.getElementById("nav"), last = 0;
+  window.addEventListener("scroll", function(){
+    var y = window.pageYOffset;
+    if (y > 120 && y > last){ nav.classList.add("hide"); } else { nav.classList.remove("hide"); }
+    last = y;
+  }, {passive:true});
+
+  /* ---- mobile menu ---- */
+  var sheet = document.getElementById("msheet");
+  function open(){ sheet.classList.add("open"); sheet.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
+  function close(){ sheet.classList.remove("open"); sheet.setAttribute("aria-hidden","true"); document.body.style.overflow=""; }
+  document.getElementById("menuBtn").addEventListener("click", open);
+  document.getElementById("menuClose").addEventListener("click", close);
+  sheet.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", close); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape") close(); });
+
+  /* ---- contact form (POST to /api/contact, with analytics lead event) ---- */
+  var form = document.getElementById("leadForm");
+  if (form){
+    var API_BASE = location.protocol === 'file:' ? 'http://localhost:8000' : '';
+    form.addEventListener("submit", async function(e){
+      e.preventDefault();
+      if (!form.checkValidity()){ form.reportValidity(); return; }
+      var note = document.getElementById("formNote");
+      var btn = form.querySelector(".submit");
+      var originalHTML = btn.innerHTML;
+      btn.disabled = true; btn.textContent = "Sending…";
+      var data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: (document.getElementById("phone") || {}).value || "",
+        type: "Website Inquiry",
+        message: document.getElementById("msg").value
+      };
+      try {
+        var response = await fetch(API_BASE + "/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
         });
-
-        // ===== TEXT GENERATE =====
-        document.querySelectorAll('.text-gen').forEach(el => {
-            const text = el.textContent.trim();
-            el.innerHTML = text.split(' ').map((word, i) =>
-                `<span style="transition-delay:${i * 50}ms">${word}</span>`
-            ).join(' ');
-        });
-
-        // ===== 3D TILT =====
-        document.querySelectorAll('.tilt-card').forEach(card => {
-            const parent = card.closest('.tilt-wrap');
-            if (!parent) return;
-            parent.addEventListener('mousemove', e => {
-                const rect = parent.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width;
-                const y = (e.clientY - rect.top) / rect.height;
-                card.style.transform = `rotateX(${(0.5 - y) * 10}deg) rotateY(${(x - 0.5) * 10}deg) scale(1.02)`;
-            });
-            parent.addEventListener('mouseleave', () => {
-                card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
-            });
-        });
-
-        // ===== COUNTER =====
-        function animateCounters() {
-            document.querySelectorAll('.counter-value').forEach(el => {
-                const target = parseInt(el.dataset.target);
-                const suffix = el.dataset.suffix || '';
-                const dur = 1200;
-                const start = performance.now();
-                function update(now) {
-                    const p = Math.min((now - start) / dur, 1);
-                    const eased = 1 - Math.pow(1 - p, 3);
-                    el.textContent = Math.round(eased * target) + suffix;
-                    if (p < 1) requestAnimationFrame(update);
-                }
-                requestAnimationFrame(update);
-            });
+        if (response.ok){
+          document.dispatchEvent(new CustomEvent("onda:lead"));
+          btn.textContent = "Thanks, we'll reply within 24h";
+          btn.style.background = "var(--success)"; btn.style.color = "#04210f";
+          note.textContent = "Prefer WhatsApp? It's usually faster: +34 604 963 489";
+          form.querySelectorAll("input,textarea").forEach(function(f){ f.value=""; });
+        } else {
+          var err = await response.json().catch(function(){ return null; });
+          throw new Error((err && err.detail) || "Failed");
         }
-
-        // ===== TRACING BEAM =====
-        (function() {
-            const progress = document.getElementById('tracingProgress');
-            const dot = document.getElementById('tracingDot');
-            if (!progress || !dot) return;
-            function update() {
-                const s = window.scrollY;
-                const d = document.documentElement.scrollHeight - window.innerHeight;
-                const pct = d > 0 ? Math.min(s / d, 1) : 0;
-                const h = pct * window.innerHeight;
-                progress.style.height = h + 'px';
-                dot.style.top = h + 'px';
-            }
-            window.addEventListener('scroll', update, { passive: true });
-            update();
-        })();
-
-        // ===== METEORS =====
-        (function() {
-            const container = document.getElementById('meteorContainer');
-            if (!container) return;
-            const meteorData = [
-                { top: '5%', left: '15%', height: '80px', duration: '4s', delay: '0s' },
-                { top: '12%', left: '45%', height: '60px', duration: '3.5s', delay: '1.2s' },
-                { top: '8%', left: '70%', height: '100px', duration: '5s', delay: '2.5s' },
-                { top: '20%', left: '30%', height: '70px', duration: '4.2s', delay: '0.8s' },
-                { top: '3%', left: '80%', height: '50px', duration: '3.8s', delay: '3.2s' },
-                { top: '15%', left: '55%', height: '90px', duration: '4.5s', delay: '1.8s' },
-            ];
-            meteorData.forEach(m => {
-                const el = document.createElement('div');
-                el.className = 'meteor';
-                el.style.top = m.top;
-                el.style.left = m.left;
-                el.style.height = m.height;
-                el.style.animationDuration = m.duration;
-                el.style.animationDelay = m.delay;
-                container.appendChild(el);
-            });
-        })();
-
-        // ===== TEAM PARTICLES =====
-        (function() {
-            const container = document.getElementById('teamParticles');
-            if (!container) return;
-            for (let i = 0; i < 25; i++) {
-                const p = document.createElement('div');
-                p.className = 'particle';
-                p.style.left = Math.random() * 100 + '%';
-                p.style.top = Math.random() * 100 + '%';
-                p.style.width = (1 + Math.random() * 2) + 'px';
-                p.style.height = p.style.width;
-                p.style.animationDuration = (8 + Math.random() * 15) + 's';
-                p.style.animationDelay = (Math.random() * 10) + 's';
-                container.appendChild(p);
-            }
-        })();
-
-        // ===== FAQ ACCORDION =====
-        document.querySelectorAll('.faq-trigger').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const item = trigger.closest('.faq-item');
-                const body = item.querySelector('.faq-body');
-                const isOpen = item.classList.contains('open');
-
-                // Close all
-                document.querySelectorAll('.faq-item.open').forEach(openItem => {
-                    openItem.classList.remove('open');
-                    openItem.querySelector('.faq-body').style.maxHeight = '0';
-                    openItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
-                });
-
-                if (!isOpen) {
-                    item.classList.add('open');
-                    body.style.maxHeight = body.scrollHeight + 'px';
-                    trigger.setAttribute('aria-expanded', 'true');
-                }
-            });
-        });
-
-        // ===== WAVE SVG ANIMATION =====
-        (function() {
-            const paths = document.querySelectorAll('.wave-path');
-            paths.forEach(path => {
-                const len = path.getTotalLength();
-                path.style.strokeDasharray = len;
-                path.style.strokeDashoffset = len;
-                path.style.transition = 'stroke-dashoffset 2s cubic-bezier(0.32, 0.72, 0, 1)';
-            });
-            setTimeout(() => {
-                paths.forEach((path, i) => {
-                    setTimeout(() => {
-                        path.style.strokeDashoffset = '0';
-                    }, i * 200);
-                });
-            }, 400);
-        })();
-
-        // ===== SIGNATURE ONDA WAVE (canvas, dependency-free, restrained) =====
-        (function(){
-            const c = document.getElementById('ondaWave');
-            if (!c) return;
-            const ctx = c.getContext('2d');
-            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            let w, h, dpr, raf, t = 0;
-            function size(){
-                dpr = Math.min(window.devicePixelRatio || 1, 2);
-                const r = c.getBoundingClientRect();
-                w = c.width = Math.max(1, Math.floor(r.width * dpr));
-                h = c.height = Math.max(1, Math.floor(r.height * dpr));
-            }
-            function line(yo, amp, len, phase, alpha, width){
-                ctx.beginPath();
-                for (let x = 0; x <= w; x += 6 * dpr){
-                    const y = yo
-                        + Math.sin(x / (len * dpr) + phase) * amp * dpr
-                        + Math.sin(x / (len * 0.5 * dpr) + phase * 1.7) * amp * 0.35 * dpr;
-                    x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-                }
-                const g = ctx.createLinearGradient(0, 0, w, 0);
-                g.addColorStop(0, 'rgba(59,130,246,0)');
-                g.addColorStop(0.5, 'rgba(96,165,250,' + alpha + ')');
-                g.addColorStop(1, 'rgba(59,130,246,0)');
-                ctx.strokeStyle = g; ctx.lineWidth = width * dpr; ctx.stroke();
-            }
-            function paint(anim){
-                ctx.clearRect(0, 0, w, h);
-                ctx.globalCompositeOperation = 'lighter';
-                const cy = h * 0.5;
-                for (let i = 0; i < 7; i++){
-                    line(cy + (i - 3) * 15 * dpr, 24 - i * 1.6, 110 + i * 16, (anim ? t * 0.018 : 0) + i * 0.5, 0.17, 1.1);
-                }
-            }
-            function frame(){ paint(true); t += 1; raf = requestAnimationFrame(frame); }
-            size();
-            reduce ? paint(false) : frame();
-            window.addEventListener('resize', () => { cancelAnimationFrame(raf); size(); reduce ? paint(false) : frame(); }, { passive: true });
-        })();
-
-        // ===== OBSERVERS =====
-        document.addEventListener('DOMContentLoaded', () => {
-            const revealEls = document.querySelectorAll('.reveal, .text-gen');
-
-            // Immediately reveal elements already in viewport
-            const quickReveal = () => {
-                revealEls.forEach(el => {
-                    const rect = el.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        el.classList.add('is-visible');
-                    }
-                });
-            };
-            quickReveal();
-            // Also run after a small delay for late-layout browsers
-            setTimeout(quickReveal, 100);
-            setTimeout(quickReveal, 300);
-
-            const revealObs = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.05, rootMargin: '50px' });
-
-            revealEls.forEach(el => {
-                if (!el.classList.contains('is-visible')) revealObs.observe(el);
-            });
-
-            // Counter observer
-            const counterObs = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-            const metric = document.querySelector('.counter-value');
-            if (metric) counterObs.observe(metric.closest('.doppelrand') || metric);
-
-            // Mobile menu
-            const menuBtn = document.getElementById('mobileMenuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const closeBtn = document.getElementById('mobileMenuClose');
-            if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-            if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
-            if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
-        });
-
-        // ===== CONTACT FORM =====
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]');
-            const status = document.getElementById('formStatus');
-            const originalText = btn.innerText;
-            btn.innerText = 'Sending...'; btn.disabled = true;
-            const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:8000' : '';
-            const data = {
-                name: document.getElementById('contactName').value,
-                email: document.getElementById('contactEmail').value,
-                phone: (document.getElementById('contactPhone') || {}).value || '',
-                type: 'Website Inquiry',
-                message: document.getElementById('contactMessage').value
-            };
-            try {
-                const response = await fetch(`${API_BASE}/api/contact`, {
-                    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
-                });
-                if (response.ok) {
-                    document.dispatchEvent(new CustomEvent('onda:lead'));
-                    status.innerText = 'Thanks, your request is in. I will get back to you soon.';
-                    status.classList.remove('hidden');
-                    status.style.color = '#4ade80';
-                    e.target.reset();
-                } else {
-                    const errorData = await response.json().catch(() => null);
-                    throw new Error(errorData?.detail || 'Failed');
-                }
-            } catch (error) {
-                console.error(error);
-                status.innerText = error.message || 'Transmission failed. Please try again.';
-                status.classList.remove('hidden');
-                status.style.color = '#f87171';
-            } finally {
-                btn.innerText = originalText; btn.disabled = false;
-                setTimeout(() => status.classList.add('hidden'), 5000);
-            }
-        });
-    </script>
-    <script>
-        // Save language preference for IP-based router
-        localStorage.setItem('onda_lang_override', 'en');
-        document.querySelectorAll('a[href="index_es.html"]').forEach(function(a) {
-            a.addEventListener('click', function() { localStorage.setItem('onda_lang_override', 'es'); });
-        });
-    </script>
-    <!-- onda-analytics:start -->
+      } catch (error){
+        btn.disabled = false; btn.innerHTML = originalHTML;
+        btn.style.background = ""; btn.style.color = "";
+        note.textContent = "Something went wrong. Message us on WhatsApp: +34 604 963 489";
+        note.style.color = "#f87171";
+      }
+    });
+  }
+})();
+</script>
+<!-- ============ LANGUAGE PREFERENCE ============ -->
+<!-- Only an EXPLICIT choice is persisted: clicking "ES" stores 'es'. We do NOT write
+     'en' on load, so a returning/shared visit to "/" is never silently bounced to EN. -->
+<script>
+  document.querySelectorAll('a[href="index_es.html"]').forEach(function(a){
+    a.addEventListener('click', function(){ try{ localStorage.setItem('onda_lang_override','es'); }catch(e){} });
+  });
+</script>
+<!-- onda-analytics:start -->
     <script defer src="/assets/js/analytics.js"></script>
     <!-- onda-analytics:end -->
 </body>
-
 </html>

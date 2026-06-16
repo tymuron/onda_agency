@@ -9,6 +9,7 @@ from fastapi.responses import (
 )
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from pydantic import BaseModel
 import html
 import logging
@@ -33,8 +34,8 @@ LANG_HOME = {"en": "index_v5.html", "es": "index_es.html"}
 
 # Canonical page set: (path, filename, lang, page_type)
 PAGES = [
-    ("/", "index_v5.html", "en", "home"),
-    ("/index_es.html", "index_es.html", "es", "home"),
+    ("/", "index_es.html", "es", "home"),
+    ("/index_v5.html", "index_v5.html", "en", "home"),
     ("/portfolio.html", "portfolio.html", "en", "portfolio"),
     ("/portfolio_es.html", "portfolio_es.html", "es", "portfolio"),
     ("/process.html", "process.html", "en", "process"),
@@ -71,6 +72,8 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
+# Compress text responses (HTML/CSS/JS) — ~75% smaller, faster FCP/LCP on mobile.
+app.add_middleware(GZipMiddleware, minimum_size=500)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -102,6 +105,12 @@ def _rate_limited(ip: str) -> bool:
 @app.on_event("startup")
 async def _startup() -> None:
     await analytics_db.connect()
+    # Loud warning if the contact form can't actually send (prevents silent lead loss).
+    if not (os.getenv("RESEND_API_KEY") and os.getenv("NOTIFICATION_EMAIL")):
+        logger.warning(
+            "CONTACT FORM DISABLED: RESEND_API_KEY and/or NOTIFICATION_EMAIL are not set. "
+            "POST /api/contact will return 503. Set both env vars in the Render dashboard before launch."
+        )
 
 
 @app.on_event("shutdown")
@@ -142,9 +151,11 @@ class ContactRequest(BaseModel):
 
 
 @app.post("/api/contact")
-async def contact(request: ContactRequest):
-    logger.info(f"Contact form submission: {request.name} ({request.email})")
-    
+async def contact(request: ContactRequest, http_request: Request):
+    # Capture which page the lead came from (Referer) so the niche/source isn't lost in the inbox.
+    source_page = (http_request.headers.get("referer") or "").strip()
+    logger.info(f"Contact form submission: {request.name} ({request.email}) from {source_page or 'unknown page'}")
+
     # Send email notification using Resend
     try:
         import resend
@@ -160,6 +171,7 @@ async def contact(request: ContactRequest):
         safe_email = html.escape(request.email)
         safe_phone = html.escape((request.phone or "").strip())
         safe_type = html.escape(request.type)
+        safe_source = html.escape(source_page)
         safe_message = html.escape(request.message).replace("\n", "<br>")
 
         # Send notification to you (styled for email clients)
@@ -189,6 +201,7 @@ async def contact(request: ContactRequest):
 <tr><td style="padding:12px 0; border-bottom:1px solid #e2e8f0;"><span style="font-size:12px; font-weight:600; color:#64748b; text-transform:uppercase; letter-spacing:0.05em;">Email</span><br><a href="mailto:{safe_email}" style="font-size:16px; color:#2563eb; text-decoration:none;">{safe_email}</a></td></tr>
 {f'<tr><td style="padding:12px 0; border-bottom:1px solid #e2e8f0;"><span style="font-size:12px; font-weight:600; color:#64748b; text-transform:uppercase; letter-spacing:0.05em;">Phone</span><br><a href="tel:{safe_phone}" style="font-size:16px; color:#2563eb; text-decoration:none;">{safe_phone}</a></td></tr>' if safe_phone else ''}
 <tr><td style="padding:12px 0; border-bottom:1px solid #e2e8f0;"><span style="font-size:12px; font-weight:600; color:#64748b; text-transform:uppercase; letter-spacing:0.05em;">Interest</span><br><span style="font-size:16px; color:#0f172a;">{safe_type}</span></td></tr>
+{f'<tr><td style="padding:12px 0; border-bottom:1px solid #e2e8f0;"><span style="font-size:12px; font-weight:600; color:#64748b; text-transform:uppercase; letter-spacing:0.05em;">Source page</span><br><a href="{safe_source}" style="font-size:14px; color:#2563eb; text-decoration:none;">{safe_source}</a></td></tr>' if safe_source else ''}
 <tr><td style="padding:12px 0;"><span style="font-size:12px; font-weight:600; color:#64748b; text-transform:uppercase; letter-spacing:0.05em;">Message</span><br><div style="font-size:15px; line-height:1.6; color:#334155; margin-top:8px;">{safe_message}</div></td></tr>
 </table>
 <div style="margin-top:24px; padding-top:20px; border-top:1px solid #e2e8f0;">
@@ -229,10 +242,16 @@ async def cache_control(request: Request, call_next):
     path = request.url.path
     if path.startswith("/api/admin") or path.startswith("/api/track") or path == "/admin":
         response.headers["Cache-Control"] = "no-store"
-    elif path.startswith("/assets/") or path.endswith(
-        (".png", ".jpg", ".jpeg", ".webp", ".svg", ".ico", ".woff2", ".woff", ".css", ".js")
-    ):
+    elif path.endswith((".woff2", ".woff", ".ttf", ".otf")):
+        # Fonts are content-stable: cache hard.
         response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+    elif path.endswith((".css", ".js")):
+        # CSS/JS have stable filenames (no content hash), so they MUST revalidate
+        # or design/script updates never reach returning visitors. ETag => cheap 304s.
+        response.headers["Cache-Control"] = "public, max-age=0, must-revalidate"
+    elif path.endswith((".png", ".jpg", ".jpeg", ".webp", ".svg", ".ico", ".gif", ".avif")):
+        # Images can be replaced under the same name (case/team slots): cache a day.
+        response.headers["Cache-Control"] = "public, max-age=86400, must-revalidate"
     elif path == "/" or path.endswith(".html"):
         response.headers["Cache-Control"] = "public, max-age=300, must-revalidate"
     return response
@@ -246,17 +265,31 @@ async def root(lang: Optional[str] = None):
     AI answer engines index actual content. Language preference is handled as a
     progressive enhancement inside the page (localStorage 'onda_lang_override').
     """
-    fname = LANG_HOME.get(lang or "en", LANG_HOME["en"])
+    fname = LANG_HOME.get(lang or "es", LANG_HOME["es"])
     return FileResponse(FRONTEND_DIR / fname, media_type="text/html")
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon_ico():
+    """Browsers request /favicon.ico by default; serve the PNG so it 200s."""
+    return FileResponse(FRONTEND_DIR / "assets" / "favicon.png", media_type="image/png")
 
 
 def _hreflang_alternates(page_type: str):
     group = [(lg, p) for (p, _f, lg, t) in PAGES if t == page_type]
     out = []
+    en_path = None
     for lg, p in group:
         out.append((lg, SITE_URL + ("" if p == "/" else p)))
-    en_url = next((u for lg, u in out if lg == "en"), SITE_URL)
-    out.append(("x-default", en_url))
+        if lg == "en":
+            en_path = p
+    # x-default must match the on-page tag: the EN counterpart for inner pages,
+    # the root for the homepage cluster.
+    if page_type == "home" or en_path is None:
+        xdef = SITE_URL
+    else:
+        xdef = SITE_URL + ("" if en_path == "/" else en_path)
+    out.append(("x-default", xdef))
     return out
 
 
@@ -305,28 +338,30 @@ async def llms_txt():
 
 > Onda is a web design studio that builds fast, premium websites, landing pages,
 > and starter automations for service businesses that need to look established
-> and capture more leads. Based in Spain, working remotely worldwide.
+> and capture more leads. Based in Barcelona, Spain; works remotely with clients
+> across Europe and the UK.
 
 ## Facts
 - Name: Onda ({SITE_URL.split("//")[-1]})
 - Founder: Tymur Chystiakov
-- Location: Spain (remote, worldwide clients)
+- Location: Barcelona, Spain (remote across Europe and the UK)
 - Languages: English, Spanish
 - Services: web design, web development, business automation
-- Turnaround: fast delivery (days, not months)
+- Turnaround: typical launch in about 3 weeks; fixed-price quote within 24h
 
 ## Pricing
-- Launch Page — EUR 690: one-page custom website with WhatsApp / contact capture
-- Business Website — EUR 1490: up to 5 pages with SEO, CTA flow, trust sections
-- Site + Automation — EUR 2490: full website plus one practical automation
+- Launch Page, from EUR 490: one-page custom website with WhatsApp / contact capture
+- Business Website, from EUR 990: up to 5 pages with SEO, CTA flow, trust sections
+- Site + Automation, from EUR 1690: full website plus one practical automation
 
 ## Key pages
-- {SITE_URL}/ — home (English)
-- {SITE_URL}/index_es.html — home (Spanish)
+- {SITE_URL}/ home (Spanish)
+- {SITE_URL}/index_v5.html home (English)
 - {SITE_URL}/portfolio.html — concept work / portfolio
 - {SITE_URL}/process.html — how we work
 
 ## Contact
+- WhatsApp: +34 604 963 489 (https://wa.me/34604963489) — fastest, preferred
 - Website contact form at {SITE_URL}/#contact
 """
     return PlainTextResponse(body)

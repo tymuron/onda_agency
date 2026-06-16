@@ -12,3 +12,8 @@ backend/analytics.db
 node_modules/
 package-lock.json
 package.json
+
+# Audit / review scratch (screenshots, specs) — not part of the site
+_audit/
+frontend/_audit/
+HANDOFF-FOR-REVIEW.md

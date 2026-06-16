@@ -57,8 +57,8 @@ LEAD_LINE = "document.dispatchEvent(new CustomEvent('onda:lead'));"
 
 # URL for a (page_type, lang). 'home'/'en' is the canonical site root.
 LOCALE_FILE = {
-    ("home", "en"): "/",
-    ("home", "es"): "/index_es.html",
+    ("home", "en"): "/index_v5.html",
+    ("home", "es"): "/",
     ("portfolio", "en"): "/portfolio.html",
     ("portfolio", "es"): "/portfolio_es.html",
     ("process", "en"): "/process.html",
@@ -84,10 +84,12 @@ def strip_tags(s: str) -> str:
 
 def parse_faq(doc: str):
     """Pull (question, answer) pairs straight from the visible FAQ accordion so
-    the FAQPage schema always matches on-page content (a Google requirement)."""
+    the FAQPage schema always matches on-page content (a Google requirement).
+    Matches the editorial <details><summary> markup; the question text precedes
+    the inline .faq-ic toggle icon, the answer is the first <p> in .ans."""
     pattern = re.compile(
-        r'<button class="faq-trigger"[^>]*>\s*<span>(.*?)</span>.*?'
-        r'<div class="faq-body">\s*<p[^>]*>(.*?)</p>',
+        r'<summary>(.*?)<span class="faq-ic"[^>]*>.*?</summary>\s*'
+        r'<div class="ans">\s*<p[^>]*>(.*?)</p>',
         re.DOTALL,
     )
     out = []
@@ -104,25 +106,43 @@ def hreflang_links(page_type: str) -> str:
     for lg in langs:
         href = abs_url(LOCALE_FILE[(page_type, lg)])
         lines.append(f'<link rel="alternate" hreflang="{lg}" href="{href}">')
+    # x-default: the site root for the homepage cluster (ES is served there),
+    # the EN counterpart for inner pages. Must match the sitemap (backend main.py).
+    xdef = SITE_URL if page_type == "home" else abs_url(LOCALE_FILE[(page_type, "en")])
     lines.append(
-        f'<link rel="alternate" hreflang="x-default" '
-        f'href="{abs_url(LOCALE_FILE[(page_type, "en")])}">'
+        f'<link rel="alternate" hreflang="x-default" href="{xdef}">'
     )
     return "\n    ".join(lines)
 
 
 def json_ld(page_type: str, lang: str, doc: str) -> str:
     org = {
-        "@type": "Organization",
+        "@type": ["Organization", "ProfessionalService"],
         "@id": f"{SITE_URL}/#org",
         "name": "Onda",
         "url": SITE_URL,
         "logo": f"{SITE_URL}/logo.png",
         "image": f"{SITE_URL}/og-image.png",
+        "telephone": "+34604963489",
+        "priceRange": "EUR 490 to EUR 1690",
         "founder": {"@type": "Person", "name": "Tymur Chystiakov"},
-        "areaServed": ["Spain", "Europe", "United Kingdom"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Barcelona",
+            "addressRegion": "Catalonia",
+            "addressCountry": "ES",
+        },
+        "areaServed": ["Barcelona", "Spain", "Europe", "United Kingdom"],
         "knowsLanguage": ["en", "es"],
-        "slogan": "Fast premium websites for service businesses.",
+        "sameAs": [
+            "https://www.instagram.com/agencyonda",
+            "https://www.linkedin.com/in/tymur-chystiakov",
+        ],
+        "slogan": (
+            "Estudio de diseño web en Barcelona. Webs premium para negocios de servicios."
+            if lang == "es"
+            else "Web design studio in Barcelona. Fast, premium websites for service businesses."
+        ),
     }
     website = {
         "@type": "WebSite",
@@ -176,7 +196,7 @@ def json_ld(page_type: str, lang: str, doc: str) -> str:
 def lang_redirect_script(lang: str) -> str:
     """Returning visitors who previously picked a language are sent there.
     No-JS clients and crawlers get the served content (good for SEO)."""
-    targets = {"en": "/", "es": "/index_es.html"}
+    targets = {"en": "/index_v5.html", "es": "/"}
     js_map = json.dumps(targets)
     return (
         "<script>(function(){try{var o=localStorage.getItem('onda_lang_override');"

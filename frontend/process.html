@@ -1,254 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0a0a0a">
-    <title>Onda | Process</title>
-    <meta name="description" content="Clear steps, fast build, no bloated process. See how Onda delivers polished websites for service businesses in days, not months.">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0a0a" />
+<title>How we work · Onda web design studio, Barcelona</title>
+<meta name="description" content="Clear steps, fast build, no bloated process. See how Onda delivers polished websites for service businesses in days, not months." />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Onda | Process">
-    <meta property="og:description" content="Clear steps, fast build, no bloated process. See how Onda delivers polished websites for service businesses in days, not months.">
-    <meta property="og:image" content="https://agencyonda.com/og-image.png">
-    <meta property="og:url" content="https://agencyonda.com/process.html">
-    <meta property="og:locale" content="en_US">
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Onda | Process" />
+<meta property="og:description" content="Clear steps, fast build, no bloated process. See how Onda delivers polished websites for service businesses in days, not months." />
+<meta property="og:image" content="https://agencyonda.com/og-image.png" />
+<meta property="og:url" content="https://agencyonda.com/process.html" />
+<meta property="og:locale" content="en_US" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Onda | Process">
-    <meta name="twitter:description" content="Clear steps, fast build, no bloated process. Polished websites in days, not months.">
-    <meta name="twitter:image" content="https://agencyonda.com/og-image.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Onda | Process" />
+<meta name="twitter:description" content="Clear steps, fast build, no bloated process. Polished websites in days, not months." />
+<meta name="twitter:image" content="https://agencyonda.com/og-image.png" />
 
-    <!-- Fonts (preconnect + link, not @import) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://unpkg.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="apple-touch-icon" href="/assets/favicon.png" />
 
-    <link rel="stylesheet" href="/assets/css/tailwind.css">
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --surface: rgba(255,255,255,0.03);
-            --surface-hover: rgba(255,255,255,0.06);
-            --border: rgba(255,255,255,0.06);
-            --border-hover: rgba(255,255,255,0.12);
-            --text-primary: #fafafa;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --accent: #3B82F6;
-            --accent-dark: #2563eb;
-            --ease: cubic-bezier(0.32, 0.72, 0, 1);
-        }
+<!-- ============================================================
+     ONDA · Process · editorial art direction "MAREA"
+       · Display      Fraunces
+       · Flourish     Instrument Serif italic, in blue
+       · Workhorse    DM Sans
+       · Meta/index   JetBrains Mono
+     ============================================================ -->
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-        h1,h2,h3,h4,h5,h6 { letter-spacing: -0.03em; line-height: 1.1; }
-        ::selection { background: rgba(59,130,246,0.3); color: white; }
-        html { scroll-behavior: smooth; }
+<link rel="stylesheet" href="/assets/css/editorial.css" />
 
-        /* ===== NOISE OVERLAY ===== */
-        .noise {
-            position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.025;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
-
-        /* ===== FLOATING ISLAND NAV ===== */
-        .island-nav {
-            position: fixed; top: 1.25rem; left: 50%; transform: translateX(-50%); z-index: 50;
-            border-radius: 9999px; background: rgba(10,10,10,0.6);
-            backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border: 1px solid var(--border); padding: 0.4rem 0.5rem 0.4rem 1.25rem;
-            display: flex; align-items: center;
-            transition: transform 0.6s var(--ease), opacity 0.6s var(--ease);
-            box-shadow: 0 8px 32px -8px rgba(0,0,0,0.5);
-        }
-        .island-nav.nav-hidden { transform: translateX(-50%) translateY(-140%); opacity: 0; }
-        .nav-link {
-            color: var(--text-secondary); font-size: 0.8125rem; font-weight: 500;
-            padding: 0.5rem 0.75rem; border-radius: 9999px;
-            transition: color 0.3s var(--ease), background 0.3s var(--ease); white-space: nowrap;
-        }
-        .nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.06); }
-        .nav-link-active { color: var(--accent) !important; }
-        .nav-cta {
-            background: var(--accent); color: white; font-size: 0.8125rem; font-weight: 600;
-            padding: 0.5rem 1.25rem; border-radius: 9999px; margin-left: 0.5rem;
-            transition: all 0.3s var(--ease); white-space: nowrap;
-        }
-        .nav-cta:hover { background: var(--accent-dark); transform: scale(0.98); }
-        .nav-cta:active { transform: scale(0.96) translateY(1px); }
-        .nav-logo { font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; color: var(--text-primary); margin-right: 1rem; }
-        .nav-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.08); margin: 0 0.25rem; }
-
-        /* ===== SPOTLIGHT CARDS ===== */
-        .spot {
-            position: relative; overflow: hidden;
-            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
-            background: var(--surface); border: 1px solid var(--border); border-radius: 1.5rem;
-        }
-        .spot::before {
-            content: ''; position: absolute; inset: 0; opacity: 0;
-            transition: opacity 0.5s var(--ease);
-            background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(59,130,246,0.06), transparent 40%);
-            z-index: 0; pointer-events: none; border-radius: inherit;
-        }
-        .spot:hover::before { opacity: 1; }
-        .spot:hover { transform: translateY(-2px); border-color: rgba(59,130,246,0.15); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.4); }
-        .spot > * { position: relative; z-index: 1; }
-
-        /* ===== REVEAL ===== */
-        .reveal {
-            opacity: 0; transform: translateY(20px); filter: blur(6px);
-            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
-        }
-        .reveal.is-visible { opacity: 1; transform: translateY(0); filter: blur(0); }
-        .stagger-1 { transition-delay: 0ms !important; }
-        .stagger-2 { transition-delay: 100ms !important; }
-        .stagger-3 { transition-delay: 200ms !important; }
-        .stagger-4 { transition-delay: 300ms !important; }
-
-        /* ===== BUTTONS ===== */
-        .btn-p {
-            background: var(--accent); color: white; padding: 0.75rem 1.5rem;
-            border-radius: 9999px; font-weight: 600; font-size: 0.9375rem;
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            transition: all 0.3s var(--ease); border: none; cursor: pointer;
-            position: relative; overflow: hidden;
-        }
-        .btn-p:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 12px 24px -8px rgba(59,130,246,0.4); }
-        .btn-p:active { transform: scale(0.98) translateY(1px); }
-
-        /* ===== SHIMMER ===== */
-        .shimmer { position: relative; overflow: hidden; }
-        .shimmer::after {
-            content: ''; position: absolute; top: -50%; left: -75%; width: 50%; height: 200%;
-            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
-            animation: shimmerSweep 3.5s ease-in-out infinite; pointer-events: none;
-        }
-        @keyframes shimmerSweep { 0%,100% { transform: translateX(-100%); } 50% { transform: translateX(350%); } }
-
-        /* ===== EYEBROW ===== */
-        .eyebrow {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 0.3rem 0.75rem; border-radius: 9999px;
-            background: rgba(59,130,246,0.08); color: var(--accent);
-            font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-        }
-
-        /* ===== DIVIDER ===== */
-        .divider {
-            height: 1px; border: none;
-            background: linear-gradient(90deg, transparent, rgba(59,130,246,0.12) 20%, rgba(59,130,246,0.18) 50%, rgba(59,130,246,0.12) 80%, transparent);
-        }
-
-        /* ===== BUTTON ICON WRAP ===== */
-        .btn-icon-wrap {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 28px; height: 28px; border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-            transition: all 0.3s var(--ease); flex-shrink: 0;
-        }
-        .btn-p:hover .btn-icon-wrap {
-            background: rgba(255,255,255,0.25);
-            transform: translateX(2px) translateY(-1px) scale(1.05);
-        }
-
-        /* ===== GRID PATTERN ===== */
-        .grid-bg {
-            background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-
-        /* ===== MOBILE MENU ===== */
-        .mobile-menu {
-            position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; gap: 2rem; background: var(--bg);
-            transform: translateX(100%); transition: transform 0.4s var(--ease);
-        }
-        .mobile-menu.open { transform: translateX(0); }
-        .mobile-menu a { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); transition: color 0.3s; }
-        .mobile-menu a:hover { color: var(--accent); }
-
-        /* ===== TIMELINE ===== */
-        .timeline-line {
-            position: absolute;
-            left: 39px;
-            top: 100px;
-            bottom: 40px;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent), rgba(59,130,246,0.05));
-            z-index: 0;
-            border-radius: 2px;
-        }
-        @media (max-width: 767px) {
-            .timeline-line { display: none; }
-        }
-
-        /* ===== STEP NUMBER ===== */
-        .step-num {
-            width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.25rem; font-weight: 800; position: relative;
-        }
-        .step-num-active {
-            background: var(--accent); color: white;
-            box-shadow: 0 0 24px -4px rgba(59,130,246,0.5);
-        }
-        .step-num-default {
-            background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-            color: var(--text-muted);
-        }
-        .spot:hover .step-num-default {
-            border-color: rgba(59,130,246,0.25); color: var(--accent);
-        }
-
-        /* ===== SKIP LINK ===== */
-        .skip-link {
-            position: absolute; left: -9999px; top: 0; z-index: 9999;
-            background: var(--accent); color: white; padding: 0.75rem 1.5rem;
-            font-weight: 600; font-size: 0.875rem; border-radius: 0 0 0.75rem 0;
-            transition: left 0.2s var(--ease);
-        }
-        .skip-link:focus { left: 0; }
-
-        /* ===== FOCUS-VISIBLE ===== */
-        *:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-            border-radius: 4px;
-        }
-        .btn-p:focus-visible, .nav-cta:focus-visible {
-            outline-offset: 3px;
-            box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
-        }
-
-        /* ===== PREFERS REDUCED MOTION ===== */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-            .reveal { opacity: 1; transform: none; filter: none; }
-            .shimmer::after { animation: none !important; }
-        }
-    </style>
-    <!-- onda-seo:start (managed by scripts/site_patch.py) -->
+<!-- JSON-LD Structured Data -->
+<!-- onda-seo:start (managed by scripts/site_patch.py) -->
     <link rel="canonical" href="https://agencyonda.com/process.html">
     <link rel="alternate" hreflang="en" href="https://agencyonda.com/process.html">
     <link rel="alternate" hreflang="es" href="https://agencyonda.com/process_es.html">
@@ -258,17 +50,29 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "ProfessionalService"
+      ],
       "@id": "https://agencyonda.com/#org",
       "name": "Onda",
       "url": "https://agencyonda.com",
       "logo": "https://agencyonda.com/logo.png",
       "image": "https://agencyonda.com/og-image.png",
+      "telephone": "+34604963489",
+      "priceRange": "EUR 490 to EUR 1690",
       "founder": {
         "@type": "Person",
         "name": "Tymur Chystiakov"
       },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Barcelona",
+        "addressRegion": "Catalonia",
+        "addressCountry": "ES"
+      },
       "areaServed": [
+        "Barcelona",
         "Spain",
         "Europe",
         "United Kingdom"
@@ -277,7 +81,11 @@
         "en",
         "es"
       ],
-      "slogan": "Fast premium websites for service businesses."
+      "sameAs": [
+        "https://www.instagram.com/agencyonda",
+        "https://www.linkedin.com/in/tymur-chystiakov"
+      ],
+      "slogan": "Web design studio in Barcelona. Fast, premium websites for service businesses."
     },
     {
       "@type": "WebSite",
@@ -296,7 +104,7 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://agencyonda.com"
+          "item": "https://agencyonda.com/index_v5.html"
         },
         {
           "@type": "ListItem",
@@ -311,227 +119,265 @@
     </script>
     <!-- onda-seo:end -->
 </head>
-
 <body>
-    <!-- Skip-to-content -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+<a class="skip" href="#top">Skip to content</a>
+<div class="noise" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
 
-    <!-- Noise overlay -->
-    <div class="noise" aria-hidden="true"></div>
-
-    <!-- ===== FLOATING ISLAND NAV ===== -->
-    <nav class="island-nav" id="islandNav">
-        <a href="/" class="nav-logo" style="text-decoration:none;">ONDA</a>
-        <div class="hidden md:flex items-center">
-            <a href="/#packages" class="nav-link">Packages</a>
-            <a href="/#work" class="nav-link">Work</a>
-            <a href="process.html" class="nav-link nav-link-active">Process</a>
-            <a href="/#contact" class="nav-link">Contact</a>
-            <div class="nav-divider"></div>
-            <a href="process_es.html" class="nav-link" style="font-size:0.75rem;color:var(--text-muted)">ES</a>
-        </div>
-        <a href="/#contact" class="nav-cta hidden md:inline-flex">Get a Quote</a>
-        <button id="mobileMenuBtn" class="md:hidden ml-2 p-2 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Open menu">
-            <i data-lucide="menu" class="w-5 h-5"></i>
-        </button>
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/index_v5.html" class="brand" aria-label="Onda, home"><span class="dot" aria-hidden="true"></span>ONDA</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="portfolio.html">Work</a>
+      <a href="/index_v5.html#packages">Packages</a>
+      <a href="process.html">Process</a>
+      <a href="/index_v5.html#studio">Studio</a>
+      <a href="/index_v5.html#contact">Contact</a>
+      <a class="nav-lang" href="process_es.html">ES</a>
     </nav>
+    <a class="nav-cta" href="https://wa.me/34604963489" target="_blank" rel="noopener">Get a quote
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+  </div>
+</header>
 
-    <!-- ===== MOBILE MENU ===== -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="/#packages">Packages</a>
-        <a href="/#work">Work</a>
-        <a href="process.html" style="color:var(--accent)">Process</a>
-        <a href="/#contact">Contact</a>
-        <div class="flex gap-4 mt-4">
-            <a href="process_es.html" style="font-size:1.125rem;color:var(--text-muted)">ES</a>
-        </div>
-        <button id="mobileMenuClose" class="absolute right-5 top-5 text-white" style="background:none;border:none;cursor:pointer;" aria-label="Close menu">
-            <i data-lucide="x" class="w-7 h-7"></i>
-        </button>
+<!-- mobile menu -->
+<div class="msheet" id="msheet" aria-hidden="true">
+  <div class="msheet-top">
+    <span class="brand"><span class="dot" aria-hidden="true"></span>ONDA</span>
+    <button class="menu-btn" id="menuClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="portfolio.html"><span class="n">01</span>Work</a>
+    <a href="/index_v5.html#studio"><span class="n">02</span>Studio</a>
+    <a href="/index_v5.html#packages"><span class="n">03</span>Packages</a>
+    <a href="process.html"><span class="n">04</span>Process</a>
+    <a href="/index_v5.html#contact"><span class="n">05</span>Contact</a>
+    <a href="process_es.html"><span class="n">ES</span>Español</a>
+  </nav>
+  <a class="wa" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" width="20" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+    Message us on WhatsApp
+  </a>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero wrap" aria-label="How it works">
+  <div class="locator reveal">
+    <div class="l">
+      <span>How it works</span><span class="sep" aria-hidden="true"></span>
+      <span>From first message to live</span>
     </div>
+    <span class="edition"><span class="on">EN</span> <a href="process_es.html" class="off" style="color:var(--faint)">/ ES</a></span>
+  </div>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <main id="main-content">
+  <div class="hero-head">
+    <svg class="wave-bg" viewBox="0 0 1200 300" fill="none" aria-hidden="true" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="wg" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#3B82F6" stop-opacity="0"/>
+          <stop offset="0.25" stop-color="#60a5fa" stop-opacity="0.9"/>
+          <stop offset="0.6" stop-color="#3B82F6" stop-opacity="0.8"/>
+          <stop offset="1" stop-color="#1d4ed8" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="wglow" x="-20%" y="-60%" width="140%" height="220%">
+          <feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <g class="wave-breathe">
+        <path class="wave-path" d="M0,180 C200,80 320,260 520,160 C700,70 820,250 1000,150 C1100,100 1160,160 1200,140"
+          stroke="url(#wg)" stroke-width="2.5" filter="url(#wglow)"/>
+      </g>
+    </svg>
 
-    <!-- ===== HERO ===== -->
-    <section class="relative overflow-hidden pt-28 sm:pt-36 md:pt-44 pb-16 sm:pb-20 grid-bg">
-        <!-- restrained: ambient blobs / lamp removed -->
+    <h1 class="lead reveal" data-d="1">clear steps, fast build, no <em>bloated</em> process</h1>
+  </div>
 
-        <div class="relative z-10 mx-auto max-w-[1400px] w-full px-5 sm:px-6 md:px-10">
-            <div class="max-w-3xl">
-                <div class="eyebrow mb-5 sm:mb-8 reveal stagger-1">
-                    <span class="relative flex h-2 w-2">
-                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
-                        <span class="relative inline-flex h-2 w-2 rounded-full bg-blue-400"></span>
-                    </span>
-                    How it works
-                </div>
-                <h1 class="text-[2rem] sm:text-4xl md:text-5xl lg:text-[4.25rem] font-extrabold leading-[1.08] tracking-tight text-white mb-5 sm:mb-7 reveal stagger-2">
-                    Clear steps. Fast build.<br class="hidden sm:block"> No bloated process.
-                </h1>
-                <p class="text-base sm:text-lg md:text-xl leading-relaxed reveal stagger-3" style="color: var(--text-secondary); max-width: 56ch;">
-                    The goal is to keep the project focused, move quickly, and ship something that feels far more expensive than the process behind it.
-                </p>
-                <p class="reveal" style="margin-top:1.5rem;font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:var(--accent);opacity:.85;transition-delay:400ms !important;">everything moves in waves.</p>
-            </div>
-        </div>
-    </section>
+  <div class="hero-sub">
+    <div class="reveal" data-d="2">
+      <p>The goal is simple: keep the project focused, move quickly, and ship something that feels far <strong>more expensive than the process</strong> behind it. No long discovery, no endless rounds, no agency theater.</p>
+    </div>
+    <div class="cta-row reveal" data-d="3">
+      <a class="btn-wa" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+        Message us on WhatsApp
+      </a>
+      <a class="btn-ghost" href="portfolio.html">See the work
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
 
-    <hr class="divider mx-auto max-w-[1400px]">
+  <!-- masthead facts -->
+  <div class="facts reveal" data-d="4" aria-label="Key facts">
+    <div class="fact"><span class="v">24h</span><span class="k">Quote turnaround</span></div>
+    <div class="fact"><span class="v">~3 wks</span><span class="k">Typical launch</span></div>
+    <div class="fact"><span class="v">4</span><span class="k">Steps, start to live</span></div>
+    <div class="fact"><span class="v">100%</span><span class="k">Built in-house</span></div>
+  </div>
+</section>
 
-    <!-- ===== STEPS ===== -->
-    <section class="relative px-5 sm:px-6 md:px-10 py-16 sm:py-20 md:py-28">
-        <div class="mx-auto max-w-[1400px] relative">
-            <div class="timeline-line md:block hidden"></div>
-            <div class="space-y-6 sm:space-y-8 relative">
+<!-- ============ 01 · THE STEPS ============ -->
+<section class="proc wrap" id="steps" aria-label="The steps">
+  <div class="idx reveal">
+    <div class="idx-l"><span class="idx-num">01</span><span class="idx-label">The steps</span></div>
+    <p class="idx-desc">Four steps from first message to a live site, usually three weeks.</p>
+  </div>
+  <div class="proc-grid" style="grid-template-columns:repeat(2,1fr)">
+    <div class="step reveal"><span class="ln" aria-hidden="true"></span>
+      <div class="sn">01</div><h3>Fast discovery</h3>
+      <p>You tell us what the business does, what is weak right now, and how soon you want to launch. We keep this short on purpose.</p>
+    </div>
+    <div class="step reveal" data-d="1"><span class="ln" aria-hidden="true"></span>
+      <div class="sn">02</div><h3>Offer and direction</h3>
+      <p>We recommend the smallest package that solves the problem, define scope, and lock the design direction before the build starts.</p>
+    </div>
+    <div class="step reveal" data-d="2"><span class="ln" aria-hidden="true"></span>
+      <div class="sn">03</div><h3>Build in days</h3>
+      <p>Design and development happen together so the site feels custom and polished without dragging the timeline out.</p>
+    </div>
+    <div class="step reveal" data-d="3"><span class="ln" aria-hidden="true"></span>
+      <div class="sn">04</div><h3>Launch and improve</h3>
+      <p>Once the site is approved, it goes live. If needed, we add lead routing, booking, review requests, or other light automations after launch.</p>
+    </div>
+  </div>
+  <p class="founding-note reveal"><span class="d" aria-hidden="true"></span>Founding-client pricing while we build our Barcelona portfolio, from €490, limited to the next few projects.</p>
+</section>
 
-                <!-- Step 1 -->
-                <div class="spot reveal stagger-1 grid gap-5 sm:gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]">
-                    <div class="step-num step-num-active">1</div>
-                    <div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white">Fast discovery</h2>
-                        <p class="mt-3 leading-relaxed" style="color:var(--text-secondary);">You tell me what the business does, what is weak right now, and how soon you want to launch. I keep this short on purpose.</p>
-                    </div>
-                </div>
+<hr class="rule" />
 
-                <!-- Step 2 -->
-                <div class="spot reveal stagger-2 grid gap-5 sm:gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]">
-                    <div class="step-num step-num-default">2</div>
-                    <div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white">Offer and direction</h2>
-                        <p class="mt-3 leading-relaxed" style="color:var(--text-secondary);">I recommend the smallest package that solves the problem, define scope, and lock the design direction before the build starts.</p>
-                    </div>
-                </div>
+<!-- ============ CONTACT / CTA ============ -->
+<section class="contact wrap" id="contact" aria-label="Contact">
+  <div class="lamp" aria-hidden="true"></div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <h2>need something <em>polished</em> fast?</h2>
+      <p style="color:var(--text-2);max-width:40ch;margin-top:1.2rem;line-height:1.6">Tell us what the business needs and we'll recommend the quickest sensible path, then quote it within a day.</p>
+      <div class="promise"><span class="d" aria-hidden="true"></span>Quote within 24 hours</div>
+      <div>
+        <a class="wa-direct" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+          <span>Message us on WhatsApp<br><span class="sub">+34 604 963 489</span></span>
+        </a>
+      </div>
+    </div>
+    <div class="reveal" data-d="1">
+      <p style="font-family:var(--f-italic);font-style:italic;font-size:clamp(1.4rem,3vw,2rem);color:var(--accent);line-height:1.3;max-width:18ch">everything moves in waves.</p>
+      <p style="color:var(--muted);font-size:0.9rem;margin-top:1.4rem;max-width:34ch;line-height:1.6">Prefer the form? Head to the homepage contact section and we will pick it up there, or just message us directly.</p>
+      <a class="link-arrow" href="/index_v5.html#contact" style="margin-top:1.6rem">Go to the contact form
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
 
-                <!-- Step 3 -->
-                <div class="spot reveal stagger-3 grid gap-5 sm:gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]">
-                    <div class="step-num step-num-default">3</div>
-                    <div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white">Build in days</h2>
-                        <p class="mt-3 leading-relaxed" style="color:var(--text-secondary);">Design and development happen together so the site feels custom and polished without dragging the timeline out.</p>
-                    </div>
-                </div>
+</main>
 
-                <!-- Step 4 -->
-                <div class="spot reveal stagger-4 grid gap-5 sm:gap-6 p-5 sm:p-6 md:p-8 md:grid-cols-[80px_1fr]">
-                    <div class="step-num step-num-default">4</div>
-                    <div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white">Launch and improve</h2>
-                        <p class="mt-3 leading-relaxed" style="color:var(--text-secondary);">Once the site is approved, it goes live. If needed, we add lead routing, booking, review requests, or other light automations after launch.</p>
-                    </div>
-                </div>
+<!-- ============ FOOTER ============ -->
+<footer aria-label="Footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="wm">ONDA</div>
+        <p class="thesis">everything moves in waves.</p>
+        <p class="es">web design studio · Barcelona</p>
+      </div>
+      <div class="foot-col">
+        <h4>Web design for</h4>
+        <a href="/index_v5.html#contact">Dental clinics</a>
+        <a href="/index_v5.html#contact">Restaurants</a>
+        <a href="/index_v5.html#contact">Real estate</a>
+        <a href="/index_v5.html#contact">Aesthetic clinics</a>
+        <a href="/index_v5.html#contact">Architecture studios</a>
+      </div>
+      <div class="foot-col">
+        <h4>Studio</h4>
+        <a href="portfolio.html">Work</a>
+        <a href="/index_v5.html#packages">Packages</a>
+        <a href="process.html">Process</a>
+        <a href="/index_v5.html#studio">Studio</a>
+        <a href="/index_v5.html#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Elsewhere</h4>
+        <a href="https://wa.me/34604963489" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://instagram.com/agencyonda" target="_blank" rel="noopener">Instagram, @agencyonda</a>
+        <a href="process_es.html">Español</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Onda, Barcelona</span>
+      <span class="legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
 
-            </div>
-        </div>
-    </section>
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a class="wa-float" href="https://wa.me/34604963489" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+  <span class="lab">WhatsApp</span>
+</a>
 
-    <hr class="divider mx-auto max-w-[1400px]">
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    <!-- ===== CTA ===== -->
-    <section class="relative px-5 sm:px-6 md:px-10 py-16 sm:py-20 md:py-28 overflow-hidden">
-        <div class="mx-auto max-w-[1400px] relative z-10">
-            <div class="max-w-2xl reveal">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">Need something <span class="font-['Instrument_Serif'] italic text-[var(--accent)]">polished</span> fast?</h2>
-                <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color:var(--text-secondary);max-width:50ch;">Tell me what the business needs and I will recommend the quickest sensible path.</p>
-                <a href="/#contact" class="btn-p shimmer mt-8 inline-flex">Request a Quote <span class="btn-icon-wrap"><i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span></a>
-            </div>
-        </div>
-    </section>
+  /* ---- reveal on scroll ---- */
+  var reveals = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)){
+    reveals.forEach(function(el){ el.classList.add("in-view"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in-view"); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12, rootMargin:"0px 0px -8% 0px"});
+    reveals.forEach(function(el){ io.observe(el); });
+    /* process line draw */
+    var pg = document.querySelector(".proc-grid");
+    if (pg){
+      var io2 = new IntersectionObserver(function(en){
+        en.forEach(function(e){ if(e.isIntersecting){ pg.classList.add("in-view"); io2.unobserve(e.target);} });
+      },{threshold:0.3});
+      io2.observe(pg);
+    }
+  }
 
-    </main>
+  /* ---- nav hide on scroll down / show on scroll up ---- */
+  var nav = document.getElementById("nav"), last = 0;
+  window.addEventListener("scroll", function(){
+    var y = window.pageYOffset;
+    if (y > 120 && y > last){ nav.classList.add("hide"); } else { nav.classList.remove("hide"); }
+    last = y;
+  }, {passive:true});
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="px-5 sm:px-6 md:px-10 py-10 sm:py-12 text-sm" style="border-top:1px solid var(--border);color:var(--text-muted);">
-        <div class="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-6 md:flex-row">
-            <div>
-                <span class="block text-lg font-bold text-white">ONDA</span>
-                <p>Fast websites and starter automation for businesses that need to move now.</p>
-            </div>
-            <div class="text-center md:text-right">
-                <p>Based in Spain. Available for remote projects across Europe, the UK, and beyond.</p>
-                <div class="mt-3 flex items-center justify-center md:justify-end gap-4 text-xs" style="color:var(--text-muted);">
-                    <a href="privacy.html" class="hover:text-white transition-colors">Privacy policy</a>
-                    <span style="color:var(--border);">|</span>
-                    <a href="terms.html" class="hover:text-white transition-colors">Terms of service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        window.addEventListener("DOMContentLoaded", function() { lucide.createIcons(); });
-
-        // ===== FLOATING ISLAND NAV (hide on scroll down, show on scroll up) =====
-        (function() {
-            const nav = document.getElementById('islandNav');
-            let lastScroll = 0;
-            let ticking = false;
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        const currentScroll = window.scrollY;
-                        if (currentScroll > 100 && currentScroll > lastScroll) {
-                            nav.classList.add('nav-hidden');
-                        } else {
-                            nav.classList.remove('nav-hidden');
-                        }
-                        lastScroll = currentScroll;
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-        })();
-
-        // ===== SPOTLIGHT CARDS =====
-        document.querySelectorAll('.spot').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
-                card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
-            });
-        });
-
-        // ===== OBSERVERS =====
-        document.addEventListener('DOMContentLoaded', () => {
-            const revealEls = document.querySelectorAll('.reveal');
-            const quickReveal = () => {
-                revealEls.forEach(el => {
-                    const rect = el.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        el.classList.add('is-visible');
-                    }
-                });
-            };
-            quickReveal();
-            setTimeout(quickReveal, 100);
-            setTimeout(quickReveal, 300);
-
-            const revealObs = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.05, rootMargin: '50px' });
-
-            revealEls.forEach(el => {
-                if (!el.classList.contains('is-visible')) revealObs.observe(el);
-            });
-
-            // Mobile menu
-            const menuBtn = document.getElementById('mobileMenuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const closeBtn = document.getElementById('mobileMenuClose');
-            if (menuBtn && mobileMenu) menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-            if (closeBtn && mobileMenu) closeBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
-            if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
-        });
-    </script>
-    <!-- onda-analytics:start -->
+  /* ---- mobile menu ---- */
+  var sheet = document.getElementById("msheet");
+  function open(){ sheet.classList.add("open"); sheet.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
+  function close(){ sheet.classList.remove("open"); sheet.setAttribute("aria-hidden","true"); document.body.style.overflow=""; }
+  document.getElementById("menuBtn").addEventListener("click", open);
+  document.getElementById("menuClose").addEventListener("click", close);
+  sheet.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", close); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape") close(); });
+})();
+</script>
+<!-- ============ LANGUAGE PREFERENCE (for IP-based router) ============ -->
+<script>
+  document.querySelectorAll('a[href="process_es.html"]').forEach(function(a){
+    a.addEventListener('click', function(){ try{ localStorage.setItem('onda_lang_override','es'); }catch(e){} });
+  });
+</script>
+<!-- onda-analytics:start -->
     <script defer src="/assets/js/analytics.js"></script>
     <!-- onda-analytics:end -->
 </body>
-
 </html>
