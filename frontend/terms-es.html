@@ -306,8 +306,8 @@
 
   /* mobile menu */
   var sheet = document.getElementById("msheet");
-  function open(){ sheet.classList.add("open"); sheet.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
-  function close(){ sheet.classList.remove("open"); sheet.setAttribute("aria-hidden","true"); document.body.style.overflow=""; }
+  function open(){ sheet.classList.add("open"); sheet.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; var _b=document.getElementById("menuBtn"); if(_b)_b.setAttribute("aria-expanded","true"); var _c=document.getElementById("menuClose"); if(_c)setTimeout(function(){try{_c.focus();}catch(e){}},50); }
+  function close(){ sheet.classList.remove("open"); sheet.setAttribute("aria-hidden","true"); document.body.style.overflow=""; var _b=document.getElementById("menuBtn"); if(_b){_b.setAttribute("aria-expanded","false"); _b.focus();} }
   document.getElementById("menuBtn").addEventListener("click", open);
   document.getElementById("menuClose").addEventListener("click", close);
   sheet.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", close); });

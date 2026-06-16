@@ -254,8 +254,8 @@
     last = y;
   }, {passive:true});
   var sheet = document.getElementById("msheet");
-  function openMenu(){ sheet.classList.add("open"); sheet.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
-  function closeMenu(){ sheet.classList.remove("open"); sheet.setAttribute("aria-hidden","true"); document.body.style.overflow=""; }
+  function openMenu(){ sheet.classList.add("open"); sheet.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; var _b=document.getElementById("menuBtn"); if(_b)_b.setAttribute("aria-expanded","true"); var _c=document.getElementById("menuClose"); if(_c)setTimeout(function(){try{_c.focus();}catch(e){}},50); }
+  function closeMenu(){ sheet.classList.remove("open"); sheet.setAttribute("aria-hidden","true"); document.body.style.overflow=""; var _b=document.getElementById("menuBtn"); if(_b){_b.setAttribute("aria-expanded","false"); _b.focus();} }
   document.getElementById("menuBtn").addEventListener("click", openMenu);
   document.getElementById("menuClose").addEventListener("click", closeMenu);
   sheet.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", closeMenu); });
