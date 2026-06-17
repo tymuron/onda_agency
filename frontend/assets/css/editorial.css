@@ -234,6 +234,8 @@ h1.lead em{font-family:var(--f-italic);font-style:italic;font-weight:400;color:v
 .proof-note{font-size:0.875rem;color:var(--muted);max-width:52ch;margin-top:0.4rem}
 .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(0.85rem,2vw,1.3rem);margin-top:2rem;align-items:start}
 @media(max-width:880px){.proof-grid{grid-template-columns:1fr;max-width:520px;margin-inline:auto}}
+/* 2 published cases: center them on desktop until a third lands */
+@media(min-width:881px){.proof-grid.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:780px;margin-inline:auto}}
 
 /* proof card variant A (.case) */
 .case{position:relative;border:1px solid var(--border);border-radius:10px;overflow:hidden;
