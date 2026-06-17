@@ -58,6 +58,11 @@ PAGES = [
     ("/how-much-does-a-website-cost-spain-es.html", "how-much-does-a-website-cost-spain-es.html", "es", "post-cost"),
     ("/how-to-choose-a-web-designer.html", "how-to-choose-a-web-designer.html", "en", "post-choose"),
     ("/how-to-choose-a-web-designer-es.html", "how-to-choose-a-web-designer-es.html", "es", "post-choose"),
+    # Case studies (EN + es per slug -> en/es hreflang cluster)
+    ("/case-selbstentdeckung.html", "case-selbstentdeckung.html", "en", "case-selbstentdeckung"),
+    ("/case-selbstentdeckung-es.html", "case-selbstentdeckung-es.html", "es", "case-selbstentdeckung"),
+    ("/case-anna-romeo.html", "case-anna-romeo.html", "en", "case-anna-romeo"),
+    ("/case-anna-romeo-es.html", "case-anna-romeo-es.html", "es", "case-anna-romeo"),
     # Legal pages
     ("/privacy.html", "privacy.html", "en", "legal-privacy"),
     ("/privacy-es.html", "privacy-es.html", "es", "legal-privacy"),
