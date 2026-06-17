@@ -68,6 +68,13 @@ PAGES = [
     ("/privacy-es.html", "privacy-es.html", "es", "legal-privacy"),
     ("/terms.html", "terms.html", "en", "legal-terms"),
     ("/terms-es.html", "terms-es.html", "es", "legal-terms"),
+    # Case studies (en + es per case)
+    ("/case-proadikt.html", "case-proadikt.html", "en", "case-proadikt"),
+    ("/case-proadikt-es.html", "case-proadikt-es.html", "es", "case-proadikt"),
+    ("/case-anna-romeo.html", "case-anna-romeo.html", "en", "case-anna"),
+    ("/case-anna-romeo-es.html", "case-anna-romeo-es.html", "es", "case-anna"),
+    ("/case-selbstentdeckung.html", "case-selbstentdeckung.html", "en", "case-maria"),
+    ("/case-selbstentdeckung-es.html", "case-selbstentdeckung-es.html", "es", "case-maria"),
 ]
 
 # Load .env from backend/ so it works when run from project root (e.g. python backend/main.py)
