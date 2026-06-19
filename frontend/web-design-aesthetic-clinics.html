@@ -30,9 +30,9 @@
 <link rel="icon" type="image/png" href="/assets/favicon.png" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preload" href="/assets/fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin />
 
 <link rel="stylesheet" href="/assets/css/editorial.css" />
 
@@ -57,7 +57,7 @@
       <a href="/index_v5.html#packages">Packages</a>
       <a href="/index_v5.html#process">Process</a>
       <a href="/index_v5.html#studio">Studio</a>
-      <a href="/index_v5.html#contact">Contact</a>
+      <a href="#contact">Contact</a>
       <a class="nav-lang" href="web-design-aesthetic-clinics-es.html">ES</a>
     </nav>
     <a class="nav-cta" href="https://wa.me/34604963489" target="_blank" rel="noopener">Get a quote
@@ -82,7 +82,7 @@
     <a href="/index_v5.html#studio"><span class="n">02</span>Studio</a>
     <a href="/index_v5.html#packages"><span class="n">03</span>Packages</a>
     <a href="/index_v5.html#process"><span class="n">04</span>Process</a>
-    <a href="/index_v5.html#contact"><span class="n">05</span>Contact</a>
+    <a href="#contact"><span class="n">05</span>Contact</a>
     <a href="web-design-aesthetic-clinics-es.html"><span class="n">ES</span>Español</a>
   </nav>
   <a class="wa" href="https://wa.me/34604963489" target="_blank" rel="noopener">
@@ -140,16 +140,16 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
         Message us on WhatsApp
       </a>
-      <a class="btn-ghost" href="/index_v5.html#contact">Get a quote
+      <a class="btn-ghost" href="#contact">Get a quote
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
   </div>
 
   <!-- niche cover -->
-  <a class="cover lead-cover reveal" data-d="4" href="/index_v5.html#contact" aria-label="Aesthetic clinic concept">
+  <a class="cover lead-cover reveal" data-d="4" href="#contact" aria-label="Aesthetic clinic concept">
     <div class="media">
-      <img src="/assets/niche/aesthetic.webp" alt="Serene high-end aesthetic clinic interior" width="2048" height="1152" loading="lazy" decoding="async" />
+      <picture><source srcset="/assets/niche/aesthetic.avif" type="image/avif"><img src="/assets/niche/aesthetic.webp" alt="Serene high-end aesthetic clinic interior" width="2048" height="1152" fetchpriority="high" decoding="async" /></picture>
       <div class="grain" aria-hidden="true"></div>
       <div class="scrim" aria-hidden="true"></div>
     </div>
@@ -231,6 +231,16 @@
   </div>
 </section>
 
+<!-- ============ PROOF ============ -->
+<section class="proof wrap" aria-label="Client results">
+  <div class="idx reveal"><div class="idx-l"><span class="idx-num">·</span><span class="idx-label">Client results</span></div><p class="idx-desc">Real clients, real results.</p></div>
+  <figure class="niche-proof reveal">
+    <blockquote>&ldquo;My platform is beautiful and a perfect fit for my premium brand.&rdquo;</blockquote>
+    <figcaption>Anna Romeo · designer · &euro;18,500 in sales</figcaption>
+    <div class="niche-proof-links"><a href="case-anna-romeo.html">Anna Romeo →</a><a href="case-proadikt.html">PROADIKT →</a><a href="case-selbstentdeckung.html">selbstentdeckung →</a></div>
+  </figure>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section class="contact wrap" id="contact" aria-label="Contact">
   <div class="lamp" aria-hidden="true"></div>
@@ -270,7 +280,7 @@
       <button class="submit" type="submit">Send and get a quote in 24h
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
-      <p class="form-note" id="formNote">No spam, no newsletter. Just a reply from the person who would build it.</p>
+      <p class="form-note" id="formNote" role="status" aria-live="polite">No spam, no newsletter. Just a reply from the person who would build it. By sending you agree to our <a href="privacy.html">privacy policy</a>.</p>
     </form>
   </div>
 </section>
@@ -300,7 +310,7 @@
         <a href="/index_v5.html#packages">Packages</a>
         <a href="/index_v5.html#process">Process</a>
         <a href="blog.html">Blog</a>
-        <a href="/index_v5.html#contact">Contact</a>
+        <a href="#contact">Contact</a>
       </div>
       <div class="foot-col">
         <h4>Elsewhere</h4>

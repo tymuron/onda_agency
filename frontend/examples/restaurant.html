@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <title>Brasa — Wood-Fire Mediterranean Grill, Barcelona</title>
+    <link rel="canonical" href="https://agencyonda.com/examples/restaurant.html">
+    <meta name="description" content="Seasonal Mediterranean cooking over live coals, in the heart of Barcelona's Gothic Quarter. Grilled octopus, whole turbot over embers, vegetables straight from the fire.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Brasa — Wood-Fire Mediterranean Grill, Barcelona">
+    <meta property="og:description" content="Seasonal Mediterranean cooking over live coals, in the heart of Barcelona's Gothic Quarter. Grilled octopus, whole turbot over embers, vegetables straight from the fire.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://agencyonda.com/assets/concepts/brasa/grill-hero.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Brasa — Wood-Fire Mediterranean Grill, Barcelona">
+    <meta name="twitter:description" content="Seasonal Mediterranean cooking over live coals, in Barcelona's Gothic Quarter.">
+
+    <!-- Fonts: preconnect + link (NOT @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="/assets/concepts/brasa/grill-hero.webp" fetchpriority="high">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+
+    <!-- Lucide Icons -->
+
+    <style>
+        :root {
+            --ease: cubic-bezier(0.32, 0.72, 0, 1);
+            --bg: #0C0A09;
+            --surface: #1F1815;
+            --cream: #FAF7F4;
+            --stone: #A8A29E;
+            --copper: #C2562B;
+            --border: rgba(168, 162, 158, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg);
+            color: var(--cream);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Skip-to-content */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            z-index: 10000;
+            padding: 0.75rem 1.5rem;
+            background: var(--copper);
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 0 0 8px 8px;
+            transition: top 0.3s var(--ease);
+        }
+        .skip-link:focus { top: 0; }
+
+        /* Focus-visible */
+        *:focus-visible {
+            outline: 2px solid var(--copper);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* Scroll reveal base */
+        .sr {
+            opacity: 0;
+            transform: translateY(2rem);
+            filter: blur(6px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
+        }
+        .sr.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        /* Stagger children */
+        .stagger > .sr:nth-child(1) { transition-delay: 0ms; }
+        .stagger > .sr:nth-child(2) { transition-delay: 100ms; }
+        .stagger > .sr:nth-child(3) { transition-delay: 200ms; }
+        .stagger > .sr:nth-child(4) { transition-delay: 300ms; }
+        .stagger > .sr:nth-child(5) { transition-delay: 400ms; }
+        .stagger > .sr:nth-child(6) { transition-delay: 500ms; }
+
+        /* Floating pill nav */
+        .pill-nav {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(1.5rem);
+            z-index: 1000;
+            background: rgba(31, 24, 21, 0.75);
+            backdrop-filter: blur(20px) saturate(1.4);
+            -webkit-backdrop-filter: blur(20px) saturate(1.4);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            padding: 0.6rem 1.5rem;
+            transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s linear;
+            will-change: transform, opacity;
+            width: max-content;
+            max-width: calc(100vw - 2rem);
+        }
+        .pill-nav.hidden {
+            transform: translateX(-50%) translateY(-140%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .pill-nav a {
+            color: var(--stone);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            transition: color 0.4s var(--ease);
+        }
+        .pill-nav a:hover { color: var(--cream); }
+
+        /* Back-to-Onda link */
+        .onda-back {
+            font-size: 0.75rem;
+            color: var(--stone);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            padding-right: 1rem;
+            border-right: 1px solid var(--border);
+            margin-right: 0.5rem;
+            transition: color 0.4s var(--ease);
+            white-space: nowrap;
+        }
+        .onda-back:hover { color: var(--copper) !important; }
+
+        /* Hamburger morph */
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            min-width: 44px;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+        .hamburger-btn span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--stone);
+            transition: transform 0.4s var(--ease), opacity 0.3s var(--ease);
+            transform-origin: center;
+        }
+        .hamburger-btn.active span:nth-child(1) {
+            transform: translateY(6.5px) rotate(45deg);
+        }
+        .hamburger-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger-btn.active span:nth-child(3) {
+            transform: translateY(-6.5px) rotate(-45deg);
+        }
+
+        /* Mobile overlay */
+        .mobile-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: rgba(12, 10, 9, 0.92);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s var(--ease);
+        }
+        .mobile-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-overlay a {
+            color: var(--cream);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(1.5rem);
+            transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), color 0.3s var(--ease);
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+        .mobile-overlay.open a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mobile-overlay.open a:nth-child(1) { transition-delay: 80ms; }
+        .mobile-overlay.open a:nth-child(2) { transition-delay: 140ms; }
+        .mobile-overlay.open a:nth-child(3) { transition-delay: 200ms; }
+        .mobile-overlay.open a:nth-child(4) { transition-delay: 260ms; }
+        .mobile-overlay.open a:nth-child(5) { transition-delay: 320ms; }
+        .mobile-overlay.open a:nth-child(6) { transition-delay: 380ms; }
+        .mobile-overlay a:hover { color: var(--copper); }
+
+        /* Double-Bezel card */
+        .bezel {
+            background: rgba(250, 247, 244, 0.04);
+            border: 1px solid var(--border);
+            padding: 6px;
+            border-radius: 2rem;
+        }
+        .bezel-inner {
+            background: var(--surface);
+            border-radius: calc(2rem - 6px);
+            padding: 2rem;
+            box-shadow: inset 0 1px 1px rgba(250, 247, 244, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Spotlight effect on cards */
+        .spotlight-card { position: relative; overflow: hidden; }
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            top: var(--mouse-y, 50%);
+            left: var(--mouse-x, 50%);
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(194, 86, 43, 0.12) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.5s var(--ease);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .spotlight-card:hover::before { opacity: 1; }
+
+        /* Button pill with trailing arrow */
+        .btn-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.85rem 1rem 0.85rem 1.75rem;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.5s var(--ease), transform 0.3s var(--ease);
+            min-height: 44px;
+        }
+        .btn-pill:active { transform: scale(0.98); }
+        .btn-primary {
+            background: var(--copper);
+            color: var(--cream);
+        }
+        .btn-primary:hover { background: #d2683c; }
+        .btn-ghost {
+            background: transparent;
+            color: var(--cream);
+            border: 1px solid rgba(168, 162, 158, 0.25);
+        }
+        .btn-ghost:hover { background: rgba(250, 247, 244, 0.06); }
+        .btn-icon {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s var(--ease);
+            flex-shrink: 0;
+        }
+        .btn-primary .btn-icon { background: rgba(12, 10, 9, 0.2); }
+        .btn-ghost .btn-icon { background: rgba(250, 247, 244, 0.08); }
+        .btn-pill:hover .btn-icon {
+            transform: translate(2px, -1px) scale(1.05);
+        }
+
+        /* Horizontal scroll gallery */
+        .h-gallery {
+            display: flex;
+            gap: 1.25rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 1rem;
+            scrollbar-width: none;
+        }
+        .h-gallery::-webkit-scrollbar { display: none; }
+        .h-gallery-item {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            border-radius: 1.25rem;
+            overflow: hidden;
+        }
+        .h-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Testimonial crossfade */
+        .testimonial-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.8s var(--ease);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .testimonial-slide.active { opacity: 1; }
+
+        /* Section spacing */
+        .section-pad {
+            padding: clamp(4rem, 10vw, 7rem) clamp(1rem, 4vw, 4rem);
+        }
+
+        /* Eyebrow badge */
+        .eyebrow {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.625rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--copper);
+            border: 1px solid rgba(194, 86, 43, 0.3);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .sr { opacity: 1; transform: none; filter: none; }
+            .pill-nav { transition: none; }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 768px) {
+            .pill-nav {
+                width: calc(100vw - 2rem);
+                border-radius: 1.25rem;
+                transform: translateX(-50%) translateY(0.75rem);
+            }
+            .pill-nav .desktop-links { display: none !important; }
+            .hamburger-btn { display: flex; }
+
+            .hero-split {
+                grid-template-columns: 1fr !important;
+                min-height: 100dvh;
+                gap: 2rem !important;
+                padding-top: 6rem !important;
+            }
+            .hero-image-col { display: none; }
+            .hero-text-col {
+                padding: 0 1rem !important;
+                justify-content: center;
+            }
+            .hero-text-col h1 span {
+                font-size: clamp(2.8rem, 12vw, 4rem) !important;
+            }
+
+            .bento-services {
+                grid-template-columns: 1fr !important;
+                grid-template-rows: auto !important;
+            }
+            .bento-services > div {
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
+            }
+
+            .crew-editorial {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+            .crew-photo-large {
+                height: 60vw !important;
+                min-height: 280px;
+            }
+
+            .h-gallery-item {
+                width: 80vw !important;
+                height: 55vw !important;
+            }
+
+            .testimonial-container { min-height: 320px !important; }
+
+            .contact-split {
+                grid-template-columns: 1fr !important;
+            }
+            .contact-bg-col { min-height: 50vw; }
+
+            .footer-inner {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+            }
+            .footer-inner ul { justify-content: center; }
+
+            .section-pad {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .bezel-inner { padding: 1.25rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text-col h1 span {
+                font-size: clamp(2rem, 11vw, 3rem) !important;
+            }
+            .h-gallery-item {
+                width: 85vw !important;
+                height: 65vw !important;
+            }
+            .testimonial-glyph { font-size: 6rem !important; }
+        }
+    </style>
+    <link rel="stylesheet" href="./_css/restaurant.css">
+</head>
+<body>
+<a href="/portfolio.html" id="onda-concept-flag" aria-label="This is a concept demo by Onda — see the portfolio" style="position:fixed;left:14px;bottom:14px;z-index:9999;display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;font:600 11px/1 system-ui,-apple-system,sans-serif;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;"><span style="width:6px;height:6px;border-radius:50%;background:#3B82F6;"></span>Concept &mdash; a demo by Onda</a>
+
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <!-- Noise overlay (fixed, pointer-events none) -->
+    <svg style="position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.03;width:100%;height:100%;" aria-hidden="true">
+        <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+        <rect width="100%" height="100%" filter="url(#grain)"/>
+    </svg>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="pill-nav" id="pillNav" aria-label="Main navigation">
+        <div style="display:flex;align-items:center;gap:2rem;justify-content:space-between;width:100%;">
+            <div style="display:flex;align-items:center;">
+                <a href="../portfolio.html" class="onda-back" aria-label="Back to Onda portfolio">&larr; Onda</a>
+                <a href="#" style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--cream);letter-spacing:0.04em;white-space:nowrap;">BRASA</a>
+            </div>
+
+            <div class="desktop-links" style="display:flex;align-items:center;gap:2rem;">
+                <a href="#services">Menu</a>
+                <a href="#crew">Kitchen</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact">Reservations</a>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <a href="#contact" class="btn-pill btn-primary desktop-links" style="padding:0.5rem 0.65rem 0.5rem 1.25rem;font-size:0.8rem;">
+                    Reserve
+                    <span class="btn-icon" style="width:1.5rem;height:1.5rem;font-size:0.75rem;">&#8594;</span>
+                </a>
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-label="Mobile navigation">
+        <a href="#services" class="mob-link">Menu</a>
+        <a href="#crew" class="mob-link">The Kitchen</a>
+        <a href="#gallery" class="mob-link">Gallery</a>
+        <a href="#testimonials" class="mob-link">Reviews</a>
+        <a href="#contact" class="mob-link">Reservations</a>
+        <a href="#contact" style="font-family:'Space Grotesk',sans-serif;font-size:1rem;margin-top:1rem;padding:0.75rem 2rem;border:1px solid var(--copper);border-radius:9999px;color:var(--copper);" class="mob-link">Reserve a Table</a>
+    </div>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="main-content">
+
+        <!-- ===== HERO: Full-viewport split ===== -->
+        <section class="hero-split" style="display:grid;grid-template-columns:1fr 1fr;min-height:100dvh;gap:0;align-items:center;padding:0 clamp(1.5rem,4vw,4rem);padding-top:7rem;padding-bottom:3rem;">
+
+            <!-- LEFT: Stacked massive typography -->
+            <div class="hero-text-col" style="display:flex;flex-direction:column;justify-content:center;padding-right:2rem;">
+                <div class="eyebrow sr" style="width:fit-content;">Live Fire -- Gothic Quarter</div>
+                <h1 style="margin-bottom:2rem;">
+                    <span class="sr" style="display:block;font-family:'Playfair Display',serif;font-size:clamp(3.5rem,7vw,6.5rem);font-weight:800;line-height:0.95;letter-spacing:-0.03em;color:var(--cream);">Brasa</span>
+                    <span class="sr" style="display:block;font-family:'Playfair Display',serif;font-size:clamp(3.5rem,7vw,6.5rem);font-weight:400;font-style:italic;line-height:0.95;letter-spacing:-0.02em;color:var(--copper);">over fire</span>
+                    <span class="sr" style="display:block;font-family:'Space Grotesk',sans-serif;font-size:clamp(1rem,2vw,1.5rem);font-weight:300;letter-spacing:0.15em;text-transform:uppercase;color:var(--stone);margin-top:1rem;">Barcelona</span>
+                </h1>
+                <p class="sr" style="font-size:clamp(1rem,1.5vw,1.2rem);color:var(--stone);line-height:1.7;max-width:420px;margin-bottom:2.5rem;">
+                    A wood-fire Mediterranean grill in the Gothic Quarter. We cook the day's market over live coals -- whole fish, vegetables, and cuts kissed by smoke and char.
+                </p>
+                <div class="sr" style="display:flex;gap:1rem;flex-wrap:wrap;">
+                    <a href="#contact" class="btn-pill btn-primary">
+                        Reserve a Table
+                        <span class="btn-icon">&#8594;</span>
+                    </a>
+                    <a href="#services" class="btn-pill btn-ghost">
+                        See the Menu
+                        <span class="btn-icon">&#8594;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT: Tall portrait image -->
+            <div class="hero-image-col sr" style="display:flex;justify-content:flex-end;align-items:center;height:100%;">
+                <div class="bezel" style="width:100%;max-width:520px;height:min(80vh, 700px);">
+                    <div class="bezel-inner" style="padding:0;height:100%;overflow:hidden;">
+                        <img
+                            src="/assets/concepts/brasa/grill-hero.webp"
+                            alt="Open wood-fire grill at Brasa, flames rising under a rack of seasonal Mediterranean produce"
+                            style="width:100%;height:100%;object-fit:cover;"
+                            loading="eager" fetchpriority="high" decoding="async"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== PHILOSOPHY STRIP ===== -->
+        <section style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+            <div class="sr" style="max-width:900px;margin:0 auto;padding:3rem clamp(1rem,4vw,4rem);text-align:center;">
+                <p style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2.2rem);font-style:italic;color:var(--cream);letter-spacing:-0.01em;line-height:1.4;">
+                    "Good fire, good produce. Everything else we leave alone."
+                </p>
+                <div style="width:48px;height:1px;background:var(--copper);margin:1.25rem auto 0;" aria-hidden="true"></div>
+            </div>
+        </section>
+
+
+        <!-- ===== MENU: Asymmetric Bento Grid ===== -->
+        <section id="services" class="section-pad" style="max-width:1400px;margin:0 auto;">
+            <div class="sr" style="margin-bottom:3rem;">
+                <span class="eyebrow">From the Coals</span>
+                <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;">
+                    Menu
+                </h2>
+            </div>
+
+            <!-- Bento Grid: Row 1 = 60/40, Row 2 = 30/40/30 -->
+            <div class="bento-services stagger" style="display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:auto auto;gap:1.25rem;">
+
+                <!-- Row 1, Col 1 (6/10) -->
+                <div class="bezel spotlight-card sr" style="grid-column:span 6;">
+                    <div class="bezel-inner" style="min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
+                        <div>
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;flex-wrap:wrap;gap:0.5rem;">
+                                <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;">Whole Turbot over Coals</h3>
+                                <span style="font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:var(--copper);">&#8364;38</span>
+                            </div>
+                            <p style="color:var(--stone);font-size:0.95rem;line-height:1.6;max-width:440px;">A whole turbot grilled slowly over oak embers, basted with garlic, olive oil and a splash of vinegar. Served to share, with charred lemon and the bones picked clean.</p>
+                        </div>
+                        <div style="margin-top:1.25rem;display:flex;gap:0.75rem;align-items:center;">
+                            <span style="font-size:0.75rem;background:rgba(194,86,43,0.12);color:var(--copper);padding:0.3rem 0.85rem;border-radius:9999px;font-weight:500;">To share</span>
+                            <span style="font-size:0.75rem;color:var(--stone);">Whatever the boats bring in</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 1, Col 2 (4/10) -->
+                <div class="bezel spotlight-card sr" style="grid-column:span 4;">
+                    <div class="bezel-inner" style="min-height:220px;display:flex;flex-direction:column;justify-content:space-between;">
+                        <div>
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;flex-wrap:wrap;gap:0.5rem;">
+                                <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;">Grilled Octopus</h3>
+                                <span style="font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:var(--copper);">&#8364;19</span>
+                            </div>
+                            <p style="color:var(--stone);font-size:0.95rem;line-height:1.6;">Slow-cooked then finished on the grill until the edges crackle. Smoked paprika, a confit potato, and good oil.</p>
+                        </div>
+                        <div style="margin-top:1.25rem;">
+                            <span style="font-size:0.75rem;background:rgba(194,86,43,0.12);color:var(--copper);padding:0.3rem 0.85rem;border-radius:9999px;font-weight:500;">Starter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2, Col 1 (3/10) -->
+                <div class="bezel spotlight-card sr" style="grid-column:span 3;">
+                    <div class="bezel-inner" style="min-height:200px;display:flex;flex-direction:column;justify-content:space-between;">
+                        <div>
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;flex-wrap:wrap;gap:0.5rem;">
+                                <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;">Embered Vegetables</h3>
+                                <span style="font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;color:var(--copper);">&#8364;14</span>
+                            </div>
+                            <p style="color:var(--stone);font-size:0.9rem;line-height:1.6;">Whatever's at the market, buried in the coals and dressed simply.</p>
+                        </div>
+                        <div style="margin-top:1.25rem;">
+                            <span style="font-size:0.75rem;background:rgba(194,86,43,0.12);color:var(--copper);padding:0.3rem 0.85rem;border-radius:9999px;font-weight:500;">Seasonal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2, Col 2 (4/10) -->
+                <div class="bezel spotlight-card sr" style="grid-column:span 4;">
+                    <div class="bezel-inner" style="min-height:200px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg, #1F1815 60%, rgba(194,86,43,0.08) 100%);">
+                        <div>
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;flex-wrap:wrap;gap:0.5rem;">
+                                <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;">The Fire Menu</h3>
+                                <span style="font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;color:var(--copper);">&#8364;58</span>
+                            </div>
+                            <p style="color:var(--stone);font-size:0.9rem;line-height:1.6;">Let the kitchen feed you. A run of dishes off the grill, chosen that morning at the market, ending with something sweet from the oven.</p>
+                        </div>
+                        <div style="margin-top:1.25rem;display:flex;gap:0.75rem;align-items:center;">
+                            <span style="font-size:0.75rem;background:rgba(194,86,43,0.12);color:var(--copper);padding:0.3rem 0.85rem;border-radius:9999px;font-weight:500;">Per person</span>
+                            <span style="font-size:0.75rem;color:var(--copper);font-weight:500;">Chef's table</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2, Col 3 (3/10) -->
+                <div class="bezel spotlight-card sr" style="grid-column:span 3;">
+                    <div class="bezel-inner" style="min-height:200px;display:flex;flex-direction:column;justify-content:space-between;">
+                        <div>
+                            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;flex-wrap:wrap;gap:0.5rem;">
+                                <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;">Burnt Honey Tart</h3>
+                                <span style="font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;color:var(--copper);">&#8364;9</span>
+                            </div>
+                            <p style="color:var(--stone);font-size:0.9rem;line-height:1.6;">Honey caramelised dark, soft pastry, a spoon of crema.</p>
+                        </div>
+                        <div style="margin-top:1.25rem;">
+                            <span style="font-size:0.75rem;background:rgba(194,86,43,0.12);color:var(--copper);padding:0.3rem 0.85rem;border-radius:9999px;font-weight:500;">Dessert</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== GALLERY: Horizontal scroll ===== -->
+        <section id="gallery" class="section-pad" style="max-width:1400px;margin:0 auto;">
+            <div class="sr" style="margin-bottom:2rem;">
+                <span class="eyebrow">The Room & The Fire</span>
+                <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;">
+                    Gallery
+                </h2>
+            </div>
+
+            <div class="h-gallery sr" style="padding-left:0;">
+                <div class="h-gallery-item" style="width:360px;height:480px;">
+                    <img src="/assets/concepts/brasa/chef.webp" alt="A cook tending cuts over glowing embers at Brasa" loading="lazy" decoding="async"/>
+                </div>
+                <div class="h-gallery-item" style="width:300px;height:400px;">
+                    <img src="/assets/concepts/brasa/hero.webp" alt="A plated signature dish fresh off the grill" loading="lazy" decoding="async"/>
+                </div>
+                <div class="h-gallery-item" style="width:420px;height:320px;">
+                    <img src="/assets/concepts/brasa/dining.webp" alt="The Brasa dining room, warm and low-lit" loading="lazy" decoding="async"/>
+                </div>
+                <div class="h-gallery-item" style="width:280px;height:440px;">
+                    <img src="/assets/concepts/brasa/wine.webp" alt="Wine, bread and a pour of olive oil on the table" loading="lazy" decoding="async"/>
+                </div>
+                <div class="h-gallery-item" style="width:380px;height:380px;">
+                    <img src="/assets/concepts/brasa/ingredients.webp" alt="Fresh market vegetables and herbs ready for the grill" loading="lazy" decoding="async"/>
+                </div>
+                <div class="h-gallery-item" style="width:320px;height:460px;">
+                    <img src="/assets/concepts/brasa/table.webp" alt="A set table waiting for the evening service" loading="lazy" decoding="async"/>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== KITCHEN: Editorial layout ===== -->
+        <section id="crew" class="section-pad" style="border-top:1px solid var(--border);">
+            <div style="max-width:1400px;margin:0 auto;">
+                <div class="sr" style="margin-bottom:3rem;">
+                    <span class="eyebrow">The People</span>
+                    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;">
+                        The Kitchen
+                    </h2>
+                </div>
+
+                <!-- Núria: large photo left, info right -->
+                <div class="crew-editorial sr" style="display:grid;grid-template-columns:3fr 2fr;gap:3rem;align-items:center;margin-bottom:5rem;">
+                    <div class="bezel">
+                        <div class="bezel-inner" style="padding:0;overflow:hidden;">
+                            <img
+                                src="/assets/concepts/brasa/chef-head.webp"
+                                alt="Jordi Ferrer, head chef, at the grill"
+                                class="crew-photo-large"
+                                style="width:100%;height:500px;object-fit:cover;object-position:center top;display:block;"
+                                loading="lazy" decoding="async"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <span style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;">Head Chef</span>
+                        <h3 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;margin:0.5rem 0 1rem;letter-spacing:-0.02em;">Jordi Ferrer</h3>
+                        <p style="color:var(--stone);font-size:1rem;line-height:1.7;margin-bottom:1rem;">
+                            Grew up cooking over fire in the Empordà and built Brasa around a single grill and a daily trip to the market. He writes the menu after he sees what's good that morning.
+                        </p>
+                        <p style="color:var(--copper);font-weight:600;font-size:0.9rem;">Cooks only over wood and coal</p>
+                    </div>
+                </div>
+
+                <!-- Pau: staggered right -->
+                <div class="crew-editorial sr" style="display:grid;grid-template-columns:2fr 3fr;gap:3rem;align-items:center;margin-bottom:5rem;">
+                    <div style="padding-right:1rem;">
+                        <span style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;">Sous Chef</span>
+                        <h3 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;margin:0.5rem 0 1rem;letter-spacing:-0.02em;">Núria Soler</h3>
+                        <p style="color:var(--stone);font-size:1rem;line-height:1.7;margin-bottom:1rem;">
+                            Runs the line and reads the coals like a clock. She knows exactly when a fish is done by the way the skin lifts, and she never lets the fire get away from her.
+                        </p>
+                        <p style="color:var(--copper);font-weight:600;font-size:0.9rem;">Keeps the fire honest</p>
+                    </div>
+                    <div class="bezel">
+                        <div class="bezel-inner" style="padding:0;overflow:hidden;">
+                            <img
+                                src="/assets/concepts/brasa/chef-sous.webp"
+                                alt="Núria Soler, sous chef, plating at the pass"
+                                class="crew-photo-large"
+                                style="width:100%;height:500px;object-fit:cover;object-position:center top;display:block;"
+                                loading="lazy" decoding="async"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crew-editorial sr" style="display:grid;grid-template-columns:3fr 2fr;gap:3rem;align-items:center;">
+                    <div class="bezel">
+                        <div class="bezel-inner" style="padding:0;overflow:hidden;">
+                            <img
+                                src="/assets/concepts/brasa/chef-pastry.webp"
+                                alt="Marc Vidal, pastry chef, in the kitchen"
+                                class="crew-photo-large"
+                                style="width:100%;height:500px;object-fit:cover;object-position:center top;display:block;"
+                                loading="lazy" decoding="async"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <span style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;">Pastry Chef</span>
+                        <h3 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;margin:0.5rem 0 1rem;letter-spacing:-0.02em;">Marc Vidal</h3>
+                        <p style="color:var(--stone);font-size:1rem;line-height:1.7;margin-bottom:1rem;">
+                            Bakes with the same seasonal produce the grill uses -- stone fruit in summer, quince and chestnut in autumn. He likes a little smoke and burnt sugar in his desserts too.
+                        </p>
+                        <p style="color:var(--copper);font-weight:600;font-size:0.9rem;">Sweet things, also from the fire</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== TESTIMONIALS: Single large quote, crossfade ===== -->
+        <section id="testimonials" class="section-pad" style="border-top:1px solid var(--border);">
+            <div style="max-width:900px;margin:0 auto;">
+                <div class="sr" style="margin-bottom:2.5rem;">
+                    <span class="eyebrow">Reviews</span>
+                    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;">
+                        What Diners Say
+                    </h2>
+                </div>
+
+                <div class="sr testimonial-container" style="position:relative;min-height:240px;">
+                    <!-- Giant quotation glyph -->
+                    <div class="testimonial-glyph" style="font-family:'Playfair Display',serif;font-size:9rem;color:var(--copper);opacity:0.12;position:absolute;top:-2.5rem;left:-0.5rem;line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">&#8220;</div>
+
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide active" data-slide="0">
+                        <blockquote style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.7rem);font-style:italic;line-height:1.6;color:var(--cream);max-width:700px;margin-bottom:1.5rem;">
+                            The turbot came whole and we took it apart at the table. Smoky, simple, perfectly cooked. We barely spoke for ten minutes -- the room smells like a bonfire in the best way.
+                        </blockquote>
+                        <cite style="font-style:normal;color:var(--stone);font-size:0.9rem;">Laia R. <span style="color:rgba(168,162,158,0.4);margin:0 0.5rem;">|</span> <span style="color:var(--copper);">Dinner for two</span></cite>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide" data-slide="1">
+                        <blockquote style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.7rem);font-style:italic;line-height:1.6;color:var(--cream);max-width:700px;margin-bottom:1.5rem;">
+                            We did the fire menu and let Núria decide. Octopus with proper char, vegetables straight from the coals, a burnt honey tart at the end. Honest food, no fuss, a lovely evening.
+                        </blockquote>
+                        <cite style="font-style:normal;color:var(--stone);font-size:0.9rem;">Marc T. <span style="color:rgba(168,162,158,0.4);margin:0 0.5rem;">|</span> <span style="color:var(--copper);">Anniversary dinner</span></cite>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide" data-slide="2">
+                        <blockquote style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.7rem);font-style:italic;line-height:1.6;color:var(--cream);max-width:700px;margin-bottom:1.5rem;">
+                            A small place tucked down a lane in the Gothic Quarter, all warm light and the sound of the grill. The wine was right, the service was warm, and everything tasted of the season.
+                        </blockquote>
+                        <cite style="font-style:normal;color:var(--stone);font-size:0.9rem;">Sofia G. <span style="color:rgba(168,162,158,0.4);margin:0 0.5rem;">|</span> <span style="color:var(--copper);">Walked in on a Tuesday</span></cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== RESERVATIONS/CTA: Split layout ===== -->
+        <section id="contact" class="section-pad" style="border-top:1px solid var(--border);padding-bottom:0;">
+            <div style="max-width:1400px;margin:0 auto;">
+                <div class="sr" style="margin-bottom:3rem;">
+                    <span class="eyebrow">Find Us</span>
+                    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;">
+                        Reserve a Table
+                    </h2>
+                </div>
+
+                <div class="contact-split sr" style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:2rem;overflow:hidden;border:1px solid var(--border);">
+                    <!-- Left: atmospheric image -->
+                    <div class="contact-bg-col" style="position:relative;min-height:500px;overflow:hidden;">
+                        <img
+                            src="/assets/concepts/brasa/exterior.webp"
+                            alt="The Brasa storefront at dusk on a Gothic Quarter lane in Barcelona"
+                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
+                            loading="lazy" decoding="async"
+                        />
+                        <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(12,10,9,0.7) 0%, rgba(12,10,9,0.3) 100%);" aria-hidden="true"></div>
+                        <div style="position:absolute;bottom:2rem;left:2rem;right:2rem;">
+                            <p style="font-family:'Playfair Display',serif;font-size:1.6rem;font-style:italic;color:var(--cream);line-height:1.3;">
+                                Come hungry. Stay a while.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Info + reservation form -->
+                    <div style="background:var(--surface);padding:clamp(1.5rem,4vw,3rem);">
+                        <div style="margin-bottom:2rem;">
+                            <div style="margin-bottom:1.5rem;">
+                                <span style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;display:block;margin-bottom:0.35rem;">Location</span>
+                                <p style="color:var(--cream);font-size:0.95rem;line-height:1.6;">Carrer dels Banys Nous, 15<br>Gothic Quarter, Barcelona 08002</p>
+                            </div>
+                            <div style="margin-bottom:1.5rem;">
+                                <span style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;display:block;margin-bottom:0.35rem;">Hours</span>
+                                <p style="color:var(--cream);font-size:0.95rem;line-height:1.6;">Tue -- Sat: 13:00 -- 16:00, 20:00 -- 23:30<br>Sun: 13:00 -- 16:00<br>Mon: Closed</p>
+                            </div>
+                            <div style="margin-bottom:1.5rem;">
+                                <span style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);font-weight:600;display:block;margin-bottom:0.35rem;">Contact</span>
+                                <p style="font-size:0.95rem;line-height:1.8;">
+                                    <a href="tel:+34933154789" style="color:var(--cream);text-decoration:none;transition:color 0.3s var(--ease);" onmouseover="this.style.color='var(--copper)'" onmouseout="this.style.color='var(--cream)'">+34 933 154 789</a><br>
+                                    <a href="mailto:hola@brasabarcelona.com" style="color:var(--cream);text-decoration:none;transition:color 0.3s var(--ease);" onmouseover="this.style.color='var(--copper)'" onmouseout="this.style.color='var(--cream)'">hola@brasabarcelona.com</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div style="border-top:1px solid var(--border);padding-top:1.5rem;">
+                            <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;margin-bottom:1rem;">Book a Table</h3>
+                            <form onsubmit="event.preventDefault();" style="display:flex;flex-direction:column;gap:0.75rem;">
+                                <label style="display:flex;flex-direction:column;gap:0.25rem;">
+                                    <span style="font-size:0.75rem;color:var(--stone);text-transform:uppercase;letter-spacing:0.1em;">Name</span>
+                                    <input type="text" required style="background:rgba(250,247,244,0.04);border:1px solid var(--border);border-radius:0.75rem;padding:0.75rem 1rem;color:var(--cream);font-family:'Space Grotesk',sans-serif;font-size:0.95rem;min-height:44px;transition:border-color 0.4s var(--ease);" onfocus="this.style.borderColor='var(--copper)'" onblur="this.style.borderColor='var(--border)'" />
+                                </label>
+                                <label style="display:flex;flex-direction:column;gap:0.25rem;">
+                                    <span style="font-size:0.75rem;color:var(--stone);text-transform:uppercase;letter-spacing:0.1em;">Phone or Email</span>
+                                    <input type="text" required style="background:rgba(250,247,244,0.04);border:1px solid var(--border);border-radius:0.75rem;padding:0.75rem 1rem;color:var(--cream);font-family:'Space Grotesk',sans-serif;font-size:0.95rem;min-height:44px;transition:border-color 0.4s var(--ease);" onfocus="this.style.borderColor='var(--copper)'" onblur="this.style.borderColor='var(--border)'" />
+                                </label>
+                                <label style="display:flex;flex-direction:column;gap:0.25rem;">
+                                    <span style="font-size:0.75rem;color:var(--stone);text-transform:uppercase;letter-spacing:0.1em;">Party size</span>
+                                    <select style="background:rgba(250,247,244,0.04);border:1px solid var(--border);border-radius:0.75rem;padding:0.75rem 1rem;color:var(--cream);font-family:'Space Grotesk',sans-serif;font-size:0.95rem;min-height:44px;transition:border-color 0.4s var(--ease);appearance:auto;" onfocus="this.style.borderColor='var(--copper)'" onblur="this.style.borderColor='var(--border)'">
+                                        <option value="">How many guests?</option>
+                                        <option>1 -- 2 guests</option>
+                                        <option>3 -- 4 guests</option>
+                                        <option>5 -- 6 guests</option>
+                                        <option>7+ guests</option>
+                                        <option>The Fire Menu (chef's table)</option>
+                                    </select>
+                                </label>
+                                <button type="submit" class="btn-pill btn-primary" style="width:100%;justify-content:center;margin-top:0.5rem;">
+                                    Request Table
+                                    <span class="btn-icon">&#8594;</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="section-pad" style="border-top:1px solid var(--border);margin-top:clamp(4rem,10vw,7rem);">
+        <div class="footer-inner" style="max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:start;">
+            <!-- Col 1 -->
+            <div>
+                <div style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;letter-spacing:0.04em;margin-bottom:0.5rem;">BRASA</div>
+                <p style="color:var(--stone);font-size:0.85rem;">Wood-fire Mediterranean grill.<br>Gothic Quarter, Barcelona.</p>
+            </div>
+            <!-- Col 2 -->
+            <div>
+                <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--copper);font-weight:600;margin-bottom:0.75rem;">Navigate</p>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
+                    <li><a href="#services" style="color:var(--stone);text-decoration:none;font-size:0.9rem;transition:color 0.3s var(--ease);min-height:44px;display:inline-flex;align-items:center;" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--stone)'">Menu</a></li>
+                    <li><a href="#crew" style="color:var(--stone);text-decoration:none;font-size:0.9rem;transition:color 0.3s var(--ease);min-height:44px;display:inline-flex;align-items:center;" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--stone)'">The Kitchen</a></li>
+                    <li><a href="#gallery" style="color:var(--stone);text-decoration:none;font-size:0.9rem;transition:color 0.3s var(--ease);min-height:44px;display:inline-flex;align-items:center;" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--stone)'">Gallery</a></li>
+                    <li><a href="#contact" style="color:var(--stone);text-decoration:none;font-size:0.9rem;transition:color 0.3s var(--ease);min-height:44px;display:inline-flex;align-items:center;" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--stone)'">Reservations</a></li>
+                </ul>
+            </div>
+            <!-- Col 3 -->
+            <div>
+                <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--copper);font-weight:600;margin-bottom:0.75rem;">Connect</p>
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4rem;">
+                    <li><a href="#" style="color:var(--stone);text-decoration:none;font-size:0.9rem;transition:color 0.3s var(--ease);min-height:44px;display:inline-flex;align-items:center;" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--stone)'">Instagram</a></li>
+                    <li><a href="#" style="color:var(--stone);text-decoration:none;font-size:0.9rem;transition:color 0.3s var(--ease);min-height:44px;display:inline-flex;align-items:center;" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--stone)'">WhatsApp</a></li>
+                    <li><a href="tel:+34933154789" style="color:var(--stone);text-decoration:none;font-size:0.9rem;transition:color 0.3s var(--ease);min-height:44px;display:inline-flex;align-items:center;" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='var(--stone)'">+34 933 154 789</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="max-width:1400px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+            <p style="color:rgba(168,162,158,0.5);font-size:0.8rem;">Brasa. All rights reserved.</p>
+            <a href="../portfolio.html" style="color:var(--copper);text-decoration:none;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(194,86,43,0.3);padding:0.4rem 1rem;border-radius:9999px;transition:all 0.4s var(--ease);min-height:44px;display:inline-flex;align-items:center;" onmouseover="this.style.background='var(--copper)';this.style.color='var(--cream)'" onmouseout="this.style.background='transparent';this.style.color='var(--copper)'">Built by Onda</a>
+        </div>
+    </footer>
+
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+    (function() {
+        'use strict';
+
+        // ---- NAV: hide on scroll down, show on scroll up ----
+        const nav = document.getElementById('pillNav');
+        let lastY = 0;
+        let ticking = false;
+
+        function updateNav() {
+            const overlay = document.getElementById('mobileOverlay');
+            if (overlay && overlay.classList.contains('open')) { ticking = false; return; }
+            const y = window.scrollY;
+            if (y > 120) {
+                if (y > lastY + 6) {
+                    nav.classList.add('hidden');
+                } else if (y < lastY - 6) {
+                    nav.classList.remove('hidden');
+                }
+            } else {
+                nav.classList.remove('hidden');
+            }
+            lastY = y;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNav);
+                ticking = true;
+            }
+        }, { passive: true });
+
+
+        // ---- HAMBURGER MENU ----
+        const hamburger = document.getElementById('hamburgerBtn');
+        const overlay = document.getElementById('mobileOverlay');
+        const mobileLinks = overlay.querySelectorAll('a');
+
+        function toggleMenu() {
+            const isOpen = overlay.classList.contains('open');
+            if (isOpen) {
+                overlay.classList.remove('open');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            } else {
+                overlay.classList.add('open');
+                hamburger.classList.add('active');
+                hamburger.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
+
+        function closeMenu() {
+            overlay.classList.remove('open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        mobileLinks.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu();
+        });
+
+
+        // ---- SCROLL REVEAL (IntersectionObserver) ----
+        const srElements = document.querySelectorAll('.sr');
+        const revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        srElements.forEach(function(el) {
+            revealObserver.observe(el);
+        });
+
+        // ---- QUICK REVEAL: immediately show elements already in viewport ----
+        var quickReveal = function() {
+            document.querySelectorAll('.sr').forEach(function(el) {
+                var rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        quickReveal();
+        setTimeout(quickReveal, 100);
+        setTimeout(quickReveal, 300);
+
+
+        // ---- SPOTLIGHT CARDS: mouse-tracking radial gradient ----
+        const spotlightCards = document.querySelectorAll('.spotlight-card');
+        spotlightCards.forEach(function(card) {
+            card.addEventListener('mousemove', function(e) {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', x + 'px');
+                card.style.setProperty('--mouse-y', y + 'px');
+            });
+        });
+
+
+        // ---- PARALLAX-LITE: Hero image subtle translateY ----
+        const heroImageCol = document.querySelector('.hero-image-col');
+        if (heroImageCol) {
+            const parallaxObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        window.addEventListener('scroll', heroParallax, { passive: true });
+                    } else {
+                        window.removeEventListener('scroll', heroParallax);
+                    }
+                });
+            }, { threshold: 0 });
+
+            let parallaxTicking = false;
+            function heroParallax() {
+                if (!parallaxTicking) {
+                    window.requestAnimationFrame(function() {
+                        const scrolled = window.scrollY;
+                        const rate = scrolled * 0.12;
+                        heroImageCol.style.transform = 'translateY(' + rate + 'px)';
+                        parallaxTicking = false;
+                    });
+                    parallaxTicking = true;
+                }
+            }
+
+            parallaxObserver.observe(heroImageCol);
+        }
+
+
+        // ---- TESTIMONIALS: Auto-rotating crossfade ----
+        const slides = document.querySelectorAll('.testimonial-slide');
+        if (slides.length > 1) {
+            let current = 0;
+            setInterval(function() {
+                slides[current].classList.remove('active');
+                current = (current + 1) % slides.length;
+                slides[current].classList.add('active');
+            }, 5000);
+        }
+
+
+        // ---- SMOOTH ANCHOR SCROLL ----
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                const id = this.getAttribute('href');
+                if (id.length > 1) {
+                    const target = document.querySelector(id);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+
+    })();
+    </script>
+
+    <!-- Portfolio back-link language detection -->
+    <script>
+    (function(){
+        // Breadcrumb: if user came from an Onda hub page (index/portfolio), send them back there
+        var lastHub = null;
+        try { lastHub = sessionStorage.getItem('onda:lastHub'); } catch (_) {}
+        var r = document.referrer || '';
+        var langSrc = lastHub || r;
+        var suffix = /_ka\.html?/.test(langSrc) ? '_ka.html'
+                   : /_es\.html?/.test(langSrc) ? '_es.html'
+                   : '.html';
+        document.querySelectorAll('a[href*="portfolio"]').forEach(function(a) {
+            a.href = '../portfolio' + suffix;
+        });
+        var backHref = null;
+        if (lastHub) {
+            backHref = '..' + lastHub;
+        } else if (/\/index(_v[2-5]|_es|_ka)?\.html?/.test(r)) {
+            backHref = suffix === '_ka.html' ? '../index_ka.html'
+                     : suffix === '_es.html' ? '../index_es.html'
+                     : '../index_v5.html';
+        }
+        if (backHref && /\/index/.test(backHref) && backHref.indexOf('#') === -1) {
+            backHref += '#work';
+        }
+        if (backHref) {
+            document.querySelectorAll('.onda-back').forEach(function(a) { a.href = backHref; });
+        }
+    })();
+    </script>
+
+    <!-- onda-analytics:start -->
+    <script defer src="/assets/js/analytics.js"></script>
+    <!-- onda-analytics:end -->
+</body>
+</html>

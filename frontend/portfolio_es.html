@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#0a0a0a" />
-<title>Onda | Conceptos</title>
+<title>Onda — Conceptos y Diseño Web a Medida</title>
 <meta name="description" content="Conceptos que muestran el nivel de pulido, dirección de arte y rango visual que Onda lleva a proyectos reales de clientes. Webs así desde 990 EUR." />
 
 <!-- Open Graph -->
@@ -34,9 +34,9 @@
      Los tiles de concepto usan sus propias tipografías y colores como muestras de criterio.
      ============================================================ -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preload" href="/assets/fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin />
 
 <link rel="stylesheet" href="/assets/css/editorial.css" />
 
@@ -228,122 +228,102 @@
 <section class="work wrap" id="concepts" aria-label="Conceptos">
   <div class="idx reveal">
     <div class="idx-l"><span class="idx-num">01</span><span class="idx-label">Conceptos</span></div>
-    <p class="idx-desc">Siete direcciones por sectores, cada una creada para mostrar rango y acabado.</p>
+    <p class="idx-desc">Seis direcciones por sectores, cada una para mostrar rango y acabado.</p>
   </div>
 
-  <!-- 1. Velara Aesthetics -->
-  <a class="cover concept-cover lead-cover reveal" href="examples/aesthetic-clinic.html" aria-label="Velara Aesthetics, concepto de clínica estética">
+  <a class="cover concept-cover lead-cover reveal" href="examples/aesthetic-clinic.html" aria-label="Velara Aesthetics, clínica estética concept">
     <div class="media">
-      <img src="/assets/concepts/velara-wide.webp" alt="Velara Aesthetics concept, dark-luxury aesthetic clinic interior" loading="lazy" decoding="async" />
+      <picture><source srcset="/assets/concepts/velara/reception.avif" type="image/avif"><img src="/assets/concepts/velara/reception.webp" alt="Velara Aesthetics concepto — una recepción de clínica con acentos en oro rosa" loading="lazy" decoding="async" /></picture>
       <div class="scrim" aria-hidden="true"></div>
     </div>
     <div class="meta">
       <div>
         <div class="no">001 · concepto de clínica estética</div>
         <div class="name">Velara Aesthetics</div>
-        <div class="sector"><span class="chip">Estética de lujo</span><span class="chip">Flujo de reserva</span> Diseño calmado y lujoso que genera confianza y reservas.</div>
+        <div class="sector"><span class="chip">Estética de lujo</span><span class="chip">Reservas</span> Serena, lujosa y hecha para reservar consultas.</div>
       </div>
       <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </div>
   </a>
 
-  <!-- pareja: Clínica Blanc + Estudio Forma -->
   <div class="work-pair">
-    <a class="cover concept-cover reveal" href="examples/dental-clinic.html" aria-label="Clínica Blanc, concepto de clínica dental">
-      <div class="media">
-        <img src="/assets/concepts/blanc.webp" alt="Clinica Blanc concept, bright modern dental clinic" loading="lazy" decoding="async" />
-        <div class="scrim" aria-hidden="true"></div>
-      </div>
-      <div class="meta">
-        <div>
-          <div class="no">002 · concepto de clínica dental</div>
-          <div class="name">Clínica Blanc</div>
-          <div class="sector"><span class="chip">Interfaz limpia</span> Accesible y premium, con señales de confianza sólidas.</div>
-        </div>
-        <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </a>
-
-    <a class="cover concept-cover reveal" data-d="1" href="examples/architecture-studio.html" aria-label="Estudio Forma, concepto de estudio de arquitectura">
-      <div class="media">
-        <img src="/assets/concepts/forma.webp" alt="Estudio Forma concept, modern architecture facade" loading="lazy" decoding="async" />
-        <div class="scrim" aria-hidden="true"></div>
-      </div>
-      <div class="meta">
-        <div>
-          <div class="no">003 · concepto de estudio de arquitectura</div>
-          <div class="name">Estudio Forma</div>
-          <div class="sector"><span class="chip">Composición editorial</span> Portfolio presentado con confianza editorial y jerarquía.</div>
-        </div>
-        <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </a>
-  </div>
-
-  <!-- 4. Meridian Estate Group (destacado a todo el ancho) -->
-  <a class="cover concept-cover lead-cover reveal" href="examples/real-estate.html" aria-label="Meridian Estate Group, concepto inmobiliario" style="margin-top:clamp(0.75rem,2vw,1.4rem)">
+    <a class="cover concept-cover reveal" href="examples/dental-clinic.html" aria-label="Clínica Blanc, clínica dental concept">
     <div class="media">
-      <img src="/assets/concepts/meridian.webp" alt="Meridian Estate Group concept, dark-luxury penthouse at dusk" loading="lazy" decoding="async" />
+      <picture><source srcset="/assets/concepts/blanc/waiting.avif" type="image/avif"><img src="/assets/concepts/blanc/waiting.webp" alt="Clínica Blanc concepto — una sala de espera dental luminosa" loading="lazy" decoding="async" /></picture>
       <div class="scrim" aria-hidden="true"></div>
     </div>
     <div class="meta">
       <div>
-        <div class="no">004 · concepto inmobiliario</div>
+        <div class="no">002 · concepto de clínica dental</div>
+        <div class="name">Clínica Blanc</div>
+        <div class="sector"><span class="chip">Interfaz limpia</span> Luminosa y de confianza, lo contrario de la web clínica.</div>
+      </div>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+  </a>
+
+    <a class="cover concept-cover reveal" data-d="1" href="examples/architecture-studio.html" aria-label="Estudio Forma, estudio de arquitectura concept">
+    <div class="media">
+      <picture><source srcset="/assets/concepts/forma/desk.avif" type="image/avif"><img src="/assets/concepts/forma/desk.webp" alt="Estudio Forma concepto — un escritorio de arquitecto de hormigón" loading="lazy" decoding="async" /></picture>
+      <div class="scrim" aria-hidden="true"></div>
+    </div>
+    <div class="meta">
+      <div>
+        <div class="no">003 · concepto de estudio de arquitectura</div>
+        <div class="name">Estudio Forma</div>
+        <div class="sector"><span class="chip">Maquetación editorial</span> Editorial y estructural: el trabajo ocupa la página.</div>
+      </div>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+  </a>
+  </div>
+
+  <a class="cover concept-cover lead-cover reveal" href="examples/real-estate.html" style="margin-top:clamp(0.75rem,2vw,1.4rem)" aria-label="Meridian Estate Group, inmobiliaria concept">
+    <div class="media">
+      <picture><source srcset="/assets/concepts/meridian/hero.avif" type="image/avif"><img src="/assets/concepts/meridian/hero.webp" alt="Meridian Estate Group concepto — un ático de lujo al atardecer con el skyline" loading="lazy" decoding="async" /></picture>
+      <div class="scrim" aria-hidden="true"></div>
+    </div>
+    <div class="meta">
+      <div>
+        <div class="no">004 · concepto de inmobiliaria</div>
         <div class="name">Meridian Estate Group</div>
-        <div class="sector"><span class="chip">Diseño cinematográfico</span><span class="chip">Acentos dorados</span> Cinematográfico y oscuro, para cerrar consultas de alto valor.</div>
+        <div class="sector"><span class="chip">Diseño cinematográfico</span><span class="chip">Sistema dorado</span> Cinematográfica y oscura, para cerrar consultas de alto valor.</div>
       </div>
       <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </div>
   </a>
 
-  <!-- pareja: Casa Serena + Barba Negra -->
   <div class="work-pair">
-    <a class="cover concept-cover reveal" href="examples/casa-serena.html" aria-label="Casa Serena, concepto de hotel boutique">
-      <div class="media">
-        <img src="/assets/concepts/serena-wide.webp" alt="Casa Serena concept, warm Mediterranean boutique hotel" loading="lazy" decoding="async" />
-        <div class="scrim" aria-hidden="true"></div>
-      </div>
-      <div class="meta">
-        <div>
-          <div class="no">005 · concepto de hotel boutique</div>
-          <div class="name">Casa Serena</div>
-          <div class="sector"><span class="chip">Diseño mediterráneo</span> Dirección cálida y editorial para un hotel boutique.</div>
-        </div>
-        <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </a>
-
-    <a class="cover concept-cover reveal" data-d="1" href="examples/barbershop.html" aria-label="Barba Negra, concepto de barbería">
-      <div class="media">
-        <img src="/assets/concepts/barba.webp" alt="Barba Negra concept, moody craft barbershop" loading="lazy" decoding="async" />
-        <div class="scrim" aria-hidden="true"></div>
-      </div>
-      <div class="meta">
-        <div>
-          <div class="no">006 · concepto de barbería</div>
-          <div class="name">Barba Negra</div>
-          <div class="sector"><span class="chip">Antes y después</span> Dirección sobria y artesanal para una barbería tradicional.</div>
-        </div>
-        <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </a>
-  </div>
-
-  <!-- 7. Kai Andersen (a todo el ancho) -->
-  <a class="cover concept-cover lead-cover reveal" href="examples/solo-entrepreneur.html" aria-label="Kai Andersen, concepto de profesional independiente" style="margin-top:clamp(0.75rem,2vw,1.4rem)">
+    <a class="cover concept-cover reveal" href="examples/restaurant.html" aria-label="Brasa, restaurante concept">
     <div class="media">
-      <img src="/assets/concepts/kai.webp" alt="Kai Andersen concept, minimal modern studio workspace" loading="lazy" decoding="async" />
+      <picture><source srcset="/assets/concepts/brasa/dining.avif" type="image/avif"><img src="/assets/concepts/brasa/dining.webp" alt="Brasa concepto — una sala de restaurante a la luz de las velas" loading="lazy" decoding="async" /></picture>
       <div class="scrim" aria-hidden="true"></div>
     </div>
     <div class="meta">
       <div>
-        <div class="no">007 · concepto de profesional independiente</div>
-        <div class="name">Kai Andersen</div>
-        <div class="sector"><span class="chip">Marca personal</span><span class="chip">Diseño minimalista</span> Marca personal limpia para consultores e independientes.</div>
+        <div class="no">005 · concepto de restaurante</div>
+        <div class="name">Brasa</div>
+        <div class="sector"><span class="chip">Fuego y brasa</span><span class="chip">Reservas</span> Fuego, humo y apetito: hecha para llenar mesas.</div>
       </div>
       <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </div>
   </a>
+
+    <a class="cover concept-cover reveal" data-d="1" href="examples/casa-serena.html" aria-label="Casa Serena, hotel boutique concept">
+    <div class="media">
+      <picture><source srcset="/assets/concepts/serena/courtyard.avif" type="image/avif"><img src="/assets/concepts/serena/courtyard.webp" alt="Casa Serena concepto — un patio de hotel mediterráneo bañado de sol" loading="lazy" decoding="async" /></picture>
+      <div class="scrim" aria-hidden="true"></div>
+    </div>
+    <div class="meta">
+      <div>
+        <div class="no">006 · concepto de hotel boutique</div>
+        <div class="name">Casa Serena</div>
+        <div class="sector"><span class="chip">Diseño mediterráneo</span> Calma mediterránea, hecha para la reserva directa.</div>
+      </div>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+  </a>
+  </div>
 
   <div class="work-foot reveal">
     <p class="price-note">webs así desde <b>€990</b>.<br>no <span class="strike">€10.000</span>.</p>

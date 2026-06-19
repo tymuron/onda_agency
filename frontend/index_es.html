@@ -36,58 +36,15 @@
      una línea fina dibujada, CTAs, enlaces, foco. La imagen aporta el resto del color.
      ============================================================ -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="/assets/team/hero.avif" type="image/avif" fetchpriority="high" media="(min-width:601px)" />
+<link rel="preload" as="image" href="/assets/team/hero-m.avif" type="image/avif" fetchpriority="high" media="(max-width:600px)" />
+<link rel="preload" href="/assets/fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin />
 
 <link rel="stylesheet" href="/assets/css/editorial.css" />
 
 <!-- JSON-LD Structured Data -->
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Onda",
-    "description": "Estudio de diseño web independiente en Barcelona. Webs rápidas y a medida para negocios de servicios que quieren verse profesionales y captar más clientes.",
-    "url": "https://agencyonda.com/",
-    "areaServed": ["Barcelona", "Spain", "Europe", "United Kingdom"],
-    "priceRange": "EUR 490 - EUR 1,690",
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Barcelona",
-        "addressCountry": "ES"
-    },
-    "founder": {
-        "@type": "Person",
-        "name": "Tymur Chystiakov"
-    },
-    "knowsLanguage": ["English", "Spanish"],
-    "serviceType": ["Web Design", "Web Development", "Business Automation"],
-    "offers": [
-        {
-            "@type": "Offer",
-            "name": "Landing de lanzamiento",
-            "price": "490",
-            "priceCurrency": "EUR",
-            "description": "Web a medida de una pagina con captacion por WhatsApp o formulario"
-        },
-        {
-            "@type": "Offer",
-            "name": "Web de negocio",
-            "price": "990",
-            "priceCurrency": "EUR",
-            "description": "Hasta 5 paginas con SEO, flujo de CTA y secciones de confianza"
-        },
-        {
-            "@type": "Offer",
-            "name": "Web + automatizacion",
-            "price": "1690",
-            "priceCurrency": "EUR",
-            "description": "Web completa mas una automatizacion practica"
-        }
-    ]
-}
-</script>
 <!-- onda-seo:start (managed by scripts/site_patch.py) -->
     <link rel="canonical" href="https://agencyonda.com">
     <link rel="alternate" hreflang="en" href="https://agencyonda.com/index_v5.html">
@@ -150,6 +107,9 @@
       "@id": "https://agencyonda.com#faq",
       "inLanguage": "es",
       "mainEntity": [
+        {"@type":"Question","name":"¿De quién es la web cuando terminamos?","acceptedAnswer":{"@type":"Answer","text":"Tuya, al 100%. La web, el dominio y el contenido son tuyos; te lo entregamos todo y puedes moverlo a donde quieras."}},
+        {"@type":"Question","name":"¿Y el mantenimiento después del lanzamiento?","acceptedAnswer":{"@type":"Answer","text":"Tras publicar, ajustamos lo que haga falta. El mantenimiento continuo es opcional: sin cuotas obligatorias, solo si lo quieres."}},
+        {"@type":"Question","name":"Sois un equipo pequeño, ¿es un riesgo?","acceptedAnswer":{"@type":"Answer","text":"Al revés. Hablas directamente con quien diseña y programa tu web. Las decisiones van rápido y nada se pierde entre departamentos."}},
         {
           "@type": "Question",
           "name": "¿Tengo que tener todo el contenido listo?",
@@ -200,14 +160,15 @@
   <div class="nav-inner">
     <a href="#top" class="brand" aria-label="Onda, inicio">ONDA</a>
     <nav class="nav-links" aria-label="Principal">
+      <a href="#proof">Casos</a>
+      <a href="#studio">Estudio</a>
       <a href="#work">Trabajo</a>
       <a href="#packages">Paquetes</a>
       <a href="#process">Proceso</a>
-      <a href="#studio">Estudio</a>
       <a href="#contact">Contacto</a>
       <a class="nav-lang" href="/index_v5.html">EN</a>
     </nav>
-    <a class="nav-cta" href="https://wa.me/34604963489" target="_blank" rel="noopener">Pide tu presupuesto
+    <a class="nav-cta" href="https://wa.me/34604963489?text=Hola%2C%20vi%20agencyonda.com%20y%20quiero%20presupuesto%20para%20mi%20web" target="_blank" rel="noopener">Pide tu presupuesto
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
@@ -225,14 +186,15 @@
     </button>
   </div>
   <nav aria-label="Móvil">
-    <a href="#work"><span class="n">01</span>Trabajo</a>
+    <a href="#proof"><span class="n">01</span>Casos</a>
     <a href="#studio"><span class="n">02</span>Estudio</a>
-    <a href="#packages"><span class="n">03</span>Paquetes</a>
-    <a href="#process"><span class="n">04</span>Proceso</a>
-    <a href="#contact"><span class="n">05</span>Contacto</a>
+    <a href="#work"><span class="n">03</span>Trabajo</a>
+    <a href="#packages"><span class="n">04</span>Paquetes</a>
+    <a href="#process"><span class="n">05</span>Proceso</a>
+    <a href="#contact"><span class="n">06</span>Contacto</a>
     <a href="/index_v5.html"><span class="n">EN</span>English</a>
   </nav>
-  <a class="wa" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+  <a class="wa" href="https://wa.me/34604963489?text=Hola%2C%20vi%20agencyonda.com%20y%20quiero%20presupuesto%20para%20mi%20web" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" width="20" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
     Escríbenos por WhatsApp
   </a>
@@ -242,7 +204,15 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero wrap" aria-label="Intro">
-  <div class="locator reveal">
+  <div class="hero-bg" aria-hidden="true">
+    <picture>
+      <source media="(max-width:600px)" srcset="/assets/team/hero-m.avif" type="image/avif">
+      <source media="(max-width:600px)" srcset="/assets/team/hero-m.webp">
+      <source srcset="/assets/team/hero.avif" type="image/avif">
+      <img src="/assets/team/hero.webp" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+  <div class="locator">
     <div class="l">
       <span>Estudio web independiente</span><span class="sep" aria-hidden="true"></span>
       <span>Barcelona</span>
@@ -271,8 +241,8 @@
       </g>
     </svg>
 
-    <h1 class="lead reveal" data-d="1">creamos webs que consiguen a los negocios locales más
-      <span class="rot-wrap"><em class="rot" id="rot" aria-live="polite"><span class="w">reservas</span></em></span>
+    <h1 class="lead" data-d="1">creamos webs que consiguen a los negocios locales más
+      <span class="rot-wrap"><em class="rot" id="rot"><span class="w">reservas</span></em></span>
     </h1>
   </div>
 
@@ -287,7 +257,7 @@
       </div>
     </div>
     <div class="cta-row reveal" data-d="3">
-      <a class="btn-wa" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+      <a class="btn-wa" href="https://wa.me/34604963489?text=Hola%2C%20vi%20agencyonda.com%20y%20quiero%20presupuesto%20para%20mi%20web" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
         Escríbenos por WhatsApp
       </a>
@@ -306,17 +276,95 @@
   </div>
 </section>
 
-<!-- ============ 01 · WORK ============ -->
+<!-- ============ PROOF / REAL CASE SLOTS ============ -->
+<!-- Bloque de casos reales, listo para 2-3 clientes. Al llegar el primero, sustituye los
+     marcadores por el nombre, sector, resultado de una línea, cita e imagen reales.
+     Cada tarjeta ya está maquetada: soltar un <img> en .case-shot y rellenar los textos
+     no requiere tocar el layout. NO inventar nombres ni citas falsas. -->
+<!-- Published client cases. Two live; more land here as projects ship. -->
+<section class="proof wrap" id="proof" aria-label="Casos reales">
+  <div class="idx reveal">
+    <div class="idx-l"><span class="idx-num">·</span><span class="idx-label">Casos reales</span></div>
+    <p class="idx-desc">Clientes reales, sus palabras. Estos son los primeros; publicamos más a medida que entregamos.</p>
+  </div>
+
+  <div class="proof-grid">
+    <article class="case reveal">
+      <a class="cs-stretch" href="case-selbstentdeckung-es.html" aria-label="Ver el caso: selbstentdeckung"></a>
+      <div class="case-shot"><picture><source srcset="/assets/cases/maria/astro-welcome.avif" type="image/avif"><img src="/assets/cases/maria/astro-welcome.webp" alt="Plataforma de astrología a medida para selbstentdeckung" width="1400" height="875" loading="lazy" decoding="async"></picture></div>
+      <div class="case-body">
+        <div class="case-sector">Academia online · astrología y vastu</div>
+        <h3 class="case-name">selbstentdeckung</h3>
+        <p class="case-result">Dos plataformas de formación a medida, fuera de las plantillas, que gestiona ella misma.</p>
+        <p class="case-quote">&ldquo;Estoy muy contenta con el trabajo. La plataforma para mis alumnos es perfecta, muchísimo mejor que la plantilla que usábamos antes.&rdquo;</p>
+        <div class="case-attr"><span class="av" aria-hidden="true">M</span><span class="lab">Maria · selbstentdeckung</span></div>
+        <span class="case-more">Ver el caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </article>
+
+    <article class="case reveal" data-d="1">
+      <a class="cs-stretch" href="case-anna-romeo-es.html" aria-label="Ver el caso: Anna Romeo"></a>
+      <div class="case-shot"><picture><source srcset="/assets/cases/anna/cover.avif" type="image/avif"><img src="/assets/cases/anna/cover.webp" alt="Web de marca y plataforma a medida para la diseñadora Anna Romeo" width="1400" height="875" loading="lazy" decoding="async"></picture></div>
+      <div class="case-body">
+        <div class="case-sector">Diseñadora · ecosistema a medida</div>
+        <h3 class="case-name">Anna Romeo</h3>
+        <p class="case-result">18.500 € en ventas, 37 cursos vendidos y cerca de 100 alumnos en su plataforma.</p>
+        <p class="case-quote">&ldquo;Mi plataforma es preciosa y comodísima, encaja perfecto con mi estilo de marca. Tengo un segmento premium y el diseño lo refleja del todo.&rdquo;</p>
+        <div class="case-attr"><span class="av" aria-hidden="true">A</span><span class="lab">Anna Romeo · diseñadora y arquitecta</span></div>
+        <span class="case-more">Ver el caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </article>
+
+    <article class="case reveal" data-d="2">
+      <a class="cs-stretch" href="case-proadikt-es.html" aria-label="Ver el caso: PROADIKT"></a>
+      <div class="case-shot"><picture><source srcset="/assets/cases/proadikt/home.avif" type="image/avif"><img src="/assets/cases/proadikt/home.webp" alt="Tienda online de botas y camisetas de fútbol PROADIKT" width="1400" height="875" loading="lazy" decoding="async"></picture></div>
+      <div class="case-body">
+        <div class="case-sector">Tienda de fútbol · ecommerce</div>
+        <h3 class="case-name">PROADIKT</h3>
+        <p class="case-result">De los baneos de Vinted a unos 2.000 € y clientes de otros países en las primeras semanas.</p>
+        <p class="case-quote">&ldquo;Parece como las típicas webs de marcas grandes como Futbolemotion o ProDirectSoccer.&rdquo;</p>
+        <div class="case-attr"><span class="av" aria-hidden="true">P</span><span class="lab">Un cliente de PROADIKT</span></div>
+        <span class="case-more">Ver el caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 01 · STUDIO ============ -->
+<section class="studio wrap" id="studio" aria-label="El estudio">
+  <div class="studio-split">
+    <figure class="studio-portrait reveal">
+      <picture><source srcset="/assets/team/studio.avif" type="image/avif"><img src="/assets/team/studio.webp" alt="Tymur Chystiakov, fundador de Onda, en el estudio en Barcelona" width="1100" height="1467" loading="lazy" decoding="async"></picture>
+    </figure>
+    <div class="studio-copy">
+      <div class="idx reveal">
+        <div class="idx-l"><span class="idx-num">01</span><span class="idx-label">El estudio</span></div>
+        <p class="idx-desc">Tratas directamente con quien hace el trabajo.</p>
+      </div>
+      <h2 class="reveal">un estudio pequeño.<br>trabajo senior, <em>sin burocracia de agencia.</em></h2>
+      <div class="studio-body reveal" data-d="1">
+        <p>Hablas con quien hace el trabajo, no con un gestor de cuentas ni con un junior. Las decisiones van rápido, el alcance se mantiene honesto y los proyectos se publican en semanas, no en meses.</p>
+        <p>Todo se diseña y se programa en casa. Nada de plantillas vendidas como diseño a medida. Nada de atajos de maquetador. Solo un equipo senior tratando tu web como si llevara el negocio encima, porque lo lleva.</p>
+        <div class="founder-line">
+          <span class="nm">Tymur Chystiakov</span>
+          <span class="mono">Fundador · Barcelona, remoto por toda Europa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · WORK ============ -->
 <section class="work wrap" id="work" aria-label="Trabajo seleccionado">
   <div class="idx reveal">
-    <div class="idx-l"><span class="idx-num">01</span><span class="idx-label">Trabajo seleccionado</span></div>
+    <div class="idx-l"><span class="idx-num">02</span><span class="idx-label">Trabajo seleccionado</span></div>
     <p class="idx-desc">Conceptos creados para mostrar rango. El criterio es la prueba, los casos reales de clientes aterrizan aquí según se publican.</p>
   </div>
 
   <!-- lead cover -->
-  <a class="cover lead-cover reveal" href="portfolio_es.html" aria-label="Meridian Estate Group, concepto inmobiliario">
+  <a class="cover lead-cover reveal" href="examples/real-estate.html" aria-label="Meridian Estate Group, concepto inmobiliario">
     <div class="media">
-      <img src="/assets/concepts/meridian.webp" alt="Concepto Meridian Estate Group, interior de ático de lujo al atardecer" width="2048" height="1152" loading="lazy" decoding="async" />
+      <picture><source srcset="/assets/concepts/meridian/hero.avif" type="image/avif"><img src="/assets/concepts/meridian/hero.webp" alt="Concepto Meridian Estate Group, interior de ático de lujo al atardecer" width="2048" height="1152" loading="lazy" decoding="async" /></picture>
       <div class="grain" aria-hidden="true"></div>
       <div class="scrim" aria-hidden="true"></div>
     </div>
@@ -332,9 +380,9 @@
 
   <!-- pair -->
   <div class="work-pair">
-    <a class="cover reveal" href="portfolio_es.html" aria-label="Casa Serena, concepto de hotel boutique">
+    <a class="cover reveal" href="examples/casa-serena.html" aria-label="Casa Serena, concepto de hotel boutique">
       <div class="media">
-        <img src="/assets/concepts/serena.webp" alt="Concepto Casa Serena, hotel boutique mediterráneo cálido" width="1536" height="2048" loading="lazy" decoding="async" />
+        <picture><source srcset="/assets/concepts/serena/hero.avif" type="image/avif"><img src="/assets/concepts/serena/hero.webp" alt="Concepto Casa Serena, hotel boutique mediterráneo cálido" width="1536" height="2048" loading="lazy" decoding="async" /></picture>
         <div class="grain" aria-hidden="true"></div>
         <div class="scrim" aria-hidden="true"></div>
       </div>
@@ -348,9 +396,9 @@
       </div>
     </a>
 
-    <a class="cover reveal" data-d="1" href="portfolio_es.html" aria-label="Velara Aesthetics, concepto de clínica estética">
+    <a class="cover reveal" data-d="1" href="examples/aesthetic-clinic.html" aria-label="Velara Aesthetics, concepto de clínica estética">
       <div class="media">
-        <img src="/assets/concepts/velara.webp" alt="Concepto Velara Aesthetics, clínica estética en oro rosa sobre negro" width="1536" height="2048" loading="lazy" decoding="async" />
+        <picture><source srcset="/assets/concepts/velara/hero.avif" type="image/avif"><img src="/assets/concepts/velara/hero.webp" alt="Concepto Velara Aesthetics, clínica estética en oro rosa sobre negro" width="1536" height="2048" loading="lazy" decoding="async" /></picture>
         <div class="grain" aria-hidden="true"></div>
         <div class="scrim" aria-hidden="true"></div>
       </div>
@@ -367,13 +415,13 @@
 
   <!-- also available -->
   <div class="also">
-    <a class="also-card reveal" href="portfolio_es.html">
-      <span class="thumb"><img src="/assets/concepts/blanc.webp" alt="Concepto Clínica Blanc, clínica dental luminosa" loading="lazy" decoding="async" /></span>
+    <a class="also-card reveal" href="examples/dental-clinic.html">
+      <span class="thumb"><picture><source srcset="/assets/concepts/blanc/hero.avif" type="image/avif"><img src="/assets/concepts/blanc/hero.webp" alt="Concepto Clínica Blanc, clínica dental luminosa" loading="lazy" decoding="async" /></picture></span>
       <span><span class="t">Clínica Blanc</span><span class="s">Dental · clínica, calma, confianza</span></span>
       <span class="a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
-    <a class="also-card reveal" data-d="1" href="portfolio_es.html">
-      <span class="thumb"><img src="/assets/concepts/forma.webp" alt="Concepto Estudio Forma, fachada de arquitectura moderna" loading="lazy" decoding="async" /></span>
+    <a class="also-card reveal" data-d="1" href="examples/architecture-studio.html">
+      <span class="thumb"><picture><source srcset="/assets/concepts/forma/hero.avif" type="image/avif"><img src="/assets/concepts/forma/hero.webp" alt="Concepto Estudio Forma, estudio de hormigón con una maqueta arquitectónica" loading="lazy" decoding="async" /></picture></span>
       <span><span class="t">Estudio Forma</span><span class="s">Arquitectura · tipográfico, contenido</span></span>
       <span class="a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
@@ -384,85 +432,6 @@
     <a class="link-arrow" href="portfolio_es.html">Ver todo el trabajo
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
-  </div>
-</section>
-
-<!-- ============ PROOF / REAL CASE SLOTS ============ -->
-<!-- Bloque de casos reales, listo para 2-3 clientes. Al llegar el primero, sustituye los
-     marcadores por el nombre, sector, resultado de una línea, cita e imagen reales.
-     Cada tarjeta ya está maquetada: soltar un <img> en .case-shot y rellenar los textos
-     no requiere tocar el layout. NO inventar nombres ni citas falsas. -->
-<!-- Published client cases. Two live; more land here as projects ship. -->
-<section class="proof wrap" id="proof" aria-label="Casos reales">
-  <div class="idx reveal">
-    <div class="idx-l"><span class="idx-num">·</span><span class="idx-label">Casos reales</span></div>
-    <p class="idx-desc">Clientes reales, sus palabras. Estos son los primeros; publicamos más a medida que entregamos.</p>
-  </div>
-
-  <div class="proof-grid">
-    <article class="case reveal">
-      <a class="cs-stretch" href="case-selbstentdeckung-es.html" aria-label="Ver el caso: selbstentdeckung"></a>
-      <div class="case-shot"><img src="/assets/cases/maria/astro-welcome.webp" alt="Plataforma de astrología a medida para selbstentdeckung" width="1400" height="875" loading="lazy" decoding="async"></div>
-      <div class="case-body">
-        <div class="case-sector">Academia online · astrología y vastu</div>
-        <h3 class="case-name">selbstentdeckung</h3>
-        <p class="case-result">Dos plataformas de formación a medida, fuera de las plantillas, que gestiona ella misma.</p>
-        <p class="case-quote">&ldquo;Estoy muy contenta con el trabajo. La plataforma para mis alumnos es perfecta, muchísimo mejor que la plantilla que usábamos antes.&rdquo;</p>
-        <div class="case-attr"><span class="av" aria-hidden="true">M</span><span class="lab">Maria · selbstentdeckung</span></div>
-        <span class="case-more">Ver el caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </article>
-
-    <article class="case reveal" data-d="1">
-      <a class="cs-stretch" href="case-anna-romeo-es.html" aria-label="Ver el caso: Anna Romeo"></a>
-      <div class="case-shot"><img src="/assets/cases/anna/cover.webp" alt="Web de marca y plataforma a medida para la diseñadora Anna Romeo" width="1400" height="875" loading="lazy" decoding="async"></div>
-      <div class="case-body">
-        <div class="case-sector">Diseñadora · ecosistema a medida</div>
-        <h3 class="case-name">Anna Romeo</h3>
-        <p class="case-result">18.500 € en ventas, 37 cursos vendidos y cerca de 100 alumnos en su plataforma.</p>
-        <p class="case-quote">&ldquo;Mi plataforma es preciosa y comodísima, encaja perfecto con mi estilo de marca. Tengo un segmento premium y el diseño lo refleja del todo.&rdquo;</p>
-        <div class="case-attr"><span class="av" aria-hidden="true">A</span><span class="lab">Anna Romeo · diseñadora y arquitecta</span></div>
-        <span class="case-more">Ver el caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </article>
-
-    <article class="case reveal" data-d="2">
-      <a class="cs-stretch" href="case-proadikt-es.html" aria-label="Ver el caso: PROADIKT"></a>
-      <div class="case-shot"><img src="/assets/cases/proadikt/home.webp" alt="Tienda online de botas y camisetas de fútbol PROADIKT" width="1400" height="875" loading="lazy" decoding="async"></div>
-      <div class="case-body">
-        <div class="case-sector">Tienda de fútbol · ecommerce</div>
-        <h3 class="case-name">PROADIKT</h3>
-        <p class="case-result">De los baneos de Vinted a unos 2.000 € y clientes de otros países en las primeras semanas.</p>
-        <p class="case-quote">&ldquo;Parece como las típicas webs de marcas grandes como Futbolemotion o ProDirectSoccer.&rdquo;</p>
-        <div class="case-attr"><span class="av" aria-hidden="true">P</span><span class="lab">Un cliente de PROADIKT</span></div>
-        <span class="case-more">Ver el caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ============ 02 · STUDIO ============ -->
-<section class="studio wrap" id="studio" aria-label="El estudio">
-  <div class="idx reveal">
-    <div class="idx-l"><span class="idx-num">02</span><span class="idx-label">El estudio</span></div>
-    <p class="idx-desc">Tratas directamente con quien hace el trabajo.</p>
-  </div>
-  <div class="studio-grid">
-    <div class="reveal">
-      <h2>un estudio pequeño.<br>trabajo senior, <em>sin burocracia de agencia.</em></h2>
-    </div>
-    <div class="studio-body reveal" data-d="1">
-      <p>Hablas con quien hace el trabajo, no con un gestor de cuentas ni con un junior. Las decisiones van rápido, el alcance se mantiene honesto y los proyectos se publican en semanas, no en meses.</p>
-      <p>Todo se diseña y se programa en casa. Nada de plantillas vendidas como diseño a medida. Nada de atajos de maquetador. Solo un equipo senior tratando tu web como si llevara el negocio encima, porque lo lleva.</p>
-      <div class="founder">
-        <span class="ph"><img src="/assets/team/tymur.jpg" alt="Tymur Chystiakov, fundador de Onda" width="108" height="108" loading="lazy" decoding="async"><i aria-hidden="true">T</i></span>
-        <div>
-          <div class="mono">Fundador</div>
-          <div class="nm">Tymur Chystiakov</div>
-          <div class="mono" style="margin-top:.25rem;letter-spacing:.04em;text-transform:none">Barcelona, remoto por toda Europa</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -487,12 +456,12 @@
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Textos pulidos y versión móvil cuidada</li>
       </ul>
       <div class="pcta">
-        <a class="pbtn" href="https://wa.me/34604963489" target="_blank" rel="noopener">Elegir Lanzamiento</a>
+        <a class="pbtn" href="https://wa.me/34604963489?text=Hola%2C%20vi%20agencyonda.com%20y%20quiero%20presupuesto%20para%20mi%20web" target="_blank" rel="noopener">Elegir Lanzamiento</a>
       </div>
     </div>
 
     <div class="plan feat reveal" data-d="1">
-      <span class="tag">El más elegido</span>
+      <span class="tag">La opción que recomendamos</span>
       <div class="pno">P-02</div>
       <div class="pname">Web de negocio</div>
       <div class="price"><span class="from">desde</span><span class="amt"><span class="cur">€</span>990</span></div>
@@ -504,7 +473,7 @@
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Móvil primero, optimizada en rendimiento</li>
       </ul>
       <div class="pcta">
-        <a class="pbtn" href="https://wa.me/34604963489" target="_blank" rel="noopener">Elegir Negocio
+        <a class="pbtn" href="https://wa.me/34604963489?text=Hola%2C%20vi%20agencyonda.com%20y%20quiero%20presupuesto%20para%20mi%20web" target="_blank" rel="noopener">Elegir Negocio
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -521,7 +490,7 @@
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Pensado para resultados reales, no para humo de IA</li>
       </ul>
       <div class="pcta">
-        <a class="pbtn" href="https://wa.me/34604963489" target="_blank" rel="noopener">Elegir Web + automatización</a>
+        <a class="pbtn" href="https://wa.me/34604963489?text=Hola%2C%20vi%20agencyonda.com%20y%20quiero%20presupuesto%20para%20mi%20web" target="_blank" rel="noopener">Elegir Web + automatización</a>
       </div>
     </div>
   </div>
@@ -559,18 +528,23 @@
     <div class="idx-l"><span class="idx-num">04</span><span class="idx-label">Proceso</span></div>
     <p class="idx-desc">Del primer mensaje a la web online, normalmente tres semanas.</p>
   </div>
-  <div class="proc-grid">
-    <div class="step reveal"><span class="ln" aria-hidden="true"></span>
-      <div class="sn">01</div><h3>Mándanos el brief</h3>
-      <p>Cuéntanos el negocio, el mercado y el momento, por WhatsApp o el formulario. Sin presentación.</p>
-    </div>
-    <div class="step reveal" data-d="1"><span class="ln" aria-hidden="true"></span>
-      <div class="sn">02</div><h3>Presupuesto en 24h</h3>
-      <p>Un precio cerrado y un alcance claro en un día. Sabes exactamente qué recibes antes de empezar nada.</p>
-    </div>
-    <div class="step reveal" data-d="2"><span class="ln" aria-hidden="true"></span>
-      <div class="sn">03</div><h3>Online en unas 3 semanas</h3>
-      <p>Diseñada y programada en casa, y luego publicada. La automatización opcional se añade cuando ya genera.</p>
+  <div class="proc-split">
+    <figure class="proc-photo reveal">
+      <picture><source srcset="/assets/team/process.avif" type="image/avif"><img src="/assets/team/process.webp" alt="Tymur trabajando en una web de cliente desde el estudio" width="1500" height="1000" loading="lazy" decoding="async"></picture>
+    </figure>
+    <div class="proc-grid">
+      <div class="step reveal"><span class="ln" aria-hidden="true"></span>
+        <div class="sn">01</div><h3>Mándanos el brief</h3>
+        <p>Cuéntanos el negocio, el mercado y el momento, por WhatsApp o el formulario. Sin presentación.</p>
+      </div>
+      <div class="step reveal" data-d="1"><span class="ln" aria-hidden="true"></span>
+        <div class="sn">02</div><h3>Presupuesto en 24h</h3>
+        <p>Un precio cerrado y un alcance claro en un día. Sabes exactamente qué recibes antes de empezar nada.</p>
+      </div>
+      <div class="step reveal" data-d="2"><span class="ln" aria-hidden="true"></span>
+        <div class="sn">03</div><h3>Online en unas 3 semanas</h3>
+        <p>Diseñada y programada en casa, y luego publicada. La automatización opcional se añade cuando ya genera.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -582,6 +556,24 @@
     <p class="idx-desc">Las que más nos hacen.</p>
   </div>
   <div class="faq-list reveal">
+    <details>
+      <summary>¿De quién es la web cuando terminamos?
+        <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <div class="ans"><p>Tuya, al 100%. La web, el dominio y el contenido son tuyos; te lo entregamos todo y puedes moverlo a donde quieras.</p></div>
+    </details>
+    <details>
+      <summary>¿Y el mantenimiento después del lanzamiento?
+        <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <div class="ans"><p>Tras publicar, ajustamos lo que haga falta. El mantenimiento continuo es opcional: sin cuotas obligatorias, solo si lo quieres.</p></div>
+    </details>
+    <details>
+      <summary>Sois un equipo pequeño, ¿es un riesgo?
+        <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <div class="ans"><p>Al revés. Hablas directamente con quien diseña y programa tu web. Las decisiones van rápido y nada se pierde entre departamentos.</p></div>
+    </details>
     <details>
       <summary>¿Tengo que tener todo el contenido listo?
         <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
@@ -612,13 +604,20 @@
 <!-- ============ CONTACT ============ -->
 <section class="contact wrap" id="contact" aria-label="Contacto">
   <div class="lamp" aria-hidden="true"></div>
+  <div class="contact-head reveal">
+    <span class="contact-eyebrow">EL ESTUDIO · BARCELONA</span>
+    <h2>veamos si <em>encaja.</em></h2>
+    <p class="contact-intro">Hola, soy Tymur. Cuéntame el negocio, el mercado y el momento — te recomendaré el paquete más sensato, no el más grande.</p>
+    <figure class="contact-proof reveal"><blockquote>&ldquo;Mi plataforma es preciosa y encaja perfecto con mi marca premium.&rdquo;</blockquote><figcaption>Anna Romeo · diseñadora · 18.500 € en ventas</figcaption></figure>
+  </div>
   <div class="contact-grid">
     <div class="reveal">
-      <h2>veamos si <em>encaja.</em></h2>
-      <p style="color:var(--text-2);max-width:38ch;margin-top:1.2rem;line-height:1.6">Cuéntanos el negocio, el mercado y el momento. Te recomendaremos el paquete más sensato, no el más grande.</p>
-      <div class="promise"><span class="d" aria-hidden="true"></span>Presupuesto en 24 horas</div>
+      <figure class="contact-portrait">
+        <picture><source srcset="/assets/team/contact.avif" type="image/avif"><img src="/assets/team/contact.webp" alt="Tymur Chystiakov, fundador de Onda, en el estudio en Barcelona" width="820" height="1093" loading="lazy" decoding="async"></picture>
+      </figure>
+      <p class="contact-sig">Tymur · fundador. Te respondo yo, normalmente el mismo día.</p>
       <div>
-        <a class="wa-direct" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+        <a class="wa-direct" href="https://wa.me/34604963489?text=Hola%2C%20vi%20agencyonda.com%20y%20quiero%20presupuesto%20para%20mi%20web" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
           <span>Escríbenos por WhatsApp<br><span class="sub">+34 604 963 489</span></span>
         </a>
@@ -647,7 +646,7 @@
       <button class="submit" type="submit">Enviar y recibir presupuesto en 24h
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
-      <p class="form-note" id="formNote">Sin spam, sin newsletter. Solo una respuesta de quien la construiría.</p>
+      <p class="form-note" id="formNote" role="status" aria-live="polite">Sin spam, sin newsletter. Solo una respuesta de quien la construiría. Al enviar aceptas nuestra <a href="privacy-es.html">política de privacidad</a>.</p>
     </form>
   </div>
 </section>
@@ -674,15 +673,17 @@
       </div>
       <div class="foot-col">
         <h4>Estudio</h4>
+        <a href="#proof">Casos</a>
         <a href="#work">Trabajo</a>
         <a href="#packages">Paquetes</a>
         <a href="#process">Proceso</a>
+        <a href="#studio">Estudio</a>
         <a href="blog-es.html">Blog</a>
         <a href="#contact">Contacto</a>
       </div>
       <div class="foot-col">
         <h4>En otros sitios</h4>
-        <a href="https://wa.me/34604963489" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://wa.me/34604963489?text=Hola%2C%20vi%20agencyonda.com%20y%20quiero%20presupuesto%20para%20mi%20web" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://instagram.com/agencyonda" target="_blank" rel="noopener">Instagram · @agencyonda</a>
         <a href="https://www.linkedin.com/in/tymur-chystiakov" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -695,13 +696,11 @@
 </footer>
 
 <!-- ============ WHATSAPP FLOAT ============ -->
-<a class="wa-float" href="https://wa.me/34604963489" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+<a class="wa-float" href="https://wa.me/34604963489?text=Hola%2C%20vi%20agencyonda.com%20y%20quiero%20presupuesto%20para%20mi%20web" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
   <span class="lab">WhatsApp</span>
 </a>
 
-<!-- analytics -->
-<script defer src="/assets/js/analytics.js"></script>
 <!-- onda-analytics:start -->
     <script defer src="/assets/js/analytics.js"></script>
     <!-- onda-analytics:end -->

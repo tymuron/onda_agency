@@ -9,9 +9,10 @@ from fastapi.responses import (
 )
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.gzip import GZipMiddleware
-from pydantic import BaseModel
+from brotli_asgi import BrotliMiddleware
+from pydantic import BaseModel, Field
 import html
+import hashlib
 import logging
 import os
 import time
@@ -71,10 +72,6 @@ PAGES = [
     # Case studies (en + es per case)
     ("/case-proadikt.html", "case-proadikt.html", "en", "case-proadikt"),
     ("/case-proadikt-es.html", "case-proadikt-es.html", "es", "case-proadikt"),
-    ("/case-anna-romeo.html", "case-anna-romeo.html", "en", "case-anna"),
-    ("/case-anna-romeo-es.html", "case-anna-romeo-es.html", "es", "case-anna"),
-    ("/case-selbstentdeckung.html", "case-selbstentdeckung.html", "en", "case-maria"),
-    ("/case-selbstentdeckung-es.html", "case-selbstentdeckung-es.html", "es", "case-maria"),
 ]
 
 # Load .env from backend/ so it works when run from project root (e.g. python backend/main.py)
@@ -84,13 +81,13 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
-# Compress text responses (HTML/CSS/JS) — ~75% smaller, faster FCP/LCP on mobile.
-app.add_middleware(GZipMiddleware, minimum_size=500)
+# Compress text responses (HTML/CSS/JS) — Brotli with gzip fallback (~15% smaller than gzip).
+app.add_middleware(BrotliMiddleware, quality=5, minimum_size=500, gzip_fallback=True)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
+    allow_credentials=False,  # public API, no cookies; '*' + credentials is invalid per spec
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
 
@@ -104,8 +101,11 @@ _rl_bucket: Dict[str, list] = defaultdict(lambda: [60.0, time.time()])
 
 
 def _rate_limited(ip: str) -> bool:
-    tokens, last = _rl_bucket[ip]
     now = time.time()
+    if len(_rl_bucket) > 5000:  # bound memory: drop buckets idle for >120s
+        for k in [k for k, v in list(_rl_bucket.items()) if now - v[1] > 120.0]:
+            del _rl_bucket[k]
+    tokens, last = _rl_bucket[ip]
     tokens = min(60.0, tokens + (now - last) * 1.0)  # refill 1/sec, cap 60
     if tokens < 1.0:
         _rl_bucket[ip] = [tokens, now]
@@ -155,15 +155,18 @@ class TrackEvent(BaseModel):
 
 
 class ContactRequest(BaseModel):
-    name: str
-    email: str
-    phone: Optional[str] = ""
-    type: str
-    message: str
+    name: str = Field(max_length=120)
+    email: str = Field(max_length=200)
+    phone: Optional[str] = Field(default="", max_length=40)
+    type: str = Field(max_length=80)
+    message: str = Field(max_length=4000)
 
 
 @app.post("/api/contact")
 async def contact(request: ContactRequest, http_request: Request):
+    # Throttle abuse of the public lead endpoint (token bucket, ~60/min per IP).
+    if _rate_limited(_client_ip(http_request)):
+        raise HTTPException(status_code=429, detail="Too many requests. Please try again in a minute.")
     # Capture which page the lead came from (Referer) so the niche/source isn't lost in the inbox.
     source_page = (http_request.headers.get("referer") or "").strip()
     logger.info(f"Contact form submission: {request.name} ({request.email}) from {source_page or 'unknown page'}")
@@ -187,11 +190,14 @@ async def contact(request: ContactRequest, http_request: Request):
         safe_message = html.escape(request.message).replace("\n", "<br>")
 
         # Send notification to you (styled for email clients)
+        # Strip CR/LF from header-bound values (header-injection defense).
+        hdr_email = request.email.replace("\n", "").replace("\r", "").strip()
+        hdr_subject = ("New lead: " + request.name + " · " + request.type).replace("\n", " ").replace("\r", " ")[:160]
         resend.Emails.send({
             "from": "Onda Website <onboarding@resend.dev>",
             "to": notification_email,
-            "reply_to": request.email,
-            "subject": f"New lead: {request.name} · {request.type}",
+            "reply_to": hdr_email,
+            "subject": hdr_subject,
             "html": f"""
 <!DOCTYPE html>
 <html>
@@ -266,19 +272,37 @@ async def cache_control(request: Request, call_next):
         response.headers["Cache-Control"] = "public, max-age=86400, must-revalidate"
     elif path == "/" or path.endswith(".html"):
         response.headers["Cache-Control"] = "public, max-age=300, must-revalidate"
+    # --- security headers (every response) ---
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+    response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+    if path == "/" or path.endswith(".html"):
+        response.headers["Content-Security-Policy"] = (
+            "default-src 'self'; img-src 'self' data:; "
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+            "script-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; "
+            "frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+        )
     return response
 
 
 @app.get("/", include_in_schema=False)
-async def root(lang: Optional[str] = None):
-    """Serve real English homepage content at the canonical root with HTTP 200.
+async def root(request: Request, lang: Optional[str] = None):
+    """Serve real homepage content at the canonical root with HTTP 200, with
+    ETag/If-None-Match so repeat visits past the freshness window get a 304.
 
     This replaces the old client-side JS geo-redirect loader so crawlers and
     AI answer engines index actual content. Language preference is handled as a
     progressive enhancement inside the page (localStorage 'onda_lang_override').
     """
-    fname = LANG_HOME.get(lang or "es", LANG_HOME["es"])
-    return FileResponse(FRONTEND_DIR / fname, media_type="text/html")
+    p = FRONTEND_DIR / LANG_HOME.get(lang or "es", LANG_HOME["es"])
+    st = p.stat()
+    etag = '"' + hashlib.md5(f"{st.st_mtime}-{st.st_size}".encode()).hexdigest() + '"'
+    if request.headers.get("if-none-match") == etag:
+        return Response(status_code=304, headers={"ETag": etag, "Cache-Control": "public, max-age=300, must-revalidate"})
+    return FileResponse(p, media_type="text/html", headers={"ETag": etag})
 
 
 @app.get("/favicon.ico", include_in_schema=False)
@@ -371,6 +395,18 @@ async def llms_txt():
 - {SITE_URL}/index_v5.html home (English)
 - {SITE_URL}/portfolio.html — concept work / portfolio
 - {SITE_URL}/process.html — how we work
+
+## Industries we build for
+- {SITE_URL}/web-design-dental-clinics.html — dental clinics
+- {SITE_URL}/web-design-restaurants.html — restaurants
+- {SITE_URL}/web-design-real-estate.html — real estate agencies
+- {SITE_URL}/web-design-aesthetic-clinics.html — aesthetic / beauty clinics
+- {SITE_URL}/web-design-architecture-studios.html — architecture / design studios
+
+## Case studies (real clients)
+- {SITE_URL}/case-anna-romeo.html — brand site + custom platform for designer Anna Romeo; EUR 18,500 in course sales, ~100 students
+- {SITE_URL}/case-proadikt.html — football boots & jerseys store; from Vinted bans to ~EUR 2,000 and customers abroad in the first weeks
+- {SITE_URL}/case-selbstentdeckung.html — two custom course platforms for an astrology & vastu academy, off the templates
 
 ## Contact
 - WhatsApp: +34 604 963 489 (https://wa.me/34604963489) — fastest, preferred

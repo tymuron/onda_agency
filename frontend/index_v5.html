@@ -36,58 +36,15 @@
      one drawn hairline, CTAs, links, focus. Imagery carries every other colour.
      ============================================================ -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="/assets/team/hero.avif" type="image/avif" fetchpriority="high" media="(min-width:601px)" />
+<link rel="preload" as="image" href="/assets/team/hero-m.avif" type="image/avif" fetchpriority="high" media="(max-width:600px)" />
+<link rel="preload" href="/assets/fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin />
 
 <link rel="stylesheet" href="/assets/css/editorial.css" />
 
 <!-- JSON-LD Structured Data -->
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Onda",
-    "description": "Fast, custom websites and starter automations for service businesses. Founding-client pricing from EUR 490.",
-    "url": "https://agencyonda.com",
-    "areaServed": ["Spain", "Europe", "United Kingdom"],
-    "priceRange": "EUR 490 - EUR 1,690",
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Barcelona",
-        "addressCountry": "ES"
-    },
-    "founder": {
-        "@type": "Person",
-        "name": "Tymur Chystiakov"
-    },
-    "knowsLanguage": ["English", "Spanish"],
-    "serviceType": ["Web Design", "Web Development", "Business Automation"],
-    "offers": [
-        {
-            "@type": "Offer",
-            "name": "Launch Page",
-            "price": "490",
-            "priceCurrency": "EUR",
-            "description": "One-page custom website with WhatsApp or contact capture"
-        },
-        {
-            "@type": "Offer",
-            "name": "Business Website",
-            "price": "990",
-            "priceCurrency": "EUR",
-            "description": "Up to 5 pages with SEO, CTA flow, and trust sections"
-        },
-        {
-            "@type": "Offer",
-            "name": "Site + Automation",
-            "price": "1690",
-            "priceCurrency": "EUR",
-            "description": "Full website plus one practical automation"
-        }
-    ]
-}
-</script>
 <!-- onda-seo:start (managed by scripts/site_patch.py) -->
     <link rel="canonical" href="https://agencyonda.com/index_v5.html">
     <link rel="alternate" hreflang="en" href="https://agencyonda.com/index_v5.html">
@@ -150,6 +107,9 @@
       "@id": "https://agencyonda.com/index_v5.html#faq",
       "inLanguage": "en",
       "mainEntity": [
+        {"@type":"Question","name":"Who owns the site when we're done?","acceptedAnswer":{"@type":"Answer","text":"You do, 100%. The site, the domain and the content are yours; we hand everything over and you can move it wherever you want."}},
+        {"@type":"Question","name":"What about maintenance after launch?","acceptedAnswer":{"@type":"Answer","text":"After launch we fix whatever needs fixing. Ongoing maintenance is optional, no forced retainers, only if you want it."}},
+        {"@type":"Question","name":"You're a small team, isn't that risky?","acceptedAnswer":{"@type":"Answer","text":"The opposite. You talk directly to the person who designs and builds your site. Decisions happen fast and nothing gets lost between departments."}},
         {
           "@type": "Question",
           "name": "Do I need all the content ready?",
@@ -200,14 +160,15 @@
   <div class="nav-inner">
     <a href="#top" class="brand" aria-label="Onda, home">ONDA</a>
     <nav class="nav-links" aria-label="Primary">
+      <a href="#proof">Cases</a>
+      <a href="#studio">Studio</a>
       <a href="#work">Work</a>
       <a href="#packages">Packages</a>
       <a href="#process">Process</a>
-      <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
       <a href="index_es.html" style="color:var(--muted)">ES</a>
     </nav>
-    <a class="nav-cta" href="https://wa.me/34604963489" target="_blank" rel="noopener">Get a quote
+    <a class="nav-cta" href="https://wa.me/34604963489?text=Hi%2C%20I%20saw%20agencyonda.com%20and%20I%27d%20like%20a%20quote%20for%20my%20site" target="_blank" rel="noopener">Get a quote
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
@@ -225,14 +186,15 @@
     </button>
   </div>
   <nav aria-label="Mobile">
-    <a href="#work"><span class="n">01</span>Work</a>
+    <a href="#proof"><span class="n">01</span>Cases</a>
     <a href="#studio"><span class="n">02</span>Studio</a>
-    <a href="#packages"><span class="n">03</span>Packages</a>
-    <a href="#process"><span class="n">04</span>Process</a>
-    <a href="#contact"><span class="n">05</span>Contact</a>
+    <a href="#work"><span class="n">03</span>Work</a>
+    <a href="#packages"><span class="n">04</span>Packages</a>
+    <a href="#process"><span class="n">05</span>Process</a>
+    <a href="#contact"><span class="n">06</span>Contact</a>
     <a href="index_es.html"><span class="n">ES</span>Español</a>
   </nav>
-  <a class="wa" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+  <a class="wa" href="https://wa.me/34604963489?text=Hi%2C%20I%20saw%20agencyonda.com%20and%20I%27d%20like%20a%20quote%20for%20my%20site" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" width="20" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
     Message us on WhatsApp
   </a>
@@ -242,7 +204,15 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero wrap" aria-label="Intro">
-  <div class="locator reveal">
+  <div class="hero-bg" aria-hidden="true">
+    <picture>
+      <source media="(max-width:600px)" srcset="/assets/team/hero-m.avif" type="image/avif">
+      <source media="(max-width:600px)" srcset="/assets/team/hero-m.webp">
+      <source srcset="/assets/team/hero.avif" type="image/avif">
+      <img src="/assets/team/hero.webp" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+  <div class="locator">
     <div class="l">
       <span>Independent web design studio</span><span class="sep" aria-hidden="true"></span>
       <span>Barcelona</span>
@@ -271,8 +241,8 @@
       </g>
     </svg>
 
-    <h1 class="lead reveal" data-d="1">we build websites that get local businesses more
-      <span class="rot-wrap"><em class="rot" id="rot" aria-live="polite"><span class="w">bookings</span></em></span>
+    <h1 class="lead" data-d="1">we build websites that get local businesses more
+      <span class="rot-wrap"><em class="rot" id="rot"><span class="w">bookings</span></em></span>
     </h1>
   </div>
 
@@ -287,7 +257,7 @@
       </div>
     </div>
     <div class="cta-row reveal" data-d="3">
-      <a class="btn-wa" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+      <a class="btn-wa" href="https://wa.me/34604963489?text=Hi%2C%20I%20saw%20agencyonda.com%20and%20I%27d%20like%20a%20quote%20for%20my%20site" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
         Message us on WhatsApp
       </a>
@@ -306,17 +276,90 @@
   </div>
 </section>
 
-<!-- ============ 01 · WORK ============ -->
+<!-- ============ CLIENT RESULTS (published cases; more land as projects ship) ============ -->
+<section class="proof wrap" id="proof" aria-label="Client results">
+  <div class="idx reveal">
+    <div class="idx-l"><span class="idx-num">·</span><span class="idx-label">Client results</span></div>
+    <p class="idx-desc">Real clients, in their own words. These are the first; we publish more as we ship.</p>
+  </div>
+
+  <div class="proof-grid">
+    <article class="case-slot reveal">
+      <a class="cs-stretch" href="case-selbstentdeckung.html" aria-label="View the case: selbstentdeckung"></a>
+      <div class="case-media"><picture><source srcset="/assets/cases/maria/astro-welcome.avif" type="image/avif"><img src="/assets/cases/maria/astro-welcome.webp" alt="Custom astrology course platform built for selbstentdeckung" width="1400" height="875" loading="lazy" decoding="async"></picture></div>
+      <div class="case-body">
+        <span class="case-tag">Online academy · astrology & vastu</span>
+        <h3 class="case-name">selbstentdeckung</h3>
+        <p class="case-result">Two custom course platforms, off the templates, that she runs entirely herself.</p>
+        <p class="case-quote">&ldquo;I'm very happy with the work. The platform for my students is just perfect, way better than the precast platform we used before.&rdquo;</p>
+        <div class="case-attr"><span class="av" aria-hidden="true">M</span><span class="who">Maria · selbstentdeckung</span></div>
+        <span class="case-more">View the case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </article>
+
+    <article class="case-slot reveal" data-d="1">
+      <a class="cs-stretch" href="case-anna-romeo.html" aria-label="View the case: Anna Romeo"></a>
+      <div class="case-media"><picture><source srcset="/assets/cases/anna/cover.avif" type="image/avif"><img src="/assets/cases/anna/cover.webp" alt="Brand site and custom platform built for designer Anna Romeo" width="1400" height="875" loading="lazy" decoding="async"></picture></div>
+      <div class="case-body">
+        <span class="case-tag">Designer · custom ecosystem</span>
+        <h3 class="case-name">Anna Romeo</h3>
+        <p class="case-result">€18,500 in sales, 37 courses sold and close to 100 students on her platform.</p>
+        <p class="case-quote">&ldquo;My platform is beautiful and so easy to use, a perfect fit for my brand. I work in a premium segment, and the design reflects it completely.&rdquo;</p>
+        <div class="case-attr"><span class="av" aria-hidden="true">A</span><span class="who">Anna Romeo · designer & architect</span></div>
+        <span class="case-more">View the case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </article>
+
+    <article class="case-slot reveal" data-d="2">
+      <a class="cs-stretch" href="case-proadikt.html" aria-label="View the case: PROADIKT"></a>
+      <div class="case-media"><picture><source srcset="/assets/cases/proadikt/home.avif" type="image/avif"><img src="/assets/cases/proadikt/home.webp" alt="PROADIKT online football boots and jerseys store" width="1400" height="875" loading="lazy" decoding="async"></picture></div>
+      <div class="case-body">
+        <span class="case-tag">Football store · ecommerce</span>
+        <h3 class="case-name">PROADIKT</h3>
+        <p class="case-result">From Vinted bans to ~€2,000 and customers from other countries in the first weeks.</p>
+        <p class="case-quote">&ldquo;It looks like the typical big-brand sites, like Futbolemotion or ProDirectSoccer.&rdquo;</p>
+        <div class="case-attr"><span class="av" aria-hidden="true">P</span><span class="who">A PROADIKT customer</span></div>
+        <span class="case-more">View the case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 01 · STUDIO ============ -->
+<section class="studio wrap" id="studio" aria-label="The studio">
+  <div class="studio-split">
+    <figure class="studio-portrait reveal">
+      <picture><source srcset="/assets/team/studio.avif" type="image/avif"><img src="/assets/team/studio.webp" alt="Tymur Chystiakov, founder of Onda, at the studio in Barcelona" width="1100" height="1467" loading="lazy" decoding="async"></picture>
+    </figure>
+    <div class="studio-copy">
+      <div class="idx reveal">
+        <div class="idx-l"><span class="idx-num">01</span><span class="idx-label">The studio</span></div>
+        <p class="idx-desc">You deal directly with the people doing the work.</p>
+      </div>
+      <h2 class="reveal">a small studio.<br>senior work, <em>no agency bloat.</em></h2>
+      <div class="studio-body reveal" data-d="1">
+        <p>You talk to the people doing the work, not an account manager, not a junior. Decisions happen fast, scope stays honest, and projects ship in weeks, not months.</p>
+        <p>Everything is designed and built in-house. No templates passed off as custom. No page-builder shortcuts. Just a senior team treating your site like it carries the business, because it does.</p>
+        <div class="founder-line">
+          <span class="nm">Tymur Chystiakov</span>
+          <span class="mono">Founder · Barcelona, remote across Europe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · WORK ============ -->
 <section class="work wrap" id="work" aria-label="Selected work">
   <div class="idx reveal">
-    <div class="idx-l"><span class="idx-num">01</span><span class="idx-label">Selected work</span></div>
+    <div class="idx-l"><span class="idx-num">02</span><span class="idx-label">Selected work</span></div>
     <p class="idx-desc">Concept sites built to show range. The taste is the proof, real client cases land here as they ship.</p>
   </div>
 
   <!-- lead cover -->
-  <a class="cover lead-cover reveal" href="portfolio.html" aria-label="Meridian Estate Group, real estate concept">
+  <a class="cover lead-cover reveal" href="examples/real-estate.html" aria-label="Meridian Estate Group, real estate concept">
     <div class="media">
-      <img src="/assets/concepts/meridian.webp" alt="Meridian Estate Group concept, dark-luxury penthouse interior at dusk" width="2048" height="1152" loading="lazy" decoding="async" />
+      <picture><source srcset="/assets/concepts/meridian/hero.avif" type="image/avif"><img src="/assets/concepts/meridian/hero.webp" alt="Meridian Estate Group concept, dark-luxury penthouse interior at dusk" width="2048" height="1152" loading="lazy" decoding="async" /></picture>
       <div class="grain" aria-hidden="true"></div>
       <div class="scrim" aria-hidden="true"></div>
     </div>
@@ -332,9 +375,9 @@
 
   <!-- pair -->
   <div class="work-pair">
-    <a class="cover reveal" href="portfolio.html" aria-label="Casa Serena, boutique hotel concept">
+    <a class="cover reveal" href="examples/casa-serena.html" aria-label="Casa Serena, boutique hotel concept">
       <div class="media">
-        <img src="/assets/concepts/serena.webp" alt="Casa Serena concept, warm Mediterranean boutique hotel" width="1536" height="2048" loading="lazy" decoding="async" />
+        <picture><source srcset="/assets/concepts/serena/hero.avif" type="image/avif"><img src="/assets/concepts/serena/hero.webp" alt="Casa Serena concept, warm Mediterranean boutique hotel" width="1536" height="2048" loading="lazy" decoding="async" /></picture>
         <div class="grain" aria-hidden="true"></div>
         <div class="scrim" aria-hidden="true"></div>
       </div>
@@ -348,9 +391,9 @@
       </div>
     </a>
 
-    <a class="cover reveal" data-d="1" href="portfolio.html" aria-label="Velara Aesthetics, aesthetic clinic concept">
+    <a class="cover reveal" data-d="1" href="examples/aesthetic-clinic.html" aria-label="Velara Aesthetics, aesthetic clinic concept">
       <div class="media">
-        <img src="/assets/concepts/velara.webp" alt="Velara Aesthetics concept, rose-gold aesthetic clinic on black" width="1536" height="2048" loading="lazy" decoding="async" />
+        <picture><source srcset="/assets/concepts/velara/hero.avif" type="image/avif"><img src="/assets/concepts/velara/hero.webp" alt="Velara Aesthetics concept, rose-gold aesthetic clinic on black" width="1536" height="2048" loading="lazy" decoding="async" /></picture>
         <div class="grain" aria-hidden="true"></div>
         <div class="scrim" aria-hidden="true"></div>
       </div>
@@ -367,13 +410,13 @@
 
   <!-- also available -->
   <div class="also">
-    <a class="also-card reveal" href="portfolio.html">
-      <span class="thumb"><img src="/assets/concepts/blanc.webp" alt="Clínica Blanc concept, bright dental clinic" loading="lazy" decoding="async" /></span>
+    <a class="also-card reveal" href="examples/dental-clinic.html">
+      <span class="thumb"><picture><source srcset="/assets/concepts/blanc/hero.avif" type="image/avif"><img src="/assets/concepts/blanc/hero.webp" alt="Clínica Blanc concept, bright dental clinic" loading="lazy" decoding="async" /></picture></span>
       <span><span class="t">Clínica Blanc</span><span class="s">Dental, clinical, calm, trust-led</span></span>
       <span class="a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
-    <a class="also-card reveal" data-d="1" href="portfolio.html">
-      <span class="thumb"><img src="/assets/concepts/forma.webp" alt="Estudio Forma concept, modern architecture facade" loading="lazy" decoding="async" /></span>
+    <a class="also-card reveal" data-d="1" href="examples/architecture-studio.html">
+      <span class="thumb"><picture><source srcset="/assets/concepts/forma/hero.avif" type="image/avif"><img src="/assets/concepts/forma/hero.webp" alt="Estudio Forma concept, concrete studio with an architectural scale model" loading="lazy" decoding="async" /></picture></span>
       <span><span class="t">Estudio Forma</span><span class="s">Architecture, typographic, restrained</span></span>
       <span class="a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
@@ -387,80 +430,6 @@
   </div>
 </section>
 
-<!-- ============ CLIENT RESULTS (published cases; more land as projects ship) ============ -->
-<section class="proof wrap" id="proof" aria-label="Client results">
-  <div class="idx reveal">
-    <div class="idx-l"><span class="idx-num">·</span><span class="idx-label">Client results</span></div>
-    <p class="idx-desc">Real clients, in their own words. These are the first; we publish more as we ship.</p>
-  </div>
-
-  <div class="proof-grid">
-    <article class="case-slot reveal">
-      <a class="cs-stretch" href="case-selbstentdeckung.html" aria-label="View the case: selbstentdeckung"></a>
-      <div class="case-media"><img src="/assets/cases/maria/astro-welcome.webp" alt="Custom astrology course platform built for selbstentdeckung" width="1400" height="875" loading="lazy" decoding="async"></div>
-      <div class="case-body">
-        <span class="case-tag">Online academy · astrology & vastu</span>
-        <h3 class="case-name">selbstentdeckung</h3>
-        <p class="case-result">Two custom course platforms, off the templates, that she runs entirely herself.</p>
-        <p class="case-quote">&ldquo;I'm very happy with the work. The platform for my students is just perfect, way better than the precast platform we used before.&rdquo;</p>
-        <div class="case-attr"><span class="av" aria-hidden="true">M</span><span class="who">Maria · selbstentdeckung</span></div>
-        <span class="case-more">View the case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </article>
-
-    <article class="case-slot reveal" data-d="1">
-      <a class="cs-stretch" href="case-anna-romeo.html" aria-label="View the case: Anna Romeo"></a>
-      <div class="case-media"><img src="/assets/cases/anna/cover.webp" alt="Brand site and custom platform built for designer Anna Romeo" width="1400" height="875" loading="lazy" decoding="async"></div>
-      <div class="case-body">
-        <span class="case-tag">Designer · custom ecosystem</span>
-        <h3 class="case-name">Anna Romeo</h3>
-        <p class="case-result">€18,500 in sales, 37 courses sold and close to 100 students on her platform.</p>
-        <p class="case-quote">&ldquo;My platform is beautiful and so easy to use, a perfect fit for my brand. I work in a premium segment, and the design reflects it completely.&rdquo;</p>
-        <div class="case-attr"><span class="av" aria-hidden="true">A</span><span class="who">Anna Romeo · designer & architect</span></div>
-        <span class="case-more">View the case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </article>
-
-    <article class="case-slot reveal" data-d="2">
-      <a class="cs-stretch" href="case-proadikt.html" aria-label="View the case: PROADIKT"></a>
-      <div class="case-media"><img src="/assets/cases/proadikt/home.webp" alt="PROADIKT online football boots and jerseys store" width="1400" height="875" loading="lazy" decoding="async"></div>
-      <div class="case-body">
-        <span class="case-tag">Football store · ecommerce</span>
-        <h3 class="case-name">PROADIKT</h3>
-        <p class="case-result">From Vinted bans to ~€2,000 and customers from other countries in the first weeks.</p>
-        <p class="case-quote">&ldquo;It looks like the typical big-brand sites, like Futbolemotion or ProDirectSoccer.&rdquo;</p>
-        <div class="case-attr"><span class="av" aria-hidden="true">P</span><span class="who">A PROADIKT customer</span></div>
-        <span class="case-more">View the case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ============ 02 · STUDIO ============ -->
-<section class="studio wrap" id="studio" aria-label="The studio">
-  <div class="idx reveal">
-    <div class="idx-l"><span class="idx-num">02</span><span class="idx-label">The studio</span></div>
-    <p class="idx-desc">You deal directly with the people doing the work.</p>
-  </div>
-  <div class="studio-grid">
-    <div class="reveal">
-      <h2>a small studio.<br>senior work, <em>no agency bloat.</em></h2>
-    </div>
-    <div class="studio-body reveal" data-d="1">
-      <p>You talk to the people doing the work, not an account manager, not a junior. Decisions happen fast, scope stays honest, and projects ship in weeks, not months.</p>
-      <p>Everything is designed and built in-house. No templates passed off as custom. No page-builder shortcuts. Just a senior team treating your site like it carries the business, because it does.</p>
-      <div class="founder">
-        <span class="ph"><img src="/assets/team/tymur.jpg" alt="Tymur Chystiakov, founder of Onda" width="108" height="108" loading="lazy" decoding="async"><i aria-hidden="true">T</i></span>
-        <div>
-          <div class="mono">Founder</div>
-          <div class="nm">Tymur Chystiakov</div>
-          <div class="mono" style="margin-top:.25rem;letter-spacing:.04em;text-transform:none">Barcelona, remote across Europe</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ 03 · PACKAGES ============ -->
 <section class="pkg wrap" id="packages" aria-label="Packages">
   <div class="idx reveal">
@@ -468,7 +437,7 @@
     <p class="idx-desc">Transparent, fixed pricing agreed before we start. Pick the smallest one that solves the problem.</p>
   </div>
 
-  <p class="founding-note reveal"><span class="d" aria-hidden="true"></span>Founding-client pricing while we build our Barcelona portfolio, limited to the next few projects.</p>
+  <p class="founding-note reveal">Founding-client pricing while we build our Barcelona portfolio, limited to the next few projects.</p>
 
   <div class="pkg-grid">
     <div class="plan reveal">
@@ -482,12 +451,12 @@
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Copy cleanup + mobile polish</li>
       </ul>
       <div class="pcta">
-        <a class="pbtn" href="https://wa.me/34604963489" target="_blank" rel="noopener">Choose Launch</a>
+        <a class="pbtn" href="https://wa.me/34604963489?text=Hi%2C%20I%20saw%20agencyonda.com%20and%20I%27d%20like%20a%20quote%20for%20my%20site" target="_blank" rel="noopener">Choose Launch</a>
       </div>
     </div>
 
     <div class="plan feat reveal" data-d="1">
-      <span class="tag">Most chosen</span>
+      <span class="tag">Best value</span>
       <div class="pno">P-02</div>
       <div class="pname">Business Website</div>
       <div class="price"><span class="from">from</span><span class="amt"><span class="cur">€</span>990</span></div>
@@ -499,7 +468,7 @@
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Mobile-first, performance-optimized</li>
       </ul>
       <div class="pcta">
-        <a class="pbtn" href="https://wa.me/34604963489" target="_blank" rel="noopener">Choose Business
+        <a class="pbtn" href="https://wa.me/34604963489?text=Hi%2C%20I%20saw%20agencyonda.com%20and%20I%27d%20like%20a%20quote%20for%20my%20site" target="_blank" rel="noopener">Choose Business
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -516,7 +485,7 @@
         <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Focused on real results, not AI hype</li>
       </ul>
       <div class="pcta">
-        <a class="pbtn" href="https://wa.me/34604963489" target="_blank" rel="noopener">Choose Site + Automation</a>
+        <a class="pbtn" href="https://wa.me/34604963489?text=Hi%2C%20I%20saw%20agencyonda.com%20and%20I%27d%20like%20a%20quote%20for%20my%20site" target="_blank" rel="noopener">Choose Site + Automation</a>
       </div>
     </div>
   </div>
@@ -554,18 +523,23 @@
     <div class="idx-l"><span class="idx-num">04</span><span class="idx-label">Process</span></div>
     <p class="idx-desc">From first message to live site, usually three weeks.</p>
   </div>
-  <div class="proc-grid">
-    <div class="step reveal"><span class="ln" aria-hidden="true"></span>
-      <div class="sn">01</div><h3>Send the brief</h3>
-      <p>Tell us the business, the market and the timing, by WhatsApp or the form. No deck required.</p>
-    </div>
-    <div class="step reveal" data-d="1"><span class="ln" aria-hidden="true"></span>
-      <div class="sn">02</div><h3>Quote in 24h</h3>
-      <p>A fixed price and a clear scope within a day. You know exactly what you&rsquo;re getting before anything starts.</p>
-    </div>
-    <div class="step reveal" data-d="2"><span class="ln" aria-hidden="true"></span>
-      <div class="sn">03</div><h3>Live in ~3 weeks</h3>
-      <p>Designed and built in-house, then launched. Optional automation layered on once it&rsquo;s earning.</p>
+  <div class="proc-split">
+    <figure class="proc-photo reveal">
+      <picture><source srcset="/assets/team/process.avif" type="image/avif"><img src="/assets/team/process.webp" alt="Tymur working on a client website from the studio" width="1500" height="1000" loading="lazy" decoding="async"></picture>
+    </figure>
+    <div class="proc-grid">
+      <div class="step reveal"><span class="ln" aria-hidden="true"></span>
+        <div class="sn">01</div><h3>Send the brief</h3>
+        <p>Tell us the business, the market and the timing, by WhatsApp or the form. No deck required.</p>
+      </div>
+      <div class="step reveal" data-d="1"><span class="ln" aria-hidden="true"></span>
+        <div class="sn">02</div><h3>Quote in 24h</h3>
+        <p>A fixed price and a clear scope within a day. You know exactly what you&rsquo;re getting before anything starts.</p>
+      </div>
+      <div class="step reveal" data-d="2"><span class="ln" aria-hidden="true"></span>
+        <div class="sn">03</div><h3>Live in ~3 weeks</h3>
+        <p>Designed and built in-house, then launched. Optional automation layered on once it&rsquo;s earning.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -577,6 +551,24 @@
     <p class="idx-desc">The ones we get most.</p>
   </div>
   <div class="faq-list reveal">
+    <details>
+      <summary>Who owns the site when we're done?
+        <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <div class="ans"><p>You do, 100%. The site, the domain and the content are yours; we hand everything over and you can move it wherever you want.</p></div>
+    </details>
+    <details>
+      <summary>What about maintenance after launch?
+        <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <div class="ans"><p>After launch we fix whatever needs fixing. Ongoing maintenance is optional, no forced retainers, only if you want it.</p></div>
+    </details>
+    <details>
+      <summary>You're a small team, isn't that risky?
+        <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      </summary>
+      <div class="ans"><p>The opposite. You talk directly to the person who designs and builds your site. Decisions happen fast and nothing gets lost between departments.</p></div>
+    </details>
     <details>
       <summary>Do I need all the content ready?
         <span class="faq-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
@@ -607,13 +599,20 @@
 <!-- ============ CONTACT ============ -->
 <section class="contact wrap" id="contact" aria-label="Contact">
   <div class="lamp" aria-hidden="true"></div>
+  <div class="contact-head reveal">
+    <span class="contact-eyebrow">THE STUDIO · BARCELONA</span>
+    <h2>let&rsquo;s see if it <em>fits.</em></h2>
+    <p class="contact-intro">Hi, I&rsquo;m Tymur. Tell me the business, the market and the moment — I&rsquo;ll recommend the most sensible package, not the biggest one.</p>
+    <figure class="contact-proof reveal"><blockquote>&ldquo;My platform is beautiful and a perfect fit for my premium brand.&rdquo;</blockquote><figcaption>Anna Romeo · designer · &euro;18,500 in sales</figcaption></figure>
+  </div>
   <div class="contact-grid">
     <div class="reveal">
-      <h2>let&rsquo;s see if it <em>fits.</em></h2>
-      <p style="color:var(--text-2);max-width:38ch;margin-top:1.2rem;line-height:1.6">Tell us the business, the market and the timing. We&rsquo;ll recommend the most sensible package, not the biggest one.</p>
-      <div class="promise"><span class="d" aria-hidden="true"></span>Quote within 24 hours</div>
+      <figure class="contact-portrait">
+        <picture><source srcset="/assets/team/contact.avif" type="image/avif"><img src="/assets/team/contact.webp" alt="Tymur Chystiakov, founder of Onda, in the studio in Barcelona" width="820" height="1093" loading="lazy" decoding="async"></picture>
+      </figure>
+      <p class="contact-sig">Tymur · founder. You&rsquo;ll hear back from me, usually the same day.</p>
       <div>
-        <a class="wa-direct" href="https://wa.me/34604963489" target="_blank" rel="noopener">
+        <a class="wa-direct" href="https://wa.me/34604963489?text=Hi%2C%20I%20saw%20agencyonda.com%20and%20I%27d%20like%20a%20quote%20for%20my%20site" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
           <span>Message us on WhatsApp<br><span class="sub">+34 604 963 489</span></span>
         </a>
@@ -642,7 +641,7 @@
       <button class="submit" type="submit">Send, get a quote in 24h
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
-      <p class="form-note" id="formNote">No spam, no newsletter. Just a reply from the person who&rsquo;d build it.</p>
+      <p class="form-note" id="formNote" role="status" aria-live="polite">No spam, no newsletter. Just a reply from the person who&rsquo;d build it. By sending you agree to our <a href="privacy.html">privacy policy</a>.</p>
     </form>
   </div>
 </section>
@@ -669,6 +668,7 @@
       </div>
       <div class="foot-col">
         <h4>Studio</h4>
+        <a href="#proof">Cases</a>
         <a href="#work">Work</a>
         <a href="#packages">Packages</a>
         <a href="#process">Process</a>
@@ -678,7 +678,7 @@
       </div>
       <div class="foot-col">
         <h4>Elsewhere</h4>
-        <a href="https://wa.me/34604963489" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://wa.me/34604963489?text=Hi%2C%20I%20saw%20agencyonda.com%20and%20I%27d%20like%20a%20quote%20for%20my%20site" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://instagram.com/agencyonda" target="_blank" rel="noopener">Instagram, @agencyonda</a>
         <a href="https://www.linkedin.com/in/tymur-chystiakov" target="_blank" rel="noopener">LinkedIn</a>
         <a href="index_es.html">Español</a>
@@ -692,7 +692,7 @@
 </footer>
 
 <!-- ============ WHATSAPP FLOAT ============ -->
-<a class="wa-float" href="https://wa.me/34604963489" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+<a class="wa-float" href="https://wa.me/34604963489?text=Hi%2C%20I%20saw%20agencyonda.com%20and%20I%27d%20like%20a%20quote%20for%20my%20site" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.6.2.3.8 1.3 1.7 2 .9.7 1.6.9 1.9 1 .2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.9c.2.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
   <span class="lab">WhatsApp</span>
 </a>
